@@ -1,0 +1,1267 @@
+     1→# BUILD_PLAN.md - Oryx Institute
+     2→
+     3→> The complete build plan for the Oryx Institute pre-launch website. Read-only during Phase 1. No implementation begins until this document is approved. Ends with Confirmed, Assumptions, Needs confirmation, Milestones, Acceptance criteria, and an approval gate.
+     4→
+     5→---
+     6→
+     7→## 1. Repository state
+     8→
+     9→| Property | Value |
+    10→|---|---|
+    11→| Path | `/home/z/my-project` |
+    12→| Git status | Initialised. 2 commits. Latest `2057fc9 731b004b-66f7-4fac-b70c-cc206e0e3939`. Working tree clean. |
+    13→| Git remote | None configured. |
+    14→| `package.json` | Not present. Project is greenfield for code. |
+    15→| `next.config.js` | Not present. |
+    16→| `tsconfig.json` | Not present. |
+    17→| `tailwind.config.ts` | Not present. |
+    18→| Existing source | None. Only `.env`, `.gitignore`, `download/`, `upload/`, `skills/` exist. |
+    19→| `.env` contents | Single key: `DATABASE_URL` (redacted). No GitHub, Vercel, Resend, analytics, or third-party secrets. |
+    20→| Skills directory | 60+ skills installed locally. All 8 Webman skills present. 5 external skills missing (superpowers, ponytail, impeccable, design-taste-frontend, taste-skill). Hallmark present but not authorised. |
+    21→| Supplied assets | 4 files in `upload/`: primary logo, shield icon, visual reference A, visual reference B. All verified. |
+    22→| Plan artefacts | `PRODUCT.md`, `BRAND.md`, `BUILD_PLAN.md`, `PROOF.md` (this document set). |
+    23→
+    24→## 2. Stack
+    25→
+    26→### 2.1 Framework and runtime
+    27→
+    28→- **Framework:** Next.js 16 (App Router, React Server Components, Partial Prerendering where it improves performance without complicating form behaviour).
+    29→- **Language:** TypeScript 5.x, strict mode.
+    30→- **Runtime:** Node.js 24 (matches installed version v24.18.0).
+    31→- **Package manager:** pnpm (preferred for monorepeatability and disk efficiency). Needs installation approval.
+    32→
+    33→### 2.2 Styling
+    34→
+    35→- **CSS framework:** Tailwind CSS v4 (CSS-first configuration, brand tokens as CSS custom properties in `globals.css`).
+    36→- **No component library.** No shadcn/ui, no Astryx, no Material UI, no Chakra. The site is bespoke editorial marketing, not a component-heavy product UI. Per `skill-stack.md`: "Do not force it into a highly bespoke marketing site".
+    37→- **No icon library.** Custom SVG icons designed for the brand. Lucide, Heroicons, and Feather are prohibited due to visual character mismatch.
+    38→
+    39→### 2.3 Typography
+    40→
+    41→- **Fonts:** Fraunces (display serif) + Inter (body sans-serif), loaded via `next/font/google` for automatic optimisation, subsetting, and self-hosting. Pending user confirmation per BRAND.md section 11.2.
+    42→- **Fallbacks:** Per BRAND.md section 11.2 fallback stacks.
+    43→
+    44→### 2.4 Image handling
+    45→
+    46→- **Component:** Next.js `<Image>` with AVIF and WebP formats, responsive srcsets, lazy loading, priority loading.
+    47→- **Storage:** Generated images committed to `/public/images/<route>/<filename>.avif` with `.webp` and `.jpg` fallbacks.
+    48→- **Manifest:** `scripts/image_manifest.json` records every image with prompt, route, section, aspect ratio, filename, alt text, and generation status.
+    49→
+    50→### 2.5 Data and persistence
+    51→
+    52→- **No database in pre-launch.** Form submissions persisted to a local JSON file at `/data/submissions.json` with an audit log at `/data/submissions_audit.log`. Marked as mock behaviour in the UI ("Submitted locally. This is a pre-launch demo. No data is sent to a server.").
+    53→- **Swap path:** The persistence layer is abstracted behind a `SubmissionRepository` interface. Swapping to Vercel KV, Resend email, or a PostgreSQL table requires implementing the interface, not changing form code.
+    54→- **Content data:** Programme and update content stored as typed TypeScript data files in `/content/programmes/` and `/content/updates/`. CMS-ready schema: each programme and update is a typed object with a stable slug, metadata, and content fields. Swapping to a headless CMS (Sanity, Contentful, Strapi) requires changing the data loader, not the components.
+    55→
+    56→### 2.6 Forms
+    57→
+    58→- **Validation:** Zod schemas for every form. Server-side validation in the API route. Client-side validation via `react-hook-form` with `@hookform/resolvers/zod`.
+    59→- **Spam protection:** Honeypot field (hidden input named `website` that must remain empty). No CAPTCHA in pre-launch (deters users on slow connections). ReCAPTCHA or Turnstile can be added when authorised.
+    60→- **Submission:** `POST` to `/api/submissions` with the form type discriminator. Server validates, persists to local JSON, returns a success or error response.
+    61→- **Confirmation:** Inline confirmation replaces the form. Aria-live announcement. Email confirmation not sent in pre-launch (no email service).
+    62→
+    63→### 2.7 Analytics
+    64→
+    65→- **Built-in event interface:** `lib/analytics.ts` exposes `track(eventName, properties)`. Events: `hero_slide_change`, `hero_pause`, `programme_view`, `programme_filter`, `register_interest_submit`, `mailing_list_submit`, `employer_enquiry_submit`, `wil_enquiry_submit`, `corporate_training_enquiry_submit`, `research_advisory_enquiry_submit`, `funding_partnership_enquiry_submit`, `menu_open`, `menu_close`, `route_visit`.
+    66→- **Provider:** None in pre-launch unless user authorises. Built with Vercel Analytics as the default when authorised (free, privacy-respecting, built-in). Plausible or Fathom as alternatives.
+    67→- **No third-party tracking scripts.** No Google Analytics unless explicitly authorised.
+    68→
+    69→### 2.8 SEO
+    70→
+    71→- **Metadata:** Next.js Metadata API. Per-route `metadata` export with title, description, canonical URL, Open Graph, Twitter Card, structured data.
+    72→- **Sitemap:** `app/sitemap.ts` generating `/sitemap.xml` with all public routes.
+    73→- **Robots:** `app/robots.ts` generating `/robots.txt`. Pre-launch: `Disallow: /` until user authorises indexing. Production: `Allow: /` with sitemap reference.
+    74→- **Canonical:** Every page sets `<link rel="canonical">` to its absolute URL.
+    75→- **Structured data:** JSON-LD for `EducationalOrganization`, `WebSite`, `BreadcrumbList`, `FAQPage` (on `/faq`), and `Course` (on programme pages, with `availability` set to `PreOrder` while in pre-launch).
+    76→- **Open Graph images:** Per-route OG images generated at build time via `app/opengraph-image.tsx` using the brand system. 1200x630 px.
+    77→- **Favicon:** Shield icon. `app/favicon.ico`, `app/icon.png` (192x192, 512x512), `apple-icon.png` (180x180).
+    78→- **Manifest:** `app/manifest.ts` generating `/manifest.webmanifest` with the shield icon, brand colours, and short name "Oryx Institute".
+    79→
+    80→### 2.9 Accessibility
+    81→
+    82→- **Standard:** WCAG 2.2 AA minimum. AAA where achieved by the brand system (most pairings are AAA per BRAND.md section 10.2).
+    83→- **Keyboard:** All interactive elements reachable by Tab. Visible focus states (2 px outline in Oryx Maroon with 2 px offset). No keyboard traps except within open modals/menus (with Escape to close).
+    84→- **Screen readers:** Semantic HTML. ARIA labels where native semantics are insufficient. Aria-live regions for dynamic content (form submissions, hero slide changes).
+    85→- **Reduced motion:** All motion respects `prefers-reduced-motion: reduce` per BRAND.md section 16.3.
+    86→- **Colour contrast:** All colour pairings verified per BRAND.md section 10.2.
+    87→- **Forms:** Labels associated with inputs. Error messages associated via `aria-describedby`. Required fields marked with `aria-required="true"` and visible asterisk.
+    88→- **Images:** Descriptive alt text. Decorative images use empty alt.
+    89→- **Skip link:** Skip to main content link at the top of every page, visible on focus.
+    90→
+    91→### 2.10 Performance
+    92→
+    93→- **Target:** Lighthouse Performance 95+ on desktop, 90+ on mobile (on a fast connection). Core Web Vitals: LCP < 2.5s, FID < 100ms (or INB < 200ms), CLS < 0.1.
+    94→- **Namibian connection optimisation:** Images served as AVIF (smallest format). Lazy loading below the fold. Minimal JavaScript. No unnecessary third-party scripts. Static generation for all pages where possible.
+    95→- **Bundle size:** Target < 200 KB JS for the homepage. < 50 KB CSS.
+    96→- **Caching:** Static pages cached at the edge. Images cached for 1 year (immutable). Fonts cached for 1 year.
+    97→
+    98→### 2.11 Security
+    99→
+   100→- **Secrets:** All secrets in environment variables. `.env` is gitignored. `.env.example` documents required variables without values.
+   101→- **Headers:** `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`.
+   102→- **Content Security Policy:** Configured via Next.js `headers()` to allow self, Google Fonts (when authorised), and Vercel Analytics (when authorised).
+   103→- **Form spam:** Honeypot field. Rate limiting via Vercel Edge Middleware when deployed.
+   104→- **Dependency audit:** `pnpm audit` on every install. Gitleaks scan before every commit (needs installation approval).
+   105→- **No secrets in client code.** All API routes run server-side. Form submissions do not expose persistence details to the client.
+   106→
+   107→### 2.12 Testing
+   108→
+   109→- **Unit tests:** Vitest for utility functions, Zod schemas, and data loaders.
+   110→- **Component tests:** Vitest + React Testing Library for interactive components (hero slider, programme browser, forms, menu).
+   111→- **End-to-end tests:** Playwright for critical journeys: homepage load, programme browse, register interest submission, menu open/close, navigation between routes, 404 handling.
+   112→- **Visual regression:** Playwright screenshot comparison for representative pages at mobile and desktop.
+   113→- **Accessibility tests:** axe-core integrated into Playwright. Pa11y as a second check.
+   114→- **Performance tests:** Lighthouse CI on every deploy.
+   115→
+   116→## 3. Route matrix
+   117→
+   118→27 routes plus system pages. Each route has a defined purpose, audience, CTA, content, proof requirements, SEO intent, data source, access scope, and demo lock state.
+   119→
+   120→| # | Route | Purpose | Primary CTA | Access | Demo |
+   121→|---|---|---|---|---|---|
+   122→| 1 | `/` | Present the institution and primary conversion | Register Interest | Public | Unlocked |
+   123→| 2 | `/coming-soon` | Status page for pre-launch milestones | Subscribe to updates | Public | Unlocked |
+   124→| 3 | `/institute` | Institutional introduction, mission, vision, values | Explore Schools | Public | Unlocked |
+   125→| 4 | `/founder` | Minimal founder page for Tangi Iigonda | Register Interest | Public | Unlocked |
+   126→| 5 | `/schools` | Overview of all planned schools | View a school | Public | Unlocked |
+   127→| 6 | `/schools/[school-slug]` | Single school detail with its planned programmes | View a programme | Public | Unlocked |
+   128→| 7 | `/programmes` | Programme browser with filters | View a programme | Public | Unlocked |
+   129→| 8 | `/programmes/[programme-slug]` | Single programme detail | Register Interest for this programme | Public | Unlocked |
+   130→| 9 | `/rpl` | Recognition of Prior Learning explanation | Submit RPL enquiry | Public | Unlocked |
+   131→| 10 | `/work-integrated-learning` | WIL explanation for learners and employers | Submit WIL enquiry | Public | Unlocked |
+   132→| 11 | `/research-advisory` | Research and advisory services | Submit research enquiry | Public | Unlocked |
+   133→| 12 | `/employer-training` | Corporate training services | Submit corporate enquiry | Public | Unlocked |
+   134→| 13 | `/campus` | Campus concept presentation | Register Interest | Public | Unlocked |
+   135→| 14 | `/admissions` | Admissions process overview | Register Interest | Public | Unlocked |
+   136→| 15 | `/fees-and-funding` | Fees and funding approach | Submit funding enquiry | Public | Unlocked |
+   137→| 16 | `/register-interest` | Primary register interest form | Submit | Public | Unlocked |
+   138→| 17 | `/updates` | Establishment updates feed | Read an update | Public | Unlocked |
+   139→| 18 | `/updates/[slug]` | Single update detail | View more updates | Public | Unlocked |
+   140→| 19 | `/events` | Events listing (empty in pre-launch) | Register Interest | Public | Unlocked |
+   141→| 20 | `/contact` | Contact form and contact details | Submit contact form | Public | Unlocked |
+   142→| 21 | `/faq` | Frequently asked questions | Submit a question | Public | Unlocked |
+   143→| 22 | `/brand` | Public brand book | Register Interest | Public | Unlocked |
+   144→| 23 | `/privacy` | Privacy policy | None | Public | Unlocked |
+   145→| 24 | `/terms` | Terms of use | None | Public | Unlocked |
+   146→| 25 | `/accessibility` | Accessibility statement | Contact us | Public | Unlocked |
+   147→| 26 | `/sitemap` | Human-readable sitemap | None | Public | Unlocked |
+   148→| 27 | `404` | Not found page | Go home | Public | Unlocked |
+   149→| 28 | `500` | Server error page | Go home | Public | Unlocked |
+   150→| 29 | `maintenance` | Maintenance page | None | Public | Unlocked |
+   151→| 30 | `offline` | Service worker offline page | Try again | Public | Unlocked |
+   152→| 31 | `locked` | Locked demo preview state | Register Interest | Public | Unlocked (used in demo mode if user chooses locked demo) |
+   153→
+   154→### 3.1 Route detail specifications
+   155→
+   156→Each route below specifies: purpose, audience, CTA, content sections, proof required, SEO intent, data source, and any special handling.
+   157→
+   158→#### 3.1.1 `/` (Homepage)
+   159→
+   160→- **Purpose:** Present the institution and capture primary conversion (Register Interest).
+   161→- **Audience:** All audiences. First touch for most visitors.
+   162→- **Primary CTA:** Register Interest.
+   163→- **Secondary CTA:** Explore the Institute.
+   164→- **Content sections:** Hero slider (5 slides), institutional introduction, schools overview, learning pathways, featured planned programmes, campus concept, research and advisory, establishment updates, final registration section, footer.
+   165→- **Proof required:** Verified brand colours and logo. Original commissioned photography. No fabricated metrics.
+   166→- **SEO intent:** Brand name "Oryx Institute", "vocational training Namibia", "Windhoek training institution".
+   167→- **Data source:** Static for most. Programmes from `/content/programmes/`. Updates from `/content/updates/`. Hero slider images from manifest items 1-5.
+   168→- **Special:** Hero slider requires manual controls, visible slide position, pause functionality, reduced-motion support. First hero image receives `priority` loading.
+   169→
+   170→#### 3.1.2 `/coming-soon`
+   171→
+   172→- **Purpose:** Status page for pre-launch milestones. Not a dead "coming soon" page. Explains what is being built, when public marketing begins, and how to register interest.
+   173→- **Audience:** All audiences. Especially first-time visitors who arrive before the institution is fully launched.
+   174→- **Primary CTA:** Register Interest.
+   175→- **Secondary CTA:** Subscribe to updates.
+   176→- **Content sections:** Pre-launch status statement, what is being built, timeline overview (without dates), register interest form, mailing list form.
+   177→- **Proof required:** No dates. No claims of accreditation or registration.
+   178→- **SEO intent:** "Oryx Institute coming soon", "pre-launch vocational training Namibia".
+   179→- **Data source:** Static.
+   180→- **Special:** This is not the entire website. The homepage is the primary entry point. This page is for visitors who specifically look for status.
+   181→
+   182→#### 3.1.3 `/institute`
+   183→
+   184→- **Purpose:** Institutional introduction. Mission, vision, values, what the institution is becoming.
+   185→- **Audience:** All audiences seeking to understand the institution.
+   186→- **Primary CTA:** Explore Schools.
+   187→- **Secondary CTA:** Register Interest.
+   188→- **Content sections:** Institutional introduction (40-60 words), mission statement, vision statement, values, founder mention (link to /founder), what the institution is becoming, what it is not, establishment journey timeline (without dates).
+   189→- **Proof required:** Verified facts only. Mission and vision are stated as intentions, not as achievements.
+   190→- **SEO intent:** "Oryx Institute mission", "vocational training institution Windhoek".
+   191→- **Data source:** Static.
+   192→- **Special:** Mission and vision copy to be drafted in Phase 2 (Content). Must avoid prohibited language.
+   193→
+   194→#### 3.1.4 `/founder`
+   195→
+   196→- **Purpose:** Minimal founder page.
+   197→- **Audience:** All audiences. Especially investors and partners evaluating the institution.
+   198→- **Primary CTA:** Register Interest.
+   199→- **Secondary CTA:** Contact.
+   200→- **Content sections:** Founder name (Tangi Iigonda), role (Founder), one-sentence statement about his intention for the institution. No biography. No photograph unless supplied. No claims about credentials or experience.
+   201→- **Proof required:** Founder name supplied. Minimal copy pending Phase 2.
+   202→- **SEO intent:** "Tangi Iigonda Oryx Institute", "Oryx Institute founder".
+   203→- **Data source:** Static.
+   204→- **Special:** Brief explicitly says "put very little about him". No fabricated credentials, no fabricated experience, no fabricated education.
+   205→
+   206→#### 3.1.5 `/schools`
+   207→
+   208→- **Purpose:** Overview of all planned schools.
+   209→- **Audience:** Prospective learners, employers, partners.
+   210→- **Primary CTA:** View a school.
+   211→- **Secondary CTA:** Register Interest.
+   212→- **Content sections:** Schools overview, large editorial image panels for each school (Safety, Administration and Commerce, Hospitality and Tourism, Information and Digital Skills, Future Schools), each linking to its school detail page.
+   213→- **Proof required:** All programmes presented as "Planned", "Subject to approval", or "Register your interest". No claim of approved qualifications.
+   214→- **SEO intent:** "vocational schools Namibia", "training schools Windhoek".
+   215→- **Data source:** Schools from `/content/schools/`. Images from manifest items 13-24.
+   216→- **Special:** Image panels are large and editorial, not identical cards. Each panel has a unique aspect ratio and composition.
+   217→
+   218→#### 3.1.6 `/schools/[school-slug]`
+   219→
+   220→- **Purpose:** Single school detail with its planned programmes.
+   221→- **Audience:** Prospective learners interested in a specific discipline.
+   222→- **Primary CTA:** View a programme.
+   223→- **Secondary CTA:** Register Interest for this school.
+   224→- **Content sections:** School introduction, planned programmes list (with status badges), career pathways, RPL suitability note, WIL opportunities, image gallery, register interest form pre-filled with the school.
+   225→- **Proof required:** Programme status labels. No invented programmes.
+   226→- **SEO intent:** "School of Safety Namibia", "Hospitality training Windhoek", etc.
+   227→- **Data source:** School from `/content/schools/[slug].ts`. Programmes filtered by school.
+   228→- **Special:** Each school has a unique visual treatment within the brand system. Not identical templates.
+   229→
+   230→#### 3.1.7 `/programmes`
+   231→
+   232→- **Purpose:** Programme browser with filters.
+   233→- **Audience:** Prospective learners, employers.
+   234→- **Primary CTA:** View a programme.
+   235→- **Secondary CTA:** Register Interest.
+   236→- **Content sections:** Programme browser with filters (school, level, delivery format, status), results list, empty state when no results, register interest CTA.
+   237→- **Proof required:** Programme status labels. Fees display "To be confirmed" until supplied. Intake date displays "To be confirmed".
+   238→- **SEO intent:** "vocational programmes Namibia", "training courses Windhoek".
+   239→- **Data source:** Programmes from `/content/programmes/`. Filters from programme metadata.
+   240→- **Special:** Filters update via URL search params for shareable filtered views. No JavaScript required for initial render (progressive enhancement).
+   241→
+   242→#### 3.1.8 `/programmes/[programme-slug]`
+   243→
+   244→- **Purpose:** Single programme detail.
+   245→- **Audience:** Prospective learners interested in a specific programme.
+   246→- **Primary CTA:** Register Interest for this programme.
+   247→- **Secondary CTA:** View related programmes.
+   248→- **Content sections:** Programme overview, planned level, entry requirements, learning outcomes, delivery format, duration, assessment approach, RPL suitability, WIL component, fees (To be confirmed), intake date (To be confirmed), approval status (Planned or Subject to approval), register interest form pre-filled with the programme.
+   249→- **Proof required:** Programme status labels. Unknown fields display "To be confirmed", not invented content.
+   250→- **SEO intent:** Programme name + Namibia / Windhoek.
+   251→- **Data source:** Programme from `/content/programmes/[slug].ts`.
+   252→- **Special:** Structured data as `Course` with `availability: PreOrder`. No structured data claiming the course is currently available.
+   253→
+   254→#### 3.1.9 `/rpl`
+   255→
+   256→- **Purpose:** Recognition of Prior Learning explanation.
+   257→- **Audience:** Experienced workers, employers.
+   258→- **Primary CTA:** Submit RPL enquiry.
+   259→- **Secondary CTA:** Register Interest.
+   260→- **Content sections:** What RPL is, how RPL works (portfolio, assessment, certification), what RPL is not (not automatic certification, not a shortcut), RPL suitability, RPL process timeline (without dates), RPL enquiry form.
+   261→- **Proof required:** Factual explanation of RPL. No claim that Oryx Institute is an accredited RPL assessment centre until verified.
+   262→- **SEO intent:** "Recognition of Prior Learning Namibia", "RPL Windhoek".
+   263→- **Data source:** Static. Images from manifest items 25-26.
+   264→- **Special:** Language is factual. RPL assesses demonstrated competence and is not automatic certification.
+   265→
+   266→#### 3.1.10 `/work-integrated-learning`
+   267→
+   268→- **Purpose:** WIL explanation for learners and employers.
+   269→- **Audience:** Prospective learners, employers, WIL partners.
+   270→- **Primary CTA:** Submit WIL enquiry.
+   271→- **Secondary CTA:** Register Interest.
+   272→- **Content sections:** What WIL is, how WIL works (placement, supervision, assessment), benefits for learners, benefits for employers, how to become a WIL partner, WIL enquiry form.
+   273→- **Proof required:** Factual explanation of WIL. No claim of existing WIL partnerships.
+   274→- **SEO intent:** "work-integrated learning Namibia", "workplace learning Windhoek".
+   275→- **Data source:** Static. Images from manifest items 27-32.
+   276→- **Special:** Separate enquiry paths for prospective learners (looking for WIL placement) and employers (offering WIL placement).
+   277→
+   278→#### 3.1.11 `/research-advisory`
+   279→
+   280→- **Purpose:** Research and advisory services introduction.
+   281→- **Audience:** Government, NGOs, industry associations, research clients.
+   282→- **Primary CTA:** Submit research enquiry.
+   283→- **Secondary CTA:** Contact.
+   284→- **Content sections:** Research and advisory introduction, applied research, workforce studies, organisational training, advisory services, small scale at launch statement, research enquiry form.
+   285→- **Proof required:** No claim of completed research that does not exist.
+   286→- **SEO intent:** "applied research Namibia", "workforce studies Windhoek", "organisational training".
+   287→- **Data source:** Static. Images from manifest items 41-43.
+   288→- **Special:** "Small at launch" is stated explicitly. No fabricated research portfolio.
+   289→
+   290→#### 3.1.12 `/employer-training`
+   291→
+   292→- **Purpose:** Corporate training services.
+   293→- **Audience:** Employers, HR managers, training managers.
+   294→- **Primary CTA:** Submit corporate enquiry.
+   295→- **Secondary CTA:** Contact.
+   296→- **Content sections:** Corporate training introduction, bespoke training approach, training areas (mapped to schools), delivery formats, how to commission training, corporate enquiry form.
+   297→- **Proof required:** No claim of existing corporate training clients.
+   298→- **SEO intent:** "corporate training Namibia", "workplace training Windhoek".
+   299→- **Data source:** Static. Images from manifest items 13-24 (reused where appropriate).
+   300→- **Special:** Training areas map to planned schools. No invented client logos or testimonials.
+   301→
+   302→#### 3.1.13 `/campus`
+   303→
+   304→- **Purpose:** Campus concept presentation.
+   305→- **Audience:** All audiences. Especially prospective learners visualising the learning environment.
+   306→- **Primary CTA:** Register Interest.
+   307→- **Secondary CTA:** Contact.
+   308→- **Content sections:** Campus concept introduction, lean Windhoek micro-campus overview, reception (with front-office training note), flexible classroom, mobile laptop laboratory, administration office, secure learner-record facilities, future modular classroom, courtyard, image gallery.
+   309→- **Proof required:** All images captioned as "architectural concept", not as completed facilities. No campus address.
+   310→- **SEO intent:** "Oryx Institute campus", "training facility Windhoek".
+   311→- **Data source:** Static. Images from manifest items 33-40.
+   312→- **Special:** Every architectural image has a caption explaining it is a concept. No claim of a completed or leased campus.
+   313→
+   314→#### 3.1.14 `/admissions`
+   315→
+   316→- **Purpose:** Admissions process overview.
+   317→- **Audience:** Prospective learners.
+   318→- **Primary CTA:** Register Interest.
+   319→- **Secondary CTA:** Contact.
+   320→- **Content sections:** Admissions approach, who can apply, how to express interest, what happens next (without specific dates), admissions FAQ, register interest form.
+   321→- **Proof required:** No claim of open admissions. No intake date. Process stated as "expression of interest" not "application".
+   322→- **SEO intent:** "vocational training admissions Namibia".
+   323→- **Data source:** Static.
+   324→- **Special:** "Register Interest" replaces "Apply Now" throughout pre-launch. The institution is not yet accepting applications.
+   325→
+   326→#### 3.1.15 `/fees-and-funding`
+   327→
+   328→- **Purpose:** Fees and funding approach.
+   329→- **Audience:** Prospective learners, funders.
+   330→- **Primary CTA:** Submit funding enquiry.
+   331→- **Secondary CTA:** Register Interest.
+   332→- **Content sections:** Fees approach (without specific fees), funding pathways (public skills funds, employer sponsorships, donor-funded places, self-funding), what fees will cover, when fees will be published, funding enquiry form.
+   333→- **Proof required:** No specific fees. No claim of approved funding partners.
+   334→- **SEO intent:** "vocational training fees Namibia", "training funding Windhoek".
+   335→- **Data source:** Static.
+   336→- **Special:** All fees display "To be confirmed". Funding pathways are described generically, not as confirmed partnerships.
+   337→
+   338→#### 3.1.16 `/register-interest`
+   339→
+   340→- **Purpose:** Primary register interest form.
+   341→- **Audience:** Prospective learners.
+   342→- **Primary CTA:** Submit.
+   343→- **Secondary CTA:** View programmes.
+   344→- **Content sections:** Form introduction, register interest form (Name, Email, Telephone or WhatsApp, Region or town, Programme of interest, Current education level, Employment status, Interest in RPL, Preferred study schedule, Consent to receive updates), success state, error states.
+   345→- **Proof required:** Form persists locally in pre-launch. No claim of server-side processing.
+   346→- **SEO intent:** "register interest Oryx Institute".
+   347→- **Data source:** Form submission to `/api/submissions`.
+   348→- **Special:** Programme of interest is a select populated from `/content/programmes/`. If accessed via a programme page, the field is pre-filled.
+   349→
+   350→#### 3.1.17 `/updates`
+   351→
+   352→- **Purpose:** Establishment updates feed.
+   353→- **Audience:** All audiences following the institution's establishment.
+   354→- **Primary CTA:** Read an update.
+   355→- **Secondary CTA:** Subscribe to mailing list.
+   356→- **Content sections:** Updates feed (reverse chronological), empty state ("No updates yet. Verified institutional updates will appear here as the institution is established."), category filter (announcements, programme updates, public notices, events), mailing list signup.
+   357→- **Proof required:** Only verified institutional updates. No fabricated announcements.
+   358→- **SEO intent:** "Oryx Institute updates", "vocational training news Namibia".
+   359→- **Data source:** Updates from `/content/updates/`.
+   360→- **Special:** This is not a general news outlet. Pre-launch, the feed may be empty with a clear empty state.
+   361→
+   362→#### 3.1.18 `/updates/[slug]`
+   363→
+   364→- **Purpose:** Single update detail.
+   365→- **Audience:** All audiences.
+   366→- **Primary CTA:** View more updates.
+   367→- **Secondary CTA:** Register Interest.
+   368→- **Content sections:** Update headline, date (when supplied), category, body content, related updates, register interest CTA.
+   369→- **Proof required:** Verified updates only. No fabricated dates or announcements.
+   370→- **SEO intent:** Update-specific.
+   371→- **Data source:** Update from `/content/updates/[slug].md`.
+   372→- **Special:** Updates are written in Phase 2 (Content) and approved before publication.
+   373→
+   374→#### 3.1.19 `/events`
+   375→
+   376→- **Purpose:** Events listing.
+   377→- **Audience:** All audiences.
+   378→- **Primary CTA:** Register Interest.
+   379→- **Secondary CTA:** Subscribe to updates.
+   380→- **Content sections:** Events listing (empty in pre-launch), empty state ("No events scheduled yet. Information sessions and open days will be announced here."), mailing list signup.
+   381→- **Proof required:** No fabricated events. No fabricated dates.
+   382→- **SEO intent:** "Oryx Institute events", "vocational training open day Windhoek".
+   383→- **Data source:** Events from `/content/events/` (empty initially).
+   384→- **Special:** Empty state is honest and helpful, not a dead end.
+   385→
+   386→#### 3.1.20 `/contact`
+   387→
+   388→- **Purpose:** Contact form and contact details.
+   389→- **Audience:** All audiences.
+   390→- **Primary CTA:** Submit contact form.
+   391→- **Secondary CTA:** View programmes.
+   392→- **Content sections:** Contact introduction, contact form (Name, Email, Subject, Message), alternative contact paths (phone, WhatsApp, email - all "To be confirmed" or supplied), contact form success state.
+   393→- **Proof required:** No fabricated phone number or address. Email may be a placeholder until supplied.
+   394→- **SEO intent:** "contact Oryx Institute".
+   395→- **Data source:** Form submission to `/api/submissions`.
+   396→- **Special:** Multiple enquiry paths (general, employer, WIL, corporate, research, funding) accessible from this page or linked from it.
+   397→
+   398→#### 3.1.21 `/faq`
+   399→
+   400→- **Purpose:** Frequently asked questions.
+   401→- **Audience:** All audiences.
+   402→- **Primary CTA:** Submit a question.
+   403→- **Secondary CTA:** Register Interest.
+   404→- **Content sections:** FAQ categories (About the Institute, Programmes, Admissions, RPL, WIL, Fees, Campus), question and answer pairs, "submit a question" form.
+   405→- **Proof required:** Factual answers. No fabricated details.
+   406→- **SEO intent:** "Oryx Institute FAQ", programme-specific FAQ queries.
+   407→- **Data source:** FAQ from `/content/faq/`. Structured data as `FAQPage`.
+   408→- **Special:** FAQ content drafted in Phase 2 (Content). Only questions that can be answered factually are included.
+   409→
+   410→#### 3.1.22 `/brand`
+   411→
+   412→- **Purpose:** Public brand book.
+   413→- **Audience:** Designers, partners, media, anyone seeking to understand the visual identity.
+   414→- **Primary CTA:** Register Interest.
+   415→- **Secondary CTA:** Contact.
+   416→- **Content sections:** Brand purpose, brand promise, brand personality, logo (primary and shield), logo rules (correct and incorrect use), colour palette with verified values and accessibility pairings, typography, photography treatment, motion principles, component principles, footer credit ("Made by Tangison Studio" linked to https://studio.tangison.com).
+   417→- **Proof required:** All brand facts from BRAND.md. No confidential internal rules.
+   418→- **SEO intent:** "Oryx Institute brand", "Oryx Institute identity".
+   419→- **Data source:** Static, derived from BRAND.md.
+   420→- **Special:** This is the public expression of BRAND.md. Confidential internal rules are excluded. Unlocked in demo mode alongside the homepage.
+   421→
+   422→#### 3.1.23 `/privacy`
+   423→
+   424→- **Purpose:** Privacy policy.
+   425→- **Audience:** All visitors.
+   426→- **Primary CTA:** None.
+   427→- **Content sections:** Privacy policy covering data collection (form submissions, analytics), data use, data retention, data sharing, user rights, contact for privacy enquiries.
+   428→- **Proof required:** Accurate description of actual data practices. No fabricated policy.
+   429→- **SEO intent:** "Oryx Institute privacy policy".
+   430→- **Data source:** Static.
+   431→- **Special:** Policy drafted in Phase 2 (Content) to match actual implementation.
+   432→
+   433→#### 3.1.24 `/terms`
+   434→
+   435→- **Purpose:** Terms of use.
+   436→- **Audience:** All visitors.
+   437→- **Primary CTA:** None.
+   438→- **Content sections:** Terms of use covering acceptable use, intellectual property (Oryx Institute brand and content), disclaimers (pre-launch status, no warranty), limitation of liability, governing law (Namibia), changes to terms, contact.
+   439→- **Proof required:** Accurate description. No fabricated legal entity until registration is verified.
+   440→- **SEO intent:** "Oryx Institute terms".
+   441→- **Data source:** Static.
+   442→- **Special:** Legal review recommended before production launch. Drafted in Phase 2 (Content).
+   443→
+   444→#### 3.1.25 `/accessibility`
+   445→
+   446→- **Purpose:** Accessibility statement.
+   447→- **Audience:** All visitors, especially those using assistive technologies.
+   448→- **Primary CTA:** Contact us.
+   449→- **Content sections:** Accessibility commitment (WCAG 2.2 AA), what we have done (verified colour contrast, keyboard navigation, screen reader support, reduced motion), known limitations, how to report an accessibility issue, contact for accessibility.
+   450→- **Proof required:** Accurate statement of actual accessibility features.
+   451→- **SEO intent:** "Oryx Institute accessibility".
+   452→- **Data source:** Static.
+   453→- **Special:** Statement must match actual implementation. Updated after audit.
+   454→
+   455→#### 3.1.26 `/sitemap`
+   456→
+   457→- **Purpose:** Human-readable sitemap.
+   458→- **Audience:** All visitors seeking to navigate the site.
+   459→- **Primary CTA:** None.
+   460→- **Content sections:** All public routes grouped by category (Institute, Schools and Programmes, Learning Pathways, Research and Advisory, Admissions, Updates, About, Legal).
+   461→- **Proof required:** Accurate route list.
+   462→- **SEO intent:** "Oryx Institute sitemap".
+   463→- **Data source:** Static, derived from route matrix.
+   464→- **Special:** This is the human-readable sitemap. `/sitemap.xml` is the machine-readable sitemap.
+   465→
+   466→#### 3.1.27 `404`
+   467→
+   468→- **Purpose:** Not found page.
+   469→- **Audience:** Visitors who reach a non-existent URL.
+   470→- **Primary CTA:** Go home.
+   471→- **Secondary CTA:** View sitemap.
+   472→- **Content sections:** Clear copy ("This page could not be found."), suggested destinations (home, programmes, register interest, contact), sitemap link.
+   473→- **Proof required:** None.
+   474→- **SEO intent:** None.
+   475→- **Data source:** Static.
+   476→- **Special:** No humour, no cutesy illustrations. Calm and helpful.
+   477→
+   478→#### 3.1.28 `500`
+   479→
+   480→- **Purpose:** Server error page.
+   481→- **Audience:** Visitors who encounter a server error.
+   482→- **Primary CTA:** Go home.
+   483→- **Secondary CTA:** Contact.
+   484→- **Content sections:** Clear copy ("Something went wrong. We have been notified."), suggested destinations, contact link.
+   485→- **Proof required:** None.
+   486→- **SEO intent:** None.
+   487→- **Data source:** Static.
+   488→- **Special:** No grovelling. Calm and helpful.
+   489→
+   490→#### 3.1.29 `maintenance`
+   491→
+   492→- **Purpose:** Maintenance page.
+   493→- **Audience:** All visitors during planned maintenance.
+   494→- **Primary CTA:** None.
+   495→- **Content sections:** Clear copy ("The website is undergoing planned maintenance."), expected restoration time when known, contact link for urgent enquiries.
+   496→- **Proof required:** None.
+   497→- **SEO intent:** None.
+   498→- **Data source:** Static.
+   499→- **Special:** Served by Vercel when the deployment is in maintenance mode.
+   500→
+   501→#### 3.1.30 `offline`
+   502→
+   503→- **Purpose:** Service worker offline page.
+   504→- **Audience:** Visitors who lose connectivity while browsing.
+   505→- **Primary CTA:** Try again.
+   506→- **Content sections:** Clear copy ("You appear to be offline."), explanation that previously visited pages may still be available, try again button.
+   507→- **Proof required:** None.
+   508→- **SEO intent:** None.
+   509→- **Data source:** Static, served by service worker.
+   510→- **Special:** Service worker caches the homepage, brand page, and offline page for offline access.
+   511→
+   512→#### 3.1.31 `locked`
+   513→
+   514→- **Purpose:** Locked demo preview state.
+   515→- **Audience:** Demo viewers (if user chooses locked demo mode).
+   516→- **Primary CTA:** Register Interest.
+   517→- **Content sections:** Clear copy ("This page is part of the planned Oryx Institute website. It will be unlocked when the institution is ready."), explanation of the planned content, register interest form.
+   518→- **Proof required:** None.
+   519→- **SEO intent:** None.
+   520→- **Data source:** Static.
+   521→- **Special:** Only used if user chooses locked demo mode. In full mode (current plan), this page is not used because all routes are unlocked with pre-launch content posture.
+   522→
+   523→## 4. Image manifest
+   524→
+   525→48 original images plus responsive crops. Each image generated separately. Manifest recorded in `scripts/image_manifest.json`. Photographic treatment per BRAND.md section 14.1.
+   526→
+   527→### 4.1 Homepage images (12)
+   528→
+   529→| # | Subject | Route | Section | Aspect ratio | Filename | Alt text | Status |
+   530→|---|---|---|---|---|---|---|---|
+   531→| 1 | Oryx standing alone on a dune at sunrise | / | Hero slide 1 | 16:9 | hero-1-oryx-dune.avif | An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above. | Planned |
+   532→| 2 | Sossusvlei-inspired dune field with uninterrupted negative sky | / | Hero slide 2 | 16:9 | hero-2-dune-field.avif | A wide dune field under a vast pale sky, with deep shadows on the sand. | Planned |
+   533→| 3 | Single camel-thorn tree in a dry Namibian landscape | / | Hero slide 3 | 16:9 | hero-3-camel-thorn.avif | A single camel-thorn tree stands in a dry Namibian landscape under soft morning light. | Planned |
+   534→| 4 | Quiet stone academic corridor lit by morning sunlight | / | Hero slide 4 | 16:9 | hero-4-stone-corridor.avif | A quiet stone corridor lit by morning sunlight, with long shadows on a polished floor. | Planned |
+   535→| 5 | Minimal classroom with warm plaster walls and dark wooden desks | / | Hero slide 5 | 16:9 | hero-5-classroom.avif | A minimal classroom with warm plaster walls and dark wooden desks, empty and quiet. | Planned |
+   536→| 6 | Open book on a sandstone desk | / | Institutional introduction | 3:2 | intro-book.avif | An open book rests on a sandstone desk in warm natural light. | Planned |
+   537→| 7 | Maroon notebook against cream plaster | / | Schools overview accent | 3:2 | schools-notebook.avif | A maroon notebook lies against a cream plaster wall in soft directional light. | Planned |
+   538→| 8 | Learner writing in a notebook, hands only | / | Learning pathways | 3:2 | pathway-writing.avif | A learner's hands write in a notebook with a pencil, in warm natural light. | Planned |
+   539→| 9 | Laptop on a minimal classroom desk | / | Learning pathways | 3:2 | pathway-laptop.avif | A laptop sits open on a minimal classroom desk in soft directional light. | Planned |
+   540→| 10 | Reception counter in warm natural light | / | Campus concept | 3:2 | campus-reception.avif | A reception counter in warm natural light, with a single maroon detail. | Planned |
+   541→| 11 | Namibian mountain landscape at dawn | / | Final registration section | 3:2 | final-mountains.avif | A Namibian mountain landscape at dawn, with soft warm light across the ridges. | Planned |
+   542→| 12 | Single graduation cap in maroon fabric | / | Final registration section accent | 3:2 | final-cap.avif | A single graduation cap in maroon fabric rests on a cream surface. | Planned |
+   543→
+   544→### 4.2 Schools and programmes images (12)
+   545→
+   546→| # | Subject | Route | Section | Aspect ratio | Filename | Alt text | Status |
+   547→|---|---|---|---|---|---|---|---|
+   548→| 13 | Safety helmet and inspection notebook | /schools/safety | School hero | 3:2 | school-safety-helmet.avif | A safety helmet and inspection notebook rest on a clean surface in warm light. | Planned |
+   549→| 14 | Reflective vest folded on a plain bench | /schools/safety | School detail | 3:2 | school-safety-vest.avif | A reflective vest is folded neatly on a plain wooden bench. | Planned |
+   550→| 15 | Office desk with organised files | /schools/administration-commerce | School hero | 3:2 | school-admin-desk.avif | An office desk with organised files and a closed laptop in soft natural light. | Planned |
+   551→| 16 | Reception bell on a stone counter | /schools/administration-commerce | School detail | 3:2 | school-admin-bell.avif | A reception bell rests on a stone counter in warm directional light. | Planned |
+   552→| 17 | Bookkeeping ledger and calculator | /schools/administration-commerce | Programme detail | 3:2 | programme-bookkeeping.avif | A bookkeeping ledger and calculator sit on a cream surface. | Planned |
+   553→| 18 | Retail counter with barcode scanner | /schools/administration-commerce | Programme detail | 3:2 | programme-retail.avif | A retail counter with a barcode scanner, in a quiet shop setting. | Planned |
+   554→| 19 | Tour guide studying a Namibian map | /schools/hospitality-tourism | School hero | 3:2 | school-hospitality-map.avif | A tour guide studies a Namibian map spread across a table, hands visible. | Planned |
+   555→| 20 | Camping tent being demonstrated in a clear open area | /schools/hospitality-tourism | Programme detail | 3:2 | programme-camping.avif | A camping tent is demonstrated in a clear open area under soft daylight. | Planned |
+   556→| 21 | Laptop repair tools arranged neatly | /schools/information-digital | School hero | 3:2 | school-digital-tools.avif | Laptop repair tools are arranged neatly on a clean surface. | Planned |
+   557→| 22 | Refurbished laptops in a classroom | /schools/information-digital | School detail | 3:2 | school-digital-laptops.avif | Refurbished laptops sit on classroom desks in warm natural light. | Planned |
+   558→| 23 | Small group discussion viewed naturally from the side | /schools/information-digital | Programme detail | 3:2 | programme-discussion.avif | A small group discusses around a table, viewed naturally from the side. | Planned |
+   559→| 24 | Trainer presenting at a whiteboard without visible text | /schools | Schools overview | 3:2 | schools-trainer.avif | A trainer presents at a whiteboard without visible text, viewed from the side. | Planned |
+   560→
+   561→### 4.3 RPL and WIL images (8)
+   562→
+   563→| # | Subject | Route | Section | Aspect ratio | Filename | Alt text | Status |
+   564→|---|---|---|---|---|---|---|---|
+   565→| 25 | Experienced worker assembling a portfolio | /rpl | Hero | 3:2 | rpl-portfolio.avif | An experienced worker assembles a portfolio of evidence on a desk, hands visible. | Planned |
+   566→| 26 | Assessor reviewing evidence at a desk | /rpl | Process section | 3:2 | rpl-assessor.avif | An assessor reviews evidence at a desk in warm natural light. | Planned |
+   567→| 27 | Workplace mentor speaking with a learner | /work-integrated-learning | Hero | 3:2 | wil-mentor.avif | A workplace mentor speaks with a learner in a professional setting, viewed from the side. | Planned |
+   568→| 28 | Learner entering a professional workplace | /work-integrated-learning | Process section | 3:2 | wil-entering.avif | A learner enters a professional workplace, viewed from behind. | Planned |
+   569→| 29 | Close-up of hands completing an assessment form | /work-integrated-learning | Assessment section | 3:2 | wil-assessment.avif | A close-up of hands completing an assessment form with a pen. | Planned |
+   570→| 30 | Work boots beside a notebook | /work-integrated-learning | Pathway accent | 3:2 | wil-boots.avif | Work boots rest beside a notebook on a cream surface. | Planned |
+   571→| 31 | Front-office learner at a real reception desk | /work-integrated-learning | Placement section | 3:2 | wil-reception.avif | A front-office learner works at a real reception desk, hands visible. | Planned |
+   572→| 32 | Employer and learner in a simple mentoring conversation | /work-integrated-learning | Benefits section | 3:2 | wil-conversation.avif | An employer and learner sit in a simple mentoring conversation, viewed from the side. | Planned |
+   573→
+   574→### 4.4 Institute and campus images (8)
+   575→
+   576→| # | Subject | Route | Section | Aspect ratio | Filename | Alt text | Status |
+   577→|---|---|---|---|---|---|---|---|
+   578→| 33 | Minimal Windhoek training-centre exterior concept | /campus | Hero | 3:2 | campus-exterior.avif | A minimal training-centre exterior concept with warm plaster walls and a native Namibian tree. | Planned |
+   579→| 34 | Flexible classroom set for lectures | /campus | Interior section | 3:2 | campus-classroom-lecture.avif | A flexible classroom set for lectures, with desks in rows and warm natural light. | Planned |
+   580→| 35 | Same classroom set for examinations | /campus | Interior section | 3:2 | campus-classroom-exam.avif | The same classroom reconfigured for examinations, with individual desks spaced apart. | Planned |
+   581→| 36 | Mobile laptop charging cabinet | /campus | Interior detail | 3:2 | campus-laptop-cabinet.avif | A mobile laptop charging cabinet in a corner of a classroom. | Planned |
+   582→| 37 | Small secure records office | /campus | Interior detail | 3:2 | campus-records.avif | A small secure records office with locked cabinets and a desk. | Planned |
+   583→| 38 | Cream reception with one maroon detail | /campus | Interior detail | 3:2 | campus-cream-reception.avif | A cream reception area with a single maroon detail on the wall. | Planned |
+   584→| 39 | Modular classroom exterior concept | /campus | Future section | 3:2 | campus-modular.avif | A modular classroom exterior concept showing future expansion potential. | Planned |
+   585→| 40 | Quiet courtyard with a native Namibian tree | /campus | Courtyard section | 3:2 | campus-courtyard.avif | A quiet courtyard with a native Namibian tree casting long shadows. | Planned |
+   586→
+   587→### 4.5 Research, admissions and updates images (8)
+   588→
+   589→| # | Subject | Route | Section | Aspect ratio | Filename | Alt text | Status |
+   590→|---|---|---|---|---|---|---|---|
+   591→| 41 | Research documents and pen on stone table | /research-advisory | Hero | 3:2 | research-documents.avif | Research documents and a pen rest on a stone table in warm directional light. | Planned |
+   592→| 42 | Interview recorder beside a notebook | /research-advisory | Methods section | 3:2 | research-recorder.avif | An interview recorder sits beside a notebook on a cream surface. | Planned |
+   593→| 43 | Small organisational workshop | /research-advisory | Advisory section | 3:2 | research-workshop.avif | A small organisational workshop in progress, viewed naturally from the side. | Planned |
+   594→| 44 | Application documents arranged neatly | /admissions | Hero | 3:2 | admissions-documents.avif | Application documents are arranged neatly on a cream surface. | Planned |
+   595→| 45 | Young Namibian applicant using a laptop | /admissions | Process section | 3:2 | admissions-applicant.avif | A young Namibian applicant uses a laptop, viewed naturally from the side. | Planned |
+   596→| 46 | Empty lecture space before an event | /events | Empty state accent | 3:2 | events-empty.avif | An empty lecture space before an event, with chairs arranged and soft natural light. | Planned |
+   597→| 47 | Institutional noticeboard without generated writing | /updates | Hero | 3:2 | updates-noticeboard.avif | An institutional noticeboard without readable text, in warm natural light. | Planned |
+   598→| 48 | Abstract close-up of Namibian stone and maroon fabric | / | Section accent | 3:2 | accent-stone-maroon.avif | An abstract close-up of Namibian stone with a fold of maroon fabric. | Planned |
+   599→
+   600→### 4.6 Image generation rules
+   601→
+   602→- Each image generated separately via the `image-generation` skill (z-ai-web-dev-sdk, available locally).
+   603→- Each prompt specifies one main subject, one controlled environment, generous negative space, the consistent photographic treatment (warm editorial realism, cream and sandstone cast, muted maroon accents, soft sepia undertone, strong but natural directional sunlight, minimal compositions, high-detail surfaces, no text, no logos, no fantasy architecture, no visibly artificial faces or hands).
+   604→- Each image is visually inspected after generation. Inconsistent results are rejected and regenerated with adjusted prompts.
+   605→- Each image is saved as AVIF primary, with WebP and JPEG fallbacks generated by Next.js Image.
+   606→- Responsive crops generated for mobile breakpoints where the original aspect ratio does not compose well at narrow widths.
+   607→- Original aspect ratios are never stretched or distorted.
+   608→- Manifest updated after each generation with status: `Planned`, `Generated`, `Inspected`, `Rejected`, `Regenerated`, `Approved`.
+   609→
+   610→## 5. Sitemap
+   611→
+   612→### 5.1 URL hierarchy
+   613→
+   614→```
+   615→/
+   616→/coming-soon
+   617→/institute
+   618→/founder
+   619→/schools
+   620→  /schools/safety
+   621→  /schools/administration-and-commerce
+   622→  /schools/hospitality-and-tourism
+   623→  /schools/information-and-digital-skills
+   624→  /schools/future-schools
+   625→/programmes
+   626→  /programmes/[programme-slug]
+   627→/rpl
+   628→/work-integrated-learning
+   629→/research-advisory
+   630→/employer-training
+   631→/campus
+   632→/admissions
+   633→/fees-and-funding
+   634→/register-interest
+   635→/updates
+   636→  /updates/[slug]
+   637→/events
+   638→/contact
+   639→/faq
+   640→/brand
+   641→/privacy
+   642→/terms
+   643→/accessibility
+   644→/sitemap
+   645→404 (no URL, error page)
+   646→500 (no URL, error page)
+   647→maintenance (no URL, error page)
+   648→offline (no URL, service worker)
+   649→```
+   650→
+   651→### 5.2 Machine-readable sitemap
+   652→
+   653→`app/sitemap.ts` generates `/sitemap.xml` with all public routes. Pre-launch: sitemap includes all routes but `robots.txt` disallows indexing until authorised. Production: sitemap is submitted to Google Search Console and Bing Webmaster Tools when the domain is verified.
+   654→
+   655→### 5.3 robots.txt
+   656→
+   657→`app/robots.ts` generates `/robots.txt`:
+   658→
+   659→```
+   660→# Pre-launch
+   661→User-agent: *
+   662→Disallow: /
+   663→
+   664→Sitemap: https://www.oryxinstitute.na/sitemap.xml
+   665→```
+   666→
+   667→When indexing is authorised, this becomes:
+   668→
+   669→```
+   670→User-agent: *
+   671→Allow: /
+   672→Disallow: /api/
+   673→
+   674→Sitemap: https://www.oryxinstitute.na/sitemap.xml
+   675→```
+   676→
+   677→## 6. Component plan
+   678→
+   679→Reusable editorial components. Each component is implemented once and composed across pages. Components are designed to avoid identical card grids and template repetition.
+   680→
+   681→### 6.1 Layout components
+   682→
+   683→| Component | Purpose | Used on |
+   684→|---|---|---|
+   685→| `RootLayout` | HTML root, fonts, metadata, skip link, navigation, footer | All pages |
+   686→| `FloatingNavigation` | Floating cream nav bar with logo, Register Interest, two-line menu icon | All pages |
+   687→| `OpenMenu` | Full-screen editorial menu composition | All pages (overlay) |
+   688→| `Footer` | Footer with logo, navigation, contact placeholders, social links, legal links, Tangison Studio credit | All pages |
+   689→| `TangisonCredit` | "Made by Tangison Studio" linked to https://studio.tangison.com | All pages (in footer) |
+   690→
+   691→### 6.2 Hero components
+   692→
+   693→| Component | Purpose | Used on |
+   694→|---|---|---|
+   695→| `HeroSlider` | Full-viewport background slider with 5 images, manual controls, visible slide position, pause, reduced-motion support | / |
+   696→| `HeroFull` | Full-viewport single hero with image background and short copy | /coming-soon, /institute, /schools, /rpl, /work-integrated-learning, /research-advisory, /employer-training, /campus, /admissions, /fees-and-funding, /register-interest, /updates, /events, /contact, /faq, /brand |
+   697→| `HeroSplit` | 7/5 or 5/7 split hero with image and text | /founder, /schools/[slug], /programmes/[slug], /updates/[slug] |
+   698→
+   699→### 6.3 Section components
+   700→
+   701→| Component | Purpose | Used on |
+   702→|---|---|---|
+   703→| `InstitutionalIntroduction` | Single image and 40-60 word institutional introduction | / |
+   704→| `SchoolsOverview` | Large editorial image panels for each school | /, /schools |
+   705→| `LearningPathways` | Horizontal visual story of 5 pathways | / |
+   706→| `FeaturedProgrammes` | Editorial programme browser with filters | / |
+   707→| `CampusConcept` | Campus concept presentation with captioned architectural images | /, /campus |
+   708→| `ResearchAdvisory` | Research and advisory introduction | /, /research-advisory |
+   709→| `UpdatesFeed` | Establishment updates feed with empty state | /, /updates |
+   710→| `FinalRegistrationSection` | Single image, short invitation, programme-interest form | / |
+   711→| `MailingListSignup` | Inline mailing list form | /coming-soon, /updates, /events |
+   712→
+   713→### 6.4 Content components
+   714→
+   715→| Component | Purpose | Used on |
+   716→|---|---|---|
+   717→| `EditorialImage` | Single image with optional caption | All content pages |
+   718→| `EditorialQuote` | Pull quote in display serif | /institute, /brand |
+   719→| `StatBlock` | Verified fact display (no fabricated metrics) | /institute (only if verified facts supplied) |
+   720→| `ProseSection` | Long-form text section with optional images | /institute, /rpl, /work-integrated-learning, /research-advisory, /admissions, /fees-and-funding, /brand |
+   721→| `ProgrammeCard` | Single programme summary in programme browser | /programmes, /schools/[slug] |
+   722→| `ProgrammeDetail` | Full programme detail with all required fields | /programmes/[slug] |
+   723→| `UpdateCard` | Single update summary in feed | /updates |
+   724→| `EventCard` | Single event summary (empty state in pre-launch) | /events |
+   725→| `FAQAccordion` | Accordion of question and answer pairs | /faq |
+   726→| `BrandColourSwatch` | Colour swatch with name, hex, RGB, and pairing | /brand |
+   727→| `LogoShowcase` | Primary logo and shield icon with rules | /brand |
+   728→
+   729→### 6.5 Form components
+   730→
+   731→| Component | Purpose | Used on |
+   732→|---|---|---|
+   733→| `RegisterInterestForm` | Primary register interest form with all required fields | /, /register-interest, /programmes/[slug], /schools/[slug] |
+   734→| `MailingListForm` | Lightweight mailing list form | /coming-soon, /updates, /events |
+   735→| `ContactForm` | General contact form | /contact |
+   736→| `EmployerEnquiryForm` | Employer enquiry form | /employer-training, /contact |
+   737→| `WILEnquiryForm` | WIL partner enquiry form | /work-integrated-learning, /contact |
+   738→| `CorporateTrainingEnquiryForm` | Corporate training enquiry form | /employer-training, /contact |
+   739→| `ResearchAdvisoryEnquiryForm` | Research and advisory enquiry form | /research-advisory, /contact |
+   740→| `FundingPartnershipEnquiryForm` | Funding and institutional partnership enquiry form | /fees-and-funding, /contact |
+   741→| `FormFields` | Shared input, label, helper, error components | All forms |
+   742→| `FormSubmit` | Primary button with loading, success, error states | All forms |
+   743→
+   744→### 6.6 State components
+   745→
+   746→| Component | Purpose | Used on |
+   747→|---|---|---|
+   748→| `LoadingState` | Skeleton screen in Sand | All dynamic content |
+   749→| `EmptyState` | Clear empty-state copy with next action | /updates, /events, /programmes (no results) |
+   750→| `SuccessState` | Inline confirmation with next steps | All forms |
+   751→| `ErrorState` | Inline error with retry | All forms |
+   752→| `OfflineState` | Service worker offline page | /offline |
+   753→| `MaintenanceState` | Maintenance page | /maintenance |
+   754→| `LockedDemoState` | Locked demo preview (if used) | /locked |
+   755→
+   756→### 6.7 System pages
+   757→
+   758→| Component | Purpose | Used on |
+   759→|---|---|---|
+   760→| `NotFoundPage` | 404 page | 404 |
+   761→| `ServerErrorPage` | 500 page | 500 |
+   762→| `MaintenancePage` | Maintenance page | /maintenance |
+   763→| `OfflinePage` | Offline page | /offline |
+   764→
+   765→## 7. Content model
+   766→
+   767→Typed TypeScript data structures. CMS-ready: each model can be migrated to a headless CMS by changing the data loader.
+   768→
+   769→### 7.1 School
+   770→
+   771→```typescript
+   772→type School = {
+   773→  slug: string;
+   774→  name: string;
+   775→  shortDescription: string;
+   776→  heroImage: string;
+   777→  heroImageAlt: string;
+   778→  overview: string;
+   779→  plannedProgrammes: string[];
+   780→  careerPathways: string[];
+   781→  rplSuitability: string;
+   782→  wilOpportunities: string;
+   783→  status: 'planned' | 'subject_to_approval';
+   784→  imageGallery: Array<{
+   785→    src: string;
+   786→    alt: string;
+   787→    caption: string;
+   788→    isArchitecturalConcept: boolean;
+   789→  }>;
+   790→};
+   791→```
+   792→
+   793→### 7.2 Programme
+   794→
+   795→```typescript
+   796→type Programme = {
+   797→  slug: string;
+   798→  name: string;
+   799→  schoolSlug: string;
+   800→  shortDescription: string;
+   801→  overview: string;
+   802→  plannedLevel: string | 'To be confirmed';
+   803→  entryRequirements: string | 'To be confirmed';
+   804→  learningOutcomes: string[];
+   805→  deliveryFormat: 'classroom' | 'blended' | 'workplace' | 'online' | 'To be confirmed';
+   806→  duration: string | 'To be confirmed';
+   807→  assessmentApproach: string;
+   808→  rplSuitability: string;
+   809→  wilComponent: string;
+   810→  fees: 'To be confirmed' | string;
+   811→  intakeDate: 'To be confirmed' | string;
+   812→  approvalStatus: 'planned' | 'subject_to_approval';
+   813→  image: string;
+   814→  imageAlt: string;
+   815→};
+   816→```
+   817→
+   818→### 7.3 Update
+   819→
+   820→```typescript
+   821→type Update = {
+   822→  slug: string;
+   823→  title: string;
+   824→  date: string | null;
+   825→  category: 'announcement' | 'programme_update' | 'public_notice' | 'event';
+   826→  excerpt: string;
+   827→  body: string;
+   828→  image?: string;
+   829→  imageAlt?: string;
+   830→};
+   831→```
+   832→
+   833→### 7.4 Event
+   834→
+   835→```typescript
+   836→type Event = {
+   837→  slug: string;
+   838→  title: string;
+   839→  date: string;
+   840→  location: string | 'To be confirmed';
+   841→  excerpt: string;
+   842→  body: string;
+   843→  image?: string;
+   844→  imageAlt?: string;
+   845→  registrationRequired: boolean;
+   846→};
+   847→```
+   848→
+   849→### 7.5 FAQ
+   850→
+   851→```typescript
+   852→type FAQ = {
+   853→  slug: string;
+   854→  category: 'about' | 'programmes' | 'admissions' | 'rpl' | 'wil' | 'fees' | 'campus';
+   855→  question: string;
+   856→  answer: string;
+   857→};
+   858→```
+   859→
+   860→### 7.6 Submission
+   861→
+   862→```typescript
+   863→type Submission = {
+   864→  id: string;
+   865→  type: 'register_interest' | 'mailing_list' | 'contact' | 'employer_enquiry' | 'wil_enquiry' | 'corporate_training_enquiry' | 'research_advisory_enquiry' | 'funding_partnership_enquiry';
+   866→  timestamp: string;
+   867→  data: {
+   868→    name?: string;
+   869→    email?: string;
+   870→    telephone?: string;
+   871→    region?: string;
+   872→    programmeOfInterest?: string;
+   873→    currentEducationLevel?: string;
+   874→    employmentStatus?: string;
+   875→    interestInRPL?: boolean;
+   876→    preferredStudySchedule?: string;
+   877→    consentToReceiveUpdates?: boolean;
+   878→    subject?: string;
+   879→    message?: string;
+   880→    organisation?: string;
+   881→    role?: string;
+   882→  };
+   883→  status: 'pending' | 'reviewed' | 'contacted' | 'closed';
+   884→};
+   885→```
+   886→
+   887→## 8. User journeys
+   888→
+   889→Critical journeys mapped end-to-end. Each defines entry, intent, information, decision points, errors, empty states, conversion, confirmation, follow-up, and analytics.
+   890→
+   891→### 8.1 Register Interest journey
+   892→
+   893→- **Entry:** Homepage hero "Register Interest" button, or any CTA across the site, or direct visit to `/register-interest`.
+   894→- **Intent:** Prospective learner expresses interest in a programme.
+   895→- **Information:** Form fields per section 3.1.16.
+   896→- **Decision points:** Programme selection, RPL interest yes/no, consent to receive updates.
+   897→- **Errors:** Validation failures (missing required fields, invalid email, invalid phone). Server failure. Timeout.
+   898→- **Empty states:** Programme select shows "Select a programme" placeholder.
+   899→- **Conversion:** Form submission persisted locally. Success state replaces form.
+   900→- **Confirmation:** Inline confirmation "Your interest has been recorded. We will be in touch when admissions open." Aria-live announcement.
+   901→- **Follow-up:** Email confirmation not sent in pre-launch (no email service). Mailing list signup suggested.
+   902→- **Analytics:** `register_interest_submit` event with programme property.
+   903→
+   904→### 8.2 Programme browsing journey
+   905→
+   906→- **Entry:** Homepage "Featured planned programmes" section, or "Programmes" in the main menu, or direct visit to `/programmes`.
+   907→- **Intent:** Visitor explores planned programmes.
+   908→- **Information:** Filter options (school, level, delivery format, status). Programme cards with name, school, level, status.
+   909→- **Decision points:** Filter selection. Programme selection.
+   910→- **Errors:** No errors.
+   911→- **Empty states:** "No programmes match your filters. Try adjusting or clearing filters."
+   912→- **Conversion:** Click on programme card to view detail page.
+   913→- **Confirmation:** Programme detail page renders.
+   914→- **Follow-up:** Register Interest CTA on programme detail page.
+   915→- **Analytics:** `programme_filter` event with filter properties. `programme_view` event with programme slug.
+   916→
+   917→### 8.3 Employer enquiry journey
+   918→
+   919→- **Entry:** Homepage footer, main menu, or `/employer-training` page.
+   920→- **Intent:** Employer seeks training or placement partnership.
+   921→- **Information:** Employer enquiry form (organisation, contact name, email, phone, training need, timeline).
+   922→- **Decision points:** Training need selection. Timeline selection.
+   923→- **Errors:** Validation failures. Server failure.
+   924→- **Empty states:** None.
+   925→- **Conversion:** Form submission persisted locally.
+   926→- **Confirmation:** Inline confirmation. Aria-live announcement.
+   927→- **Follow-up:** Email confirmation not sent in pre-launch.
+   928→- **Analytics:** `employer_enquiry_submit` event.
+   929→
+   930→### 8.4 Navigation journey (open menu)
+   931→
+   932→- **Entry:** Click or keyboard activation of the two-line menu icon in the floating navigation.
+   933→- **Intent:** Visitor explores the site structure.
+   934→- **Information:** Full-screen editorial menu with all main routes, featured photograph, pre-launch notice.
+   935→- **Decision points:** Route selection.
+   936→- **Errors:** None.
+   937→- **Empty states:** None.
+   938→- **Conversion:** Click or keyboard activation of a route.
+   939→- **Confirmation:** Menu closes. Route renders.
+   940→- **Follow-up:** None.
+   941→- **Analytics:** `menu_open` event. `menu_close` event. `route_visit` event on route render.
+   942→
+   943→### 8.5 404 journey
+   944→
+   945→- **Entry:** Visitor reaches a non-existent URL.
+   946→- **Intent:** Visitor seeks to recover and continue.
+   947→- **Information:** Clear copy, suggested destinations.
+   948→- **Decision points:** Destination selection.
+   949→- **Errors:** None.
+   950→- **Empty states:** None.
+   951→- **Conversion:** Click on suggested destination.
+   952→- **Confirmation:** Destination renders.
+   953→- **Follow-up:** None.
+   954→- **Analytics:** `route_visit` event with `404` property.
+   955→
+   956→## 9. Demo locks
+   957→
+   958→The user's brief says "build all approved routes" with pre-launch content posture. This is full mode, not locked demo mode. All 27 routes are unlocked with pre-launch content (no dates, no fees, no accreditation claims, "To be confirmed" for unknown fields, empty states for updates and events).
+   959→
+   960→If the user later chooses locked demo mode for client presentation, the locks would be:
+   961→
+   962→- **Unlocked:** `/`, `/brand`, `/coming-soon`, all legal pages (`/privacy`, `/terms`, `/accessibility`), all error pages.
+   963→- **Locked:** All other routes display the `LockedDemoState` component with a clear preview message and Register Interest CTA.
+   964→
+   965→Current plan: full mode with pre-launch content posture.
+   966→
+   967→## 10. Integrations
+   968→
+   969→### 10.1 Confirmed integrations
+   970→
+   971→- **Next.js Image** for image optimisation.
+   972→- **next/font** for font loading.
+   973→- **Tailwind CSS v4** for styling.
+   974→- **Zod** for form validation.
+   975→- **react-hook-form** for form state.
+   976→- **Vitest** for unit and component tests.
+   977→- **Playwright** for end-to-end tests.
+   978→- **axe-core** for accessibility testing (needs installation approval).
+   979→- **pa11y** for accessibility testing (needs installation approval).
+   980→- **Lighthouse** for performance testing (needs installation approval).
+   981→
+   982→### 10.2 Pending integrations
+   983→
+   984→- **GitHub** for version control and deployment (needs `gh` CLI and user account).
+   985→- **Vercel** for deployment (needs `vercel` CLI and user account).
+   986→- **Vercel KV** or **Resend** for production form persistence (local JSON file in pre-launch).
+   987→- **Vercel Analytics** or **Plausible** for analytics (none in pre-launch).
+   988→- **Gitleaks** for secret scanning (needs installation approval).
+   989→
+   990→### 10.3 Prohibited integrations
+   991→
+   992→- No third-party analytics (Google Analytics, Mixpanel, Amplitude) unless explicitly authorised.
+   993→- No third-party form services (Typeform, JotForm) unless explicitly authorised.
+   994→- No third-party live chat (Intercom, Drift, Crisp) unless explicitly authorised.
+   995→- No third-party cookie banners (OneTrust, Cookiebot) unless explicitly authorised. The site does not use non-essential cookies in pre-launch.
+   996→- No third-party payment services (Stripe, PayPal) in pre-launch.
+   997→
+   998→## 11. SEO
+   999→
+  1000→Per section 2.7. Specific SEO targets:
+  1001→
+  1002→- **Pre-launch:** `robots.txt` disallows indexing. Sitemap is generated but not submitted to search engines.
+  1003→- **Production launch:** `robots.txt` allows indexing. Sitemap submitted to Google Search Console and Bing Webmaster Tools. Canonical URLs verified. Open Graph images verified. Structured data verified.
+  1004→- **Target keywords:** "Oryx Institute", "vocational training Namibia", "Windhoek training institution", programme-specific keywords. No keyword stuffing.
+  1005→- **Content depth:** Each page has substantial, original content. No thin pages.
+  1006→- **Internal linking:** Every page links to relevant pages. No orphan pages.
+  1007→- **External linking:** No external links in pre-launch unless authorised.
+  1008→
+  1009→## 12. Analytics
+  1010→
+  1011→Per section 2.6. Specific analytics events:
+  1012→
+  1013→| Event | Trigger | Properties |
+  1014→|---|---|---|
+  1015→| `route_visit` | Page view | `path`, `referrer` |
+  1016→| `hero_slide_change` | Hero slider auto-advances or manual control | `slide_index`, `method` (auto, manual) |
+  1017→| `hero_pause` | User pauses hero slider | none |
+  1018→| `menu_open` | User opens the full-screen menu | none |
+  1019→| `menu_close` | User closes the full-screen menu | `method` (escape, route_click, backdrop_click) |
+  1020→| `programme_view` | User views a programme detail page | `programme_slug` |
+  1021→| `programme_filter` | User applies a filter on the programmes page | `filter_type`, `filter_value` |
+  1022→| `register_interest_submit` | User submits the register interest form | `programme_slug`, `interest_in_rpl` |
+  1023→| `mailing_list_submit` | User submits the mailing list form | none |
+  1024→| `employer_enquiry_submit` | User submits an employer enquiry | none |
+  1025→| `wil_enquiry_submit` | User submits a WIL enquiry | none |
+  1026→| `corporate_training_enquiry_submit` | User submits a corporate training enquiry | none |
+  1027→| `research_advisory_enquiry_submit` | User submits a research and advisory enquiry | none |
+  1028→| `funding_partnership_enquiry_submit` | User submits a funding partnership enquiry | none |
+  1029→
+  1030→No personally identifiable information in analytics events. No tracking of individual users.
+  1031→
+  1032→## 13. Security
+  1033→
+  1034→Per section 2.11. Specific security measures:
+  1035→
+  1036→- All secrets in environment variables. `.env` is gitignored.
+  1037→- `.env.example` documents required variables without values.
+  1038→- Content Security Policy configured via Next.js `headers()`.
+  1039→- HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy headers.
+  1040→- Honeypot field on all forms.
+  1041→- Rate limiting on form submission API routes (when deployed to Vercel).
+  1042→- Gitleaks scan before every commit (needs installation approval).
+  1043→- No secrets in client code.
+  1044→- No personally identifiable information in analytics.
+  1045→- No third-party tracking scripts.
+  1046→- HTTPS enforced by Vercel.
+  1047→- Form submissions persisted locally in pre-launch. No external data transmission.
+  1048→
+  1049→## 14. Deployment
+  1050→
+  1051→### 14.1 Pre-launch (current phase)
+  1052→
+  1053→- Local development only.
+  1054→- No deployment.
+  1055→- User instruction: "Do not deploy until instructed."
+  1056→
+  1057→### 14.2 Demo deployment (Phase 5)
+  1058→
+  1059→- GitHub repository prepared safely (private repository, no secrets in git history).
+  1060→- Vercel preview connected to the GitHub repository.
+  1061→- Demo subdomain attached (e.g. `oryx-preview.vercel.app` or a custom subdomain supplied by the user).
+  1062→- Indexing disabled (`robots.txt` disallows all).
+  1063→- Form submissions in test mode (local JSON file or Vercel KV test namespace).
+  1064→- Only approved routes unlocked (full mode in current plan).
+  1065→- Live smoke audit completed.
+  1066→
+  1067→### 14.3 Production deployment (Phase 7)
+  1068→
+  1069→- Run `tangison-web-deploy` against the exact audited commit.
+  1070→- Verify domain connection (e.g. `oryxinstitute.na` or user-supplied domain).
+  1071→- Verify TLS certificate.
+  1072→- Verify redirects (www to non-www or vice versa, HTTP to HTTPS).
+  1073→- Verify form submissions (production persistence, email notifications when authorised).
+  1074→- Verify analytics (when authorised).
+  1075→- Verify consent mechanism (when analytics are enabled).
+  1076→- Verify indexing (`robots.txt` allows indexing, sitemap submitted).
+  1077→- Verify sitemap, metadata, structured data.
+  1078→- Verify integrations.
+  1079→- Verify rollback path (previous deployment retained for instant rollback).
+  1080→- Live audit (Phase 8).
+  1081→
+  1082→### 14.4 DNS
+  1083→
+  1084→- Connect only the exact approved subdomain.
+  1085→- Preserve unrelated DNS records.
+  1086→- Verify TLS and redirects.
+  1087→- Retain rollback path.
+  1088→
+  1089→## 15. Milestones
+  1090→
+  1091→| # | Milestone | Phase | Exit criteria |
+  1092→|---|---|---|---|
+  1093→| M0 | Workspace inspected, skills verified, plan deliverables drafted | 0, 1 | This document set approved by user. |
+  1094→| M1 | External skills and CLI tools installed with proof | 0 | All installations verified in PROOF.md. |
+  1095→| M2 | Content plan and exact page copy produced | 2 | `CONTENT_PLAN.md` approved by user. |
+  1096→| M3 | Next.js project scaffolded, brand tokens configured, fonts loaded, navigation and footer built | 3 | Development server runs. Homepage skeleton renders. Type check and lint pass. |
+  1097→| M4 | All 48 images generated, inspected, approved | 3 | Image manifest shows all 48 images as `Approved`. |
+  1098→| M5 | All 27 routes built with content and components | 3 | Every route renders correctly at mobile, tablet, desktop. Type check, lint, and tests pass. |
+  1099→| M6 | All forms functional with local persistence | 3 | Form submissions persist to `/data/submissions.json`. Success and error states render correctly. |
+  1100→| M7 | SEO, accessibility, performance verified | 4 | Lighthouse 95+ desktop, 90+ mobile. axe-core 0 violations. Pa11y 0 errors. All WCAG 2.2 AA verified. |
+  1101→| M8 | Demo deployment to Vercel preview | 5 | Preview URL live. Smoke audit passed. User approval recorded. |
+  1102→| M9 | Production deployment | 7 | Production domain live. All verifications passed. |
+  1103→| M10 | Live audit | 8 | Live audit passed. No P0 issues. All P1 issues fixed or accepted. |
+  1104→
+  1105→## 16. Audit targets
+  1106→
+  1107→| Audit | Tool | Target | Notes |
+  1108→|---|---|---|---|
+  1109→| Type check | `tsc --noEmit` | 0 errors | Strict mode. |
+  1110→| Lint | `eslint` | 0 errors, 0 warnings | Next.js recommended config + strict TypeScript rules. |
+  1111→| Unit tests | `vitest` | 100% pass | All utility functions, schemas, data loaders. |
+  1112→| Component tests | `vitest` + React Testing Library | 100% pass | All interactive components. |
+  1113→| End-to-end tests | `playwright` | 100% pass | All critical journeys. |
+  1114→| Accessibility | `axe-core` | 0 violations | WCAG 2.2 AA. |
+  1115→| Accessibility | `pa11y` | 0 errors | Second check. |
+  1116→| Performance | `lighthouse` | 95+ desktop, 90+ mobile | Performance score. |
+  1117→| Core Web Vitals | `lighthouse` | LCP < 2.5s, INP < 200ms, CLS < 0.1 | Field data when deployed. |
+  1118→| Security | `gitleaks` | 0 secrets | All commits. |
+  1119→| Dependency audit | `pnpm audit` | 0 high/critical vulnerabilities | On every install. |
+  1120→| Visual regression | Playwright screenshots | All representative pages match baseline | Mobile and desktop. |
+  1121→| Manual journey check | Human | All critical journeys pass | Documented in PROOF.md. |
+  1122→| Responsive inspection | Human + Playwright | All pages render correctly at 375, 768, 1024, 1440 px | Documented in PROOF.md. |
+  1123→| Content comparison | Human | All copy matches approved CONTENT_PLAN.md | Documented in PROOF.md. |
+  1124→
+  1125→## 17. Risks
+  1126→
+  1127→| # | Risk | Likelihood | Impact | Mitigation |
+  1128→|---|---|---|---|---|
+  1129→| R1 | Image generation produces inconsistent results | High | Medium | Generate in small batches. Inspect each. Reject and regenerate inconsistent results. Adjust prompts based on observed failures. |
+  1130→| R2 | Image generation produces visibly artificial faces or hands | High | High | Compose prompts to show hands only or no person. Reject any image with artificial faces. |
+  1131→| R3 | Brand colour rendering varies across browsers and devices | Medium | Low | Use verified hex values. Test on multiple browsers and devices. AVIF format preserves colour accurately. |
+  1132→| R4 | Form submissions are lost in pre-launch | Low | Medium | Persist to local JSON file with audit log. Backup before any deployment. Swap to Vercel KV for production. |
+  1133→| R5 | Performance targets not met on slow Namibian connections | Medium | High | Optimise images aggressively. Minimise JavaScript. Use static generation. Test on simulated 3G connection. |
+  1134→| R6 | Accessibility targets not met | Low | High | Test with axe-core and pa11y throughout development. Manual keyboard and screen reader testing. WCAG 2.2 AA verified before audit. |
+  1135→| R7 | Founder copy is too minimal and feels incomplete | Medium | Low | Accept this risk. Brief explicitly says "put very little about him". Founder page links to contact for serious enquiries. |
+  1136→| R8 | Pre-launch content posture is misread as the institution not being serious | Medium | Medium | Use "Coming Soon" as an elegant status statement, not a dead page. Substantial content on every other page demonstrates seriousness. |
+  1137→| R9 | External skills (superpowers, ponytail, impeccable, taste-skill) installation fails | Low | Medium | Verify each repo before installation. Use `git clone --depth 1` as fallback. Record proof in PROOF.md. |
+  1138→| R10 | Vercel deployment fails or preview subdomain is unavailable | Low | High | Use Vercel CLI directly. Try alternative subdomain. Roll back to previous deployment. |
+  1139→| R11 | User does not supply verified facts (fees, intake date, accreditation) before production launch | High | Medium | Pre-launch content posture handles this gracefully. All unknown fields display "To be confirmed". Production launch can proceed with pre-launch posture if user authorises. |
+  1140→| R12 | Scope creep: user adds new routes, new programmes, new features mid-build | Medium | Medium | Update PRODUCT.md, BRAND.md, BUILD_PLAN.md, CONTENT_PLAN.md before implementing. Re-run audit after changes. |
+  1141→| R13 | Image generation skill is unavailable or rate-limited | Low | High | Use `image-generation` skill (z-ai-web-dev-sdk, available locally). If unavailable, fall back to manual image sourcing or delay image generation until available. |
+  1142→
+  1143→## 18. Acceptance criteria
+  1144→
+  1145→The Phase 1 plan is accepted when:
+  1146→
+  1147→1. `PRODUCT.md`, `BRAND.md`, `BUILD_PLAN.md`, and `PROOF.md` are complete and internally consistent.
+  1148→2. The user explicitly approves the four documents.
+  1149→3. The user explicitly approves the stack: Next.js 16, TypeScript, Tailwind CSS v4, no component library, no database in pre-launch, Vercel deployment.
+  1150→4. The user explicitly approves the route matrix (27 routes plus system pages).
+  1151→5. The user explicitly approves the image manifest (48 original images).
+  1152→6. The user explicitly approves the typography pairing (Fraunces + Inter) or supplies an alternative.
+  1153→7. The user explicitly approves the install list for external skills and CLI tools.
+  1154→8. The user explicitly decides on Hallmark (install `nutlope/hallmark` or omit).
+  1155→9. The user explicitly decides on Squirrelscan (install or omit).
+  1156→10. The user explicitly decides on demo mode (locked demo or full mode with pre-launch content posture).
+  1157→
+  1158→## 19. Human approval points
+  1159→
+  1160→The following decisions require explicit user approval before proceeding:
+  1161→
+  1162→| # | Decision | When |
+  1163→|---|---|---|
+  1164→| A1 | Approve PRODUCT.md, BRAND.md, BUILD_PLAN.md, PROOF.md | Now (Phase 1 gate) |
+  1165→| A2 | Approve typography pairing (Fraunces + Inter or alternative) | Now (Phase 1 gate) |
+  1166→| A3 | Approve installation of external skills (superpowers, ponytail, impeccable, taste-skill/design-taste-frontend) | Now (Phase 1 gate) |
+  1167→| A4 | Approve installation of global CLI tools (pnpm, gh, vercel, gitleaks) | Now (Phase 1 gate) |
+  1168→| A5 | Approve installation of project-local devDependencies (axe-core, pa11y, lighthouse) | Now (Phase 1 gate) |
+  1169→| A6 | Decide on Hallmark (install nutlope/hallmark or omit) | Now (Phase 1 gate) |
+  1170→| A7 | Decide on Squirrelscan (install or omit) | Now (Phase 1 gate) |
+  1171→| A8 | Decide on demo mode (locked demo or full mode) | Now (Phase 1 gate) |
+  1172→| A9 | Approve CONTENT_PLAN.md | Phase 2 gate |
+  1173→| A10 | Approve all 48 generated images | Phase 3 gate (after image generation) |
+  1174→| A11 | Approve all route builds | Phase 3 gate (after build) |
+  1175→| A12 | Approve audit results | Phase 4 gate |
+  1176→| A13 | Approve demo deployment | Phase 5 gate |
+  1177→| A14 | Approve production deployment | Phase 7 gate |
+  1178→| A15 | Approve live audit | Phase 8 gate |
+  1179→
+  1180→## 20. Confirmed
+  1181→
+  1182→These items are confirmed by the user:
+  1183→
+  1184→- Institution: Oryx Institute, multidisciplinary vocational education and training institution being established in Windhoek, Namibia.
+  1185→- Founder: Tangi Iigonda. Minimal copy on /founder page.
+  1186→- Brand direction: Namibian, quietly prestigious, academic but contemporary, minimal, warm, architectural.
+  1187→- Brand colours: cream, sand, stone, black, deep Oryx maroon. Canonical Oryx Maroon `#721220` verified from supplied assets.
+  1188→- Logo: Original transparent PNG. Never redrawn, regenerated, reinterpreted, cropped incorrectly, distorted, recoloured, or placed under effects. Never inserted into generated images. Never used as a watermark.
+  1189→- Pre-launch content posture: No dates, no fees, no accreditation claims, no registration number, no campus address, no partnerships, no learner numbers.
+  1190→- 27 routes plus system pages: full route matrix per section 3.
+  1191→- 48 original images: full image manifest per section 4.
+  1192→- Footer credit: "Made by Tangison Studio" linked to https://studio.tangison.com on every public page.
+  1193→- Deployment: "Do not deploy until instructed."
+  1194→- Working method: Webman workflow (Plan, Content, Brand definition, Creation, Audit, Fixes, Re-audit, Demo deployment, Client approval, Production deployment, Live audit).
+  1195→- Plan artefacts: PRODUCT.md, BRAND.md, BUILD_PLAN.md, CONTENT_PLAN.md, PROOF.md.
+  1196→- Hallmark: Do not install or invoke until user provides exact primary repository and install name. (Verified source: `https://github.com/Nutlope/hallmark`, install `npx skills add nutlope/hallmark`. User authorisation still pending.)
+  1197→- Full-output enforcement: No placeholders, no truncation, no "for brevity", no skeleton code. Every deliverable complete.
+  1198→- Reject generic AI design: No purple gradients, no glassmorphism, no excessive cards, no pills, no generic startup illustrations, no blobs, no decorative dashboards, no fake metrics, no staged stock photographs, no mortarboard cliches, no pyramids, no generated text in images, no oversized maroon blocks, no em dashes, no generic AI language.
+  1199→- Prohibited words: world-class, revolutionary, cutting edge, unlock, game changing, seamless, unwavering commitment, next generation.
+  1200→
+  1201→## 21. Assumptions
+  1202→
+  1203→These items are assumed in the absence of explicit user instruction. Each is flagged for confirmation at the Phase 1 approval gate:
+  1204→
+  1205→- The website is greenfield. No existing project stack to preserve.
+  1206→- Next.js 16 with App Router is the appropriate stack.
+  1207→- Tailwind CSS v4 with brand tokens as CSS custom properties is the appropriate styling system.
+  1208→- No component library (shadcn/ui, Astryx).
+  1209→- No database in pre-launch. Local JSON file persistence marked as mock.
+  1210→- No analytics in pre-launch unless user authorises.
+  1211→- No authentication in pre-launch.
+  1212→- Founder page contains minimal copy: name, role, single short paragraph.
+  1213→- Programme pages display "To be confirmed" for every unknown field.
+  1214→- Campus page clearly labels all imagery as architectural concept.
+  1215→- Updates feed starts empty with a clear empty state.
+  1216→- Tangison Studio footer credit is present on every public page.
+  1217→- Typography pairing: Fraunces (display) + Inter (body). Pending user confirmation.
+  1218→- Image generation: z-ai-web-dev-sdk image-generation skill, available locally.
+  1219→- Persistence: local JSON file marked as mock for pre-launch.
+  1220→- Analytics: none in pre-launch. Vercel Analytics as default when authorised.
+  1221→- Demo mode: full mode with pre-launch content posture (not locked demo).
+  1222→- Production domain: `oryxinstitute.na` (assumed; pending user confirmation).
+  1223→- Repository: private GitHub repository (owner pending user confirmation).
+  1224→
+  1225→## 22. Needs confirmation
+  1226→
+  1227→These items need explicit user confirmation before Phase 3 (Create):
+  1228→
+  1229→1. Approve PRODUCT.md, BRAND.md, BUILD_PLAN.md, PROOF.md.
+  1230→2. Approve typography pairing: Fraunces (display) + Inter (body), or supply alternative.
+  1231→3. Approve installation of: superpowers, ponytail, impeccable, taste-skill (design-taste-frontend), pnpm, gh, vercel, gitleaks, axe-core, pa11y, lighthouse.
+  1232→4. Decide on Hallmark: install `nutlope/hallmark` (verified primary source) or omit.
+  1233→5. Decide on Squirrelscan: install or omit.
+  1234→6. Confirm demo mode: full mode with pre-launch content posture (recommended) or locked demo.
+  1235→7. Confirm production domain (e.g. `oryxinstitute.na` or alternative).
+  1236→8. Confirm GitHub repository owner and visibility.
+  1237→9. Confirm Vercel team and project name.
+  1238→10. Confirm email service for production form submissions (Resend, Postmark, or alternative).
+  1239→11. Confirm analytics provider (Vercel Analytics, Plausible, Fathom, or none).
+  1240→12. Supply or omit: campus address, accreditation status, programme fees, intake date, partner organisations.
+  1241→13. Supply or omit: founder photograph for /founder page.
+  1242→14. Supply or omit: social media links for footer.
+  1243→15. Supply or omit: contact phone number and email for /contact page.
+  1244→
+  1245→## 23. Approval gate
+  1246→
+  1247→I will not begin Phase 2 (Content) or Phase 3 (Create) until the user explicitly approves:
+  1248→
+  1249→- This BUILD_PLAN.md.
+  1250→- PRODUCT.md.
+  1251→- BRAND.md.
+  1252→- The stack choice (Next.js 16, TypeScript, Tailwind CSS v4, no component library, no database in pre-launch, Vercel deployment).
+  1253→- The route and state matrix (27 routes plus system pages).
+  1254→- The image manifest (48 original images).
+  1255→- The typography pairing (Fraunces + Inter or alternative).
+  1256→- The install list for external skills and CLI tools.
+  1257→- Decisions on Hallmark and Squirrelscan.
+  1258→- Demo mode decision (full mode recommended).
+  1259→
+  1260→Approval can be given as "approved, proceed to Phase 2" or with specific amendments.
+  1261→
+  1262→---
+  1263→
+  1264→**Status:** Draft, awaiting user approval.
+  1265→**Phase:** 1 (Plan).
+  1266→**Next specialist skill:** tangison-web-content (Phase 2), pending approval.
+  1267→
