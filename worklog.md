@@ -124,3 +124,35 @@ Stage Summary:
 - VLM confirms "premium-tier design" with "quiet luxury" aesthetic.
 - Artifacts: src/components/site/editorial-hero.tsx, src/components/site/editorial-index.tsx, src/app/page.tsx (rewritten).
 - Screenshots: download/home-final.png, download/home-mobile.png, download/about-final.png, download/schools-final.png.
+
+---
+Task ID: 6
+Agent: main (hero video loop)
+Task: Optimize the user-supplied oryx video (upload/VID-20260723-WA1548.mp4) as a seamless hero loop and integrate it into the EditorialHero, optimized perfectly for web.
+
+Work Log:
+- Inspected source: 512×768 portrait, 5.21s, 24fps, H.264, ~2.1 Mbps, no audio, 1.4 MB.
+- Extracted 5 sample frames (0/25/50/75/99%) and VLM-analyzed them: confirmed an oryx on a Namibian dune, walking then settling back to standing pose — loops seamlessly (last frame visually matches first). Brand-perfect content (the oryx is the institute's namesake).
+- Wrote `/home/z/my-project/scripts/optimize-hero-video.sh` (persisted per Rule 9) producing three assets:
+  - `public/hero/oryx-loop.mp4` — H.264 high profile, CRF 24, preset slow, yuv420p, +faststart. 236 KB (5.9× smaller than source, 83% reduction).
+  - `public/hero/oryx-loop.webm` — VP9, CRF 32, row-mt. 214 KB. Preferred for Chromium/Firefox/Safari 16+.
+  - `public/hero/oryx-loop-poster.jpg` — first-frame JPEG q4. 16 KB. Used as instant LCP and reduced-motion fallback.
+- Rewrote `src/components/site/editorial-hero.tsx` with a 5-layer stack:
+  1. <img> poster — always visible, fetchPriority="high", instant paint (LCP).
+  2. <video autoPlay muted loop playsInline preload="metadata"> with WebM source first, MP4 fallback. class="hero-video" for CSS hook. aria-hidden.
+  3. Photo-dark gradient (DESIGN.md §6.4) — left-weighted for text legibility.
+  4. Top + bottom fades for header and headline legibility.
+  5. Content (eyebrow, display headline, supporting line, two CTAs).
+- Added reduced-motion CSS rule to globals.css: `.hero-video { display: none }` inside `@media (prefers-reduced-motion: reduce)` — hides the video, revealing the static poster underneath (DESIGN.md §14 compliance).
+- Verified build: `npm run build` succeeds, 41 pages prerender.
+- Verified playback at runtime: agent-browser eval on the live <video> element returns `paused:false, currentTime:3.4s, readyState:4, duration:5.209, videoWidth:512, videoHeight:768, source:...oryx-loop.webm` — WebM source selected (better compression), playing cleanly.
+- VLM critique desktop (1440×900): "Excellent legibility… oryx perfectly positioned in the right editorial zone, faces inward toward the text… natural visual flow… surrounding negative space feels intentional and luxurious… highly balanced and premium… sophisticated… no issues."
+- VLM critique mobile (390×844): "Excellent legibility… oryx clearly visible on the right side, well-positioned to avoid overlapping text… very high premium feel… perfectly optimized for mobile."
+- All three hero assets serve with HTTP 200 + Accept-Ranges:bytes (range requests supported for video streaming).
+
+Stage Summary:
+- Source video (1.4 MB) compressed to 236 KB MP4 + 214 KB WebM + 16 KB poster — total ~466 KB for the full hero media stack, a 67% reduction vs source alone.
+- Video plays seamlessly as a loop on desktop and mobile, with poster-paint for LCP and reduced-motion fallback per DESIGN.md §14.
+- EditorialHero retained its Collins-style restraint — single hero, type-led, two CTAs — now with atmospheric motion instead of a still image.
+- Artifacts: public/hero/{oryx-loop.mp4, oryx-loop.webm, oryx-loop-poster.jpg}, scripts/optimize-hero-video.sh, src/components/site/editorial-hero.tsx (rewritten), src/app/globals.css (reduced-motion rule added).
+- Screenshots: download/hero-video-desktop.png, download/hero-video-mobile.png.

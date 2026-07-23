@@ -1,9 +1,23 @@
 import Link from 'next/link';
 
 /**
- * EditorialHero — Collins-style restraint.
- * One image. One headline. One supporting line. Two actions.
- * No autoplay. No carousel. No indicators. Just the page.
+ * EditorialHero — Collins-style restraint, now with a seamless video loop.
+ *
+ * Layering (back to front):
+ *   1. <img> poster — always visible. Acts as the LCP element and as the
+ *      permanent fallback if video cannot play (reduced motion, no JS,
+ *      unsupported codec, slow connection).
+ *   2. <video> on top — transparent until it plays, then covers the poster.
+ *      WebM first (better compression), MP4 fallback. Muted/loop/playsInline
+ *      for iOS autoplay. preload="metadata" keeps first paint fast.
+ *   3. Photo-dark gradient (DESIGN.md §6.4) for left-weighted legibility.
+ *   4. Top + bottom fades for header and headline legibility.
+ *   5. Content: eyebrow, display headline, supporting line, two actions.
+ *
+ * Accessibility:
+ *   - prefers-reduced-motion users get the static poster only (video is
+ *     hidden via CSS in globals.css), satisfying DESIGN.md §14.
+ *   - Video is aria-hidden — it is decorative; the heading carries meaning.
  */
 export function EditorialHero() {
   return (
@@ -11,14 +25,32 @@ export function EditorialHero() {
       aria-labelledby="hero-heading"
       className="relative w-full min-h-[88svh] flex items-end overflow-hidden bg-[var(--color-brand-ink)]"
     >
-      {/* Single still image */}
+      {/* Layer 1 — still poster (always visible, instant paint, LCP) */}
       <img
-        src="/images/hero/hero-1.png"
-        alt="An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above."
+        src="/hero/oryx-loop-poster.jpg"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
       />
-      {/* DESIGN.md §6.4 gradient-photo-dark — left-weighted for legibility */}
+
+      {/* Layer 2 — looping video on top. Portrait 2:3, object-cover so it
+          scales cleanly across mobile (full bleed) and desktop (center
+          column visible). Hidden under prefers-reduced-motion via CSS. */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src="/hero/oryx-loop.webm" type="video/webm" />
+        <source src="/hero/oryx-loop.mp4" type="video/mp4" />
+      </video>
+
+      {/* Layer 3 — DESIGN.md §6.4 gradient-photo-dark, left-weighted */}
       <div
         className="absolute inset-0"
         style={{
@@ -26,10 +58,12 @@ export function EditorialHero() {
             'linear-gradient(90deg, rgba(23, 23, 23, 0.86) 0%, rgba(74, 7, 16, 0.56) 52%, rgba(74, 7, 16, 0.10) 100%)',
         }}
       />
-      {/* Top fade so the header reads cleanly over the image */}
+      {/* Layer 4a — bottom fade so the headline reads cleanly above the index */}
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[rgba(23,23,23,0.55)] to-transparent" />
+      {/* Layer 4b — top fade so the header reads cleanly over the video */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(23,23,23,0.55)] to-transparent" />
 
-      {/* Content */}
+      {/* Layer 5 — content */}
       <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32">
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-5">
