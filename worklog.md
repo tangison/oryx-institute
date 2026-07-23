@@ -92,3 +92,35 @@ Stage Summary:
 - Values grid: editorial numbered list, not generic 3-card row.
 - PROOF.md appended with 30 evidence rows for wave execution.
 - No deployment — user must explicitly instruct.
+
+---
+Task ID: 5
+Agent: main (Collins rebuild)
+Task: Rebuild the Oryx Institute site as a Collins-branding-agency-style minimal editorial index — many pages, not one cluttered page.
+
+Work Log:
+- Audited current state: home page had 15 sections crammed into one route (the "cluttered single page" the user rejected); 10 interior routes already existed with consistent PageShell + PageHeader + Section editorial primitives.
+- Fixed header.tsx typo: `const [menuOpen, setMenuOpen]` (the `[m` was previously dropped during a context-compression event).
+- Created `src/components/site/editorial-hero.tsx` — Collins-style restraint: single still image (no carousel, no autoplay, no slide indicators), type-led headline, two actions, generous bottom padding. Replaces the 5-slide carousel Hero.
+- Created `src/components/site/editorial-index.tsx` — numbered "table of contents" navigation. Each entry: number + title + blurb + arrow. The list IS the design. Hover lift, generous vertical rhythm, divide-y rules.
+- Rewrote `src/app/page.tsx` as a minimal editorial landing:
+  1. EditorialHero (single image, hero headline, two CTAs)
+  2. Brief founder's note (one paragraph, narrow measure, generous air)
+  3. EditorialIndex of all 10 destinations (numbered 01–10 like a magazine TOC)
+  4. Pre-launch status notice (honest, no CTA — the footer carries it)
+  5. SiteFooter (existing)
+  Removed the 14 heavy section components (SchoolsSection, PathwaysSection, ProgrammesSection, CampusSection, ResearchSection, FounderSection, BrandSection, UpdatesSection, PartnerSection, FaqSection, MailingListSection, RegisterInterestSection, PathwaysDetailSection, InstituteIntro) plus ModalProvider/FormHandler/ModalRouter client bloat from the home route.
+- Verified build: `npm run build` succeeds, 41 pages prerender, 10 routes + dynamic [slug] routes intact.
+- Captured screenshots: home-desktop, home-mobile, home-full, about-full, schools-final.
+- VLM critique #1 (home full page): "editorially-driven design that demonstrates exceptional restraint... avoids the trap of the cluttered 'kitchen sink' single page... clean, architectural index... numbered list format mimics a table of contents or a manifesto." Issues: footer slightly heavy, CTA repetition (3× Register Interest). Addressed CTA repetition by removing the mid-page CTA in the pre-launch section.
+- VLM critique #2 (mobile 390px): "clean, editorial-style mobile experience... numbered index list stacks vertically with ample whitespace and clear dividers... no horizontal overflow."
+- VLM critique #3 (home + about + schools): "sophisticated, 'quiet luxury' execution... editorial spine remarkably consistent across all three pages... Home: masterclass in information architecture... About: strongest page narratively... premium-tier design. It feels expensive because it uses space and type as primary tools rather than relying on decorative clutter." Only flag: schools page photography consistency (School 05 Future uses landscape vs others' product stills) — content-level, not layout.
+
+Stage Summary:
+- Home page transformed from 15-section cluttered single page → minimal Collins-style editorial index (hero + intro + 10-entry TOC + honest pre-launch notice).
+- Multi-page architecture preserved and reinforced: 10 routes already existed, now properly indexed from the landing.
+- Editorial spine (PageShell + PageHeader + Section + Prose) verified consistent across home, about, schools.
+- Build clean, 41 pages prerender, no compilation errors.
+- VLM confirms "premium-tier design" with "quiet luxury" aesthetic.
+- Artifacts: src/components/site/editorial-hero.tsx, src/components/site/editorial-index.tsx, src/app/page.tsx (rewritten).
+- Screenshots: download/home-final.png, download/home-mobile.png, download/about-final.png, download/schools-final.png.
