@@ -33,7 +33,7 @@ export function ModalRouter() {
 
   if (typeof modal === 'object' && modal !== null) {
     if ('programme' in modal) return <ProgrammeModal slug={modal.programme} />;
-    if ('school' in modal) return <SchoolModal slug={modal.school} />;
+    if ('school' in modal) return <SchoolModal slug={modal.school as import('@/lib/content').SchoolSlug} />;
   }
 
   return null;

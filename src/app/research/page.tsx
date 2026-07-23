@@ -1,0 +1,103 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { PageShell } from '@/components/site/page-shell';
+import { PageHeader } from '@/components/site/page-header';
+import { Section, SectionHeader } from '@/components/site/section';
+
+export const metadata: Metadata = {
+  title: 'Research',
+  description:
+    'Applied research and advisory services planned at Oryx Institute. Workforce studies, sector research, and advisory services for Namibian employers and institutions.',
+  alternates: { canonical: 'https://oryxinstitute.na/research' },
+};
+
+export default function ResearchPage() {
+  return (
+    <PageShell>
+      <PageHeader
+        eyebrow="Research"
+        title="Research and advisory."
+        lede="Applied research and advisory services, planned small at launch. Workforce studies, sector research, and advisory for Namibian employers and institutions."
+      />
+
+      <Section tone="cream">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <figure className="lg:col-span-6 relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+            <img
+              src="/images/research/research-1.png"
+              alt="A research notebook and pen on a warm wooden surface in soft directional light."
+              className="w-full h-full object-cover"
+            />
+          </figure>
+
+          <div className="lg:col-span-6 space-y-8">
+            <div>
+              <p className="eyebrow mb-3">What is planned</p>
+              <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-4">
+                Applied research that serves Namibian employers and institutions.
+              </p>
+              <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
+                Oryx Institute intends to conduct applied research and advisory work alongside its
+                teaching. Research will be small in scale at launch, focused on workforce studies,
+                sector needs analysis, and advisory services for employers, donors, and public
+                institutions. No research project is confirmed at this stage. All research will be
+                commissioned and paid for, not speculative.
+              </p>
+            </div>
+
+            <div>
+              <p className="eyebrow mb-3">How it will work</p>
+              <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
+                Employers, donors, development finance institutions, and public bodies may
+                commission research or advisory work. The institution will take on work it can
+                deliver to a high standard. Research outputs will be published where appropriate and
+                retained as confidential where required by the commissioning party. No research is
+                conducted until the institution is established.
+              </p>
+            </div>
+
+            <div className="pt-6 border-t border-[var(--color-border)]">
+              <Link href="/partners/research" className="btn-primary">
+                Commission Research
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="dark">
+        <SectionHeader
+          eyebrow="Principles"
+          title="How the research will be conducted."
+          tone="dark"
+        />
+        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--oryx-warm-white)]/15">
+          <li className="bg-[var(--oryx-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">01</p>
+            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Commissioned, not speculative</p>
+            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+              Research is commissioned by organisations with real questions. No research is
+              conducted without a clear purpose and audience.
+            </p>
+          </li>
+          <li className="bg-[var(--oryx-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">02</p>
+            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Honest and verifiable</p>
+            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+              Research findings are reported as found, not as the commissioning party wishes. Methods
+              are documented. Sources are cited.
+            </p>
+          </li>
+          <li className="bg-[var(--oryx-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">03</p>
+            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Namibian first</p>
+            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+              Research serves Namibian employers, institutions, and learners first. International
+              comparison is welcome. International substitution is not.
+            </p>
+          </li>
+        </ul>
+      </Section>
+    </PageShell>
+  );
+}

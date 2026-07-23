@@ -26,8 +26,6 @@ export function FormHandler() {
         if (website) {
           // Silently succeed without submitting
           showSuccess(form, {
-            ok: true,
-            id: 'sub_spam',
             message: 'Thank you. Your submission has been received.',
             mockNotice: '',
           });
@@ -39,7 +37,7 @@ export function FormHandler() {
         formData.forEach((value, key) => {
           if (key === 'website') return;
           if (key === 'consent') {
-            payload[key] = value === 'on' || value === 'true' || value === true;
+            payload[key] = value === 'on' || value === 'true';
           } else {
             payload[key] = value;
           }

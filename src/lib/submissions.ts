@@ -30,7 +30,7 @@ export const registerInterestSchema = z.object({
   employmentStatus: z.string().optional().default(''),
   rplInterest: z.enum(['yes', 'no', 'unsure']).optional().default('unsure'),
   preferredSchedule: z.string().optional().default(''),
-  consent: z.literal(true, { errorMap: () => ({ message: 'Please consent to receive updates.' }) }),
+  consent: z.literal(true, { error: 'Please consent to receive updates.' }),
   // honeypot
   website: z.string().max(0).optional().default(''),
 });
@@ -39,7 +39,7 @@ export const mailingListSchema = z.object({
   type: z.literal('mailing-list'),
   name: z.string().min(2, 'Please enter your name.'),
   email: z.string().email('Please enter a valid email address.'),
-  consent: z.literal(true, { errorMap: () => ({ message: 'Please consent to receive updates.' }) }),
+  consent: z.literal(true, { error: 'Please consent to receive updates.' }),
   website: z.string().max(0).optional().default(''),
 });
 
@@ -58,7 +58,7 @@ export const enquirySchema = z.object({
   role: z.string().optional().default(''),
   phone: z.string().optional().default(''),
   message: z.string().min(10, 'Please share a short message (at least 10 characters).'),
-  consent: z.literal(true, { errorMap: () => ({ message: 'Please consent to be contacted.' }) }),
+  consent: z.literal(true, { error: 'Please consent to be contacted.' }),
   website: z.string().max(0).optional().default(''),
 });
 
