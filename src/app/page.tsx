@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SiteHeader } from '@/components/site/header';
 import { SiteFooter } from '@/components/site/footer';
 import { EditorialHero } from '@/components/site/editorial-hero';
+import { VideoCarousel } from '@/components/site/video-carousel';
 import { EditorialIndex } from '@/components/site/editorial-index';
 
 export const metadata: Metadata = {
@@ -98,19 +99,22 @@ export default function Home() {
       <main id="main">
         <EditorialHero />
 
+        {/* Video carousel — institutional profile showcase */}
+        <VideoCarousel />
+
         {/* Brief editorial intro — one paragraph, narrow measure, generous air */}
         <section className="container-oryx py-20 md:py-28 lg:py-32">
           <div className="max-w-3xl">
             <p className="eyebrow mb-6">A note from the founder</p>
             <p className="font-display text-2xl md:text-[1.75rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-ink)] text-balance">
               Oryx Institute is being built for the work Namibia needs. Quiet,
-              disciplined, and rooted in the Namibian landscape — a place for
+              disciplined, and rooted in the Namibian landscape: a place for
               serious learning across five planned schools.
             </p>
             <p className="mt-6 max-w-[60ch] text-[1.0625rem] leading-[1.65] text-[var(--color-text-secondary)]">
               Programmes are planned. Accreditation is subject to approval.
               Applications are not yet open. This is a record of intent, not a
-              prospectus — and an invitation to register interest as the
+              prospectus, and an invitation to register interest as the
               institution takes shape.
             </p>
             <Link
