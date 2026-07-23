@@ -18,7 +18,7 @@ export function Prose({
     <div
       className={cn(
         'space-y-6 leading-relaxed',
-        tone === 'dark' ? 'text-[var(--oryx-warm-white)]/85' : 'text-[var(--muted-foreground)]',
+        tone === 'dark' ? 'text-[var(--color-brand-cream)]/85' : 'text-[var(--muted-foreground)]',
         className
       )}
     >
@@ -46,7 +46,7 @@ export function ProseSection({
   return (
     <section>
       {eyebrow && (
-        <p className={cn('eyebrow mb-3', isDark && 'text-[var(--oryx-warm-white)]/70')}>
+        <p className={cn('eyebrow mb-3', isDark && 'text-[var(--color-brand-cream)]/70')}>
           {eyebrow}
         </p>
       )}
@@ -54,7 +54,7 @@ export function ProseSection({
         <p
           className={cn(
             'font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4',
-            isDark ? 'text-[var(--oryx-cream)]' : 'text-[var(--oryx-ink)]'
+            isDark ? 'text-[var(--color-brand-cream)]' : 'text-[var(--color-brand-ink)]'
           )}
         >
           {heading}

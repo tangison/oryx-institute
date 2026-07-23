@@ -66,7 +66,7 @@ export function EnquiryForm({ type }: { type: EnquiryType }) {
       </div>
       <div>
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--oryx-maroon)]" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
+          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
           <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">I consent to be contacted by Oryx Institute about this enquiry. <span aria-hidden="true">*</span></span>
         </label>
         <FieldError error={state.errors.consent} />

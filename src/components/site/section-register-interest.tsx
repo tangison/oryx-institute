@@ -7,7 +7,7 @@ export function RegisterInterestSection() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="register-interest" className="relative bg-[var(--oryx-ink)] text-[var(--oryx-cream)] py-20 md:py-28 lg:py-32 overflow-hidden">
+    <section id="register-interest" className="relative bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] py-20 md:py-28 lg:py-32 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 opacity-30">
         <img
@@ -17,45 +17,45 @@ export function RegisterInterestSection() {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--oryx-ink)] via-[var(--oryx-ink)]/80 to-[var(--oryx-ink)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-ink)] via-[var(--color-brand-ink)]/80 to-[var(--color-brand-ink)]" />
       </div>
 
       <div ref={ref} className={`container-oryx relative reveal ${visible ? 'is-visible' : ''}`}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">Register Interest</p>
+            <p className="eyebrow text-[var(--color-brand-cream)] mb-4">Register Interest</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.0] tracking-tight text-balance">
               Be part of what is being built.
             </h2>
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-[var(--oryx-warm-white)]/80 text-pretty">
+            <p className="mt-6 text-base md:text-lg leading-relaxed text-[var(--color-brand-cream)]/80 text-pretty">
               Register your interest in planned programmes. Tell us what you want to study. We will
               contact you when admissions open.
             </p>
 
             <dl className="mt-12 space-y-6">
               <div className="grid grid-cols-[auto_1fr] gap-6 items-start">
-                <dt className="font-display text-2xl text-[var(--oryx-maroon)] font-medium">01</dt>
+                <dt className="font-display text-2xl text-[var(--color-brand-maroon)] font-medium">01</dt>
                 <dd>
                   <p className="font-display text-base mb-1">Tell us about you</p>
-                  <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+                  <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
                     Your name, contact, and where you are in Namibia.
                   </p>
                 </dd>
               </div>
               <div className="grid grid-cols-[auto_1fr] gap-6 items-start">
-                <dt className="font-display text-2xl text-[var(--oryx-maroon)] font-medium">02</dt>
+                <dt className="font-display text-2xl text-[var(--color-brand-maroon)] font-medium">02</dt>
                 <dd>
                   <p className="font-display text-base mb-1">Choose your programme</p>
-                  <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+                  <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
                     Pick from the planned catalogue or write your own interest.
                   </p>
                 </dd>
               </div>
               <div className="grid grid-cols-[auto_1fr] gap-6 items-start">
-                <dt className="font-display text-2xl text-[var(--oryx-maroon)] font-medium">03</dt>
+                <dt className="font-display text-2xl text-[var(--color-brand-maroon)] font-medium">03</dt>
                 <dd>
                   <p className="font-display text-base mb-1">We will be in touch</p>
-                  <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+                  <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
                     When admissions open, we will contact you with next steps.
                   </p>
                 </dd>
@@ -76,7 +76,7 @@ function RegisterInterestForm() {
   return (
     <form
       data-form-type="register-interest"
-      className="bg-white text-[var(--oryx-ink)] p-6 md:p-8 lg:p-10 border border-[var(--color-border)]"
+      className="bg-white text-[var(--color-brand-ink)] p-6 md:p-8 lg:p-10 border border-[var(--color-border)]"
       noValidate
     >
       <h3 className="font-display text-2xl md:text-3xl font-medium leading-tight mb-6">
@@ -168,7 +168,7 @@ function RegisterInterestForm() {
 
       <div className="mt-6">
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--oryx-maroon)]" />
+          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" />
           <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             I consent to receive updates from Oryx Institute about admissions, programmes, and the
             institution. I understand my data will be stored securely and used only to contact me

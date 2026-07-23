@@ -55,3 +55,40 @@ Stage Summary:
 - No code changes made — planning mode per user instruction.
 - Ready to execute Wave 1 (Font swap) on user confirmation. Estimated total effort ~7.5 hours across all 8 waves.
 - User note: "I will give you even more images to redo it" — additional logo assets expected. Plan structured to accept new logo at any point without rework.
+
+---
+Task ID: 4-waves
+Agent: main (super-z)
+Task: Execute all 8 waves of the Phase 4 audit plan. User instruction: "Execute all waves execute the plan and theres no wordmark only the logo icon"
+
+Work Log:
+- Wave 1 (Font swap): Updated layout.tsx to import Cinzel + Source_Sans_3 from next/font/google with variables --font-cinzel and --font-source-sans-3. Rewrote globals.css @theme block with --font-display and --font-body token stacks. Headings now render in Cinzel all-caps; body in Source Sans 3.
+- Wave 2 (Colour cleanup): Full rewrite of globals.css @theme and :root blocks per DESIGN.md §21. New tokens: brand-maroon #7A0F1E, brand-maroon-dark #4A0710, brand-cream #FFF8EF, brand-ink #171717. Added 6-step neutral palette, 4-step status palette, 3 gradients, 4 border tokens, 2 shadow tokens. Ran sed across 51 source files to replace all --oryx-* and --color-oryx-* references with new token names. Verified 0 old-token references remain.
+- Wave 3 (Interaction states): Two-layer focus ring (3px cream outline + 5px ink box-shadow) with dark-surface variant. Button :active translateY(1px) feedback. Button min-height 48px. Input min-height 48px + font-size 1rem (16px). Touch targets bumped from w-10 (40px) to w-11 (44px) in header and hero.
+- Wave 4 (Layout/spacing): Container max-width 80rem→90rem (1440px). Gutters 1.25/2/4rem per DESIGN.md §8.1. Added grid-oryx 4/8/12 column system. Added --space-0 through --space-10 spacing scale. Applied optical asymmetry to schools section (pt-20 pb-24, pt-28 pb-32, pt-32 pb-36).
+- Wave 5 (Motion): Durations 600/400/200ms → 360/200/120ms per DESIGN.md §14. Easing cubic-bezier(0.22,1,0.36,1) → cubic-bezier(0.2,0,0,1). Hero now checks matchMedia('(prefers-reduced-motion: reduce)') and skips autoplay when active.
+- Wave 6 (Components): Built Notice component (4 variants: info/success/warning/error) with 4px left rule per DESIGN.md §12.9. Updated FormStatus to use Notice. Status vocabulary migrated: "Subject to approval"→"Subject to accreditation", "To be announced"→"Applications not yet open" across content.ts and all comparison code. Redesigned /about values from 3-card grid to editorial numbered list (12-col: number/title/body with divide-y). Section component now marks data-dark-surface on dark/maroon tones for reversed focus ring. Schools section links to real /schools/[slug] routes instead of opening modals. Logo made BIG (h-14/h-16 header, h-16/h-20 footer) with wordmark text removed — shield icon only per user instruction.
+- Wave 7 (Typography polish): Added 10 type scale tokens (--type-display-xl through --type-caption) with clamp() for responsive sizing. Headings h1/h2 set to uppercase with 0.06em tracking per Cinzel practice. Body text uses text-wrap: pretty; headings use text-wrap: balance. Em dash scan: only in code comments, not user-facing copy — PASS per DESIGN.md §19.2.
+- Wave 8 (Audit gate): Production build passes (41 pages, 0 errors, 9.2s compile). TypeScript clean (0 project errors). Ran VLM design audit on 5 screenshots:
+  - Homepage hero (before fixes): 6.5/10 — headline too large, body contrast low, slider chrome template-like
+  - Applied fixes: headline text-8xl→text-7xl, leading 0.98→1.1, gradient opacity strengthened (0.82/0.54/0.10→0.92/0.68/0.20), removed progress bar, controls opacity-60 hover:opacity-100
+  - Homepage hero (after fixes): 8/10 — "much more focused, professional visual hierarchy"
+  - About page: 8/10 — "disciplined typography, strong asymmetrical layout"
+  - Schools section: 8/10 — "typography and palette executed flawlessly"
+  - Mobile homepage: 8/10 — "logo prominent, text legible, layout clean"
+- Fixed TypeScript errors from status vocabulary migration: updated comparison strings in programmes/[slug], programmes, schools/[slug], schools, modal-programme, section-programmes.
+
+Stage Summary:
+- All 8 waves executed. Build passes (41 pages, 0 errors). TypeScript clean.
+- VLM audit scores: hero 6.5→8/10, about 8/10, schools 8/10, mobile 8/10.
+- Fonts: Cinzel + Source Sans 3 (per DESIGN.md §7.1).
+- Palette: #7A0F1E / #FFF8EF / #171717 (per DESIGN.md §6.1).
+- Logo: shield icon only, BIG (h-14 header, h-16/h-20 footer), no wordmark text.
+- Motion: 360/200/120ms with reduced-motion guard.
+- Focus: two-layer cream outline + ink halo.
+- Touch targets: 44px minimum. Buttons/inputs: 48px minimum.
+- Status vocabulary: "Subject to accreditation" / "Applications not yet open".
+- Notice component with 4 variants.
+- Values grid: editorial numbered list, not generic 3-card row.
+- PROOF.md appended with 30 evidence rows for wave execution.
+- No deployment — user must explicitly instruct.

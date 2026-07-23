@@ -30,7 +30,7 @@ export function RegisterForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="bg-white text-[var(--oryx-ink)] p-6 md:p-8 lg:p-10 border border-[var(--color-border)]" noValidate>
+    <form onSubmit={onSubmit} className="bg-white text-[var(--color-brand-ink)] p-6 md:p-8 lg:p-10 border border-[var(--color-border)]" noValidate>
       <h3 className="font-display text-2xl md:text-3xl font-medium leading-tight mb-6">Register Interest</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="sm:col-span-2">
@@ -119,7 +119,7 @@ export function RegisterForm() {
       </div>
       <div className="mt-6">
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--oryx-maroon)]" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
+          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
           <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             I consent to receive updates from Oryx Institute about admissions, programmes, and the institution. I understand my data will be stored securely and used only to contact me about Oryx Institute. <span aria-hidden="true">*</span>
           </span>

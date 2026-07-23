@@ -22,7 +22,7 @@ export default function ResearchPage() {
 
       <Section tone="cream">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <figure className="lg:col-span-6 relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+          <figure className="lg:col-span-6 relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
               src="/images/research/research-1.png"
               alt="A research notebook and pen on a warm wooden surface in soft directional light."
@@ -71,27 +71,27 @@ export default function ResearchPage() {
           title="How the research will be conducted."
           tone="dark"
         />
-        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--oryx-warm-white)]/15">
-          <li className="bg-[var(--oryx-ink)] p-8">
-            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">01</p>
-            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Commissioned, not speculative</p>
-            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-brand-cream)]/15">
+          <li className="bg-[var(--color-brand-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--color-brand-maroon)] mb-4">01</p>
+            <p className="font-display text-lg font-medium text-[var(--color-brand-cream)] mb-2">Commissioned, not speculative</p>
+            <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
               Research is commissioned by organisations with real questions. No research is
               conducted without a clear purpose and audience.
             </p>
           </li>
-          <li className="bg-[var(--oryx-ink)] p-8">
-            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">02</p>
-            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Honest and verifiable</p>
-            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+          <li className="bg-[var(--color-brand-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--color-brand-maroon)] mb-4">02</p>
+            <p className="font-display text-lg font-medium text-[var(--color-brand-cream)] mb-2">Honest and verifiable</p>
+            <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
               Research findings are reported as found, not as the commissioning party wishes. Methods
               are documented. Sources are cited.
             </p>
           </li>
-          <li className="bg-[var(--oryx-ink)] p-8">
-            <p className="font-display text-5xl text-[var(--oryx-maroon)] mb-4">03</p>
-            <p className="font-display text-lg font-medium text-[var(--oryx-cream)] mb-2">Namibian first</p>
-            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed">
+          <li className="bg-[var(--color-brand-ink)] p-8">
+            <p className="font-display text-5xl text-[var(--color-brand-maroon)] mb-4">03</p>
+            <p className="font-display text-lg font-medium text-[var(--color-brand-cream)] mb-2">Namibian first</p>
+            <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed">
               Research serves Namibian employers, institutions, and learners first. International
               comparison is welcome. International substitution is not.
             </p>

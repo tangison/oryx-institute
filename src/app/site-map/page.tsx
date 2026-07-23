@@ -26,17 +26,17 @@ export default function SitemapPage() {
           <div>
             <p className="eyebrow mb-4">Main</p>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Home</Link></li>
+              <li><Link href="/" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Home</Link></li>
               {primaryNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={item.href} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {item.label}
                   </Link>
                 </li>
               ))}
               {secondaryNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={item.href} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -48,10 +48,10 @@ export default function SitemapPage() {
           <div>
             <p className="eyebrow mb-4">Schools</p>
             <ul className="space-y-2">
-              <li><Link href="/schools" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">All schools</Link></li>
+              <li><Link href="/schools" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">All schools</Link></li>
               {schools.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/schools/${s.slug}`} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={`/schools/${s.slug}`} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {s.name}
                   </Link>
                 </li>
@@ -63,10 +63,10 @@ export default function SitemapPage() {
           <div>
             <p className="eyebrow mb-4">Programmes</p>
             <ul className="space-y-2">
-              <li><Link href="/programmes" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">All programmes</Link></li>
+              <li><Link href="/programmes" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">All programmes</Link></li>
               {programmes.map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/programmes/${p.slug}`} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={`/programmes/${p.slug}`} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {p.name}
                   </Link>
                 </li>
@@ -78,10 +78,10 @@ export default function SitemapPage() {
           <div>
             <p className="eyebrow mb-4">Partners</p>
             <ul className="space-y-2">
-              <li><Link href="/partners" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Partner with Oryx</Link></li>
+              <li><Link href="/partners" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Partner with Oryx</Link></li>
               {partnerNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={item.href} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export default function SitemapPage() {
             <ul className="space-y-2">
               {legalNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">
+                  <Link href={item.href} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -107,11 +107,11 @@ export default function SitemapPage() {
           <div>
             <p className="eyebrow mb-4">Other</p>
             <ul className="space-y-2">
-              <li><Link href="/founder" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Founder</Link></li>
-              <li><Link href="/brand" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Brand book</Link></li>
-              <li><Link href="/research" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Research</Link></li>
-              <li><Link href="/updates" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">Updates</Link></li>
-              <li><Link href="/faq" className="text-sm hover:text-[var(--oryx-maroon)] transition-colors">FAQ</Link></li>
+              <li><Link href="/founder" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Founder</Link></li>
+              <li><Link href="/brand" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Brand book</Link></li>
+              <li><Link href="/research" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Research</Link></li>
+              <li><Link href="/updates" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Updates</Link></li>
+              <li><Link href="/faq" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">FAQ</Link></li>
             </ul>
           </div>
         </div>

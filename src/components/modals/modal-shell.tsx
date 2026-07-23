@@ -58,7 +58,7 @@ export function ModalShell({
             </div>
             <button
               onClick={close}
-              className="shrink-0 ml-4 inline-flex items-center justify-center w-9 h-9 border border-[var(--oryx-ink)] hover:bg-[var(--oryx-ink)] hover:text-[var(--oryx-cream)] transition-colors"
+              className="shrink-0 ml-4 inline-flex items-center justify-center w-9 h-9 border border-[var(--color-brand-ink)] hover:bg-[var(--color-brand-ink)] hover:text-[var(--color-brand-cream)] transition-colors"
               aria-label="Close"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

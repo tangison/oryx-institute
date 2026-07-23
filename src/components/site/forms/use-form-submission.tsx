@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Notice } from '@/components/site/notice';
 
 interface FormState {
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -55,36 +56,40 @@ export function useFormSubmission() {
 }
 
 export function FormStatus({ state }: { state: FormState }) {
-  if (state.status === 'idle') return null;
+  if (state.status === 'idle' || state.status === 'submitting') {
+    if (state.status === 'submitting') {
+      return (
+        <Notice variant="info" title="Submitting">
+          <p>Sending your submission. Please wait.</p>
+        </Notice>
+      );
+    }
+    return null;
+  }
+
+  if (state.status === 'success') {
+    return (
+      <Notice variant="success" title={state.message}>
+        <p>
+          Submitted locally. This is a pre-launch demo. No data is sent to a server. We will be in
+          touch when the institution is established.
+        </p>
+      </Notice>
+    );
+  }
+
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className={cn(
-        'p-4 border text-sm leading-relaxed',
-        state.status === 'success' && 'bg-[var(--color-oryx-cream)] border-[var(--oryx-maroon)] text-[var(--oryx-ink)]',
-        state.status === 'error' && 'bg-[var(--color-oryx-cream)] border-[var(--color-destructive)] text-[var(--color-destructive)]',
-        state.status === 'submitting' && 'bg-[var(--color-oryx-cream)] border-[var(--color-border)] text-[var(--muted-foreground)]'
-      )}
-    >
-      {state.status === 'submitting' && 'Submitting...'}
-      {state.status === 'success' && (
-        <div>
-          <p className="font-medium">{state.message}</p>
-          <p className="text-xs text-[var(--muted-foreground)] mt-2">
-            Submitted locally. This is a pre-launch demo. No data is sent to a server. We will be in
-            touch when the institution is established.
-          </p>
-        </div>
-      )}
-      {state.status === 'error' && state.message}
-    </div>
+    <Notice variant="error" title="Could not submit">
+      <p>{state.message}</p>
+    </Notice>
   );
 }
 
 export function FieldError({ error }: { error?: string }) {
   if (!error) return null;
   return (
-    <p className="mt-1 text-xs text-[var(--color-destructive)]">{error}</p>
+    <p className="mt-1 text-xs text-[var(--color-error)]" role="alert">
+      {error}
+    </p>
   );
 }

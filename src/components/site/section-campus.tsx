@@ -8,7 +8,7 @@ export function CampusSection() {
   const { open } = useModal();
 
   return (
-    <section id="campus" className="bg-[var(--oryx-warm-white)] py-20 md:py-28 lg:py-32">
+    <section id="campus" className="bg-[var(--color-brand-cream)] py-20 md:py-28 lg:py-32">
       <div ref={ref} className={`container-oryx reveal ${visible ? 'is-visible' : ''}`}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-5">
@@ -56,7 +56,7 @@ export function CampusSection() {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--oryx-cream)] text-xs px-4 py-2 m-3">
+              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
                 Architectural concept. Not a completed facility.
               </figcaption>
             </figure>
@@ -67,7 +67,7 @@ export function CampusSection() {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--oryx-cream)] text-xs px-4 py-2 m-3">
+              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
                 Architectural concept interior. Not a completed facility.
               </figcaption>
             </figure>

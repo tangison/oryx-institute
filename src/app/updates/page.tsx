@@ -23,7 +23,7 @@ export default function UpdatesPage() {
       <Section tone="cream">
         <div className="max-w-2xl mx-auto text-center py-16 md:py-24">
           <div className="inline-flex items-center justify-center w-16 h-16 border border-[var(--color-border)] mb-8">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--oryx-maroon)]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--color-brand-maroon)]">
               <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
               <path d="M12 7V12L15 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
             </svg>
@@ -45,25 +45,25 @@ export default function UpdatesPage() {
 
       <Section tone="dark">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">What to expect</p>
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">What to expect</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
             Honest updates, published when there is something to say.
           </p>
-          <ul className="space-y-4 text-[var(--oryx-warm-white)]/80">
+          <ul className="space-y-4 text-[var(--color-brand-cream)]/80">
             <li className="flex gap-4">
-              <span className="font-display text-[var(--oryx-maroon)] shrink-0">01</span>
+              <span className="font-display text-[var(--color-brand-maroon)] shrink-0">01</span>
               <span className="leading-relaxed">Programme approval milestones, when reached.</span>
             </li>
             <li className="flex gap-4">
-              <span className="font-display text-[var(--oryx-maroon)] shrink-0">02</span>
+              <span className="font-display text-[var(--color-brand-maroon)] shrink-0">02</span>
               <span className="leading-relaxed">Campus and facility announcements, when confirmed.</span>
             </li>
             <li className="flex gap-4">
-              <span className="font-display text-[var(--oryx-maroon)] shrink-0">03</span>
+              <span className="font-display text-[var(--color-brand-maroon)] shrink-0">03</span>
               <span className="leading-relaxed">Admissions timelines, when published.</span>
             </li>
             <li className="flex gap-4">
-              <span className="font-display text-[var(--oryx-maroon)] shrink-0">04</span>
+              <span className="font-display text-[var(--color-brand-maroon)] shrink-0">04</span>
               <span className="leading-relaxed">Employer and institutional partnerships, when signed.</span>
             </li>
           </ul>

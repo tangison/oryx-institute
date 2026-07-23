@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Cinzel, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// DESIGN.md §7.1: Display face = Trajan Pro 3 (licensed) or Cinzel (open fallback).
+// All-capitals display. Weights 400-700.
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+// DESIGN.md §7.1: Body and interface family = Source Sans 3.
+// Weights 300-700 for full hierarchy.
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-source-sans-3",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -79,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fraunces.variable} ${inter.variable} antialiased bg-background text-foreground`}
+        className={`${cinzel.variable} ${sourceSans3.variable} antialiased bg-background text-foreground font-sans`}
       >
         {children}
         <Toaster />

@@ -15,7 +15,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[var(--oryx-ink)] text-[var(--oryx-cream)] flex flex-col">
+    <div className="min-h-screen bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] flex flex-col">
       <a href="#main" className="skip-link">Skip to main content</a>
       <header className="container-oryx py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
@@ -25,14 +25,14 @@ export default function Error({
       </header>
       <main id="main" className="flex-1 flex items-center justify-center container-oryx">
         <div className="max-w-2xl text-center py-20">
-          <p className="font-display text-[8rem] md:text-[12rem] leading-none text-[var(--oryx-maroon)] font-medium">
+          <p className="font-display text-[8rem] md:text-[12rem] leading-none text-[var(--color-brand-maroon)] font-medium">
             500
           </p>
-          <p className="eyebrow text-[var(--oryx-warm-white)]/70 mb-4 mt-4">Something went wrong</p>
+          <p className="eyebrow text-[var(--color-brand-cream)]/70 mb-4 mt-4">Something went wrong</p>
           <h1 className="font-display text-3xl md:text-5xl font-medium leading-tight text-balance mb-6">
             An unexpected error occurred.
           </h1>
-          <p className="text-[var(--oryx-warm-white)]/75 leading-relaxed text-pretty mb-10 max-w-xl mx-auto">
+          <p className="text-[var(--color-brand-cream)]/75 leading-relaxed text-pretty mb-10 max-w-xl mx-auto">
             Something went wrong on our end. Try again, or go back to the homepage. If the problem
             persists, please use the contact form to let us know.
           </p>
@@ -41,21 +41,21 @@ export default function Error({
             <Link
               href="/"
               className="btn-secondary"
-              style={{ color: 'var(--oryx-cream)', borderColor: 'var(--oryx-cream)' }}
+              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
             >
               Go home
             </Link>
           </div>
         </div>
       </main>
-      <footer className="container-oryx py-8 border-t border-[var(--oryx-warm-white)]/15 text-center">
-        <p className="text-xs text-[var(--oryx-warm-white)]/50">
+      <footer className="container-oryx py-8 border-t border-[var(--color-brand-cream)]/15 text-center">
+        <p className="text-xs text-[var(--color-brand-cream)]/50">
           Made by{' '}
           <a
             href="https://studio.tangison.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--oryx-warm-white)] hover:text-[var(--oryx-cream)] underline-offset-4 hover:underline"
+            className="text-[var(--color-brand-cream)] hover:text-[var(--color-brand-cream)] underline-offset-4 hover:underline"
           >
             Tangison Studio
           </a>

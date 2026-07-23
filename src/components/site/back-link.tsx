@@ -17,7 +17,7 @@ export function BackLink({
     <Link
       href={href}
       className={cn(
-        'inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--oryx-maroon)] transition-colors group',
+        'inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--color-brand-maroon)] transition-colors group',
         className
       )}
     >
@@ -56,12 +56,12 @@ export function Breadcrumbs({
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="hover:text-[var(--oryx-maroon)] transition-colors"
+                  className="hover:text-[var(--color-brand-maroon)] transition-colors"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span className={isLast ? 'text-[var(--oryx-ink)]' : ''} aria-current={isLast ? 'page' : undefined}>
+                <span className={isLast ? 'text-[var(--color-brand-ink)]' : ''} aria-current={isLast ? 'page' : undefined}>
                   {item.label}
                 </span>
               )}

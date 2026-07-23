@@ -27,19 +27,19 @@ export default function ContactPage() {
             </p>
             <ul className="space-y-4 text-[var(--muted-foreground)] leading-relaxed">
               <li className="flex gap-3">
-                <span className="font-display text-[var(--oryx-maroon)] shrink-0">01</span>
+                <span className="font-display text-[var(--color-brand-maroon)] shrink-0">01</span>
                 <span>The institution is being established. We will respond to serious enquiries when we are able.</span>
               </li>
               <li className="flex gap-3">
-                <span className="font-display text-[var(--oryx-maroon)] shrink-0">02</span>
+                <span className="font-display text-[var(--color-brand-maroon)] shrink-0">02</span>
                 <span>If you are a prospective learner, the Register Interest form is the fastest way to be contacted when admissions open.</span>
               </li>
               <li className="flex gap-3">
-                <span className="font-display text-[var(--oryx-maroon)] shrink-0">03</span>
+                <span className="font-display text-[var(--color-brand-maroon)] shrink-0">03</span>
                 <span>If you are an employer, partner, or research client, please use the relevant partner enquiry form for a faster response.</span>
               </li>
               <li className="flex gap-3">
-                <span className="font-display text-[var(--oryx-maroon)] shrink-0">04</span>
+                <span className="font-display text-[var(--color-brand-maroon)] shrink-0">04</span>
                 <span>Contact details such as phone and physical address will be published when the institution is established.</span>
               </li>
             </ul>

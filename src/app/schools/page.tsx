@@ -27,9 +27,9 @@ export default function SchoolsPage() {
             <li key={school.slug} className="bg-white">
               <Link
                 href={`/schools/${school.slug}`}
-                className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 p-6 md:p-8 hover:bg-[var(--color-oryx-cream)]/40 transition-colors group"
+                className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 p-6 md:p-8 hover:bg-[var(--color-brand-cream)]/40 transition-colors group"
               >
-                <div className="md:col-span-4 relative aspect-[16/9] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+                <div className="md:col-span-4 relative aspect-[16/9] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
                   <img
                     src={school.image}
                     alt={school.alt}
@@ -39,14 +39,14 @@ export default function SchoolsPage() {
                 </div>
                 <div className="md:col-span-7 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="font-display text-2xl text-[var(--oryx-maroon)] tabular-nums">
+                    <span className="font-display text-2xl text-[var(--color-brand-maroon)] tabular-nums">
                       {school.index}
                     </span>
                     <span
                       className={`status-pill ${
                         school.status === 'Planned'
                           ? 'status-planned'
-                          : school.status === 'Subject to approval'
+                          : school.status === 'Subject to accreditation'
                             ? 'status-subject'
                             : 'status-tba'
                       }`}
@@ -54,7 +54,7 @@ export default function SchoolsPage() {
                       {school.status}
                     </span>
                   </div>
-                  <h2 className="font-display text-2xl md:text-3xl font-medium leading-tight mb-2 group-hover:text-[var(--oryx-maroon)] transition-colors">
+                  <h2 className="font-display text-2xl md:text-3xl font-medium leading-tight mb-2 group-hover:text-[var(--color-brand-maroon)] transition-colors">
                     {school.name}
                   </h2>
                   <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
@@ -68,7 +68,7 @@ export default function SchoolsPage() {
                     viewBox="0 0 20 20"
                     fill="none"
                     aria-hidden="true"
-                    className="text-[var(--oryx-ink)] group-hover:text-[var(--oryx-maroon)] transition-colors"
+                    className="text-[var(--color-brand-ink)] group-hover:text-[var(--color-brand-maroon)] transition-colors"
                   >
                     <path d="M2 10H18M18 10L10 2M18 10L10 18" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
@@ -81,11 +81,11 @@ export default function SchoolsPage() {
 
       <Section tone="dark">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">A note on planning</p>
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">A note on planning</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
             Every school here is a plan, not a promise.
           </p>
-          <p className="text-[var(--oryx-warm-white)]/80 leading-relaxed text-pretty mb-8">
+          <p className="text-[var(--color-brand-cream)]/80 leading-relaxed text-pretty mb-8">
             Schools will open as programmes are approved, employers confirm partnerships, and the
             institution proves its capacity. No school is presented as operating until it is. Register
             your interest to be informed when a school reaches its next milestone.

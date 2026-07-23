@@ -10,13 +10,13 @@ export function FounderModal() {
     <ModalShell eyebrow="Founder" title="Tangi Iigonda">
       <div className="space-y-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          <figure className="md:col-span-5 relative aspect-[3/4] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+          <figure className="md:col-span-5 relative aspect-[3/4] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
               src="/images/founder/founder-1.png"
               alt="An empty leather chair beside a wooden desk in warm afternoon light."
               className="w-full h-full object-cover"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--oryx-cream)] text-xs px-4 py-2 m-3">
+            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               No photograph of the founder is published at this stage.
             </figcaption>
           </figure>
@@ -31,7 +31,7 @@ export function FounderModal() {
               direction. No biography, credentials, or photograph are published at this stage.
             </p>
 
-            <blockquote className="mt-8 pl-6 border-l-2 border-[var(--oryx-maroon)]">
+            <blockquote className="mt-8 pl-6 border-l-2 border-[var(--color-brand-maroon)]">
               <p className="font-display text-lg md:text-xl italic leading-snug text-balance">
                 &ldquo;Oryx Institute is being built to give Namibians practical, recognised skills
                 through vocational education rooted in the Namibian landscape. The institution will

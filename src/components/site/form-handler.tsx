@@ -91,7 +91,7 @@ function showSuccess(form: HTMLFormElement, data: { message?: string; mockNotice
   const result = form.querySelector<HTMLElement>('[data-role="form-result"]');
   if (result) {
     result.textContent = data.message || 'Thank you. Your submission has been received.';
-    result.style.color = 'var(--oryx-maroon)';
+    result.style.color = 'var(--color-brand-maroon)';
     result.style.fontWeight = '500';
   }
   // Replace form body with confirmation
@@ -101,9 +101,9 @@ function showSuccess(form: HTMLFormElement, data: { message?: string; mockNotice
   confirmation.setAttribute('aria-live', 'polite');
   confirmation.innerHTML = `
     <div style="display:flex; align-items:flex-start; gap:1rem; padding:1.5rem 0;">
-      <div style="flex-shrink:0; width:32px; height:32px; border:1px solid var(--oryx-maroon); display:inline-flex; align-items:center; justify-content:center;">
+      <div style="flex-shrink:0; width:32px; height:32px; border:1px solid var(--color-brand-maroon); display:inline-flex; align-items:center; justify-content:center;">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M2 7L6 11L12 3" stroke="var(--oryx-maroon)" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path d="M2 7L6 11L12 3" stroke="var(--color-brand-maroon)" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
         </svg>
       </div>
       <div>

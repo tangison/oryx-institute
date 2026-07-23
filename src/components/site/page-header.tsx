@@ -26,14 +26,14 @@ export function PageHeader({
     <header
       className={cn(
         'relative w-full pt-28 md:pt-36 pb-12 md:pb-20',
-        isDark ? 'bg-[var(--oryx-ink)] text-[var(--oryx-cream)]' : 'bg-[var(--color-background)]',
+        isDark ? 'bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)]' : 'bg-[var(--color-background)]',
         className
       )}
     >
       <div className="container-oryx">
         <div className={cn('max-w-4xl', align === 'center' && 'mx-auto text-center')}>
           {eyebrow && (
-            <p className={cn('eyebrow mb-4', isDark && 'text-[var(--oryx-warm-white)]/70')}>
+            <p className={cn('eyebrow mb-4', isDark && 'text-[var(--color-brand-cream)]/70')}>
               {eyebrow}
             </p>
           )}
@@ -49,7 +49,7 @@ export function PageHeader({
               className={cn(
                 'mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-pretty',
                 align === 'center' && 'mx-auto',
-                isDark ? 'text-[var(--oryx-warm-white)]/80' : 'text-[var(--muted-foreground)]'
+                isDark ? 'text-[var(--color-brand-cream)]/80' : 'text-[var(--muted-foreground)]'
               )}
             >
               {lede}

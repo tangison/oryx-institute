@@ -32,11 +32,11 @@ export default function BrandPage() {
 
       <Section tone="dark">
         <div className="max-w-4xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">Promise</p>
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">Promise</p>
           <p className="font-display text-4xl md:text-5xl lg:text-6xl font-medium italic leading-[1.05] tracking-tight text-balance">
             Knowledge shaped by the Namibian landscape.
           </p>
-          <p className="mt-6 text-[var(--oryx-warm-white)]/75 text-lg leading-relaxed text-pretty max-w-2xl">
+          <p className="mt-6 text-[var(--color-brand-cream)]/75 text-lg leading-relaxed text-pretty max-w-2xl">
             The brand promise of Oryx Institute. Not used in body copy or navigation. The promise
             appears only on this page and in approved brand contexts.
           </p>
@@ -50,18 +50,18 @@ export default function BrandPage() {
           lede="Two-colour ink: maroon illustration plus black wordmark. Never redrawn, regenerated, reinterpreted, cropped, distorted, recoloured, or placed under effects."
         />
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[var(--color-oryx-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+          <div className="bg-[var(--color-brand-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
             <img src="/oryx-logo.png" alt="Oryx Institute primary logo on cream" className="max-h-28 w-auto" />
           </div>
-          <div className="bg-[var(--oryx-ink)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+          <div className="bg-[var(--color-brand-ink)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
             <img src="/oryx-logo.png" alt="Oryx Institute logo on dark background" className="max-h-28 w-auto" />
           </div>
         </div>
         <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-[var(--muted-foreground)]">
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Aspect ratio: 3:2 landscape (612 x 408 px supplied).</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Two-colour ink: maroon illustration plus black wordmark.</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Never inserted into generated images or used as a watermark.</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Never redrawn, recoloured, distorted, or placed under effects.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Aspect ratio: 3:2 landscape (612 x 408 px supplied).</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Two-colour ink: maroon illustration plus black wordmark.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Never inserted into generated images or used as a watermark.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Never redrawn, recoloured, distorted, or placed under effects.</li>
         </ul>
       </Section>
 
@@ -72,18 +72,18 @@ export default function BrandPage() {
           lede="Single-colour ink: maroon only. Used as favicon, app icon, and decorative brand mark."
         />
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[var(--color-oryx-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+          <div className="bg-[var(--color-brand-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
             <img src="/oryx-shield.png" alt="Oryx Institute shield emblem" className="max-h-40 w-auto" />
           </div>
-          <div className="bg-[var(--color-oryx-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+          <div className="bg-[var(--color-brand-cream)] p-12 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
             <img src="/oryx-mark.png" alt="Oryx Institute shield mark extracted from logo" className="max-h-40 w-auto" />
           </div>
         </div>
         <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-[var(--muted-foreground)]">
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Shield aspect ratio: 3:4 portrait (412 x 545 px supplied).</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Mark: shield portion extracted from the primary logo, no wordmark.</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Never recoloured. Never placed on a busy background without a solid container.</li>
-          <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Used as favicon, app icon, and large decorative brand mark.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Shield aspect ratio: 3:4 portrait (412 x 545 px supplied).</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Mark: shield portion extracted from the primary logo, no wordmark.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Never recoloured. Never placed on a busy background without a solid container.</li>
+          <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Used as favicon, app icon, and large decorative brand mark.</li>
         </ul>
       </Section>
 
@@ -118,7 +118,7 @@ export default function BrandPage() {
           title="Editorial serif display. Restrained sans-serif body."
         />
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[var(--color-oryx-cream)] p-10 border border-[var(--color-border)]">
+          <div className="bg-[var(--color-brand-cream)] p-10 border border-[var(--color-border)]">
             <p className="eyebrow mb-4">Display</p>
             <p className="font-display text-6xl md:text-7xl">Fraunces</p>
             <p className="font-display text-lg mt-3 italic">Editorial serif. 400, 500, 600, 700.</p>
@@ -127,7 +127,7 @@ export default function BrandPage() {
               enabled. Stylistic sets ss01 and ss02 active.
             </p>
           </div>
-          <div className="bg-[var(--color-oryx-cream)] p-10 border border-[var(--color-border)]">
+          <div className="bg-[var(--color-brand-cream)] p-10 border border-[var(--color-border)]">
             <p className="eyebrow mb-4">Body</p>
             <p className="font-sans text-6xl md:text-7xl">Inter</p>
             <p className="font-sans text-lg mt-3">Restrained sans. 400, 500, 600, 700.</p>
@@ -185,7 +185,7 @@ export default function BrandPage() {
             { src: '/images/hero/hero-5.png', alt: 'Skilled hands working on a training bench.' },
             { src: '/images/research/research-1.png', alt: 'A research notebook on a warm surface.' },
           ].map((img) => (
-            <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+            <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
               <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
             </figure>
           ))}
@@ -229,11 +229,11 @@ export default function BrandPage() {
             { label: 'Reduced-motion', value: '0.001 ms. No parallax. No autoplay.' },
             { label: 'Primary engine', value: 'CSS transitions. GSAP for scroll-triggered sequences.' },
           ].map((m) => (
-            <li key={m.label} className="flex items-start gap-4 pb-4 border-b border-[var(--oryx-warm-white)]/15">
-              <span className="text-[var(--oryx-warm-white)]/60 text-xs uppercase tracking-wider w-32 shrink-0 pt-1">
+            <li key={m.label} className="flex items-start gap-4 pb-4 border-b border-[var(--color-brand-cream)]/15">
+              <span className="text-[var(--color-brand-cream)]/60 text-xs uppercase tracking-wider w-32 shrink-0 pt-1">
                 {m.label}
               </span>
-              <span className="font-display text-base text-[var(--oryx-cream)]">{m.value}</span>
+              <span className="font-display text-base text-[var(--color-brand-cream)]">{m.value}</span>
             </li>
           ))}
         </ul>

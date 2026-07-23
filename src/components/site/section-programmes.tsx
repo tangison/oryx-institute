@@ -8,7 +8,7 @@ import { useReveal } from '@/hooks/use-reveal';
 const STATUS_OPTIONS: ('All' | ProgrammeStatus)[] = [
   'All',
   'Planned',
-  'Subject to approval',
+  'Subject to accreditation',
   'Register your interest',
 ];
 const LEVEL_OPTIONS = ['All', 'Certificate', 'Diploma', 'Short Course', 'To be confirmed'];
@@ -57,7 +57,7 @@ export function ProgrammesSection() {
         </header>
 
         {/* Filters */}
-        <div className="border border-[var(--color-border)] bg-[var(--color-oryx-cream)] p-5 md:p-6 mb-10">
+        <div className="border border-[var(--color-border)] bg-[var(--color-brand-cream)] p-5 md:p-6 mb-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label htmlFor="filter-school" className="label-oryx">School</label>
@@ -120,7 +120,7 @@ export function ProgrammesSection() {
             </p>
             <button
               onClick={clearAll}
-              className="text-sm font-medium uppercase tracking-wider text-[var(--oryx-maroon)] hover:underline"
+              className="text-sm font-medium uppercase tracking-wider text-[var(--color-brand-maroon)] hover:underline"
             >
               Clear filters
             </button>
@@ -129,7 +129,7 @@ export function ProgrammesSection() {
 
         {/* Programme list */}
         {filtered.length === 0 ? (
-          <div className="border border-[var(--color-border)] bg-[var(--color-oryx-cream)] p-12 text-center">
+          <div className="border border-[var(--color-border)] bg-[var(--color-brand-cream)] p-12 text-center">
             <p className="font-display text-xl mb-2">No programmes match your filters.</p>
             <p className="text-[var(--muted-foreground)]">Try adjusting or clearing filters.</p>
           </div>
@@ -139,7 +139,7 @@ export function ProgrammesSection() {
               <li key={p.slug} className="bg-white">
                 <button
                   onClick={() => open({ programme: p.slug })}
-                  className="group w-full text-left p-6 md:p-8 lg:p-10 flex flex-col h-full hover:bg-[var(--color-oryx-cream)]/50 transition-colors duration-200"
+                  className="group w-full text-left p-6 md:p-8 lg:p-10 flex flex-col h-full hover:bg-[var(--color-brand-cream)]/50 transition-colors duration-200"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <span className="eyebrow">{p.schoolName}</span>
@@ -147,7 +147,7 @@ export function ProgrammesSection() {
                       className={`status-pill whitespace-nowrap ${
                         p.status === 'Planned'
                           ? 'status-planned'
-                          : p.status === 'Subject to approval'
+                          : p.status === 'Subject to accreditation'
                             ? 'status-subject'
                             : 'status-interest'
                       }`}
@@ -175,7 +175,7 @@ export function ProgrammesSection() {
                       <dd className="text-sm">{p.duration}</dd>
                     </div>
                   </dl>
-                  <span className="mt-6 link-arrow text-[var(--oryx-maroon)] text-sm font-medium uppercase tracking-wider">
+                  <span className="mt-6 link-arrow text-[var(--color-brand-maroon)] text-sm font-medium uppercase tracking-wider">
                     View programme
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                       <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" />
@@ -187,7 +187,7 @@ export function ProgrammesSection() {
           </ul>
         )}
 
-        <div className="mt-12 bg-[var(--color-oryx-cream)] p-8 md:p-12 border border-[var(--color-border)]">
+        <div className="mt-12 bg-[var(--color-brand-cream)] p-8 md:p-12 border border-[var(--color-border)]">
           <p className="caption-oryx">
             All programmes are planned and subject to approval. Fees, intake dates, and final
             programme structure to be confirmed. No programme is presented as an approved
