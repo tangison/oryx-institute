@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
 
 export const metadata: Metadata = {
@@ -14,19 +14,22 @@ export const metadata: Metadata = {
 export default function FounderPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Founder"
         title="Tangi Iigonda"
         lede="Founder of Oryx Institute. The institution is being established in Windhoek under his direction."
+        image="/images/campus/arched-corridor.webp"
+        alt="A sunlit arched corridor with a leather notebook resting on a stone ledge."
       />
 
       <Section tone="cream">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-5 relative aspect-[3/4] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
-              src="/images/founder/founder-1.png"
-              alt="An empty leather chair beside a wooden desk in warm afternoon light."
+              src="/images/campus/student-corridor.webp"
+              alt="A student walking down a sunlit institutional corridor."
               className="w-full h-full object-cover"
+              loading="lazy"
             />
             <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               No photograph of the founder is published at this stage.

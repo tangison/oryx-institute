@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Prose, ProseSection } from '@/components/site/prose';
 import { Section } from '@/components/site/section';
 import { values } from '@/lib/content';
@@ -16,10 +16,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="The Institute"
         title="About Oryx Institute"
         lede="A Namibian institution taking shape. Multidisciplinary vocational education, rooted in place, built for the work Namibia needs."
+        image="/images/brand/oryx-dune.webp"
+        alt="A lone oryx standing on the crest of a Namibian sand dune."
       />
 
       <Section tone="cream">

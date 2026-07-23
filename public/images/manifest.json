@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-23T19:36:27Z",
+  "images": [
+    {
+      "semantic": "oryx-chalkboard",
+      "category": "brand",
+      "alt": "A hand-drawn oryx shield motif sketched on a dark chalkboard surface.",
+      "full": "/images/brand/oryx-chalkboard.webp",
+      "card": "/images/brand/oryx-chalkboard-card.webp",
+      "full_bytes": 152340,
+      "card_bytes": 53346
+    },
+    {
+      "semantic": "arched-corridor",
+      "category": "campus",
+      "alt": "A sunlit arched corridor with a leather notebook resting on a stone ledge.",
+      "full": "/images/campus/arched-corridor.webp",
+      "card": "/images/campus/arched-corridor-card.webp",
+      "full_bytes": 64624,
+      "card_bytes": 15346
+    },
+    {
+      "semantic": "administration-01",
+      "category": "schools",
+      "alt": "An open notebook with a pen and a smooth stone arranged on a concrete surface.",
+      "full": "/images/schools/administration-01.webp",
+      "card": "/images/schools/administration-01-card.webp",
+      "full_bytes": 96556,
+      "card_bytes": 23202
+    },
+    {
+      "semantic": "student-classroom",
+      "category": "programmes",
+      "alt": "A student in a beige fleece standing in a sunlit classroom.",
+      "full": "/images/programmes/student-classroom.webp",
+      "card": "/images/programmes/student-classroom-card.webp",
+      "full_bytes": 55820,
+      "card_bytes": 16652
+    },
+    {
+      "semantic": "digital-01",
+      "category": "schools",
+      "alt": "A fountain pen resting on an open notebook near a stack of binders.",
+      "full": "/images/schools/digital-01.webp",
+      "card": "/images/schools/digital-01-card.webp",
+      "full_bytes": 128412,
+      "card_bytes": 26930
+    },
+    {
+      "semantic": "archival-calipers",
+      "category": "research",
+      "alt": "An archival box with brass calipers and a wax-seal stamp arranged on a surface.",
+      "full": "/images/research/archival-calipers.webp",
+      "card": "/images/research/archival-calipers-card.webp",
+      "full_bytes": 145732,
+      "card_bytes": 37592
+    },
+    {
+      "semantic": "hospitality-01",
+      "category": "schools",
+      "alt": "A service bell and a set of guest keys arranged on a wooden counter.",
+      "full": "/images/schools/hospitality-01.webp",
+      "card": "/images/schools/hospitality-01-card.webp",
+      "full_bytes": 117728,
+      "card_bytes": 36872
+    },
+    {
+      "semantic": "administration-02",
+      "category": "schools",
+      "alt": "A checklist, a rubber stamp, and a secure lockbox on a desk.",
+      "full": "/images/schools/administration-02.webp",
+      "card": "/images/schools/administration-02-card.webp",
+      "full_bytes": 131892,
+      "card_bytes": 32006
+    },
+    {
+      "semantic": "collaboration",
+      "category": "partners",
+      "alt": "Professionals collaborating over documents spread across a wooden table.",
+      "full": "/images/partners/collaboration.webp",
+      "card": "/images/partners/collaboration-card.webp",
+      "full_bytes": 52338,
+      "card_bytes": 20586
+    },
+    {
+      "semantic": "blueprint",
+      "category": "campus",
+      "alt": "An architectural blueprint with drafting tools laid out on a desk.",
+      "full": "/images/campus/blueprint.webp",
+      "card": "/images/campus/blueprint-card.webp",
+      "full_bytes": 132810,
+      "card_bytes": 35578
+    },
+    {
+      "semantic": "oryx-dune",
+      "category": "brand",
+      "alt": "A lone oryx standing on the crest of a Namibian sand dune.",
+      "full": "/images/brand/oryx-dune.webp",
+      "card": "/images/brand/oryx-dune-card.webp",
+      "full_bytes": 40348,
+      "card_bytes": 10870
+    },
+    {
+      "semantic": "corridor-windows",
+      "category": "campus",
+      "alt": "A sunlit corridor with rhythmic arched windows casting warm light.",
+      "full": "/images/campus/corridor-windows.webp",
+      "card": "/images/campus/corridor-windows-card.webp",
+      "full_bytes": 57048,
+      "card_bytes": 16454
+    },
+    {
+      "semantic": "administration-03",
+      "category": "schools",
+      "alt": "A modern meeting room with a round table and upholstered chairs.",
+      "full": "/images/schools/administration-03.webp",
+      "card": "/images/schools/administration-03-card.webp",
+      "full_bytes": 145436,
+      "card_bytes": 37126
+    },
+    {
+      "semantic": "clipboards-notebooks",
+      "category": "programmes",
+      "alt": "A row of clipboards and notebooks arranged on a counter.",
+      "full": "/images/programmes/clipboards-notebooks.webp",
+      "card": "/images/programmes/clipboards-notebooks-card.webp",
+      "full_bytes": 54760,
+      "card_bytes": 15856
+    },
+    {
+      "semantic": "student-corridor",
+      "category": "campus",
+      "alt": "A student walking down a sunlit institutional corridor.",
+      "full": "/images/campus/student-corridor.webp",
+      "card": "/images/campus/student-corridor-card.webp",
+      "full_bytes": 75924,
+      "card_bytes": 26546
+    },
+    {
+      "semantic": "leather-books",
+      "category": "research",
+      "alt": "A stack of leather-bound books in warm natural light.",
+      "full": "/images/research/leather-books.webp",
+      "card": "/images/research/leather-books-card.webp",
+      "full_bytes": 59798,
+      "card_bytes": 11948
+    },
+    {
+      "semantic": "safety-01",
+      "category": "schools",
+      "alt": "An open portfolio with photographs of safety tools and equipment.",
+      "full": "/images/schools/safety-01.webp",
+      "card": "/images/schools/safety-01-card.webp",
+      "full_bytes": 119094,
+      "card_bytes": 23350
+    },
+    {
+      "semantic": "digital-02",
+      "category": "schools",
+      "alt": "A minimalist flat-lay of a laptop and a stationery set on a warm surface.",
+      "full": "/images/schools/digital-02.webp",
+      "card": "/images/schools/digital-02-card.webp",
+      "full_bytes": 33880,
+      "card_bytes": 8344
+    },
+    {
+      "semantic": "digital-03",
+      "category": "schools",
+      "alt": "A modern computer lab with laptops arranged on long desks.",
+      "full": "/images/schools/digital-03.webp",
+      "card": "/images/schools/digital-03-card.webp",
+      "full_bytes": 83086,
+      "card_bytes": 25444
+    },
+    {
+      "semantic": "administration-04",
+      "category": "schools",
+      "alt": "A laptop with a notebook and pen on a wooden desk.",
+      "full": "/images/schools/administration-04.webp",
+      "card": "/images/schools/administration-04-card.webp",
+      "full_bytes": 60578,
+      "card_bytes": 19236
+    },
+    {
+      "semantic": "digital-recorder",
+      "category": "research",
+      "alt": "A digital recorder and two notebooks on a warm-toned surface.",
+      "full": "/images/research/digital-recorder.webp",
+      "card": "/images/research/digital-recorder-card.webp",
+      "full_bytes": 87650,
+      "card_bytes": 22142
+    },
+    {
+      "semantic": "student-portfolio",
+      "category": "programmes",
+      "alt": "A student reviewing a printed photo portfolio under warm light.",
+      "full": "/images/programmes/student-portfolio.webp",
+      "card": "/images/programmes/student-portfolio-card.webp",
+      "full_bytes": 81956,
+      "card_bytes": 26074
+    },
+    {
+      "semantic": "building-entrance",
+      "category": "campus",
+      "alt": "A modern campus building entrance with warm stone and glass facade.",
+      "full": "/images/campus/building-entrance.webp",
+      "card": "/images/campus/building-entrance-card.webp",
+      "full_bytes": 154898,
+      "card_bytes": 39718
+    }
+  ]
+}

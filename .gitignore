@@ -52,3 +52,13 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Build artifacts, screenshots, and downloads — not source-controlled
+/download/
+/tool-results/
+/screenshots/
+
+# Uploaded source files (kept locally, not deployed)
+/upload/extracted/
+/upload/*.zip
+/upload/*.zi

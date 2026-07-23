@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
 import { ContactForm } from '@/components/site/forms/contact-form';
 
@@ -13,10 +13,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Contact"
         title="Contact Oryx Institute."
         lede="Prospective learners, employers, partners, and research clients are welcome. We will respond to serious enquiries."
+        image="/images/campus/building-entrance.webp"
+        alt="A modern campus building entrance with warm stone and glass facade."
       />
       <Section tone="cream">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">

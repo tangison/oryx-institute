@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
 import { schools } from '@/lib/content';
 
@@ -15,10 +15,12 @@ export const metadata: Metadata = {
 export default function SchoolsPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Schools"
         title="Five planned schools."
         lede="Each school serves a different part of the Namibian economy. Each is being built with employers and standards in mind. All programmes are planned and subject to approval."
+        image="/images/campus/corridor-windows.webp"
+        alt="A sunlit corridor with rhythmic arched windows casting warm light."
       />
 
       <Section tone="cream">
