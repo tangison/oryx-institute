@@ -153,3 +153,41 @@ All pre-launch content posture rules followed:
 **Status:** Phase 3 (Create) complete. Ready for Phase 4 (Audit) on user instruction.
 **Phase:** 3 (Create).
 **Next specialist skill:** tangison-web-audit (Phase 4), pending user instruction.
+
+## Phase 4 (Audit) - Comprehensive design audit against DESIGN.md (2026-07-24)
+
+User directive: "Run phase 4 now and here is the design system apply it... come up with a comprehensive plan you are in planning mode". User supplied DESIGN.md (1155 lines, master design contract v1.0, 23 July 2026) at /home/z/my-project/upload/DESIGN.md. User also referenced the redesign-existing-projects skill (Taste Skill, leonxlnx) audit checklist as the audit methodology.
+
+| Phase | Action | Target | Method | Result | Evidence | Timestamp | Status |
+|---|---|---|---|---|---|---|---|
+| 4 | Read DESIGN.md in full | /home/z/my-project/upload/DESIGN.md (1155 lines, 44 KB) | Read tool, 3 chunks | Complete design contract: 25 sections covering brand, typography, colour, grid, shape, motion, components, accessibility, editorial rhythm, governance. | upload/DESIGN.md | 2026-07-24 | PASS |
+| 4 | Inspect current state | src/app/layout.tsx, globals.css, page.tsx, header.tsx, hero.tsx, footer.tsx, section-schools.tsx, about/page.tsx | Read tool | Multi-page site already built: 19 routes, 41 generated pages, Fraunces+Inter, old brand tokens (#721220), 80rem container, 600ms motion. | src/app/* | 2026-07-24 | PASS |
+| 4 | Audit: typography | DESIGN.md §7 vs current layout.tsx + globals.css | Cross-reference | CRITICAL: Fraunces used instead of mandated Cinzel; Inter used instead of mandated Source Sans 3. No type scale tokens. Tracking wrong direction. | Finding F1-F5 | 2026-07-24 | FAIL |
+| 4 | Audit: colour | DESIGN.md §6, §21 vs current globals.css | Cross-reference | CRITICAL: Maroon is #721220 vs mandated #7A0F1E. Cream is #FCFBF9 vs #FFF8EF. Ink is #0F0E0D vs #171717. Maroon-dark is #4A231B vs #4A0710. Missing neutral palette, status palette, gradient tokens. | Finding F6-F9 | 2026-07-24 | FAIL |
+| 4 | Audit: layout | DESIGN.md §8 vs current globals.css container + grid | Cross-reference | MAJOR: Container 80rem vs mandated 90rem. Gutters wrong. No formal 4/8/12 grid. Spacing scale incomplete. | Finding F11-F13 | 2026-07-24 | FAIL |
+| 4 | Audit: shape/border/depth | DESIGN.md §9 vs current globals.css | Cross-reference | MAJOR: All radii forced to 0px (DESIGN.md allows 2px/4px functional). No border-strong/border-accent. No shadow tokens. Diagonal motif absent. | Finding F15-F18 | 2026-07-24 | FAIL |
+| 4 | Audit: motion | DESIGN.md §14 vs current globals.css + hero.tsx | Cross-reference | MAJOR: Durations 600/400/200ms vs mandated 360/200/120ms. Hero no reduced-motion guard for autoplay. | Finding F19-F21 | 2026-07-24 | FAIL |
+| 4 | Audit: interactivity | DESIGN.md §13, §15 vs current components | Cross-reference | MAJOR: Touch targets 40px (below 44px minimum). Focus ring single-layer maroon vs mandated two-layer cream+ink. Buttons missing :active state and loading state. | Finding F22-F25 | 2026-07-24 | FAIL |
+| 4 | Audit: components | DESIGN.md §12 vs current components | Cross-reference | MAJOR: 3-card grid on /about values (generic AI pattern). No Notice component. Forms use 15px font and ~40px height (below 16px/48px minimums). Buttons below 48px height. | Finding F26-F29 | 2026-07-24 | FAIL |
+| 4 | Audit: logo/identity | DESIGN.md §5 vs current oryx-mark.png + header.tsx | Cross-reference | MAJOR: oryx-mark.png is a crop (acceptable per authority hierarchy but user will supply more). Clear space barely meets 0.35S. Lock-up width passes on desktop. User wants logo "very big" — increase shield to h-14/h-16. | Finding F30-F33 | 2026-07-24 | PASS w/ notes |
+| 4 | Audit: imagery | DESIGN.md §10 vs current /public/images/ | Cross-reference | MINOR: No image register. Founder portrait is AI-generated (user will supply authentic). | Finding F34-F35 | 2026-07-24 | DEFERRED |
+| 4 | Audit: content/voice | DESIGN.md §19 vs current copy | grep for prohibited words + em dashes | PASS on prohibited words. Em dash scan needs re-run. Namibian English verified. Email contact@oryxinstitute.org needs verification on all surfaces. | Finding F36-F39 | 2026-07-24 | PASS w/ notes |
+| 4 | Audit: accessibility | DESIGN.md §16 vs current components | Cross-reference | MAJOR: Skip link only on homepage (should be in layout). Heading order needs page-by-page audit. Alt text mostly correct. | Finding F40-F42 | 2026-07-24 | FAIL |
+| 4 | Audit: code quality | redesign-skill checklist vs current src/ | Cross-reference | PASS on semantic HTML. Z-index scale ad-hoc. Inline styles in hero.tsx. | Finding F43-F45 | 2026-07-24 | PASS w/ notes |
+| 4 | Audit: functional completeness | BUILD_PLAN.md + DESIGN.md §13 vs current routes | Cross-reference | PASS: 19 routes, logo wordmark removed, Tangison credit, /brand page, pre-launch honesty. | Finding F46-F50 | 2026-07-24 | PASS |
+| 4 | Produce comprehensive plan | /home/z/my-project/PHASE4_AUDIT_AND_PLAN.md | Write tool | 50 findings (F1-F50), 8 prioritised waves (font swap → colour → interaction → layout → motion → components → typography → audit gate), acceptance criteria, 10 risks, execution order. | PHASE4_AUDIT_AND_PLAN.md | 2026-07-24 | PASS |
+
+## Phase 4 (Audit) - Status
+
+**Audit complete.** 50 findings documented across 13 categories. 6 CRITICAL (typography, colour), 8 MAJOR (layout, motion, interactivity, components, accessibility), 2 MINOR (imagery), 4 PASS.
+
+**Plan:** 8 waves, ~7.5 hours estimated effort. Waves are sequential. Wave 1 (font swap) is highest impact, lowest risk per redesign-existing-projects skill fix-priority rule.
+
+**Key audit conclusions:**
+1. The "ugly" verdict is rooted in a font mismatch: Fraunces+Inter vs mandated Cinzel+Source Sans 3. Wave 1 alone will produce the largest perceived improvement.
+2. Colour tokens drift from DESIGN.md across all 4 core values. Wave 2 propagates the fix via the single source of truth in globals.css.
+3. The site is structurally complete (multi-page, forms, sitemap, 404/500, content data) — no rebuild needed. The fixes are surgical.
+
+**Status:** Phase 4 (Audit) complete. Ready for Wave 1 execution on user confirmation.
+**Phase:** 4 (Audit).
+**Next:** Wave 1 (Font swap) per PHASE4_AUDIT_AND_PLAN.md §4.
