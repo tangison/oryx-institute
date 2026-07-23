@@ -1,31 +1,129 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 /**
- * EditorialHero — Collins-style restraint, now with a seamless video loop.
+ * EditorialHero — Collins-style restraint, seamless infinite video loop.
  *
- * Layering (back to front):
- *   1. <img> poster — always visible. Acts as the LCP element and as the
- *      permanent fallback if video cannot play (reduced motion, no JS,
- *      unsupported codec, slow connection).
- *   2. <video> on top — transparent until it plays, then covers the poster.
- *      WebM first (better compression), MP4 fallback. Muted/loop/playsInline
- *      for iOS autoplay. preload="metadata" keeps first paint fast.
- *   3. Photo-dark gradient (DESIGN.md §6.4) for left-weighted legibility.
- *   4. Top + bottom fades for header and headline legibility.
- *   5. Content: eyebrow, display headline, supporting line, two actions.
+ * Dual-video cross-fade eliminates the visible stutter/gap that native
+ * <video loop> produces when the browser seeks back to start. Two identical
+ * <video> elements are stacked; when the active one reaches ~200ms before
+ * its end, the other starts from time 0 and fades in, then roles swap.
  *
- * Accessibility:
- *   - prefers-reduced-motion users get the static poster only (video is
- *     hidden via CSS in globals.css), satisfying DESIGN.md §14.
- *   - Video is aria-hidden — it is decorative; the heading carries meaning.
+ * Gradient overlays use CSS custom-property tokens from globals.css,
+ * not inline rgba() improvisation (Hallmark P0-1 fix).
  */
+
+const VIDEO_SRC = {
+  webm: '/hero/oryx-loop.webm',
+  mp4: '/hero/oryx-loop.mp4',
+};
+
+const FADE_TRIGGER_S = 0.2; // seconds before end to trigger cross-fade
+const FADE_DURATION_MS = 200;
+
 export function EditorialHero() {
+  const videoARef = useRef<HTMLVideoElement>(null);
+  const videoBRef = useRef<HTMLVideoElement>(null);
+  const activeARef = useRef(true); // use ref instead of state to avoid stale-closure in rAF loop
+  const rafRef = useRef<number | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  // Detect reduced-motion preference (DESIGN.md §14)
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  // Seamless loop engine using refs (avoids stale closure / ESLint hook rule)
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    const videoA = videoARef.current;
+    const videoB = videoBRef.current;
+    if (!videoA || !videoB) return;
+
+    const initLoop = () => {
+      const dur = videoA.duration;
+      if (!dur || dur === Infinity) return;
+
+      videoA.play().catch(() => {});
+      videoB.currentTime = 0;
+      videoB.pause();
+
+      const checkLoop = () => {
+        const isA = activeARef.current;
+        const front = isA ? videoARef.current : videoBRef.current;
+        const back = isA ? videoBRef.current : videoARef.current;
+        if (!front || !back) return;
+
+        const remaining = dur - front.currentTime;
+        if (remaining <= FADE_TRIGGER_S) {
+          // Start the back video and swap roles
+          back.currentTime = 0;
+          back.play().catch(() => {});
+          activeARef.current = !isA;
+
+          // After cross-fade, pause the old front video
+          setTimeout(() => {
+            const old = !activeARef.current ? videoARef.current : videoBRef.current;
+            if (old) { old.pause(); old.currentTime = 0; }
+          }, FADE_DURATION_MS + 50);
+
+          // Continue monitoring with the new active video
+          setTimeout(() => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            rafRef.current = requestAnimationFrame(checkLoop);
+          }, FADE_DURATION_MS + 100);
+          return;
+        }
+
+        rafRef.current = requestAnimationFrame(checkLoop);
+      };
+
+      rafRef.current = requestAnimationFrame(checkLoop);
+    };
+
+    if (videoA.readyState >= 1 && videoA.duration > 0 && videoA.duration !== Infinity) {
+      initLoop();
+    } else {
+      videoA.addEventListener('loadedmetadata', initLoop, { once: true });
+    }
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [reducedMotion]);
+
+  // Fallback ended handler — safety net so the video never stops
+  const handleVideoEnded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    if (!reducedMotion) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+  };
+
+  // Read current active state from ref for rendering
+  // We use a simple state that we update from the ref-driven loop engine
+  // This avoids the stale-closure ESLint issue
+  const [renderA, setRenderA] = useState(true);
+  useEffect(() => {
+    // Sync render state from ref periodically (every fade cycle)
+    const sync = setInterval(() => setRenderA(activeARef.current), 300);
+    return () => clearInterval(sync);
+  }, []);
+
   return (
     <section
       aria-labelledby="hero-heading"
       className="relative w-full min-h-[88svh] flex items-end overflow-hidden bg-[var(--color-brand-ink)]"
     >
-      {/* Layer 1 — still poster (always visible, instant paint, LCP) */}
+      {/* Layer 1 — still poster (LCP element, permanent fallback) */}
       <img
         src="/hero/oryx-loop-poster.jpg"
         alt=""
@@ -34,34 +132,52 @@ export function EditorialHero() {
         fetchPriority="high"
       />
 
-      {/* Layer 2 — looping video on top. Portrait 2:3, object-cover so it
-          scales cleanly across mobile (full bleed) and desktop (center
-          column visible). Hidden under prefers-reduced-motion via CSS. */}
+      {/* Layer 2a — Video A */}
       <video
+        ref={videoARef}
         className="absolute inset-0 w-full h-full object-cover hero-video"
         autoPlay
         muted
-        loop
         playsInline
         preload="metadata"
         aria-hidden="true"
+        onEnded={handleVideoEnded}
+        style={{
+          opacity: renderA ? 1 : 0,
+          transition: `opacity ${FADE_DURATION_MS}ms linear`,
+          zIndex: renderA ? 2 : 1,
+        }}
       >
-        <source src="/hero/oryx-loop.webm" type="video/webm" />
-        <source src="/hero/oryx-loop.mp4" type="video/mp4" />
+        <source src={VIDEO_SRC.webm} type="video/webm" />
+        <source src={VIDEO_SRC.mp4} type="video/mp4" />
       </video>
 
-      {/* Layer 3 — DESIGN.md §6.4 gradient-photo-dark, left-weighted */}
-      <div
-        className="absolute inset-0"
+      {/* Layer 2b — Video B */}
+      <video
+        ref={videoBRef}
+        className="absolute inset-0 w-full h-full object-cover hero-video"
+        muted
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        onEnded={handleVideoEnded}
         style={{
-          backgroundImage:
-            'linear-gradient(90deg, rgba(23, 23, 23, 0.86) 0%, rgba(74, 7, 16, 0.56) 52%, rgba(74, 7, 16, 0.10) 100%)',
+          opacity: renderA ? 0 : 1,
+          transition: `opacity ${FADE_DURATION_MS}ms linear`,
+          zIndex: renderA ? 1 : 2,
         }}
-      />
-      {/* Layer 4a — bottom fade so the headline reads cleanly above the index */}
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[rgba(23,23,23,0.55)] to-transparent" />
-      {/* Layer 4b — top fade so the header reads cleanly over the video */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(23,23,23,0.55)] to-transparent" />
+      >
+        <source src={VIDEO_SRC.webm} type="video/webm" />
+        <source src={VIDEO_SRC.mp4} type="video/mp4" />
+      </video>
+
+      {/* Layer 3 — gradient-photo-dark-strong token (DESIGN.md §6.4) */}
+      <div className="absolute inset-0 gradient-photo-dark-strong" />
+
+      {/* Layer 4a — bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-48 gradient-fade-bottom" />
+      {/* Layer 4b — top fade */}
+      <div className="absolute inset-x-0 top-0 h-32 gradient-fade-top" />
 
       {/* Layer 5 — content */}
       <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32">

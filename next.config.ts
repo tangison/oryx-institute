@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
   // no-op on Vercel.
   output: "standalone",
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   images: {
     // WebP and AVIF are served pre-optimized from /public/images; no remote
     // domains are used. This keeps the build self-contained.

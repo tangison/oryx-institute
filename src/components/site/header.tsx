@@ -46,12 +46,13 @@ export function SiteHeader() {
         {/* Logo — BIG shield icon only, no wordmark text */}
         <Link
           href="/"
-          className="flex items-center gap-0 focus:outline-none focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#FFF8EF]"
+          className="flex items-center gap-0"
           aria-label="Oryx Institute — home"
         >
           <img
             src="/oryx-mark.png"
-            alt="Oryx Institute"
+            alt=""
+            aria-hidden="true"
             width={173}
             height={226}
             className="h-14 md:h-16 w-auto"

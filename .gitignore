@@ -62,3 +62,7 @@ server.log
 /upload/extracted/
 /upload/*.zip
 /upload/*.zi
+
+# User submission data — PII, never tracked
+/data/
+*.db

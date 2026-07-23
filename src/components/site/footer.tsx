@@ -37,7 +37,8 @@ export function SiteFooter() {
             <div className="mb-5">
               <img
                 src="/oryx-mark.png"
-                alt="Oryx Institute"
+                alt=""
+                aria-hidden="true"
                 className="h-16 md:h-20 w-auto"
               />
             </div>
@@ -45,7 +46,7 @@ export function SiteFooter() {
               A multidisciplinary vocational education and training institution being established in
               Windhoek, Namibia. Pre-launch. All programmes planned and subject to approval.
             </p>
-            <p className="mt-6 font-body text-base italic text-[var(--color-brand-cream)]/90">
+            <p className="mt-6 font-body text-base text-[var(--color-brand-cream)]/90">
               Knowledge shaped by the Namibian landscape.
             </p>
           </div>
