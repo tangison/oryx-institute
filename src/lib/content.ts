@@ -84,8 +84,8 @@ export const schools: School[] = [
     shortName: "Safety",
     eyebrow: "School 01",
     status: "Planned",
-    image: "/images/schools/safety.png",
-    alt: "A safety helmet and inspection notebook rest on a clean surface in warm light.",
+    image: "/images/schools/safety-01.webp",
+    alt: "An open portfolio with photographs of safety tools and equipment.",
     caption: "Safety, inspection, and occupational practice.",
     blurb:
       "Occupational safety, inspection, and security practice. Programmes planned for industries that need disciplined, safety-conscious staff.",
@@ -110,8 +110,8 @@ export const schools: School[] = [
     shortName: "Administration and Commerce",
     eyebrow: "School 02",
     status: "Planned",
-    image: "/images/schools/administration.png",
-    alt: "An office desk with organised files and a closed laptop in soft natural light.",
+    image: "/images/schools/administration-01.webp",
+    alt: "An open notebook with a pen and a smooth stone arranged on a concrete surface.",
     caption: "Office, finance, and retail skills for the formal economy.",
     blurb:
       "Office administration, bookkeeping, retail, and front-office practice. Skills for the formal economy.",
@@ -136,8 +136,8 @@ export const schools: School[] = [
     shortName: "Hospitality and Tourism",
     eyebrow: "School 03",
     status: "Planned",
-    image: "/images/schools/hospitality.png",
-    alt: "A folded linen napkin on a polished wooden table beside a single glass in soft side light.",
+    image: "/images/schools/hospitality-01.webp",
+    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
     caption: "Hospitality, guiding, and tourism for one of Africa's strongest visitor markets.",
     blurb:
       "Hospitality operations, tour guiding, and food and beverage service. For one of Africa's strongest visitor markets.",
@@ -162,8 +162,8 @@ export const schools: School[] = [
     shortName: "Information and Digital Skills",
     eyebrow: "School 04",
     status: "Planned",
-    image: "/images/schools/digital.png",
-    alt: "Close-up of hands on a keyboard with warm monitor glow, focused on craft.",
+    image: "/images/schools/digital-01.webp",
+    alt: "A fountain pen resting on an open notebook near a stack of binders.",
     caption: "Digital literacy, hardware, and workplace technology.",
     blurb:
       "Digital literacy, hardware repair, and workplace technology. Practical digital skills for work and enterprise.",
@@ -188,8 +188,8 @@ export const schools: School[] = [
     shortName: "Future Schools",
     eyebrow: "School 05",
     status: "Applications not yet open",
-    image: "/images/schools/future.png",
-    alt: "A single acacia tree silhouette against a deep maroon and indigo twilight sky.",
+    image: "/images/campus/blueprint.webp",
+    alt: "An architectural blueprint with drafting tools laid out on a desk.",
     caption: "New schools will be announced as the institution grows.",
     blurb:
       "New schools will be announced as the institution grows. No disciplines are confirmed beyond the four above.",
@@ -229,8 +229,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical drills, and supervised workplace observation against recognised standards. RPL is available for experienced safety staff.",
     progression:
       "Planned progression to site safety inspection and workplace safety supervision. Subject to accreditation.",
-    image: "/images/programmes/programme-1.png",
-    alt: "An occupational safety certificate mock-up on cream paper with a brass clip.",
+    image: "/images/programmes/clipboards-notebooks.webp",
+    alt: "A row of clipboards and notebooks arranged on a counter.",
   },
   {
     slug: "site-safety-inspection",
@@ -253,8 +253,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, simulated inspections, and supervised site inspection. RPL is available for experienced inspectors.",
     progression:
       "Planned progression to workplace safety supervision. Subject to accreditation.",
-    image: "/images/programmes/programme-1.png",
-    alt: "An inspection notebook and pen on a clean workbench.",
+    image: "/images/schools/safety-01.webp",
+    alt: "An open portfolio with photographs of safety tools and equipment.",
   },
   {
     slug: "office-administration",
@@ -277,8 +277,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical office simulation, and supervised workplace observation. RPL is available for experienced administrative staff.",
     progression:
       "Planned progression to office supervision and bookkeeping. Subject to accreditation.",
-    image: "/images/programmes/programme-2.png",
-    alt: "A ledger book and fountain pen on a warm wooden desk.",
+    image: "/images/schools/administration-02.webp",
+    alt: "A checklist, a rubber stamp, and a secure lockbox on a desk.",
   },
   {
     slug: "bookkeeping-and-payroll",
@@ -301,8 +301,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical bookkeeping exercises, and supervised workplace observation. RPL is available for experienced bookkeepers.",
     progression:
       "Planned progression to payroll supervision and accounting technician practice. Subject to accreditation.",
-    image: "/images/programmes/programme-2.png",
-    alt: "An abacus beside a modern calculator on warm wood.",
+    image: "/images/schools/administration-04.webp",
+    alt: "A laptop with a notebook and pen on a wooden desk.",
   },
   {
     slug: "food-and-beverage-service",
@@ -325,8 +325,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical service drills, and supervised workplace observation. RPL is available for experienced service staff.",
     progression:
       "Planned progression to food and beverage supervision. Subject to accreditation.",
-    image: "/images/programmes/programme-3.png",
-    alt: "Neatly arranged chef knives on a wooden cutting board.",
+    image: "/images/schools/hospitality-01.webp",
+    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
   },
   {
     slug: "tour-guiding-practice",
@@ -349,8 +349,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical guiding drills, and supervised workplace observation. RPL is available for experienced guides.",
     progression:
       "Planned progression to tour operations and visitor experience supervision. Subject to accreditation.",
-    image: "/images/programmes/programme-3.png",
-    alt: "A Namibian map spread across a table.",
+    image: "/images/programmes/student-portfolio.webp",
+    alt: "A student reviewing a printed photo portfolio under warm light.",
   },
   {
     slug: "digital-literacy-foundations",
@@ -373,8 +373,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks and practical exercises. RPL is available for experienced users.",
     progression:
       "Planned progression to computer hardware repair and workplace productivity practice. Subject to accreditation.",
-    image: "/images/programmes/programme-4.png",
-    alt: "An open computer tower with components visible on a clean workbench.",
+    image: "/images/schools/digital-02.webp",
+    alt: "A minimalist flat-lay of a laptop and a stationery set on a warm surface.",
   },
   {
     slug: "computer-hardware-repair",
@@ -397,8 +397,8 @@ export const programmes: Programme[] = [
       "Planned assessment will combine written checks, practical repair exercises, and supervised workplace observation. RPL is available for experienced technicians.",
     progression:
       "Planned progression to basic network setup and IT support practice. Subject to accreditation.",
-    image: "/images/programmes/programme-4.png",
-    alt: "Tools for laptop repair arranged neatly on a clean surface.",
+    image: "/images/schools/digital-03.webp",
+    alt: "A modern computer lab with laptops arranged on long desks.",
   },
 ];
 

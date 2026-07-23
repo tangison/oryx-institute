@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section, SectionHeader } from '@/components/site/section';
 
 export const metadata: Metadata = {
@@ -24,10 +24,12 @@ const swatches = [
 export default function BrandPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Brand"
         title="Brand Book"
         lede="The visual and verbal system for Oryx Institute. Every choice is deliberate. Every rule is verified."
+        image="/images/brand/oryx-chalkboard.webp"
+        alt="A hand-drawn oryx shield motif sketched on a dark chalkboard surface."
       />
 
       <Section tone="dark">

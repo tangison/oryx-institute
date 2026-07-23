@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
 
 export const metadata: Metadata = {
@@ -51,10 +51,12 @@ const partnerTypes = [
 export default function PartnersPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Partners"
         title="Partner with Oryx Institute."
         lede="Employers, WIL partners, corporate training clients, research clients, and funding partners. We will respond to serious enquiries."
+        image="/images/partners/collaboration.webp"
+        alt="Professionals collaborating over documents spread across a wooden table."
       />
       <Section tone="cream">
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-border)]">

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
-import { PageHeader } from '@/components/site/page-header';
+import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section, SectionHeader } from '@/components/site/section';
 
 export const metadata: Metadata = {
@@ -14,19 +14,22 @@ export const metadata: Metadata = {
 export default function ResearchPage() {
   return (
     <PageShell>
-      <PageHeader
+      <ImagePageHeader
         eyebrow="Research"
         title="Research and advisory."
         lede="Applied research and advisory services, planned small at launch. Workforce studies, sector research, and advisory for Namibian employers and institutions."
+        image="/images/research/leather-books.webp"
+        alt="A stack of leather-bound books in warm natural light."
       />
 
       <Section tone="cream">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-6 relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
-              src="/images/research/research-1.png"
-              alt="A research notebook and pen on a warm wooden surface in soft directional light."
+              src="/images/research/archival-calipers.webp"
+              alt="An archival box with brass calipers and a wax-seal stamp arranged on a surface."
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </figure>
 
