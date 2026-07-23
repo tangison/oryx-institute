@@ -1,20 +1,7 @@
-'use client';
-
-import { useModal } from '@/lib/modal-context';
-import { legalNav, partnerNav, primaryNav } from '@/lib/content';
+import Link from 'next/link';
+import { primaryNav, secondaryNav, partnerNav, legalNav } from '@/lib/content';
 
 export function SiteFooter() {
-  const { open } = useModal();
-
-  const goToSection = (target: string, type: 'section' | 'modal') => {
-    if (type === 'section') {
-      const el = document.getElementById(target);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      open(target as Parameters<typeof open>[0]);
-    }
-  };
-
   return (
     <footer className="bg-[var(--oryx-ink)] text-[var(--oryx-cream)]">
       {/* CTA strip */}
@@ -29,22 +16,16 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="md:justify-self-end flex flex-wrap gap-3">
-            <button
-              onClick={() => {
-                const el = document.getElementById('register-interest');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              className="btn-primary"
-            >
+            <Link href="/register" className="btn-primary">
               Register Interest
-            </button>
-            <button
-              onClick={() => open('contact')}
+            </Link>
+            <Link
+              href="/contact"
               className="btn-secondary"
               style={{ color: 'var(--oryx-cream)', borderColor: 'var(--oryx-cream)' }}
             >
               Contact
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -56,9 +37,10 @@ export function SiteFooter() {
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-5">
               <img
-                src="/oryx-logo.png"
-                alt="Oryx Institute"
-                className="h-10 w-auto"
+                src="/oryx-mark.png"
+                alt=""
+                aria-hidden="true"
+                className="h-12 w-auto"
               />
               <span className="font-display text-lg font-medium">Oryx Institute</span>
             </div>
@@ -72,34 +54,51 @@ export function SiteFooter() {
           </div>
 
           {/* Primary nav */}
-          <nav className="md:col-span-3" aria-label="Footer primary">
+          <nav className="md:col-span-2" aria-label="Footer primary">
             <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Explore</p>
             <ul className="space-y-3">
               {primaryNav.map((item) => (
                 <li key={item.label}>
-                  <button
-                    onClick={() => goToSection(item.target, item.type)}
+                  <Link
+                    href={item.href}
                     className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors"
                   >
                     {item.label}
-                  </button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Secondary */}
+          <nav className="md:col-span-2" aria-label="Footer secondary">
+            <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Institute</p>
+            <ul className="space-y-3">
+              {secondaryNav.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
           {/* Partners */}
-          <nav className="md:col-span-3" aria-label="Footer partners">
+          <nav className="md:col-span-2" aria-label="Footer partners">
             <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Partners</p>
             <ul className="space-y-3">
               {partnerNav.map((item) => (
-                <li key={item.modal}>
-                  <button
-                    onClick={() => open(item.modal as Parameters<typeof open>[0])}
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
                     className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors text-left"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,13 +109,13 @@ export function SiteFooter() {
             <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Legal</p>
             <ul className="space-y-3">
               {legalNav.map((item) => (
-                <li key={item.modal}>
-                  <button
-                    onClick={() => open(item.modal as Parameters<typeof open>[0])}
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
                     className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors text-left"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

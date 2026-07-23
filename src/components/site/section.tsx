@@ -1,79 +1,88 @@
-'use client';
-
-import { useReveal } from '@/hooks/use-reveal';
+import { cn } from '@/lib/utils';
 
 /**
- * Section wrapper that handles consistent vertical rhythm and reveal animation.
+ * Section — consistent vertical rhythm for page sections.
+ * padding: py-16 md:py-24 by default. tone switches background.
  */
 export function Section({
-  id,
-  eyebrow,
-  headline,
-  intro,
-  tone = 'light',
   children,
-  className = '',
+  className,
+  tone = 'light',
+  id,
+  as: Tag = 'section',
 }: {
-  id?: string;
-  eyebrow?: string;
-  headline?: string;
-  intro?: string;
-  tone?: 'light' | 'cream' | 'ink' | 'sand' | 'maroon';
-  children?: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
+  tone?: 'light' | 'cream' | 'dark' | 'maroon';
+  id?: string;
+  as?: React.ElementType;
 }) {
-  const { ref, visible } = useReveal<HTMLDivElement>();
-
-  const toneClass =
-    tone === 'cream'
-      ? 'bg-[var(--color-oryx-cream)]'
-      : tone === 'ink'
-        ? 'bg-[var(--oryx-ink)] text-[var(--oryx-cream)]'
-        : tone === 'sand'
-          ? 'bg-[var(--oryx-warm-white)]'
-          : tone === 'maroon'
-            ? 'bg-[var(--oryx-maroon)] text-white'
-            : 'bg-white';
-
-  const eyebrowColor =
-    tone === 'ink' || tone === 'maroon'
-      ? 'text-[var(--oryx-warm-white)]'
-      : 'text-[var(--oryx-maroon)]';
+  const bg = {
+    light: 'bg-white text-[var(--oryx-ink)]',
+    cream: 'bg-[var(--color-background)] text-[var(--oryx-ink)]',
+    dark: 'bg-[var(--oryx-ink)] text-[var(--oryx-cream)]',
+    maroon: 'bg-[var(--oryx-maroon)] text-white',
+  }[tone];
 
   return (
-    <section
-      id={id}
-      className={`${toneClass} py-20 md:py-28 lg:py-32 ${className}`}
-    >
-      <div
-        ref={ref}
-        className={`container-oryx reveal ${visible ? 'is-visible' : ''}`}
-      >
-        {(eyebrow || headline || intro) && (
-          <header className="max-w-3xl mb-12 md:mb-16">
-            {eyebrow && (
-              <p className={`eyebrow mb-4 ${eyebrowColor}`}>{eyebrow}</p>
-            )}
-            {headline && (
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-balance">
-                {headline}
-              </h2>
-            )}
-            {intro && (
-              <p
-                className={`mt-6 text-base md:text-lg leading-relaxed ${
-                  tone === 'ink' || tone === 'maroon'
-                    ? 'text-[var(--oryx-warm-white)]/90'
-                    : 'text-[var(--muted-foreground)]'
-                } text-pretty`}
-              >
-                {intro}
-              </p>
-            )}
-          </header>
+    <Tag id={id} className={cn('py-16 md:py-24', bg, className)}>
+      <div className="container-oryx">{children}</div>
+    </Tag>
+  );
+}
+
+/**
+ * SectionHeader — eyebrow + display heading + optional lede, for section tops.
+ */
+export function SectionHeader({
+  eyebrow,
+  title,
+  lede,
+  align = 'left',
+  tone = 'light',
+  className,
+}: {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  align?: 'left' | 'center';
+  tone?: 'light' | 'dark' | 'maroon';
+  className?: string;
+}) {
+  const isDark = tone === 'dark';
+  const isMaroon = tone === 'maroon';
+  const muted = isDark
+    ? 'text-[var(--oryx-warm-white)]/75'
+    : isMaroon
+      ? 'text-white/80'
+      : 'text-[var(--muted-foreground)]';
+  const eyebrowTone = isDark
+    ? 'text-[var(--oryx-warm-white)]'
+    : isMaroon
+      ? 'text-white'
+      : 'text-[var(--oryx-maroon)]';
+  const titleTone = isDark
+    ? 'text-[var(--oryx-cream)]'
+    : isMaroon
+      ? 'text-white'
+      : 'text-[var(--oryx-ink)]';
+
+  return (
+    <div className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center', className)}>
+      {eyebrow && (
+        <p className={cn('eyebrow mb-4', eyebrowTone)}>{eyebrow}</p>
+      )}
+      <h2
+        className={cn(
+          'font-display text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-balance',
+          titleTone
         )}
-        {children}
-      </div>
-    </section>
+      >
+        {title}
+      </h2>
+      {lede && (
+        <p className={cn('mt-5 text-lg md:text-xl leading-relaxed text-pretty', muted)}>{lede}</p>
+      )}
+    </div>
   );
 }

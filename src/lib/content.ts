@@ -551,35 +551,39 @@ export const faqs: FaqItem[] = [
 ];
 
 /* =========================================================
-   Navigation
+   Navigation — real Next.js routes (multi-page)
    ========================================================= */
-export const primaryNav: { label: string; target: string; type: "section" | "modal" }[] = [
-  { label: "Institute", target: "institute", type: "modal" },
-  { label: "Schools", target: "schools", type: "section" },
-  { label: "Programmes", target: "programmes", type: "section" },
-  { label: "Pathways", target: "pathways", type: "section" },
-  { label: "Campus", target: "campus", type: "section" },
-  { label: "Research", target: "research", type: "modal" },
-  { label: "Updates", target: "updates", type: "section" },
-  { label: "Founder", target: "founder", type: "modal" },
-  { label: "Brand", target: "brand", type: "modal" },
-  { label: "FAQ", target: "faq", type: "modal" },
+export const primaryNav: { label: string; href: string }[] = [
+  { label: "About", href: "/about" },
+  { label: "Schools", href: "/schools" },
+  { label: "Programmes", href: "/programmes" },
+  { label: "Updates", href: "/updates" },
+  { label: "Brand", href: "/brand" },
+  { label: "FAQ", href: "/faq" },
 ];
 
-export const partnerNav: { label: string; modal: string }[] = [
-  { label: "Employer enquiry", modal: "partner-employer" },
-  { label: "WIL partner enquiry", modal: "partner-wil" },
-  { label: "Corporate training", modal: "partner-corporate" },
-  { label: "Research and advisory", modal: "partner-research" },
-  { label: "Funding and partnership", modal: "partner-funding" },
-  { label: "Contact", modal: "contact" },
+export const secondaryNav: { label: string; href: string }[] = [
+  { label: "Founder", href: "/founder" },
+  { label: "Research", href: "/research" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact", href: "/contact" },
+  { label: "Register Interest", href: "/register" },
 ];
 
-export const legalNav: { label: string; modal: string }[] = [
-  { label: "Privacy", modal: "legal-privacy" },
-  { label: "Terms", modal: "legal-terms" },
-  { label: "Accessibility", modal: "legal-accessibility" },
-  { label: "Sitemap", modal: "legal-sitemap" },
+export const partnerNav: { label: string; href: string }[] = [
+  { label: "Employer enquiry", href: "/partners/employers" },
+  { label: "WIL partner enquiry", href: "/partners/wil" },
+  { label: "Corporate training", href: "/partners/corporate" },
+  { label: "Research and advisory", href: "/partners/research" },
+  { label: "Funding and partnership", href: "/partners/funding" },
+  { label: "Contact", href: "/contact" },
+];
+
+export const legalNav: { label: string; href: string }[] = [
+  { label: "Privacy", href: "/legal/privacy" },
+  { label: "Terms", href: "/legal/terms" },
+  { label: "Accessibility", href: "/legal/accessibility" },
+  { label: "Sitemap", href: "/site-map" },
 ];
 
 /* =========================================================

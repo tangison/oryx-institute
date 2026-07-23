@@ -1,11 +1,13 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useModal } from '@/lib/modal-context';
-import { primaryNav, partnerNav } from '@/lib/content';
+import { primaryNav, secondaryNav } from '@/lib/content';
+import { cn } from '@/lib/utils';
 
 export function SiteHeader() {
-  const { open } = useModal();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,72 +25,89 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const goToSection = (target: string, type: 'section' | 'modal') => {
+  // Close mobile menu on route change
+  useEffect(() => {
     setMenuOpen(false);
-    if (type === 'section') {
-      const el = document.getElementById(target);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else {
-      open(target as Parameters<typeof open>[0]);
-    }
-  };
+  }, [pathname]);
+
+  const isHome = pathname === '/';
+  const solid = scrolled || menuOpen || !isHome;
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled || menuOpen
+      className={cn(
+        'fixed top-0 inset-x-0 z-50 transition-colors duration-300',
+        solid
           ? 'bg-[var(--color-oryx-cream)]/95 backdrop-blur-md border-b border-[var(--color-border)]'
           : 'bg-transparent'
-      }`}
+      )}
     >
       <div className="container-oryx flex items-center justify-between h-16 md:h-20">
-        {/* Logo lockup */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        {/* Logo lockup — big maroon mark + wordmark */}
+        <Link
+          href="/"
           className="flex items-center gap-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oryx-maroon)]"
           aria-label="Oryx Institute — home"
         >
           <img
-            src="/oryx-logo.png"
-            alt="Oryx Institute"
-            width={48}
-            height={32}
-            className="h-8 md:h-10 w-auto"
+            src="/oryx-mark.png"
+            alt=""
+            aria-hidden="true"
+            width={173}
+            height={226}
+            className="h-10 md:h-12 w-auto"
           />
-          <span className="font-display text-base md:text-lg font-medium tracking-tight text-[var(--oryx-ink)]">
+          <span
+            className={cn(
+              'font-display text-base md:text-lg font-medium tracking-tight transition-colors',
+              solid ? 'text-[var(--oryx-ink)]' : 'text-[var(--oryx-cream)]'
+            )}
+          >
             Oryx Institute
           </span>
-        </button>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
-          {primaryNav.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => goToSection(item.target, item.type)}
-              className="text-sm font-medium text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)] transition-colors duration-200"
-            >
-              {item.label}
-            </button>
-          ))}
+          {primaryNav.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(item.href + '/');
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={cn(
+                  'text-sm font-medium transition-colors relative py-1',
+                  solid
+                    ? 'text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)]'
+                    : 'text-[var(--oryx-cream)] hover:text-white',
+                  active && 'text-[var(--oryx-maroon)]'
+                )}
+              >
+                {item.label}
+                {active && (
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--oryx-maroon)]" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right actions */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => {
-              const el = document.getElementById('register-interest');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+          <Link
+            href="/register"
             className="hidden md:inline-flex btn-primary text-xs uppercase tracking-wider"
           >
             Register Interest
-          </button>
+          </Link>
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 border border-[var(--oryx-ink)]"
+            className={cn(
+              'lg:hidden inline-flex items-center justify-center w-10 h-10 border',
+              solid
+                ? 'border-[var(--oryx-ink)] text-[var(--oryx-ink)]'
+                : 'border-[var(--oryx-cream)] text-[var(--oryx-cream)]'
+            )}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -111,39 +130,29 @@ export function SiteHeader() {
         <div className="lg:hidden fixed inset-0 top-16 bg-[var(--color-oryx-cream)] z-40 overflow-y-auto">
           <nav className="container-oryx py-8 flex flex-col" aria-label="Mobile primary">
             {primaryNav.map((item) => (
-              <button
+              <Link
                 key={item.label}
-                onClick={() => goToSection(item.target, item.type)}
-                className="py-4 text-left font-display text-2xl border-b border-[var(--color-border)]"
+                href={item.href}
+                className="py-4 font-display text-2xl border-b border-[var(--color-border)]"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
             <div className="mt-8">
-              <p className="eyebrow mb-3">Partners and Contact</p>
-              {partnerNav.map((item) => (
-                <button
-                  key={item.modal}
-                  onClick={() => {
-                    setMenuOpen(false);
-                    open(item.modal as Parameters<typeof open>[0]);
-                  }}
-                  className="py-3 text-left text-base block w-full border-b border-[var(--color-border)]"
+              <p className="eyebrow mb-3">More</p>
+              {secondaryNav.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="py-3 text-base block w-full border-b border-[var(--color-border)]"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                const el = document.getElementById('register-interest');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              className="mt-8 btn-primary w-full justify-center"
-            >
+            <Link href="/register" className="mt-8 btn-primary w-full justify-center">
               Register Interest
-            </button>
+            </Link>
           </nav>
         </div>
       )}

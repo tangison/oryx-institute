@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { heroSlides } from '@/lib/content';
 
 export function Hero() {
@@ -51,7 +52,8 @@ export function Hero() {
             fetchPriority={i === 0 ? 'high' : 'auto'}
             loading={i === 0 ? 'eager' : 'lazy'}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,14,13,0.78)] via-[rgba(15,14,13,0.35)] to-[rgba(15,14,13,0.25)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,14,13,0.92)] via-[rgba(15,14,13,0.45)] to-[rgba(15,14,13,0.35)]" />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(15,14,13,0.55)] to-transparent" />
         </div>
       ))}
 
@@ -64,24 +66,26 @@ export function Hero() {
           <h1
             key={`title-${index}`}
             className="hero-slide font-display text-[var(--oryx-cream)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[0.95] tracking-tight text-balance"
+            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
           >
             {slide.headline}
           </h1>
           <p
             key={`body-${index}`}
             className="hero-slide mt-6 max-w-xl text-base md:text-lg text-[var(--oryx-warm-white)] leading-relaxed text-pretty"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
           >
             {slide.supporting}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => goToSection('register-interest')}
+            <Link
+              href="/register"
               className="btn-primary justify-center"
             >
               Register Interest
-            </button>
-            <button
-              onClick={() => goToSection('institute-intro')}
+            </Link>
+            <Link
+              href="/about"
               className="btn-secondary justify-center"
               style={{
                 backgroundColor: 'transparent',
@@ -90,7 +94,7 @@ export function Hero() {
               }}
             >
               Explore the Institute
-            </button>
+            </Link>
           </div>
         </div>
       </div>
