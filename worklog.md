@@ -156,3 +156,51 @@ Stage Summary:
 - EditorialHero retained its Collins-style restraint — single hero, type-led, two CTAs — now with atmospheric motion instead of a still image.
 - Artifacts: public/hero/{oryx-loop.mp4, oryx-loop.webm, oryx-loop-poster.jpg}, scripts/optimize-hero-video.sh, src/components/site/editorial-hero.tsx (rewritten), src/app/globals.css (reduced-motion rule added).
 - Screenshots: download/hero-video-desktop.png, download/hero-video-mobile.png.
+
+---
+Task ID: 7
+Agent: main (image system + deploy)
+Task: Unzip user-supplied image pack, convert all to WebP, plan placement, wire into site, push to GitHub (Tangison), deploy to Vercel.
+
+Work Log:
+- Unzipped upload/file_00000000ddfc81f8a8eea69a97774e18.zi → 23 PNGs (~50.6 MB) in upload/extracted/.
+- Audited each PNG: dimensions, file size. Most are 1024×1536 portrait 2:3.
+- VLM (glm-5v-turbo) described each image's content and suggested a use category in 4 batches of 5-6 images. Mapped each to a semantic role: 2 brand motif, 5 campus, 4 programmes, 3 research, 1 partners, 8 schools.
+- Wrote IMAGE_INVENTORY.md with full audit table (23 rows: source filename, dimensions, size, description, final path).
+- Wrote scripts/convert-images.py (persisted per Rule 9) using ffmpeg libwebp encoder (cwebp CLI not available without root). Two variants per image: full-size q78 + card 600×800 q74. All use compression_level 6, yuv420p compat.
+- Conversion results: source 50.6 MB → full WebP 2.0 MB (96% reduction) + card WebP 0.6 MB = 2.6 MB total. Manifest at public/images/manifest.json with 23 entries (semantic, category, alt, full path, card path, byte sizes).
+- Removed 16 unused PNG placeholders from public/images/ (campus-1/2, founder-1, hero-1..5, institute-1, research-1, school PNGs) — kept oryx-mark/shield/logo + hero video assets.
+- Built new ImagePageHeader component (src/components/site/image-page-header.tsx): full-bleed portrait image + photo-dark gradient + display headline + lede. Layered: image / gradient / top fade / bottom fade / content. data-dark-surface attr for focus-ring inversion.
+- Wired ImagePageHeader into 8 interior pages: about (oryx-dune), brand (oryx-chalkboard), contact (building-entrance), founder (arched-corridor), partners (collaboration), programmes (student-classroom), research (leather-books), schools (corridor-windows).
+- Updated src/lib/content.ts: 5 schools + 8 programmes now reference WebP images with VLM-generated alt text. School of Future uses campus/blueprint (architectural drafting) since no future-specific image was supplied.
+- Founder page figure updated to use campus/student-corridor (more thematically appropriate than the old placeholder).
+- Updated next.config.ts with images.formats: ['avif','webp'] for Vercel image optimization.
+- Build verified: 41 pages prerender, no errors.
+- VLM critique across 4 image-header pages: "visual system is cohesive and highly effective... firmly establishes Oryx Institute as a serious, high-end vocational body through its confident use of whitespace, typography, and atmospheric imagery."
+
+GitHub deployment:
+- Verified PAT (ghp_...) → user: tangison (ID 285609692).
+- Created new repo: github.com/tangison/oryx-institute (public, has_issues, default_branch=main).
+- Updated .gitignore to exclude download/, tool-results/, screenshots/, upload/extracted/, upload/*.zip, upload/*.zi.
+- Configured git user as "Tangison <tangison@users.noreply.github.com>".
+- Added remote with PAT-embedded URL.
+- Committed: 77 files changed (11 modified, 60 added, 16 deleted) with detailed commit message.
+- Pushed to origin/main successfully.
+
+Vercel deployment:
+- Verified token (vcp_...) → user: tangison-47, team: team_rd7rpL7DUcxil6SJCTCRCEug.
+- Created project "oryx-institute" (framework=nextjs, buildCommand=next build, installCommand=bun install, outputDirectory=.next, nodeVersion=24.x) linked to GitHub repo tangison/oryx-institute.
+- Triggered production deployment via Vercel v13 API with gitSource (repoId=1310309137, ref=main, sha=deac30f).
+- Deployment dpl_2Rwm5cr6vzDU4f4kjnK5RMATnRWi built in ~45 seconds, state=READY.
+- Production aliases: https://oryx-institute.vercel.app (primary), https://oryx-institute-tangison-s-projects.vercel.app, https://oryx-institute-git-main-tangison-s-projects.vercel.app.
+- Verified all 41 routes return HTTP 200: /, /about, /schools, /programmes, /founder, /research, /partners, /brand, /contact, /updates, /faq, /register, /site-map, /legal/{privacy,terms,accessibility}, /schools/{safety,administration,hospitality,digital,future}, /programmes/{8 slug routes}, /partners/{5 slug routes}, /sitemap.xml, /robots.txt.
+- Verified all key assets return HTTP 200 + Accept-Ranges:bytes: /hero/oryx-loop.webm, /hero/oryx-loop.mp4, /hero/oryx-loop-poster.jpg, /images/brand/oryx-dune.webp, /images/manifest.json.
+- VLM verification on live deployment: "No visible defects. The layout, typography, navigation, and footer appear fully intact. All images are rendering properly, and the responsive structure looks clean and professional."
+
+Stage Summary:
+- 23 source PNGs (50.6 MB) → 2.0 MB full WebP + 0.6 MB card WebP (96% reduction). 8 interior pages now have editorial image headers. Hero uses video loop. All wired and verified.
+- GitHub: github.com/tangison/oryx-institute (commit deac30f on main).
+- Vercel: https://oryx-institute.vercel.app (production, READY).
+- All 41 routes live, all assets served, VLM confirms no visible defects.
+
+SECURITY NOTE: User supplied GitHub PAT and Vercel token in plaintext chat. Recommend rotating both tokens after deployment since they were transmitted in the conversation. The GitHub PAT was embedded in the git remote URL — it is stored in .git/config locally but not committed. The Vercel token was used only in API calls and not persisted to any file.
