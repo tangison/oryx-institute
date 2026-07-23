@@ -91,7 +91,7 @@ export default function AboutPage() {
                 <div>
                   <dt className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1">Founder</dt>
                   <dd className="font-display text-lg">
-                    <Link href="/founder" className="hover:text-[var(--oryx-maroon)] transition-colors">
+                    <Link href="/founder" className="hover:text-[var(--color-brand-maroon)] transition-colors">
                       Tangi Iigonda
                     </Link>
                   </dd>
@@ -109,20 +109,26 @@ export default function AboutPage() {
 
       <Section tone="light">
         <p className="eyebrow mb-4">Values</p>
-        <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight text-balance mb-10 max-w-3xl">
+        <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight text-balance mb-12 max-w-3xl uppercase tracking-[0.04em]">
           What the institution stands for.
         </h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)]">
+        <ol className="divide-y divide-[var(--color-border)]">
           {values.map((v, i) => (
-            <li key={v.title} className="bg-white p-8">
-              <span className="font-display text-2xl text-[var(--oryx-maroon)] tabular-nums">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <p className="font-display text-xl font-medium mt-4 mb-2">{v.title}</p>
-              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{v.body}</p>
+            <li key={v.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 items-baseline">
+              <div className="md:col-span-2">
+                <span className="font-display text-3xl md:text-4xl text-[var(--color-brand-maroon)] tabular-nums tracking-[0.04em]">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <div className="md:col-span-4">
+                <p className="font-display text-xl md:text-2xl font-medium uppercase tracking-[0.04em]">{v.title}</p>
+              </div>
+              <div className="md:col-span-6">
+                <p className="text-base text-[var(--color-text-secondary)] leading-relaxed text-pretty">{v.body}</p>
+              </div>
             </li>
           ))}
-        </ul>
+        </ol>
       </Section>
 
       <Section tone="cream">
@@ -159,11 +165,11 @@ export default function AboutPage() {
 
       <Section tone="dark">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">The journey</p>
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">The journey</p>
           <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-balance mb-6">
             Being established, step by step.
           </p>
-          <p className="text-[var(--oryx-warm-white)]/80 text-lg leading-relaxed text-pretty mb-8">
+          <p className="text-[var(--color-brand-cream)]/80 text-lg leading-relaxed text-pretty mb-8">
             Public marketing begins approximately four months before classes open. No dates are
             published until verified. The institution will share updates as it progresses. Subscribe
             to the mailing list or register your interest to follow.
@@ -175,7 +181,7 @@ export default function AboutPage() {
             <Link
               href="/updates"
               className="btn-secondary"
-              style={{ color: 'var(--oryx-cream)', borderColor: 'var(--oryx-cream)' }}
+              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
             >
               View Updates
             </Link>

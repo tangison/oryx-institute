@@ -36,13 +36,13 @@ export function FaqSection() {
                     aria-expanded={isOpen}
                   >
                     <span className="flex-1">
-                      <span className="block eyebrow text-[var(--oryx-maroon)] mb-2">{f.category}</span>
+                      <span className="block eyebrow text-[var(--color-brand-maroon)] mb-2">{f.category}</span>
                       <span className="font-display text-lg md:text-xl font-medium leading-tight">
                         {f.question}
                       </span>
                     </span>
                     <span
-                      className="shrink-0 w-8 h-8 border border-[var(--oryx-ink)] inline-flex items-center justify-center"
+                      className="shrink-0 w-8 h-8 border border-[var(--color-brand-ink)] inline-flex items-center justify-center"
                       aria-hidden="true"
                     >
                       <svg
@@ -69,7 +69,7 @@ export function FaqSection() {
           </ul>
 
           <aside className="lg:col-span-4">
-            <div className="bg-[var(--color-oryx-cream)] p-6 md:p-8 border border-[var(--color-border)] sticky top-24">
+            <div className="bg-[var(--color-brand-cream)] p-6 md:p-8 border border-[var(--color-border)] sticky top-24">
               <h3 className="font-display text-xl md:text-2xl font-medium leading-tight">
                 Have a different question?
               </h3>

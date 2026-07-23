@@ -40,7 +40,7 @@ export function ResearchSection() {
               Small at launch. Growing with the institution. No completed research is claimed.
             </p>
 
-            <figure className="mt-10 relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+            <figure className="mt-10 relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
               <img
                 src="/images/research/research-1.png"
                 alt="An open research notebook with handwritten notes and a brass ruler in warm desk lamp light."
@@ -63,7 +63,7 @@ export function ResearchSection() {
             <ol className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
               {services.map((s, i) => (
                 <li key={s.title} className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-6 md:py-8">
-                  <span className="font-display text-2xl md:text-3xl text-[var(--oryx-maroon)] font-medium tabular-nums">
+                  <span className="font-display text-2xl md:text-3xl text-[var(--color-brand-maroon)] font-medium tabular-nums">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
@@ -78,7 +78,7 @@ export function ResearchSection() {
               ))}
             </ol>
 
-            <div className="mt-10 bg-[var(--color-oryx-cream)] p-6 md:p-8 border border-[var(--color-border)]">
+            <div className="mt-10 bg-[var(--color-brand-cream)] p-6 md:p-8 border border-[var(--color-border)]">
               <p className="caption-oryx">
                 Research and advisory services are in active development. No completed research is
                 claimed. No client list is published. Engagements will be announced when verified.

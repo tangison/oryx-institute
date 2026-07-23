@@ -30,7 +30,7 @@ export default function FaqPage() {
           return (
             <div key={cat} className="mb-16 last:mb-0">
               <div className="flex items-baseline gap-4 mb-6 pb-3 border-b border-[var(--color-border)]">
-                <span className="font-display text-sm text-[var(--oryx-maroon)] uppercase tracking-wider">
+                <span className="font-display text-sm text-[var(--color-brand-maroon)] uppercase tracking-wider">
                   {cat}
                 </span>
                 <span className="text-xs text-[var(--muted-foreground)]">
@@ -53,8 +53,8 @@ export default function FaqPage() {
           );
         })}
 
-        <div className="mt-12 bg-[var(--oryx-ink)] text-[var(--oryx-cream)] p-8 md:p-12">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-3">Still have questions?</p>
+        <div className="mt-12 bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] p-8 md:p-12">
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-3">Still have questions?</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
             Use the contact form. We will respond to serious enquiries.
           </p>
@@ -63,7 +63,7 @@ export default function FaqPage() {
             <Link
               href="/register"
               className="btn-secondary"
-              style={{ color: 'var(--oryx-cream)', borderColor: 'var(--oryx-cream)' }}
+              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
             >
               Register Interest
             </Link>

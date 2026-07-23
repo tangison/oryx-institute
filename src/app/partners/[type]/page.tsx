@@ -112,10 +112,10 @@ export default async function PartnerTypePage({
               Help us respond well.
             </p>
             <ul className="space-y-3 text-[var(--muted-foreground)] leading-relaxed">
-              <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Your organisation and your role.</li>
-              <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> What you need from Oryx Institute.</li>
-              <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> Any timeline or constraints we should know about.</li>
-              <li className="flex gap-3"><span className="text-[var(--oryx-maroon)]">+</span> A phone number if you prefer a call.</li>
+              <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Your organisation and your role.</li>
+              <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> What you need from Oryx Institute.</li>
+              <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> Any timeline or constraints we should know about.</li>
+              <li className="flex gap-3"><span className="text-[var(--color-brand-maroon)]">+</span> A phone number if you prefer a call.</li>
             </ul>
           </div>
           <div className="lg:col-span-7">

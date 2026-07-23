@@ -16,7 +16,7 @@ export function InstituteIntro() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Image column */}
           <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)]">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)]">
               <img
                 src="/images/institute/institute-1.png"
                 alt="An institutional crest carved in sandstone, weathered, with warm afternoon light."

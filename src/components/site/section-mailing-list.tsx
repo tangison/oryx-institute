@@ -33,7 +33,7 @@ function MailingListForm() {
   return (
     <form
       data-form-type="mailing-list"
-      className="bg-[var(--color-oryx-cream)] p-6 md:p-8 border border-[var(--color-border)]"
+      className="bg-[var(--color-brand-cream)] p-6 md:p-8 border border-[var(--color-border)]"
       noValidate
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -49,7 +49,7 @@ function MailingListForm() {
 
       <div className="mt-4">
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--oryx-maroon)]" />
+          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" />
           <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             I consent to receive verified email updates from Oryx Institute. I understand I can
             unsubscribe at any time.

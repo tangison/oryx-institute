@@ -36,11 +36,11 @@ export function BrandModal() {
             The original transparent PNG only.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[var(--color-oryx-cream)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+            <div className="bg-[var(--color-brand-cream)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
               { }
               <img src="/oryx-logo.png" alt="Oryx Institute primary logo" className="max-h-24 w-auto" />
             </div>
-            <div className="bg-[var(--oryx-ink)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+            <div className="bg-[var(--color-brand-ink)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
               { }
               <img src="/oryx-logo.png" alt="Oryx Institute logo on dark background" className="max-h-24 w-auto" />
             </div>
@@ -59,7 +59,7 @@ export function BrandModal() {
           <p className="font-display text-xl md:text-2xl font-medium leading-tight mb-4">
             The oryx emblem.
           </p>
-          <div className="bg-[var(--color-oryx-cream)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
+          <div className="bg-[var(--color-brand-cream)] p-8 border border-[var(--color-border)] flex items-center justify-center aspect-[3/2]">
             { }
             <img src="/oryx-shield.png" alt="Oryx Institute shield emblem" className="max-h-32 w-auto" />
           </div>
@@ -107,7 +107,7 @@ export function BrandModal() {
             Editorial serif display. Restrained sans-serif body.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+            <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
               <p className="eyebrow mb-3">Display</p>
               <p className="font-display text-4xl md:text-5xl">Fraunces</p>
               <p className="font-display text-base mt-2 italic">Editorial serif. 400, 500, 600, 700.</p>
@@ -115,7 +115,7 @@ export function BrandModal() {
                 Used for all headlines, hero copy, pull quotes, and major numerals.
               </p>
             </div>
-            <div className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+            <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
               <p className="eyebrow mb-3">Body</p>
               <p className="font-sans text-4xl md:text-5xl">Inter</p>
               <p className="font-sans text-base mt-2">Restrained sans. 400, 500, 600, 700.</p>
@@ -175,7 +175,7 @@ export function BrandModal() {
               { src: '/images/hero/hero-1.png', alt: 'An oryx on a dune at sunrise.' },
               { src: '/images/hero/hero-3.png', alt: 'A stack of technical books on a desk.' },
             ].map((img) => (
-              <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+              <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
                 { }
                 <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
               </figure>
@@ -195,7 +195,7 @@ export function BrandModal() {
             explain what an image shows and why it matters. No puffery. No superlatives. No jargon.
             No em dashes.
           </p>
-          <div className="mt-6 bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+          <div className="mt-6 bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
             <p className="eyebrow mb-3">Prohibited language</p>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
               world-class, revolutionary, cutting-edge, unlock, game-changing, seamless, unwavering

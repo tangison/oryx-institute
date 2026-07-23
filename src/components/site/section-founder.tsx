@@ -8,7 +8,7 @@ export function FounderSection() {
   const { open } = useModal();
 
   return (
-    <section id="founder" className="bg-[var(--oryx-warm-white)] py-20 md:py-28 lg:py-32">
+    <section id="founder" className="bg-[var(--color-brand-cream)] py-20 md:py-28 lg:py-32">
       <div ref={ref} className={`container-oryx reveal ${visible ? 'is-visible' : ''}`}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-5 relative aspect-[3/4] overflow-hidden bg-white border border-[var(--color-border)]">
@@ -18,7 +18,7 @@ export function FounderSection() {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--oryx-cream)] text-xs px-4 py-2 m-3">
+            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               Founder&apos;s study. No photograph of the founder is published at this stage.
             </figcaption>
           </figure>
@@ -33,7 +33,7 @@ export function FounderSection() {
               direction. No biography, credentials, or photograph are published at this stage.
             </p>
 
-            <blockquote className="mt-10 pl-6 border-l-2 border-[var(--oryx-maroon)]">
+            <blockquote className="mt-10 pl-6 border-l-2 border-[var(--color-brand-maroon)]">
               <p className="font-display text-xl md:text-2xl font-medium italic leading-snug text-balance">
                 &ldquo;Oryx Institute is being built to give Namibians practical, recognised skills
                 through vocational education rooted in the Namibian landscape.&rdquo;

@@ -36,39 +36,30 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed top-0 inset-x-0 z-50 transition-colors duration-300',
+        'fixed top-0 inset-x-0 z-[var(--z-header)] transition-colors duration-300',
         solid
-          ? 'bg-[var(--color-oryx-cream)]/95 backdrop-blur-md border-b border-[var(--color-border)]'
+          ? 'bg-[var(--color-brand-cream)]/95 backdrop-blur-md border-b border-[var(--color-border)]'
           : 'bg-transparent'
       )}
     >
-      <div className="container-oryx flex items-center justify-between h-16 md:h-20">
-        {/* Logo lockup — big maroon mark + wordmark */}
+      <div className="container-oryx flex items-center justify-between h-20 md:h-24">
+        {/* Logo — BIG shield icon only, no wordmark text */}
         <Link
           href="/"
-          className="flex items-center gap-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oryx-maroon)]"
+          className="flex items-center gap-0 focus:outline-none focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#FFF8EF]"
           aria-label="Oryx Institute — home"
         >
           <img
             src="/oryx-mark.png"
-            alt=""
-            aria-hidden="true"
+            alt="Oryx Institute"
             width={173}
             height={226}
-            className="h-10 md:h-12 w-auto"
+            className="h-14 md:h-16 w-auto"
           />
-          <span
-            className={cn(
-              'font-display text-base md:text-lg font-medium tracking-tight transition-colors',
-              solid ? 'text-[var(--oryx-ink)]' : 'text-[var(--oryx-cream)]'
-            )}
-          >
-            Oryx Institute
-          </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           {primaryNav.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + '/');
             return (
@@ -76,16 +67,16 @@ export function SiteHeader() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors relative py-1',
+                  'text-sm font-semibold tracking-wide transition-colors relative py-2',
                   solid
-                    ? 'text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)]'
-                    : 'text-[var(--oryx-cream)] hover:text-white',
-                  active && 'text-[var(--oryx-maroon)]'
+                    ? 'text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)]'
+                    : 'text-[var(--color-brand-cream)] hover:text-white',
+                  active && 'text-[var(--color-brand-maroon)]'
                 )}
               >
                 {item.label}
                 {active && (
-                  <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--oryx-maroon)]" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--color-brand-maroon)]" />
                 )}
               </Link>
             );
@@ -96,17 +87,17 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/register"
-            className="hidden md:inline-flex btn-primary text-xs uppercase tracking-wider"
+            className="hidden md:inline-flex btn-primary text-xs"
           >
             Register Interest
           </Link>
           <button
             onClick={() => setMenuOpen((v) => !v)}
             className={cn(
-              'lg:hidden inline-flex items-center justify-center w-10 h-10 border',
+              'lg:hidden inline-flex items-center justify-center w-11 h-11 border',
               solid
-                ? 'border-[var(--oryx-ink)] text-[var(--oryx-ink)]'
-                : 'border-[var(--oryx-cream)] text-[var(--oryx-cream)]'
+                ? 'border-[var(--color-brand-ink)] text-[var(--color-brand-ink)]'
+                : 'border-[var(--color-brand-cream)] text-[var(--color-brand-cream)]'
             )}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -127,13 +118,13 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-[var(--color-oryx-cream)] z-40 overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 top-20 md:top-24 bg-[var(--color-brand-cream)] z-40 overflow-y-auto">
           <nav className="container-oryx py-8 flex flex-col" aria-label="Mobile primary">
             {primaryNav.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="py-4 font-display text-2xl border-b border-[var(--color-border)]"
+                className="py-4 font-display text-2xl uppercase tracking-wide border-b border-[var(--color-border)]"
               >
                 {item.label}
               </Link>

@@ -3,15 +3,15 @@ import { primaryNav, secondaryNav, partnerNav, legalNav } from '@/lib/content';
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[var(--oryx-ink)] text-[var(--oryx-cream)]">
+    <footer className="bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)]" data-dark-surface>
       {/* CTA strip */}
-      <div className="border-b border-[var(--oryx-warm-white)]/15">
+      <div className="border-b border-[var(--color-brand-cream)]/15">
         <div className="container-oryx py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
-            <h2 className="font-display text-2xl md:text-4xl font-medium leading-tight text-balance">
+            <h2 className="font-display text-2xl md:text-4xl font-medium leading-tight text-balance uppercase tracking-[0.04em]">
               Be part of what is being built.
             </h2>
-            <p className="mt-3 text-[var(--oryx-warm-white)]/75 text-pretty">
+            <p className="mt-3 text-[var(--color-brand-cream)]/75 text-pretty">
               Register your interest. We will contact you when admissions open.
             </p>
           </div>
@@ -21,8 +21,7 @@ export function SiteFooter() {
             </Link>
             <Link
               href="/contact"
-              className="btn-secondary"
-              style={{ color: 'var(--oryx-cream)', borderColor: 'var(--oryx-cream)' }}
+              className="btn-secondary hero-secondary-btn"
             >
               Contact
             </Link>
@@ -33,35 +32,33 @@ export function SiteFooter() {
       {/* Main footer */}
       <div className="container-oryx py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
-          {/* Brand */}
+          {/* Brand — BIG shield icon, no wordmark text */}
           <div className="md:col-span-4">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="mb-5">
               <img
                 src="/oryx-mark.png"
-                alt=""
-                aria-hidden="true"
-                className="h-12 w-auto"
+                alt="Oryx Institute"
+                className="h-16 md:h-20 w-auto"
               />
-              <span className="font-display text-lg font-medium">Oryx Institute</span>
             </div>
-            <p className="text-sm text-[var(--oryx-warm-white)]/70 leading-relaxed text-pretty">
+            <p className="text-sm text-[var(--color-brand-cream)]/70 leading-relaxed text-pretty">
               A multidisciplinary vocational education and training institution being established in
               Windhoek, Namibia. Pre-launch. All programmes planned and subject to approval.
             </p>
-            <p className="mt-6 font-display text-base italic text-[var(--oryx-warm-white)]/90">
+            <p className="mt-6 font-body text-base italic text-[var(--color-brand-cream)]/90">
               Knowledge shaped by the Namibian landscape.
             </p>
           </div>
 
           {/* Primary nav */}
           <nav className="md:col-span-2" aria-label="Footer primary">
-            <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Explore</p>
+            <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-4">Explore</p>
             <ul className="space-y-3">
               {primaryNav.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors"
+                    className="text-sm text-[var(--color-brand-cream)]/80 hover:text-[var(--color-brand-cream)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -72,13 +69,13 @@ export function SiteFooter() {
 
           {/* Secondary */}
           <nav className="md:col-span-2" aria-label="Footer secondary">
-            <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Institute</p>
+            <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-4">Institute</p>
             <ul className="space-y-3">
               {secondaryNav.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors"
+                    className="text-sm text-[var(--color-brand-cream)]/80 hover:text-[var(--color-brand-cream)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -89,13 +86,13 @@ export function SiteFooter() {
 
           {/* Partners */}
           <nav className="md:col-span-2" aria-label="Footer partners">
-            <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Partners</p>
+            <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-4">Partners</p>
             <ul className="space-y-3">
               {partnerNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors text-left"
+                    className="text-sm text-[var(--color-brand-cream)]/80 hover:text-[var(--color-brand-cream)] transition-colors text-left"
                   >
                     {item.label}
                   </Link>
@@ -106,13 +103,13 @@ export function SiteFooter() {
 
           {/* Legal */}
           <nav className="md:col-span-2" aria-label="Footer legal">
-            <p className="eyebrow text-[var(--oryx-warm-white)]/60 mb-4">Legal</p>
+            <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-4">Legal</p>
             <ul className="space-y-3">
               {legalNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--oryx-warm-white)]/80 hover:text-[var(--oryx-cream)] transition-colors text-left"
+                    className="text-sm text-[var(--color-brand-cream)]/80 hover:text-[var(--color-brand-cream)] transition-colors text-left"
                   >
                     {item.label}
                   </Link>
@@ -123,21 +120,21 @@ export function SiteFooter() {
         </div>
 
         {/* Pre-launch notice */}
-        <div className="mt-12 pt-8 border-t border-[var(--oryx-warm-white)]/15">
-          <div className="flex flex-col md:flex-row md:items-start gap-4 text-sm text-[var(--oryx-warm-white)]/60">
+        <div className="mt-12 pt-8 border-t border-[var(--color-brand-cream)]/15">
+          <div className="flex flex-col md:flex-row md:items-start gap-4 text-sm text-[var(--color-brand-cream)]/60">
             <p className="flex-1 leading-relaxed text-pretty">
               Oryx Institute is being established. Programmes are planned and subject to approval.
               No accreditation, registration number, campus address, fees, or intake dates are
               claimed until verified.
             </p>
-            <span className="status-pill border-[var(--oryx-warm-white)]/40 text-[var(--oryx-warm-white)]/80 whitespace-nowrap">
+            <span className="status-pill border-[var(--color-brand-cream)]/40 text-[var(--color-brand-cream)]/80 whitespace-nowrap">
               Pre-Launch
             </span>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-[var(--oryx-warm-white)]/15 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-[var(--oryx-warm-white)]/50">
+        <div className="mt-10 pt-6 border-t border-[var(--color-brand-cream)]/15 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-[var(--color-brand-cream)]/50">
           <p>&copy; {new Date().getFullYear()} Oryx Institute. All rights reserved.</p>
           <p>
             Made by{' '}
@@ -145,7 +142,7 @@ export function SiteFooter() {
               href="https://studio.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--oryx-warm-white)] hover:text-[var(--oryx-cream)] underline-offset-4 hover:underline"
+              className="text-[var(--color-brand-cream)] hover:text-white underline-offset-4 hover:underline"
             >
               Tangison Studio
             </a>

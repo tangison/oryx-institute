@@ -132,7 +132,7 @@ export function EnquiryModal({ type }: { type: EnquiryType }) {
 
           <div>
             <label className="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--oryx-maroon)]" />
+              <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" />
               <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">
                 I consent to be contacted by Oryx Institute about this enquiry. <span aria-hidden="true">*</span>
               </span>

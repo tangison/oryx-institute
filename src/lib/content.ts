@@ -4,7 +4,7 @@
  * No fabricated facts. All unknown fields are "To be confirmed" or omitted.
  */
 
-export type ProgrammeStatus = "Planned" | "Subject to approval" | "Register your interest";
+export type ProgrammeStatus = "Planned" | "Subject to accreditation" | "Register your interest";
 export type ProgrammeLevel = "Certificate" | "Diploma" | "Short Course" | "To be confirmed";
 export type ProgrammeDelivery = "Classroom" | "Blended" | "Workplace" | "Online";
 export type SchoolSlug = "safety" | "administration" | "hospitality" | "digital" | "future";
@@ -15,7 +15,7 @@ export interface School {
   name: string;
   shortName: string;
   eyebrow: string;
-  status: ProgrammeStatus | "To be announced";
+  status: ProgrammeStatus | "Applications not yet open";
   image: string;
   alt: string;
   caption: string;
@@ -187,7 +187,7 @@ export const schools: School[] = [
     name: "Future Schools",
     shortName: "Future Schools",
     eyebrow: "School 05",
-    status: "To be announced",
+    status: "Applications not yet open",
     image: "/images/schools/future.png",
     alt: "A single acacia tree silhouette against a deep maroon and indigo twilight sky.",
     caption: "New schools will be announced as the institution grows.",
@@ -228,7 +228,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical drills, and supervised workplace observation against recognised standards. RPL is available for experienced safety staff.",
     progression:
-      "Planned progression to site safety inspection and workplace safety supervision. Subject to approval.",
+      "Planned progression to site safety inspection and workplace safety supervision. Subject to accreditation.",
     image: "/images/programmes/programme-1.png",
     alt: "An occupational safety certificate mock-up on cream paper with a brass clip.",
   },
@@ -239,7 +239,7 @@ export const programmes: Programme[] = [
     schoolName: "School of Safety",
     level: "Certificate",
     delivery: "Blended",
-    status: "Subject to approval",
+    status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
       "A planned programme for site safety inspection practice in construction, mining, and industrial settings. The programme will combine classroom learning with site visits and supervised workplace inspection.",
@@ -252,7 +252,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, simulated inspections, and supervised site inspection. RPL is available for experienced inspectors.",
     progression:
-      "Planned progression to workplace safety supervision. Subject to approval.",
+      "Planned progression to workplace safety supervision. Subject to accreditation.",
     image: "/images/programmes/programme-1.png",
     alt: "An inspection notebook and pen on a clean workbench.",
   },
@@ -276,7 +276,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical office simulation, and supervised workplace observation. RPL is available for experienced administrative staff.",
     progression:
-      "Planned progression to office supervision and bookkeeping. Subject to approval.",
+      "Planned progression to office supervision and bookkeeping. Subject to accreditation.",
     image: "/images/programmes/programme-2.png",
     alt: "A ledger book and fountain pen on a warm wooden desk.",
   },
@@ -287,7 +287,7 @@ export const programmes: Programme[] = [
     schoolName: "School of Administration and Commerce",
     level: "Certificate",
     delivery: "Blended",
-    status: "Subject to approval",
+    status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
       "A planned programme covering bookkeeping principles, payroll processing, and basic financial reporting for small businesses. The programme will combine classroom learning with practical exercises using recognised accounting software.",
@@ -300,7 +300,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical bookkeeping exercises, and supervised workplace observation. RPL is available for experienced bookkeepers.",
     progression:
-      "Planned progression to payroll supervision and accounting technician practice. Subject to approval.",
+      "Planned progression to payroll supervision and accounting technician practice. Subject to accreditation.",
     image: "/images/programmes/programme-2.png",
     alt: "An abacus beside a modern calculator on warm wood.",
   },
@@ -324,7 +324,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical service drills, and supervised workplace observation. RPL is available for experienced service staff.",
     progression:
-      "Planned progression to food and beverage supervision. Subject to approval.",
+      "Planned progression to food and beverage supervision. Subject to accreditation.",
     image: "/images/programmes/programme-3.png",
     alt: "Neatly arranged chef knives on a wooden cutting board.",
   },
@@ -335,7 +335,7 @@ export const programmes: Programme[] = [
     schoolName: "School of Hospitality and Tourism",
     level: "Certificate",
     delivery: "Blended",
-    status: "Subject to approval",
+    status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
       "A planned programme covering tour guiding practice, visitor experience, safety on tour, and Namibian natural and cultural heritage interpretation. The programme will combine classroom learning with practical guiding drills and supervised workplace placement.",
@@ -348,7 +348,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical guiding drills, and supervised workplace observation. RPL is available for experienced guides.",
     progression:
-      "Planned progression to tour operations and visitor experience supervision. Subject to approval.",
+      "Planned progression to tour operations and visitor experience supervision. Subject to accreditation.",
     image: "/images/programmes/programme-3.png",
     alt: "A Namibian map spread across a table.",
   },
@@ -372,7 +372,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks and practical exercises. RPL is available for experienced users.",
     progression:
-      "Planned progression to computer hardware repair and workplace productivity practice. Subject to approval.",
+      "Planned progression to computer hardware repair and workplace productivity practice. Subject to accreditation.",
     image: "/images/programmes/programme-4.png",
     alt: "An open computer tower with components visible on a clean workbench.",
   },
@@ -383,7 +383,7 @@ export const programmes: Programme[] = [
     schoolName: "School of Information and Digital Skills",
     level: "Certificate",
     delivery: "Classroom",
-    status: "Subject to approval",
+    status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
       "A planned programme covering computer hardware diagnosis, repair, and maintenance for personal computers and small office systems. The programme will combine classroom learning with hands-on workshop time and supervised workplace placement.",
@@ -396,7 +396,7 @@ export const programmes: Programme[] = [
     assessment:
       "Planned assessment will combine written checks, practical repair exercises, and supervised workplace observation. RPL is available for experienced technicians.",
     progression:
-      "Planned progression to basic network setup and IT support practice. Subject to approval.",
+      "Planned progression to basic network setup and IT support practice. Subject to accreditation.",
     image: "/images/programmes/programme-4.png",
     alt: "Tools for laptop repair arranged neatly on a clean surface.",
   },
@@ -437,7 +437,7 @@ export const pathways: Pathway[] = [
   {
     index: "05",
     title: "Progression",
-    caption: "From short courses to qualifications. Subject to approval.",
+    caption: "From short courses to qualifications. Subject to accreditation.",
     detail:
       "Oryx Institute intends to support progression from short courses to certificates to diplomas. Progression depends on programme approval, learner numbers, and institutional capacity. No progression is guaranteed until programmes are approved.",
   },
@@ -625,6 +625,6 @@ export const heroSlides: {
     image: "/images/hero/hero-5.png",
     alt: "Skilled hands working on a mechanical training bench in warm window light.",
     headline: "Learning shaped by Namibia.",
-    supporting: "Programmes planned across five schools. Subject to approval.",
+    supporting: "Programmes planned across five schools. Subject to accreditation.",
   },
 ];

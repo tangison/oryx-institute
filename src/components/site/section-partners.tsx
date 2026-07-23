@@ -39,7 +39,7 @@ export function PartnerSection() {
   ];
 
   return (
-    <section id="partners" className="bg-[var(--color-oryx-cream)] py-20 md:py-28 lg:py-32">
+    <section id="partners" className="bg-[var(--color-brand-cream)] py-20 md:py-28 lg:py-32">
       <div ref={ref} className={`container-oryx reveal ${visible ? 'is-visible' : ''}`}>
         <header className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-4">Partners and Clients</p>

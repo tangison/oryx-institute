@@ -7,6 +7,7 @@ import { heroSlides } from '@/lib/content';
 export function Hero() {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % heroSlides.length), []);
@@ -15,33 +16,37 @@ export function Hero() {
     []
   );
 
+  // Detect reduced-motion preference (DESIGN.md §14: disable autoplay)
   useEffect(() => {
-    if (!playing) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (!playing || reducedMotion) return;
     timer.current = setInterval(next, 7000);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, [playing, next]);
+  }, [playing, next, reducedMotion]);
 
   const slide = heroSlides[index];
-
-  const goToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   return (
     <section
       id="hero"
       aria-roledescription="carousel"
       aria-label="Oryx Institute introduction"
-      className="relative w-full h-[100svh] min-h-[640px] overflow-hidden bg-[var(--oryx-ink)]"
+      className="relative w-full h-[100svh] min-h-[640px] overflow-hidden bg-[var(--color-brand-ink)]"
     >
       {/* Slide images */}
       {heroSlides.map((s, i) => (
         <div
           key={i}
-          className="absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          className="absolute inset-0 transition-opacity duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
           style={{ opacity: i === index ? 1 : 0 }}
           aria-hidden={i !== index}
         >
@@ -52,28 +57,30 @@ export function Hero() {
             fetchPriority={i === 0 ? 'high' : 'auto'}
             loading={i === 0 ? 'eager' : 'lazy'}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,14,13,0.92)] via-[rgba(15,14,13,0.45)] to-[rgba(15,14,13,0.35)]" />
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(15,14,13,0.55)] to-transparent" />
+          {/* DESIGN.md §6.4 gradient-photo-dark token */}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundImage: 'linear-gradient(90deg, rgba(23, 23, 23, 0.92) 0%, rgba(74, 7, 16, 0.68) 52%, rgba(74, 7, 16, 0.20) 100%)' }}
+          />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(23,23,23,0.55)] to-transparent" />
         </div>
       ))}
 
       {/* Slide content */}
       <div className="relative h-full container-oryx flex flex-col justify-end pb-20 md:pb-24">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">
             Windhoek · Namibia · Pre-Launch
           </p>
           <h1
             key={`title-${index}`}
-            className="hero-slide font-display text-[var(--oryx-cream)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[0.95] tracking-tight text-balance"
-            style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
+            className={`hero-slide font-display text-[var(--color-brand-cream)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] tracking-[0.04em] text-balance hero-headline-shadow ${reducedMotion ? '' : 'uppercase'}`}
           >
             {slide.headline}
           </h1>
           <p
             key={`body-${index}`}
-            className="hero-slide mt-6 max-w-xl text-base md:text-lg text-[var(--oryx-warm-white)] leading-relaxed text-pretty"
-            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
+            className="hero-slide mt-6 max-w-xl text-base md:text-lg text-[var(--color-brand-cream)] leading-relaxed text-pretty hero-body-shadow"
           >
             {slide.supporting}
           </p>
@@ -86,12 +93,7 @@ export function Hero() {
             </Link>
             <Link
               href="/about"
-              className="btn-secondary justify-center"
-              style={{
-                backgroundColor: 'transparent',
-                color: 'var(--oryx-cream)',
-                borderColor: 'var(--oryx-cream)',
-              }}
+              className="btn-secondary justify-center hero-secondary-btn"
             >
               Explore the Institute
             </Link>
@@ -99,65 +101,59 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Slide controls — bottom right */}
-      <div className="absolute bottom-6 md:bottom-8 right-0 container-oryx flex items-center justify-end gap-3">
+      {/* Minimal slide controls — appear on hover, bottom right, 44px touch targets */}
+      <div className="absolute bottom-6 md:bottom-8 right-0 container-oryx flex items-center justify-end gap-2 opacity-60 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200">
         <button
           onClick={prev}
-          className="w-10 h-10 inline-flex items-center justify-center border border-[var(--oryx-cream)]/50 text-[var(--oryx-cream)] hover:bg-[var(--oryx-cream)] hover:text-[var(--oryx-ink)] transition-colors duration-200"
+          className="w-11 h-11 inline-flex items-center justify-center border border-[var(--color-brand-cream)]/30 text-[var(--color-brand-cream)] hover:bg-[var(--color-brand-cream)] hover:text-[var(--color-brand-ink)] transition-colors duration-200"
           aria-label="Previous slide"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M9 1L3 7L9 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
           </svg>
         </button>
         <button
           onClick={() => setPlaying((p) => !p)}
-          className="w-10 h-10 inline-flex items-center justify-center border border-[var(--oryx-cream)]/50 text-[var(--oryx-cream)] hover:bg-[var(--oryx-cream)] hover:text-[var(--oryx-ink)] transition-colors duration-200"
+          className="w-11 h-11 inline-flex items-center justify-center border border-[var(--color-brand-cream)]/30 text-[var(--color-brand-cream)] hover:bg-[var(--color-brand-cream)] hover:text-[var(--color-brand-ink)] transition-colors duration-200"
           aria-label={playing ? 'Pause slideshow' : 'Play slideshow'}
         >
           {playing ? (
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <rect x="2" y="1" width="3" height="10" fill="currentColor" />
               <rect x="7" y="1" width="3" height="10" fill="currentColor" />
             </svg>
           ) : (
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 1L11 6L2 11V1Z" fill="currentColor" />
             </svg>
           )}
         </button>
         <button
           onClick={next}
-          className="w-10 h-10 inline-flex items-center justify-center border border-[var(--oryx-cream)]/50 text-[var(--oryx-cream)] hover:bg-[var(--oryx-cream)] hover:text-[var(--oryx-ink)] transition-colors duration-200"
+          className="w-11 h-11 inline-flex items-center justify-center border border-[var(--color-brand-cream)]/30 text-[var(--color-brand-cream)] hover:bg-[var(--color-brand-cream)] hover:text-[var(--color-brand-ink)] transition-colors duration-200"
           aria-label="Next slide"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M5 1L11 7L5 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
           </svg>
         </button>
       </div>
 
-      {/* Slide position indicator — bottom left */}
+      {/* Slide position indicator — bottom left, minimal */}
       <div
         className="absolute bottom-6 md:bottom-8 left-0 container-oryx flex items-center gap-3"
         aria-live="polite"
       >
-        <span className="font-display text-[var(--oryx-cream)] text-sm tabular-nums">
+        <span className="font-display text-[var(--color-brand-cream)] text-sm tabular-nums tracking-[0.04em]">
           {String(index + 1).padStart(2, '0')}
         </span>
-        <span className="text-[var(--oryx-cream)]/60 text-sm">/</span>
-        <span className="text-[var(--oryx-cream)]/60 text-sm tabular-nums">
+        <span className="text-[var(--color-brand-cream)]/40 text-sm">/</span>
+        <span className="text-[var(--color-brand-cream)]/40 text-sm tabular-nums">
           {String(heroSlides.length).padStart(2, '0')}
         </span>
         <span className="sr-only">
           Slide {index + 1} of {heroSlides.length}
         </span>
-        <div className="hidden md:block w-32 h-px bg-[var(--oryx-cream)]/30 ml-4">
-          <div
-            className="h-px bg-[var(--oryx-cream)] transition-all duration-300"
-            style={{ width: `${((index + 1) / heroSlides.length) * 100}%` }}
-          />
-        </div>
       </div>
     </section>
   );

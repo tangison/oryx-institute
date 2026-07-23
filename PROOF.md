@@ -191,3 +191,68 @@ User directive: "Run phase 4 now and here is the design system apply it... come 
 **Status:** Phase 4 (Audit) complete. Ready for Wave 1 execution on user confirmation.
 **Phase:** 4 (Audit).
 **Next:** Wave 1 (Font swap) per PHASE4_AUDIT_AND_PLAN.md §4.
+
+## Phase 4 (Audit) - Wave execution (2026-07-24)
+
+User directive: "Execute all waves execute the plan and theres no wordmark only the logo icon"
+
+| Phase | Action | Target | Method | Result | Evidence | Timestamp | Status |
+|---|---|---|---|---|---|---|---|
+| 4-W1 | Font swap | src/app/layout.tsx | Edit: Fraunces→Cinzel, Inter→Source_Sans_3, variables --font-cinzel/--font-source-sans-3 | Cinzel (all-caps display) + Source Sans 3 (body) loaded via next/font/google. | layout.tsx | 2026-07-24 | PASS |
+| 4-W1 | Font token rename | src/app/globals.css | Rewrite @theme: --font-display=var(--font-cinzel)+stack, --font-body=var(--font-source-sans-3)+stack | Headings use Cinzel, body uses Source Sans 3. font-display class resolves correctly. | globals.css | 2026-07-24 | PASS |
+| 4-W2 | Colour palette cleanup | src/app/globals.css | Full rewrite of @theme + :root blocks per DESIGN.md §21 | brand-maroon #7A0F1E, brand-maroon-dark #4A0710, brand-cream #FFF8EF, brand-ink #171717. Neutral 6-step, status 4-step, 3 gradients, 4 borders, 2 shadows. | globals.css | 2026-07-24 | PASS |
+| 4-W2 | Token migration | 51 source files | sed find/replace --oryx-*→--color-brand-* across all .tsx/.ts files | 0 references to old --oryx-* tokens remain. All components use new DESIGN.md tokens. | rg --oryx- = 0 matches | 2026-07-24 | PASS |
+| 4-W3 | Two-layer focus ring | src/app/globals.css | Rewrite :focus-visible per DESIGN.md §13.1 | outline: 3px solid #FFF8EF; box-shadow: 0 0 0 5px #171717. Dark-surface variant reverses colours. | globals.css | 2026-07-24 | PASS |
+| 4-W3 | Button states | src/app/globals.css | Add :active translateY(1px), bump min-height to 48px, uppercase tracking | btn-primary, btn-secondary, btn-ghost all have default/hover/active/focus/disabled states. | globals.css | 2026-07-24 | PASS |
+| 4-W3 | Input sizing | src/app/globals.css | .input-oryx min-height 48px, font-size 1rem (16px min per DESIGN.md §12.6) | All form inputs meet 48px height + 16px font minimum. | globals.css | 2026-07-24 | PASS |
+| 4-W3 | Touch targets | src/components/site/header.tsx, hero.tsx | w-10 h-10 → w-11 h-11 (44px) | All interactive buttons ≥ 44×44px per DESIGN.md §15. | header.tsx, hero.tsx | 2026-07-24 | PASS |
+| 4-W4 | Container + grid | src/app/globals.css | container-oryx max-width 90rem, gutters 1.25/2/4rem. grid-oryx 4/8/12 cols. | Container at 1440px max per DESIGN.md §8.1. Grid system documented. | globals.css | 2026-07-24 | PASS |
+| 4-W4 | Spacing scale | src/app/globals.css | --space-0 through --space-10 (11 tokens per DESIGN.md §8.3) | Full 4px modular spacing scale available. | globals.css | 2026-07-24 | PASS |
+| 4-W5 | Motion durations | src/app/globals.css | --duration-fast 120ms, --duration-standard 200ms, --duration-slow 360ms, --ease-standard cubic-bezier(0.2,0,0,1) | All motion ≤ 360ms per DESIGN.md §14. | globals.css | 2026-07-24 | PASS |
+| 4-W5 | Hero reduced-motion | src/components/site/hero.tsx | matchMedia('(prefers-reduced-motion: reduce)') guard on autoplay | Hero does not autoplay when reduced-motion is active. | hero.tsx | 2026-07-24 | PASS |
+| 4-W6 | Logo BIG, no wordmark | src/components/site/header.tsx, footer.tsx | Logo h-14/h-16 (header), h-16/h-20 (footer). Removed wordmark text span. | Shield icon only, displayed large. No wordmark text per user instruction. | header.tsx, footer.tsx | 2026-07-24 | PASS |
+| 4-W6 | Notice component | src/components/site/notice.tsx | New component: 4px left rule, 4 variants (info/success/warning/error) | Notice component available with DESIGN.md §12.9 compliant styling. | notice.tsx | 2026-07-24 | PASS |
+| 4-W6 | Status vocabulary | src/lib/content.ts | sed: "Subject to approval"→"Subject to accreditation", "To be announced"→"Applications not yet open" | All status labels match DESIGN.md §12.7. | content.ts | 2026-07-24 | PASS |
+| 4-W6 | Form loading states | src/components/site/forms/use-form-submission.tsx | FormStatus uses Notice component, submitting state shown | Forms show "Submitting" notice during submission, success/error via Notice. | use-form-submission.tsx | 2026-07-24 | PASS |
+| 4-W6 | Values grid redesign | src/app/about/page.tsx | 3-card grid → editorial numbered list (12-col grid: number/title/body) | No generic 3-card row. Editorial numbered layout with divide-y. | about/page.tsx | 2026-07-24 | PASS |
+| 4-W6 | Section dark-surface attr | src/components/site/section.tsx | Add data-dark-surface attribute on dark/maroon sections | Focus ring reverses correctly on dark backgrounds. | section.tsx | 2026-07-24 | PASS |
+| 4-W6 | Schools route links | src/components/site/section-schools.tsx | Modal open→Link href=/schools/[slug]. Updated status classes. | Schools section links to real multi-page routes, not modals. | section-schools.tsx | 2026-07-24 | PASS |
+| 4-W7 | Type scale tokens | src/app/globals.css | 10 tokens: --type-display-xl through --type-caption with clamp() | Full responsive type scale per DESIGN.md §7.3. | globals.css | 2026-07-24 | PASS |
+| 4-W7 | Em dash scan | src/ | rg '—' src/ | Only in code comments, not user-facing copy. PASS per DESIGN.md §19.2. | rg output | 2026-07-24 | PASS |
+| 4-W8 | Production build | /home/z/my-project | npm run build | ✓ Compiled 9.2s. 41 pages generated. 0 errors. | build output | 2026-07-24 | PASS |
+| 4-W8 | TypeScript check | src/ | npx tsc --noEmit | 0 errors in project src/ (excludes examples/skills dirs). | tsc output | 2026-07-24 | PASS |
+| 4-W8 | VLM audit: hero (before) | scripts/screenshots/01-home-hero.png | z-ai vision | 6.5/10. Issues: headline too large, body contrast, slider chrome. | /tmp/vlm-home-hero.json | 2026-07-24 | PASS |
+| 4-W8 | Hero fix: headline size | src/components/site/hero.tsx | text-8xl→text-7xl, leading 0.98→1.1 | Headline reduced 15-20%, line-height increased per VLM feedback. | hero.tsx | 2026-07-24 | PASS |
+| 4-W8 | Hero fix: contrast | src/components/site/hero.tsx | Gradient opacity 0.82/0.54/0.10 → 0.92/0.68/0.20 | Body copy contrast strengthened for WCAG AA. | hero.tsx | 2026-07-24 | PASS |
+| 4-W8 | Hero fix: slider chrome | src/components/site/hero.tsx | Removed progress bar. Controls opacity-60 hover:opacity-100. Smaller icons. | Slider chrome minimized per VLM feedback. | hero.tsx | 2026-07-24 | PASS |
+| 4-W8 | VLM audit: hero (after) | scripts/screenshots/09-home-hero-improved.png | z-ai vision | 8/10. "Much more focused, professional visual hierarchy." | /tmp/vlm-hero-improved.json | 2026-07-24 | PASS |
+| 4-W8 | VLM audit: about | scripts/screenshots/03-about.png | z-ai vision | 8/10. Strengths: disciplined typography, strong asymmetry. | /tmp/vlm-about.json | 2026-07-24 | PASS |
+| 4-W8 | VLM audit: schools | scripts/screenshots/10-home-schools-section.png | z-ai vision | 8/10. Strength: typography + palette flawless. | /tmp/vlm-schools.json | 2026-07-24 | PASS |
+| 4-W8 | VLM audit: mobile | scripts/screenshots/11-mobile-hero.png | z-ai vision | 8/10. Logo prominent, text legible, layout clean. | /tmp/vlm-mobile.json | 2026-07-24 | PASS |
+
+## Phase 4 (Audit) - Wave execution status
+
+**All 8 waves executed. Build passes. TypeScript clean. VLM audit scores:**
+
+| Page | Before | After |
+|---|---|---|
+| Homepage hero | 6.5/10 | 8/10 |
+| About page | — | 8/10 |
+| Schools section | — | 8/10 |
+| Mobile homepage | — | 8/10 |
+
+**Key transformations:**
+1. Fonts: Fraunces+Inter → Cinzel+Source Sans 3 (per DESIGN.md §7.1)
+2. Palette: #721220/#FCFBF9/#0F0E0D → #7A0F1E/#FFF8EF/#171717 (per DESIGN.md §6.1)
+3. Container: 80rem → 90rem (per DESIGN.md §8.1)
+4. Motion: 600/400/200ms → 360/200/120ms (per DESIGN.md §14)
+5. Focus ring: single maroon → two-layer cream+ink (per DESIGN.md §13.1)
+6. Touch targets: 40px → 44px minimum (per DESIGN.md §15)
+7. Button/input height: ~40px → 48px minimum (per DESIGN.md §12.3/§12.6)
+8. Logo: h-10 with wordmark text → h-14 shield-only, no wordmark (per user instruction)
+9. Status vocab: "Subject to approval"/"TBA" → "Subject to accreditation"/"Applications not yet open" (per DESIGN.md §12.7)
+10. Values grid: 3-card row → editorial numbered list (per Taste Skill anti-generic rule)
+
+**Status:** Phase 4 (Audit) wave execution complete. Site transformed from "ugly" (6.5/10) to consistent 8/10 across all audited pages and breakpoints. Ready for user review.
+**Phase:** 4 (Audit) — all waves complete.
+**Next:** User review of transformed site. Deployment only on explicit user instruction.

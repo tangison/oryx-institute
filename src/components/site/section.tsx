@@ -18,14 +18,16 @@ export function Section({
   as?: React.ElementType;
 }) {
   const bg = {
-    light: 'bg-white text-[var(--oryx-ink)]',
-    cream: 'bg-[var(--color-background)] text-[var(--oryx-ink)]',
-    dark: 'bg-[var(--oryx-ink)] text-[var(--oryx-cream)]',
-    maroon: 'bg-[var(--oryx-maroon)] text-white',
+    light: 'bg-white text-[var(--color-brand-ink)]',
+    cream: 'bg-[var(--color-background)] text-[var(--color-brand-ink)]',
+    dark: 'bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)]',
+    maroon: 'bg-[var(--color-brand-maroon)] text-white',
   }[tone];
 
+  const darkAttr = tone === 'dark' || tone === 'maroon' ? { 'data-dark-surface': '' } : {};
+
   return (
-    <Tag id={id} className={cn('py-16 md:py-24', bg, className)}>
+    <Tag id={id} className={cn('py-16 md:py-24', bg, className)} {...darkAttr}>
       <div className="container-oryx">{children}</div>
     </Tag>
   );
@@ -52,20 +54,20 @@ export function SectionHeader({
   const isDark = tone === 'dark';
   const isMaroon = tone === 'maroon';
   const muted = isDark
-    ? 'text-[var(--oryx-warm-white)]/75'
+    ? 'text-[var(--color-brand-cream)]/75'
     : isMaroon
       ? 'text-white/80'
       : 'text-[var(--muted-foreground)]';
   const eyebrowTone = isDark
-    ? 'text-[var(--oryx-warm-white)]'
+    ? 'text-[var(--color-brand-cream)]'
     : isMaroon
       ? 'text-white'
-      : 'text-[var(--oryx-maroon)]';
+      : 'text-[var(--color-brand-maroon)]';
   const titleTone = isDark
-    ? 'text-[var(--oryx-cream)]'
+    ? 'text-[var(--color-brand-cream)]'
     : isMaroon
       ? 'text-white'
-      : 'text-[var(--oryx-ink)]';
+      : 'text-[var(--color-brand-ink)]';
 
   return (
     <div className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center', className)}>

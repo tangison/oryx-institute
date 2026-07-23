@@ -55,14 +55,14 @@ export default async function SchoolPage({
       <Section tone="cream" className="pt-0">
         <div className="max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-display text-2xl text-[var(--oryx-maroon)] tabular-nums">
+            <span className="font-display text-2xl text-[var(--color-brand-maroon)] tabular-nums">
               {school.index}
             </span>
             <span
               className={`status-pill ${
                 school.status === 'Planned'
                   ? 'status-planned'
-                  : school.status === 'Subject to approval'
+                  : school.status === 'Subject to accreditation'
                     ? 'status-subject'
                     : 'status-tba'
               }`}
@@ -78,13 +78,13 @@ export default async function SchoolPage({
           </p>
         </div>
 
-        <figure className="mt-12 relative aspect-[16/9] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+        <figure className="mt-12 relative aspect-[16/9] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
           <img
             src={school.image}
             alt={school.alt}
             className="w-full h-full object-cover"
           />
-          <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.65)] text-[var(--oryx-cream)] text-xs px-4 py-3">
+          <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.65)] text-[var(--color-brand-cream)] text-xs px-4 py-3">
             {school.caption}
           </figcaption>
         </figure>
@@ -118,7 +118,7 @@ export default async function SchoolPage({
             {school.detail.pathways.map((p) => (
               <li
                 key={p}
-                className="px-4 py-2 border border-[var(--color-border)] text-sm bg-[var(--color-oryx-cream)]"
+                className="px-4 py-2 border border-[var(--color-border)] text-sm bg-[var(--color-brand-cream)]"
               >
                 {p}
               </li>
@@ -150,14 +150,14 @@ export default async function SchoolPage({
                   className="w-full text-left py-5 flex items-center justify-between gap-4 hover:bg-white transition-colors px-2 group"
                 >
                   <span className="flex-1 min-w-0">
-                    <span className="block font-display text-lg font-medium leading-tight group-hover:text-[var(--oryx-maroon)] transition-colors">
+                    <span className="block font-display text-lg font-medium leading-tight group-hover:text-[var(--color-brand-maroon)] transition-colors">
                       {p.name}
                     </span>
                     <span className="block text-xs text-[var(--muted-foreground)] mt-1">
                       {p.level} · {p.delivery} · {p.status}
                     </span>
                   </span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--oryx-ink)] group-hover:text-[var(--oryx-maroon)] transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-brand-ink)] group-hover:text-[var(--color-brand-maroon)] transition-colors">
                     <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
                 </Link>
@@ -177,11 +177,11 @@ export default async function SchoolPage({
       <Section tone="dark">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">Register Interest</p>
+            <p className="eyebrow text-[var(--color-brand-cream)] mb-4">Register Interest</p>
             <p className="font-display text-3xl md:text-4xl font-medium leading-tight text-balance mb-6">
               Interested in this school?
             </p>
-            <p className="text-[var(--oryx-warm-white)]/80 leading-relaxed text-pretty mb-8">
+            <p className="text-[var(--color-brand-cream)]/80 leading-relaxed text-pretty mb-8">
               Register your interest to be informed when programmes in this school open for
               admissions. We will contact you with next steps.
             </p>
@@ -190,18 +190,18 @@ export default async function SchoolPage({
             </Link>
           </div>
           <div>
-            <p className="eyebrow text-[var(--oryx-warm-white)]/70 mb-4">Other schools</p>
-            <ul className="space-y-px bg-[var(--oryx-warm-white)]/10">
+            <p className="eyebrow text-[var(--color-brand-cream)]/70 mb-4">Other schools</p>
+            <ul className="space-y-px bg-[var(--color-brand-cream)]/10">
               {siblings.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/schools/${s.slug}`}
-                    className="flex items-center justify-between gap-4 p-4 hover:bg-[var(--oryx-warm-white)]/10 transition-colors group"
+                    className="flex items-center justify-between gap-4 p-4 hover:bg-[var(--color-brand-cream)]/10 transition-colors group"
                   >
-                    <span className="font-display text-base text-[var(--oryx-cream)] group-hover:text-white transition-colors">
+                    <span className="font-display text-base text-[var(--color-brand-cream)] group-hover:text-white transition-colors">
                       {s.shortName}
                     </span>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="text-[var(--oryx-warm-white)]/60">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="text-[var(--color-brand-cream)]/60">
                       <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" />
                     </svg>
                   </Link>

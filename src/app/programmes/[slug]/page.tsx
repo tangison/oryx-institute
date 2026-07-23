@@ -60,7 +60,7 @@ export default async function ProgrammePage({
             className={`status-pill mb-4 ${
               programme.status === 'Planned'
                 ? 'status-planned'
-                : programme.status === 'Subject to approval'
+                : programme.status === 'Subject to accreditation'
                   ? 'status-subject'
                   : 'status-interest'
             }`}
@@ -109,7 +109,7 @@ export default async function ProgrammePage({
               <ul className="space-y-4">
                 {programme.outcomes.map((o, i) => (
                   <li key={i} className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                    <span className="font-display text-2xl text-[var(--oryx-maroon)] tabular-nums leading-none pt-1">
+                    <span className="font-display text-2xl text-[var(--color-brand-maroon)] tabular-nums leading-none pt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">{o}</p>
@@ -136,11 +136,11 @@ export default async function ProgrammePage({
 
           <aside className="lg:col-span-4 space-y-6">
             {school && (
-              <div className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+              <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
                 <p className="eyebrow mb-2">Part of</p>
                 <Link
                   href={`/schools/${school.slug}`}
-                  className="font-display text-lg font-medium hover:text-[var(--oryx-maroon)] transition-colors block mb-2"
+                  className="font-display text-lg font-medium hover:text-[var(--color-brand-maroon)] transition-colors block mb-2"
                 >
                   {school.name}
                 </Link>
@@ -150,9 +150,9 @@ export default async function ProgrammePage({
               </div>
             )}
 
-            <div className="bg-[var(--oryx-ink)] text-[var(--oryx-cream)] p-6">
-              <p className="eyebrow text-[var(--oryx-warm-white)] mb-3">Register Interest</p>
-              <p className="text-sm text-[var(--oryx-warm-white)]/80 leading-relaxed mb-4">
+            <div className="bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] p-6">
+              <p className="eyebrow text-[var(--color-brand-cream)] mb-3">Register Interest</p>
+              <p className="text-sm text-[var(--color-brand-cream)]/80 leading-relaxed mb-4">
                 Interested in this programme? Register your interest to be informed when admissions
                 open.
               </p>
@@ -180,9 +180,9 @@ export default async function ProgrammePage({
               <li key={p.slug} className="bg-white">
                 <Link
                   href={`/programmes/${p.slug}`}
-                  className="block p-5 hover:bg-[var(--color-oryx-cream)]/40 transition-colors group"
+                  className="block p-5 hover:bg-[var(--color-brand-cream)]/40 transition-colors group"
                 >
-                  <h3 className="font-display text-base font-medium group-hover:text-[var(--oryx-maroon)] transition-colors">
+                  <h3 className="font-display text-base font-medium group-hover:text-[var(--color-brand-maroon)] transition-colors">
                     {p.name}
                   </h3>
                   <p className="text-xs text-[var(--muted-foreground)] mt-1">

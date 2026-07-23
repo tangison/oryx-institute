@@ -59,7 +59,7 @@ export function PathwaysDetailSection() {
           {blocks.map((b, i) => (
             <li key={b.id} id={b.id} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 scroll-mt-24">
               <div className="md:col-span-3">
-                <span className="font-display text-3xl md:text-4xl text-[var(--oryx-maroon)] font-medium tabular-nums">
+                <span className="font-display text-3xl md:text-4xl text-[var(--color-brand-maroon)] font-medium tabular-nums">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <p className="mt-2 eyebrow">{b.label}</p>

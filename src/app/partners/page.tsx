@@ -60,7 +60,7 @@ export default function PartnersPage() {
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-border)]">
           {partnerTypes.map((p, i) => (
             <li key={p.slug} className="bg-white p-8 md:p-10">
-              <span className="font-display text-2xl text-[var(--oryx-maroon)] tabular-nums">
+              <span className="font-display text-2xl text-[var(--color-brand-maroon)] tabular-nums">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <p className="eyebrow mt-4 mb-2">{p.eyebrow}</p>
@@ -77,11 +77,11 @@ export default function PartnersPage() {
       </Section>
       <Section tone="dark">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--oryx-warm-white)] mb-4">A note on partnership</p>
+          <p className="eyebrow text-[var(--color-brand-cream)] mb-4">A note on partnership</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
             Partnership is built on serious work, not logos on a page.
           </p>
-          <p className="text-[var(--oryx-warm-white)]/80 leading-relaxed text-pretty">
+          <p className="text-[var(--color-brand-cream)]/80 leading-relaxed text-pretty">
             Oryx Institute will work with partners who share its commitment to disciplined, practical
             training and honest outcomes. No partnership is announced until signed. No partner is
             listed on this site until the partnership is formal. If you are serious about working

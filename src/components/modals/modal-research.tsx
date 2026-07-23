@@ -44,7 +44,7 @@ export function ResearchModal() {
           <ol className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
             {services.map((s, i) => (
               <li key={s.title} className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-6">
-                <span className="font-display text-2xl md:text-3xl text-[var(--oryx-maroon)] font-medium tabular-nums">
+                <span className="font-display text-2xl md:text-3xl text-[var(--color-brand-maroon)] font-medium tabular-nums">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
@@ -60,7 +60,7 @@ export function ResearchModal() {
           </ol>
         </section>
 
-        <section className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+        <section className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
           <p className="caption-oryx">
             Research and advisory services are in active development. No completed research is
             claimed. No client list is published. Engagements will be announced when verified.

@@ -25,7 +25,7 @@ export function SitemapModal() {
                   <Link
                     href={item.href}
                     onClick={close}
-                    className="text-sm text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)] transition-colors"
+                    className="text-sm text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -41,7 +41,7 @@ export function SitemapModal() {
                   <Link
                     href={item.href}
                     onClick={close}
-                    className="text-sm text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)] transition-colors"
+                    className="text-sm text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -57,7 +57,7 @@ export function SitemapModal() {
             {schools.map((s) => (
               <li key={s.slug} className="bg-white p-5">
                 <Link href={`/schools/${s.slug}`} onClick={close} className="block">
-                  <span className="block eyebrow text-[var(--oryx-maroon)] mb-1">{s.eyebrow}</span>
+                  <span className="block eyebrow text-[var(--color-brand-maroon)] mb-1">{s.eyebrow}</span>
                   <span className="font-display text-base font-medium">{s.name}</span>
                 </Link>
               </li>
@@ -71,7 +71,7 @@ export function SitemapModal() {
             {programmes.map((p) => (
               <li key={p.slug} className="bg-white p-5">
                 <Link href={`/programmes/${p.slug}`} onClick={close} className="block">
-                  <span className="block eyebrow text-[var(--oryx-maroon)] mb-1">{p.schoolName}</span>
+                  <span className="block eyebrow text-[var(--color-brand-maroon)] mb-1">{p.schoolName}</span>
                   <span className="font-display text-base font-medium">{p.name}</span>
                   <span className="block text-xs text-[var(--muted-foreground)] mt-1">
                     {p.level} · {p.delivery} · {p.status}
@@ -90,7 +90,7 @@ export function SitemapModal() {
                 <Link
                   href={item.href}
                   onClick={close}
-                  className="text-sm text-[var(--oryx-ink)] hover:text-[var(--oryx-maroon)] transition-colors"
+                  className="text-sm text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)] transition-colors"
                 >
                   {item.label}
                 </Link>

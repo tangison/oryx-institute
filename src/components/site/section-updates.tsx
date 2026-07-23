@@ -7,7 +7,7 @@ export function UpdatesSection() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="updates" className="bg-[var(--color-oryx-cream)] py-20 md:py-28 lg:py-32">
+    <section id="updates" className="bg-[var(--color-brand-cream)] py-20 md:py-28 lg:py-32">
       <div ref={ref} className={`container-oryx reveal ${visible ? 'is-visible' : ''}`}>
         <header className="max-w-3xl mb-12 md:mb-16">
           <p className="eyebrow mb-4">Updates</p>

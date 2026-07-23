@@ -27,13 +27,13 @@ export function SchoolModal({ slug }: { slug: SchoolSlug }) {
       size="wide"
     >
       <div className="space-y-10">
-        <figure className="relative aspect-[16/9] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+        <figure className="relative aspect-[16/9] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
           <img src={school.image} alt={school.alt} className="w-full h-full object-cover" />
           <span
             className={`absolute top-4 right-4 status-pill bg-white ${
               school.status === 'Planned'
                 ? 'status-planned'
-                : school.status === 'Subject to approval'
+                : school.status === 'Subject to accreditation'
                   ? 'status-subject'
                   : 'status-tba'
             }`}
@@ -60,7 +60,7 @@ export function SchoolModal({ slug }: { slug: SchoolSlug }) {
           <p className="eyebrow mb-3">Pathways</p>
           <ul className="flex flex-wrap gap-2">
             {school.detail.pathways.map((p) => (
-              <li key={p} className="px-3 py-2 border border-[var(--color-border)] text-sm bg-[var(--color-oryx-cream)]">
+              <li key={p} className="px-3 py-2 border border-[var(--color-border)] text-sm bg-[var(--color-brand-cream)]">
                 {p}
               </li>
             ))}
@@ -84,7 +84,7 @@ export function SchoolModal({ slug }: { slug: SchoolSlug }) {
                 <li key={p.slug}>
                   <button
                     onClick={() => open({ programme: p.slug })}
-                    className="w-full text-left py-4 flex items-center justify-between gap-4 hover:bg-[var(--color-oryx-cream)]/50 transition-colors px-2"
+                    className="w-full text-left py-4 flex items-center justify-between gap-4 hover:bg-[var(--color-brand-cream)]/50 transition-colors px-2"
                   >
                     <span className="flex-1 min-w-0">
                       <span className="block font-display text-base font-medium leading-tight">{p.name}</span>
@@ -102,7 +102,7 @@ export function SchoolModal({ slug }: { slug: SchoolSlug }) {
           )}
         </section>
 
-        <div className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+        <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
           <p className="caption-oryx">
             All programmes in this school are planned and subject to approval. No programme is
             presented as an approved qualification until verified.

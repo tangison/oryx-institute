@@ -38,13 +38,13 @@ export function ProgrammeModal({ slug }: { slug: string }) {
     >
       <div className="space-y-10">
         {programme.image && (
-          <figure className="relative aspect-[16/9] overflow-hidden bg-[var(--oryx-warm-white)] border border-[var(--color-border)]">
+          <figure className="relative aspect-[16/9] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img src={programme.image} alt={programme.alt || programme.name} className="w-full h-full object-cover" />
             <span
               className={`absolute top-4 right-4 status-pill bg-white ${
                 programme.status === 'Planned'
                   ? 'status-planned'
-                  : programme.status === 'Subject to approval'
+                  : programme.status === 'Subject to accreditation'
                     ? 'status-subject'
                     : 'status-interest'
               }`}
@@ -87,7 +87,7 @@ export function ProgrammeModal({ slug }: { slug: string }) {
           <ul className="space-y-3">
             {programme.outcomes.map((o, i) => (
               <li key={i} className="grid grid-cols-[auto_1fr] gap-4 items-start">
-                <span className="font-display text-base text-[var(--oryx-maroon)] tabular-nums">
+                <span className="font-display text-base text-[var(--color-brand-maroon)] tabular-nums">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">{o}</p>
@@ -111,7 +111,7 @@ export function ProgrammeModal({ slug }: { slug: string }) {
         </section>
 
         {school && (
-          <section className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+          <section className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
             <p className="eyebrow mb-2">Part of</p>
             <p className="font-display text-lg font-medium mb-2">{school.name}</p>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed text-pretty">
@@ -120,7 +120,7 @@ export function ProgrammeModal({ slug }: { slug: string }) {
           </section>
         )}
 
-        <div className="bg-[var(--color-oryx-cream)] p-6 border border-[var(--color-border)]">
+        <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
           <p className="caption-oryx">
             All programmes are planned and subject to approval. Fees, intake dates, and final
             programme structure to be confirmed. No programme is presented as an approved
