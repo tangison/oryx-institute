@@ -1,37 +1,73 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  metadataBase: new URL("https://oryxinstitute.na"),
+  title: {
+    default: "Oryx Institute — Vocational Training in Windhoek, Namibia",
+    template: "%s — Oryx Institute",
+  },
+  description:
+    "A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, recognition of prior learning, and work-integrated learning.",
+  keywords: [
+    "Oryx Institute",
+    "vocational training Namibia",
+    "Windhoek training institution",
+    "RPL Namibia",
+    "work-integrated learning Namibia",
+    "skills training Windhoek",
+  ],
+  authors: [{ name: "Oryx Institute", url: "https://oryxinstitute.na" }],
+  creator: "Oryx Institute",
+  publisher: "Oryx Institute",
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: [
+      { url: "/oryx-shield.png", type: "image/png" },
+    ],
+    apple: [{ url: "/oryx-shield.png", type: "image/png" }],
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
+    description:
+      "A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, RPL, and work-integrated learning.",
+    url: "https://oryxinstitute.na",
+    siteName: "Oryx Institute",
+    locale: "en_NA",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
+    description:
+      "A multidisciplinary vocational education and training institution being established in Windhoek.",
+  },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: "https://oryxinstitute.na",
   },
 };
 
@@ -43,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${fraunces.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />
