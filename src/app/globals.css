@@ -3,120 +3,415 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================
+   Oryx Institute — Brand tokens
+   Source of truth: BRAND.md (verified)
+   Colours verified from supplied logo, shield, and reference B.
+   ========================================================= */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Brand palette */
+  --color-oryx-maroon: #721220;
+  --color-oryx-maroon-deep: #4A231B;
+  --color-oryx-cream: #FCFBF9;
+  --color-oryx-sand: #D3C2B1;
+  --color-oryx-stone: #BFA68F;
+  --color-oryx-earth: #82664E;
+  --color-oryx-ink: #0F0E0D;
+  --color-oryx-warm-white: #EADCCD;
+
+  /* Semantic tokens (light) */
+  --color-background: var(--oryx-cream);
+  --color-foreground: var(--oryx-ink);
+  --color-card: #FFFFFF;
+  --color-card-foreground: var(--oryx-ink);
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: var(--oryx-ink);
+  --color-primary: var(--oryx-maroon);
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: var(--oryx-warm-white);
+  --color-secondary-foreground: var(--oryx-ink);
+  --color-muted: #F1E9DF;
+  --color-muted-foreground: #5C5147;
+  --color-accent: var(--oryx-warm-white);
+  --color-accent-foreground: var(--oryx-ink);
+  --color-destructive: #8B1A1A;
+  --color-border: #D9CFC2;
+  --color-input: #C9BCA9;
+  --color-ring: var(--oryx-maroon);
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-fraunces), "Times New Roman", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Courier New", monospace;
+
+  /* Radius — brand mandates 0px radius, 1px borders */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  /* Spacing scale (4px modular) */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* Motion */
+  --ease-oryx: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-slow: 600ms;
+  --duration-base: 400ms;
+  --duration-fast: 200ms;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --radius: 0px;
+  /* Brand tokens are exposed above as @theme inline. These aliases keep
+     shadcn/ui compat in case any pre-installed component is reused. */
+  --background: var(--oryx-cream);
+  --foreground: var(--oryx-ink);
+  --card: #FFFFFF;
+  --card-foreground: var(--oryx-ink);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--oryx-ink);
+  --primary: var(--oryx-maroon);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--oryx-warm-white);
+  --secondary-foreground: var(--oryx-ink);
+  --muted: #F1E9DF;
+  --muted-foreground: #5C5147;
+  --accent: var(--oryx-warm-white);
+  --accent-foreground: var(--oryx-ink);
+  --destructive: #8B1A1A;
+  --border: #D9CFC2;
+  --input: #C9BCA9;
+  --ring: var(--oryx-maroon);
+  --chart-1: var(--oryx-maroon);
+  --chart-2: var(--oryx-earth);
+  --chart-3: var(--oryx-stone);
+  --chart-4: var(--oryx-sand);
+  --chart-5: var(--oryx-maroon-deep);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: var(--oryx-ink);
+  --sidebar-primary: var(--oryx-maroon);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--oryx-warm-white);
+  --sidebar-accent-foreground: var(--oryx-ink);
+  --sidebar-border: #D9CFC2;
+  --sidebar-ring: var(--oryx-maroon);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+  ::selection {
+    background-color: var(--oryx-maroon);
+    color: #FFFFFF;
+  }
+  /* Visible focus ring (2px maroon, 2px offset) per BRAND.md */
+  :focus-visible {
+    outline: 2px solid var(--oryx-maroon);
+    outline-offset: 2px;
+    border-radius: 0;
+  }
+  /* Headings use Fraunces display serif */
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-serif);
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.012em;
+  }
+}
+
+/* =========================================================
+   Editorial primitives (bespoke — no shadcn card dependency)
+   ========================================================= */
+@layer components {
+  .container-oryx {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem; /* 1280px */
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .container-oryx { padding-inline: 2.5rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-oryx { padding-inline: 3rem; }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oryx-maroon);
+  }
+
+  .rule-fine {
+    height: 1px;
+    background-color: var(--color-border);
+    width: 100%;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--oryx-maroon);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--oryx-maroon);
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-oryx),
+                color var(--duration-fast) var(--ease-oryx);
+  }
+  .btn-primary:hover {
+    background-color: var(--oryx-maroon-deep);
+    border-color: var(--oryx-maroon-deep);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--oryx-ink);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--oryx-ink);
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-oryx),
+                color var(--duration-fast) var(--ease-oryx);
+  }
+  .btn-secondary:hover {
+    background-color: var(--oryx-ink);
+    color: var(--oryx-cream);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    background-color: transparent;
+    color: var(--oryx-ink);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    border-bottom: 1px solid var(--oryx-ink);
+    transition: color var(--duration-fast) var(--ease-oryx),
+                border-color var(--duration-fast) var(--ease-oryx);
+  }
+  .btn-ghost:hover {
+    color: var(--oryx-maroon);
+    border-bottom-color: var(--oryx-maroon);
+  }
+
+  .input-oryx {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-input);
+    border-radius: 0px;
+    color: var(--oryx-ink);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    transition: border-color var(--duration-fast) var(--ease-oryx);
+  }
+  .input-oryx:focus {
+    outline: none;
+    border-color: var(--oryx-maroon);
+    box-shadow: inset 0 0 0 1px var(--oryx-maroon);
+  }
+  .input-oryx::placeholder { color: #8B7E6E; }
+
+  .label-oryx {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--oryx-ink);
+  }
+
+  .panel-oryx {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+  }
+
+  .caption-oryx {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+    line-height: 1.5;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    border-radius: 0px;
+  }
+  .status-planned { color: var(--oryx-maroon); }
+  .status-subject { color: var(--oryx-earth); }
+  .status-interest { color: var(--oryx-ink); }
+  .status-tba { color: #6B6056; }
+
+  /* Fine-link arrow nudge */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    transition: gap var(--duration-fast) var(--ease-oryx);
+  }
+  .link-arrow:hover { gap: 0.625rem; }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--oryx-maroon);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: top var(--duration-fast) var(--ease-oryx);
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Modal dialog */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 14, 13, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+  }
+  .modal-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow-y: auto;
+    pointer-events: none;
+  }
+  .modal-panel > .modal-inner {
+    pointer-events: auto;
+  }
+}
+
+/* =========================================================
+   Motion primitives (reduced-motion aware)
+   ========================================================= */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--duration-slow) var(--ease-oryx),
+                transform var(--duration-slow) var(--ease-oryx);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--oryx-stone) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--oryx-stone); border-radius: 0; }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+}
+
+/* Marquee for school ticker (slow, restrained) */
+@keyframes oryx-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-flex;
+  animation: oryx-marquee 60s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Cross-fade for hero slider */
+@keyframes oryx-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-slide {
+  animation: oryx-fade-in var(--duration-slow) var(--ease-oryx);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none; }
 }
