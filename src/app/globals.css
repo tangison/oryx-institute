@@ -604,3 +604,12 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-slide { animation: none; }
 }
+
+/* Hero video loop — hide the video for reduced-motion users, revealing the
+   still poster underneath. DESIGN.md §14: disable autoplay when
+   prefers-reduced-motion: reduce. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+}
