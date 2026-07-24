@@ -13,12 +13,12 @@ export function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-5 relative aspect-[3/4] overflow-hidden bg-white border border-[var(--color-border)]">
             <img
-              src="/images/founder/founder-1.png"
+              src="/images/research/leather-books.webp"
               alt="An empty leather chair beside a wooden desk in warm afternoon light, with a single open notebook."
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
+            <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               Founder&apos;s study. No photograph of the founder is published at this stage.
             </figcaption>
           </figure>

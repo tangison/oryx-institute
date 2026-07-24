@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 /**
@@ -20,17 +20,18 @@ const VIDEO_SRC = {
   mp4: '/hero/oryx-loop.mp4',
 };
 
-const FADE_TRIGGER_S = 0.2; // seconds before end to trigger cross-fade
-const FADE_DURATION_MS = 200;
+const FADE_TRIGGER_S = 0.25; // seconds before end to trigger cross-fade
+const FADE_DURATION_MS = 150;
 
 export function EditorialHero() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
-  const activeARef = useRef(true); // use ref instead of state to avoid stale-closure in rAF loop
+  const activeRef = useRef<'A' | 'B'>('A'); // which video is currently front
   const rafRef = useRef<number | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [frontVideo, setFrontVideo] = useState<'A' | 'B'>('A'); // for rendering opacity
 
-  // Detect reduced-motion preference (DESIGN.md §14)
+  // Detect reduced-motion preference
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReducedMotion(mq.matches);
@@ -39,7 +40,7 @@ export function EditorialHero() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // Seamless loop engine using refs (avoids stale closure / ESLint hook rule)
+  // Seamless loop engine
   useEffect(() => {
     if (reducedMotion) return;
 
@@ -47,51 +48,64 @@ export function EditorialHero() {
     const videoB = videoBRef.current;
     if (!videoA || !videoB) return;
 
-    const initLoop = () => {
+    const startLoop = () => {
+      // Ensure we have a valid duration
       const dur = videoA.duration;
-      if (!dur || dur === Infinity) return;
+      if (!dur || dur === Infinity || dur <= 0) return;
 
+      // Start A playing, B paused at 0
+      videoA.currentTime = 0;
       videoA.play().catch(() => {});
       videoB.currentTime = 0;
       videoB.pause();
 
-      const checkLoop = () => {
-        const isA = activeARef.current;
-        const front = isA ? videoARef.current : videoBRef.current;
-        const back = isA ? videoBRef.current : videoARef.current;
-        if (!front || !back) return;
+      const monitor = () => {
+        const currentActive = activeRef.current;
+        const front = currentActive === 'A' ? videoARef.current : videoBRef.current;
+        const back = currentActive === 'A' ? videoBRef.current : videoARef.current;
 
-        const remaining = dur - front.currentTime;
-        if (remaining <= FADE_TRIGGER_S) {
-          // Start the back video and swap roles
-          back.currentTime = 0;
-          back.play().catch(() => {});
-          activeARef.current = !isA;
-
-          // After cross-fade, pause the old front video
-          setTimeout(() => {
-            const old = !activeARef.current ? videoARef.current : videoBRef.current;
-            if (old) { old.pause(); old.currentTime = 0; }
-          }, FADE_DURATION_MS + 50);
-
-          // Continue monitoring with the new active video
-          setTimeout(() => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            rafRef.current = requestAnimationFrame(checkLoop);
-          }, FADE_DURATION_MS + 100);
+        if (!front || !back) {
+          rafRef.current = requestAnimationFrame(monitor);
           return;
         }
 
-        rafRef.current = requestAnimationFrame(checkLoop);
+        const remaining = dur - front.currentTime;
+
+        if (remaining <= FADE_TRIGGER_S) {
+          // Cross-fade: start back video from 0, swap active
+          back.currentTime = 0;
+          back.play().catch(() => {});
+
+          const newActive = currentActive === 'A' ? 'B' : 'A';
+          activeRef.current = newActive;
+          setFrontVideo(newActive); // update render state for opacity
+
+          // After fade completes, pause old front video
+          const oldFront = front;
+          setTimeout(() => {
+            oldFront.pause();
+            oldFront.currentTime = 0;
+          }, FADE_DURATION_MS + 80);
+
+          // Continue monitoring with new front video after settling
+          setTimeout(() => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            rafRef.current = requestAnimationFrame(monitor);
+          }, FADE_DURATION_MS + 120);
+          return;
+        }
+
+        rafRef.current = requestAnimationFrame(monitor);
       };
 
-      rafRef.current = requestAnimationFrame(checkLoop);
+      rafRef.current = requestAnimationFrame(monitor);
     };
 
+    // Wait for video metadata before starting the loop
     if (videoA.readyState >= 1 && videoA.duration > 0 && videoA.duration !== Infinity) {
-      initLoop();
+      startLoop();
     } else {
-      videoA.addEventListener('loadedmetadata', initLoop, { once: true });
+      videoA.addEventListener('loadedmetadata', startLoop, { once: true });
     }
 
     return () => {
@@ -99,24 +113,14 @@ export function EditorialHero() {
     };
   }, [reducedMotion]);
 
-  // Fallback ended handler — safety net so the video never stops
-  const handleVideoEnded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+  // Fallback: if any video ends unexpectedly, restart it immediately
+  const handleVideoEnded = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
     if (!reducedMotion) {
       video.currentTime = 0;
       video.play().catch(() => {});
     }
-  };
-
-  // Read current active state from ref for rendering
-  // We use a simple state that we update from the ref-driven loop engine
-  // This avoids the stale-closure ESLint issue
-  const [renderA, setRenderA] = useState(true);
-  useEffect(() => {
-    // Sync render state from ref periodically (every fade cycle)
-    const sync = setInterval(() => setRenderA(activeARef.current), 300);
-    return () => clearInterval(sync);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <section
@@ -143,9 +147,9 @@ export function EditorialHero() {
         aria-hidden="true"
         onEnded={handleVideoEnded}
         style={{
-          opacity: renderA ? 1 : 0,
+          opacity: frontVideo === 'A' ? 1 : 0,
           transition: `opacity ${FADE_DURATION_MS}ms linear`,
-          zIndex: renderA ? 2 : 1,
+          zIndex: frontVideo === 'A' ? 2 : 1,
         }}
       >
         <source src={VIDEO_SRC.webm} type="video/webm" />
@@ -162,16 +166,16 @@ export function EditorialHero() {
         aria-hidden="true"
         onEnded={handleVideoEnded}
         style={{
-          opacity: renderA ? 0 : 1,
+          opacity: frontVideo === 'B' ? 1 : 0,
           transition: `opacity ${FADE_DURATION_MS}ms linear`,
-          zIndex: renderA ? 1 : 2,
+          zIndex: frontVideo === 'B' ? 2 : 1,
         }}
       >
         <source src={VIDEO_SRC.webm} type="video/webm" />
         <source src={VIDEO_SRC.mp4} type="video/mp4" />
       </video>
 
-      {/* Layer 3 — gradient-photo-dark-strong token (DESIGN.md §6.4) */}
+      {/* Layer 3 — gradient-photo-dark-strong token */}
       <div className="absolute inset-0 gradient-photo-dark-strong" />
 
       {/* Layer 4a — bottom fade */}

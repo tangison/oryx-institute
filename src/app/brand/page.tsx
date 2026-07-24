@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 const swatches = [
-  { name: 'Oryx Maroon', hex: '#721220', role: 'Primary', usage: 'Logos, primary buttons, accents, links on light backgrounds.' },
-  { name: 'Deep Maroon', hex: '#4A231B', role: 'Secondary', usage: 'Hover states, deep accents.' },
-  { name: 'Cream', hex: '#FCFBF9', role: 'Background', usage: 'Page background, primary surface.' },
-  { name: 'Warm White', hex: '#EADCCD', role: 'Surface', usage: 'Alternate sections, callout surfaces.' },
-  { name: 'Sand', hex: '#D3C2B1', role: 'Muted', usage: 'Borders, dividers, low-emphasis surfaces.' },
-  { name: 'Stone', hex: '#BFA68F', role: 'Muted', usage: 'Decorative elements, muted imagery.' },
-  { name: 'Earth', hex: '#82664E', role: 'Muted', usage: 'Secondary text on light backgrounds.' },
-  { name: 'Ink Black', hex: '#0F0E0D', role: 'Foreground', usage: 'Primary text, secondary buttons, dark sections.' },
+  { name: 'Oryx Maroon', hex: '#7A0F1E', role: 'Primary', usage: 'Logos, primary buttons, accents, links on light backgrounds.' },
+  { name: 'Deep Maroon', hex: '#4A0710', role: 'Secondary', usage: 'Hover states, deep accents.' },
+  { name: 'Cream', hex: '#FFF8EF', role: 'Background', usage: 'Page background, primary surface.' },
+  { name: 'Warm White', hex: '#F5EEE6', role: 'Surface', usage: 'Alternate sections, callout surfaces.' },
+  { name: 'Sand', hex: '#CFC6BD', role: 'Border', usage: 'Borders, dividers, low-emphasis surfaces.' },
+  { name: 'Stone', hex: '#E9E1D8', role: 'Subtle', usage: 'Subtle borders, decorative elements.' },
+  { name: 'Earth', hex: '#4E4946', role: 'Secondary text', usage: 'Secondary text on light backgrounds.' },
+  { name: 'Ink Black', hex: '#171717', role: 'Foreground', usage: 'Primary text, secondary buttons, dark sections.' },
 ];
 
 export default function BrandPage() {
@@ -122,20 +122,20 @@ export default function BrandPage() {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[var(--color-brand-cream)] p-10 border border-[var(--color-border)]">
             <p className="eyebrow mb-4">Display</p>
-            <p className="font-display text-6xl md:text-7xl">Fraunces</p>
+            <p className="font-display text-6xl md:text-7xl">Cinzel</p>
             <p className="font-display text-lg mt-3 italic">Editorial serif. 400, 500, 600, 700.</p>
             <p className="text-sm text-[var(--muted-foreground)] mt-4 leading-relaxed">
-              Used for all headlines, hero copy, pull quotes, and major numerals. Optical sizing
-              enabled. Stylistic sets ss01 and ss02 active.
+              Used for all headlines, hero copy, pull quotes, and major numerals. All-capitals
+              display. Trajan Pro 3 is the licensed production face; Cinzel is the open-source fallback.
             </p>
           </div>
           <div className="bg-[var(--color-brand-cream)] p-10 border border-[var(--color-border)]">
             <p className="eyebrow mb-4">Body</p>
-            <p className="font-sans text-6xl md:text-7xl">Inter</p>
-            <p className="font-sans text-lg mt-3">Restrained sans. 400, 500, 600, 700.</p>
+            <p className="font-sans text-6xl md:text-7xl">Source Sans 3</p>
+            <p className="font-sans text-lg mt-3">Restrained sans. 300, 400, 500, 600, 700.</p>
             <p className="text-sm text-[var(--muted-foreground)] mt-4 leading-relaxed">
-              Used for all body text, captions, labels, and UI controls. Features cv11 and ss01
-              enabled for refined alternates.
+              Used for all body text, captions, labels, and UI controls. Clean geometric
+              sans-serif with excellent readability at small sizes.
             </p>
           </div>
         </div>
@@ -180,12 +180,12 @@ export default function BrandPage() {
         />
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            { src: '/images/brand/oryx-portrait.png', alt: 'A single oryx in golden savanna grass.' },
-            { src: '/images/hero/hero-1.png', alt: 'An oryx on a dune at sunrise.' },
-            { src: '/images/hero/hero-3.png', alt: 'A stack of technical books on a desk.' },
-            { src: '/images/campus/campus-1.png', alt: 'An architectural concept for the campus.' },
-            { src: '/images/hero/hero-5.png', alt: 'Skilled hands working on a training bench.' },
-            { src: '/images/research/research-1.png', alt: 'A research notebook on a warm surface.' },
+            { src: '/images/brand/oryx-dune.webp', alt: 'An oryx in golden savanna grass.' },
+            { src: '/images/brand/oryx-chalkboard.webp', alt: 'The institutional crest on a chalkboard surface.' },
+            { src: '/images/research/leather-books.webp', alt: 'A stack of technical books on a desk.' },
+            { src: '/images/campus/arched-corridor.webp', alt: 'An architectural concept for the campus.' },
+            { src: '/images/programmes/clipboards-notebooks.webp', alt: 'Clipboards and notebooks on a training bench.' },
+            { src: '/images/research/archival-calipers.webp', alt: 'A research notebook on a warm surface.' },
           ].map((img) => (
             <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
               <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />

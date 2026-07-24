@@ -51,23 +51,23 @@ export function CampusSection() {
           <div className="lg:col-span-7 space-y-4">
             <figure className="relative aspect-[16/10] overflow-hidden bg-white border border-[var(--color-border)]">
               <img
-                src="/images/campus/campus-1.png"
+                src="/images/campus/campus-1.webp"
                 alt="An architectural concept sketch of a minimalist Windhoek campus in pencil on cream paper."
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
+              <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
                 Architectural concept. Not a completed facility.
               </figcaption>
             </figure>
             <figure id="campus-detail" className="relative aspect-[16/10] overflow-hidden bg-white border border-[var(--color-border)]">
               <img
-                src="/images/campus/campus-2.png"
+                src="/images/campus/campus-2.webp"
                 alt="An architectural concept interior of a small classroom with horseshoe desks and a tall window."
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
+              <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
                 Architectural concept interior. Not a completed facility.
               </figcaption>
             </figure>

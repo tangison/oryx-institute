@@ -51,14 +51,14 @@ export function ProseSection({
         </p>
       )}
       {heading && (
-        <p
+        <h3
           className={cn(
             'font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4',
             isDark ? 'text-[var(--color-brand-cream)]' : 'text-[var(--color-brand-ink)]'
           )}
         >
           {heading}
-        </p>
+        </h3>
       )}
       <div className={cn('space-y-4 leading-relaxed text-pretty')}>{children}</div>
     </section>

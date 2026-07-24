@@ -8,9 +8,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * Each video uses the same dual-video cross-fade technique as the hero to
  * ensure NO visible stutter between loops. The carousel auto-advances with
  * a cross-fade between videos, and each video loops seamlessly within its slot.
- *
- * Uses the Oryx design system: Cinzel display headings, Source Sans 3 body,
- * maroon accent, cream backgrounds, editorial restraint.
  */
 
 interface CarouselVideo {
@@ -47,6 +44,8 @@ const CAROUSEL_VIDEOS: CarouselVideo[] = [
 
 const AUTO_ADVANCE_MS = 8000;
 const FADE_DURATION_MS = 400;
+const LOOP_FADE_TRIGGER_S = 0.25;
+const LOOP_FADE_MS = 150;
 
 export function VideoCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -54,10 +53,11 @@ export function VideoCarousel() {
   const [playing, setPlaying] = useState(true);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Seamless loop refs per video slot
+  // Seamless loop refs per video slot — each slot has two <video> elements
   const videoARefs = useRef<(HTMLVideoElement | null)[]>([]);
   const videoBRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const activeAStates = useRef<boolean[]>(CAROUSEL_VIDEOS.map(() => true));
+  const activeStates = useRef<('A' | 'B')[]>(CAROUSEL_VIDEOS.map(() => 'A'));
+  const frontStates = useRef<('A' | 'B')[]>(CAROUSEL_VIDEOS.map(() => 'A'));
   const rafRefs = useRef<(number | null)[]>(CAROUSEL_VIDEOS.map(() => null));
 
   // Detect reduced-motion preference
@@ -95,75 +95,60 @@ export function VideoCarousel() {
       const videoB = videoBRefs.current[idx];
       if (!videoA || !videoB) return;
 
-      const initLoop = () => {
+      const startLoop = () => {
         const dur = videoA.duration;
-        if (!dur || dur === Infinity) return;
+        if (!dur || dur === Infinity || dur <= 0) return;
 
+        videoA.currentTime = 0;
         videoA.play().catch(() => {});
         videoB.currentTime = 0;
         videoB.pause();
 
-        const checkLoop = () => {
-          const isA = activeAStates.current[idx];
-          const front = isA ? videoARefs.current[idx] : videoBRefs.current[idx];
-          const back = isA ? videoBRefs.current[idx] : videoARefs.current[idx];
-          if (!front || !back) return;
+        const monitor = () => {
+          const currentActive = activeStates.current[idx];
+          const front = currentActive === 'A' ? videoARefs.current[idx] : videoBRefs.current[idx];
+          const back = currentActive === 'A' ? videoBRefs.current[idx] : videoARefs.current[idx];
 
-          const remaining = dur - front.currentTime;
-          if (remaining <= 0.2) {
-            back.currentTime = 0;
-            back.play().catch(() => {});
-            activeAStates.current[idx] = !isA;
-
-            // Force re-render for the opacity swap
-            setTimeout(() => {
-              const oldFront = !isA ? videoARefs.current[idx] : videoBRefs.current[idx];
-              if (oldFront) {
-                oldFront.pause();
-                oldFront.currentTime = 0;
-              }
-            }, FADE_DURATION_MS + 50);
-
-            // Restart loop check for new active video
-            setTimeout(() => {
-              if (rafRefs.current[idx]) cancelAnimationFrame(rafRefs.current[idx]);
-              const checkAgain = () => {
-                const newIsA = activeAStates.current[idx];
-                const newFront = newIsA ? videoARefs.current[idx] : videoBRefs.current[idx];
-                const newBack = newIsA ? videoBRefs.current[idx] : videoARefs.current[idx];
-                if (!newFront || !newBack) return;
-
-                const rem = dur - newFront.currentTime;
-                if (rem <= 0.2) {
-                  newBack.currentTime = 0;
-                  newBack.play().catch(() => {});
-                  activeAStates.current[idx] = !newIsA;
-                  setTimeout(() => {
-                    const old = !newIsA ? videoARefs.current[idx] : videoBRefs.current[idx];
-                    if (old) { old.pause(); old.currentTime = 0; }
-                  }, FADE_DURATION_MS + 50);
-                  setTimeout(() => {
-                    if (rafRefs.current[idx]) cancelAnimationFrame(rafRefs.current[idx]);
-                    rafRefs.current[idx] = requestAnimationFrame(checkAgain);
-                  }, FADE_DURATION_MS + 100);
-                  return;
-                }
-                rafRefs.current[idx] = requestAnimationFrame(checkAgain);
-              };
-              rafRefs.current[idx] = requestAnimationFrame(checkAgain);
-            }, FADE_DURATION_MS + 100);
+          if (!front || !back) {
+            rafRefs.current[idx] = requestAnimationFrame(monitor);
             return;
           }
-          rafRefs.current[idx] = requestAnimationFrame(checkLoop);
+
+          const remaining = dur - front.currentTime;
+
+          if (remaining <= LOOP_FADE_TRIGGER_S) {
+            // Cross-fade: start back video, swap active
+            back.currentTime = 0;
+            back.play().catch(() => {});
+
+            const newActive = currentActive === 'A' ? 'B' : 'A';
+            activeStates.current[idx] = newActive;
+            frontStates.current[idx] = newActive;
+
+            const oldFront = front;
+            setTimeout(() => {
+              oldFront.pause();
+              oldFront.currentTime = 0;
+            }, LOOP_FADE_MS + 80);
+
+            // Continue monitoring after settling
+            setTimeout(() => {
+              if (rafRefs.current[idx]) cancelAnimationFrame(rafRefs.current[idx]);
+              rafRefs.current[idx] = requestAnimationFrame(monitor);
+            }, LOOP_FADE_MS + 120);
+            return;
+          }
+
+          rafRefs.current[idx] = requestAnimationFrame(monitor);
         };
 
-        rafRefs.current[idx] = requestAnimationFrame(checkLoop);
+        rafRefs.current[idx] = requestAnimationFrame(monitor);
       };
 
-      if (videoA.readyState >= 1 && videoA.duration > 0) {
-        initLoop();
+      if (videoA.readyState >= 1 && videoA.duration > 0 && videoA.duration !== Infinity) {
+        startLoop();
       } else {
-        videoA.addEventListener('loadedmetadata', initLoop, { once: true });
+        videoA.addEventListener('loadedmetadata', startLoop, { once: true });
       }
     });
 
@@ -177,22 +162,47 @@ export function VideoCarousel() {
   // Fallback ended handler
   const handleVideoEnded = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
-    if (!reducedMotion && video.paused) {
+    if (!reducedMotion) {
       video.currentTime = 0;
       video.play().catch(() => {});
     }
   }, [reducedMotion]);
 
+  // When carousel switches to a new video, start that video playing
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    // Pause all non-active videos, start active video
+    CAROUSEL_VIDEOS.forEach((_, idx) => {
+      const videoA = videoARefs.current[idx];
+      const videoB = videoBRefs.current[idx];
+      if (!videoA || !videoB) return;
+
+      if (idx === activeIndex) {
+        const frontKey = frontStates.current[idx];
+        const front = frontKey === 'A' ? videoA : videoB;
+        front.play().catch(() => {});
+      } else {
+        videoA.pause();
+        videoB.pause();
+      }
+    });
+  }, [activeIndex, reducedMotion]);
+
   return (
     <section
       aria-roledescription="carousel"
       aria-label="Institutional video showcase"
+      aria-labelledby="profile-heading"
       className="relative w-full overflow-hidden bg-[var(--color-brand-ink)]"
       onMouseEnter={() => setPlaying(false)}
       onMouseLeave={() => setPlaying(true)}
       onFocus={() => setPlaying(false)}
       onBlur={() => setPlaying(true)}
     >
+      {/* Hidden heading for accessibility */}
+      <h2 id="profile-heading" className="sr-only">Institutional Profile</h2>
+
       {/* Video panels — only the active one is visible */}
       {CAROUSEL_VIDEOS.map((video, idx) => {
         const isActive = idx === activeIndex;
@@ -216,7 +226,7 @@ export function VideoCarousel() {
               loading={idx === 0 ? 'eager' : 'lazy'}
             />
 
-            {/* Video A */}
+            {/* Video A — seamless loop layer */}
             <video
               ref={(el) => { videoARefs.current[idx] = el; }}
               className="absolute inset-0 w-full h-full object-cover hero-video"
@@ -226,15 +236,26 @@ export function VideoCarousel() {
               preload={idx === 0 ? 'metadata' : 'none'}
               aria-hidden="true"
               onEnded={handleVideoEnded}
-              style={{
-                opacity: 1,
-              }}
             >
               <source src={video.webm} type="video/webm" />
               <source src={video.mp4} type="video/mp4" />
             </video>
 
-            {/* Gradient overlay — tokenised (Hallmark P0-1 fix) */}
+            {/* Video B — seamless loop layer (hidden until cross-fade swap) */}
+            <video
+              ref={(el) => { videoBRefs.current[idx] = el; }}
+              className="absolute inset-0 w-full h-full object-cover hero-video"
+              muted
+              playsInline
+              preload={idx === 0 ? 'metadata' : 'none'}
+              aria-hidden="true"
+              onEnded={handleVideoEnded}
+            >
+              <source src={video.webm} type="video/webm" />
+              <source src={video.mp4} type="video/mp4" />
+            </video>
+
+            {/* Gradient overlay — tokenised */}
             <div className="absolute inset-0 gradient-photo-dark-soft" />
             <div className="absolute inset-x-0 bottom-0 h-32 gradient-fade-bottom" />
             <div className="absolute inset-x-0 top-0 h-16 gradient-fade-top" />

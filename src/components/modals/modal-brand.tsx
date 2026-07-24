@@ -109,7 +109,7 @@ export function BrandModal() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
               <p className="eyebrow mb-3">Display</p>
-              <p className="font-display text-4xl md:text-5xl">Fraunces</p>
+              <p className="font-display text-4xl md:text-5xl">Cinzel</p>
               <p className="font-display text-base mt-2 italic">Editorial serif. 400, 500, 600, 700.</p>
               <p className="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed">
                 Used for all headlines, hero copy, pull quotes, and major numerals.
@@ -117,8 +117,8 @@ export function BrandModal() {
             </div>
             <div className="bg-[var(--color-brand-cream)] p-6 border border-[var(--color-border)]">
               <p className="eyebrow mb-3">Body</p>
-              <p className="font-sans text-4xl md:text-5xl">Inter</p>
-              <p className="font-sans text-base mt-2">Restrained sans. 400, 500, 600, 700.</p>
+              <p className="font-sans text-4xl md:text-5xl">Source Sans 3</p>
+              <p className="font-sans text-base mt-2">Restrained sans. 300, 400, 500, 600, 700.</p>
               <p className="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed">
                 Used for all body text, captions, labels, and UI controls.
               </p>
@@ -171,9 +171,9 @@ export function BrandModal() {
           </p>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
             {[
-              { src: '/images/brand/oryx-portrait.png', alt: 'A single oryx in golden savanna grass.' },
-              { src: '/images/hero/hero-1.png', alt: 'An oryx on a dune at sunrise.' },
-              { src: '/images/hero/hero-3.png', alt: 'A stack of technical books on a desk.' },
+              { src: '/images/brand/oryx-dune.webp', alt: 'An oryx in golden savanna grass.' },
+              { src: '/images/brand/oryx-chalkboard.webp', alt: 'The institutional crest on a chalkboard surface.' },
+              { src: '/images/research/leather-books.webp', alt: 'A stack of technical books on a desk.' },
             ].map((img) => (
               <figure key={img.src} className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
                 { }

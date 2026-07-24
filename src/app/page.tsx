@@ -97,47 +97,65 @@ export default function Home() {
       </a>
       <SiteHeader />
       <main id="main">
-        <EditorialHero />
 
-        {/* Video carousel — institutional profile showcase */}
-        <VideoCarousel />
+        {/* ─── Section 1: Hero ───
+            Seamless infinite video loop with headline.
+            The video NEVER stops — dual-video cross-fade eliminates
+            the visible gap between loops. */}
+        <section id="hero" aria-labelledby="hero-heading">
+          <EditorialHero />
+        </section>
 
-        {/* Brief editorial intro — one paragraph, narrow measure, generous air */}
-        <section className="container-oryx py-20 md:py-28 lg:py-32">
-          <div className="max-w-3xl">
-            <p className="eyebrow mb-6">A note from the founder</p>
-            <p className="font-display text-2xl md:text-[1.75rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-ink)] text-balance">
-              Oryx Institute is being built for the work Namibia needs. Quiet,
-              disciplined, and rooted in the Namibian landscape: a place for
-              serious learning across five planned schools.
-            </p>
-            <p className="mt-6 max-w-[60ch] text-[1.0625rem] leading-[1.65] text-[var(--color-text-secondary)]">
-              Programmes are planned. Accreditation is subject to approval.
-              Applications are not yet open. This is a record of intent, not a
-              prospectus, and an invitation to register interest as the
-              institution takes shape.
-            </p>
-            <Link
-              href="/about"
-              className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-all duration-200"
-            >
-              Read the full vision
-              <span aria-hidden="true">→</span>
-            </Link>
+        {/* ─── Section 2: Institutional Profile ───
+            Video carousel showcasing campus, vision, and learning spaces.
+            Auto-advancing with cross-fade. Seamless loops per video. */}
+        <section id="profile" aria-labelledby="profile-heading" className="border-t border-[var(--color-border)]">
+          <VideoCarousel />
+        </section>
+
+        {/* ─── Section 3: Founder's Vision ───
+            A note from the founder — editorial, narrow measure, generous air. */}
+        <section id="vision" aria-labelledby="vision-heading" className="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
+          <div className="container-oryx py-20 md:py-28 lg:py-32">
+            <div className="max-w-3xl">
+              <p className="eyebrow mb-6">A note from the founder</p>
+              <h2
+                id="vision-heading"
+                className="font-display uppercase text-[var(--color-brand-ink)] text-3xl md:text-4xl tracking-[0.04em] leading-[1.05] mb-6"
+              >
+                Built for the work Namibia needs
+              </h2>
+              <p className="font-display text-2xl md:text-[1.75rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-ink)] text-balance">
+                Oryx Institute is being built for the work Namibia needs. Quiet,
+                disciplined, and rooted in the Namibian landscape: a place for
+                serious learning across five planned schools.
+              </p>
+              <p className="mt-6 max-w-[60ch] text-[1.0625rem] leading-[1.65] text-[var(--color-text-secondary)]">
+                Programmes are planned. Accreditation is subject to approval.
+                Applications are not yet open. This is a record of intent, not a
+                prospectus, and an invitation to register interest as the
+                institution takes shape.
+              </p>
+              <Link
+                href="/about"
+                className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-all duration-200"
+              >
+                Read the full vision
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Editorial Index — the table of contents */}
-        <section
-          aria-labelledby="index-heading"
-          className="border-t border-[var(--color-border)]"
-        >
+        {/* ─── Section 4: Explore the Institute ───
+            Editorial Index — the table of contents. */}
+        <section id="explore" aria-labelledby="explore-heading" className="border-t border-[var(--color-border)]">
           <div className="container-oryx py-20 md:py-28">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
               <div>
                 <p className="eyebrow mb-4">Index</p>
                 <h2
-                  id="index-heading"
+                  id="explore-heading"
                   className="font-display uppercase text-[var(--color-brand-ink)] text-3xl md:text-4xl tracking-[0.04em] leading-[1.05]"
                 >
                   Where to go next
@@ -152,12 +170,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pre-launch notice — quiet, honest */}
-        <section className="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
+        {/* ─── Section 5: Pre-Launch Status ───
+            Honest, quiet pre-launch notice. */}
+        <section id="status" aria-labelledby="status-heading" className="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
           <div className="container-oryx py-16 md:py-20">
             <div className="max-w-3xl">
               <p className="eyebrow mb-4">Pre-Launch Status</p>
-              <h2 className="font-display uppercase text-2xl md:text-[1.75rem] tracking-[0.03em] leading-[1.15] text-[var(--color-brand-ink)]">
+              <h2 className="font-display uppercase text-2xl md:text-[1.75rem] tracking-[0.03em] leading-[1.15] text-[var(--color-brand-ink)]" id="status-heading">
                 Applications are not yet open.
               </h2>
               <p className="mt-5 max-w-[60ch] text-[1.0625rem] leading-[1.65] text-[var(--color-text-secondary)]">
@@ -166,9 +185,16 @@ export default function Home() {
                 applications are being accepted at this time. Register your
                 interest to be notified when milestones are reached.
               </p>
+              <Link
+                href="/register"
+                className="mt-8 inline-flex btn-primary text-xs"
+              >
+                Register Interest
+              </Link>
             </div>
           </div>
         </section>
+
       </main>
       <SiteFooter />
     </>

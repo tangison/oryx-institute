@@ -27,7 +27,7 @@ function SchoolPanel({ school, variant }: { school: School; variant: 'left' | 'r
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-[1.02]"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,23,23,0.85)] via-[rgba(23,23,23,0.3)] to-transparent" />
+        <div className="absolute inset-0 gradient-overlay-school" />
         <div className="absolute inset-0 container-oryx flex flex-col justify-end pb-10 md:pb-14">
           <div className="max-w-2xl">
             <p className="eyebrow text-[var(--color-brand-cream)] mb-3">{school.eyebrow}</p>

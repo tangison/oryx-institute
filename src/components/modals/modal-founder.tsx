@@ -12,11 +12,11 @@ export function FounderModal() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           <figure className="md:col-span-5 relative aspect-[3/4] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
-              src="/images/founder/founder-1.png"
+              src="/images/research/leather-books.webp"
               alt="An empty leather chair beside a wooden desk in warm afternoon light."
               className="w-full h-full object-cover"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
+            <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               No photograph of the founder is published at this stage.
             </figcaption>
           </figure>

@@ -44,18 +44,12 @@ export function ImagePageHeader({
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
       />
-      {/* Photo-dark gradient, left-weighted for text legibility */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            'linear-gradient(90deg, rgba(23, 23, 23, 0.88) 0%, rgba(74, 7, 16, 0.62) 52%, rgba(74, 7, 16, 0.18) 100%)',
-        }}
-      />
-      {/* Top fade for header legibility */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(23,23,23,0.6)] to-transparent" />
-      {/* Bottom fade for section transition */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[rgba(23,23,23,0.5)] to-transparent" />
+      {/* Photo-dark gradient, left-weighted for text legibility — uses CSS token */}
+      <div className="absolute inset-0 gradient-photo-dark-strong" />
+      {/* Top fade for header legibility — CSS token */}
+      <div className="absolute inset-x-0 top-0 h-32 gradient-fade-top" />
+      {/* Bottom fade for section transition — CSS token */}
+      <div className="absolute inset-x-0 bottom-0 h-32 gradient-fade-bottom" />
 
       <div className="relative w-full container-oryx">
         <div className="max-w-3xl">

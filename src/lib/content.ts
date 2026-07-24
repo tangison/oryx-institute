@@ -596,33 +596,33 @@ export const heroSlides: {
   supporting: string;
 }[] = [
   {
-    image: "/images/hero/hero-1.png",
+    image: "/images/brand/oryx-dune.webp",
     alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
     headline: "Education. Skills. Impact.",
     supporting:
       "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
   },
   {
-    image: "/images/hero/hero-2.png",
+    image: "/images/campus/arched-corridor.webp",
     alt: "An architectural detail of a warm sandstone wall with strong morning shadow.",
     headline: "Rooted in the Namibian landscape.",
     supporting: "Quiet, disciplined, and built for the work Namibia needs.",
   },
   {
-    image: "/images/hero/hero-3.png",
+    image: "/images/research/leather-books.webp",
     alt: "A stack of well-worn technical books on a warm wooden desk in soft directional light.",
     headline: "One institution. Many pathways.",
     supporting:
       "Classroom learning, recognition of prior learning, and work-integrated learning.",
   },
   {
-    image: "/images/hero/hero-4.png",
+    image: "/images/campus/building-entrance.webp",
     alt: "A wide empty Windhoek highveld landscape at dawn with distant acacia trees.",
     headline: "A place for serious learning.",
     supporting: "Minimal, warm, and architectural. A campus designed for focus.",
   },
   {
-    image: "/images/hero/hero-5.png",
+    image: "/images/programmes/clipboards-notebooks.webp",
     alt: "Skilled hands working on a mechanical training bench in warm window light.",
     headline: "Learning shaped by Namibia.",
     supporting: "Programmes planned across five schools. Subject to accreditation.",

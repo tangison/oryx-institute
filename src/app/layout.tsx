@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { ModalProvider } from "@/lib/modal-context";
 
 // DESIGN.md §7.1: Display face = Trajan Pro 3 (licensed) or Cinzel (open fallback).
 // All-capitals display. Weights 400-700.
@@ -84,7 +85,7 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${sourceSans3.variable} antialiased bg-background text-foreground font-sans`}
       >
-        {children}
+        <ModalProvider>{children}</ModalProvider>
         <Toaster />
       </body>
     </html>

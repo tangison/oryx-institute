@@ -18,7 +18,7 @@ export function InstituteIntro() {
           <div className="lg:col-span-7 order-2 lg:order-1">
             <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)]">
               <img
-                src="/images/institute/institute-1.png"
+                src="/images/campus/arched-corridor.webp"
                 alt="An institutional crest carved in sandstone, weathered, with warm afternoon light."
                 className="w-full h-full object-cover"
                 loading="lazy"

@@ -112,6 +112,8 @@
   --gradient-cream: linear-gradient(180deg, #FFFFFF 0%, #FFF8EF 100%);
   --gradient-fade-bottom: linear-gradient(to top, rgba(23, 23, 23, 0.55) 0%, transparent 100%);
   --gradient-fade-top: linear-gradient(to bottom, rgba(23, 23, 23, 0.55) 0%, transparent 100%);
+  --gradient-overlay-school: linear-gradient(to top, rgba(23, 23, 23, 0.85) 0%, rgba(23, 23, 23, 0.3) 50%, transparent 100%);
+  --gradient-overlay-caption: linear-gradient(to top, rgba(15, 14, 13, 0.7) 0%, transparent 100%);
 
   /* --- Motion (DESIGN.md §14) --- */
   --duration-fast: 120ms;
@@ -359,6 +361,41 @@
     border-radius: 0;
   }
 
+  /* --- Button: secondary dark variant (for dark surfaces) --- */
+  .btn-secondary-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.875rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-brand-cream);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-brand-cream);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color var(--duration-standard) var(--ease-standard),
+                color var(--duration-standard) var(--ease-standard),
+                transform var(--duration-fast) var(--ease-standard);
+  }
+  .btn-secondary-dark:hover {
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-ink);
+  }
+  .btn-secondary-dark:active {
+    transform: translateY(1px);
+  }
+  .btn-secondary-dark:focus-visible {
+    outline: 3px solid var(--color-brand-ink);
+    box-shadow: 0 0 0 5px var(--color-brand-cream);
+    border-radius: 0;
+  }
+
   .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -557,6 +594,12 @@
   }
   .gradient-fade-top {
     background-image: var(--gradient-fade-top);
+  }
+  .gradient-overlay-school {
+    background-image: var(--gradient-overlay-school);
+  }
+  .gradient-overlay-caption {
+    background-image: var(--gradient-overlay-caption);
   }
 
   /* Hero headline shadow */

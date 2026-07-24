@@ -182,8 +182,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/updates"
-              className="btn-secondary"
-              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
+              className="btn-secondary-dark"
             >
               View Updates
             </Link>
