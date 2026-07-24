@@ -13,7 +13,9 @@
   /* --- Core brand palette (DESIGN.md §6.1) --- */
   --color-brand-maroon: #7A0F1E;
   --color-brand-maroon-dark: #4A0710;
-  --color-brand-orange: #7A0F1E; /* Approved Oryx orange — sampled from authoritative wordmark, same hue as brand maroon */
+  /* brand-orange removed: the wordmark spec requires ORYX to be #171717 (black) on light backgrounds.
+     The previous token incorrectly made ORYX maroon, causing the "inverted colours" audit failure.
+     For maroon, use --color-brand-maroon. For ORYX text, use #171717 or --color-brand-ink. */
   --color-brand-cream: #FFF8EF;
   --color-brand-ink: #171717;
   --color-white: #FFFFFF;
@@ -60,6 +62,8 @@
   --font-sans: var(--font-source-sans-3), "Source Sans 3", "Source Sans Pro", "Segoe UI", Arial, sans-serif;
   --font-serif: var(--font-cinzel), "Cinzel", "Times New Roman", Georgia, serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Courier New", monospace;
+  /* Greek serif stack — verified polytonic Greek coverage */
+  --font-greek: 'Noto Serif', 'Times New Roman', Georgia, serif;
 
   /* --- Type scale (DESIGN.md §7.3) --- */
   --type-display-xl: clamp(2.75rem, 5vw + 1rem, 4.5rem);
@@ -177,6 +181,7 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal overflow per mobile spec */
   }
   body {
     background-color: var(--color-surface);
@@ -184,6 +189,7 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* Prevent horizontal overflow */
   }
   ::selection {
     background-color: var(--color-brand-maroon);
@@ -214,6 +220,17 @@
   }
   h3, h4 {
     line-height: 1.2;
+  }
+
+  /* Greek wordmark protection: ὄρυξ MUST remain lowercase polytonic Greek.
+     Do NOT apply the global .font-display uppercase rule to the Greek element.
+     The .greek-wordmark class overrides text-transform and uses a serif with
+     verified polytonic Greek glyph coverage (Noto Serif, Times New Roman). */
+  .greek-wordmark {
+    text-transform: none !important;
+    font-variant: normal !important;
+    letter-spacing: normal !important;
+    font-family: 'Noto Serif', 'Times New Roman', Georgia, serif !important;
   }
 
   /* Body text measure (DESIGN.md §7.5) */
@@ -728,14 +745,15 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    max-width: 420px;
+    width: min(92vw, 420px);
+    height: 100dvh;
     background-color: var(--color-brand-cream);
     z-index: calc(var(--z-offcanvas) + 1);
     overflow-y: auto;
     transform: translateX(100%);
     transition: transform var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1);
     border-left: 1px solid var(--color-border);
+    padding: 88px 24px 32px;
   }
   .offcanvas-panel.is-open {
     transform: translateX(0);

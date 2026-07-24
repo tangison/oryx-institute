@@ -2,26 +2,31 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { primaryNav, secondaryNav } from '@/lib/content';
 import { cn } from '@/lib/utils';
-import { OryxWordmark } from '@/components/site/oryx-wordmark';
+import { OryxLogo } from '@/components/site/oryx-logo';
 
 /**
- * SiteHeader — Premium navigation with Collins-style offcanvas panel.
+ * SiteHeader — Compact floating institutional navigation.
  *
- * Features:
- * - OryxWordmark lockup (wordmark + icon) replaces bare shield mark.
- * - Desktop: horizontal nav with clean typography.
- * - Mobile/tablet: premium offcanvas slide-from-right panel with
- *   visual-driven navigation (school/programme images), Collins-style restraint.
- * - Scroll-aware transparency (transparent on homepage hero, solid otherwise).
- * - Escape key closes offcanvas.
- * - Focus trap within offcanvas when open.
+ * Per the brand spec:
+ *   - Desktop: 80-88px height, cream bg (rgba(255,248,239,0.97)), floating with
+ *     top offset 16px, side margin clamp(24px,4vw,64px), border + shadow.
+ *   - Mobile: 68-72px height, cream bg #FFF8EF, compact logo lockup + 44×44 menu button.
+ *   - Scroll state: cream bg with 200ms transition.
+ *   - Logo always uses OryxLogo light-background lockup (never changes between scroll states).
+ *   - CTA: one restrained maroon action, not oversized outlined box.
+ *
+ * Offcanvas:
+ *   - Right-side panel, width min(92vw, 420px)
+ *   - Cream bg, 100dvh, padding 88px 24px 32px
+ *   - Focus trap, Escape close, body scroll lock
+ *   - Editorial school rows with small images
+ *   - 44px minimum touch targets
  */
 
-// Visual items for the offcanvas — school thumbnails with links
-const offcanvasVisuals = [
+const offcanvasSchools = [
   { href: '/schools/safety', image: '/images/schools/safety-01.webp', label: 'School of Safety' },
   { href: '/schools/administration', image: '/images/schools/administration-01.webp', label: 'Administration & Commerce' },
   { href: '/schools/hospitality', image: '/images/schools/hospitality-01.webp', label: 'Hospitality & Service' },
@@ -33,6 +38,8 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Scroll detection
   useEffect(() => {
@@ -51,205 +58,275 @@ export function SiteHeader() {
   // Close offcanvas on route change
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
-  // Close on Escape key
+  // Focus trap inside offcanvas
   useEffect(() => {
-    if (!menuOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false);
+    if (!menuOpen || !panelRef.current) return;
+    const panel = panelRef.current;
+    const focusable = panel.querySelectorAll<HTMLElement>(
+      'a[href], button, input, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    const trap = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    document.addEventListener('keydown', trap);
+    // Move focus into panel
+    first?.focus();
+
+    return () => document.removeEventListener('keydown', trap);
+  }, [menuOpen]);
+
+  // Restore focus to menu button after closing
+  useEffect(() => {
+    if (!menuOpen) {
+      menuButtonRef.current?.focus();
+    }
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
-  const isHome = pathname === '/';
-  const solid = scrolled || menuOpen || !isHome;
-
-  // Determine wordmark variant based on header background
-  const wordmarkVariant = solid ? 'light' : 'dark';
 
   return (
     <>
+      {/* ─── Floating header ─── */}
       <header
         className={cn(
-          'fixed top-0 inset-x-0 z-[var(--z-header)] transition-colors duration-300',
-          solid
-            ? 'bg-[var(--color-brand-cream)]/95 backdrop-blur-md border-b border-[var(--color-border)]'
-            : 'bg-transparent'
+          'fixed z-[var(--z-header)] transition-all duration-200',
+          // Desktop: floating with margins
+          'lg:top-4 lg:inset-x-0',
+          // Mobile: full-width
+          'top-0 inset-x-0',
         )}
+        style={{
+          // Desktop floating margins per spec
+          ...(scrolled || pathname !== '/'
+            ? {
+                background: 'rgba(255, 248, 239, 0.97)',
+                boxShadow: scrolled ? '0 8px 30px rgba(23, 23, 23, 0.08)' : 'none',
+              }
+            : pathname === '/'
+              ? {
+                  background: 'rgba(255, 248, 239, 0.97)',
+                  boxShadow: '0 8px 30px rgba(23, 23, 23, 0.08)',
+                }
+              : {}),
+        }}
       >
-        <div className="container-oryx flex items-center justify-between h-20 md:h-24">
-          {/* Logo — OryxWordmark lockup */}
-          <OryxWordmark variant={wordmarkVariant} size="default" linked />
+        {/* Desktop floating wrapper with margin */}
+        <div className="hidden lg:block lg:mx-[clamp(24px,4vw,64px)]">
+          <div
+            className={cn(
+              'flex items-center justify-between h-[84px]',
+              'border border-[rgba(23,23,23,0.14)]',
+              'bg-[rgba(255,248,239,0.97)]',
+            )}
+            style={{
+              boxShadow: '0 8px 30px rgba(23, 23, 23, 0.08)',
+            }}
+          >
+            {/* Logo — always light-background lockup */}
+            <div className="pl-6">
+              <OryxLogo variant="light" size="desktop" linked />
+            </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-            {primaryNav.map((item) => {
-              const active = pathname === item.href || pathname.startsWith(item.href + '/');
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={cn(
-                    'text-sm font-semibold tracking-wide transition-colors relative py-2',
-                    solid
-                      ? 'text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)]'
-                      : 'text-[var(--color-brand-cream)] hover:text-white',
-                    active && 'text-[var(--color-brand-maroon)]'
-                  )}
-                >
-                  {item.label}
-                  {active && (
-                    <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--color-brand-maroon)]" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+            {/* Desktop nav — concise, evenly spaced */}
+            <nav className="flex items-center gap-8 pr-6" aria-label="Primary">
+              {primaryNav.map((item) => {
+                const active = pathname === item.href || pathname.startsWith(item.href + '/');
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={cn(
+                      'text-sm font-semibold tracking-[0.06em] transition-colors duration-200 py-2',
+                      'text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)]',
+                      active && 'text-[var(--color-brand-maroon)]'
+                    )}
+                  >
+                    {item.label}
+                    {active && (
+                      <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--color-brand-maroon)]" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/register"
-              className={cn(
-                'hidden md:inline-flex btn-primary text-xs',
-                !solid && 'hero-secondary-btn'
-              )}
-            >
-              Register Interest
-            </Link>
-
-            {/* Menu toggle — hamburger / close */}
-            <button
-              onClick={() => setMenuOpen((v) => !v)}
-              className={cn(
-                'lg:hidden inline-flex items-center justify-center w-11 h-11 border',
-                solid
-                  ? 'border-[var(--color-brand-ink)] text-[var(--color-brand-ink)]'
-                  : 'border-[var(--color-brand-cream)] text-[var(--color-brand-cream)]'
-              )}
-              aria-expanded={menuOpen}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                {menuOpen ? (
-                  <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
-                ) : (
-                  <>
-                    <path d="M2 5H16" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M2 13H16" stroke="currentColor" strokeWidth="1.5" />
-                  </>
-                )}
-              </svg>
-            </button>
+            {/* CTA — one restrained maroon action */}
+            <div className="pr-6">
+              <Link
+                href="/register"
+                className="inline-flex items-center justify-center min-h-[40px] px-5 text-xs font-semibold uppercase tracking-[0.06em] bg-[var(--color-brand-maroon)] text-white border border-[var(--color-brand-maroon)] hover:bg-[var(--color-brand-maroon-dark)] hover:border-[var(--color-brand-maroon-dark)] transition-colors duration-200"
+              >
+                Register Interest
+              </Link>
+            </div>
           </div>
+        </div>
+
+        {/* Mobile header — full-width, compact */}
+        <div
+          className={cn(
+            'lg:hidden flex items-center justify-between h-[68px]',
+            'px-[clamp(12px,3vw,16px)]',
+            'bg-[#FFF8EF]',
+            'border-b border-[rgba(23,23,23,0.14)]',
+          )}
+        >
+          {/* Logo — compact lockup */}
+          <OryxLogo variant="light" size="mobile" linked />
+
+          {/* Menu button — 44×44, two lines, square border */}
+          <button
+            ref={menuButtonRef}
+            onClick={() => setMenuOpen((v) => !v)}
+            className={cn(
+              'inline-flex items-center justify-center w-[44px] h-[44px]',
+              'border border-[rgba(23,23,23,0.35)] text-[var(--color-brand-ink)]',
+              'rounded-[0px] transition-colors duration-200',
+              'hover:bg-[var(--color-brand-ink)] hover:text-[var(--color-brand-cream)]',
+            )}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              {menuOpen ? (
+                <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+              ) : (
+                <>
+                  <path d="M2 5H16" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M2 13H16" stroke="currentColor" strokeWidth="1.5" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
       </header>
 
-      {/* ─── Offcanvas panel ─── */}
-      {/* Backdrop */}
+      {/* ─── Offcanvas backdrop ─── */}
       <div
         className={cn('offcanvas-backdrop', menuOpen && 'is-open')}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* Panel */}
+      {/* ─── Offcanvas panel ─── */}
       <div
+        ref={panelRef}
         className={cn('offcanvas-panel', menuOpen && 'is-open')}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        <div className="h-full flex flex-col">
-          {/* Panel header — wordmark + close */}
-          <div className="flex items-center justify-between px-6 h-20 border-b border-[var(--color-border)]">
-            <OryxWordmark variant="light" size="compact" linked={false} />
-            <button
-              onClick={closeMenu}
-              className="inline-flex items-center justify-center w-11 h-11 border border-[var(--color-brand-ink)] text-[var(--color-brand-ink)]"
-              aria-label="Close navigation"
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
-              </svg>
-            </button>
-          </div>
+        {/* Panel header — logo + close (at top of padded panel) */}
+        <div className="flex items-center justify-between mb-6">
+          <OryxLogo variant="light" size="compact" linked={false} />
+          <button
+            onClick={closeMenu}
+            className={cn(
+              'inline-flex items-center justify-center w-[44px] h-[44px]',
+              'border border-[rgba(23,23,23,0.35)] text-[var(--color-brand-ink)]',
+              'rounded-[0px] transition-colors duration-200',
+              'hover:bg-[var(--color-brand-ink)] hover:text-[var(--color-brand-cream)]',
+            )}
+            aria-label="Close navigation"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+            </svg>
+          </button>
+        </div>
 
-          {/* Visual showcase — school thumbnails */}
-          <div className="px-6 pt-6">
-            <p className="eyebrow mb-4">Schools</p>
-            <div className="grid grid-cols-2 gap-3">
-              {offcanvasVisuals.slice(0, 4).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="offcanvas-visual-card group"
-                  onClick={closeMenu}
-                >
-                  <img src={item.image} alt={item.label} loading="lazy" />
-                  <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-[var(--color-brand-ink)]/80 to-transparent">
-                    <span className="text-[0.6875rem] font-display uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
-                      {item.label}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <Link
-              href="/schools"
-              className="mt-3 block text-center font-display text-xs uppercase tracking-[0.08em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-all duration-200"
-              onClick={closeMenu}
-            >
-              All Schools →
-            </Link>
-          </div>
-
-          {/* Primary nav */}
-          <nav className="px-6 pt-6" aria-label="Primary">
-            <p className="eyebrow mb-4">Explore</p>
-            {primaryNav.map((item) => (
+        {/* School editorial rows — alternating image-and-title */}
+        <div className="pt-4">
+          <p className="eyebrow mb-4">Schools</p>
+          <div className="space-y-2">
+            {offcanvasSchools.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
-                className="offcanvas-nav-link"
+                className="group flex items-center gap-4 min-h-[44px] py-2 border-b border-[var(--color-border-subtle)] transition-colors duration-200 hover:bg-[var(--color-surface-alt)]/40"
                 onClick={closeMenu}
               >
-                {item.label}
+                {/* Small image */}
+                <div className="w-[56px] h-[42px] flex-shrink-0 overflow-hidden bg-[var(--color-brand-ink)]">
+                  <img src={item.image} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-200" loading="lazy" />
+                </div>
+                {/* Title */}
+                <span className="font-display text-sm uppercase tracking-[0.06em] text-[var(--color-brand-ink)] group-hover:text-[var(--color-brand-maroon)] transition-colors duration-200">
+                  {item.label}
+                </span>
               </Link>
             ))}
-          </nav>
+          </div>
+        </div>
 
-          {/* Secondary nav */}
-          <nav className="px-6 pt-6" aria-label="Secondary">
-            <p className="eyebrow mb-4">Institute</p>
-            {secondaryNav.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="offcanvas-nav-link-secondary"
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA */}
-          <div className="px-6 pt-8 pb-6 mt-auto">
+        {/* Primary nav */}
+        <nav className="pt-6" aria-label="Primary">
+          <p className="eyebrow mb-4">Explore</p>
+          {primaryNav.map((item) => (
             <Link
-              href="/register"
-              className="btn-primary w-full justify-center"
+              key={item.label}
+              href={item.href}
+              className="offcanvas-nav-link"
               onClick={closeMenu}
             >
-              Register Interest
+              {item.label}
             </Link>
-          </div>
+          ))}
+        </nav>
 
-          {/* Pre-launch notice */}
-          <div className="px-6 pb-6">
-            <span className="status-pill status-planned">Pre-Launch</span>
-          </div>
+        {/* Secondary nav */}
+        <nav className="pt-6" aria-label="Secondary">
+          <p className="eyebrow mb-4">Institute</p>
+          {secondaryNav.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="offcanvas-nav-link-secondary"
+              onClick={closeMenu}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* CTA */}
+        <div className="pt-8 pb-4 mt-auto">
+          <Link
+            href="/register"
+            className="btn-primary w-full justify-center"
+            onClick={closeMenu}
+          >
+            Register Interest
+          </Link>
+        </div>
+
+        {/* Contact email */}
+        <div>
+          <a
+            href="mailto:contact@oryxinstitute.org"
+            className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-brand-maroon)] transition-colors duration-200"
+          >
+            contact@oryxinstitute.org
+          </a>
         </div>
       </div>
     </>
