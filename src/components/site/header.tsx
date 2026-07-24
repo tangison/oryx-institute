@@ -189,7 +189,7 @@ export function SiteHeader() {
                 >
                   <img src={item.image} alt={item.label} loading="lazy" />
                   <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-[var(--color-brand-ink)]/80 to-transparent">
-                    <span className="text-[0.625rem] font-display uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
+                    <span className="text-[0.6875rem] font-display uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
                       {item.label}
                     </span>
                   </div>
