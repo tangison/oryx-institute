@@ -217,7 +217,7 @@ export default function Home() {
                   Built for the work Namibia needs
                 </h2>
                 <p className="eyebrow text-[var(--color-brand-cream)] mb-6">From the founder</p>
-                <p className="font-display text-xl md:text-[1.5rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
+                <p className="font-display normal-case text-xl md:text-[1.5rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
                   Quiet, disciplined, and rooted in the Namibian landscape.
                 </p>
                 <p className="mt-5 max-w-[55ch] text-[1.0625rem] leading-[1.65] text-[var(--color-brand-cream)]/75">

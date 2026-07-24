@@ -186,9 +186,6 @@ export function EditorialHero() {
       {/* Layer 5 — content */}
       <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32">
         <div className="max-w-3xl">
-          <p className="font-body text-white/95 text-[0.8125rem] font-semibold tracking-[0.16em] uppercase mb-5 hero-headline-shadow">
-            Windhoek · Namibia · Pre-Launch
-          </p>
           <h1
             id="hero-heading"
             className="font-display uppercase text-[var(--color-brand-cream)] text-[clamp(2.5rem,6vw,4.75rem)] font-medium leading-[1.02] tracking-[0.04em] text-balance hero-headline-shadow"
@@ -197,8 +194,7 @@ export function EditorialHero() {
             Skills. Impact.
           </h1>
           <p className="mt-6 max-w-xl text-base md:text-[1.0625rem] text-[var(--color-brand-cream)] leading-[1.6] text-pretty hero-body-shadow">
-            A multidisciplinary vocational education and training institution
-            being established in Windhoek, Namibia.
+            A vocational education and training institution being established in Windhoek, Namibia. Pre-launch.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3">
             <Link href="/register" className="btn-primary justify-center">
