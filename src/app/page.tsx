@@ -12,11 +12,12 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://oryxinstitute.na' },
 };
 
+// Concise editorial index — reduced entries for tighter pacing
 const indexEntries = [
   {
     number: '01',
     title: 'About the Institute',
-    blurb: 'Vision, mission, values, and the case for a new vocational institution in Namibia.',
+    blurb: 'Vision, mission, and the case for vocational education in Namibia.',
     href: '/about',
   },
   {
@@ -29,56 +30,38 @@ const indexEntries = [
   {
     number: '03',
     title: 'Programmes',
-    blurb: 'Certificate and diploma programmes, short courses, and the three learning pathways.',
+    blurb: 'Certificate and diploma programmes, short courses, and three learning pathways.',
     href: '/programmes',
     status: 'Subject to accreditation',
   },
   {
     number: '04',
     title: 'Updates',
-    blurb: 'Establishment milestones, public notices, and announcements as they happen.',
+    blurb: 'Establishment milestones and public announcements.',
     href: '/updates',
   },
   {
     number: '05',
     title: 'The Founder',
-    blurb: 'Background, motivation, and the founding letter from Tangi Iigonda.',
+    blurb: 'Background and the founding letter from Tangi Iigonda.',
     href: '/founder',
   },
   {
     number: '06',
     title: 'Research & Advisory',
-    blurb: 'Planned research agenda, white papers, and advisory work.',
+    blurb: 'Planned research agenda and advisory work.',
     href: '/research',
     status: 'Planned',
   },
   {
     number: '07',
     title: 'Partners',
-    blurb: 'Employers, WIL hosts, funders, and how to partner with the Institute.',
+    blurb: 'Employers, WIL hosts, funders, and partnership pathways.',
     href: '/partners',
-  },
-  {
-    number: '08',
-    title: 'Brand',
-    blurb: 'Identity, palette, typography, and the visual system of the Institute.',
-    href: '/brand',
-  },
-  {
-    number: '09',
-    title: 'Frequently Asked Questions',
-    blurb: 'Programmes, admissions, RPL, work-integrated learning, fees, and campus.',
-    href: '/faq',
-  },
-  {
-    number: '10',
-    title: 'Contact',
-    blurb: 'Enquiries, employer and partner contact, and press.',
-    href: '/contact',
   },
 ];
 
-// School showcase data — visual-driven, minimal text
+// School showcase — visual-driven, minimal text
 const schoolShowcase = [
   {
     slug: 'safety',
@@ -125,31 +108,28 @@ export default function Home() {
       <main id="main">
 
         {/* ─── Section 1: Hero ───
-            Single seamless infinite video loop. No carousel. No duplication.
-            Video NEVER stops. Collins-style restraint: minimal text, maximum visual impact. */}
+            Single seamless infinite video loop.
+            Video NEVER stops. Minimal text, maximum visual impact. */}
         <section id="hero" aria-labelledby="hero-heading">
           <EditorialHero />
         </section>
 
         {/* ─── Section 2: Schools ───
-            Visual-driven showcase. Five schools presented as image cards.
-            Collins-style: more visuals, fewer words. Each card is a
-            single image + school name. The grid IS the design. */}
+            Visual-driven showcase. Five schools as image cards.
+            More visuals, fewer words. The grid IS the design. */}
         <section
           id="schools"
           aria-labelledby="schools-heading"
           className="border-t border-[var(--color-border)]"
         >
-          <div className="container-oryx py-16 md:py-24 lg:py-28">
-            <div className="flex items-end justify-between gap-6 mb-10 md:mb-14">
-              <div>
-                <h2
-                  id="schools-heading"
-                  className="font-display uppercase text-[var(--color-brand-ink)] text-2xl md:text-3xl tracking-[0.04em] leading-[1.05]"
-                >
-                  Five planned schools
-                </h2>
-              </div>
+          <div className="container-oryx py-14 md:py-20 lg:py-24">
+            <div className="flex items-end justify-between gap-6 mb-8 md:mb-12">
+              <h2
+                id="schools-heading"
+                className="font-display uppercase text-[var(--color-brand-ink)] text-xl md:text-2xl tracking-[0.04em] leading-[1.05]"
+              >
+                Five planned schools
+              </h2>
               <Link
                 href="/schools"
                 className="hidden sm:inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-all duration-200"
@@ -159,8 +139,8 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* School image grid — 5 columns on desktop, 2 on mobile */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+            {/* School image grid — responsive, mobile-first */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
               {schoolShowcase.map((school) => (
                 <Link
                   key={school.slug}
@@ -174,8 +154,8 @@ export default function Home() {
                     loading="lazy"
                   />
                   {/* Bottom overlay with school name */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-brand-ink)]/70 to-transparent pt-8 pb-3 px-3">
-                    <span className="font-display text-[0.6875rem] md:text-[0.8125rem] uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-brand-ink)]/70 to-transparent pt-8 pb-3 px-2 md:px-3">
+                    <span className="font-display text-[0.625rem] md:text-[0.75rem] uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
                       {school.name}
                     </span>
                   </div>
@@ -187,17 +167,17 @@ export default function Home() {
 
         {/* ─── Section 3: Vision ───
             Founder's note — editorial, narrow measure, generous air.
-            Collins-style: visual accent + minimal text. */}
+            Image first on mobile, then heading and concise copy. */}
         <section
           id="vision"
           aria-labelledby="vision-heading"
           className="border-t border-[var(--color-border)] bg-[var(--color-brand-ink)]"
           data-dark-surface
         >
-          <div className="container-oryx py-20 md:py-28 lg:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-              {/* Visual accent — campus image */}
-              <div className="lg:col-span-5 hidden lg:block">
+          <div className="container-oryx py-14 md:py-20 lg:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+              {/* Visual accent — campus image, shown first on mobile */}
+              <div className="lg:col-span-5">
                 <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src="/images/campus/corridor-windows.webp"
@@ -209,24 +189,20 @@ export default function Home() {
               </div>
 
               {/* Text block */}
-              <div className="lg:col-span-7 max-w-xl">
+              <div className="lg:col-span-7 max-w-[34rem]">
                 <h2
                   id="vision-heading"
-                  className="font-display uppercase text-[var(--color-brand-cream)] text-3xl md:text-4xl tracking-[0.04em] leading-[1.05] mb-2"
+                  className="font-display uppercase text-[var(--color-brand-cream)] text-2xl md:text-3xl tracking-[0.04em] leading-[1.05] mb-2"
                 >
                   Built for the work Namibia needs
                 </h2>
-                <p className="eyebrow text-[var(--color-brand-cream)] mb-6">From the founder</p>
-                <p className="font-display normal-case text-xl md:text-[1.5rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
+                <p className="eyebrow text-[var(--color-brand-cream)] mb-5">From the founder</p>
+                <p className="font-display normal-case text-lg md:text-xl leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
                   Quiet, disciplined, and rooted in the Namibian landscape.
-                </p>
-                <p className="mt-5 max-w-[55ch] text-[1.0625rem] leading-[1.65] text-[var(--color-brand-cream)]/75">
-                  Programmes are planned. Accreditation is subject to approval.
-                  Applications are not yet open.
                 </p>
                 <Link
                   href="/about"
-                  className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-cream)] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-all duration-200"
+                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-cream)] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-all duration-200"
                 >
                   Read the full vision
                   <span aria-hidden="true">→</span>
@@ -237,59 +213,48 @@ export default function Home() {
         </section>
 
         {/* ─── Section 4: Explore ───
-            Editorial Index — the table of contents. Collins-style: the list IS the design. */}
+            Editorial Index — the table of contents.
+            Reduced entries, concise editorial pacing.
+            Stacked rows with clear numbering, title, one-line explanation and arrow. */}
         <section
           id="explore"
           aria-labelledby="explore-heading"
           className="border-t border-[var(--color-border)]"
         >
-          <div className="container-oryx py-16 md:py-24">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
-              <div>
-                <h2
-                  id="explore-heading"
-                  className="font-display uppercase text-[var(--color-brand-ink)] text-2xl md:text-3xl tracking-[0.04em] leading-[1.05]"
-                >
-                  Explore the Institute
-                </h2>
-              </div>
-              <p className="max-w-sm text-[0.9375rem] leading-[1.6] text-[var(--color-text-secondary)]">
-                Ten destinations. Each its own page, its own idea. Begin anywhere.
-              </p>
-            </div>
+          <div className="container-oryx py-14 md:py-20">
+            <h2
+              id="explore-heading"
+              className="font-display uppercase text-[var(--color-brand-ink)] text-xl md:text-2xl tracking-[0.04em] leading-[1.05] mb-8 md:mb-12"
+            >
+              Explore the Institute
+            </h2>
             <EditorialIndex entries={indexEntries} />
           </div>
         </section>
 
         {/* ─── Section 5: Pre-Launch ───
             Honest, quiet pre-launch notice + Register Interest CTA.
-            Collins-style: minimal text, strong visual accent with maroon. */}
+            One concise statement, one explanation, one action.
+            Cream text on maroon. */}
         <section
           id="status"
           aria-labelledby="status-heading"
           className="border-t border-[var(--color-border)] bg-[var(--color-brand-maroon)]"
         >
-          <div className="container-oryx py-16 md:py-24">
+          <div className="container-oryx py-14 md:py-20">
             <div className="max-w-2xl text-center md:text-left">
               <h2
-                className="font-display uppercase text-[var(--color-brand-cream)] text-2xl md:text-[1.75rem] tracking-[0.04em] leading-[1.15]"
+                className="font-display uppercase text-[var(--color-brand-cream)] text-xl md:text-[1.75rem] tracking-[0.04em] leading-[1.15]"
                 id="status-heading"
               >
                 Applications are not yet open.
               </h2>
-              <p className="mt-4 max-w-[55ch] mx-auto md:mx-0 text-[1.0625rem] leading-[1.65] text-[var(--color-brand-cream)]/80">
+              <p className="mt-3 max-w-[55ch] mx-auto md:mx-0 text-[1.0625rem] leading-[1.65] text-[var(--color-brand-cream)]/80">
                 Register your interest to be notified when milestones are reached.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+              <div className="mt-6">
                 <Link href="/register" className="btn-secondary-dark justify-center">
                   Register Interest
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 text-[var(--color-brand-cream)] font-sans text-sm font-semibold uppercase tracking-[0.04em] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-all duration-200"
-                >
-                  Contact
-                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>

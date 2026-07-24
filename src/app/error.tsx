@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { OryxWordmark } from '@/components/site/oryx-wordmark';
+import { OryxLogo } from '@/components/site/oryx-logo';
 
 export default function Error({
   error,
@@ -19,7 +19,7 @@ export default function Error({
     <div className="min-h-screen bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] flex flex-col">
       <a href="#main" className="skip-link">Skip to main content</a>
       <header className="container-oryx py-6 flex items-center justify-between">
-        <OryxWordmark variant="dark" size="compact" linked />
+        <OryxLogo variant="dark" size="compact" linked />
       </header>
       <main id="main" className="flex-1 flex items-center justify-center container-oryx">
         <div className="max-w-2xl text-center py-20">

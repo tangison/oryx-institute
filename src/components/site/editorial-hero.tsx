@@ -1,35 +1,37 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 /**
- * EditorialHero — Collins-style restraint, seamless infinite video loop.
+ * EditorialHero — Single seamless infinite video loop.
  *
- * Dual-video cross-fade eliminates the visible stutter/gap that native
- * <video loop> produces when the browser seeks back to start. Two identical
- * <video> elements are stacked; when the active one reaches ~200ms before
- * its end, the other starts from time 0 and fades in, then roles swap.
- *
- * Gradient overlays use CSS custom-property tokens from globals.css,
- * not inline rgba() improvisation (Hallmark P0-1 fix).
+ * Per the brand spec:
+ *   - ONE video element with loop enabled (no duplicate same-source nodes)
+ *   - When only one unique video exists, render one <video> with loop
+ *   - Responsive dimensions: mobile 78svh max 860px, tablet 82svh, desktop 88svh max 980px
+ *   - Contrast overlay: permanent responsive gradient (not dependent on video frame)
+ *     Desktop: linear-gradient(90deg, rgba(23,23,23,0.78) 0%, rgba(23,23,23,0.44) 48%, rgba(23,23,23,0.10) 78%),
+ *               linear-gradient(0deg, rgba(23,23,23,0.48) 0%, transparent 58%)
+ *     Mobile: linear-gradient(0deg, rgba(23,23,23,0.82) 0%, rgba(23,23,23,0.34) 62%, rgba(23,23,23,0.12) 100%)
+ *   - Copy: headline "Education. Skills. Impact."
+ *     Desktop: clamp(3.5rem, 6vw, 4.75rem), max-width 12-14ch, bottom-left placement
+ *     Mobile: clamp(2.35rem, 11vw, 3.15rem), max-width 10-12ch
+ *   - Pause video when hero leaves viewport
+ *   - Reduced-motion: hide video, show poster only
+ *   - Video attributes: muted, playsInline, preload="metadata", poster, loop
  */
 
 const VIDEO_SRC = {
   webm: '/hero/oryx-loop.webm',
   mp4: '/hero/oryx-loop.mp4',
+  poster: '/hero/oryx-loop-poster.jpg',
 };
 
-const FADE_TRIGGER_S = 0.25; // seconds before end to trigger cross-fade
-const FADE_DURATION_MS = 150;
-
 export function EditorialHero() {
-  const videoARef = useRef<HTMLVideoElement>(null);
-  const videoBRef = useRef<HTMLVideoElement>(null);
-  const activeRef = useRef<'A' | 'B'>('A'); // which video is currently front
-  const rafRef = useRef<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [frontVideo, setFrontVideo] = useState<'A' | 'B'>('A'); // for rendering opacity
 
   // Detect reduced-motion preference
   useEffect(() => {
@@ -40,173 +42,131 @@ export function EditorialHero() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // Seamless loop engine
+  // Pause video when hero leaves viewport, resume when it re-enters
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || !videoRef.current || !heroRef.current) return;
+    const video = videoRef.current;
+    const hero = heroRef.current;
 
-    const videoA = videoARef.current;
-    const videoB = videoBRef.current;
-    if (!videoA || !videoB) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    const startLoop = () => {
-      // Ensure we have a valid duration
-      const dur = videoA.duration;
-      if (!dur || dur === Infinity || dur <= 0) return;
-
-      // Start A playing, B paused at 0
-      videoA.currentTime = 0;
-      videoA.play().catch(() => {});
-      videoB.currentTime = 0;
-      videoB.pause();
-
-      const monitor = () => {
-        const currentActive = activeRef.current;
-        const front = currentActive === 'A' ? videoARef.current : videoBRef.current;
-        const back = currentActive === 'A' ? videoBRef.current : videoARef.current;
-
-        if (!front || !back) {
-          rafRef.current = requestAnimationFrame(monitor);
-          return;
-        }
-
-        const remaining = dur - front.currentTime;
-
-        if (remaining <= FADE_TRIGGER_S) {
-          // Cross-fade: start back video from 0, swap active
-          back.currentTime = 0;
-          back.play().catch(() => {});
-
-          const newActive = currentActive === 'A' ? 'B' : 'A';
-          activeRef.current = newActive;
-          setFrontVideo(newActive); // update render state for opacity
-
-          // After fade completes, pause old front video
-          const oldFront = front;
-          setTimeout(() => {
-            oldFront.pause();
-            oldFront.currentTime = 0;
-          }, FADE_DURATION_MS + 80);
-
-          // Continue monitoring with new front video after settling
-          setTimeout(() => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            rafRef.current = requestAnimationFrame(monitor);
-          }, FADE_DURATION_MS + 120);
-          return;
-        }
-
-        rafRef.current = requestAnimationFrame(monitor);
-      };
-
-      rafRef.current = requestAnimationFrame(monitor);
-    };
-
-    // Wait for video metadata before starting the loop
-    if (videoA.readyState >= 1 && videoA.duration > 0 && videoA.duration !== Infinity) {
-      startLoop();
-    } else {
-      videoA.addEventListener('loadedmetadata', startLoop, { once: true });
-    }
-
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [reducedMotion]);
-
-  // Fallback: if any video ends unexpectedly, restart it immediately
-  const handleVideoEnded = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
-    const video = e.currentTarget;
-    if (!reducedMotion) {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-    }
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, [reducedMotion]);
 
   return (
     <section
+      ref={heroRef}
       aria-labelledby="hero-heading"
-      className="relative w-full min-h-[88svh] flex items-end overflow-hidden bg-[var(--color-brand-ink)]"
+      className="relative w-full overflow-hidden bg-[var(--color-brand-ink)]"
+      style={{ minHeight: '78svh', maxHeight: '860px' }}
     >
+      {/* Responsive height override for larger viewports */}
+      <style>{`
+        @media (min-width: 768px) { 
+          [aria-labelledby="hero-heading"] { min-height: 82svh !important; } 
+        }
+        @media (min-width: 1024px) { 
+          [aria-labelledby="hero-heading"] { min-height: 88svh !important; max-height: 980px !important; } 
+        }
+      `}</style>
+
       {/* Layer 1 — still poster (LCP element, permanent fallback) */}
       <img
-        src="/hero/oryx-loop-poster.jpg"
+        src={VIDEO_SRC.poster}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
       />
 
-      {/* Layer 2a — Video A */}
-      <video
-        ref={videoARef}
-        className="absolute inset-0 w-full h-full object-cover hero-video"
-        autoPlay
-        muted
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        onEnded={handleVideoEnded}
+      {/* Layer 2 — SINGLE video element with loop */}
+      {!reducedMotion && (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover hero-video"
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          poster={VIDEO_SRC.poster}
+          aria-hidden="true"
+        >
+          <source src={VIDEO_SRC.webm} type="video/webm" />
+          <source src={VIDEO_SRC.mp4} type="video/mp4" />
+        </video>
+      )}
+
+      {/* Layer 3 — contrast overlay (permanent, responsive)
+          Desktop: directional gradient + bottom gradient
+          Mobile: vertical gradient from bottom */}
+      {/* Desktop contrast overlay */}
+      <div
+        className="hidden md:block absolute inset-0"
         style={{
-          opacity: frontVideo === 'A' ? 1 : 0,
-          transition: `opacity ${FADE_DURATION_MS}ms linear`,
-          zIndex: frontVideo === 'A' ? 2 : 1,
+          background: [
+            'linear-gradient(90deg, rgba(23,23,23,0.78) 0%, rgba(23,23,23,0.44) 48%, rgba(23,23,23,0.10) 78%)',
+            'linear-gradient(0deg, rgba(23,23,23,0.48) 0%, transparent 58%)',
+          ].join(', '),
         }}
-      >
-        <source src={VIDEO_SRC.webm} type="video/webm" />
-        <source src={VIDEO_SRC.mp4} type="video/mp4" />
-      </video>
-
-      {/* Layer 2b — Video B */}
-      <video
-        ref={videoBRef}
-        className="absolute inset-0 w-full h-full object-cover hero-video"
-        muted
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        onEnded={handleVideoEnded}
+      />
+      {/* Mobile contrast overlay */}
+      <div
+        className="md:hidden absolute inset-0"
         style={{
-          opacity: frontVideo === 'B' ? 1 : 0,
-          transition: `opacity ${FADE_DURATION_MS}ms linear`,
-          zIndex: frontVideo === 'B' ? 2 : 1,
+          background: 'linear-gradient(0deg, rgba(23,23,23,0.82) 0%, rgba(23,23,23,0.34) 62%, rgba(23,23,23,0.12) 100%)',
         }}
-      >
-        <source src={VIDEO_SRC.webm} type="video/webm" />
-        <source src={VIDEO_SRC.mp4} type="video/mp4" />
-      </video>
+      />
 
-      {/* Layer 3 — gradient-photo-dark-strong token */}
-      <div className="absolute inset-0 gradient-photo-dark-strong" />
+      {/* Layer 4 — content */}
+      <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32 flex flex-col items-start justify-end min-h-[inherit]">
+        <h1
+          id="hero-heading"
+          className="font-display uppercase text-[var(--color-brand-cream)] font-medium leading-[1.02] tracking-[0.04em] hero-headline-shadow"
+          style={{
+            fontSize: 'clamp(2.35rem, 11vw, 3.15rem)',
+            maxWidth: '12ch',
+          }}
+        >
+          Education.<br />
+          Skills. Impact.
+        </h1>
 
-      {/* Layer 4a — bottom fade */}
-      <div className="absolute inset-x-0 bottom-0 h-48 gradient-fade-bottom" />
-      {/* Layer 4b — top fade */}
-      <div className="absolute inset-x-0 top-0 h-32 gradient-fade-top" />
+        {/* Desktop size override */}
+        <style>{`
+          @media (min-width: 768px) {
+            #hero-heading {
+              font-size: clamp(3.5rem, 6vw, 4.75rem) !important;
+              max-width: 14ch !important;
+            }
+          }
+        `}</style>
 
-      {/* Layer 5 — content */}
-      <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32">
-        <div className="max-w-3xl">
-          <h1
-            id="hero-heading"
-            className="font-display uppercase text-[var(--color-brand-cream)] text-[clamp(2.5rem,6vw,4.75rem)] font-medium leading-[1.02] tracking-[0.04em] text-balance hero-headline-shadow"
+        <p className="mt-6 max-w-xl text-base md:text-[1.0625rem] text-[var(--color-brand-cream)] leading-[1.6] text-pretty hero-body-shadow">
+          A vocational education and training institution being established in Windhoek, Namibia.
+        </p>
+        <div className="mt-9 flex flex-col sm:flex-row gap-3">
+          <Link href="/register" className="btn-primary justify-center">
+            Register Interest
+          </Link>
+          <Link
+            href="/about"
+            className="btn-secondary justify-center hero-secondary-btn"
           >
-            Education.<br />
-            Skills. Impact.
-          </h1>
-          <p className="mt-6 max-w-xl text-base md:text-[1.0625rem] text-[var(--color-brand-cream)] leading-[1.6] text-pretty hero-body-shadow">
-            A vocational education and training institution being established in Windhoek, Namibia. Pre-launch.
-          </p>
-          <div className="mt-9 flex flex-col sm:flex-row gap-3">
-            <Link href="/register" className="btn-primary justify-center">
-              Register Interest
-            </Link>
-            <Link
-              href="/about"
-              className="btn-secondary justify-center hero-secondary-btn"
-            >
-              Explore the Institute
-            </Link>
-          </div>
+            Explore the Institute
+          </Link>
         </div>
       </div>
     </section>

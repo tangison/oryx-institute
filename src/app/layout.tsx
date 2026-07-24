@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Source_Sans_3 } from "next/font/google";
+import { Cinzel, Source_Sans_3, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ModalProvider } from "@/lib/modal-context";
@@ -19,6 +19,15 @@ const sourceSans3 = Source_Sans_3({
   variable: "--font-source-sans-3",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Greek wordmark serif — verified polytonic Greek glyph coverage.
+// Used for ὄρυξ rendering where Cinzel lacks the required diacritics.
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -83,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cinzel.variable} ${sourceSans3.variable} antialiased bg-background text-foreground font-sans`}
+        className={`${cinzel.variable} ${sourceSans3.variable} ${notoSerif.variable} antialiased bg-background text-foreground font-sans`}
       >
         <ModalProvider>{children}</ModalProvider>
         <Toaster />
