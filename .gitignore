@@ -6,3 +6,4 @@ upload/
 worklog.md
 *.log
 .env.local
+.vercel

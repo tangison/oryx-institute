@@ -4,7 +4,7 @@
      4→ * No fabricated facts. All unknown fields are "To be confirmed" or omitted.
      5→ */
      6→
-     7→export type ProgrammeStatus = "Planned" | "Subject to approval" | "Register your interest";
+     7→export type ProgrammeStatus = "Planned" | "Subject to accreditation" | "Register your interest";
      8→export type ProgrammeLevel = "Certificate" | "Diploma" | "Short Course" | "To be confirmed";
      9→export type ProgrammeDelivery = "Classroom" | "Blended" | "Workplace" | "Online";
     10→export type SchoolSlug = "safety" | "administration" | "hospitality" | "digital" | "future";
@@ -15,7 +15,7 @@
     15→  name: string;
     16→  shortName: string;
     17→  eyebrow: string;
-    18→  status: ProgrammeStatus | "To be announced";
+    18→  status: ProgrammeStatus | "Applications not yet open";
     19→  image: string;
     20→  alt: string;
     21→  caption: string;
@@ -84,8 +84,8 @@
     84→    shortName: "Safety",
     85→    eyebrow: "School 01",
     86→    status: "Planned",
-    87→    image: "/images/schools/safety.png",
-    88→    alt: "A safety helmet and inspection notebook rest on a clean surface in warm light.",
+    87→    image: "/images/schools/safety-01.webp",
+    88→    alt: "An open portfolio with photographs of safety tools and equipment.",
     89→    caption: "Safety, inspection, and occupational practice.",
     90→    blurb:
     91→      "Occupational safety, inspection, and security practice. Programmes planned for industries that need disciplined, safety-conscious staff.",
@@ -110,8 +110,8 @@
    110→    shortName: "Administration and Commerce",
    111→    eyebrow: "School 02",
    112→    status: "Planned",
-   113→    image: "/images/schools/administration.png",
-   114→    alt: "An office desk with organised files and a closed laptop in soft natural light.",
+   113→    image: "/images/schools/administration-01.webp",
+   114→    alt: "An open notebook with a pen and a smooth stone arranged on a concrete surface.",
    115→    caption: "Office, finance, and retail skills for the formal economy.",
    116→    blurb:
    117→      "Office administration, bookkeeping, retail, and front-office practice. Skills for the formal economy.",
@@ -136,8 +136,8 @@
    136→    shortName: "Hospitality and Tourism",
    137→    eyebrow: "School 03",
    138→    status: "Planned",
-   139→    image: "/images/schools/hospitality.png",
-   140→    alt: "A folded linen napkin on a polished wooden table beside a single glass in soft side light.",
+   139→    image: "/images/schools/hospitality-01.webp",
+   140→    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
    141→    caption: "Hospitality, guiding, and tourism for one of Africa's strongest visitor markets.",
    142→    blurb:
    143→      "Hospitality operations, tour guiding, and food and beverage service. For one of Africa's strongest visitor markets.",
@@ -162,8 +162,8 @@
    162→    shortName: "Information and Digital Skills",
    163→    eyebrow: "School 04",
    164→    status: "Planned",
-   165→    image: "/images/schools/digital.png",
-   166→    alt: "Close-up of hands on a keyboard with warm monitor glow, focused on craft.",
+   165→    image: "/images/schools/digital-01.webp",
+   166→    alt: "A fountain pen resting on an open notebook near a stack of binders.",
    167→    caption: "Digital literacy, hardware, and workplace technology.",
    168→    blurb:
    169→      "Digital literacy, hardware repair, and workplace technology. Practical digital skills for work and enterprise.",
@@ -187,9 +187,9 @@
    187→    name: "Future Schools",
    188→    shortName: "Future Schools",
    189→    eyebrow: "School 05",
-   190→    status: "To be announced",
-   191→    image: "/images/schools/future.png",
-   192→    alt: "A single acacia tree silhouette against a deep maroon and indigo twilight sky.",
+   190→    status: "Applications not yet open",
+   191→    image: "/images/campus/blueprint.webp",
+   192→    alt: "An architectural blueprint with drafting tools laid out on a desk.",
    193→    caption: "New schools will be announced as the institution grows.",
    194→    blurb:
    195→      "New schools will be announced as the institution grows. No disciplines are confirmed beyond the four above.",
@@ -228,9 +228,9 @@
    228→    assessment:
    229→      "Planned assessment will combine written checks, practical drills, and supervised workplace observation against recognised standards. RPL is available for experienced safety staff.",
    230→    progression:
-   231→      "Planned progression to site safety inspection and workplace safety supervision. Subject to approval.",
-   232→    image: "/images/programmes/programme-1.png",
-   233→    alt: "An occupational safety certificate mock-up on cream paper with a brass clip.",
+   231→      "Planned progression to site safety inspection and workplace safety supervision. Subject to accreditation.",
+   232→    image: "/images/programmes/clipboards-notebooks.webp",
+   233→    alt: "A row of clipboards and notebooks arranged on a counter.",
    234→  },
    235→  {
    236→    slug: "site-safety-inspection",
@@ -239,7 +239,7 @@
    239→    schoolName: "School of Safety",
    240→    level: "Certificate",
    241→    delivery: "Blended",
-   242→    status: "Subject to approval",
+   242→    status: "Subject to accreditation",
    243→    duration: "To be confirmed",
    244→    description:
    245→      "A planned programme for site safety inspection practice in construction, mining, and industrial settings. The programme will combine classroom learning with site visits and supervised workplace inspection.",
@@ -252,9 +252,9 @@
    252→    assessment:
    253→      "Planned assessment will combine written checks, simulated inspections, and supervised site inspection. RPL is available for experienced inspectors.",
    254→    progression:
-   255→      "Planned progression to workplace safety supervision. Subject to approval.",
-   256→    image: "/images/programmes/programme-1.png",
-   257→    alt: "An inspection notebook and pen on a clean workbench.",
+   255→      "Planned progression to workplace safety supervision. Subject to accreditation.",
+   256→    image: "/images/schools/safety-01.webp",
+   257→    alt: "An open portfolio with photographs of safety tools and equipment.",
    258→  },
    259→  {
    260→    slug: "office-administration",
@@ -276,9 +276,9 @@
    276→    assessment:
    277→      "Planned assessment will combine written checks, practical office simulation, and supervised workplace observation. RPL is available for experienced administrative staff.",
    278→    progression:
-   279→      "Planned progression to office supervision and bookkeeping. Subject to approval.",
-   280→    image: "/images/programmes/programme-2.png",
-   281→    alt: "A ledger book and fountain pen on a warm wooden desk.",
+   279→      "Planned progression to office supervision and bookkeeping. Subject to accreditation.",
+   280→    image: "/images/schools/administration-02.webp",
+   281→    alt: "A checklist, a rubber stamp, and a secure lockbox on a desk.",
    282→  },
    283→  {
    284→    slug: "bookkeeping-and-payroll",
@@ -287,7 +287,7 @@
    287→    schoolName: "School of Administration and Commerce",
    288→    level: "Certificate",
    289→    delivery: "Blended",
-   290→    status: "Subject to approval",
+   290→    status: "Subject to accreditation",
    291→    duration: "To be confirmed",
    292→    description:
    293→      "A planned programme covering bookkeeping principles, payroll processing, and basic financial reporting for small businesses. The programme will combine classroom learning with practical exercises using recognised accounting software.",
@@ -300,9 +300,9 @@
    300→    assessment:
    301→      "Planned assessment will combine written checks, practical bookkeeping exercises, and supervised workplace observation. RPL is available for experienced bookkeepers.",
    302→    progression:
-   303→      "Planned progression to payroll supervision and accounting technician practice. Subject to approval.",
-   304→    image: "/images/programmes/programme-2.png",
-   305→    alt: "An abacus beside a modern calculator on warm wood.",
+   303→      "Planned progression to payroll supervision and accounting technician practice. Subject to accreditation.",
+   304→    image: "/images/schools/administration-04.webp",
+   305→    alt: "A laptop with a notebook and pen on a wooden desk.",
    306→  },
    307→  {
    308→    slug: "food-and-beverage-service",
@@ -324,9 +324,9 @@
    324→    assessment:
    325→      "Planned assessment will combine written checks, practical service drills, and supervised workplace observation. RPL is available for experienced service staff.",
    326→    progression:
-   327→      "Planned progression to food and beverage supervision. Subject to approval.",
-   328→    image: "/images/programmes/programme-3.png",
-   329→    alt: "Neatly arranged chef knives on a wooden cutting board.",
+   327→      "Planned progression to food and beverage supervision. Subject to accreditation.",
+   328→    image: "/images/schools/hospitality-01.webp",
+   329→    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
    330→  },
    331→  {
    332→    slug: "tour-guiding-practice",
@@ -335,7 +335,7 @@
    335→    schoolName: "School of Hospitality and Tourism",
    336→    level: "Certificate",
    337→    delivery: "Blended",
-   338→    status: "Subject to approval",
+   338→    status: "Subject to accreditation",
    339→    duration: "To be confirmed",
    340→    description:
    341→      "A planned programme covering tour guiding practice, visitor experience, safety on tour, and Namibian natural and cultural heritage interpretation. The programme will combine classroom learning with practical guiding drills and supervised workplace placement.",
@@ -348,9 +348,9 @@
    348→    assessment:
    349→      "Planned assessment will combine written checks, practical guiding drills, and supervised workplace observation. RPL is available for experienced guides.",
    350→    progression:
-   351→      "Planned progression to tour operations and visitor experience supervision. Subject to approval.",
-   352→    image: "/images/programmes/programme-3.png",
-   353→    alt: "A Namibian map spread across a table.",
+   351→      "Planned progression to tour operations and visitor experience supervision. Subject to accreditation.",
+   352→    image: "/images/programmes/student-portfolio.webp",
+   353→    alt: "A student reviewing a printed photo portfolio under warm light.",
    354→  },
    355→  {
    356→    slug: "digital-literacy-foundations",
@@ -372,9 +372,9 @@
    372→    assessment:
    373→      "Planned assessment will combine written checks and practical exercises. RPL is available for experienced users.",
    374→    progression:
-   375→      "Planned progression to computer hardware repair and workplace productivity practice. Subject to approval.",
-   376→    image: "/images/programmes/programme-4.png",
-   377→    alt: "An open computer tower with components visible on a clean workbench.",
+   375→      "Planned progression to computer hardware repair and workplace productivity practice. Subject to accreditation.",
+   376→    image: "/images/schools/digital-02.webp",
+   377→    alt: "A minimalist flat-lay of a laptop and a stationery set on a warm surface.",
    378→  },
    379→  {
    380→    slug: "computer-hardware-repair",
@@ -383,7 +383,7 @@
    383→    schoolName: "School of Information and Digital Skills",
    384→    level: "Certificate",
    385→    delivery: "Classroom",
-   386→    status: "Subject to approval",
+   386→    status: "Subject to accreditation",
    387→    duration: "To be confirmed",
    388→    description:
    389→      "A planned programme covering computer hardware diagnosis, repair, and maintenance for personal computers and small office systems. The programme will combine classroom learning with hands-on workshop time and supervised workplace placement.",
@@ -396,9 +396,9 @@
    396→    assessment:
    397→      "Planned assessment will combine written checks, practical repair exercises, and supervised workplace observation. RPL is available for experienced technicians.",
    398→    progression:
-   399→      "Planned progression to basic network setup and IT support practice. Subject to approval.",
-   400→    image: "/images/programmes/programme-4.png",
-   401→    alt: "Tools for laptop repair arranged neatly on a clean surface.",
+   399→      "Planned progression to basic network setup and IT support practice. Subject to accreditation.",
+   400→    image: "/images/schools/digital-03.webp",
+   401→    alt: "A modern computer lab with laptops arranged on long desks.",
    402→  },
    403→];
    404→
@@ -437,7 +437,7 @@
    437→  {
    438→    index: "05",
    439→    title: "Progression",
-   440→    caption: "From short courses to qualifications. Subject to approval.",
+   440→    caption: "From short courses to qualifications. Subject to accreditation.",
    441→    detail:
    442→      "Oryx Institute intends to support progression from short courses to certificates to diplomas. Progression depends on programme approval, learner numbers, and institutional capacity. No progression is guaranteed until programmes are approved.",
    443→  },
@@ -551,77 +551,81 @@
    551→];
    552→
    553→/* =========================================================
-   554→   Navigation
+   554→   Navigation — real Next.js routes (multi-page)
    555→   ========================================================= */
-   556→export const primaryNav: { label: string; target: string; type: "section" | "modal" }[] = [
-   557→  { label: "Institute", target: "institute", type: "modal" },
-   558→  { label: "Schools", target: "schools", type: "section" },
-   559→  { label: "Programmes", target: "programmes", type: "section" },
-   560→  { label: "Pathways", target: "pathways", type: "section" },
-   561→  { label: "Campus", target: "campus", type: "section" },
-   562→  { label: "Research", target: "research", type: "modal" },
-   563→  { label: "Updates", target: "updates", type: "section" },
-   564→  { label: "Founder", target: "founder", type: "modal" },
-   565→  { label: "Brand", target: "brand", type: "modal" },
-   566→  { label: "FAQ", target: "faq", type: "modal" },
-   567→];
-   568→
-   569→export const partnerNav: { label: string; modal: string }[] = [
-   570→  { label: "Employer enquiry", modal: "partner-employer" },
-   571→  { label: "WIL partner enquiry", modal: "partner-wil" },
-   572→  { label: "Corporate training", modal: "partner-corporate" },
-   573→  { label: "Research and advisory", modal: "partner-research" },
-   574→  { label: "Funding and partnership", modal: "partner-funding" },
-   575→  { label: "Contact", modal: "contact" },
-   576→];
-   577→
-   578→export const legalNav: { label: string; modal: string }[] = [
-   579→  { label: "Privacy", modal: "legal-privacy" },
-   580→  { label: "Terms", modal: "legal-terms" },
-   581→  { label: "Accessibility", modal: "legal-accessibility" },
-   582→  { label: "Sitemap", modal: "legal-sitemap" },
-   583→];
-   584→
-   585→/* =========================================================
-   586→   Hero slides
-   587→   ========================================================= */
-   588→export const heroSlides: {
-   589→  image: string;
-   590→  alt: string;
-   591→  headline: string;
-   592→  supporting: string;
-   593→}[] = [
-   594→  {
-   595→    image: "/images/hero/hero-1.png",
-   596→    alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
-   597→    headline: "Education. Skills. Impact.",
-   598→    supporting:
-   599→      "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
-   600→  },
-   601→  {
-   602→    image: "/images/hero/hero-2.png",
-   603→    alt: "An architectural detail of a warm sandstone wall with strong morning shadow.",
-   604→    headline: "Rooted in the Namibian landscape.",
-   605→    supporting: "Quiet, disciplined, and built for the work Namibia needs.",
-   606→  },
-   607→  {
-   608→    image: "/images/hero/hero-3.png",
-   609→    alt: "A stack of well-worn technical books on a warm wooden desk in soft directional light.",
-   610→    headline: "One institution. Many pathways.",
-   611→    supporting:
-   612→      "Classroom learning, recognition of prior learning, and work-integrated learning.",
-   613→  },
-   614→  {
-   615→    image: "/images/hero/hero-4.png",
-   616→    alt: "A wide empty Windhoek highveld landscape at dawn with distant acacia trees.",
-   617→    headline: "A place for serious learning.",
-   618→    supporting: "Minimal, warm, and architectural. A campus designed for focus.",
-   619→  },
-   620→  {
-   621→    image: "/images/hero/hero-5.png",
-   622→    alt: "Skilled hands working on a mechanical training bench in warm window light.",
-   623→    headline: "Learning shaped by Namibia.",
-   624→    supporting: "Programmes planned across five schools. Subject to approval.",
-   625→  },
-   626→];
-   627→
+   556→export const primaryNav: { label: string; href: string }[] = [
+   557→  { label: "About", href: "/about" },
+   558→  { label: "Schools", href: "/schools" },
+   559→  { label: "Programmes", href: "/programmes" },
+   560→  { label: "Updates", href: "/updates" },
+   561→  { label: "Brand", href: "/brand" },
+   562→  { label: "FAQ", href: "/faq" },
+   563→];
+   564→
+   565→export const secondaryNav: { label: string; href: string }[] = [
+   566→  { label: "Founder", href: "/founder" },
+   567→  { label: "Research", href: "/research" },
+   568→  { label: "Partners", href: "/partners" },
+   569→  { label: "Contact", href: "/contact" },
+   570→  { label: "Register Interest", href: "/register" },
+   571→];
+   572→
+   573→export const partnerNav: { label: string; href: string }[] = [
+   574→  { label: "Employer enquiry", href: "/partners/employers" },
+   575→  { label: "WIL partner enquiry", href: "/partners/wil" },
+   576→  { label: "Corporate training", href: "/partners/corporate" },
+   577→  { label: "Research and advisory", href: "/partners/research" },
+   578→  { label: "Funding and partnership", href: "/partners/funding" },
+   579→  { label: "Contact", href: "/contact" },
+   580→];
+   581→
+   582→export const legalNav: { label: string; href: string }[] = [
+   583→  { label: "Privacy", href: "/legal/privacy" },
+   584→  { label: "Terms", href: "/legal/terms" },
+   585→  { label: "Accessibility", href: "/legal/accessibility" },
+   586→  { label: "Sitemap", href: "/site-map" },
+   587→];
+   588→
+   589→/* =========================================================
+   590→   Hero slides
+   591→   ========================================================= */
+   592→export const heroSlides: {
+   593→  image: string;
+   594→  alt: string;
+   595→  headline: string;
+   596→  supporting: string;
+   597→}[] = [
+   598→  {
+   599→    image: "/images/hero/hero-1.png",
+   600→    alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
+   601→    headline: "Education. Skills. Impact.",
+   602→    supporting:
+   603→      "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
+   604→  },
+   605→  {
+   606→    image: "/images/hero/hero-2.png",
+   607→    alt: "An architectural detail of a warm sandstone wall with strong morning shadow.",
+   608→    headline: "Rooted in the Namibian landscape.",
+   609→    supporting: "Quiet, disciplined, and built for the work Namibia needs.",
+   610→  },
+   611→  {
+   612→    image: "/images/hero/hero-3.png",
+   613→    alt: "A stack of well-worn technical books on a warm wooden desk in soft directional light.",
+   614→    headline: "One institution. Many pathways.",
+   615→    supporting:
+   616→      "Classroom learning, recognition of prior learning, and work-integrated learning.",
+   617→  },
+   618→  {
+   619→    image: "/images/hero/hero-4.png",
+   620→    alt: "A wide empty Windhoek highveld landscape at dawn with distant acacia trees.",
+   621→    headline: "A place for serious learning.",
+   622→    supporting: "Minimal, warm, and architectural. A campus designed for focus.",
+   623→  },
+   624→  {
+   625→    image: "/images/hero/hero-5.png",
+   626→    alt: "Skilled hands working on a mechanical training bench in warm window light.",
+   627→    headline: "Learning shaped by Namibia.",
+   628→    supporting: "Programmes planned across five schools. Subject to accreditation.",
+   629→  },
+   630→];
+   631→
