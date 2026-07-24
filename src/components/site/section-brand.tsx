@@ -35,7 +35,7 @@ export function BrandSection() {
             <p className="mt-4 font-display text-lg italic text-[var(--color-brand-cream)]/90">
               Knowledge shaped by the Namibian landscape.
             </p>
-            <button onClick={() => open('brand')} className="mt-8 btn-secondary" style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}>
+            <button onClick={() => open('brand')} className="mt-8 btn-secondary-dark">
               Open the Brand Book
             </button>
           </div>
@@ -59,13 +59,13 @@ export function BrandSection() {
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[var(--color-brand-ink)] border border-[var(--color-brand-cream)]/20 p-6">
                 <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-3">Display</p>
-                <p className="font-display text-3xl md:text-4xl">Fraunces</p>
+                <p className="font-display text-3xl md:text-4xl">Cinzel</p>
                 <p className="text-xs text-[var(--color-brand-cream)]/60 mt-2">Editorial serif. 400, 500, 600, 700.</p>
               </div>
               <div className="bg-[var(--color-brand-ink)] border border-[var(--color-brand-cream)]/20 p-6">
                 <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-3">Body</p>
-                <p className="font-sans text-3xl md:text-4xl">Inter</p>
-                <p className="text-xs text-[var(--color-brand-cream)]/60 mt-2">Restrained sans. 400, 500, 600, 700.</p>
+                <p className="font-sans text-3xl md:text-4xl">Source Sans 3</p>
+                <p className="text-xs text-[var(--color-brand-cream)]/60 mt-2">Restrained sans. 300, 400, 500, 600, 700.</p>
               </div>
             </div>
 

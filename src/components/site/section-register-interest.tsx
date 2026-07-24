@@ -11,7 +11,7 @@ export function RegisterInterestSection() {
       {/* Background image */}
       <div className="absolute inset-0 opacity-30">
         <img
-          src="/images/hero/hero-4.png"
+          src="/images/campus/building-entrance.webp"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"

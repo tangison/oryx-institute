@@ -62,8 +62,7 @@ export default function FaqPage() {
             <Link href="/contact" className="btn-primary">Contact</Link>
             <Link
               href="/register"
-              className="btn-secondary"
-              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
+              className="btn-secondary-dark"
             >
               Register Interest
             </Link>

@@ -84,7 +84,7 @@ export default async function SchoolPage({
             alt={school.alt}
             className="w-full h-full object-cover"
           />
-          <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.65)] text-[var(--color-brand-cream)] text-xs px-4 py-3">
+          <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-3">
             {school.caption}
           </figcaption>
         </figure>

@@ -42,7 +42,7 @@ export function ResearchSection() {
 
             <figure className="mt-10 relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
               <img
-                src="/images/research/research-1.png"
+                src="/images/research/archival-calipers.webp"
                 alt="An open research notebook with handwritten notes and a brass ruler in warm desk lamp light."
                 className="w-full h-full object-cover"
                 loading="lazy"

@@ -31,7 +31,7 @@ export default function FounderPage() {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-[rgba(15,14,13,0.7)] text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
+            <figcaption className="absolute bottom-0 inset-x-0 gradient-overlay-caption text-[var(--color-brand-cream)] text-xs px-4 py-2 m-3">
               No photograph of the founder is published at this stage.
             </figcaption>
           </figure>

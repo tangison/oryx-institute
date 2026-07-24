@@ -30,8 +30,7 @@ export default function NotFound() {
             <Link href="/" className="btn-primary">Go home</Link>
             <Link
               href="/site-map"
-              className="btn-secondary"
-              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
+              className="btn-secondary-dark"
             >
               View sitemap
             </Link>

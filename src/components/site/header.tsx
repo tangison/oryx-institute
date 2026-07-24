@@ -30,6 +30,16 @@ export function SiteHeader() {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
   const isHome = pathname === '/';
   const solid = scrolled || menuOpen || !isHome;
 
@@ -43,7 +53,7 @@ export function SiteHeader() {
       )}
     >
       <div className="container-oryx flex items-center justify-between h-20 md:h-24">
-        {/* Logo — BIG shield icon only, no wordmark text */}
+        {/* Logo — shield icon */}
         <Link
           href="/"
           className="flex items-center gap-0"
@@ -125,7 +135,7 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="py-4 font-display text-2xl uppercase tracking-wide border-b border-[var(--color-border)]"
+                className="py-4 font-display text-2xl uppercase tracking-wide border-b border-[var(--color-border)] text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)] transition-colors"
               >
                 {item.label}
               </Link>
@@ -136,7 +146,7 @@ export function SiteHeader() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="py-3 text-base block w-full border-b border-[var(--color-border)]"
+                  className="py-3 text-base block w-full border-b border-[var(--color-border)] text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)] transition-colors"
                 >
                   {item.label}
                 </Link>

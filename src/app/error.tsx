@@ -40,8 +40,7 @@ export default function Error({
             <button onClick={reset} className="btn-primary">Try again</button>
             <Link
               href="/"
-              className="btn-secondary"
-              style={{ color: 'var(--color-brand-cream)', borderColor: 'var(--color-brand-cream)' }}
+              className="btn-secondary-dark"
             >
               Go home
             </Link>
