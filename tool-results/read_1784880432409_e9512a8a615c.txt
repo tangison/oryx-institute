@@ -1,0 +1,631 @@
+     1→/**
+     2→ * Oryx Institute — typed content model.
+     3→ * Source of truth: PRODUCT.md, BRAND.md, BUILD_PLAN.md, CONTENT_PLAN.md.
+     4→ * No fabricated facts. All unknown fields are "To be confirmed" or omitted.
+     5→ */
+     6→
+     7→export type ProgrammeStatus = "Planned" | "Subject to accreditation" | "Register your interest";
+     8→export type ProgrammeLevel = "Certificate" | "Diploma" | "Short Course" | "To be confirmed";
+     9→export type ProgrammeDelivery = "Classroom" | "Blended" | "Workplace" | "Online";
+    10→export type SchoolSlug = "safety" | "administration" | "hospitality" | "digital" | "future";
+    11→
+    12→export interface School {
+    13→  slug: SchoolSlug;
+    14→  index: string;
+    15→  name: string;
+    16→  shortName: string;
+    17→  eyebrow: string;
+    18→  status: ProgrammeStatus | "Applications not yet open";
+    19→  image: string;
+    20→  alt: string;
+    21→  caption: string;
+    22→  blurb: string;
+    23→  detail: {
+    24→    what: string;
+    25→    who: string;
+    26→    pathways: string[];
+    27→    plannedProgrammes: string[];
+    28→  };
+    29→}
+    30→
+    31→export interface Programme {
+    32→  slug: string;
+    33→  name: string;
+    34→  school: SchoolSlug;
+    35→  schoolName: string;
+    36→  level: ProgrammeLevel;
+    37→  delivery: ProgrammeDelivery;
+    38→  status: ProgrammeStatus;
+    39→  duration: string;
+    40→  description: string;
+    41→  outcomes: string[];
+    42→  assessment: string;
+    43→  progression: string;
+    44→  image?: string;
+    45→  alt?: string;
+    46→}
+    47→
+    48→export interface Update {
+    49→  slug: string;
+    50→  title: string;
+    51→  date: string;
+    52→  category: "Establishment" | "Programme" | "Public Notice" | "Event";
+    53→  excerpt: string;
+    54→  body: string;
+    55→}
+    56→
+    57→export interface FaqItem {
+    58→  slug: string;
+    59→  category: "Programmes" | "Admissions" | "RPL" | "WIL" | "Fees" | "Campus" | "General";
+    60→  question: string;
+    61→  answer: string;
+    62→}
+    63→
+    64→export interface Pathway {
+    65→  index: string;
+    66→  title: string;
+    67→  caption: string;
+    68→  detail: string;
+    69→}
+    70→
+    71→export interface ValueItem {
+    72→  title: string;
+    73→  body: string;
+    74→}
+    75→
+    76→/* =========================================================
+    77→   Schools
+    78→   ========================================================= */
+    79→export const schools: School[] = [
+    80→  {
+    81→    slug: "safety",
+    82→    index: "01",
+    83→    name: "School of Safety",
+    84→    shortName: "Safety",
+    85→    eyebrow: "School 01",
+    86→    status: "Planned",
+    87→    image: "/images/schools/safety-01.webp",
+    88→    alt: "An open portfolio with photographs of safety tools and equipment.",
+    89→    caption: "Safety, inspection, and occupational practice.",
+    90→    blurb:
+    91→      "Occupational safety, inspection, and security practice. Programmes planned for industries that need disciplined, safety-conscious staff.",
+    92→    detail: {
+    93→      what:
+    94→        "The School of Safety is planned to deliver vocational training in occupational safety, site inspection, fire safety, first aid, and security practice. Programmes will combine classroom learning with practical drills and supervised workplace assessment.",
+    95→      who:
+    96→        "School leavers seeking safety officer roles, working adults who need formal certification for existing duties, and employers who need disciplined, safety-conscious staff in construction, mining, hospitality, and retail.",
+    97→      pathways: ["Classroom learning", "Recognition of Prior Learning", "Work-integrated learning"],
+    98→      plannedProgrammes: [
+    99→        "Occupational Safety Foundations (planned)",
+   100→        "Site Safety Inspection (planned)",
+   101→        "Fire Safety Practice (planned)",
+   102→        "Workplace First Aid (planned)",
+   103→      ],
+   104→    },
+   105→  },
+   106→  {
+   107→    slug: "administration",
+   108→    index: "02",
+   109→    name: "School of Administration and Commerce",
+   110→    shortName: "Administration and Commerce",
+   111→    eyebrow: "School 02",
+   112→    status: "Planned",
+   113→    image: "/images/schools/administration-01.webp",
+   114→    alt: "An open notebook with a pen and a smooth stone arranged on a concrete surface.",
+   115→    caption: "Office, finance, and retail skills for the formal economy.",
+   116→    blurb:
+   117→      "Office administration, bookkeeping, retail, and front-office practice. Skills for the formal economy.",
+   118→    detail: {
+   119→      what:
+   120→        "The School of Administration and Commerce is planned to deliver training in office administration, bookkeeping, payroll, retail operations, customer service, and front-office practice. Programmes will combine classroom learning with workplace simulation and supervised placement.",
+   121→      who:
+   122→        "School leavers seeking office and retail roles, working adults seeking formal recognition of existing experience, and small businesses that need trained administrative staff.",
+   123→      pathways: ["Classroom learning", "Recognition of Prior Learning", "Work-integrated learning"],
+   124→      plannedProgrammes: [
+   125→        "Office Administration (planned)",
+   126→        "Bookkeeping and Payroll (planned)",
+   127→        "Retail Operations (planned)",
+   128→        "Front Office Practice (planned)",
+   129→      ],
+   130→    },
+   131→  },
+   132→  {
+   133→    slug: "hospitality",
+   134→    index: "03",
+   135→    name: "School of Hospitality and Tourism",
+   136→    shortName: "Hospitality and Tourism",
+   137→    eyebrow: "School 03",
+   138→    status: "Planned",
+   139→    image: "/images/schools/hospitality-01.webp",
+   140→    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
+   141→    caption: "Hospitality, guiding, and tourism for one of Africa's strongest visitor markets.",
+   142→    blurb:
+   143→      "Hospitality operations, tour guiding, and food and beverage service. For one of Africa's strongest visitor markets.",
+   144→    detail: {
+   145→      what:
+   146→        "The School of Hospitality and Tourism is planned to deliver training in food and beverage service, front-of-house operations, housekeeping supervision, tour guiding, and visitor experience. Programmes will combine classroom learning with practical service drills and supervised workplace placement in hospitality venues.",
+   147→      who:
+   148→        "School leavers entering hospitality, working hospitality staff seeking formal certification, and tour guides seeking recognised qualifications.",
+   149→      pathways: ["Classroom learning", "Recognition of Prior Learning", "Work-integrated learning"],
+   150→      plannedProgrammes: [
+   151→        "Food and Beverage Service (planned)",
+   152→        "Front of House Operations (planned)",
+   153→        "Tour Guiding Practice (planned)",
+   154→        "Hospitality Supervision (planned)",
+   155→      ],
+   156→    },
+   157→  },
+   158→  {
+   159→    slug: "digital",
+   160→    index: "04",
+   161→    name: "School of Information and Digital Skills",
+   162→    shortName: "Information and Digital Skills",
+   163→    eyebrow: "School 04",
+   164→    status: "Planned",
+   165→    image: "/images/schools/digital-01.webp",
+   166→    alt: "A fountain pen resting on an open notebook near a stack of binders.",
+   167→    caption: "Digital literacy, hardware, and workplace technology.",
+   168→    blurb:
+   169→      "Digital literacy, hardware repair, and workplace technology. Practical digital skills for work and enterprise.",
+   170→    detail: {
+   171→      what:
+   172→        "The School of Information and Digital Skills is planned to deliver training in digital literacy, computer hardware repair, workplace productivity software, basic networking, and introductory web practice. Programmes will combine classroom learning with hands-on workshop time and supervised workplace placement.",
+   173→      who:
+   174→        "School leavers entering digital roles, working adults who need formal digital skills, and small businesses that need in-house technical staff.",
+   175→      pathways: ["Classroom learning", "Recognition of Prior Learning", "Work-integrated learning"],
+   176→      plannedProgrammes: [
+   177→        "Digital Literacy Foundations (planned)",
+   178→        "Computer Hardware Repair (planned)",
+   179→        "Workplace Productivity Practice (planned)",
+   180→        "Basic Network Setup (planned)",
+   181→      ],
+   182→    },
+   183→  },
+   184→  {
+   185→    slug: "future",
+   186→    index: "05",
+   187→    name: "Future Schools",
+   188→    shortName: "Future Schools",
+   189→    eyebrow: "School 05",
+   190→    status: "Applications not yet open",
+   191→    image: "/images/campus/blueprint.webp",
+   192→    alt: "An architectural blueprint with drafting tools laid out on a desk.",
+   193→    caption: "New schools will be announced as the institution grows.",
+   194→    blurb:
+   195→      "New schools will be announced as the institution grows. No disciplines are confirmed beyond the four above.",
+   196→    detail: {
+   197→      what:
+   198→        "Future Schools is a placeholder for disciplines that will be added as the institution grows. Possible directions include construction trades, agricultural practice, and creative industries. No future school is confirmed at this stage.",
+   199→      who:
+   200→        "Prospective learners, employers, and partners with an interest in disciplines not yet announced. Register your interest to be informed when new schools are confirmed.",
+   201→      pathways: ["To be confirmed"],
+   202→      plannedProgrammes: ["To be confirmed"],
+   203→    },
+   204→  },
+   205→];
+   206→
+   207→/* =========================================================
+   208→   Programmes (a representative planned catalogue)
+   209→   ========================================================= */
+   210→export const programmes: Programme[] = [
+   211→  {
+   212→    slug: "occupational-safety-foundations",
+   213→    name: "Occupational Safety Foundations",
+   214→    school: "safety",
+   215→    schoolName: "School of Safety",
+   216→    level: "Certificate",
+   217→    delivery: "Classroom",
+   218→    status: "Planned",
+   219→    duration: "To be confirmed",
+   220→    description:
+   221→      "A planned foundation programme covering occupational safety principles, hazard identification, incident reporting, and workplace safety culture. The programme will combine classroom learning with practical drills and a supervised workplace assessment.",
+   222→    outcomes: [
+   223→      "Identify common workplace hazards and apply correct reporting procedures",
+   224→      "Support site safety inspections under supervision",
+   225→      "Apply basic fire safety and first aid response procedures",
+   226→      "Communicate safety requirements to colleagues and contractors",
+   227→    ],
+   228→    assessment:
+   229→      "Planned assessment will combine written checks, practical drills, and supervised workplace observation against recognised standards. RPL is available for experienced safety staff.",
+   230→    progression:
+   231→      "Planned progression to site safety inspection and workplace safety supervision. Subject to accreditation.",
+   232→    image: "/images/programmes/clipboards-notebooks.webp",
+   233→    alt: "A row of clipboards and notebooks arranged on a counter.",
+   234→  },
+   235→  {
+   236→    slug: "site-safety-inspection",
+   237→    name: "Site Safety Inspection",
+   238→    school: "safety",
+   239→    schoolName: "School of Safety",
+   240→    level: "Certificate",
+   241→    delivery: "Blended",
+   242→    status: "Subject to accreditation",
+   243→    duration: "To be confirmed",
+   244→    description:
+   245→      "A planned programme for site safety inspection practice in construction, mining, and industrial settings. The programme will combine classroom learning with site visits and supervised workplace inspection.",
+   246→    outcomes: [
+   247→      "Conduct systematic site safety inspections under supervision",
+   248→      "Document hazards, risks, and corrective actions",
+   249→      "Apply relevant safety regulations and codes of practice",
+   250→      "Communicate inspection findings to site management",
+   251→    ],
+   252→    assessment:
+   253→      "Planned assessment will combine written checks, simulated inspections, and supervised site inspection. RPL is available for experienced inspectors.",
+   254→    progression:
+   255→      "Planned progression to workplace safety supervision. Subject to accreditation.",
+   256→    image: "/images/schools/safety-01.webp",
+   257→    alt: "An open portfolio with photographs of safety tools and equipment.",
+   258→  },
+   259→  {
+   260→    slug: "office-administration",
+   261→    name: "Office Administration",
+   262→    school: "administration",
+   263→    schoolName: "School of Administration and Commerce",
+   264→    level: "Certificate",
+   265→    delivery: "Classroom",
+   266→    status: "Planned",
+   267→    duration: "To be confirmed",
+   268→    description:
+   269→      "A planned programme covering office administration practice, communication, records management, scheduling, and basic financial administration. The programme will combine classroom learning with workplace simulation and supervised placement.",
+   270→    outcomes: [
+   271→      "Manage routine office communications and records",
+   272→      "Schedule appointments and coordinate meetings",
+   273→      "Apply basic bookkeeping and payroll procedures under supervision",
+   274→      "Use office productivity software to a working standard",
+   275→    ],
+   276→    assessment:
+   277→      "Planned assessment will combine written checks, practical office simulation, and supervised workplace observation. RPL is available for experienced administrative staff.",
+   278→    progression:
+   279→      "Planned progression to office supervision and bookkeeping. Subject to accreditation.",
+   280→    image: "/images/schools/administration-02.webp",
+   281→    alt: "A checklist, a rubber stamp, and a secure lockbox on a desk.",
+   282→  },
+   283→  {
+   284→    slug: "bookkeeping-and-payroll",
+   285→    name: "Bookkeeping and Payroll",
+   286→    school: "administration",
+   287→    schoolName: "School of Administration and Commerce",
+   288→    level: "Certificate",
+   289→    delivery: "Blended",
+   290→    status: "Subject to accreditation",
+   291→    duration: "To be confirmed",
+   292→    description:
+   293→      "A planned programme covering bookkeeping principles, payroll processing, and basic financial reporting for small businesses. The programme will combine classroom learning with practical exercises using recognised accounting software.",
+   294→    outcomes: [
+   295→      "Maintain accurate books of account for a small business",
+   296→      "Process payroll correctly and on time",
+   297→      "Prepare basic financial reports for management",
+   298→      "Apply relevant tax and labour regulations under supervision",
+   299→    ],
+   300→    assessment:
+   301→      "Planned assessment will combine written checks, practical bookkeeping exercises, and supervised workplace observation. RPL is available for experienced bookkeepers.",
+   302→    progression:
+   303→      "Planned progression to payroll supervision and accounting technician practice. Subject to accreditation.",
+   304→    image: "/images/schools/administration-04.webp",
+   305→    alt: "A laptop with a notebook and pen on a wooden desk.",
+   306→  },
+   307→  {
+   308→    slug: "food-and-beverage-service",
+   309→    name: "Food and Beverage Service",
+   310→    school: "hospitality",
+   311→    schoolName: "School of Hospitality and Tourism",
+   312→    level: "Certificate",
+   313→    delivery: "Workplace",
+   314→    status: "Planned",
+   315→    duration: "To be confirmed",
+   316→    description:
+   317→      "A planned programme covering food and beverage service practice in restaurant and event settings. The programme will combine classroom learning with practical service drills and supervised workplace placement in hospitality venues.",
+   318→    outcomes: [
+   319→      "Provide attentive, professional food and beverage service",
+   320→      "Apply correct service sequence and table management",
+   321→      "Communicate confidently with guests and colleagues",
+   322→      "Maintain hygiene and safety standards during service",
+   323→    ],
+   324→    assessment:
+   325→      "Planned assessment will combine written checks, practical service drills, and supervised workplace observation. RPL is available for experienced service staff.",
+   326→    progression:
+   327→      "Planned progression to food and beverage supervision. Subject to accreditation.",
+   328→    image: "/images/schools/hospitality-01.webp",
+   329→    alt: "A service bell and a set of guest keys arranged on a wooden counter.",
+   330→  },
+   331→  {
+   332→    slug: "tour-guiding-practice",
+   333→    name: "Tour Guiding Practice",
+   334→    school: "hospitality",
+   335→    schoolName: "School of Hospitality and Tourism",
+   336→    level: "Certificate",
+   337→    delivery: "Blended",
+   338→    status: "Subject to accreditation",
+   339→    duration: "To be confirmed",
+   340→    description:
+   341→      "A planned programme covering tour guiding practice, visitor experience, safety on tour, and Namibian natural and cultural heritage interpretation. The programme will combine classroom learning with practical guiding drills and supervised workplace placement.",
+   342→    outcomes: [
+   343→      "Lead guided tours with confidence and care for visitors",
+   344→      "Interpret Namibian natural and cultural heritage accurately",
+   345→      "Apply safety procedures during tours",
+   346→      "Communicate professionally with guests, operators, and communities",
+   347→    ],
+   348→    assessment:
+   349→      "Planned assessment will combine written checks, practical guiding drills, and supervised workplace observation. RPL is available for experienced guides.",
+   350→    progression:
+   351→      "Planned progression to tour operations and visitor experience supervision. Subject to accreditation.",
+   352→    image: "/images/programmes/student-portfolio.webp",
+   353→    alt: "A student reviewing a printed photo portfolio under warm light.",
+   354→  },
+   355→  {
+   356→    slug: "digital-literacy-foundations",
+   357→    name: "Digital Literacy Foundations",
+   358→    school: "digital",
+   359→    schoolName: "School of Information and Digital Skills",
+   360→    level: "Short Course",
+   361→    delivery: "Classroom",
+   362→    status: "Planned",
+   363→    duration: "To be confirmed",
+   364→    description:
+   365→      "A planned short course covering computer fundamentals, file management, internet practice, email, and workplace productivity software. The programme will combine classroom learning with hands-on workshop time.",
+   366→    outcomes: [
+   367→      "Operate a computer confidently for routine workplace tasks",
+   368→      "Manage files and use productivity software to a working standard",
+   369→      "Use email and the internet safely and effectively",
+   370→      "Apply basic digital security practices",
+   371→    ],
+   372→    assessment:
+   373→      "Planned assessment will combine written checks and practical exercises. RPL is available for experienced users.",
+   374→    progression:
+   375→      "Planned progression to computer hardware repair and workplace productivity practice. Subject to accreditation.",
+   376→    image: "/images/schools/digital-02.webp",
+   377→    alt: "A minimalist flat-lay of a laptop and a stationery set on a warm surface.",
+   378→  },
+   379→  {
+   380→    slug: "computer-hardware-repair",
+   381→    name: "Computer Hardware Repair",
+   382→    school: "digital",
+   383→    schoolName: "School of Information and Digital Skills",
+   384→    level: "Certificate",
+   385→    delivery: "Classroom",
+   386→    status: "Subject to accreditation",
+   387→    duration: "To be confirmed",
+   388→    description:
+   389→      "A planned programme covering computer hardware diagnosis, repair, and maintenance for personal computers and small office systems. The programme will combine classroom learning with hands-on workshop time and supervised workplace placement.",
+   390→    outcomes: [
+   391→      "Diagnose common computer hardware faults",
+   392→      "Repair and maintain personal computers and small office systems",
+   393→      "Apply correct safety and electrostatic protection procedures",
+   394→      "Communicate technical information to non-technical users",
+   395→    ],
+   396→    assessment:
+   397→      "Planned assessment will combine written checks, practical repair exercises, and supervised workplace observation. RPL is available for experienced technicians.",
+   398→    progression:
+   399→      "Planned progression to basic network setup and IT support practice. Subject to accreditation.",
+   400→    image: "/images/schools/digital-03.webp",
+   401→    alt: "A modern computer lab with laptops arranged on long desks.",
+   402→  },
+   403→];
+   404→
+   405→/* =========================================================
+   406→   Pathways
+   407→   ========================================================= */
+   408→export const pathways: Pathway[] = [
+   409→  {
+   410→    index: "01",
+   411→    title: "Classroom learning",
+   412→    caption: "Structured learning in minimal, focused classrooms.",
+   413→    detail:
+   414→      "Classroom learning at Oryx Institute will be structured, focused, and disciplined. Small cohorts. Minimal, warm classrooms. Trainers who combine teaching with current workplace practice. Every classroom module feeds into assessment and progression.",
+   415→  },
+   416→  {
+   417→    index: "02",
+   418→    title: "Recognition of Prior Learning",
+   419→    caption: "Your experience assessed. RPL is not automatic certification.",
+   420→    detail:
+   421→      "Recognition of Prior Learning (RPL) assesses demonstrated competence against recognised standards. RPL is for experienced workers who can show what they can do. RPL is not automatic certification. Every RPL candidate completes the same assessment as classroom learners.",
+   422→  },
+   423→  {
+   424→    index: "03",
+   425→    title: "Work-integrated learning",
+   426→    caption: "Real workplaces. Real supervision. Real assessment.",
+   427→    detail:
+   428→      "Work-integrated learning (WIL) places learners in real workplaces for supervised practice. WIL is not work experience. WIL is structured, assessed, and credited. Employer partners host learners, supervise their practice, and contribute to assessment.",
+   429→  },
+   430→  {
+   431→    index: "04",
+   432→    title: "Assessment",
+   433→    caption: "Competence verified against recognised standards.",
+   434→    detail:
+   435→      "Every pathway at Oryx Institute leads to assessment. Assessment is not automatic. Assessment verifies that a learner can demonstrate competence against recognised standards. Assessment methods depend on the programme and may include written checks, practical observation, and workplace evidence.",
+   436→  },
+   437→  {
+   438→    index: "05",
+   439→    title: "Progression",
+   440→    caption: "From short courses to qualifications. Subject to accreditation.",
+   441→    detail:
+   442→      "Oryx Institute intends to support progression from short courses to certificates to diplomas. Progression depends on programme approval, learner numbers, and institutional capacity. No progression is guaranteed until programmes are approved.",
+   443→  },
+   444→];
+   445→
+   446→/* =========================================================
+   447→   Values
+   448→   ========================================================= */
+   449→export const values: ValueItem[] = [
+   450→  {
+   451→    title: "Discipline",
+   452→    body: "Structured learning, real assessment, no shortcuts.",
+   453→  },
+   454→  {
+   455→    title: "Honesty",
+   456→    body: "Verified facts only. No fabricated claims. No inflated language.",
+   457→  },
+   458→  {
+   459→    title: "Namibia",
+   460→    body: "Rooted in place. Serving Namibian learners and employers.",
+   461→  },
+   462→  {
+   463→    title: "Multiple pathways",
+   464→    body: "Classroom, RPL, WIL. Not one size fits all.",
+   465→  },
+   466→  {
+   467→    title: "Restraint",
+   468→    body: "Quiet, minimal, architectural. Not loud, not generic.",
+   469→  },
+   470→];
+   471→
+   472→/* =========================================================
+   473→   Updates (empty in pre-launch with honest empty state)
+   474→   ========================================================= */
+   475→export const updates: Update[] = [];
+   476→
+   477→/* =========================================================
+   478→   FAQ
+   479→   ========================================================= */
+   480→export const faqs: FaqItem[] = [
+   481→  {
+   482→    slug: "is-oryx-open",
+   483→    category: "General",
+   484→    question: "Is Oryx Institute open?",
+   485→    answer:
+   486→      "No. Oryx Institute is being established. It is not yet operating. Programmes are planned and subject to approval. No learners are enrolled at this stage. Register your interest to be informed when the institution reaches its next milestone.",
+   487→  },
+   488→  {
+   489→    slug: "where-is-oryx-located",
+   490→    category: "Campus",
+   491→    question: "Where is Oryx Institute located?",
+   492→    answer:
+   493→      "Oryx Institute is being established in Windhoek, Namibia. The exact campus address has not been confirmed. The campus concept on this site is an architectural concept, not a completed facility.",
+   494→  },
+   495→  {
+   496→    slug: "when-do-admissions-open",
+   497→    category: "Admissions",
+   498→    question: "When do admissions open?",
+   499→    answer:
+   500→      "Admissions will open when the institution is established and programmes are approved. No date is published yet. Public marketing begins approximately four months before classes open. Register your interest to be informed when admissions open.",
+   501→  },
+   502→  {
+   503→    slug: "what-programmes-are-offered",
+   504→    category: "Programmes",
+   505→    question: "What programmes are offered?",
+   506→    answer:
+   507→      "Programmes are planned across five schools: Safety, Administration and Commerce, Hospitality and Tourism, Information and Digital Skills, and Future Schools. Every programme is planned and subject to approval. Browse the programme browser on this page for the current planned catalogue.",
+   508→  },
+   509→  {
+   510→    slug: "are-programmes-accredited",
+   511→    category: "Programmes",
+   512→    question: "Are programmes accredited?",
+   513→    answer:
+   514→      "No. Programmes are planned and subject to approval. No accreditation is claimed until verified. Any status label on this site reflects the current planning status, not formal accreditation.",
+   515→  },
+   516→  {
+   517→    slug: "what-is-rpl",
+   518→    category: "RPL",
+   519→    question: "What is Recognition of Prior Learning?",
+   520→    answer:
+   521→      "Recognition of Prior Learning (RPL) assesses demonstrated competence against recognised standards. RPL is for experienced workers who can show what they can do. RPL is not automatic certification. Every RPL candidate completes the same assessment as classroom learners.",
+   522→  },
+   523→  {
+   524→    slug: "what-is-wil",
+   525→    category: "WIL",
+   526→    question: "What is work-integrated learning?",
+   527→    answer:
+   528→      "Work-integrated learning (WIL) places learners in real workplaces for supervised practice. WIL is not work experience. WIL is structured, assessed, and credited. Employer partners host learners, supervise their practice, and contribute to assessment.",
+   529→  },
+   530→  {
+   531→    slug: "what-are-the-fees",
+   532→    category: "Fees",
+   533→    question: "What are the fees?",
+   534→    answer:
+   535→      "Fees are to be confirmed. No fee schedule is published yet. Funding pathways are under exploration. Register your interest for updates when fees are confirmed.",
+   536→  },
+   537→  {
+   538→    slug: "can-i-register-interest",
+   539→    category: "Admissions",
+   540→    question: "Can I register my interest now?",
+   541→    answer:
+   542→      "Yes. The Register Interest form on this page captures your name, contact details, programme of interest, and a few optional questions about your background. We will contact you when admissions open. Your data is stored securely and used only to contact you about Oryx Institute.",
+   543→  },
+   544→  {
+   545→    slug: "how-can-employers-partner",
+   546→    category: "General",
+   547→    question: "How can employers partner with Oryx Institute?",
+   548→    answer:
+   549→      "Employers can register interest in hosting WIL placements, commissioning organisational training, or contributing to programme design. Use the relevant enquiry form on this page. We will respond to serious enquiries.",
+   550→  },
+   551→];
+   552→
+   553→/* =========================================================
+   554→   Navigation — real Next.js routes (multi-page)
+   555→   ========================================================= */
+   556→export const primaryNav: { label: string; href: string }[] = [
+   557→  { label: "About", href: "/about" },
+   558→  { label: "Schools", href: "/schools" },
+   559→  { label: "Programmes", href: "/programmes" },
+   560→  { label: "Updates", href: "/updates" },
+   561→  { label: "Brand", href: "/brand" },
+   562→  { label: "FAQ", href: "/faq" },
+   563→];
+   564→
+   565→export const secondaryNav: { label: string; href: string }[] = [
+   566→  { label: "Founder", href: "/founder" },
+   567→  { label: "Research", href: "/research" },
+   568→  { label: "Partners", href: "/partners" },
+   569→  { label: "Contact", href: "/contact" },
+   570→  { label: "Register Interest", href: "/register" },
+   571→];
+   572→
+   573→export const partnerNav: { label: string; href: string }[] = [
+   574→  { label: "Employer enquiry", href: "/partners/employers" },
+   575→  { label: "WIL partner enquiry", href: "/partners/wil" },
+   576→  { label: "Corporate training", href: "/partners/corporate" },
+   577→  { label: "Research and advisory", href: "/partners/research" },
+   578→  { label: "Funding and partnership", href: "/partners/funding" },
+   579→  { label: "Contact", href: "/contact" },
+   580→];
+   581→
+   582→export const legalNav: { label: string; href: string }[] = [
+   583→  { label: "Privacy", href: "/legal/privacy" },
+   584→  { label: "Terms", href: "/legal/terms" },
+   585→  { label: "Accessibility", href: "/legal/accessibility" },
+   586→  { label: "Sitemap", href: "/site-map" },
+   587→];
+   588→
+   589→/* =========================================================
+   590→   Hero slides
+   591→   ========================================================= */
+   592→export const heroSlides: {
+   593→  image: string;
+   594→  alt: string;
+   595→  headline: string;
+   596→  supporting: string;
+   597→}[] = [
+   598→  {
+   599→    image: "/images/brand/oryx-dune.webp",
+   600→    alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
+   601→    headline: "Education. Skills. Impact.",
+   602→    supporting:
+   603→      "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
+   604→  },
+   605→  {
+   606→    image: "/images/campus/arched-corridor.webp",
+   607→    alt: "An architectural detail of a warm sandstone wall with strong morning shadow.",
+   608→    headline: "Rooted in the Namibian landscape.",
+   609→    supporting: "Quiet, disciplined, and built for the work Namibia needs.",
+   610→  },
+   611→  {
+   612→    image: "/images/research/leather-books.webp",
+   613→    alt: "A stack of well-worn technical books on a warm wooden desk in soft directional light.",
+   614→    headline: "One institution. Many pathways.",
+   615→    supporting:
+   616→      "Classroom learning, recognition of prior learning, and work-integrated learning.",
+   617→  },
+   618→  {
+   619→    image: "/images/campus/building-entrance.webp",
+   620→    alt: "A wide empty Windhoek highveld landscape at dawn with distant acacia trees.",
+   621→    headline: "A place for serious learning.",
+   622→    supporting: "Minimal, warm, and architectural. A campus designed for focus.",
+   623→  },
+   624→  {
+   625→    image: "/images/programmes/clipboards-notebooks.webp",
+   626→    alt: "Skilled hands working on a mechanical training bench in warm window light.",
+   627→    headline: "Learning shaped by Namibia.",
+   628→    supporting: "Programmes planned across five schools. Subject to accreditation.",
+   629→  },
+   630→];
+   631→

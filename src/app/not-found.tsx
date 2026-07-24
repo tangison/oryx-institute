@@ -1,14 +1,12 @@
 import Link from 'next/link';
+import { OryxWordmark } from '@/components/site/oryx-wordmark';
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] flex flex-col">
       <a href="#main" className="skip-link">Skip to main content</a>
       <header className="container-oryx py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/oryx-mark.png" alt="" aria-hidden="true" className="h-10 w-auto" />
-          <span className="font-display text-base font-medium">Oryx Institute</span>
-        </Link>
+        <OryxWordmark variant="dark" size="compact" linked />
         <Link href="/" className="text-sm text-[var(--color-brand-cream)]/70 hover:text-[var(--color-brand-cream)] transition-colors">
           Home
         </Link>
