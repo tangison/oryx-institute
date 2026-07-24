@@ -143,12 +143,11 @@ export default function Home() {
           <div className="container-oryx py-16 md:py-24 lg:py-28">
             <div className="flex items-end justify-between gap-6 mb-10 md:mb-14">
               <div>
-                <p className="eyebrow mb-3">Five Schools</p>
                 <h2
                   id="schools-heading"
                   className="font-display uppercase text-[var(--color-brand-ink)] text-2xl md:text-3xl tracking-[0.04em] leading-[1.05]"
                 >
-                  Planned schools
+                  Five planned schools
                 </h2>
               </div>
               <Link
@@ -171,12 +170,12 @@ export default function Home() {
                   <img
                     src={school.image}
                     alt={school.alt}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                     loading="lazy"
                   />
                   {/* Bottom overlay with school name */}
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-brand-ink)]/70 to-transparent pt-8 pb-3 px-3">
-                    <span className="font-display text-xs md:text-sm uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
+                    <span className="font-display text-[0.6875rem] md:text-[0.8125rem] uppercase tracking-[0.08em] text-[var(--color-brand-cream)] leading-tight">
                       {school.name}
                     </span>
                   </div>
@@ -211,13 +210,13 @@ export default function Home() {
 
               {/* Text block */}
               <div className="lg:col-span-7 max-w-xl">
-                <p className="eyebrow text-[var(--color-brand-cream)] mb-6">A note from the founder</p>
                 <h2
                   id="vision-heading"
-                  className="font-display uppercase text-[var(--color-brand-cream)] text-3xl md:text-4xl tracking-[0.04em] leading-[1.05] mb-6"
+                  className="font-display uppercase text-[var(--color-brand-cream)] text-3xl md:text-4xl tracking-[0.04em] leading-[1.05] mb-2"
                 >
                   Built for the work Namibia needs
                 </h2>
+                <p className="eyebrow text-[var(--color-brand-cream)] mb-6">From the founder</p>
                 <p className="font-display text-xl md:text-[1.5rem] leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
                   Quiet, disciplined, and rooted in the Namibian landscape.
                 </p>
@@ -247,12 +246,11 @@ export default function Home() {
           <div className="container-oryx py-16 md:py-24">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
               <div>
-                <p className="eyebrow mb-4">Index</p>
                 <h2
                   id="explore-heading"
                   className="font-display uppercase text-[var(--color-brand-ink)] text-2xl md:text-3xl tracking-[0.04em] leading-[1.05]"
                 >
-                  Where to go next
+                  Explore the Institute
                 </h2>
               </div>
               <p className="max-w-sm text-[0.9375rem] leading-[1.6] text-[var(--color-text-secondary)]">

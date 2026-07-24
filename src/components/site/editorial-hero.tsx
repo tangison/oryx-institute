@@ -186,7 +186,7 @@ export function EditorialHero() {
       {/* Layer 5 — content */}
       <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32">
         <div className="max-w-3xl">
-          <p className="eyebrow text-[var(--color-brand-cream)] mb-5">
+          <p className="font-body text-white/95 text-[0.8125rem] font-semibold tracking-[0.16em] uppercase mb-5 hero-headline-shadow">
             Windhoek · Namibia · Pre-Launch
           </p>
           <h1

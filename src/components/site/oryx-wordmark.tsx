@@ -108,7 +108,7 @@ export function OryxWordmark({
           <span
             className="font-display leading-none"
             style={{
-              fontSize: size === 'default' ? 'clamp(0.54rem, 0.72vw, 0.72rem)' : 'clamp(0.42rem, 0.56vw, 0.56rem)',
+              fontSize: size === 'default' ? 'clamp(0.6875rem, 0.72vw + 0.3rem, 0.72rem)' : 'clamp(0.6875rem, 0.56vw + 0.3rem, 0.6875rem)',
               letterSpacing: 'normal',
               fontWeight: 400,
               color: companionColor,
@@ -121,7 +121,7 @@ export function OryxWordmark({
         <span
           className="font-display uppercase leading-none"
           style={{
-            fontSize: size === 'default' ? 'clamp(0.78rem, 1.17vw, 1.17rem)' : 'clamp(0.56rem, 0.8vw, 0.78rem)',
+            fontSize: size === 'default' ? 'clamp(0.6875rem, 1.17vw + 0.2rem, 1.17rem)' : 'clamp(0.6875rem, 0.8vw + 0.2rem, 0.6875rem)',
             letterSpacing: '0.22em',
             fontWeight: 400,
             color: instituteColor,
