@@ -566,6 +566,7 @@ export const primaryNav: { label: string; href: string }[] = [
 export const secondaryNav: { label: string; href: string }[] = [
   { label: "Founder", href: "/founder" },
   { label: "Brand", href: "/brand" },
+  { label: "Glossary", href: "/glossary" },
   { label: "Contact", href: "/contact" },
   { label: "Register Interest", href: "/register" },
 ];
