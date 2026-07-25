@@ -59,8 +59,8 @@ function MailingListForm() {
 
       {/* Honeypot */}
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="ml-website">Website (leave empty)</label>
-        <input id="ml-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="ml-website" aria-hidden="true">Website (leave empty)</label>
+        <input id="ml-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" readOnly />
       </div>
 
       <button type="submit" className="mt-6 btn-primary w-full justify-center">
