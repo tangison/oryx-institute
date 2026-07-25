@@ -33,11 +33,11 @@ export default function AboutPage() {
                   Oryx Institute is being developed as a multidisciplinary training, research, and
                   advisory institution rooted in Namibia. It is being established in Windhoek. It is
                   not yet operating. Programmes are subject to approval. The institution is being
-                  built carefully, with discipline, and with honesty about what is ready and what is
+                  built carefully, methodically, and with honesty about what is ready and what is
                   not.
                 </p>
                 <p>
-                  The work of building a serious institution is slow. Accreditation takes time.
+                  The work of building a lasting institution is slow. Accreditation takes time.
                   Programme design takes time. Employer partnerships take time. The institution will
                   not rush any of these. What you see on this website is a description of what is
                   being built, not a claim of what exists today.
@@ -46,8 +46,8 @@ export default function AboutPage() {
 
               <ProseSection eyebrow="Mission" heading="To give Namibians practical, recognised skills." headingLevel="h2">
                 <p>
-                  Oryx Institute will deliver vocational education that is disciplined, practical,
-                  and rooted in the Namibian landscape. It will train, assess, research, and advise
+                  Oryx Institute will deliver vocational education that is rigorous, practical,
+                  and shaped by Namibia's working realities. It will train, assess, research, and advise
                   across multiple disciplines. It will serve learners, employers, and the wider
                   Namibian economy. These are intentions. They are not yet achievements.
                 </p>
@@ -58,17 +58,17 @@ export default function AboutPage() {
                 </p>
               </ProseSection>
 
-              <ProseSection eyebrow="Vision" heading="A serious institution, built to last." headingLevel="h2">
+              <ProseSection eyebrow="Vision" heading="An institution built to last." headingLevel="h2">
                 <p>
                   Oryx Institute intends to become a recognised Namibian institution known for
-                  discipline, restraint, and honest work. It will grow carefully, not quickly. It
+                  rigour, restraint, and honest work. It will grow carefully, not quickly. It
                   will add schools, programmes, and services as the institution proves its capacity.
                   No timeline is claimed.
                 </p>
                 <p>
                   The vision is not to be the biggest. It is to be trusted. Trust is earned through
                   years of consistent work, verified outcomes, and graduates who carry the
-                  institution's discipline into their workplaces. That is the work ahead.
+                  institution's standards into their workplaces. That is the work ahead.
                 </p>
               </ProseSection>
             </Prose>

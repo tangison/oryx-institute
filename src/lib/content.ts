@@ -218,7 +218,7 @@ export const programmes: Programme[] = [
     status: "Planned",
     duration: "To be confirmed",
     description:
-      "A planned foundation programme covering occupational safety principles, hazard identification, incident reporting, and workplace safety culture. The programme will combine classroom learning with practical drills and a supervised workplace assessment.",
+      "Occupational safety in Namibia demands more than rules on paper. This foundation programme teaches hazard recognition, incident reporting, and the habits that keep sites safe day to day. Classroom sessions build the knowledge; practical drills and supervised workplace assessment confirm that learners can act on it under real conditions.",
     outcomes: [
       "Identify common workplace hazards and apply correct reporting procedures",
       "Support site safety inspections under supervision",
@@ -226,9 +226,9 @@ export const programmes: Programme[] = [
       "Communicate safety requirements to colleagues and contractors",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical drills, and supervised workplace observation against recognised standards. RPL is available for experienced safety staff.",
+      "Assessment is planned around three pillars: written knowledge checks, practical drills under observation, and supervised workplace assessment against recognised standards. Experienced safety practitioners may apply for Recognition of Prior Learning (RPL) instead of repeating classroom modules they already command.",
     progression:
-      "Planned progression to site safety inspection and workplace safety supervision. Subject to accreditation.",
+      "Learners who complete this foundation may progress to site safety inspection and workplace safety supervision. All progression depends on programme approval and accreditation.",
     image: "/images/programmes/clipboards-notebooks.webp",
     alt: "A row of clipboards and notebooks arranged on a counter.",
   },
@@ -242,7 +242,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "A planned programme for site safety inspection practice in construction, mining, and industrial settings. The programme will combine classroom learning with site visits and supervised workplace inspection.",
+      "Construction sites, mines, and industrial plants need trained eyes that can spot trouble before it becomes an incident. This programme prepares learners for site safety inspection in those settings, mixing classroom regulatory knowledge with real site visits and supervised inspection practice where the hazards are live.",
     outcomes: [
       "Conduct systematic site safety inspections under supervision",
       "Document hazards, risks, and corrective actions",
@@ -250,9 +250,9 @@ export const programmes: Programme[] = [
       "Communicate inspection findings to site management",
     ],
     assessment:
-      "Planned assessment will combine written checks, simulated inspections, and supervised site inspection. RPL is available for experienced inspectors.",
+      "Candidates will be assessed through written regulatory checks, simulated inspection scenarios, and supervised live site inspections. Inspectors with documented field experience may seek RPL credit for competencies they already demonstrate.",
     progression:
-      "Planned progression to workplace safety supervision. Subject to accreditation.",
+      "The intended next step after this certificate is workplace safety supervision. Progression is contingent on programme approval by the relevant authority.",
     image: "/images/schools/safety-01.webp",
     alt: "An open portfolio with photographs of safety tools and equipment.",
   },
@@ -266,7 +266,7 @@ export const programmes: Programme[] = [
     status: "Planned",
     duration: "To be confirmed",
     description:
-      "A planned programme covering office administration practice, communication, records management, scheduling, and basic financial administration. The programme will combine classroom learning with workplace simulation and supervised placement.",
+      "Every functioning office depends on people who keep communication flowing, records accurate, schedules coherent, and finances organised. This programme builds those practical skills through classroom instruction, workplace simulation exercises, and supervised placement in an operating office environment.",
     outcomes: [
       "Manage routine office communications and records",
       "Schedule appointments and coordinate meetings",
@@ -274,9 +274,9 @@ export const programmes: Programme[] = [
       "Use office productivity software to a working standard",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical office simulation, and supervised workplace observation. RPL is available for experienced administrative staff.",
+      "Verification of competence will involve written knowledge checks, practical office simulation tasks, and supervised workplace observation. Administrative staff with established workplace experience may apply for RPL to credit competencies already demonstrated.",
     progression:
-      "Planned progression to office supervision and bookkeeping. Subject to accreditation.",
+      "Further study in office supervision and bookkeeping is planned for learners who complete this certificate. Accreditation must be confirmed before any progression pathway opens.",
     image: "/images/schools/administration-02.webp",
     alt: "A checklist, a rubber stamp, and a secure lockbox on a desk.",
   },
@@ -290,7 +290,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "A planned programme covering bookkeeping principles, payroll processing, and basic financial reporting for small businesses. The programme will combine classroom learning with practical exercises using recognised accounting software.",
+      "Small businesses across Namibia rely on accurate bookkeeping and timely payroll — and both require more than entering numbers into a ledger. This programme covers the principles behind the entries, payroll processing obligations, and the financial reports managers actually need, with practical exercises on recognised accounting software throughout.",
     outcomes: [
       "Maintain accurate books of account for a small business",
       "Process payroll correctly and on time",
@@ -298,9 +298,9 @@ export const programmes: Programme[] = [
       "Apply relevant tax and labour regulations under supervision",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical bookkeeping exercises, and supervised workplace observation. RPL is available for experienced bookkeepers.",
+      "Learners will demonstrate competence through written checks, practical bookkeeping exercises on live accounting software, and supervised observation in a workplace setting. Experienced bookkeepers may apply for RPL, submitting portfolio evidence of competencies already held.",
     progression:
-      "Planned progression to payroll supervision and accounting technician practice. Subject to accreditation.",
+      "After completing this certificate, the intended progression path leads to payroll supervision and accounting technician practice. Each step requires confirmed accreditation before it becomes available.",
     image: "/images/schools/administration-04.webp",
     alt: "A laptop with a notebook and pen on a wooden desk.",
   },
@@ -314,7 +314,7 @@ export const programmes: Programme[] = [
     status: "Planned",
     duration: "To be confirmed",
     description:
-      "A planned programme covering food and beverage service practice in restaurant and event settings. The programme will combine classroom learning with practical service drills and supervised workplace placement in hospitality venues.",
+      "Serving food and drink well is a craft — timing, sequence, table awareness, and the ability to read a room. This programme trains learners in restaurant and event service through classroom sessions, practical service drills, and supervised placement in working hospitality venues where the pace is real.",
     outcomes: [
       "Provide attentive, professional food and beverage service",
       "Apply correct service sequence and table management",
@@ -322,9 +322,9 @@ export const programmes: Programme[] = [
       "Maintain hygiene and safety standards during service",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical service drills, and supervised workplace observation. RPL is available for experienced service staff.",
+      "Assessment is designed around written knowledge checks, practical service drills under trainer observation, and supervised workplace performance evaluation. Experienced hospitality staff may seek RPL credit for service competencies they already practise daily.",
     progression:
-      "Planned progression to food and beverage supervision. Subject to accreditation.",
+      "Completing this certificate opens the planned pathway to food and beverage supervision. Accreditation confirmation is required before the pathway activates.",
     image: "/images/schools/hospitality-01.webp",
     alt: "A service bell and a set of guest keys arranged on a wooden counter.",
   },
@@ -338,7 +338,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "A planned programme covering tour guiding practice, visitor experience, safety on tour, and Namibian natural and cultural heritage interpretation. The programme will combine classroom learning with practical guiding drills and supervised workplace placement.",
+      "Namibia's landscapes, wildlife, and cultural heritage draw visitors from around the world — and those visitors need guides who can interpret what they see with accuracy and care. This programme covers guiding practice, visitor safety, and the natural and cultural knowledge that makes a tour meaningful, with classroom work, practical guiding drills, and supervised placement on live tours.",
     outcomes: [
       "Lead guided tours with confidence and care for visitors",
       "Interpret Namibian natural and cultural heritage accurately",
@@ -346,9 +346,9 @@ export const programmes: Programme[] = [
       "Communicate professionally with guests, operators, and communities",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical guiding drills, and supervised workplace observation. RPL is available for experienced guides.",
+      "Candidates will demonstrate competence through written heritage and regulation checks, practical guiding drills, and supervised observation on actual tours. Guides with documented field experience may apply for RPL to credit competencies already demonstrated in practice.",
     progression:
-      "Planned progression to tour operations and visitor experience supervision. Subject to accreditation.",
+      "The planned next step from this certificate is tour operations coordination and visitor experience supervision. Accreditation must be confirmed for this pathway to open.",
     image: "/images/programmes/student-portfolio.webp",
     alt: "A student reviewing a printed photo portfolio under warm light.",
   },
@@ -362,7 +362,7 @@ export const programmes: Programme[] = [
     status: "Planned",
     duration: "To be confirmed",
     description:
-      "A planned short course covering computer fundamentals, file management, internet practice, email, and workplace productivity software. The programme will combine classroom learning with hands-on workshop time.",
+      "For many working adults in Namibia, a computer is still an unfamiliar tool. This short course starts from the ground up: turning it on, managing files, using email, browsing safely, and running the productivity software offices expect. Classroom instruction pairs with hands-on workshop time so that every skill is practised until it sticks.",
     outcomes: [
       "Operate a computer confidently for routine workplace tasks",
       "Manage files and use productivity software to a working standard",
@@ -370,9 +370,9 @@ export const programmes: Programme[] = [
       "Apply basic digital security practices",
     ],
     assessment:
-      "Planned assessment will combine written checks and practical exercises. RPL is available for experienced users.",
+      "Assessment will verify competence through written checks and practical exercises performed on a computer during workshop sessions. Adults who already use computers at work may apply for RPL to credit demonstrated digital skills.",
     progression:
-      "Planned progression to computer hardware repair and workplace productivity practice. Subject to accreditation.",
+      "Learners who complete this short course may move on to computer hardware repair or workplace productivity practice. Both progression options require confirmed accreditation.",
     image: "/images/schools/digital-02.webp",
     alt: "A minimalist flat-lay of a laptop and a stationery set on a warm surface.",
   },
@@ -386,7 +386,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "A planned programme covering computer hardware diagnosis, repair, and maintenance for personal computers and small office systems. The programme will combine classroom learning with hands-on workshop time and supervised workplace placement.",
+      "When a desktop stops booting or a laptop screen flickers, someone needs to diagnose the fault, open the case, and fix it — without guessing. This programme trains learners in hardware diagnosis, component repair, and preventative maintenance for personal computers and small office systems, with workshop time on real machines and supervised placement in a repair environment.",
     outcomes: [
       "Diagnose common computer hardware faults",
       "Repair and maintain personal computers and small office systems",
@@ -394,9 +394,9 @@ export const programmes: Programme[] = [
       "Communicate technical information to non-technical users",
     ],
     assessment:
-      "Planned assessment will combine written checks, practical repair exercises, and supervised workplace observation. RPL is available for experienced technicians.",
+      "Competence will be verified through written technical checks, practical repair exercises on live hardware, and supervised observation in a workplace repair setting. Technicians with proven workshop experience may apply for RPL to credit repair competencies already demonstrated.",
     progression:
-      "Planned progression to basic network setup and IT support practice. Subject to accreditation.",
+      "From this certificate, the planned route leads to basic network setup and IT support practice. Accreditation must be confirmed before progression opens.",
     image: "/images/schools/digital-03.webp",
     alt: "A modern computer lab with laptops arranged on long desks.",
   },
@@ -546,7 +546,7 @@ export const faqs: FaqItem[] = [
     category: "General",
     question: "How can employers partner with Oryx Institute?",
     answer:
-      "Employers can register interest in hosting WIL placements, commissioning organisational training, or contributing to programme design. Use the relevant enquiry form on this page. We will respond to serious enquiries.",
+      "Employers can register interest in hosting WIL placements, commissioning organisational training, or contributing to programme design. Use the relevant enquiry form on this page. We will respond to genuine enquiries.",
   },
 ];
 
@@ -598,15 +598,15 @@ export const heroSlides: {
   {
     image: "/images/brand/oryx-dune.webp",
     alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
-    headline: "Education. Skills. Impact.",
+    headline: "Practical skills. Recognised standards.",
     supporting:
       "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
   },
   {
     image: "/images/campus/arched-corridor.webp",
     alt: "An architectural detail of a warm sandstone wall with strong morning shadow.",
-    headline: "Rooted in the Namibian landscape.",
-    supporting: "Quiet, disciplined, and built for the work Namibia needs.",
+    headline: "Skills shaped by Namibia's realities.",
+    supporting: "Quiet, rigorous, and built for the work Namibia needs.",
   },
   {
     image: "/images/research/leather-books.webp",

@@ -34,7 +34,7 @@ export function FounderModal() {
             <blockquote className="mt-8 pl-6 border-l-2 border-[var(--color-brand-maroon)]">
               <p className="font-display text-lg md:text-xl italic leading-snug text-balance">
                 &ldquo;Oryx Institute is being built to give Namibians practical, recognised skills
-                through vocational education rooted in the Namibian landscape. The institution will
+                through vocational education shaped by Namibia's working realities. The institution will
                 train, assess, research, and advise. It will grow carefully. It will not rush. These
                 are intentions stated by the founder.&rdquo;
               </p>
@@ -49,7 +49,7 @@ export function FounderModal() {
           </p>
           <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Oryx Institute is being built to give Namibians practical, recognised skills through
-            vocational education rooted in the Namibian landscape. The institution will train,
+            vocational education shaped by Namibia's working realities. The institution will train,
             assess, research, and advise. It will grow carefully. It will not rush. These are
             intentions stated by the founder.
           </p>
@@ -58,7 +58,7 @@ export function FounderModal() {
         <section>
           <p className="eyebrow mb-3">Contact</p>
           <p className="font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4">
-            Serious enquiries.
+            Genuine enquiries.
           </p>
           <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Investors, partners, and institutional contacts are welcome to reach out. Use the

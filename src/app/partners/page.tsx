@@ -44,7 +44,7 @@ const partnerTypes = [
     type: 'funding-partnership-enquiry',
     eyebrow: 'For Funding and Institutional Partners',
     title: 'Funding and Partnership Enquiry',
-    description: 'Support the establishment of a serious Namibian institution. Donors, development finance institutions, public skills funds, and academic partners are welcome.',
+    description: 'Support the establishment of a lasting Namibian institution. Donors, development finance institutions, public skills funds, and academic partners are welcome.',
   },
 ];
 
@@ -54,7 +54,7 @@ export default function PartnersPage() {
       <ImagePageHeader
         eyebrow="Partners"
         title="Partner with Oryx Institute."
-        lede="Employers, WIL partners, corporate training clients, research clients, and funding partners. We will respond to serious enquiries."
+        lede="Employers, WIL partners, corporate training clients, research clients, and funding partners. We will respond to genuine enquiries."
         image="/images/partners/collaboration.webp"
         alt="Professionals collaborating over documents spread across a wooden table."
       />
@@ -81,12 +81,12 @@ export default function PartnersPage() {
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">A note on partnership</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
-            Partnership is built on serious work, not logos on a page.
+            Partnership is built on committed work, not logos on a page.
           </p>
           <p className="text-[var(--color-brand-cream)]/80 leading-relaxed text-pretty">
-            Oryx Institute will work with partners who share its commitment to disciplined, practical
+            Oryx Institute will work with partners who share its commitment to rigorous, practical
             training and honest outcomes. No partnership is announced until signed. No partner is
-            listed on this site until the partnership is formal. If you are serious about working
+            listed on this site until the partnership is formal. If you are committed to working
             with the institution, use the relevant enquiry form above.
           </p>
         </div>

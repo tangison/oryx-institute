@@ -38,7 +38,7 @@ const CAROUSEL_VIDEOS: CarouselVideo[] = [
     mp4: '/hero/oryx-campus-kenburns.mp4',
     poster: '/hero/oryx-campus-kenburns-poster.jpg',
     title: 'Where Namibia Learns',
-    description: 'Arched corridors and windowed halls: the built environment of a vocational institution rooted in the Namibian landscape.'
+    description: 'Arched corridors and windowed halls: the built environment of a vocational institution shaped by Namibia's realities.'
   },
 ];
 
