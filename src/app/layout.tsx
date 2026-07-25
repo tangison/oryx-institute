@@ -32,16 +32,13 @@ const notoSerif = Noto_Serif({
   display: "swap",
 });
 
-// DOMAIN DECISION: oryxinstitute.na DNS is not yet configured.
-// The Vercel subdomain (oryx-institute.vercel.app) is the current production URL.
-// This is intentional — the institution is in pre-launch phase and the .na domain
-// will become canonical once DNS records are created and verified.
-// When switching: update metadataBase here + all alternates.canonical across pages +
-// CSP connect-src/frame-src origins in middleware.ts + robots.txt sitemap URLs.
-// The Vercel preview deploys (*.vercel.app) differ from the future custom domain;
-// this is expected and not a bug — preview URLs are for internal review only.
+// DOMAIN DECISION: oryxinstitute.org is the permanent canonical domain.
+// The Vercel subdomain (oryx-institute.vercel.app) serves as the deployment host;
+// all canonical URLs, metadata, CSP origins, and sitemap entries reference oryxinstitute.org.
+// When DNS is configured: verify TLS, redirects, and that Vercel serves the custom domain.
+// Vercel preview deploys (*.vercel.app) differ from the canonical domain; this is expected.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oryx-institute.vercel.app"),
+  metadataBase: new URL("https://oryxinstitute.org"),
   title: {
     default: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     template: "%s — Oryx Institute",
@@ -56,7 +53,7 @@ export const metadata: Metadata = {
     "work-integrated learning Namibia",
     "skills training Windhoek",
   ],
-  authors: [{ name: "Oryx Institute", url: "https://oryx-institute.vercel.app" }],
+  authors: [{ name: "Oryx Institute", url: "https://oryxinstitute.org" }],
   creator: "Oryx Institute",
   publisher: "Oryx Institute",
   icons: {
@@ -69,7 +66,7 @@ export const metadata: Metadata = {
     title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     description:
       "A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, RPL, and work-integrated learning.",
-    url: "https://oryx-institute.vercel.app",
+    url: "https://oryxinstitute.org",
     siteName: "Oryx Institute",
     locale: "en_NA",
     type: "website",
@@ -94,7 +91,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://oryx-institute.vercel.app",
+    canonical: "https://oryxinstitute.org",
   },
   other: {
     // Vercel web design guidelines: theme-color must match page background

@@ -8,7 +8,7 @@ import { RegisterForm } from '@/components/site/forms/register-form';
 export const metadata: Metadata = {
   title: 'Register Interest',
   description: 'Register your interest in Oryx Institute. Tell us what you want to study. We will contact you when admissions open.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/register' },
+  alternates: { canonical: 'https://oryxinstitute.org/register' },
 };
 
 export default function RegisterPage() {

@@ -193,26 +193,30 @@ export function SiteHeader() {
           {/* Logo — compact lockup */}
           <OryxLogo variant="light" size="mobile" linked />
 
-          {/* Menu button — 44×44, two lines, square border */}
+          {/* Menu button — Collins-style: clean three lines, no border, no box */}
           <button
             ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}
             className={cn(
               'inline-flex items-center justify-center w-[44px] h-[44px]',
-              'border border-[rgba(23,23,23,0.35)] text-[var(--color-brand-ink)]',
-              'rounded-[0px] transition-colors duration-200',
-              'hover:bg-[var(--color-brand-ink)] hover:text-[var(--color-brand-cream)]',
+              'text-[var(--color-brand-ink)]',
+              'transition-colors duration-200',
+              'hover:text-[var(--color-brand-maroon)]',
             )}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
               {menuOpen ? (
-                <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+                <>
+                  <path d="M1 1L21 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M21 1L1 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </>
               ) : (
                 <>
-                  <path d="M2 5H16" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M2 13H16" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M0 1.5H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M0 7H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M0 12.5H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                 </>
               )}
             </svg>
@@ -242,14 +246,15 @@ export function SiteHeader() {
             onClick={closeMenu}
             className={cn(
               'inline-flex items-center justify-center w-[44px] h-[44px]',
-              'border border-[rgba(23,23,23,0.35)] text-[var(--color-brand-ink)]',
-              'rounded-[0px] transition-colors duration-200',
-              'hover:bg-[var(--color-brand-ink)] hover:text-[var(--color-brand-cream)]',
+              'text-[var(--color-brand-ink)]',
+              'transition-colors duration-200',
+              'hover:text-[var(--color-brand-maroon)]',
             )}
             aria-label="Close navigation"
           >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+              <path d="M1 1L21 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M21 1L1 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
           </button>
         </div>

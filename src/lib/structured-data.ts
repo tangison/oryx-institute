@@ -8,7 +8,7 @@
  * website-audit CRITICAL finding #3 ("No structured data").
  */
 
-export const SITE_URL = 'https://oryx-institute.vercel.app';
+export const SITE_URL = 'https://oryxinstitute.org';
 
 /** Base Organization schema — embedded on every page */
 export function organizationLd() {

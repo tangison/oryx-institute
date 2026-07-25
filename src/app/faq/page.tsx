@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'FAQ',
   description:
     'Questions and answers about Oryx Institute. Programmes, admissions, RPL, work-integrated learning, fees, campus, and general information.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/faq' },
+  alternates: { canonical: 'https://oryxinstitute.org/faq' },
 };
 
 const categories = ['General', 'Programmes', 'Admissions', 'RPL', 'WIL', 'Fees', 'Campus'] as const;

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Research',
   description:
     'Applied research and advisory services planned at Oryx Institute. Workforce studies, sector research, and advisory services for Namibian employers and institutions.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/research' },
+  alternates: { canonical: 'https://oryxinstitute.org/research' },
 };
 
 export default function ResearchPage() {
