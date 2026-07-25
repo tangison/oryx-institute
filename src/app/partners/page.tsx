@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: 'Partners',
   description: 'Partner with Oryx Institute. Employers, WIL partners, corporate training clients, research clients, and funding partners are welcome.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/partners' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/partners' },
 };
 
 const partnerTypes = [

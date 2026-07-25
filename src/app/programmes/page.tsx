@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description:
     'A representative planned catalogue across five schools. Every programme is planned and subject to approval. No programme is presented as approved until verified.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/programmes' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/programmes' },
 };
 
 export default function ProgrammesPage() {

@@ -1,6 +1,23 @@
 import { cn } from '@/lib/utils';
 
 /**
+ * DynamicHeading — renders the appropriate heading level element.
+ * Used by ProseSection to maintain correct heading hierarchy.
+ */
+function DynamicHeading({
+  level,
+  className,
+  children,
+}: {
+  level: 'h2' | 'h3' | 'h4';
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const Tag = level;
+  return <Tag className={className}>{children}</Tag>;
+}
+
+/**
  * Prose — long-form content wrapper for interior pages.
  * Applies consistent typographic rhythm to children.
  * Use for legal text, about pages, founder narrative, etc.
@@ -34,11 +51,13 @@ export function Prose({
 export function ProseSection({
   eyebrow,
   heading,
+  headingLevel = 'h3',
   children,
   tone = 'light',
 }: {
   eyebrow?: string;
   heading?: string;
+  headingLevel?: 'h2' | 'h3' | 'h4';
   children: React.ReactNode;
   tone?: 'light' | 'dark';
 }) {
@@ -51,14 +70,15 @@ export function ProseSection({
         </p>
       )}
       {heading && (
-        <h3
+        <DynamicHeading
+          level={headingLevel}
           className={cn(
             'font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4',
             isDark ? 'text-[var(--color-brand-cream)]' : 'text-[var(--color-brand-ink)]'
           )}
         >
           {heading}
-        </h3>
+        </DynamicHeading>
       )}
       <div className={cn('space-y-4 leading-relaxed text-pretty')}>{children}</div>
     </section>

@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description:
     'Oryx Institute is being developed as a multidisciplinary training, research, and advisory institution rooted in Namibia. Mission, vision, values, and what is being built.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/about' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/about' },
 };
 
 export default function AboutPage() {
@@ -29,7 +28,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-7">
             <Prose>
-              <ProseSection eyebrow="Introduction" heading="A Namibian institution taking shape.">
+              <ProseSection eyebrow="Introduction" heading="A Namibian institution taking shape." headingLevel="h2">
                 <p>
                   Oryx Institute is being developed as a multidisciplinary training, research, and
                   advisory institution rooted in Namibia. It is being established in Windhoek. It is
@@ -45,7 +44,7 @@ export default function AboutPage() {
                 </p>
               </ProseSection>
 
-              <ProseSection eyebrow="Mission" heading="To give Namibians practical, recognised skills.">
+              <ProseSection eyebrow="Mission" heading="To give Namibians practical, recognised skills." headingLevel="h2">
                 <p>
                   Oryx Institute will deliver vocational education that is disciplined, practical,
                   and rooted in the Namibian landscape. It will train, assess, research, and advise
@@ -59,7 +58,7 @@ export default function AboutPage() {
                 </p>
               </ProseSection>
 
-              <ProseSection eyebrow="Vision" heading="A serious institution, built to last.">
+              <ProseSection eyebrow="Vision" heading="A serious institution, built to last." headingLevel="h2">
                 <p>
                   Oryx Institute intends to become a recognised Namibian institution known for
                   discipline, restraint, and honest work. It will grow carefully, not quickly. It

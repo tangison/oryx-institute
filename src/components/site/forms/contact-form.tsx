@@ -51,7 +51,7 @@ export function ContactForm() {
       </div>
       <div>
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
+          <input id="c-consent" type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[var(--color-brand-maroon)]" aria-label="I consent to be contacted by Oryx Institute about this enquiry" checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
           <span className="text-sm text-[var(--muted-foreground)] leading-relaxed">I consent to be contacted by Oryx Institute about this enquiry. <span aria-hidden="true">*</span></span>
         </label>
         <FieldError error={state.errors.consent} />

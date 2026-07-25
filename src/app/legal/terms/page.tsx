@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description: 'Terms governing your use of the Oryx Institute website. Pre-launch version.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/legal/terms' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/legal/terms' },
   robots: { index: false, follow: true },
 };
 

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description:
     'Applied research and advisory services planned at Oryx Institute. Workforce studies, sector research, and advisory services for Namibian employers and institutions.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/research' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/research' },
 };
 
 export default function ResearchPage() {

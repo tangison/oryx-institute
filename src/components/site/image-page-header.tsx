@@ -30,7 +30,7 @@ export function ImagePageHeader({
   className?: string;
 }) {
   return (
-    <header
+    <section
       className={cn(
         'relative w-full pt-28 md:pt-36 pb-16 md:pb-24 min-h-[60svh] flex items-end overflow-hidden bg-[var(--color-brand-ink)]',
         className
@@ -67,6 +67,6 @@ export function ImagePageHeader({
           {children && <div className="mt-8">{children}</div>}
         </div>
       </div>
-    </header>
+    </section>
   );
 }

@@ -22,7 +22,6 @@ export async function generateMetadata({
     title: school.name,
     description: school.blurb,
     alternates: { canonical: `https://oryx-institute.vercel.app/schools/${school.slug}` },
-    openGraph: { url: `https://oryx-institute.vercel.app/schools/${school.slug}` },
   };
 }
 
