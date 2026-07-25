@@ -290,7 +290,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "Small businesses across Namibia rely on accurate bookkeeping and timely payroll — and both require more than entering numbers into a ledger. This programme covers the principles behind the entries, payroll processing obligations, and the financial reports managers actually need, with practical exercises on recognised accounting software throughout.",
+      "Small businesses across Namibia rely on accurate bookkeeping and timely payroll, and both require more than entering numbers into a ledger. This programme covers the principles behind the entries, payroll processing obligations, and the financial reports managers actually need, with practical exercises on recognised accounting software throughout.",
     outcomes: [
       "Maintain accurate books of account for a small business",
       "Process payroll correctly and on time",
@@ -314,7 +314,7 @@ export const programmes: Programme[] = [
     status: "Planned",
     duration: "To be confirmed",
     description:
-      "Serving food and drink well is a craft — timing, sequence, table awareness, and the ability to read a room. This programme trains learners in restaurant and event service through classroom sessions, practical service drills, and supervised placement in working hospitality venues where the pace is real.",
+      "Serving food and drink well is a craft: timing, sequence, table awareness, and the ability to read a room. This programme trains learners in restaurant and event service through classroom sessions, practical service drills, and supervised placement in working hospitality venues where the pace is real.",
     outcomes: [
       "Provide attentive, professional food and beverage service",
       "Apply correct service sequence and table management",
@@ -338,7 +338,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "Namibia's landscapes, wildlife, and cultural heritage draw visitors from around the world — and those visitors need guides who can interpret what they see with accuracy and care. This programme covers guiding practice, visitor safety, and the natural and cultural knowledge that makes a tour meaningful, with classroom work, practical guiding drills, and supervised placement on live tours.",
+      "Namibia's landscapes, wildlife, and cultural heritage draw visitors from around the world, and those visitors need guides who can interpret what they see with accuracy and care. This programme covers guiding practice, visitor safety, and the natural and cultural knowledge that makes a tour meaningful, with classroom work, practical guiding drills, and supervised placement on live tours.",
     outcomes: [
       "Lead guided tours with confidence and care for visitors",
       "Interpret Namibian natural and cultural heritage accurately",
@@ -386,7 +386,7 @@ export const programmes: Programme[] = [
     status: "Subject to accreditation",
     duration: "To be confirmed",
     description:
-      "When a desktop stops booting or a laptop screen flickers, someone needs to diagnose the fault, open the case, and fix it — without guessing. This programme trains learners in hardware diagnosis, component repair, and preventative maintenance for personal computers and small office systems, with workshop time on real machines and supervised placement in a repair environment.",
+      "When a desktop stops booting or a laptop screen flickers, someone needs to diagnose the fault, open the case, and fix it without guessing. This programme trains learners in hardware diagnosis, component repair, and preventative maintenance for personal computers and small office systems, with workshop time on real machines and supervised placement in a repair environment.",
     outcomes: [
       "Diagnose common computer hardware faults",
       "Repair and maintain personal computers and small office systems",
@@ -411,7 +411,7 @@ export const pathways: Pathway[] = [
     title: "Classroom learning",
     caption: "Structured learning in minimal, focused classrooms.",
     detail:
-      "Classroom learning at Oryx Institute will be structured, focused, and disciplined. Small cohorts. Minimal, warm classrooms. Trainers who combine teaching with current workplace practice. Every classroom module feeds into assessment and progression.",
+      "Classroom learning at Oryx Institute will be structured, focused, and methodical. Small cohorts. Minimal, warm classrooms. Trainers who combine teaching with current workplace practice. Every classroom module feeds into assessment and progression.",
   },
   {
     index: "02",
@@ -618,7 +618,7 @@ export const heroSlides: {
   {
     image: "/images/campus/building-entrance.webp",
     alt: "A wide empty Windhoek highveld landscape at dawn with distant acacia trees.",
-    headline: "A place for serious learning.",
+    headline: "A place for committed learning.",
     supporting: "Minimal, warm, and architectural. A campus designed for focus.",
   },
   {

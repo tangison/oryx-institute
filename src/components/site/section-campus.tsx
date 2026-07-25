@@ -51,7 +51,7 @@ export function CampusSection() {
           <div className="lg:col-span-7 space-y-4">
             <figure className="relative aspect-[16/10] overflow-hidden bg-white border border-[var(--color-border)]">
               <img
-                src="/images/campus/campus-1.webp"
+                src="/images/campus/blueprint.webp"
                 alt="An architectural concept sketch of a minimalist Windhoek campus in pencil on cream paper."
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -62,7 +62,7 @@ export function CampusSection() {
             </figure>
             <figure id="campus-detail" className="relative aspect-[16/10] overflow-hidden bg-white border border-[var(--color-border)]">
               <img
-                src="/images/campus/campus-2.webp"
+                src="/images/campus/arched-corridor.webp"
                 alt="An architectural concept interior of a small classroom with horseshoe desks and a tall window."
                 className="w-full h-full object-cover"
                 loading="lazy"

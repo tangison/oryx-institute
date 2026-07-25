@@ -4,6 +4,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
 import { faqs } from '@/lib/content';
+import { organizationLd, faqLd, combineLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'FAQ',
@@ -17,6 +18,10 @@ const categories = ['General', 'Programmes', 'Admissions', 'RPL', 'WIL', 'Fees',
 export default function FaqPage() {
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: combineLd([organizationLd(), faqLd(faqs)]) }}
+      />
       <PageHeader
         eyebrow="FAQ"
         title="Questions and answers."

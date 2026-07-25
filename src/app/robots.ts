@@ -11,6 +11,5 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ['/api/'],
     },
     sitemap: 'https://oryxinstitute.org/sitemap.xml',
-    host: 'https://oryxinstitute.org',
   };
 }

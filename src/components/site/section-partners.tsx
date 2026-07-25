@@ -31,7 +31,7 @@ export function PartnerSection() {
     },
     {
       eyebrow: 'For Funding and Institutional Partners',
-      title: 'Support the establishment of a serious Namibian institution.',
+      title: 'Support the establishment of a lasting Namibian institution.',
       body: 'Donors, development finance institutions, public skills funds, and academic partners are welcome to register interest in supporting the institution during its establishment phase. No funding is claimed. No partnership is announced until verified.',
       primary: { label: 'Submit funding enquiry', modal: 'partner-funding' as const },
       secondary: null,

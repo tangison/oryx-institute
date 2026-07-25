@@ -12,7 +12,7 @@ export function PathwaysDetailSection() {
       id: 'classroom',
       label: 'Classroom learning',
       body:
-        'Classroom learning at Oryx Institute will be structured, focused, and disciplined. Small cohorts. Minimal, warm classrooms. Trainers who combine teaching with current workplace practice. Every classroom module feeds into assessment and progression.',
+        'Classroom learning at Oryx Institute will be structured, focused, and methodical. Small cohorts. Minimal, warm classrooms. Trainers who combine teaching with current workplace practice. Every classroom module feeds into assessment and progression.',
       cta: null,
     },
     {

@@ -18,7 +18,7 @@ const config: Record<
     eyebrow: 'For Employers',
     title: 'Employer Enquiry',
     intro:
-      'Recruit trained staff, host WIL learners, or contribute to programme design. Tell us about your organisation and what you need. We will respond to serious enquiries.',
+      'Recruit trained staff, host WIL learners, or contribute to programme design. Tell us about your organisation and what you need. We will respond to genuine enquiries.',
     submitLabel: 'Submit Employer Enquiry',
     showOrganisation: true,
     showRole: true,
@@ -58,7 +58,7 @@ const config: Record<
     eyebrow: 'For Funding and Institutional Partners',
     title: 'Funding and Partnership Enquiry',
     intro:
-      'Support the establishment of a serious Namibian institution. Donors, development finance institutions, public skills funds, and academic partners are welcome to register interest.',
+      'Support the establishment of a lasting Namibian institution. Donors, development finance institutions, public skills funds, and academic partners are welcome to register interest.',
     submitLabel: 'Submit Funding Enquiry',
     showOrganisation: true,
     showRole: true,
@@ -68,7 +68,7 @@ const config: Record<
     eyebrow: 'Contact',
     title: 'Contact Oryx Institute',
     intro:
-      'Submit an enquiry. Prospective learners, employers, partners, and research clients are all welcome. We will respond to serious enquiries.',
+      'Submit an enquiry. Prospective learners, employers, partners, and research clients are all welcome. We will respond to genuine enquiries.',
     submitLabel: 'Send Message',
     showOrganisation: false,
     showRole: false,

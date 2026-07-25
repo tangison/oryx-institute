@@ -61,6 +61,7 @@ export function OryxLogo({
   // Run animation once on first page load only
   useEffect(() => {
     if (!animate) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- animation completion state on mount
       setAnimDone(true);
       return;
     }
@@ -73,6 +74,7 @@ export function OryxLogo({
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- legitimate browser API detection on mount
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);

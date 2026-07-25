@@ -5,6 +5,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { Breadcrumbs, BackLink } from '@/components/site/back-link';
 import { Section } from '@/components/site/section';
 import { programmes, schools } from '@/lib/content';
+import { organizationLd, courseLd, breadcrumbLd, combineLd } from '@/lib/structured-data';
 
 export function generateStaticParams() {
   return programmes.map((p) => ({ slug: p.slug }));
@@ -41,6 +42,18 @@ export default async function ProgrammePage({
 
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: combineLd([
+          organizationLd(),
+          courseLd(programme),
+          breadcrumbLd([
+            { name: 'Home', url: 'https://oryxinstitute.org' },
+            { name: 'Programmes', url: 'https://oryxinstitute.org/programmes' },
+            { name: programme.name, url: `https://oryxinstitute.org/programmes/${programme.slug}` },
+          ]),
+        ]) }}
+      />
       <Section tone="cream" className="pt-28 md:pt-36 pb-0">
         <div className="container-oryx">
           <Breadcrumbs
@@ -175,6 +188,7 @@ export default async function ProgrammePage({
       {relatedProgrammes.length > 0 && (
         <Section tone="cream">
           <p className="eyebrow mb-4">Related programmes</p>
+          <h2 className="font-display text-2xl font-medium mb-6">Other programmes in {programme.schoolName}</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-border)]">
             {relatedProgrammes.map((p) => (
               <li key={p.slug} className="bg-white">

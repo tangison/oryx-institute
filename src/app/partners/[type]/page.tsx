@@ -4,6 +4,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { Breadcrumbs, BackLink } from '@/components/site/back-link';
 import { Section } from '@/components/site/section';
 import { EnquiryForm, type EnquiryType } from '@/components/site/forms/enquiry-form';
+import { organizationLd, breadcrumbLd, combineLd } from '@/lib/structured-data';
 
 const partnerTypes: Record<string, {
   type: EnquiryType;
@@ -79,6 +80,17 @@ export default async function PartnerTypePage({
 
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: combineLd([
+          organizationLd(),
+          breadcrumbLd([
+            { name: 'Home', url: 'https://oryxinstitute.org' },
+            { name: 'Partners', url: 'https://oryxinstitute.org/partners' },
+            { name: config.title, url: `https://oryxinstitute.org/partners/${type}` },
+          ]),
+        ]) }}
+      />
       <Section tone="cream" className="pt-28 md:pt-36 pb-0">
         <div className="container-oryx">
           <Breadcrumbs

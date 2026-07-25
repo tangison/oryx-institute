@@ -103,6 +103,36 @@ export function videoLd() {
   };
 }
 
+/** FAQPage schema — FAQ page */
+export function faqLd(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/** BreadcrumbList schema — detail pages */
+export function breadcrumbLd(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 /**
  * Combine multiple LD blocks into a single script tag contents.
  * Usage: <script type="application/ld+json">{combineLd([...blocks])}</script>

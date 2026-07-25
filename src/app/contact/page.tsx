@@ -41,11 +41,11 @@ export default function ContactPage() {
                 <span className="font-display text-[var(--color-brand-maroon)] shrink-0">03</span>
                 <span>If you are an employer, partner, or research client, please use the relevant partner enquiry form for a faster response:</span>
                 <ul className="mt-2 ml-4 space-y-1 text-sm">
-                  <li><Link href="/partners/employers" className="text-[var(--color-brand-maroon)] hover:underline">Employers</Link> — recruit trained staff, host WIL learners</li>
-                  <li><Link href="/partners/wil" className="text-[var(--color-brand-maroon)] hover:underline">WIL Partners</Link> — work-integrated learning placements</li>
-                  <li><Link href="/partners/corporate" className="text-[var(--color-brand-maroon)] hover:underline">Corporate Training</Link> — commission training for your team</li>
-                  <li><Link href="/partners/research" className="text-[var(--color-brand-maroon)] hover:underline">Research & Advisory</Link> — collaborate on commissioned research</li>
-                  <li><Link href="/partners/funding" className="text-[var(--color-brand-maroon)] hover:underline">Funding & Institutional</Link> — support institutional establishment</li>
+                  <li><Link href="/partners/employers" className="text-[var(--color-brand-maroon)] hover:underline">Employers</Link>: recruit trained staff, host WIL learners</li>
+                  <li><Link href="/partners/wil" className="text-[var(--color-brand-maroon)] hover:underline">WIL Partners</Link>: work-integrated learning placements</li>
+                  <li><Link href="/partners/corporate" className="text-[var(--color-brand-maroon)] hover:underline">Corporate Training</Link>: commission training for your team</li>
+                  <li><Link href="/partners/research" className="text-[var(--color-brand-maroon)] hover:underline">Research & Advisory</Link>: collaborate on commissioned research</li>
+                  <li><Link href="/partners/funding" className="text-[var(--color-brand-maroon)] hover:underline">Funding & Institutional</Link>: support institutional establishment</li>
                 </ul>
               </li>
               <li className="flex gap-3">

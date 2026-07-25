@@ -5,6 +5,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { BackLink, Breadcrumbs } from '@/components/site/back-link';
 import { Section } from '@/components/site/section';
 import { schools, programmes, type SchoolSlug } from '@/lib/content';
+import { organizationLd, breadcrumbLd, combineLd } from '@/lib/structured-data';
 
 export function generateStaticParams() {
   return schools.map((s) => ({ slug: s.slug }));
@@ -39,6 +40,17 @@ export default async function SchoolPage({
 
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: combineLd([
+          organizationLd(),
+          breadcrumbLd([
+            { name: 'Home', url: 'https://oryxinstitute.org' },
+            { name: 'Schools', url: 'https://oryxinstitute.org/schools' },
+            { name: school.shortName, url: `https://oryxinstitute.org/schools/${school.slug}` },
+          ]),
+        ]) }}
+      />
       <Section tone="cream" className="pt-28 md:pt-36 pb-0">
         <div className="container-oryx">
           <Breadcrumbs
