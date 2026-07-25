@@ -24,7 +24,7 @@ const CAROUSEL_VIDEOS: CarouselVideo[] = [
     mp4: '/hero/oryx-campus.mp4',
     poster: '/hero/oryx-campus-poster.jpg',
     title: 'The Campus',
-    description: 'A glimpse of the spaces where learning will take shape: corridors, arches, and the quiet architecture of serious vocational training.'
+    description: 'A glimpse of the spaces where learning will take shape: corridors, arches, and the quiet architecture of rigorous vocational training.'
   },
   {
     webm: '/hero/oryx-campus-reverse.webm',
@@ -38,7 +38,7 @@ const CAROUSEL_VIDEOS: CarouselVideo[] = [
     mp4: '/hero/oryx-campus-kenburns.mp4',
     poster: '/hero/oryx-campus-kenburns-poster.jpg',
     title: 'Where Namibia Learns',
-    description: 'Arched corridors and windowed halls: the built environment of a vocational institution shaped by Namibia's realities.'
+    description: "Arched corridors and windowed halls: the built environment of a vocational institution shaped by Namibia's realities."
   },
 ];
 
@@ -63,6 +63,7 @@ export function VideoCarousel() {
   // Detect reduced-motion preference
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- legitimate browser API detection on mount
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);

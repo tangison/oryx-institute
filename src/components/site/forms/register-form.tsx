@@ -135,7 +135,7 @@ export function RegisterForm() {
       </button>
       <FormStatus state={state} />
       <p className="mt-3 text-xs text-[var(--muted-foreground)]/80">
-        Your enquiry has been recorded. Oryx Institute is being established and will respond to serious enquiries when able. You will not receive an automatic reply.
+        Your enquiry has been recorded. Oryx Institute is being established and will respond to genuine enquiries when able. You will not receive an automatic reply.
       </p>
     </form>
   );

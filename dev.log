@@ -44,3 +44,54 @@ https://nextjs.org/telemetry
  GET / 200 in 270ms (compile: 72ms, proxy.ts: 3ms, render: 195ms)
  GET / 200 in 75ms (compile: 2ms, proxy.ts: 3ms, render: 70ms)
 ✓ Compiled in 135ms
+ GET / 200 in 313ms (compile: 62ms, proxy.ts: 4ms, render: 248ms)
+ GET / 200 in 308ms (compile: 238ms, proxy.ts: 4ms, render: 66ms)
+ GET / 200 in 75ms (compile: 3ms, proxy.ts: 4ms, render: 68ms)
+ GET / 200 in 64ms (compile: 2ms, proxy.ts: 3ms, render: 59ms)
+✓ Compiled in 119ms
+✓ Compiled in 136ms
+ GET / 200 in 246ms (compile: 59ms, proxy.ts: 3ms, render: 185ms)
+ GET / 200 in 71ms (compile: 3ms, proxy.ts: 4ms, render: 64ms)
+⨯ ./src/app/page.tsx:6:1
+Module not found: Can't resolve '@/components/site/client-home-sections'
+[0m [90m 4 |[39m [36mimport[39m { [33mEditorialHero[39m } [36mfrom[39m [32m'@/components/site/editorial-hero'[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { websiteLd[33m,[39m videoLd[33m,[39m combineLd } [36mfrom[39m [32m'@/lib/structured-data'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mClientHomeSections[39m } [36mfrom[39m [32m'@/components/site/client-home-sections'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m
+ [90m 8 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {
+ [90m 9 |[39m   title[33m:[39m [32m'Oryx Institute — Vocational Training in Windhoek, Namibia'[39m[33m,[39m[0m
+
+Import map: aliased to relative './src/components/site/client-home-sections' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/page.tsx:6:1
+Module not found: Can't resolve '@/components/site/client-home-sections'
+[0m [90m 4 |[39m [36mimport[39m { [33mEditorialHero[39m } [36mfrom[39m [32m'@/components/site/editorial-hero'[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { websiteLd[33m,[39m videoLd[33m,[39m combineLd } [36mfrom[39m [32m'@/lib/structured-data'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mClientHomeSections[39m } [36mfrom[39m [32m'@/components/site/client-home-sections'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m
+ [90m 8 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {
+ [90m 9 |[39m   title[33m:[39m [32m'Oryx Institute — Vocational Training in Windhoek, Namibia'[39m[33m,[39m[0m
+
+Import map: aliased to relative './src/components/site/client-home-sections' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 170ms
+ GET / 200 in 442ms (compile: 159ms, proxy.ts: 4ms, render: 279ms)
+ GET / 200 in 92ms (compile: 3ms, proxy.ts: 3ms, render: 86ms)
+✓ Compiled in 145ms
+✓ Compiled in 154ms
+Persisting failed: Unable to write SST file 00000353.sst
+
+Caused by:
+    No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)

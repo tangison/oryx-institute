@@ -74,7 +74,7 @@ export function FaqSection() {
                 Have a different question?
               </h3>
               <p className="mt-3 text-sm text-[var(--muted-foreground)]">
-                Submit a question or contact the institution directly. We will respond to serious
+                Submit a question or contact the institution directly. We will respond to genuine
                 enquiries.
               </p>
               <button onClick={() => open('contact')} className="mt-6 btn-primary w-full justify-center">

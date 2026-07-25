@@ -3,6 +3,7 @@ import { SiteHeader } from '@/components/site/header';
 import { SiteFooter } from '@/components/site/footer';
 import { EditorialHero } from '@/components/site/editorial-hero';
 import { websiteLd, videoLd, combineLd } from '@/lib/structured-data';
+import { ClientHomeSections } from '@/components/site/client-home-sections';
 
 export const metadata: Metadata = {
   title: 'Oryx Institute — Vocational Training in Windhoek, Namibia',
@@ -24,18 +25,9 @@ export default function Home() {
         <section id="hero" aria-labelledby="hero-heading">
           <EditorialHero />
         </section>
-        {/* Animated sections loaded as client component */}
         <ClientHomeSections />
       </main>
       <SiteFooter />
     </>
   );
-}
-
-// Client component boundary — all motion hooks run only on client
-function ClientHomeSections() {
-  // This will be imported from animated-home.tsx which is 'use client'
-  // but we need to avoid SSR prerendering issues
-  const { AnimatedHomeContent } = require('@/components/site/animated-home');
-  return <AnimatedHomeContent />;
 }
