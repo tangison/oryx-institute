@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: 'Sitemap',
   description: 'A complete map of the Oryx Institute website. All pages, organised by category.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/site-map' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/site-map' },
 };
 
 export default function SitemapPage() {

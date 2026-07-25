@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description:
     'Five planned schools: Safety, Administration and Commerce, Hospitality and Tourism, Information and Digital Skills, and Future Schools. All subject to approval.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/schools' },
-  openGraph: { url: 'https://oryx-institute.vercel.app/schools' },
 };
 
 export default function SchoolsPage() {

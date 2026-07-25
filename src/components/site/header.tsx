@@ -279,8 +279,7 @@ export function SiteHeader() {
         </div>
 
         {/* Primary nav */}
-        <nav className="pt-6" aria-label="Primary">
-          <p className="eyebrow mb-4">Explore</p>
+        <nav className="pt-6" aria-label="Mobile navigation">
           {primaryNav.map((item) => (
             <Link
               key={item.label}

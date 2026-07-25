@@ -83,11 +83,14 @@ export const metadata: Metadata = {
     images: ["/hero/oryx-loop-poster.jpg"],
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
     googleBot: {
-      index: false,
+      index: true,
       follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   alternates: {

@@ -65,7 +65,6 @@ export async function generateMetadata({
     title: p.title,
     description: p.intro,
     alternates: { canonical: `https://oryx-institute.vercel.app/partners/${type}` },
-    openGraph: { url: `https://oryx-institute.vercel.app/partners/${type}` },
   };
 }
 
