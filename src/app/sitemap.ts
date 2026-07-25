@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { schools, programmes } from '@/lib/content';
+import { glossaryEntries } from '@/lib/glossary';
 
 // TEMP: oryxinstitute.org DNS not yet configured. Use Vercel domain until .na resolves.
 // TODO: Switch back to oryxinstitute.org once DNS is configured.
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/programmes`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/updates`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/founder`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${base}/brand`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
     { url: `${base}/research`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
@@ -46,5 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...schoolRoutes, ...programmeRoutes];
+  const glossaryRoutes: MetadataRoute.Sitemap = glossaryEntries.map((e) => ({
+    url: `${base}/glossary/${e.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...schoolRoutes, ...programmeRoutes, ...glossaryRoutes];
 }
+

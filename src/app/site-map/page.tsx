@@ -4,6 +4,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
 import { schools, programmes, primaryNav, secondaryNav, partnerNav, legalNav } from '@/lib/content';
+import { glossaryEntries } from '@/lib/glossary';
 
 export const metadata: Metadata = {
   title: 'Sitemap',
@@ -112,6 +113,21 @@ export default function SitemapPage() {
               <li><Link href="/research" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Research</Link></li>
               <li><Link href="/updates" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">Updates</Link></li>
               <li><Link href="/faq" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
+          {/* Glossary */}
+          <div>
+            <p className="eyebrow mb-4">Glossary</p>
+            <ul className="space-y-2">
+              <li><Link href="/glossary" className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">All glossary terms</Link></li>
+              {glossaryEntries.map((e) => (
+                <li key={e.slug}>
+                  <Link href={`/glossary/${e.slug}`} className="text-sm hover:text-[var(--color-brand-maroon)] transition-colors">
+                    {e.abbreviation ? `${e.abbreviation} — ${e.term}` : e.term}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
