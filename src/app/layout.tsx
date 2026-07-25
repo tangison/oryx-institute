@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     description:
       "A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, RPL, and work-integrated learning.",
+    url: "https://oryx-institute.vercel.app",
     siteName: "Oryx Institute",
     locale: "en_NA",
     type: "website",

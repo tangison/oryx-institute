@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Accessibility Statement',
   description: 'The accessibility of the Oryx Institute pre-launch website. WCAG 2.2 AA target, known limitations, and how to report issues.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/legal/accessibility' },
+  openGraph: { url: 'https://oryx-institute.vercel.app/legal/accessibility' },
   robots: { index: false, follow: true },
 };
 

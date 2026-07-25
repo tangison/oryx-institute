@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     'The Oryx Institute brand book. Promise, logo, shield, colours, typography, layout, photography, voice, and motion principles.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/brand' },
+  openGraph: { url: 'https://oryx-institute.vercel.app/brand' },
 };
 
 const swatches = [

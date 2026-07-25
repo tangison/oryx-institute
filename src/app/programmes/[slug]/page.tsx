@@ -22,6 +22,7 @@ export async function generateMetadata({
     title: programme.name,
     description: programme.description.slice(0, 160),
     alternates: { canonical: `https://oryx-institute.vercel.app/programmes/${programme.slug}` },
+    openGraph: { url: `https://oryx-institute.vercel.app/programmes/${programme.slug}` },
   };
 }
 

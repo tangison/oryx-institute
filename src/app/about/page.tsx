@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     'Oryx Institute is being developed as a multidisciplinary training, research, and advisory institution rooted in Namibia. Mission, vision, values, and what is being built.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/about' },
+  openGraph: { url: 'https://oryx-institute.vercel.app/about' },
 };
 
 export default function AboutPage() {
