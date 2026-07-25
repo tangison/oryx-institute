@@ -54,7 +54,7 @@ export default function FounderPage() {
             <blockquote className="pl-6 border-l-2 border-[var(--color-brand-maroon)]">
               <p className="font-display text-lg md:text-xl italic leading-snug text-balance">
                 &ldquo;Oryx Institute is being built to give Namibians practical, recognised skills
-                through vocational education rooted in the Namibian landscape. The institution will
+                through vocational education shaped by Namibia's working realities. The institution will
                 train, assess, research, and advise. It will grow carefully. It will not rush. These
                 are intentions stated by the founder.&rdquo;
               </p>
@@ -63,13 +63,13 @@ export default function FounderPage() {
             <div>
               <p className="eyebrow mb-3">Why this institution</p>
               <p className="font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4">
-                A serious institution, built to last.
+                An institution built to last.
               </p>
               <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
                 Oryx Institute is being built to give Namibians practical, recognised skills through
-                vocational education rooted in the Namibian landscape. The institution will train,
+                vocational education shaped by Namibia's working realities. The institution will train,
                 assess, research, and advise. It will grow carefully. It will not rush. These are
-                intentions stated by the founder. The work of building a serious institution is slow,
+                intentions stated by the founder. The work of building a lasting institution is slow,
                 and the founder has chosen to share the institution's progress through verified
                 updates rather than promises.
               </p>
@@ -79,7 +79,7 @@ export default function FounderPage() {
               <p className="eyebrow mb-3">Contact</p>
               <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty mb-4">
                 Investors, partners, and institutional contacts are welcome to reach out. Use the
-                contact form for serious enquiries.
+                contact form for genuine enquiries.
               </p>
               <Link href="/contact" className="btn-primary">
                 Contact

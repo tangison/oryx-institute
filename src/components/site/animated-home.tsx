@@ -81,7 +81,7 @@ export function AnimatedHomeContent() {
               </h2>
               <p className="eyebrow text-[var(--color-brand-cream)] mb-5">From the founder</p>
               <p className="font-display normal-case text-lg md:text-xl leading-[1.35] tracking-[0.01em] text-[var(--color-brand-cream)] text-balance">
-                Quiet, disciplined, and rooted in the Namibian landscape.
+                Quiet, rigorous, and shaped by Namibia's working realities.
               </p>
               <Link href="/about" className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-cream)] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-[gap] duration-200">
                 Read the full vision <span aria-hidden="true">→</span>

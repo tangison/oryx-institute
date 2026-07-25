@@ -56,7 +56,7 @@ export default function FaqPage() {
         <div className="mt-12 bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] p-8 md:p-12">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-3">Still have questions?</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
-            Use the contact form. We will respond to serious enquiries.
+            Use the contact form. We will respond to genuine enquiries.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact" className="btn-primary">Contact</Link>

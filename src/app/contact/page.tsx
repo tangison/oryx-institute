@@ -7,7 +7,7 @@ import { ContactForm } from '@/components/site/forms/contact-form';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact Oryx Institute. Prospective learners, employers, partners, and research clients are welcome. We will respond to serious enquiries.',
+  description: 'Contact Oryx Institute. Prospective learners, employers, partners, and research clients are welcome. We will respond to genuine enquiries.',
   alternates: { canonical: 'https://oryxinstitute.org/contact' },
 };
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
       <ImagePageHeader
         eyebrow="Contact"
         title="Contact Oryx Institute."
-        lede="Prospective learners, employers, partners, and research clients are welcome. We will respond to serious enquiries."
+        lede="Prospective learners, employers, partners, and research clients are welcome. We will respond to genuine enquiries."
         image="/images/campus/building-entrance.webp"
         alt="A modern campus building entrance with warm stone and glass facade."
       />
@@ -31,7 +31,7 @@ export default function ContactPage() {
             <ul className="space-y-4 text-[var(--muted-foreground)] leading-relaxed">
               <li className="flex gap-3">
                 <span className="font-display text-[var(--color-brand-maroon)] shrink-0">01</span>
-                <span>The institution is being established. We will respond to serious enquiries when we are able.</span>
+                <span>The institution is being established. We will respond to genuine enquiries when we are able.</span>
               </li>
               <li className="flex gap-3">
                 <span className="font-display text-[var(--color-brand-maroon)] shrink-0">02</span>

@@ -36,7 +36,7 @@ export function FounderSection() {
             <blockquote className="mt-10 pl-6 border-l-2 border-[var(--color-brand-maroon)]">
               <p className="font-display text-xl md:text-2xl font-medium italic leading-snug text-balance">
                 &ldquo;Oryx Institute is being built to give Namibians practical, recognised skills
-                through vocational education rooted in the Namibian landscape.&rdquo;
+                through vocational education shaped by Namibia's working realities.&rdquo;
               </p>
               <footer className="mt-4 text-sm text-[var(--muted-foreground)]">
                 Tangi Iigonda, Founder

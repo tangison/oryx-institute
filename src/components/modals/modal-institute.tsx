@@ -32,8 +32,8 @@ export function InstituteModal() {
             To give Namibians practical, recognised skills.
           </p>
           <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            Oryx Institute will deliver vocational education that is disciplined, practical, and
-            rooted in the Namibian landscape. It will train, assess, research, and advise across
+            Oryx Institute will deliver vocational education that is rigorous, practical, and
+            shaped by Namibia's working realities. It will train, assess, research, and advise across
             multiple disciplines. It will serve learners, employers, and the wider Namibian economy.
             These are intentions. They are not yet achievements.
           </p>
@@ -42,10 +42,10 @@ export function InstituteModal() {
         <section>
           <p className="eyebrow mb-3">Vision</p>
           <p className="font-display text-xl md:text-2xl font-medium leading-tight text-balance mb-4">
-            A serious institution, built to last.
+            An institution built to last.
           </p>
           <p className="text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            Oryx Institute intends to become a recognised Namibian institution known for discipline,
+            Oryx Institute intends to become a recognised Namibian institution known for rigour,
             restraint, and honest work. It will grow carefully, not quickly. It will add schools,
             programmes, and services as the institution proves its capacity. No timeline is claimed.
           </p>
