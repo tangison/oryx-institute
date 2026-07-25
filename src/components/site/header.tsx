@@ -456,7 +456,7 @@ export function SiteHeader() {
           {/* Logo — compact lockup */}
           <OryxLogo variant="light" size="mobile" linked />
 
-          {/* Menu button — Collins-style: clean three lines, no border, no box */}
+          {/* Menu button — Collins-style premium: two lines only */}
           <button
             ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}
@@ -469,17 +469,18 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+            <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true">
               {menuOpen ? (
+                /* Close: two diagonal lines forming a cross */
                 <>
-                  <path d="M1 1L21 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                  <path d="M21 1L1 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M1 1L21 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M21 1L1 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                 </>
               ) : (
+                /* Open: two horizontal lines — premium Collins style */
                 <>
                   <path d="M0 1.5H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                  <path d="M0 7H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                  <path d="M0 12.5H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  <path d="M0 8.5H22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                 </>
               )}
             </svg>
@@ -515,9 +516,9 @@ export function SiteHeader() {
             )}
             aria-label="Close navigation"
           >
-            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
-              <path d="M1 1L21 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M21 1L1 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true">
+              <path d="M1 1L21 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M21 1L1 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
           </button>
         </div>
