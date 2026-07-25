@@ -273,7 +273,6 @@ export function OryxLogo({
       <Link
         href="/"
         className={cn('inline-flex items-center', className)}
-        aria-label="Oryx Institute — home"
         passHref
       >
         {logoContent}

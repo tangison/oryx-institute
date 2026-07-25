@@ -64,12 +64,14 @@ export const metadata: Metadata = {
     siteName: "Oryx Institute",
     locale: "en_NA",
     type: "website",
+    images: [{ url: "/hero/oryx-loop-poster.jpg", width: 1920, height: 1080, alt: "Oryx Institute — vocational training in Windhoek, Namibia" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     description:
       "A multidisciplinary vocational education and training institution being established in Windhoek.",
+    images: ["/hero/oryx-loop-poster.jpg"],
   },
   robots: {
     index: false,

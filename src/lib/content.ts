@@ -138,9 +138,9 @@ export const schools: School[] = [
     status: "Planned",
     image: "/images/schools/hospitality-01.webp",
     alt: "A service bell and a set of guest keys arranged on a wooden counter.",
-    caption: "Hospitality, guiding, and tourism for one of Africa's strongest visitor markets.",
+    caption: "Hospitality, guiding, and tourism for a substantial visitor market in southern Africa.",
     blurb:
-      "Hospitality operations, tour guiding, and food and beverage service. For one of Africa's strongest visitor markets.",
+      "Hospitality operations, tour guiding, and food and beverage service. For a substantial visitor market in southern Africa.",
     detail: {
       what:
         "The School of Hospitality and Tourism is planned to deliver training in food and beverage service, front-of-house operations, housekeeping supervision, tour guiding, and visitor experience. Programmes will combine classroom learning with practical service drills and supervised workplace placement in hospitality venues.",
@@ -504,7 +504,7 @@ export const faqs: FaqItem[] = [
     category: "Programmes",
     question: "What programmes are offered?",
     answer:
-      "Programmes are planned across five schools: Safety, Administration and Commerce, Hospitality and Tourism, Information and Digital Skills, and Future Schools. Every programme is planned and subject to approval. Browse the programme browser on this page for the current planned catalogue.",
+      "Programmes are planned across five schools: Safety, Administration and Commerce, Hospitality and Tourism, Information and Digital Skills, and Future Schools. Every programme is planned and subject to approval. Browse the programme catalogue on the Programmes page.",
   },
   {
     slug: "are-programmes-accredited",
