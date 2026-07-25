@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Oryx Institute handles your data on this website. Pre-launch version.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/legal/privacy' },
+  openGraph: { url: 'https://oryx-institute.vercel.app/legal/privacy' },
   robots: { index: false, follow: true },
 };
 

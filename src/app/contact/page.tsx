@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description: 'Contact Oryx Institute. Prospective learners, employers, partners, and research clients are welcome. We will respond to serious enquiries.',
   alternates: { canonical: 'https://oryx-institute.vercel.app/contact' },
+  openGraph: { url: 'https://oryx-institute.vercel.app/contact' },
 };
 
 export default function ContactPage() {
