@@ -166,7 +166,7 @@ export default function BrandPage() {
             <p className="eyebrow mb-3">Shapes</p>
             <p className="font-display text-2xl">0 px radius</p>
             <p className="text-sm text-[var(--muted-foreground)] mt-3 leading-relaxed">
-              1 px borders. No shadows. Floating navigation excepted. Sharp corners throughout.
+              1 px borders. Near-zero shadows (header and dropdown only). Sharp corners throughout.
             </p>
           </li>
         </ul>
