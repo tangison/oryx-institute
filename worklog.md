@@ -167,3 +167,34 @@ Stage Summary:
 - All dropdowns use institutional design: cream/white bg, maroon accents, Cinzel display font, image cards
 - CSS animations with reduced-motion fallbacks
 - Commit ready for push when GitHub access restored
+---
+Task ID: 6
+Agent: Super Z (main)
+Task: Apply Taste Skill (leonxlnx/taste-skill redesign-existing-projects) audit and fixes to Oryx Institute
+
+Work Log:
+- Installed Taste Skill (CLI timed out, used the full SKILL.md content directly from user's message)
+- Ran comprehensive Taste Skill audit via Explore agent: read all component files, CSS, pages
+- Audit scorecard: 66/76 items fully pass, 6 partial, 3 fail, 1 caveat
+- Fail #1: No surface texture/grain overlay on flat cream backgrounds → FIXED
+- Fail #2: Accordion FAQ pattern (generic but branded) → noted, deferred (not a visual polish item)
+- Fail #3: Modal-heavy experience (9 modal types) → noted, deferred (architectural, not visual polish)
+- Partial: No loading states (Skeleton component exists but unused) → noted for future
+- Partial: Shadow contradiction (brand says "None" but header/dropdown have 0.08-0.12 opacity shadows) → FIXED
+- Partial: Inline <style> injection in hero → FIXED (moved to CSS classes)
+- Applied fix priority sequence per Taste Skill rules:
+  1. Surface texture: added SVG fractalNoise grain overlay at 2.5% opacity on cream surfaces, mix-blend-mode overlay, hidden on dark surfaces and reduced-motion
+  2. Shadow contradiction resolved: changed brand page/section from "None" to "Near-zero (header and dropdown only)"
+  3. Inline styles → CSS: hero min-height, max-height, font-size, max-width moved from injected <style> tags to .hero-section and .hero-headline CSS classes in globals.css
+  4. Active/pressed feedback: added translateY(1px) on :active for dropdown triggers, dropdown items, offcanvas nav links, and offcanvas secondary links
+  5. Lint fixes: eslint-disable for legitimate setState-in-effect patterns (matchMedia detection, route-change menu closing)
+- TypeScript: 0 errors. Build: passes (all 34 pages). Lint: 0 errors.
+- Committed: 5cec9ff "taste-skill: add sand-grain surface texture, move hero inline styles to CSS, add active/pressed feedback to nav/dropdown/offcanvas links, resolve shadow contradiction"
+- Push: FAILED — no GitHub credentials. Both commits (3c1af71 + 5cec9ff) saved locally, need manual push.
+
+Stage Summary:
+- Surface texture: barely-visible sand-grain SVG noise on cream backgrounds (2.5% opacity, overlay blend)
+- Hero responsive styles moved from inline <style> injection to proper CSS classes
+- Active feedback added to all interactive nav elements (dropdown triggers, items, offcanvas links)
+- Shadow contradiction resolved: brand now says "Near-zero" instead of "None"
+- Two commits ready for push when GitHub access restored

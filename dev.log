@@ -1,6 +1,6 @@
 ▲ Next.js 16.1.3 (Turbopack)
 - Local:         http://localhost:3000
-- Network:       http://21.0.18.227:3000
+- Network:       http://21.0.20.58:3000
 - Environments: .env
 
 ✓ Starting...
@@ -10,11 +10,13 @@ You can learn more, including how to opt-out if you'd not like to participate in
 https://nextjs.org/telemetry
 
 ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-✓ Ready in 952ms
+✓ Ready in 1104ms
 ○ Compiling / ...
- GET / 200 in 4.9s (compile: 4.4s, proxy.ts: 80ms, render: 324ms)
- GET / 200 in 72ms (compile: 4ms, proxy.ts: 5ms, render: 64ms)
- GET / 200 in 53ms (compile: 3ms, proxy.ts: 3ms, render: 48ms)
-✓ Compiled in 289ms
- GET / 200 in 328ms (compile: 99ms, proxy.ts: 3ms, render: 226ms)
- GET / 200 in 354ms (compile: 148ms, proxy.ts: 4ms, render: 201ms)
+ GET / 200 in 5.0s (compile: 4.6s, proxy.ts: 60ms, render: 324ms)
+ GET / 200 in 5.1s (compile: 4.6s, proxy.ts: 58ms, render: 435ms)
+ GET / 200 in 62ms (compile: 3ms, proxy.ts: 4ms, render: 55ms)
+ GET / 200 in 53ms (compile: 2ms, proxy.ts: 3ms, render: 48ms)
+ GET / 200 in 122ms (compile: 7ms, proxy.ts: 9ms, render: 107ms)
+ GET / 200 in 74ms (compile: 3ms, proxy.ts: 3ms, render: 68ms)
+ GET / 200 in 79ms (compile: 3ms, proxy.ts: 4ms, render: 73ms)
+✓ Compiled in 143ms
