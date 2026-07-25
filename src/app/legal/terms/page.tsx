@@ -7,7 +7,7 @@ import { Section } from '@/components/site/section';
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description: 'Terms governing your use of the Oryx Institute website. Pre-launch version.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/legal/terms' },
+  alternates: { canonical: 'https://oryxinstitute.org/legal/terms' },
   robots: { index: false, follow: true },
 };
 

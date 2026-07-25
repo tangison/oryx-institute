@@ -8,7 +8,7 @@ import { schools, programmes, primaryNav, secondaryNav, partnerNav, legalNav } f
 export const metadata: Metadata = {
   title: 'Sitemap',
   description: 'A complete map of the Oryx Institute website. All pages, organised by category.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/site-map' },
+  alternates: { canonical: 'https://oryxinstitute.org/site-map' },
 };
 
 export default function SitemapPage() {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Updates',
   description:
     'Institutional updates from Oryx Institute. The institution is being established. Updates will be published as milestones are reached.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/updates' },
+  alternates: { canonical: 'https://oryxinstitute.org/updates' },
 };
 
 export default function UpdatesPage() {

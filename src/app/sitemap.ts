@@ -1,11 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { schools, programmes } from '@/lib/content';
 
-// TEMP: oryxinstitute.na DNS not yet configured. Use Vercel domain until .na resolves.
-// TODO: Switch back to oryxinstitute.na once DNS is configured.
+// TEMP: oryxinstitute.org DNS not yet configured. Use Vercel domain until .na resolves.
+// TODO: Switch back to oryxinstitute.org once DNS is configured.
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://oryx-institute.vercel.app';
+  const base = 'https://oryxinstitute.org';
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

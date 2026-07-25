@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Brand',
   description:
     'The Oryx Institute brand book. Promise, logo, shield, colours, typography, layout, photography, voice, and motion principles.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/brand' },
+  alternates: { canonical: 'https://oryxinstitute.org/brand' },
 };
 
 const swatches = [

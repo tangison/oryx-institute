@@ -21,7 +21,7 @@ import type { NextRequest } from 'next/server';
  *
  * Canonical-domain note:
  *   The site currently deploys to oryx-institute.vercel.app (Vercel subdomain).
- *   The future permanent domain will be oryxinstitute.na once DNS is configured.
+ *   The future permanent domain will be oryxinstitute.org once DNS is configured.
  *   When switching, update CSP connect-src/frame-src domains accordingly.
  */
 

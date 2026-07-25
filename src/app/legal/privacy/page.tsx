@@ -7,7 +7,7 @@ import { Section } from '@/components/site/section';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Oryx Institute handles your data on this website. Pre-launch version.',
-  alternates: { canonical: 'https://oryx-institute.vercel.app/legal/privacy' },
+  alternates: { canonical: 'https://oryxinstitute.org/legal/privacy' },
   robots: { index: false, follow: true },
 };
 
