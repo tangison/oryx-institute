@@ -141,8 +141,8 @@ export function EnquiryModal({ type }: { type: EnquiryType }) {
 
           {/* Honeypot */}
           <div className="hidden" aria-hidden="true">
-            <label htmlFor={`enq-website-${type}`}>Website (leave empty)</label>
-            <input id={`enq-website-${type}`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+            <label htmlFor={`enq-website-${type}`} aria-hidden="true">Website (leave empty)</label>
+            <input id={`enq-website-${type}`} name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" readOnly />
           </div>
 
           <button type="submit" className="btn-primary w-full justify-center">

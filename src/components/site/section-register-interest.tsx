@@ -179,8 +179,8 @@ function RegisterInterestForm() {
 
       {/* Honeypot */}
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="ri-website">Website (leave empty)</label>
-        <input id="ri-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="ri-website" aria-hidden="true">Website (leave empty)</label>
+        <input id="ri-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" readOnly />
       </div>
 
       <button type="submit" className="mt-6 btn-primary w-full justify-center">
