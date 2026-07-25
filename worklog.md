@@ -108,3 +108,34 @@ Stage Summary:
 - Landmark label conflicts resolved
 - OG metadata inheritance corrected
 - 4 commits pushed: d4205b9 → 1915609 → 5d6497d → 4e5f376
+---
+Task ID: domain-migration-motion-ui
+Agent: Main Agent
+Task: Domain migration (.na → .org), motion system, Collins-style nav icon, ultra-minimal mobile footer, remove duplicate CTA
+
+Work Log:
+- Fixed domain: oryxinstitute.na and oryx-institute.vercel.app → oryxinstitute.org across 24 source files
+- Updated metadataBase, all canonical URLs, CSP origins, robots, sitemap to oryxinstitute.org
+- Removed duplicate CTA strip from footer (homepage section already has Register Interest)
+- Created ultra-minimalistic mobile footer: logo + tagline + email + legal + copyright only (no nav columns, no image)
+- Desktop footer retains full editorial layout
+- Changed nav menu icon from square-bordered 2-line box to Collins-style clean 3-line hamburger (no border, no box)
+- Close button in offcanvas also uses matching clean X style
+- Added "Made by Tangison Studio" linked credit in footer
+- Created motion system (src/lib/motion.ts):
+  - useScrollReveal: CSS+IntersectionObserver fade-in+slide-up (no external dependency)
+  - useStaggerReveal: CSS stagger for grid/list children
+  - useSectionFade: GSAP ScrollTrigger parallax (lazy-loaded)
+  - animeTimeline: Anime.js v3 timeline choreography (lazy-loaded)
+  - All motion respects prefers-reduced-motion
+  - Fixed useCallback at module scope (root cause of SSR Invalid hook call)
+- Created animated-home.tsx client component wrapping all homepage sections with scroll reveals
+- Created reveal-section.tsx wrapper components
+- Installed animejs@3.2.2 and gsap@3.15.0 + @gsap/react@2.1.2
+
+Build passes. Pushed as commit 45caa28. Deployed to Vercel.
+
+Verified:
+- Canonical URLs: https://oryxinstitute.org ✓
+- Security headers present ✓
+- Mobile and desktop screenshots captured ✓
