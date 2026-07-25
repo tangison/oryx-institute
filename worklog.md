@@ -139,3 +139,31 @@ Verified:
 - Canonical URLs: https://oryxinstitute.org ✓
 - Security headers present ✓
 - Mobile and desktop screenshots captured ✓
+---
+Task ID: 5
+Agent: Super Z (main)
+Task: Enhance desktop navigation with rich dropdown mega-menus, advanced imagery offcanvas, hide skip-to-content
+
+Work Log:
+- Inspected workspace: read header.tsx, footer.tsx, content.ts, globals.css, page-shell.tsx, animated-home.tsx
+- Cataloged all image assets: schools (18 images), campus (10), programmes (6), research (6), brand (4), partners (2)
+- Designed dropdown menu data model: DropdownMenuData with featured image column + section items with image cards
+- Created 4 dropdown menus: Schools (5 school items with images), Programmes (2 sections: by-school + pathways), Partners (6 partner sub-links), Research (3 items with archival image)
+- Implemented hover-activated mega-dropdowns with 150ms leave delay for usability
+- Added keyboard support: Enter/Space/ArrowDown to open, Escape to close, click-outside close
+- Built dropdown panel CSS: featured image column (220px, 3:4 aspect), content columns, section dividers, image cards (64x48px), animations
+- Enhanced offcanvas mobile panel: larger school cards (72x54px images), school shortName + caption, campus accent image, editorial layout
+- Converted skip-link to clip-path hidden pattern: invisible until Tab focus, then fixed top-left maroon button (WCAG 2.2 AA compliant)
+- Fixed lint: merged two route-change useEffects into one with prevPathname guard, added eslint-disable for legitimate setState in effect
+- TypeScript check: passed (zero errors)
+- Build: passed (all 34 pages prerendered)
+- Committed: 3c1af71 "feat: add rich dropdown mega-menus with imagery, enhance offcanvas with larger school cards and campus accent, hide skip-to-content until focused"
+- Push: FAILED — no GitHub credentials available in container. Commit saved locally, needs manual push.
+
+Stage Summary:
+- Desktop nav now has rich dropdown mega-menus for Schools, Programmes, Partners, Research with featured imagery
+- Mobile offcanvas enhanced with larger school image cards, captions, campus accent image
+- Skip-to-content link is now invisible until keyboard focus (no longer "annoying")
+- All dropdowns use institutional design: cream/white bg, maroon accents, Cinzel display font, image cards
+- CSS animations with reduced-motion fallbacks
+- Commit ready for push when GitHub access restored
