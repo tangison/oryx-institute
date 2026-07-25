@@ -80,7 +80,7 @@ export function BrandSection() {
               </div>
               <div className="bg-[var(--color-brand-ink)] p-6">
                 <p className="eyebrow text-[var(--color-brand-cream)]/60 mb-2">Shadows</p>
-                <p className="font-display text-lg">None</p>
+                <p className="font-display text-lg">Near-zero</p>
               </div>
             </div>
           </div>

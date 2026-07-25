@@ -33,9 +33,11 @@ export function EditorialHero() {
   const heroRef = useRef<HTMLElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Detect reduced-motion preference
+  // Detect reduced-motion preference — must run as effect since
+  // matchMedia is a browser API unavailable during SSR.
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- initial media-query detection requires reading browser state on mount
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);
@@ -69,18 +71,8 @@ export function EditorialHero() {
     <section
       ref={heroRef}
       aria-labelledby="hero-heading"
-      className="relative w-full overflow-hidden bg-[var(--color-brand-ink)]"
-      style={{ minHeight: '78svh', maxHeight: '860px' }}
+      className="relative w-full overflow-hidden bg-[var(--color-brand-ink)] hero-section"
     >
-      {/* Responsive height override for larger viewports */}
-      <style>{`
-        @media (min-width: 768px) { 
-          [aria-labelledby="hero-heading"] { min-height: 82svh !important; } 
-        }
-        @media (min-width: 1024px) { 
-          [aria-labelledby="hero-heading"] { min-height: 88svh !important; max-height: 980px !important; } 
-        }
-      `}</style>
 
       {/* Layer 1 — still poster (LCP element, permanent fallback) */}
       <img
@@ -134,25 +126,11 @@ export function EditorialHero() {
       <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32 flex flex-col items-start justify-end min-h-[inherit]">
         <h1
           id="hero-heading"
-          className="font-display uppercase text-[var(--color-brand-cream)] font-medium leading-[1.02] tracking-[0.04em] hero-headline-shadow"
-          style={{
-            fontSize: 'clamp(2.35rem, 11vw, 3.15rem)',
-            maxWidth: '12ch',
-          }}
+          className="font-display uppercase text-[var(--color-brand-cream)] font-medium leading-[1.02] tracking-[0.04em] hero-headline-shadow hero-headline"
         >
           Education.<br />
           Skills. Impact.
         </h1>
-
-        {/* Desktop size override */}
-        <style>{`
-          @media (min-width: 768px) {
-            #hero-heading {
-              font-size: clamp(3.5rem, 6vw, 4.75rem) !important;
-              max-width: 14ch !important;
-            }
-          }
-        `}</style>
 
         <p className="mt-6 max-w-xl text-base md:text-[1.0625rem] text-[var(--color-brand-cream)] leading-[1.6] text-pretty hero-body-shadow">
           A vocational education and training institution being established in Windhoek, Namibia.
