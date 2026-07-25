@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: school.name,
     description: school.blurb,
-    alternates: { canonical: `https://oryxinstitute.na/schools/${school.slug}` },
+    alternates: { canonical: `https://oryx-institute.vercel.app/schools/${school.slug}` },
   };
 }
 

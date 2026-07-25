@@ -465,7 +465,7 @@
   .input-oryx:hover {
     border-color: var(--color-text-muted);
   }
-  .input-oryx:focus {
+  .input-oryx:focus-visible {
     outline: none;
     border-color: var(--color-brand-maroon);
     box-shadow: inset 0 0 0 1px var(--color-brand-maroon);
@@ -576,6 +576,15 @@
     top: 0;
   }
 
+  /* Vercel guidelines: touch-action, tap highlight, scroll-margin-top */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  [id] {
+    scroll-margin-top: 100px; /* accounts for floating header height */
+  }
+
   /* Modal dialog */
   .modal-backdrop {
     position: fixed;
@@ -584,11 +593,13 @@
     backdrop-filter: blur(2px);
     z-index: 90;
   }
+  /* Modal panel — overscroll containment */
   .modal-panel {
     position: fixed;
     inset: 0;
     z-index: 100;
     overflow-y: auto;
+    overscroll-behavior: contain;
     pointer-events: none;
   }
   .modal-panel > .modal-inner {
@@ -750,10 +761,14 @@
     background-color: var(--color-brand-cream);
     z-index: calc(var(--z-offcanvas) + 1);
     overflow-y: auto;
+    overscroll-behavior: contain; /* Vercel guidelines: prevent scroll chaining in modals */
     transform: translateX(100%);
     transition: transform var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1);
     border-left: 1px solid var(--color-border);
     padding: 88px 24px 32px;
+    padding-top: max(88px, env(safe-area-inset-top, 88px));
+    padding-right: max(24px, env(safe-area-inset-right, 24px));
+    padding-bottom: max(32px, env(safe-area-inset-bottom, 32px));
   }
   .offcanvas-panel.is-open {
     transform: translateX(0);

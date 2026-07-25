@@ -40,7 +40,7 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="ri-email" className="label-oryx">Email <span aria-hidden="true">*</span></label>
-          <input id="ri-email" name="email" type="email" required className="input-oryx" autoComplete="email" value={form.email} onChange={(e) => update('email', e.target.value)} />
+          <input id="ri-email" name="email" type="email" required className="input-oryx" autoComplete="email" spellCheck={false} value={form.email} onChange={(e) => update('email', e.target.value)} />
           <FieldError error={state.errors.email} />
         </div>
         <div>
@@ -50,12 +50,12 @@ export function RegisterForm() {
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="ri-region" className="label-oryx">Region or town <span aria-hidden="true">*</span></label>
-          <input id="ri-region" name="region" type="text" required className="input-oryx" placeholder="e.g. Khomas, Windhoek" value={form.region} onChange={(e) => update('region', e.target.value)} />
+          <input id="ri-region" name="region" type="text" required className="input-oryx" placeholder="e.g. Khomas, Windhoek…" value={form.region} onChange={(e) => update('region', e.target.value)} />
           <FieldError error={state.errors.region} />
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="ri-programme" className="label-oryx">Programme of interest <span aria-hidden="true">*</span></label>
-          <select id="ri-programme" name="programme" required className="input-oryx" value={form.programme} onChange={(e) => update('programme', e.target.value)}>
+          <select id="ri-programme" name="programme" required className="input-oryx" autoComplete="off" value={form.programme} onChange={(e) => update('programme', e.target.value)}>
             <option value="" disabled>Select a programme</option>
             <optgroup label="By programme">
               {programmes.map((p) => (<option key={p.slug} value={p.slug}>{p.name}</option>))}
@@ -75,7 +75,7 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="ri-education" className="label-oryx">Current education level (optional)</label>
-          <select id="ri-education" name="educationLevel" className="input-oryx" value={form.educationLevel} onChange={(e) => update('educationLevel', e.target.value)}>
+          <select id="ri-education" name="educationLevel" className="input-oryx" autoComplete="off" value={form.educationLevel} onChange={(e) => update('educationLevel', e.target.value)}>
             <option value="">Select</option>
             <option value="primary">Primary completed</option>
             <option value="junior">Junior secondary</option>
@@ -88,7 +88,7 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="ri-employment" className="label-oryx">Employment status (optional)</label>
-          <select id="ri-employment" name="employmentStatus" className="input-oryx" value={form.employmentStatus} onChange={(e) => update('employmentStatus', e.target.value)}>
+          <select id="ri-employment" name="employmentStatus" className="input-oryx" autoComplete="off" value={form.employmentStatus} onChange={(e) => update('employmentStatus', e.target.value)}>
             <option value="">Select</option>
             <option value="unemployed">Unemployed, seeking work</option>
             <option value="working">Working, seeking formal qualification</option>
@@ -99,7 +99,7 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="ri-rpl" className="label-oryx">Interest in RPL (optional)</label>
-          <select id="ri-rpl" name="rplInterest" className="input-oryx" value={form.rplInterest} onChange={(e) => update('rplInterest', e.target.value)}>
+          <select id="ri-rpl" name="rplInterest" className="input-oryx" autoComplete="off" value={form.rplInterest} onChange={(e) => update('rplInterest', e.target.value)}>
             <option value="yes">Yes, I have workplace experience</option>
             <option value="no">No</option>
             <option value="unsure">Not sure</option>
@@ -107,7 +107,7 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="ri-schedule" className="label-oryx">Preferred schedule (optional)</label>
-          <select id="ri-schedule" name="preferredSchedule" className="input-oryx" value={form.preferredSchedule} onChange={(e) => update('preferredSchedule', e.target.value)}>
+          <select id="ri-schedule" name="preferredSchedule" className="input-oryx" autoComplete="off" value={form.preferredSchedule} onChange={(e) => update('preferredSchedule', e.target.value)}>
             <option value="">Select</option>
             <option value="fulltime">Full-time</option>
             <option value="parttime-day">Part-time, day</option>
@@ -128,14 +128,14 @@ export function RegisterForm() {
       </div>
       <div className="hidden" aria-hidden="true">
         <label htmlFor="ri-website" className="sr-only" aria-hidden="true">Website</label>
-        <input id="ri-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} />
+        <input id="ri-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
       </div>
       <button type="submit" disabled={state.status === 'submitting'} className="mt-6 btn-primary w-full justify-center">
         {state.status === 'submitting' ? 'Submitting...' : 'Submit Registration'}
       </button>
       <FormStatus state={state} />
       <p className="mt-3 text-xs text-[var(--muted-foreground)]/80">
-        Submitted locally. This is a pre-launch demo. No data is sent to a server. We will be in touch when the institution is established.
+        Your enquiry has been recorded. Oryx Institute is being established and will respond to serious enquiries when able. You will not receive an automatic reply.
       </p>
     </form>
   );

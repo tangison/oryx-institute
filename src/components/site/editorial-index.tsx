@@ -40,7 +40,7 @@ export function EditorialIndex({ entries }: { entries: IndexEntry[] }) {
             </span>
             <span
               aria-hidden="true"
-              className="self-center text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-maroon)] group-hover:translate-x-1 transition-all duration-200"
+              className="self-center text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-maroon)] group-hover:translate-x-1 transition-[color,transform] duration-200"
             >
               <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
                 <path

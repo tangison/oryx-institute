@@ -36,7 +36,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="c-email" className="label-oryx">Email <span aria-hidden="true">*</span></label>
-          <input id="c-email" name="email" type="email" required className="input-oryx" autoComplete="email" value={form.email} onChange={(e) => update('email', e.target.value)} />
+          <input id="c-email" name="email" type="email" required className="input-oryx" autoComplete="email" spellCheck={false} value={form.email} onChange={(e) => update('email', e.target.value)} />
           <FieldError error={state.errors.email} />
         </div>
         <div className="sm:col-span-2">
@@ -46,7 +46,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="c-message" className="label-oryx">Message <span aria-hidden="true">*</span></label>
-        <textarea id="c-message" name="message" required rows={6} className="input-oryx resize-y" placeholder="Tell us what you need." value={form.message} onChange={(e) => update('message', e.target.value)} />
+        <textarea id="c-message" name="message" required rows={6} className="input-oryx resize-y" placeholder="Tell us what you need…" value={form.message} onChange={(e) => update('message', e.target.value)} />
         <FieldError error={state.errors.message} />
       </div>
       <div>
@@ -58,14 +58,14 @@ export function ContactForm() {
       </div>
       <div className="hidden" aria-hidden="true">
         <label htmlFor="c-website" className="sr-only" aria-hidden="true">Website</label>
-        <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} />
+        <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
       </div>
       <button type="submit" disabled={state.status === 'submitting'} className="btn-primary w-full justify-center">
         {state.status === 'submitting' ? 'Sending...' : 'Send Message'}
       </button>
       <FormStatus state={state} />
       <p className="text-xs text-[var(--muted-foreground)]/80">
-        Submitted locally. This is a pre-launch demo. No data is sent to a server. We will be in touch when the institution is established.
+        Your enquiry has been recorded. Oryx Institute is being established and will respond to serious enquiries when able. You will not receive an automatic reply.
       </p>
     </form>
   );

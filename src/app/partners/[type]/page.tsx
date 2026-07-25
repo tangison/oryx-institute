@@ -64,7 +64,7 @@ export async function generateMetadata({
   return {
     title: p.title,
     description: p.intro,
-    alternates: { canonical: `https://oryxinstitute.na/partners/${type}` },
+    alternates: { canonical: `https://oryx-institute.vercel.app/partners/${type}` },
   };
 }
 

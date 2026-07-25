@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Founder',
   description:
     'Tangi Iigonda is the founder of Oryx Institute. The institution is being established in Windhoek under his direction.',
-  alternates: { canonical: 'https://oryxinstitute.na/founder' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/founder' },
 };
 
 export default function FounderPage() {

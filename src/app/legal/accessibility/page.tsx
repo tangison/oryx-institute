@@ -7,7 +7,7 @@ import { Section } from '@/components/site/section';
 export const metadata: Metadata = {
   title: 'Accessibility Statement',
   description: 'The accessibility of the Oryx Institute pre-launch website. WCAG 2.2 AA target, known limitations, and how to report issues.',
-  alternates: { canonical: 'https://oryxinstitute.na/legal/accessibility' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/legal/accessibility' },
   robots: { index: false, follow: true },
 };
 
