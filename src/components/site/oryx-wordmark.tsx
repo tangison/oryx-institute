@@ -50,10 +50,9 @@ export function OryxWordmark({
   const isDark = variant === 'dark';
   const isSmall = size === 'small';
 
-  // "Approved Oryx orange" — sampled from the authoritative supplied wordmark.
-  // The logo PNG uses #7A0F1E family; this IS the brand's approved primary
-  // that the wordmark spec calls "Oryx orange".
-  const oryxOrange = 'var(--color-brand-orange)';
+  // ORYX colour: black (#171717) on light backgrounds, cream (#FFF8EF) on dark backgrounds.
+  // Per brand spec, ORYX is NOT maroon/orange on light backgrounds — ὄρυξ is the maroon element.
+  const oryxColor = isDark ? '#FFF8EF' : '#171717';
 
   // Companion text colours per spec
   const companionColor = isDark ? '#FFFFFF' : '#171717';
@@ -96,11 +95,12 @@ export function OryxWordmark({
         {/* Line 1: ORYX + ὄρυξ */}
         <div className="flex items-baseline gap-2">
           <span
-            className="font-display uppercase text-[var(--color-brand-orange)] leading-none"
+            className="font-display uppercase leading-none"
             style={{
               fontSize: size === 'default' ? 'clamp(1.125rem, 1.5vw, 1.5rem)' : 'clamp(0.875rem, 1.2vw, 1.125rem)',
               letterSpacing: '0.16em',
-              fontWeight: 500,
+              fontWeight: 600,
+              color: oryxColor,
             }}
           >
             ORYX
@@ -123,7 +123,7 @@ export function OryxWordmark({
           style={{
             fontSize: size === 'default' ? 'clamp(0.6875rem, 1.17vw + 0.2rem, 1.17rem)' : 'clamp(0.6875rem, 0.8vw + 0.2rem, 0.6875rem)',
             letterSpacing: '0.22em',
-            fontWeight: 400,
+            fontWeight: 600,
             color: instituteColor,
             // Optical left-alignment with ORYX's first vertical stroke
             // Slight negative margin to compensate for serif O shape
