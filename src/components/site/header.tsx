@@ -1,45 +1,147 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { primaryNav, secondaryNav } from '@/lib/content';
+import { primaryNav, secondaryNav, partnerNav, schools } from '@/lib/content';
 import { cn } from '@/lib/utils';
 import { OryxLogo } from '@/components/site/oryx-logo';
 
 /**
- * SiteHeader — Compact floating institutional navigation.
+ * SiteHeader — Floating institutional navigation with rich dropdown mega-menus.
  *
- * Per the brand spec:
- *   - Desktop: 80-88px height, cream bg (rgba(255,248,239,0.97)), floating with
- *     top offset 16px, side margin clamp(24px,4vw,64px), border + shadow.
- *   - Mobile: 68-72px height, cream bg #FFF8EF, compact logo lockup + 44×44 menu button.
- *   - Scroll state: cream bg with 200ms transition.
- *   - Logo always uses OryxLogo light-background lockup (never changes between scroll states).
- *   - CTA: one restrained maroon action, not oversized outlined box.
+ * Desktop: Floating cream pill with dropdown panels for Schools, Programmes,
+ * Partners. Each panel features imagery cards + sub-links. Hover-activated
+ * with keyboard support (Enter/Space to open, Escape to close).
  *
- * Offcanvas:
- *   - Right-side panel, width min(92vw, 420px)
- *   - Cream bg, 100dvh, padding 88px 24px 32px
- *   - Focus trap, Escape close, body scroll lock
- *   - Editorial school rows with small images
- *   - 44px minimum touch targets
+ * Mobile: Full-width header + advanced offcanvas panel with large imagery
+ * cards for schools, editorial layout, and secondary nav.
+ *
+ * Skip-to-content: Visually hidden until focused (WCAG 2.2 AA compliant).
  */
 
-const offcanvasSchools = [
-  { href: '/schools/safety', image: '/images/schools/safety-01.webp', label: 'School of Safety' },
-  { href: '/schools/administration', image: '/images/schools/administration-01.webp', label: 'Administration & Commerce' },
-  { href: '/schools/hospitality', image: '/images/schools/hospitality-01.webp', label: 'Hospitality & Tourism' },
-  { href: '/schools/digital', image: '/images/schools/digital-01.webp', label: 'Information & Digital Skills' },
-  { href: '/schools/future', image: '/images/campus/arched-corridor.webp', label: 'Future Schools' },
+/* ─── Dropdown menu data ─── */
+
+interface DropdownItem {
+  href: string;
+  label: string;
+  image?: string;
+  alt?: string;
+  caption?: string;
+}
+
+interface DropdownSection {
+  eyebrow: string;
+  items: DropdownItem[];
+}
+
+interface DropdownMenuData {
+  triggerLabel: string;
+  triggerHref: string;
+  sections: DropdownSection[];
+  featuredImage?: string;
+  featuredAlt?: string;
+  featuredCaption?: string;
+}
+
+const dropdownMenus: DropdownMenuData[] = [
+  {
+    triggerLabel: 'Schools',
+    triggerHref: '/schools',
+    featuredImage: '/images/campus/arched-corridor.webp',
+    featuredAlt: 'Architectural arched corridor detail.',
+    featuredCaption: 'Five schools, each built for the work Namibia needs.',
+    sections: [
+      {
+        eyebrow: 'Schools',
+        items: schools.map((s) => ({
+          href: `/schools/${s.slug}`,
+          label: s.name,
+          image: s.image,
+          alt: s.alt,
+          caption: s.caption,
+        })),
+      },
+    ],
+  },
+  {
+    triggerLabel: 'Programmes',
+    triggerHref: '/programmes',
+    featuredImage: '/images/programmes/clipboards-notebooks.webp',
+    featuredAlt: 'Clipboards and notebooks arranged on a counter.',
+    featuredCaption: 'Planned programmes across four schools. Subject to accreditation.',
+    sections: [
+      {
+        eyebrow: 'By School',
+        items: [
+          { href: '/schools/safety', label: 'Safety programmes', image: '/images/schools/safety-01.webp', alt: 'Safety tools and equipment portfolio.' },
+          { href: '/schools/administration', label: 'Administration programmes', image: '/images/schools/administration-01.webp', alt: 'Notebook with pen and stone on concrete.' },
+          { href: '/schools/hospitality', label: 'Hospitality programmes', image: '/images/schools/hospitality-01.webp', alt: 'Service bell and guest keys on wooden counter.' },
+          { href: '/schools/digital', label: 'Digital programmes', image: '/images/schools/digital-01.webp', alt: 'Fountain pen on open notebook near binders.' },
+        ],
+      },
+      {
+        eyebrow: 'Pathways',
+        items: [
+          { href: '/programmes', label: 'All programmes' },
+          { href: '/faq', label: 'RPL and admissions FAQ' },
+          { href: '/register', label: 'Register interest' },
+        ],
+      },
+    ],
+  },
+  {
+    triggerLabel: 'Partners',
+    triggerHref: '/partners',
+    featuredImage: '/images/partners/collaboration.webp',
+    featuredAlt: 'Collaboration scene.',
+    featuredCaption: 'Employer, WIL, research, and funding partnerships.',
+    sections: [
+      {
+        eyebrow: 'Partner with us',
+        items: partnerNav.map((p) => ({
+          href: p.href,
+          label: p.label,
+        })),
+      },
+    ],
+  },
+  {
+    triggerLabel: 'Research',
+    triggerHref: '/research',
+    featuredImage: '/images/research/leather-books.webp',
+    featuredAlt: 'Stack of well-worn technical books on warm wooden desk.',
+    featuredCaption: 'Research, archival practice, and advisory work.',
+    sections: [
+      {
+        eyebrow: 'Research',
+        items: [
+          { href: '/research', label: 'Research overview', image: '/images/research/archival-calipers.webp', alt: 'Archival calipers on worn surface.' },
+          { href: '/partners/research', label: 'Research partnership' },
+          { href: '/faq', label: 'Research FAQ' },
+        ],
+      },
+    ],
+  },
 ];
+
+/* ─── Flat nav items (no dropdown) ─── */
+const flatNavItems = primaryNav.filter(
+  (item) => !dropdownMenus.some((dm) => dm.triggerLabel === item.label)
+);
+
+/* ─── Component ─── */
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   // Scroll detection
   useEffect(() => {
@@ -55,8 +157,18 @@ export function SiteHeader() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  // Close offcanvas on route change
-  useEffect(() => { setMenuOpen(false); }, [pathname]);
+  // Close menus on route change — necessary UX: menus must close when
+  // the user navigates. The lint rule flags setState-in-effect, but this
+  // is a standard Next.js pattern for closing menus on pathname change.
+  const prevPathname = useRef(pathname);
+  useEffect(() => {
+    if (prevPathname.current !== pathname) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- closing menus on navigation is intentional UX
+      setMenuOpen(false);
+      setActiveDropdown(null);
+      prevPathname.current = pathname;
+    }
+  }, [pathname]);
 
   // Focus trap inside offcanvas
   useEffect(() => {
@@ -88,7 +200,6 @@ export function SiteHeader() {
       }
     };
     document.addEventListener('keydown', trap);
-    // Move focus into panel
     first?.focus();
 
     return () => document.removeEventListener('keydown', trap);
@@ -103,10 +214,48 @@ export function SiteHeader() {
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
+  // Dropdown hover/keyboard handlers
+  const handleDropdownEnter = useCallback((label: string) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setActiveDropdown(label);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  }, []);
+
+  const handleDropdownKeyDown = useCallback((e: React.KeyboardEvent, label: string) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === label ? null : label);
+    }
+    if (e.key === 'Escape') {
+      setActiveDropdown(null);
+    }
+  }, [activeDropdown]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!activeDropdown) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [activeDropdown]);
+
   return (
     <>
       {/* ─── Floating header ─── */}
       <header
+        ref={headerRef}
         className={cn(
           'fixed z-[var(--z-header)] transition-[background-color,box-shadow] duration-200',
           // Desktop: floating with margins
@@ -115,7 +264,6 @@ export function SiteHeader() {
           'top-0 inset-x-0',
         )}
         style={{
-          // Desktop floating margins per spec
           ...(scrolled || pathname !== '/'
             ? {
                 background: 'rgba(255, 248, 239, 0.97)',
@@ -146,24 +294,139 @@ export function SiteHeader() {
               <OryxLogo variant="light" size="desktop" linked />
             </div>
 
-            {/* Desktop nav — concise, evenly spaced */}
-            <nav className="flex items-center gap-8 pr-6" aria-label="Primary">
-              {primaryNav.map((item) => {
+            {/* Desktop nav with dropdowns */}
+            <nav className="flex items-center gap-1 pr-2" aria-label="Primary">
+              {/* Dropdown triggers */}
+              {dropdownMenus.map((menu) => {
+                const isActive = pathname === menu.triggerHref || pathname.startsWith(menu.triggerHref + '/');
+                const isOpen = activeDropdown === menu.triggerLabel;
+                return (
+                  <div
+                    key={menu.triggerLabel}
+                    className="relative"
+                    onMouseEnter={() => handleDropdownEnter(menu.triggerLabel)}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <Link
+                      href={menu.triggerHref}
+                      className={cn(
+                        'nav-dropdown-trigger inline-flex items-center gap-1.5 px-4 py-2',
+                        'text-sm font-semibold tracking-[0.06em] transition-colors duration-200',
+                        'text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)]',
+                        isActive && 'text-[var(--color-brand-maroon)]',
+                        isOpen && 'text-[var(--color-brand-maroon)]',
+                      )}
+                      onKeyDown={(e) => handleDropdownKeyDown(e, menu.triggerLabel)}
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                    >
+                      {menu.triggerLabel}
+                      {/* Chevron indicator */}
+                      <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        aria-hidden="true"
+                        className={cn(
+                          'transition-transform duration-200',
+                          isOpen && 'rotate-180',
+                        )}
+                      >
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+
+                    {/* ─── Mega-dropdown panel ─── */}
+                    {isOpen && (
+                      <div
+                        className="nav-dropdown-panel absolute top-full left-0 mt-2"
+                        role="menu"
+                        aria-label={`${menu.triggerLabel} submenu`}
+                      >
+                        <div className="nav-dropdown-inner">
+                          {/* Featured image column */}
+                          {menu.featuredImage && (
+                            <div className="nav-dropdown-featured">
+                              <div className="nav-dropdown-featured-image">
+                                <Image
+                                  src={menu.featuredImage}
+                                  alt={menu.featuredAlt || ''}
+                                  fill
+                                  className="object-cover"
+                                  sizes="240px"
+                                  aria-hidden={!menu.featuredAlt}
+                                />
+                              </div>
+                              {menu.featuredCaption && (
+                                <p className="nav-dropdown-featured-caption">{menu.featuredCaption}</p>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Content columns */}
+                          <div className="nav-dropdown-content">
+                            {menu.sections.map((section) => (
+                              <div key={section.eyebrow} className="nav-dropdown-section">
+                                <p className="nav-dropdown-eyebrow">{section.eyebrow}</p>
+                                <ul className="nav-dropdown-list">
+                                  {section.items.map((item) => (
+                                    <li key={item.href}>
+                                      <Link
+                                        href={item.href}
+                                        className={cn(
+                                          'nav-dropdown-item',
+                                          item.image && 'nav-dropdown-item--with-image',
+                                        )}
+                                        role="menuitem"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        {item.image && (
+                                          <div className="nav-dropdown-item-image">
+                                            <Image
+                                              src={item.image}
+                                              alt={item.alt || ''}
+                                              fill
+                                              className="object-cover"
+                                              sizes="80px"
+                                              aria-hidden={!item.alt}
+                                            />
+                                          </div>
+                                        )}
+                                        <div className="nav-dropdown-item-text">
+                                          <span className="nav-dropdown-item-label">{item.label}</span>
+                                          {item.caption && (
+                                            <span className="nav-dropdown-item-caption">{item.caption}</span>
+                                          )}
+                                        </div>
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+
+              {/* Flat nav items (About, Updates, FAQ) */}
+              {flatNavItems.map((item) => {
                 const active = pathname === item.href || pathname.startsWith(item.href + '/');
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      'text-sm font-semibold tracking-[0.06em] transition-colors duration-200 py-2',
+                      'px-4 py-2 text-sm font-semibold tracking-[0.06em] transition-colors duration-200',
                       'text-[var(--color-brand-ink)] hover:text-[var(--color-brand-maroon)]',
                       active && 'text-[var(--color-brand-maroon)]'
                     )}
                   >
                     {item.label}
-                    {active && (
-                      <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-[var(--color-brand-maroon)]" />
-                    )}
                   </Link>
                 );
               })}
@@ -231,7 +494,7 @@ export function SiteHeader() {
         aria-hidden="true"
       />
 
-      {/* ─── Offcanvas panel ─── */}
+      {/* ─── Offcanvas panel — Advanced with imagery ─── */}
       <div
         ref={panelRef}
         className={cn('offcanvas-panel', menuOpen && 'is-open')}
@@ -239,8 +502,8 @@ export function SiteHeader() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        {/* Panel header — logo + close (at top of padded panel) */}
-        <div className="flex items-center justify-between mb-6">
+        {/* Panel header — logo + close */}
+        <div className="flex items-center justify-between mb-8">
           <OryxLogo variant="light" size="compact" linked={false} />
           <button
             onClick={closeMenu}
@@ -259,32 +522,45 @@ export function SiteHeader() {
           </button>
         </div>
 
-        {/* School editorial rows — alternating image-and-title */}
-        <div className="pt-4">
-          <p className="eyebrow mb-4">Schools</p>
-          <div className="space-y-2">
-            {offcanvasSchools.map((item) => (
+        {/* ─── Schools editorial cards — large imagery ─── */}
+        <div className="pt-2">
+          <p className="eyebrow mb-5">Schools</p>
+          <div className="space-y-3">
+            {schools.map((school) => (
               <Link
-                key={item.href}
-                href={item.href}
-                className="group flex items-center gap-4 min-h-[44px] py-2 border-b border-[var(--color-border-subtle)] transition-colors duration-200 hover:bg-[var(--color-surface-alt)]/40"
+                key={school.slug}
+                href={`/schools/${school.slug}`}
+                className="group flex items-center gap-4 min-h-[44px] py-3 border-b border-[var(--color-border-subtle)] transition-colors duration-200 hover:bg-[var(--color-surface-alt)]/40"
                 onClick={closeMenu}
               >
-                {/* Small image */}
-                <div className="w-[56px] h-[42px] flex-shrink-0 overflow-hidden bg-[var(--color-brand-ink)]">
-                  <img src={item.image} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-200" loading="lazy" />
+                {/* Larger image card */}
+                <div className="w-[72px] h-[54px] flex-shrink-0 overflow-hidden bg-[var(--color-brand-ink)]">
+                  <Image
+                    src={school.image}
+                    alt=""
+                    aria-hidden="true"
+                    width={72}
+                    height={54}
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-200"
+                    loading="lazy"
+                  />
                 </div>
-                {/* Title */}
-                <span className="font-display text-sm uppercase tracking-[0.06em] text-[var(--color-brand-ink)] group-hover:text-[var(--color-brand-maroon)] transition-colors duration-200">
-                  {item.label}
-                </span>
+                {/* Title + caption */}
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-display text-sm uppercase tracking-[0.06em] text-[var(--color-brand-ink)] group-hover:text-[var(--color-brand-maroon)] transition-colors duration-200">
+                    {school.shortName}
+                  </span>
+                  <span className="text-xs text-[var(--color-text-muted)] group-hover:text-[var(--color-text-secondary)] transition-colors duration-200">
+                    {school.caption}
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Primary nav */}
-        <nav className="pt-6" aria-label="Mobile navigation">
+        {/* ─── Primary nav ─── */}
+        <nav className="pt-8" aria-label="Mobile navigation">
           {primaryNav.map((item) => (
             <Link
               key={item.label}
@@ -297,7 +573,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Secondary nav */}
+        {/* ─── Secondary nav ─── */}
         <nav className="pt-6" aria-label="Secondary">
           <p className="eyebrow mb-4">Institute</p>
           {secondaryNav.map((item) => (
@@ -311,6 +587,21 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
+
+        {/* ─── Campus accent image ─── */}
+        <div className="pt-8">
+          <div className="aspect-[3/2] overflow-hidden opacity-70 rounded-none">
+            <Image
+              src="/images/campus/arched-corridor.webp"
+              alt=""
+              aria-hidden="true"
+              width={360}
+              height={240}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
 
         {/* CTA */}
         <div className="pt-8 pb-4 mt-auto">

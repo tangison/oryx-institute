@@ -558,22 +558,38 @@
   }
   .link-arrow:hover { gap: 0.625rem; }
 
-  /* Skip link (DESIGN.md §16) */
+  /* Skip link — visually invisible until focused (WCAG 2.2 AA).
+     Uses clip-path instead of negative positioning so the link
+     never appears in the layout flow or causes scroll jumps. */
   .skip-link {
     position: absolute;
-    top: -100px;
-    left: 0;
+    clip-path: inset(50%);
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
     z-index: 100;
-    padding: 0.75rem 1.25rem;
+    padding: 0;
+    margin: 0;
     background-color: var(--color-brand-maroon);
     color: #FFFFFF;
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
-    transition: top var(--duration-standard) var(--ease-standard);
   }
   .skip-link:focus {
+    clip-path: none;
+    clip: auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+    padding: 0.75rem 1.25rem;
+    position: fixed;
     top: 0;
+    left: 0;
+    z-index: 200;
   }
 
   /* Vercel guidelines: touch-action, tap highlight, scroll-margin-top */
@@ -841,4 +857,198 @@
   .offcanvas-nav-link-secondary {
     transition-duration: 0.001ms !important;
   }
+}
+
+/* =========================================================
+   Desktop mega-dropdown navigation panels
+   ========================================================= */
+
+/* Dropdown trigger chevron */
+.nav-dropdown-trigger svg {
+  display: inline-block;
+}
+
+/* Dropdown panel — positioned below the floating header */
+.nav-dropdown-panel {
+  z-index: 55; /* Above header (50) but below offcanvas (60) */
+}
+
+.nav-dropdown-inner {
+  display: flex;
+  gap: 0;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 40px rgba(23, 23, 23, 0.12), 0 2px 8px rgba(23, 23, 23, 0.06);
+  overflow: hidden;
+  animation: dropdown-appear 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown-inner {
+    animation: none;
+  }
+}
+
+/* Featured image column — left side */
+.nav-dropdown-featured {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  border-right: 1px solid var(--color-border);
+}
+
+.nav-dropdown-featured-image {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-brand-ink);
+}
+
+.nav-dropdown-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  transition: opacity var(--duration-standard) var(--ease-standard);
+}
+
+.nav-dropdown-inner:hover .nav-dropdown-featured-image img {
+  opacity: 1;
+}
+
+.nav-dropdown-featured-caption {
+  padding: 16px;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-brand-ink);
+  letter-spacing: 0.02em;
+  background-color: var(--color-brand-cream);
+}
+
+/* Content columns — right side */
+.nav-dropdown-content {
+  display: flex;
+  gap: 0;
+  padding: 20px 24px 20px 0;
+  min-width: 280px;
+}
+
+.nav-dropdown-section {
+  padding: 0 24px;
+}
+
+.nav-dropdown-section + .nav-dropdown-section {
+  border-left: 1px solid var(--color-border-subtle);
+}
+
+.nav-dropdown-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.nav-dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Dropdown item — standard (no image) */
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  color: var(--color-brand-ink);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.3;
+  transition: color var(--duration-standard) var(--ease-standard),
+              padding-left var(--duration-standard) var(--ease-standard);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.nav-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-item:hover {
+  color: var(--color-brand-maroon);
+  padding-left: 4px;
+}
+
+.nav-dropdown-item:focus-visible {
+  outline: 3px solid var(--color-brand-cream);
+  box-shadow: 0 0 0 5px var(--color-brand-ink);
+  border-radius: 0;
+}
+
+/* Dropdown item — with image card */
+.nav-dropdown-item--with-image {
+  gap: 14px;
+  padding: 8px 0 10px;
+}
+
+.nav-dropdown-item-image {
+  position: relative;
+  width: 64px;
+  height: 48px;
+  overflow: hidden;
+  background-color: var(--color-brand-ink);
+  flex-shrink: 0;
+}
+
+.nav-dropdown-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  transition: opacity var(--duration-standard) var(--ease-standard);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-item-image img {
+  opacity: 1;
+}
+
+.nav-dropdown-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-dropdown-item-label {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.nav-dropdown-item-caption {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+  transition: color var(--duration-standard) var(--ease-standard);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-item-caption {
+  color: var(--color-text-secondary);
 }
