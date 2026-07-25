@@ -117,7 +117,7 @@ export function OryxLogo({
       >
         {/* Wordmark region: x=0, y=35, w=360, h=140 */}
         {/* Line 1: ORYX + ὄρυξ — shared baseline */}
-        {/* ORYX tracking: 0.14em-0.17em, INSTITUTE tracking: 0.20em-0.23em */}
+        {/* ORYX tracking: 0.14em-0.17em, INSTITUTE tracking: 0.19em-0.22em */}
 
         {/* ORYX — primary English name */}
         <text
@@ -126,7 +126,7 @@ export function OryxLogo({
           fill={oryxColor}
           fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
           fontSize="58"
-          fontWeight="500"
+          fontWeight="600"
           letterSpacing="9"
           textLength="270"
           lengthAdjust="spacingAndGlyphs"
@@ -144,6 +144,7 @@ export function OryxLogo({
           fontSize="24"
           fontWeight="400"
           letterSpacing="0"
+          lang="grc"
           style={{ textTransform: 'none', fontVariant: 'normal' }}
         >
           ὄρυξ
@@ -156,7 +157,7 @@ export function OryxLogo({
           fill={instituteColor}
           fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
           fontSize="36"
-          fontWeight="400"
+          fontWeight="600"
           letterSpacing="7.5"
           textLength="360"
           lengthAdjust="spacingAndGlyphs"
@@ -238,7 +239,7 @@ export function OryxLogo({
             <g mask="url(#mask-oryx)">
               <text x="0" y="85" fill={oryxColor}
                 fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
-                fontSize="58" fontWeight="500" letterSpacing="9"
+                fontSize="58" fontWeight="600" letterSpacing="9"
                 textLength="270" lengthAdjust="spacingAndGlyphs">ORYX</text>
             </g>
 
@@ -253,7 +254,7 @@ export function OryxLogo({
             <g mask="url(#mask-institute)">
               <text x="0" y="148" fill={instituteColor}
                 fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
-                fontSize="36" fontWeight="400" letterSpacing="7.5"
+                fontSize="36" fontWeight="600" letterSpacing="7.5"
                 textLength="360" lengthAdjust="spacingAndGlyphs">INSTITUTE</text>
             </g>
 
