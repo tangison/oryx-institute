@@ -8,7 +8,7 @@ import { ContactForm } from '@/components/site/forms/contact-form';
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Contact Oryx Institute. Prospective learners, employers, partners, and research clients are welcome. We will respond to serious enquiries.',
-  alternates: { canonical: 'https://oryxinstitute.na/contact' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/contact' },
 };
 
 export default function ContactPage() {

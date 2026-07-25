@@ -557,15 +557,15 @@ export const primaryNav: { label: string; href: string }[] = [
   { label: "About", href: "/about" },
   { label: "Schools", href: "/schools" },
   { label: "Programmes", href: "/programmes" },
+  { label: "Partners", href: "/partners" },
+  { label: "Research", href: "/research" },
   { label: "Updates", href: "/updates" },
-  { label: "Brand", href: "/brand" },
   { label: "FAQ", href: "/faq" },
 ];
 
 export const secondaryNav: { label: string; href: string }[] = [
   { label: "Founder", href: "/founder" },
-  { label: "Research", href: "/research" },
-  { label: "Partners", href: "/partners" },
+  { label: "Brand", href: "/brand" },
   { label: "Contact", href: "/contact" },
   { label: "Register Interest", href: "/register" },
 ];
@@ -574,8 +574,8 @@ export const partnerNav: { label: string; href: string }[] = [
   { label: "Employer enquiry", href: "/partners/employers" },
   { label: "WIL partner enquiry", href: "/partners/wil" },
   { label: "Corporate training", href: "/partners/corporate" },
-  { label: "Research and advisory", href: "/partners/research" },
-  { label: "Funding and partnership", href: "/partners/funding" },
+  { label: "Research & advisory", href: "/partners/research" },
+  { label: "Funding & partnership", href: "/partners/funding" },
   { label: "Contact", href: "/contact" },
 ];
 

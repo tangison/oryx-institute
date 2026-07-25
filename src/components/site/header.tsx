@@ -31,7 +31,7 @@ const offcanvasSchools = [
   { href: '/schools/administration', image: '/images/schools/administration-01.webp', label: 'Administration & Commerce' },
   { href: '/schools/hospitality', image: '/images/schools/hospitality-01.webp', label: 'Hospitality & Tourism' },
   { href: '/schools/digital', image: '/images/schools/digital-01.webp', label: 'Information & Digital Skills' },
-  { href: '/schools/future', image: '/images/campus/arched-corridor.webp', label: 'Future Skills' },
+  { href: '/schools/future', image: '/images/campus/arched-corridor.webp', label: 'Future Schools' },
 ];
 
 export function SiteHeader() {
@@ -108,7 +108,7 @@ export function SiteHeader() {
       {/* ─── Floating header ─── */}
       <header
         className={cn(
-          'fixed z-[var(--z-header)] transition-all duration-200',
+          'fixed z-[var(--z-header)] transition-[background-color,box-shadow] duration-200',
           // Desktop: floating with margins
           'lg:top-4 lg:inset-x-0',
           // Mobile: full-width

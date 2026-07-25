@@ -4,12 +4,13 @@ import { SiteHeader } from '@/components/site/header';
 import { SiteFooter } from '@/components/site/footer';
 import { EditorialHero } from '@/components/site/editorial-hero';
 import { EditorialIndex } from '@/components/site/editorial-index';
+import { websiteLd, videoLd, combineLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Oryx Institute — Vocational Training in Windhoek, Namibia',
   description:
     'A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, recognition of prior learning, and work-integrated learning.',
-  alternates: { canonical: 'https://oryxinstitute.na' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app' },
 };
 
 // Concise editorial index — reduced entries for tighter pacing
@@ -30,7 +31,7 @@ const indexEntries = [
   {
     number: '03',
     title: 'Programmes',
-    blurb: 'Certificate and diploma programmes, short courses, and three learning pathways.',
+    blurb: 'Certificate programmes, short courses, and three learning pathways.',
     href: '/programmes',
     status: 'Subject to accreditation',
   },
@@ -93,7 +94,7 @@ const schoolShowcase = [
   },
   {
     slug: 'future',
-    name: 'Future Skills',
+    name: 'Future Schools',
     image: '/images/campus/arched-corridor.webp',
     alt: 'Future skills and emerging disciplines.',
     href: '/schools/future',
@@ -104,6 +105,11 @@ export default function Home() {
   return (
     <>
       <a href="#main" className="skip-link">Skip to main content</a>
+      {/* JSON-LD: WebSite + VideoObject schema (homepage only) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: combineLd([websiteLd(), videoLd()]) }}
+      />
       <SiteHeader />
       <main id="main">
 
@@ -132,7 +138,7 @@ export default function Home() {
               </h2>
               <Link
                 href="/schools"
-                className="hidden sm:inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-all duration-200"
+                className="hidden sm:inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-maroon)] border-b border-[var(--color-brand-maroon)] pb-1 hover:gap-3 transition-[gap] duration-200"
               >
                 All Schools
                 <span aria-hidden="true">→</span>
@@ -202,7 +208,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/about"
-                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-cream)] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-all duration-200"
+                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-[var(--color-brand-cream)] border-b border-[var(--color-brand-cream)] pb-1 hover:gap-3 transition-[gap] duration-200"
                 >
                   Read the full vision
                   <span aria-hidden="true">→</span>

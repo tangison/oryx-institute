@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: programme.name,
     description: programme.description.slice(0, 160),
-    alternates: { canonical: `https://oryxinstitute.na/programmes/${programme.slug}` },
+    alternates: { canonical: `https://oryx-institute.vercel.app/programmes/${programme.slug}` },
   };
 }
 

@@ -7,7 +7,7 @@ import { Section } from '@/components/site/section';
 export const metadata: Metadata = {
   title: 'Partners',
   description: 'Partner with Oryx Institute. Employers, WIL partners, corporate training clients, research clients, and funding partners are welcome.',
-  alternates: { canonical: 'https://oryxinstitute.na/partners' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/partners' },
 };
 
 const partnerTypes = [

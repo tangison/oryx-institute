@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Oryx Institute is being developed as a multidisciplinary training, research, and advisory institution rooted in Namibia. Mission, vision, values, and what is being built.',
-  alternates: { canonical: 'https://oryxinstitute.na/about' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/about' },
 };
 
 export default function AboutPage() {

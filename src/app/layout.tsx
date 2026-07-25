@@ -3,6 +3,7 @@ import { Cinzel, Source_Sans_3, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ModalProvider } from "@/lib/modal-context";
+import { organizationLd, combineLd } from "@/lib/structured-data";
 
 // DESIGN.md §7.1: Display face = Trajan Pro 3 (licensed) or Cinzel (open fallback).
 // All-capitals display. Weights 400-700.
@@ -31,8 +32,10 @@ const notoSerif = Noto_Serif({
   display: "swap",
 });
 
+// TEMP: oryxinstitute.na DNS not yet configured. Use Vercel domain until .na resolves.
+// TODO: Switch back to oryxinstitute.na once DNS is configured.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oryxinstitute.na"),
+  metadataBase: new URL("https://oryx-institute.vercel.app"),
   title: {
     default: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     template: "%s — Oryx Institute",
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
     "work-integrated learning Namibia",
     "skills training Windhoek",
   ],
-  authors: [{ name: "Oryx Institute", url: "https://oryxinstitute.na" }],
+  authors: [{ name: "Oryx Institute", url: "https://oryx-institute.vercel.app" }],
   creator: "Oryx Institute",
   publisher: "Oryx Institute",
   icons: {
@@ -60,7 +63,7 @@ export const metadata: Metadata = {
     title: "Oryx Institute — Vocational Training in Windhoek, Namibia",
     description:
       "A multidisciplinary vocational education and training institution being established in Windhoek. Planned schools, programmes, RPL, and work-integrated learning.",
-    url: "https://oryxinstitute.na",
+    url: "https://oryx-institute.vercel.app",
     siteName: "Oryx Institute",
     locale: "en_NA",
     type: "website",
@@ -82,7 +85,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://oryxinstitute.na",
+    canonical: "https://oryx-institute.vercel.app",
+  },
+  other: {
+    // Vercel web design guidelines: theme-color must match page background
+    "theme-color": "#FFF8EF",
   },
 };
 
@@ -96,6 +103,11 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${sourceSans3.variable} ${notoSerif.variable} antialiased bg-background text-foreground font-sans`}
       >
+        {/* JSON-LD: Organization schema on every page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: combineLd([organizationLd()]) }}
+        />
         <ModalProvider>{children}</ModalProvider>
         <Toaster />
       </body>

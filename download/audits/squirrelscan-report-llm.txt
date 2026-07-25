@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.80">
+<site url="https://oryx-institute.vercel.app" crawled="25" date="2026-07-25T06:20:41.943Z"/>
+<score overall="50" grade="F">
+ <group name="SEO" score="51" errors="32" warnings="181"/>
+ <group name="Performance" score="47" errors="26" warnings="30"/>
+ <group name="Security" score="89" errors="0" warnings="8"/>
+ <group name="Agents" score="50" errors="0" warnings="25"/>
+ <cat name="Performance" score="47"/>
+ <cat name="Images" score="45"/>
+ <cat name="Accessibility" score="80"/>
+ <cat name="Crawlability" score="46"/>
+ <cat name="Core SEO" score="48"/>
+ <cat name="Content" score="50"/>
+ <cat name="Agent Experience" score="50"/>
+ <cat name="Social Media" score="45"/>
+ <cat name="Security" score="85"/>
+ <cat name="Video" score="57"/>
+ <cat name="Structured Data" score="44"/>
+ <cat name="E-E-A-T" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Site Integrity" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Links" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="2611" warnings="248" failed="58"/>
+<issues>
+ <category name="Crawlability" group="seo" errors="1" warnings="2">
+  <rule id="crawl/sitemap-domain" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-domain">
+   34 URL(s) point to different domain(s)
+   Pages (5/34): https://oryxinstitute.na/, https://oryxinstitute.na/about, https://oryxinstitute.na/brand, https://oryxinstitute.na/contact, https://oryxinstitute.na/faq
+   Items (5/34):
+    - https://oryxinstitute.na/ [host: oryxinstitute.na]
+    - https://oryxinstitute.na/about [host: oryxinstitute.na]
+    - https://oryxinstitute.na/brand [host: oryxinstitute.na]
+    - https://oryxinstitute.na/contact [host: oryxinstitute.na]
+    - https://oryxinstitute.na/faq [host: oryxinstitute.na]
+  </rule>
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   25 indexable page(s) not in sitemap (100%)
+   Pages (5/25): /, /about, /brand, /contact, /faq
+   Items (5/25):
+    - /
+    - /about
+    - /brand
+    - /contact
+    - /faq
+  </rule>
+  <rule id="crawl/indexability-conflicts" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/indexability-conflicts">
+   25 page(s) allowed in robots.txt but have noindex
+  </rule>
+ </category>
+ <category name="Accessibility" group="seo" errors="6" warnings="30">
+  <rule id="a11y/aria-hidden-focus" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+   2 focusable element(s) inside aria-hidden
+   Pages (5/6): /contact, /register, /partners/corporate, /partners/employers, /partners/research
+   Items (4):
+    - input (self is focusable)
+    - input#c-website
+    - input#e-website
+    - input#ri-website
+  </rule>
+  <rule id="a11y/color-contrast" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+   N potential color contrast issue(s)
+   Pages (5/25): /, /about, /brand, /contact, /faq
+   Items (5/7):
+    - Very light text color: 1 instance(s)
+    - White text (verify background): 1 instance(s)
+    - a with class &quot;text-sm text-[var(--color-text...&quot; may have low contrast
+    - p with class &quot;text-base text-[var(--color-te...&quot; may have low contrast
+    - span with class &quot;font-display text-sm sm:text-b...&quot; may have low contrast
+  </rule>
+  <rule id="a11y/video-captions" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/video-captions">
+   1 video(s) without caption tracks
+   Pages (1): /
+   Items (1):
+    - /hero/oryx-loop.webm
+  </rule>
+  <rule id="a11y/heading-order" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/heading-order">
+   1 heading level skip(s) detected
+   Pages (2): /about, /register
+   Items (1):
+    - H3 after H1
+  </rule>
+  <rule id="a11y/identical-links-same-purpose" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+   1 link text(s) lead to different destinations
+   Pages (2): /partners, /programmes
+   Items (2):
+    - &quot;start enquiry&quot; → 5 different URLs
+    - &quot;view school →&quot; → 5 different URLs
+  </rule>
+ </category>
+ <category name="Legal Compliance" group="security" errors="0" warnings="1">
+  <rule id="legal/subprocessor-disclosure" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/legal/subprocessor-disclosure">
+   No sub-processor / data-processing (DPA) disclosure found
+  </rule>
+ </category>
+ <category name="Agent Experience" group="ai" errors="0" warnings="28">
+  <rule id="ax/agents-md" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/ax/agents-md">
+   No AGENTS.md found — this site publishes llms.txt, so consider an AGENTS.md for coding agents too
+  </rule>
+  <rule id="ax/llms-txt" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/ax/llms-txt">
+   llms.txt format notes: no Markdown links found
+  </rule>
+  <rule id="ax/markdown-response" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/ax/markdown-response">
+   No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+  </rule>
+  <rule id="ax/token-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/ax/token-weight">
+   Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles
+   Pages (5/25): /, /about, /brand, /contact, /faq
+   Items (5/25):
+    - / (~2% of HTML is visible text (~19,730 est. tokens))
+    - /about (~6% of HTML is visible text (~16,721 est. tokens))
+    - /brand (~5% of HTML is visible text (~22,537 est. tokens))
+    - /contact (~4% of HTML is visible text (~13,043 est. tokens))
+    - /faq (~6% of HTML is visible text (~15,304 est. tokens))
+  </rule>
+ </category>
+ <category name="Core SEO" group="seo" errors="0" warnings="51">
+  <rule id="core/meta-title" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-title">
+   Title too short
+   Pages (5/12): /about, /brand, /contact, /faq, /founder
+   Items (5/12):
+    - /about (About — Oryx Institute (22 chars))
+    - /brand (Brand — Oryx Institute (22 chars))
+    - /contact (Contact — Oryx Institute (24 chars))
+    - /faq (FAQ — Oryx Institute (20 chars))
+    - /founder (Founder — Oryx Institute (24 chars))
+  </rule>
+  <rule id="core/meta-description" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+   Description too long; Description too short
+   Pages (5/14): /, /about, /founder, /programmes, /register
+   Items (5/14):
+    - / (A multidisciplinary vocational education and train (186 chars))
+    - /about (Oryx Institute is being developed as a multidiscip (170 chars))
+    - /partners/employers (Recruit trained staff, host WIL learners, or contr (165 chars))
+    - /programmes (A representative planned catalogue across five sch (161 chars))
+    - /research (Applied research and advisory services planned at  (164 chars))
+  </rule>
+  <rule id="core/robots-meta" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/robots-meta">
+   Page is set to noindex
+   Pages (5/25): /, /about, /brand, /contact, /faq
+  </rule>
+ </category>
+ <category name="Security" group="security" errors="0" warnings="8">
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   No Content-Security-Policy header
+  </rule>
+  <rule id="security/x-frame-options" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/x-frame-options">
+   No clickjacking protection
+  </rule>
+  <rule id="security/form-captcha" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/form-captcha">
+   1 public form(s) without CAPTCHA
+   Pages (5/6): /contact, /register, /partners/corporate, /partners/employers, /partners/research
+   Items (1):
+    - form[0]
+  </rule>
+ </category>
+ <category name="Content" group="seo" errors="0" warnings="32">
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   N word(s) may be overused
+   Pages (5/12): /about, /founder, /programmes, /research, /updates
+   Items (5/11):
+    - data (&quot;data&quot; (3.5%)) [count: 15, density: 3.546099290780142]
+    - digital (&quot;digital&quot; (4.6%)) [count: 9, density: 4.568527918781726]
+    - founder (&quot;founder&quot; (3.2%)) [count: 7, density: 3.1963470319634704]
+    - hospitality (&quot;hospitality&quot; (3.5%)) [count: 7, density: 3.535353535353535]
+    - institution (&quot;institution&quot; (3.1%)) [count: 14, density: 3.146067415730337]
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: N words (min N)
+   Pages (5/20): /, /contact, /founder, /partners, /programmes
+   Items (5/20):
+    - / (Thin content: 146 words (min 300))
+    - /contact (Thin content: 201 words (min 300))
+    - /founder (Thin content: 246 words (min 300))
+    - /legal/accessibility (Thin content: 293 words (min 300))
+    - /partners (Thin content: 241 words (min 300))
+  </rule>
+ </category>
+ <category name="Structured Data" group="seo" errors="0" warnings="1">
+  <rule id="schema/video" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/schema/video">
+   Page has video but no VideoObject schema
+   Pages (1): /
+  </rule>
+ </category>
+ <category name="Images" group="seo" errors="25" warnings="39">
+  <rule id="images/alt-text" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/images/alt-text">
+   N image(s) missing alt text
+   Pages (5/31): /, /about, /brand, /contact, /faq
+   Items (5/7):
+    - /hero/oryx-loop-poster.jpg
+    - /images/campus/arched-corridor.webp
+    - /images/campus/arched-corridor.webp
+    - /images/schools/administration-01.webp
+    - /images/schools/digital-01.webp
+  </rule>
+  <rule id="images/offscreen-lazy" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/images/offscreen-lazy">
+   N below-fold image(s) without lazy loading
+   Pages (5/14): /, /about, /brand, /contact, /founder
+   Items (5/17):
+    - administration-01.webp
+    - arched-corridor.webp
+    - blueprint.webp
+    - building-entrance.webp
+    - collaboration.webp
+  </rule>
+  <rule id="images/dimensions" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/images/dimensions">
+   N image(s) missing width/height (causes CLS)
+   Pages (5/45): /, /about, /brand, /contact, /faq
+   Items (5/26):
+    - /hero/oryx-loop-poster.jpg | &lt;img src=&quot;https://oryx-institute.vercel.app/hero/oryx-loop-poster.jpg&quot; alt=&quot;&quot;&gt;
+    - /images/brand/oryx-chalkboard.webp | &lt;img src=&quot;https://oryx-institute.vercel.app/images/brand/oryx-chalkboard.webp&quot; alt=&quot;A hand-drawn oryx shield motif sketched on a dark chalkboard surface.&quot;&gt;
+    - /images/brand/oryx-dune.webp | &lt;img src=&quot;https://oryx-institute.vercel.app/images/brand/oryx-dune.webp&quot; alt=&quot;A lone oryx standing on the crest of a Namibian sand dune.&quot;&gt;
+    - /images/campus/arched-corridor.webp | &lt;img src=&quot;https://oryx-institute.vercel.app/images/campus/arched-corridor.webp&quot; alt=&quot;&quot;&gt;
+    - /images/campus/arched-corridor.webp | &lt;img src=&quot;https://oryx-institute.vercel.app/images/campus/arched-corridor.webp&quot; alt=&quot;Future skills and emerging disciplines.&quot;&gt;
+  </rule>
+ </category>
+ <category name="Performance" group="performance" errors="26" warnings="30">
+  <rule id="perf/cls-hints" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/cls-hints">
+   N image(s) without width/height (CLS risk)
+   Pages (5/25): /, /about, /brand, /contact, /faq
+   Items (5/26):
+    - /hero/oryx-loop-poster.jpg
+    - /images/brand/oryx-chalkboard.webp
+    - /images/brand/oryx-dune.webp
+    - /images/campus/arched-corridor.webp
+    - /images/campus/arched-corridor.webp
+  </rule>
+  <rule id="perf/total-byte-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+   Total tracked resources: 3038KB (heavy page)
+  </rule>
+  <rule id="perf/bad-caching" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/bad-caching">
+   25/25 pages lack a caching freshness lifetime
+   Pages (5): /, /about, /brand, /contact, /faq
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   3 critical request chain(s) found
+   Pages (5/25): /, /about, /brand, /contact, /faq
+   Items (3):
+    - CSS: /_next/static/chunks/29b6acd7a67263b9.css
+    - CSS: /_next/static/chunks/51e0e074c8232fa5.css
+    - JS: /_next/static/chunks/a6dad97d9634a72d.js
+  </rule>
+  <rule id="perf/lazy-above-fold" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lazy-above-fold">
+   N above-fold image(s) with lazy loading
+   Pages (4): /, /founder, /research, /schools
+   Items (5):
+    - /images/campus/student-corridor.webp
+    - /images/research/archival-calipers.webp
+    - /images/schools/administration-01.webp
+    - /images/schools/hospitality-01.webp
+    - /images/schools/safety-01.webp
+  </rule>
+ </category>
+ <category name="Social Media" group="seo" errors="0" warnings="24">
+  <rule id="social/og-url-match" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/social/og-url-match">
+   og:url does not match canonical URL
+   Pages (5/24): /about, /brand, /contact, /faq, /founder
+  </rule>
+ </category>
+ <category name="Video" group="seo" errors="0" warnings="2">
+  <rule id="video/video-schema" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/video/video-schema">
+   Video content without VideoObject schema
+   Pages (1): /
+  </rule>
+  <rule id="video/video-accessible" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/video/video-accessible">
+   No videos have caption tracks
+   Pages (1): /
+  </rule>
+ </category>
+</issues>
+</audit>
+
+

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
@@ -7,7 +8,7 @@ import { RegisterForm } from '@/components/site/forms/register-form';
 export const metadata: Metadata = {
   title: 'Register Interest',
   description: 'Register your interest in Oryx Institute. Tell us what you want to study. We will contact you when admissions open.',
-  alternates: { canonical: 'https://oryxinstitute.na/register' },
+  alternates: { canonical: 'https://oryx-institute.vercel.app/register' },
 };
 
 export default function RegisterPage() {
@@ -27,7 +28,7 @@ export default function RegisterPage() {
             </p>
             <dl className="space-y-6">
               <div className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium">01</dt>
+                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium tabular-nums">01</dt>
                 <dd>
                   <p className="font-display text-base mb-1">Tell us about you</p>
                   <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
@@ -36,16 +37,16 @@ export default function RegisterPage() {
                 </dd>
               </div>
               <div className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium">02</dt>
+                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium tabular-nums">02</dt>
                 <dd>
                   <p className="font-display text-base mb-1">Choose your programme</p>
                   <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-                    Pick from the planned catalogue or write your own interest.
+                    Select from the planned catalogue or indicate a general area of interest.
                   </p>
                 </dd>
               </div>
               <div className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium">03</dt>
+                <dt className="font-display text-3xl text-[var(--color-brand-maroon)] font-medium tabular-nums">03</dt>
                 <dd>
                   <p className="font-display text-base mb-1">We will be in touch</p>
                   <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
@@ -58,7 +59,7 @@ export default function RegisterPage() {
               <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
                 Your data is stored securely and used only to contact you about Oryx Institute. You
                 can ask us to delete your data at any time. See our{' '}
-                <a href="/legal/privacy" className="underline hover:text-[var(--color-brand-maroon)]">Privacy Policy</a>.
+                <Link href="/legal/privacy" className="underline hover:text-[var(--color-brand-maroon)]">Privacy Policy</Link>.
               </p>
             </div>
           </div>
