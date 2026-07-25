@@ -32,8 +32,14 @@ const notoSerif = Noto_Serif({
   display: "swap",
 });
 
-// TEMP: oryxinstitute.na DNS not yet configured. Use Vercel domain until .na resolves.
-// TODO: Switch back to oryxinstitute.na once DNS is configured.
+// DOMAIN DECISION: oryxinstitute.na DNS is not yet configured.
+// The Vercel subdomain (oryx-institute.vercel.app) is the current production URL.
+// This is intentional — the institution is in pre-launch phase and the .na domain
+// will become canonical once DNS records are created and verified.
+// When switching: update metadataBase here + all alternates.canonical across pages +
+// CSP connect-src/frame-src origins in middleware.ts + robots.txt sitemap URLs.
+// The Vercel preview deploys (*.vercel.app) differ from the future custom domain;
+// this is expected and not a bug — preview URLs are for internal review only.
 export const metadata: Metadata = {
   metadataBase: new URL("https://oryx-institute.vercel.app"),
   title: {
