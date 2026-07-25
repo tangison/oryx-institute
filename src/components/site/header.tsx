@@ -29,8 +29,8 @@ import { OryxLogo } from '@/components/site/oryx-logo';
 const offcanvasSchools = [
   { href: '/schools/safety', image: '/images/schools/safety-01.webp', label: 'School of Safety' },
   { href: '/schools/administration', image: '/images/schools/administration-01.webp', label: 'Administration & Commerce' },
-  { href: '/schools/hospitality', image: '/images/schools/hospitality-01.webp', label: 'Hospitality & Service' },
-  { href: '/schools/digital', image: '/images/schools/digital-01.webp', label: 'Digital & Technology' },
+  { href: '/schools/hospitality', image: '/images/schools/hospitality-01.webp', label: 'Hospitality & Tourism' },
+  { href: '/schools/digital', image: '/images/schools/digital-01.webp', label: 'Information & Digital Skills' },
   { href: '/schools/future', image: '/images/campus/arched-corridor.webp', label: 'Future Skills' },
 ];
 

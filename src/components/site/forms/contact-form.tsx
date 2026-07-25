@@ -57,8 +57,8 @@ export function ContactForm() {
         <FieldError error={state.errors.consent} />
       </div>
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="c-website">Website (leave empty)</label>
-        <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => update('website', e.target.value)} />
+        <label htmlFor="c-website" className="sr-only" aria-hidden="true">Website</label>
+        <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} />
       </div>
       <button type="submit" disabled={state.status === 'submitting'} className="btn-primary w-full justify-center">
         {state.status === 'submitting' ? 'Sending...' : 'Send Message'}

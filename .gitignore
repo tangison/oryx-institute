@@ -1,9 +1,4 @@
 skills/
 node_modules/
 .next/
-download/
-upload/
-worklog.md
-*.log
-.env.local
-.vercel
+tool-results/

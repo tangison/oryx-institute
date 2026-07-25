@@ -1,0 +1,64 @@
+# Oryx Institute
+
+> Oryx Institute is a multidisciplinary vocational education and training institution being established in Windhoek, Namibia.
+
+## About
+
+Oryx Institute is being developed to deliver practical, recognised skills through vocational education rooted in the Namibian landscape. The institution will train, assess, research, and advise across five planned schools.
+
+## Status
+
+Pre-launch. Applications are not yet open. No programme is confirmed or accredited.
+
+## Schools
+
+- School of Safety — Occupational safety, site inspection, fire safety, first aid, security practice
+- School of Administration and Commerce — Office administration, bookkeeping, payroll, retail, commerce
+- School of Hospitality and Tourism — Food and beverage service, front-of-house operations, housekeeping, tour guiding, visitor experience
+- School of Information and Digital Skills — Digital literacy, computer hardware repair, workplace productivity, networking
+- Future Schools — Placeholder for disciplines to be confirmed (construction, agriculture, creative industries possible)
+
+## Programmes
+
+Planned programmes across certificate, short course, and blended delivery. Full catalogue at /programmes.
+
+## Pathways
+
+- Classroom learning
+- Recognition of Prior Learning (RPL)
+- Work-integrated learning (WIL)
+
+## Key URLs
+
+- / — Homepage with hero video and institutional overview
+- /about — Vision, mission, values, institutional status
+- /schools — Five planned schools overview and detail pages
+- /programmes — Planned programme catalogue with detail pages
+- /founder — Founder background and statement
+- /research — Planned research and advisory
+- /partners — Partner pathways (employers, WIL, corporate, research, funding)
+- /faq — Frequently asked questions
+- /contact — General contact form
+- /register — Register interest form
+- /brand — Brand book (identity, palette, typography, voice, prohibited language)
+
+## Contact
+
+- Email: contact@oryxinstitute.org
+- Contact form: /contact
+- Partner enquiry: /partners/[type]
+
+## Legal
+
+- Terms: /legal/terms
+- Privacy: /legal/privacy
+- Accessibility: /legal/accessibility
+
+## Brand
+
+- Primary maroon: #7A0F1E
+- Cream: #FFF8EF
+- Ink: #171717
+- Display typeface: Trajan Pro 3 (licensed) / Cinzel (fallback)
+- Body typeface: Source Sans 3
+- Voice: Quiet, restrained, honest. No superlatives, no puffery, no generated crowds.

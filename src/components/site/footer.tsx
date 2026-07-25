@@ -119,7 +119,15 @@ export function SiteFooter() {
                 contact@oryxinstitute.org
               </a>
               <p className="text-xs text-[var(--color-brand-ink)]/40">
-                &copy; {new Date().getFullYear()} Oryx Institute. All rights reserved.
+                &copy; {new Date().getFullYear()} Oryx Institute. All rights reserved.{' '}
+                <a
+                  href="https://studio.tangison.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-brand-ink)]/50 hover:text-[var(--color-brand-maroon)] underline-offset-4 hover:underline transition-colors duration-200"
+                >
+                  Tangison Studio
+                </a>
               </p>
             </div>
           </div>
