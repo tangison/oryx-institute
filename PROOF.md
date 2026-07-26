@@ -121,4 +121,33 @@ All three respect `prefers-reduced-motion: reduce` (elements visible immediately
 
 **Action**: Commit all changes, push to GitHub main branch, verify Vercel auto-deploy.
 
-**Status**: In progress.
+**Status**: Completed. Pushed 8386fcd to GitHub main. Vercel auto-deploy triggered.
+
+---
+
+### Phase: Design specification restoration and route completion (2026-07-27)
+
+**Action**: Full implementation audit against embedded design specification.
+
+**Finding**: DESIGN.md was MISSING from repository. Created from embedded design contract per source_of_truth priority rule.
+
+**Changes applied**:
+1. Created `/DESIGN.md` from embedded design contract (301 lines covering all 18 sections)
+2. Created `/src/app/rpl/page.tsx` — Recognition of Prior Learning pathway page
+3. Created `/src/app/wil/page.tsx` — Work-Integrated Learning pathway page
+4. Created `/src/app/advisory-research/page.tsx` — Oryx Advisory & Research division page
+5. Updated `primaryNav` in content.ts to include RPL and WIL links
+6. Added 3 new routes to sitemap.ts (priority 0.8/0.8/0.7)
+7. Fixed hero headline from "Practical skills. Recognised standards." to "Education. Skills. Impact." per DESIGN.md spec
+8. Verified two-layer focus style already correct (3px outline + 5px box-shadow, cream on light, ink on dark)
+
+**Verification**:
+- TypeScript: `tsc --noEmit` passes with zero errors
+- ESLint: zero warnings
+- Build: `next build` compiles successfully, 50/50 static pages
+- All 3 new routes render correctly: /rpl, /wil, /advisory-research
+- Focus style verified: high-contrast two-layer visible on cream, maroon, black, photography
+- DESIGN.md committed and pushed with commit 8386fcd
+
+**Route inventory now at 23 routes**:
+/, /about, /schools, /schools/[slug], /programmes, /programmes/[slug], /rpl, /wil, /advisory-research, /partners, /partners/[type], /founder, /brand, /research, /contact, /register, /faq, /updates, /glossary, /glossary/[slug], /legal/privacy, /legal/terms, /legal/accessibility, /site-map
