@@ -557,6 +557,8 @@ export const primaryNav: { label: string; href: string }[] = [
   { label: "About", href: "/about" },
   { label: "Schools", href: "/schools" },
   { label: "Programmes", href: "/programmes" },
+  { label: "RPL", href: "/rpl" },
+  { label: "WIL", href: "/wil" },
   { label: "Partners", href: "/partners" },
   { label: "Research", href: "/research" },
   { label: "Updates", href: "/updates" },
@@ -599,7 +601,7 @@ export const heroSlides: {
   {
     image: "/images/brand/oryx-dune.webp",
     alt: "An oryx stands alone on a Namibian dune at sunrise, with a wide pale sky above.",
-    headline: "Practical skills. Recognised standards.",
+    headline: "Education. Skills. Impact.",
     supporting:
       "A multidisciplinary vocational education and training institution being established in Windhoek, Namibia.",
   },
