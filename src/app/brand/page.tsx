@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section, SectionHeader } from '@/components/site/section';
+import { AnimatedSection, AnimatedStagger } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Brand',
@@ -33,6 +34,7 @@ export default function BrandPage() {
       />
 
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-4xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">Promise</p>
           <p className="font-display text-4xl md:text-5xl lg:text-6xl font-medium italic leading-[1.05] tracking-tight text-balance">
@@ -43,6 +45,7 @@ export default function BrandPage() {
             appears only on this page and in approved brand contexts.
           </p>
         </div>
+        </AnimatedSection>
       </Section>
 
       <Section tone="cream">

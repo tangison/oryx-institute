@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection, AnimatedStagger } from '@/components/site/animated-section';
 import { programmes, schools } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function ProgrammesPage() {
       />
 
       <Section tone="cream">
+        <AnimatedStagger stagger={100}>
         {schools.map((school) => {
           const schoolProgrammes = programmes.filter((p) => p.school === school.slug);
           return (
@@ -99,9 +101,11 @@ export default function ProgrammesPage() {
             </div>
           );
         })}
+        </AnimatedStagger>
       </Section>
 
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">A note on the catalogue</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
@@ -117,6 +121,7 @@ export default function ProgrammesPage() {
             Register Interest
           </Link>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection } from '@/components/site/animated-section';
 import { RegisterForm } from '@/components/site/forms/register-form';
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RegisterPage() {
         lede="Tell us what you want to study. We will contact you when admissions open. All programmes are planned and subject to approval."
       />
       <Section tone="cream">
+        <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
             <p className="eyebrow mb-4">How it works</p>
@@ -67,6 +69,7 @@ export default function RegisterPage() {
             <RegisterForm />
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

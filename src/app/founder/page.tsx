@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Founder',
@@ -23,6 +24,7 @@ export default function FounderPage() {
       />
 
       <Section tone="cream">
+        <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-5 relative aspect-[3/4] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
@@ -87,6 +89,7 @@ export default function FounderPage() {
             </div>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

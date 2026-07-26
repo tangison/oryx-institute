@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Updates',
@@ -21,6 +22,7 @@ export default function UpdatesPage() {
       />
 
       <Section tone="cream">
+        <AnimatedSection>
         <div className="max-w-2xl mx-auto text-center py-16 md:py-24">
           <div className="inline-flex items-center justify-center w-16 h-16 border border-[var(--color-border)] mb-8">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--color-brand-maroon)]">
@@ -41,9 +43,11 @@ export default function UpdatesPage() {
             Register Interest
           </Link>
         </div>
+        </AnimatedSection>
       </Section>
 
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">What to expect</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
@@ -68,6 +72,7 @@ export default function UpdatesPage() {
             </li>
           </ul>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

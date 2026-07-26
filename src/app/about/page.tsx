@@ -4,6 +4,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Prose, ProseSection } from '@/components/site/prose';
 import { Section } from '@/components/site/section';
+import { AnimatedSection, AnimatedStagger } from '@/components/site/animated-section';
 import { values } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function AboutPage() {
       />
 
       <Section tone="cream">
+        <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-7">
             <Prose>
@@ -107,13 +109,17 @@ export default function AboutPage() {
             </div>
           </aside>
         </div>
+        </AnimatedSection>
       </Section>
 
       <Section tone="light">
+        <AnimatedSection>
         <p className="eyebrow mb-4">Values</p>
         <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight text-balance mb-12 max-w-3xl uppercase tracking-[0.04em]">
           What the institution stands for.
         </h2>
+        </AnimatedSection>
+        <AnimatedStagger>
         <ol className="divide-y divide-[var(--color-border)]">
           {values.map((v, i) => (
             <li key={v.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 items-baseline">
@@ -131,9 +137,11 @@ export default function AboutPage() {
             </li>
           ))}
         </ol>
+        </AnimatedStagger>
       </Section>
 
       <Section tone="cream">
+        <AnimatedSection delay={100}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <div>
             <p className="eyebrow mb-3">What is becoming</p>
@@ -163,9 +171,11 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
 
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">The journey</p>
           <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-balance mb-6">
@@ -188,6 +198,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

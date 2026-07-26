@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section, SectionHeader } from '@/components/site/section';
+import { AnimatedSection, AnimatedStagger } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Research',
@@ -23,6 +24,7 @@ export default function ResearchPage() {
       />
 
       <Section tone="cream">
+        <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <figure className="lg:col-span-6 relative aspect-[4/3] overflow-hidden bg-[var(--color-brand-cream)] border border-[var(--color-border)]">
             <img
@@ -66,14 +68,18 @@ export default function ResearchPage() {
             </div>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
 
       <Section tone="dark">
+        <AnimatedSection>
         <SectionHeader
           eyebrow="Principles"
           title="How the research will be conducted."
           tone="dark"
         />
+        </AnimatedSection>
+        <AnimatedStagger stagger={100}>
         <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-brand-cream)]/15">
           <li className="bg-[var(--color-brand-ink)] p-8">
             <p className="font-display text-5xl text-[var(--color-brand-maroon)] mb-4">01</p>
@@ -100,6 +106,7 @@ export default function ResearchPage() {
             </p>
           </li>
         </ul>
+        </AnimatedStagger>
       </Section>
     </PageShell>
   );
