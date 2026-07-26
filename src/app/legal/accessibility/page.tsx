@@ -3,6 +3,7 @@ import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Prose, ProseSection } from '@/components/site/prose';
 import { Section } from '@/components/site/section';
+import { AnimatedSection } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement',
@@ -20,6 +21,7 @@ export default function AccessibilityPage() {
         lede="Oryx Institute is committed to making this website accessible to everyone, including people with disabilities. This statement explains the accessibility of the pre-launch website."
       />
       <Section tone="cream">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <Prose>
             <ProseSection eyebrow="Standard">
@@ -54,7 +56,7 @@ export default function AccessibilityPage() {
               <p>
                 If you encounter an accessibility issue on this website, please use the contact form
                 to report it. Include the page, the issue, and the assistive technology you are
-                using. We take accessibility reports seriously and will respond.
+                using. We treat accessibility reports with urgency and will respond promptly.
               </p>
             </ProseSection>
             <ProseSection eyebrow="Compatibility">
@@ -69,6 +71,7 @@ export default function AccessibilityPage() {
             Last reviewed: July 2026. Pre-launch version.
           </p>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

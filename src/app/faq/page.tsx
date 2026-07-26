@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection, AnimatedStagger } from '@/components/site/animated-section';
 import { faqs } from '@/lib/content';
 import { organizationLd, faqLd, combineLd } from '@/lib/structured-data';
 
@@ -29,6 +30,7 @@ export default function FaqPage() {
       />
 
       <Section tone="cream">
+        <AnimatedStagger stagger={80}>
         {categories.map((cat) => {
           const items = faqs.filter((f) => f.category === cat);
           if (items.length === 0) return null;
@@ -57,7 +59,9 @@ export default function FaqPage() {
             </div>
           );
         })}
+        </AnimatedStagger>
 
+        <AnimatedSection delay={200}>
         <div className="mt-12 bg-[var(--color-brand-ink)] text-[var(--color-brand-cream)] p-8 md:p-12">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-3">Still have questions?</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
@@ -73,6 +77,7 @@ export default function FaqPage() {
             </Link>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

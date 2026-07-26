@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { PageHeader } from '@/components/site/page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedStagger, AnimatedSection } from '@/components/site/animated-section';
 import { glossaryEntries } from '@/lib/glossary';
 import { organizationLd, combineLd } from '@/lib/structured-data';
 
@@ -116,6 +117,7 @@ export default function GlossaryPage() {
       </Section>
 
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">Related pages</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
@@ -134,6 +136,7 @@ export default function GlossaryPage() {
             </Link>
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

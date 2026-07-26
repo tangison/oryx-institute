@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedSection } from '@/components/site/animated-section';
 import { ContactForm } from '@/components/site/forms/contact-form';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function ContactPage() {
         alt="A modern campus building entrance with warm stone and glass facade."
       />
       <Section tone="cream">
+        <AnimatedSection>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
             <p className="eyebrow mb-4">Before you write</p>
@@ -58,6 +60,7 @@ export default function ContactPage() {
             <ContactForm />
           </div>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );

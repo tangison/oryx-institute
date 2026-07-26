@@ -256,7 +256,7 @@ export function AccessibilityModal() {
           <p className="text-pretty">
             If you encounter an accessibility issue on this website, please use the contact form to
             report it. Include the page, the issue, and the assistive technology you are using. We
-            take accessibility reports seriously and will respond.
+            treat accessibility reports with urgency and will respond promptly.
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site/page-shell';
 import { ImagePageHeader } from '@/components/site/image-page-header';
 import { Section } from '@/components/site/section';
+import { AnimatedStagger, AnimatedSection } from '@/components/site/animated-section';
 
 export const metadata: Metadata = {
   title: 'Partners',
@@ -59,6 +60,7 @@ export default function PartnersPage() {
         alt="Professionals collaborating over documents spread across a wooden table."
       />
       <Section tone="cream">
+        <AnimatedStagger stagger={100}>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-border)]">
           {partnerTypes.map((p, i) => (
             <li key={p.slug} className="bg-white p-8 md:p-10">
@@ -76,8 +78,10 @@ export default function PartnersPage() {
             </li>
           ))}
         </ul>
+        </AnimatedStagger>
       </Section>
       <Section tone="dark">
+        <AnimatedSection>
         <div className="max-w-3xl">
           <p className="eyebrow text-[var(--color-brand-cream)] mb-4">A note on partnership</p>
           <p className="font-display text-2xl md:text-3xl font-medium leading-tight text-balance mb-6">
@@ -90,6 +94,7 @@ export default function PartnersPage() {
             with the institution, use the relevant enquiry form above.
           </p>
         </div>
+        </AnimatedSection>
       </Section>
     </PageShell>
   );
