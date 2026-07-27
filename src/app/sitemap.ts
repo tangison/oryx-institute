@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { schools, programmes } from '@/lib/content';
+import { schools, programmes, updates } from '@/lib/content';
 import { glossaryEntries } from '@/lib/glossary';
 
 // TEMP: oryxinstitute.org DNS not yet configured. Use Vercel domain until .na resolves.
@@ -58,6 +58,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...schoolRoutes, ...programmeRoutes, ...glossaryRoutes];
+  const updateRoutes: MetadataRoute.Sitemap = updates.map((u) => ({
+    url: `${base}/updates/${u.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...schoolRoutes, ...programmeRoutes, ...glossaryRoutes, ...updateRoutes];
 }
 
