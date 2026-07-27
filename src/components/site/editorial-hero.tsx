@@ -123,7 +123,7 @@ export function EditorialHero() {
       />
 
       {/* Layer 4 — content */}
-      <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32 flex flex-col items-start justify-end min-h-[inherit]">
+      <div className="relative w-full container-oryx pb-16 md:pb-24 pt-32 md:pt-40 lg:pt-44 flex flex-col items-start justify-end min-h-[inherit]">
         <h1
           id="hero-heading"
           className="font-display uppercase text-[var(--color-brand-cream)] font-medium leading-[1.02] tracking-[0.04em] hero-headline-shadow hero-headline"
@@ -132,8 +132,8 @@ export function EditorialHero() {
           Skills. Impact.
         </h1>
 
-        <p className="mt-6 max-w-xl text-base md:text-[1.0625rem] text-[var(--color-brand-cream)] leading-[1.6] text-pretty hero-body-shadow">
-          A vocational education and training institution being established in Windhoek, Namibia.
+        <p className="mt-6 max-w-[52ch] text-base md:text-[1.0625rem] text-[var(--color-brand-cream)]/80 leading-[1.6] text-pretty hero-body-shadow">
+          A vocational education and training institution being established in Windhoek, Namibia. Recognised qualifications, employer-connected learning, and skills that count.
         </p>
         <div className="mt-9 flex flex-col sm:flex-row gap-3">
           <Link href="/register" className="btn-primary justify-center">

@@ -126,9 +126,11 @@ export function RegisterForm() {
         </label>
         <FieldError error={state.errors.consent} />
       </div>
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor="ri-website" className="sr-only" aria-hidden="true">Website</label>
-        <input id="ri-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
+      {/* Honeypot: anti-spam field. Per DESIGN.md §13.2: removed from normal layout,
+          tabIndex -1, non-obvious field name, no aria-hidden. */}
+      <div style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: '1px', width: '1px' }}>
+        <label htmlFor="ri-ref-source" className="sr-only">Referral source</label>
+        <input id="ri-ref-source" name="ref_source" type="text" tabIndex={-1} autoComplete="off" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
       </div>
       <button type="submit" disabled={state.status === 'submitting'} className="mt-6 btn-primary w-full justify-center">
         {state.status === 'submitting' ? 'Submitting...' : 'Submit Registration'}

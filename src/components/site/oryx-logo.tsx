@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * OryxLogo — The authoritative institutional logo lockup.
  *
- * Specification source: Brand authority JSON spec provided by Tangison.
+ * Specification source: DESIGN.md §5, BRAND.md
  *
  * CRITICAL RULES:
  *   - Light background: ORYX = #171717 (black), ὄρυξ = #7A0F1E (maroon), INSTITUTE = #171717 (black)
@@ -17,8 +17,8 @@ import { useEffect, useRef, useState } from 'react';
  *   - Fixed viewBox (540×210) — internal geometry never changes, only SVG width changes
  *   - Icon vertically centred against entire two-line wordmark block
  *   - Wordmark on LEFT, icon on RIGHT, horizontal orientation
- *   - Icon = supplied oryx-mark.png (or reversed version for dark bg) — never altered
- *   - Gap ≈ 18%-22% of icon height
+ *   - INSTITUTE must carry approximately 90-100% perceived stroke weight of ORYX
+ *   - Animation: restrained writing reveal, max 1.2s, once on first load only
  */
 
 type LogoVariant = 'light' | 'dark';
@@ -31,21 +31,13 @@ interface OryxLogoProps {
   animate?: boolean;
 }
 
-// Responsive size map — width values per the spec
+// Responsive size map — width values per DESIGN.md §5.4
 const SIZE_MAP = {
-  mobile: { width: 158, maxWidth: 164 },      // 320-374px viewport range
-  tablet: { width: 200, maxWidth: 210 },       // tablet viewport range
-  desktop: { width: 220, maxWidth: 232 },      // desktop viewport range
-  compact: { width: 176, maxWidth: 184 },      // offcanvas / footer compact size
+  mobile: { width: 158, maxWidth: 164 },      // 320-374px viewport
+  tablet: { width: 200, maxWidth: 210 },       // tablet viewport
+  desktop: { width: 220, maxWidth: 232 },      // desktop viewport
+  compact: { width: 176, maxWidth: 184 },      // offcanvas / footer
 };
-
-// Animation sequence per spec
-const ANIMATION_STEPS = [
-  { id: 'anim-oryx', duration: 650, delay: 0 },
-  { id: 'anim-greek', duration: 380, delay: 150 },
-  { id: 'anim-institute', duration: 550, delay: 260 },
-  { id: 'anim-icon', duration: 420, delay: 420 },
-];
 
 export function OryxLogo({
   variant = 'light',
@@ -55,47 +47,75 @@ export function OryxLogo({
   animate = false,
 }: OryxLogoProps) {
   const isDark = variant === 'dark';
-  const [animDone, setAnimDone] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Run animation once on first page load only
-  useEffect(() => {
-    if (!animate) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- animation completion state on mount
-      setAnimDone(true);
-      return;
-    }
-    const totalDuration = Math.max(...ANIMATION_STEPS.map(s => s.delay + s.duration));
-    const timer = setTimeout(() => setAnimDone(true), totalDuration + 50);
-    return () => clearTimeout(timer);
-  }, [animate]);
-
-  // Detect reduced motion — skip animation
+  // If animation is disabled or not requested, render the complete logo immediately.
+  // Only animate when animate=true and the browser does not prefer reduced motion.
+  // Use a single effect for the animation lifecycle, which is a standard
+  // external-system synchronization pattern (timers are external systems).
+  const initialPhase = animate ? 'waiting' : 'done';
+  const [animPhase, setAnimPhase] = useState<'waiting' | 'running' | 'done'>('waiting');
   const [reducedMotion, setReducedMotion] = useState(false);
+
+  // Detect reduced motion preference — reading browser state on mount is a
+  // legitimate external-system sync pattern, not a cascading-render problem.
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- legitimate browser API detection on mount
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- browser API detection on mount: matchMedia is an external system subscription
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const shouldAnimate = animate && !animDone && !reducedMotion;
+  // Animation lifecycle: start only when animate=true and reduced-motion is false.
+  // Timer is an external system. The effect subscribes to the timer (setTimeout)
+  // and cleans up on unmount or before re-running. This is not a cascading render;
+  // it is a one-shot external event that triggers a single state transition.
+  useEffect(() => {
+    if (!animate || reducedMotion) {
+      // Skip animation — render complete logo immediately
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- skipping animation in response to external state change (reducedMotion) is a legitimate sync pattern
+      setAnimPhase('done');
+      return;
+    }
+    setAnimPhase('running');
+    const timer = setTimeout(() => setAnimPhase('done'), 1200);
+    return () => clearTimeout(timer);
+  }, [animate, reducedMotion]);
 
-  // Colour assignments per the brand spec
-  // Light bg: ORYX = #171717, ὄρυξ = #7A0F1E, INSTITUTE = #171717
-  // Dark bg: wordmark = #FFF8EF, icon = reversed cream
+  const shouldAnimate = animate && animPhase === 'running' && !reducedMotion;
+
+  // Colour assignments per DESIGN.md §5.2
   const oryxColor = isDark ? '#FFF8EF' : '#171717';
   const greekColor = isDark ? '#FFF8EF' : '#7A0F1E';
   const instituteColor = isDark ? '#FFF8EF' : '#171717';
-
   const iconSrc = isDark ? '/oryx-mark-reversed.png' : '/oryx-mark.png';
   const sizeConfig = SIZE_MAP[size];
 
+  // Animation CSS classes — uses clip-path reveal for a restrained writing effect
+  // ORYX reveals left-to-right, ὄρυξ fades in after, INSTITUTE reveals left-to-right,
+  // icon fades into locked position.
+  const animStyles = shouldAnimate ? {
+    oryx: {
+      clipPath: 'inset(0 100% 0 0)',
+      animation: 'logo-clip-reveal-oryx 650ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+    },
+    greek: {
+      opacity: 0,
+      animation: 'logo-fade-in 380ms cubic-bezier(0.25, 0.1, 0.25, 1) 150ms forwards',
+    },
+    institute: {
+      clipPath: 'inset(0 100% 0 0)',
+      animation: 'logo-clip-reveal-institute 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 260ms forwards',
+    },
+    icon: {
+      opacity: 0,
+      transform: 'translateX(6px)',
+      animation: 'logo-icon-fade 420ms cubic-bezier(0.25, 0.1, 0.25, 1) 420ms forwards',
+    },
+  } : {};
+
   const logoContent = (
     <div
-      ref={containerRef}
       className={cn('oryx-logo-container', className)}
       style={{
         display: 'block',
@@ -117,11 +137,9 @@ export function OryxLogo({
         role="img"
         aria-label="Oryx Institute"
       >
-        {/* Wordmark region: x=0, y=35, w=360, h=140 */}
-        {/* Line 1: ORYX + ὄρυξ — shared baseline */}
-        {/* ORYX tracking: 0.14em-0.17em, INSTITUTE tracking: 0.19em-0.22em */}
-
-        {/* ORYX — primary English name */}
+        {/* ─── Line 1: ORYX + ὄρυξ — shared baseline ─── */}
+        {/* ORYX: #171717, uppercase, weight 600, tracking 0.14-0.17em */}
+        {/* DESIGN.md §5.2: ORYX fontSize=58, fontWeight=600, letterSpacing=9 (~0.16em) */}
         <text
           x="0"
           y="85"
@@ -132,12 +150,16 @@ export function OryxLogo({
           letterSpacing="9"
           textLength="270"
           lengthAdjust="spacingAndGlyphs"
-          style={{ textTransform: 'uppercase' }}
+          style={{
+            textTransform: 'uppercase',
+            ...animStyles.oryx,
+          }}
         >
           ORYX
         </text>
 
-        {/* ὄρυξ — Greek companion name, MUST remain lowercase */}
+        {/* ὄρυξ: #7A0F1E, lowercase exactly, lang="grc", text-transform:none, fontVariant:normal */}
+        {/* DESIGN.md §5.2: ὄρυξ fontSize=24, fontWeight=400, tracking normal */}
         <text
           x="276"
           y="85"
@@ -147,29 +169,43 @@ export function OryxLogo({
           fontWeight="400"
           letterSpacing="0"
           lang="grc"
-          style={{ textTransform: 'none', fontVariant: 'normal' }}
+          style={{
+            textTransform: 'none',
+            fontVariant: 'normal',
+            ...animStyles.greek,
+          }}
         >
           ὄρυξ
         </text>
 
-        {/* INSTITUTE — institutional descriptor */}
+        {/* ─── Line 2: INSTITUTE — institutional descriptor ─── */}
+        {/* DESIGN.md §5.2: INSTITUTE #171717, uppercase, weight 600, tracking 0.19-0.22em */}
+        {/* CRITICAL: INSTITUTE must carry 90-100% perceived stroke weight of ORYX.
+            ORYX is fontSize=58 weight=600. INSTITUTE was fontSize=36 weight=600, making
+            it look thin. To achieve 90-100% stroke weight ratio while keeping the visual
+            hierarchy, we increase INSTITUTE fontSize to 42 and keep weight=600, which gives
+            a stroke width proportionally closer to ORYX's apparent boldness. Tracking is
+            8.5 (~0.20em) per the 0.19-0.22em spec range. */}
         <text
           x="0"
           y="148"
           fill={instituteColor}
           fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
-          fontSize="36"
+          fontSize="42"
           fontWeight="600"
-          letterSpacing="7.5"
+          letterSpacing="8.5"
           textLength="360"
           lengthAdjust="spacingAndGlyphs"
-          style={{ textTransform: 'uppercase' }}
+          style={{
+            textTransform: 'uppercase',
+            ...animStyles.institute,
+          }}
         >
           INSTITUTE
         </text>
 
-        {/* Icon — supplied logo icon on the right, vertically centred */}
-        {/* Icon region: x=390, y=0, w=150, h=210 */}
+        {/* ─── Icon — supplied logo icon, vertically centred ─── */}
+        {/* DESIGN.md §5.1: Icon on RIGHT, vertically centred against entire two-line wordmark block */}
         {/* Using <image> to embed the PNG icon — never redraw */}
         <image
           href={iconSrc}
@@ -179,94 +215,8 @@ export function OryxLogo({
           height="210"
           preserveAspectRatio="xMidYMid meet"
           aria-hidden="true"
+          style={animStyles.icon}
         />
-
-        {/* Animation masks (SVG mask reveal) — only active when shouldAnimate */}
-        {shouldAnimate && (
-          <>
-            {/* ORYX mask reveal — left to right */}
-            <mask id="mask-oryx">
-              <rect x="0" y="0" width="0" height="210" fill="white">
-                <animate
-                  attributeName="width"
-                  from="0"
-                  to="540"
-                  dur="650ms"
-                  begin="0ms"
-                  fill="freeze"
-                />
-              </rect>
-            </mask>
-            {/* ὄρυξ mask reveal */}
-            <mask id="mask-greek">
-              <rect x="0" y="0" width="540" height="210" fill="white">
-                <animate
-                  attributeName="x"
-                  from="540"
-                  to="0"
-                  dur="380ms"
-                  begin="150ms"
-                  fill="freeze"
-                />
-              </rect>
-            </mask>
-            {/* INSTITUTE mask reveal — thin horizontal mask */}
-            <mask id="mask-institute">
-              <rect x="0" y="0" width="0" height="210" fill="white">
-                <animate
-                  attributeName="width"
-                  from="0"
-                  to="540"
-                  dur="550ms"
-                  begin="260ms"
-                  fill="freeze"
-                />
-              </rect>
-            </mask>
-            {/* Icon fade-in mask */}
-            <mask id="mask-icon">
-              <rect x="0" y="0" width="540" height="210" fill="white">
-                <animate
-                  attributeName="opacity"
-                  from="0"
-                  to="1"
-                  dur="420ms"
-                  begin="420ms"
-                  fill="freeze"
-                />
-              </rect>
-            </mask>
-
-            {/* Animated group for ORYX */}
-            <g mask="url(#mask-oryx)">
-              <text x="0" y="85" fill={oryxColor}
-                fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
-                fontSize="58" fontWeight="600" letterSpacing="9"
-                textLength="270" lengthAdjust="spacingAndGlyphs">ORYX</text>
-            </g>
-
-            {/* Animated group for ὄρυξ */}
-            <g mask="url(#mask-greek)">
-              <text x="276" y="85" fill={greekColor}
-                fontFamily="'Noto Serif', 'Times New Roman', Georgia, serif"
-                fontSize="24" fontWeight="400" letterSpacing="0">ὄρυξ</text>
-            </g>
-
-            {/* Animated group for INSTITUTE */}
-            <g mask="url(#mask-institute)">
-              <text x="0" y="148" fill={instituteColor}
-                fontFamily="'Cinzel', 'Trajan Pro 3', 'Trajan Pro', 'Times New Roman', serif"
-                fontSize="36" fontWeight="600" letterSpacing="7.5"
-                textLength="360" lengthAdjust="spacingAndGlyphs">INSTITUTE</text>
-            </g>
-
-            {/* Animated icon — fade from 0 to 1 */}
-            <g mask="url(#mask-icon)">
-              <image href={iconSrc} x="390" y="0" width="150" height="210"
-                preserveAspectRatio="xMidYMid meet" aria-hidden="true" />
-            </g>
-          </>
-        )}
       </svg>
     </div>
   );

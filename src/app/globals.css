@@ -774,6 +774,36 @@
   .text-pretty { text-wrap: pretty; }
 }
 
+/* ─── Logo animation keyframes ───
+   Per DESIGN.md §5.5: restrained writing reveal, max 1.2s, once on first load only.
+   ORYX reveals left-to-right, ὄρυξ fades in, INSTITUTE reveals left-to-right,
+   icon fades into locked position (max 6px movement). */
+@keyframes logo-clip-reveal-oryx {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+@keyframes logo-clip-reveal-institute {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+@keyframes logo-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes logo-icon-fade {
+  from { opacity: 0; transform: translateX(6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Logo animation skipped entirely per spec — show complete logo immediately */
+  .oryx-logo-container * {
+    animation: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Marquee for school ticker (slow, restrained) */
 @keyframes oryx-marquee {
   from { transform: translateX(0); }
