@@ -48,7 +48,8 @@ export function AnimatedSection({
     // Set initial hidden state
     el.style.opacity = '0';
     el.style.transform = `translateY(${translateY}px)`;
-    el.style.transition = `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`;
+    // Brand easing: cubic-bezier(0.2, 0, 0, 1) matches --ease-standard token
+    el.style.transition = `opacity ${duration}ms cubic-bezier(0.2, 0, 0, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.2, 0, 0, 1) ${delay}ms`;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -116,7 +117,8 @@ export function AnimatedStagger({
     for (let i = 0; i < children.length; i++) {
       (children[i] as HTMLElement).style.opacity = '0';
       (children[i] as HTMLElement).style.transform = `translateY(${translateY}px)`;
-      (children[i] as HTMLElement).style.transition = `opacity ${duration}ms ease-out ${i * stagger}ms, transform ${duration}ms ease-out ${i * stagger}ms`;
+      // Brand easing: cubic-bezier(0.2, 0, 0, 1) matches --ease-standard token
+      (children[i] as HTMLElement).style.transition = `opacity ${duration}ms cubic-bezier(0.2, 0, 0, 1) ${i * stagger}ms, transform ${duration}ms cubic-bezier(0.2, 0, 0, 1) ${i * stagger}ms`;
     }
 
     const observer = new IntersectionObserver(
@@ -174,7 +176,8 @@ export function AnimatedHeader({
     // Simple CSS reveal for header (GSAP reserved for storytelling only)
     el.style.opacity = '0';
     el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 800ms ease-out 200ms, transform 800ms ease-out 200ms';
+    // Brand easing: cubic-bezier(0.2, 0, 0, 1) matches --ease-standard token
+    el.style.transition = 'opacity 800ms cubic-bezier(0.2, 0, 0, 1) 200ms, transform 800ms cubic-bezier(0.2, 0, 0, 1) 200ms';
 
     const observer = new IntersectionObserver(
       (entries) => {

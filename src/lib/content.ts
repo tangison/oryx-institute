@@ -472,7 +472,48 @@ export const values: ValueItem[] = [
 /* =========================================================
    Updates (empty in pre-launch with honest empty state)
    ========================================================= */
-export const updates: Update[] = [];
+export const updates: Update[] = [
+  {
+    slug: "institution-formation-announced",
+    title: "Oryx Institute formation announced",
+    date: "28 July 2026",
+    category: "Establishment",
+    excerpt:
+      "The formation of Oryx Institute as a vocational education and training institution in Windhoek has been announced. Planning for five schools, programme development, and regulatory engagement is underway.",
+    body:
+      "The formation of Oryx Institute as a multidisciplinary vocational education and training institution in Windhoek, Namibia, has been announced. The institution is in the earliest phase of establishment: planning for five schools across safety, administration, hospitality, digital skills, and future disciplines; developing programme curricula; and engaging with the regulatory and accreditation framework that governs vocational training in Namibia. No programmes are approved yet. No learners are enrolled. No campus address is confirmed. This site exists to describe what is planned, to invite genuine interest, and to establish the brand honestly. Updates will be published here as milestones are reached, not before.",
+  },
+  {
+    slug: "programme-curricula-under-development",
+    title: "Programme curricula under development",
+    date: "25 July 2026",
+    category: "Programme",
+    excerpt:
+      "Curricula for the initial eight planned programmes are being drafted across four schools. Programme development follows Namibian qualification framework requirements and will be submitted for approval when complete.",
+    body:
+      "Curricula for eight planned programmes across four schools are under active development. The School of Safety is drafting Occupational Safety Foundations and Site Safety Inspection. The School of Administration and Commerce is preparing Office Administration and Bookkeeping and Payroll. The School of Hospitality and Tourism is working on Food and Beverage Service and Tour Guiding Practice. The School of Information and Digital Skills is developing Digital Literacy Foundations and Computer Hardware Repair. Each curriculum is being built to align with the Namibian Qualifications Framework and relevant occupational standards. Programme curricula will be submitted for formal approval when they are complete. No programme is accredited at this stage. Programme status labels on this site reflect current planning status, not formal accreditation.",
+  },
+  {
+    slug: "regulatory-engagement-begins",
+    title: "Regulatory engagement begins",
+    date: "18 July 2026",
+    category: "Public Notice",
+    excerpt:
+      "Oryx Institute has begun preliminary engagement with Namibia's vocational education regulatory bodies. This is an early consultation phase, not an application for registration or accreditation.",
+    body:
+      "Oryx Institute has begun preliminary engagement with the regulatory bodies responsible for vocational education and training in Namibia. This is an early consultation phase: understanding requirements, clarifying processes, and preparing documentation. It is not an application for institutional registration or programme accreditation. No registration or accreditation has been applied for or granted at this stage. The institution will publish verified regulatory milestones here when they are reached. Any claim of registration or accreditation that does not appear on this page with a verified date is not current.",
+  },
+  {
+    slug: "employer-interest-invited",
+    title: "Employer interest invited for WIL and advisory input",
+    date: "10 July 2026",
+    category: "Event",
+    excerpt:
+      "Oryx Institute is inviting expressions of interest from Namibian employers who may host work-integrated learning placements, contribute to programme design, or participate in employer advisory consultation.",
+    body:
+      "Oryx Institute is inviting expressions of interest from employers and organisations in Namibia who may participate in one or more of the following: hosting work-integrated learning (WIL) placements for learners once programmes are running; contributing to programme design and occupational standard alignment through employer advisory consultation; or exploring corporate and organisational training partnerships. This is an invitation for interest, not a commitment or contract. No placements, advisory boards, or training agreements exist yet. Employers and organisations interested in any of these pathways can register their interest through the contact and enquiry forms on this site. The institute will respond to genuine enquiries and will publish partnership milestones when they are confirmed.",
+  },
+];
 
 /* =========================================================
    FAQ

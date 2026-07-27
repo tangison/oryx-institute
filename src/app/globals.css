@@ -1161,3 +1161,64 @@
 .nav-dropdown-item:hover .nav-dropdown-item-caption {
   color: var(--color-text-secondary);
 }
+
+/* =========================================================
+   FAQ Accordion widget (tangison-widget-master)
+   Rectilinear, brand colours, WCAG AA, reduced-motion safe
+   ========================================================= */
+
+.faq-answer-panel {
+  overflow: hidden;
+  transition: max-height var(--duration-standard) var(--ease-standard),
+              opacity var(--duration-standard) var(--ease-standard);
+}
+
+.faq-answer-panel.is-open {
+  max-height: 800px; /* generous: FAQ answers are ~2-3 sentences */
+  opacity: 1;
+}
+
+.faq-answer-panel.is-closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Reduced-motion: instant toggle */
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer-panel {
+    transition: none;
+  }
+  .faq-answer-panel.is-closed {
+    max-height: 0;
+  }
+  .faq-answer-panel.is-open {
+    max-height: none;
+  }
+}
+
+/* =========================================================
+   Interactive card hover (tangison-motion-master: emphasise)
+   Subtle lift + shadow on link-card hover. Rectilinear, no bounce.
+   Reduced-motion: no transform, just colour change.
+   ========================================================= */
+
+.card-hover-lift {
+  transition: transform var(--duration-standard) var(--ease-standard),
+              box-shadow var(--duration-standard) var(--ease-standard),
+              border-color var(--duration-standard) var(--ease-standard);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(23, 23, 23, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover-lift {
+    transition: border-color var(--duration-standard) var(--ease-standard);
+  }
+  .card-hover-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

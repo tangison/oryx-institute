@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useScrollReveal, useStaggerReveal } from '@/lib/motion';
+import { UpdatesSection } from '@/components/site/section-updates';
 
 const schoolShowcase = [
   { slug: 'safety', name: 'School of Safety', shortName: 'Safety', image: '/images/schools/safety-01.webp', alt: 'Safety training tools and equipment.', caption: 'Occupational safety, first aid, and emergency response qualifications.', href: '/schools/safety' },
@@ -251,6 +252,9 @@ export function AnimatedHomeContent() {
           </div>
         </div>
       </section>
+
+      {/* ─── Updates — editorial update cards ─── */}
+      <UpdatesSection />
 
       {/* ─── Pre-Launch — editorial, not generic maroon block ─── */}
       <section
