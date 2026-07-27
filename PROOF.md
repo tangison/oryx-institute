@@ -188,3 +188,78 @@ All three respect `prefers-reduced-motion: reduce` (elements visible immediately
 - ESLint: zero warnings (logo setState-in-effect eslint-disable comments justified)
 - Build: `next build` 50/50 pages generated successfully
 - Pushed commit 6567c89 to GitHub main, Vercel auto-deploy triggered
+
+---
+
+### Phase: Blog updates + professional widgets (2026-07-28)
+
+**Action**: Add 4 institutional updates, redesign Updates page/section, add FAQ accordion widget, motion system refinement.
+
+**Safety**: Created safety branch `safety-tag-before-upscale-467803e` at commit 467803e before editing.
+
+**Changes applied**:
+
+1. **4 institutional updates added** to content.ts:
+   - "Oryx Institute formation announced" (Establishment, 28 July 2026)
+   - "Programme curricula under development" (Programme, 25 July 2026)
+   - "Regulatory engagement begins" (Public Notice, 18 July 2026)
+   - "Employer interest invited for WIL and advisory input" (Event, 10 July 2026)
+   All honest, pre-launch content. No fabricated milestones.
+
+2. **Updates page redesign**: From empty "no updates yet" state to professional editorial blog layout with:
+   - `UpdatesFeed` component — 2-column grid (meta left, content right), category badges (colour-coded: maroon Establishment, ink Programme, info Public Notice, warning Event), date display, title + excerpt + "Read more" link
+   - `AnimatedStagger` reveal on the feed
+   - Empty state still preserved for future use
+   - "What to expect" dark section retained below
+
+3. **Update detail pages**: Created `/src/app/updates/[slug]/page.tsx` with:
+   - Dynamic route for each update slug
+   - `generateStaticParams` for SSG
+   - Category badge, date, full body content
+   - Back link to all updates
+   - Register Interest CTA
+
+4. **Homepage UpdatesSection redesign**: From empty "no updates yet" to professional editorial update cards:
+   - 4 `UpdateCard` components in responsive 2-column grid
+   - Category accent lines (3px top border per category colour)
+   - Category badges, date, title, excerpt, "Read more" link
+   - Stagger reveal animation
+   - "All Updates" link (desktop: border-bottom, mobile: inline)
+   - Empty state preserved for when updates array is empty
+
+5. **FAQ accordion widget**: Created `OryxFaqAccordion` component replacing open-expanded FAQ:
+   - Single-item open per category (click to expand/collapse)
+   - Rectilinear plus/minus toggle icons (brand style, no chevron)
+   - Thin maroon left accent border on open items
+   - CSS max-height transition for smooth reveal
+   - `faq-answer-panel` CSS class with brand easing and reduced-motion override
+   - WCAG AA: aria-expanded, aria-controls, role=list/listitem, keyboard support
+
+6. **Motion refinement**: Updated all reveal easing from `ease-out` to `cubic-bezier(0.2, 0, 0, 1)` matching the `--ease-standard` design token:
+   - `AnimatedSection` (3 locations)
+   - `AnimatedStagger` (2 locations)
+   - `AnimatedHeader` (1 location)
+   - `useScrollReveal` in motion.ts
+   - `useStaggerReveal` in motion.ts
+   - Added `card-hover-lift` CSS class for interactive card hover (translateY(-2px) + subtle shadow, reduced-motion: no transform)
+
+**New files**:
+- `/src/components/site/updates-feed.tsx` — UpdatesFeed + UpdateCard components
+- `/src/components/site/faq-accordion.tsx` — OryxFaqAccordion widget
+- `/src/app/updates/[slug]/page.tsx` — Update detail page
+
+**Modified files**:
+- `/src/lib/content.ts` — 4 updates added (was empty array)
+- `/src/app/updates/page.tsx` — Redesigned with UpdatesFeed
+- `/src/components/site/section-updates.tsx` — Redesigned with UpdateCard grid
+- `/src/components/site/animated-home.tsx` — Added UpdatesSection import + placement
+- `/src/components/site/animated-section.tsx` — Brand easing on all 3 components
+- `/src/lib/motion.ts` — Brand easing on useScrollReveal + useStaggerReveal
+- `/src/app/faq/page.tsx` — Replaced with OryxFaqAccordion widget
+- `/src/app/globals.css` — FAQ accordion panel CSS + card-hover-lift class
+
+**Verification**:
+- TypeScript: `tsc --noEmit` passes with zero errors
+- ESLint: zero warnings
+- Build: `next build` 47/47 pages generated, includes 4 new update detail routes
+- All update detail pages prerendered: institution-formation-announced, programme-curricula-under-development, regulatory-engagement-begins, employer-interest-invited
