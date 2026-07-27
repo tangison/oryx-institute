@@ -24,7 +24,7 @@ export function SiteFooter() {
                   <OryxLogo variant="light" size="compact" linked={false} />
                 </div>
                 <p className="font-display text-base text-[var(--color-brand-ink)]/80 leading-snug max-w-[34ch]">
-                  Knowledge shaped by the Namibian landscape.
+                  Knowledge shaped by Namibia's working realities.
                 </p>
               </div>
 
@@ -128,7 +128,7 @@ export function SiteFooter() {
 
             {/* Tagline */}
             <p className="font-display text-sm text-[var(--color-brand-ink)]/60 leading-snug max-w-[30ch] mb-6">
-              Knowledge shaped by the Namibian landscape.
+              Knowledge shaped by Namibia's working realities.
             </p>
 
             {/* Thin separator */}

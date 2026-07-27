@@ -56,9 +56,12 @@ export function ContactForm() {
         </label>
         <FieldError error={state.errors.consent} />
       </div>
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor="c-website" className="sr-only" aria-hidden="true">Website</label>
-        <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
+      {/* Honeypot: anti-spam field. Per DESIGN.md §13.2: removed from normal layout,
+          tabIndex -1, non-obvious field name, no aria-hidden. If filled, the submission
+          is silently rejected by the server. */}
+      <div style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: '1px', width: '1px' }}>
+        <label htmlFor="c-ref-source" className="sr-only">Referral source</label>
+        <input id="c-ref-source" name="ref_source" type="text" tabIndex={-1} autoComplete="off" className="sr-only" value={form.website} onChange={(e) => update('website', e.target.value)} readOnly />
       </div>
       <button type="submit" disabled={state.status === 'submitting'} className="btn-primary w-full justify-center">
         {state.status === 'submitting' ? 'Sending...' : 'Send Message'}
