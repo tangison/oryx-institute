@@ -64,7 +64,7 @@ const artifactItems = [
   },
   {
     title: "Letterhead",
-    line: "P.O. Box 1662, Windhoek. The institute's own stationery register.",
+    line: "P.O. Box 1662, Windhoek. The institute's stationery register.",
     photo: "/images/brand/kit-letterhead.jpg",
     alt: "Oryx Institute letterhead",
     note: "Print kit",
@@ -157,13 +157,13 @@ export default function HomePage() {
           Four disciplines, one temperament:{" "}
           <span
             className="inline-img"
-            style={{ backgroundImage: "url(/images/wolf.jpg)" }}
+            style={{ backgroundImage: "url(/images/pill-wolf.jpg)" }}
             aria-hidden
           />{" "}
           <span className="em-serif text-accent">quiet</span>, then{" "}
           <span
             className="inline-img"
-            style={{ backgroundImage: "url(/images/ocean.jpg)" }}
+            style={{ backgroundImage: "url(/images/pill-ocean.jpg)" }}
             aria-hidden
           />{" "}
           decisive.
@@ -174,7 +174,7 @@ export default function HomePage() {
             <Link
               key={d.id}
               href={`/programmes#${d.id}`}
-              className={`bento-cell ${i % 2 === 0 ? "sm:col-span-7" : "sm:col-span-5"}`}
+              className={`bento-cell ${i % 2 === 0 ? "md:col-span-7" : "md:col-span-5"}`}
             >
               <span
                 className={`flex h-[2.75rem] items-end ${
@@ -197,7 +197,7 @@ export default function HomePage() {
 
           {/* The credential band closes the grid: full width, the
               certificate's own language. */}
-          <div className="bento-cell sm:col-span-12 bg-paper-2">
+          <div className="bento-cell md:col-span-12 bg-paper-2">
             <span className="label-caps text-accent">Named on every certificate</span>
             <p className="display-statement max-w-3xl text-ink">
               Excellence in innovation and{" "}
@@ -262,33 +262,28 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ Action */}
+      {/* Night band: the brand ink as the closing ground, carrying the
+          maroon pill and the office's own contact line. */}
       <section className="chapter shell">
-        <div className="relative overflow-hidden rounded-[var(--r-card)] bg-accent px-6 py-20 text-center sm:px-12 md:py-28">
-          <h2 className="display-hero mx-auto max-w-5xl text-accent-ink">
-            Apply <span className="em-serif">now.</span>
+        <div className="band-night relative overflow-hidden rounded-[var(--r-card)] px-6 py-20 text-center sm:px-12 md:py-28">
+          <h2 className="display-hero mx-auto max-w-5xl">
+            Apply <span className="em-serif text-rose">now.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-[38ch] text-[1.05rem] leading-relaxed text-accent-ink opacity-90">
+          <p className="mx-auto mt-6 max-w-[38ch] text-[1.05rem] leading-relaxed opacity-90">
             Applications open by enquiry, addressed to the Principal&apos;s
             office. One message starts it.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/apply"
-              className="pill"
-              style={{ background: "#FFF8EE", color: "#71111F", borderColor: "#FFF8EE" }}
-            >
+            <Link href="/apply" className="pill">
               Start your application
               <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
             </Link>
-            <a
-              href={`mailto:${site.email}`}
-              className="pill pill-photo !border-accent-ink/40"
-            >
+            <a href={`mailto:${site.email}`} className="pill-ghost-dark pill-ghost !px-6 !py-3">
               {site.email}
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[0.85rem] text-accent-ink opacity-80">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[0.85rem] opacity-80">
             <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
               {site.phoneDisplay}
             </a>

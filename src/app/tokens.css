@@ -29,13 +29,27 @@
 
   /* Single accent family: brand maroon. On white it holds 11.65:1,
      so it carries text, links and fills directly. Ivory sits on the
-     maroon fill at 11.05:1. */
+     maroon fill at 11.05:1. Deep is the hover and the on-light text
+     register. On dark grounds the accent flips to the rose and the
+     pale rose so text stays legible: rose holds 5.48:1 on the ink. */
   --accent:      #71111F;
   --accent-deep: #570D17;
   --accent-ink:  #FFF8EE;
 
-  /* Focus ring: the maroon itself, 3:1 against white. */
+  /* Fixed brand constants: pills and the night band never flip with
+     the mode, so they take dedicated tokens rather than the accent. */
+  --pill-bg:       #71111F;
+  --pill-bg-hover: #570D17;
+  --pill-ink:      #FFF8EE;
+  --rose:          #D37084;
+  --pale-rose:     #E39AA8;
+  --night:         #181713;
+
+  /* Focus ring: the maroon itself, strong on white. */
   --focus: #71111F;
+
+  /* Shared control height: inputs and pills answer one measure. */
+  --control-h: 3.1rem;
 
   /* Fixed overlay tokens. Photography and the menu overlay are dark in
      both modes, so text over them never flips with the mode. */
@@ -97,8 +111,9 @@
 }
 
 .dark {
-  /* Dark mode: the brand ink becomes the paper. Rose #D37084 carries
-     the maroon hue at 5.48:1 for accents and links. */
+  /* Dark mode: the brand ink becomes the paper. The accent flips to
+     the rose family so text, rules and indicators stay legible on the
+     ink ground; the pills keep their fixed maroon tokens. */
   --paper:      #181713;
   --paper-2:    #221F1A;
   --paper-3:    #2B2721;
@@ -109,8 +124,8 @@
   --rule:       #37322B;
   --rule-2:     #2E2A24;
 
-  --accent:      #71111F;
-  --accent-deep: #D37084;
+  --accent:      #D37084;
+  --accent-deep: #E39AA8;
   --accent-ink:  #FFF8EE;
 
   --focus: #D37084;
@@ -134,8 +149,8 @@ body:has(.theme-ink) .site-footer {
   --rule:       #37322B;
   --rule-2:     #2E2A24;
 
-  --accent:      #71111F;
-  --accent-deep: #D37084;
+  --accent:      #D37084;
+  --accent-deep: #E39AA8;
   --accent-ink:  #FFF8EE;
 
   --focus: #D37084;

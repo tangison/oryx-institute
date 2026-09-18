@@ -28,7 +28,10 @@ export const metadata: Metadata = {
 export default function ProgrammesPage() {
   return (
     <>
-      <PageHero title="The disciplines." accent="理工">
+      <PageHero
+        title="The disciplines."
+        accent={<span className="wordmark-cjk">理工</span>}
+      >
         <p>
           A politechnical education stands on four legs. The institute
           teaches them together, because a problem never arrives divided

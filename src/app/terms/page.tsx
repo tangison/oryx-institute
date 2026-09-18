@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   description:
     "The terms on which this website is offered: what the site does, what an enquiry means, and what it does not promise.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service | Oryx Politechnical Institute",
+    description:
+      "What the site does, what an application means, and what it does not promise.",
+    url: "/terms",
+    images: [
+      {
+        url: "/images/og-inner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Terms of service, Oryx Politechnical Institute",
+      },
+    ],
+  },
 };
 
 const sections = [

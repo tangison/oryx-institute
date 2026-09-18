@@ -7,5 +7,16 @@
     "vibe": "auction house, sworn precision, quiet gold",
     "enrichment": "real client photography (brand kit)",
     "brief": "Fix Eagle Investments Auctioneers · multi-page marketing site, Windhoek"
+  },
+  {
+    "date": "2026-09-18",
+    "macrostructure": "editorial-split-photographic",
+    "theme": "studied-DNA",
+    "theme_axes": "light / roman-serif / ink+maroon",
+    "vibe": "politechnical institute, quiet menace, printed matter",
+    "enrichment": "brand print kit (flyer wolf, misty ocean, certificate, letterhead)",
+    "brief": "Oryx Politechnical Institute · rebrand from Fix Eagle · gpt-taste RNG: Editorial Split hero, Geist sans, horizontal accordions + inline typography images + artifact carousel, GSAP image scale-fade + scrubbing text reveals",
+    "knob_deltas": "vs prior build: serif display replaces sans; night ink ground replaces warm gold; mega dropdown registers rebuilt; bento dense 7/5 interlock replaces service tiles; horizontal accordion new archetype",
+    "slop_test": "58 gates swept; fixed 38a (roman emphasis), 48 (token sweep), 23 (night band replaces accent band), 39 (outline focus + control heights + reserved error slots), 50 (bento md breakpoint alignment), budget (inline pill crops)"
   }
 ]
