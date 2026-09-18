@@ -7,8 +7,8 @@ import { NextRequest, NextResponse } from "next/server";
  * the PRODUCTION_HOST environment variable.
  */
 const DEFAULT_PRODUCTION_HOSTS = [
-  "fixeagleinvestments.com",
-  "www.fixeagleinvestments.com",
+  "oryxinstitute.org",
+  "www.oryxinstitute.org",
   "localhost",
 ];
 

@@ -2,325 +2,297 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { PhotoCarousel } from "@/components/site/photo-carousel";
-import { ChannelTabs } from "@/components/site/channel-tabs";
-import {
-  featuredWork,
-  processSteps,
-  services,
-  site,
-  stats,
-} from "@/lib/site";
+import { ScrubReveal } from "@/components/site/scrub-reveal";
+import { ScaleFigure } from "@/components/site/scale-figure";
+import { ArtifactCarousel } from "@/components/site/artifact-carousel";
+import { site, disciplines } from "@/lib/site";
 
 export const metadata: Metadata = {
+  title: "Oryx Politechnical Institute | Looks harmless. Isn't.",
+  description: site.description,
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Oryx Politechnical Institute | Looks harmless. Isn't.",
+    description: site.description,
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Oryx Politechnical Institute: the wordmark over the wolf in sheep's clothing",
+      },
+    ],
+  },
 };
 
-const organizationJsonLd = {
+/**
+ * EducationalOrganization structured data. Every field is a published
+ * fact from the institute's own print kit: name, domain, contact and
+ * postal address. Nothing is asserted beyond that.
+ */
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "AuctionHouse",
-  name: site.tradingName,
-  legalName: site.legalName,
+  "@type": "EducationalOrganization",
+  name: site.legalName,
+  alternateName: site.shortName,
   url: site.url,
-  logo: `${site.url}/images/logo-full.png`,
-  image: `${site.url}/images/og-default.jpg`,
-  description: site.description,
-  foundingDate: "2013",
+  logo: `${site.url}/images/logo-lockup.svg`,
+  email: site.email,
+  telephone: site.phoneDisplay,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rem Erf 46, Platinum Street, Prosperita",
+    streetAddress: "P.O. Box 1662",
     addressLocality: "Windhoek",
     addressCountry: "NA",
   },
-  telephone: site.phoneDisplay,
-  email: site.email,
-  areaServed: "Namibia",
-  founder: {
-    "@type": "Person",
-    name: site.principal.name,
-    jobTitle: site.principal.role,
-  },
 };
 
-const channels = [
+const artifactItems = [
   {
-    name: "Live auctions",
-    body: "Onsite auctions, planned, coordinated and executed for maximum sales and full attendance of prospective bidders.",
-    photo: "/images/live-auction-crowd.jpg",
-    alt: "Bidders gathered under a shed at a live auction",
-    caption: "Live auction, NamPower. Onsite bidding.",
+    title: "Recruitment flyer",
+    line: "Looks harmless. Isn't. The wolf in sheep's clothing, full bleed.",
+    photo: "/images/brand/kit-flyer.jpg",
+    alt: "The Oryx Institute recruitment flyer: a wolf in sheep's clothing",
+    note: "Print kit",
   },
   {
-    name: "Online auctions",
-    body: "A web-based online auction sale, used to dispose of specialised equipment that requires a wider range of prospective clientele.",
-    photo: "/images/sale-3d-render.jpg",
-    alt: "Gold sale graphic representing online auction sales",
-    caption: "Web-based sales for specialised assets.",
+    title: "Certificate of Achievement",
+    line: "Awarded for excellence in innovation and applied problem-solving.",
+    photo: "/images/brand/kit-certificate.jpg",
+    alt: "An Oryx Institute certificate of achievement",
+    note: "Print kit",
   },
   {
-    name: "Private treaty",
-    body: "The preferred sales method for specialised assets. We negotiate with a selected group of buyers on your behalf, to a predetermined end date.",
-    photo: "/images/gavel-stock.jpg",
-    alt: "Auction gavel resting on a block",
-    caption: "Negotiated sales to selected buyers.",
+    title: "Letterhead",
+    line: "P.O. Box 1662, Windhoek. The institute's own stationery register.",
+    photo: "/images/brand/kit-letterhead.jpg",
+    alt: "Oryx Institute letterhead",
+    note: "Print kit",
   },
-];
+  {
+    title: "Business card",
+    line: "Tangi Iigonda, Principal. The card carries the shield alone.",
+    photo: "/images/brand/kit-card-back.jpg",
+    alt: "Oryx Institute business card, reverse with contact details",
+    note: "Print kit",
+  },
+  {
+    title: "Notecard and envelope",
+    line: "The maroon shield, centered, on the institute's correspondence set.",
+    photo: "/images/brand/kit-notecard.jpg",
+    alt: "Oryx Institute notecard with the shield emblem",
+    note: "Print kit",
+  },
+  {
+    title: "Presentation folder",
+    line: "A calm ocean under mist. The institute's presentation register.",
+    photo: "/images/brand/kit-folder.jpg",
+    alt: "Oryx Institute presentation folder over a misty ocean",
+    note: "Print kit",
+  },
+] as const;
 
 export default function HomePage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero: the eagle portrait carries the fold. */}
-      <section className="relative" aria-label="Introduction">
-        <div id="hero-sentinel" aria-hidden="true" className="absolute top-0 h-px w-full" />
-        <div className="relative flex min-h-[94dvh] items-end">
+      {/* ------------------------------------------------ Attention */}
+      {/* Editorial split, the flyer's own art direction: white ground,
+          serif headline left, the wolf right. The split is asymmetric
+          and the text block sits low: tension, not a mirror. */}
+      <section className="relative grid min-h-[94svh] lg:grid-cols-[1.18fr_1fr]">
+        <div className="flex flex-col justify-end gap-8 px-[var(--gutter)] pb-24 pt-36 sm:gap-10 lg:justify-start lg:pb-28 lg:pt-[16vh] lg:pl-[max(var(--gutter),calc((100vw-84rem)/2+var(--gutter)))] lg:pr-16">
+          <p className="kicker label-caps text-soft">
+            Oryx Politechnical Institute · Windhoek
+          </p>
+
+          {/* The 2-line iron rule: wide container, two lines exactly. */}
+          <h1 className="display-hero max-w-5xl text-ink">
+            Looks harmless.{" "}
+            <span className="em-serif text-accent">Isn&apos;t.</span>
+          </h1>
+
+          <p className="max-w-[36ch] text-[1.18rem] leading-[1.55] text-ink/80 md:text-[1.3rem]">
+            Oryx Institute graduates solve problems quietly and finish them
+            decisively.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/apply" className="pill">
+              Apply now
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+            <Link href="/programmes" className="pill-ghost">
+              View programmes
+            </Link>
+          </div>
+        </div>
+
+        {/* The wolf fills the full right column edge to edge; the text
+            block hangs low and left. Asymmetry by placement. */}
+        <div className="relative min-h-[64svh] lg:min-h-full">
           <Image
-            src="/images/hero-eagle-cover.jpg"
-            alt="Eagle portrait, the Fix Eagle mark"
+            src="/images/wolf.jpg"
+            alt="A wolf wearing a sheep's fleece, staring straight out of the frame"
             fill
             priority
-            fetchPriority="high"
-            quality={82}
-            sizes="(min-width: 90rem) 1440px, 100vw"
-            className="object-cover object-center"
+            sizes="(min-width: 64rem) 46vw, 100vw"
+            className="object-cover object-[50%_30%]"
           />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(to_right,oklch(18%_0.012_80/0.88)_0%,oklch(18%_0.012_80/0.55)_42%,oklch(18%_0.012_80/0.15)_100%)] max-md:bg-[linear-gradient(to_top,oklch(18%_0.012_80/0.92)_0%,oklch(18%_0.012_80/0.4)_55%,oklch(18%_0.012_80/0.25)_100%)]"
-          />
-          <div className="shell relative pb-20 pt-40 md:pb-28">
-            <p
-              className="reveal label-caps photo-text opacity-80"
-              style={{ "--i": 0 } as React.CSSProperties}
-            >
-              Windhoek, Namibia · Since 2013
-            </p>
-            <h1
-              className="reveal mt-5 max-w-[11ch] text-[clamp(2.9rem,6.5vw_+_0.5rem,5.5rem)] font-extrabold leading-[1.08] tracking-[-0.035em] photo-text"
-              style={{ "--i": 1 } as React.CSSProperties}
-            >
-              We add value to your assets.
-            </h1>
-            <p
-              className="reveal measure mt-7 max-w-[40ch] text-[1.12rem] leading-relaxed photo-text opacity-90"
-              style={{ "--i": 2 } as React.CSSProperties}
-            >
-              Live auctions, sworn valuation and private sales across all
-              fourteen regions of Namibia.
-            </p>
-            <div
-              className="reveal mt-10 flex flex-wrap items-center gap-6"
-              style={{ "--i": 3 } as React.CSSProperties}
-            >
-              <a href={site.whatsapp} className="btn on-dark">
-                Request an appraisal
-                <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </a>
-              <Link
-                href="/services"
-                className="btn-outline on-photo !px-5 !py-2.5 text-[0.85rem]"
-              >
-                Explore services
-              </Link>
-            </div>
-          </div>
         </div>
+
+        {/* Scroll sentinel: the header turns solid when the hero clears. */}
+        <div id="hero-sentinel" className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px]" aria-hidden />
       </section>
 
-      {/* The record, in numbers taken from the profile. */}
-      <section className="hair-t hair-b" aria-label="The record">
-        <dl className="shell tnum grid grid-cols-2 gap-x-8 gap-y-10 py-14 sm:grid-cols-3 lg:grid-cols-5">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <dt className="sr-only">{stat.label}</dt>
-              <dd className="text-[2.5rem] font-bold leading-none tracking-[-0.02em]">
-                {stat.value}
-              </dd>
-              <dd className="caption mt-2">{stat.label}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {/* ------------------------------------------------ Interest */}
+      {/* Gapless bento: the four disciplines interlock with the
+          credential band. Dense flow, no voids, no meta-labels. */}
+      <section className="chapter shell">
+        <h2 className="display-section max-w-5xl text-ink">
+          Four disciplines, one temperament:{" "}
+          <span
+            className="inline-img"
+            style={{ backgroundImage: "url(/images/wolf.jpg)" }}
+            aria-hidden
+          />{" "}
+          <span className="em-serif text-accent">quiet</span>, then{" "}
+          <span
+            className="inline-img"
+            style={{ backgroundImage: "url(/images/ocean.jpg)" }}
+            aria-hidden
+          />{" "}
+          decisive.
+        </h2>
 
-      {/* Services: the catalogue register as tiles. */}
-      <section className="section" aria-label="Services">
-        <div className="shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="text-[clamp(1.85rem,3.4vw,2.9rem)]">What we do</h2>
-            <Link href="/services" className="link-type text-[0.95rem]">
-              All services
-              <ArrowRight
-                className="ml-1 inline h-4 w-4"
-                strokeWidth={1.75}
+        <div className="bento mt-14">
+          {disciplines.map((d, i) => (
+            <Link
+              key={d.id}
+              href={`/programmes#${d.id}`}
+              className={`bento-cell ${i % 2 === 0 ? "sm:col-span-7" : "sm:col-span-5"}`}
+            >
+              <span
+                className={`flex h-[2.75rem] items-end ${
+                  d.glyph.length > 2
+                    ? "bento-glyph-latin"
+                    : "bento-glyph wordmark-cjk"
+                }`}
                 aria-hidden
-              />
-            </Link>
-          </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {services.map((service, i) => (
-              <li key={service.id}>
-                <Link href={`/services#${service.id}`} className="service-tile">
-                  <span className="tile-num">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="tile-name">{service.name}</span>
-                  <span className="tile-desc line-clamp-3">
-                    {service.summary}
-                  </span>
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a href={site.whatsapp} className="service-tile group">
-                <span className="tile-num">08</span>
-                <span className="tile-name">Something else?</span>
-                <span className="tile-desc">
-                  If it is a moveable asset, talk to us about disposing of it.
-                </span>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-3 text-[0.85rem] font-semibold text-accent-deep">
-                  Start a conversation
-                  <ArrowRight
-                    className="h-3.5 w-3.5 transition-transform duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Three ways to sell, as tabs. */}
-      <section className="section hair-t" aria-label="Ways to sell">
-        <div className="shell">
-          <h2 className="text-[clamp(1.85rem,3.4vw,2.9rem)]">Three ways to sell</h2>
-          <div className="mt-10">
-            <ChannelTabs channels={channels} />
-          </div>
-        </div>
-      </section>
-
-      {/* Selected work, as a carousel. */}
-      <section className="section hair-t" aria-label="Selected work">
-        <div className="shell-wide">
-          <div className="shell-wide flex flex-wrap items-end justify-between gap-6 px-[var(--gutter)]">
-            <h2 className="text-[clamp(1.85rem,3.4vw,2.9rem)]">Selected work</h2>
-            <Link href="/case-studies" className="link-type text-[0.95rem]">
-              All trade references
-            </Link>
-          </div>
-          <div className="shell-wide mt-10 px-[var(--gutter)]">
-            <PhotoCarousel items={featuredWork} />
-          </div>
-        </div>
-      </section>
-
-      {/* The six-step process, compact register. */}
-      <section className="section hair-t" aria-label="Sales process">
-        <div className="shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="text-[clamp(1.85rem,3.4vw,2.9rem)]">
-              How an auction runs
-            </h2>
-            <Link href="/process" className="link-type text-[0.95rem]">
-              The process in full
-            </Link>
-          </div>
-          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <li
-                key={step.name}
-                className="rounded-[var(--r-card)] border border-rule-2 bg-paper-2 p-6"
               >
-                <span className="label-caps tnum text-accent-deep">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 text-[1.2rem]">{step.name}</h3>
-                <p className="mt-2 text-[0.9rem] leading-relaxed text-soft line-clamp-3">
-                  {step.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+                {d.glyph}
+              </span>
+              <span className="bento-name">{d.name}</span>
+              <span className="bento-desc">{d.summary}</span>
+              <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
+                Enquire
+                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+              </span>
+            </Link>
+          ))}
 
-      {/* Who we are, in brief. */}
-      <section className="section hair-t" aria-label="About">
-        <div className="shell grid items-center gap-12 md:grid-cols-[1fr_1.15fr] md:gap-20">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--r-card)]">
-            <Image
-              src="/images/graduation-ceremony.jpg"
-              alt="Niklaas Kisilipile at his graduation ceremony"
-              fill
-              sizes="(min-width: 48rem) 45vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h2 className="text-[clamp(1.85rem,3.4vw,2.9rem)]">Who we are</h2>
-            <p className="measure mt-6 text-soft">
-              An exclusively Namibian owned auction house, run by{" "}
-              {site.principal.name}: former corporate banker, qualified
-              auctioneer, sworn appraiser admitted to the Magistrate Court of
-              Namibia.
+          {/* The credential band closes the grid: full width, the
+              certificate's own language. */}
+          <div className="bento-cell sm:col-span-12 bg-paper-2">
+            <span className="label-caps text-accent">Named on every certificate</span>
+            <p className="display-statement max-w-3xl text-ink">
+              Excellence in innovation and{" "}
+              <span className="em-serif text-accent">applied problem-solving.</span>
             </p>
-            <ul className="mt-8 flex flex-wrap gap-2.5">
-              {[
-                "Est. 2013",
-                "BIPA registered",
-                "Sworn appraiser",
-                "Scrap certified",
-              ].map((chip) => (
-                <li
-                  key={chip}
-                  className="rounded-[var(--r-pill)] border border-rule bg-paper-2 px-4 py-1.5 text-[0.82rem] font-medium text-ink-2"
-                >
-                  {chip}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8">
-              <Link href="/about" className="link-type text-[0.95rem]">
-                About Fix Eagle
-                <ArrowUpRight
-                  className="ml-1 inline h-4 w-4"
-                  strokeWidth={1.75}
-                  aria-hidden
-                />
-              </Link>
-            </p>
+            <Link
+              href="/brand"
+              className="mt-2 inline-flex items-center gap-2 text-[0.85rem] font-semibold text-accent"
+            >
+              See the certificate
+              <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Closing band: the brand statement over charcoal. */}
-      <section className="section" aria-label="Closing">
-        <div className="shell">
-          <div className="rounded-[var(--r-card)] bg-ink px-6 py-16 text-center text-paper md:px-16 md:py-20">
-            <p className="mx-auto max-w-[18ch] text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.022em]">
-              With us you can go so much further.
+      {/* ------------------------------------------------ Desire */}
+      {/* The scroll chapter: the graduate statement scrubs to full ink
+          word by word, then the misty ocean grows and recedes. */}
+      <section className="chapter shell-wide">
+        <ScrubReveal
+          text="Oryx Institute graduates solve problems quietly and finish them decisively."
+          className="display-statement mx-auto max-w-4xl text-center text-ink"
+        />
+
+        <div className="mt-20 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+          <div className="keyline">
+            <p className="label-caps text-soft">The standard</p>
+            <p className="mt-4 text-[1.02rem] leading-relaxed text-soft">
+              The line is set by the institute&apos;s own certificate: work is
+              judged on innovation and applied problem-solving, nothing
+              else. Everything the institute prints, from the flyer to the
+              letterhead, keeps the same register.
             </p>
-            <p className="mx-auto mt-4 max-w-[44ch] text-[1rem] leading-relaxed opacity-75">
-              Tell us what you need to sell. We will tell you what it is worth
-              and how we would sell it.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
-              <a href={site.whatsapp} className="btn on-dark">
-                WhatsApp {site.phoneDisplay}
-              </a>
-              <Link
-                href="/contact"
-                className="link-type on-photo text-[0.95rem] font-medium"
-              >
-                Or use the contact form
-              </Link>
-            </div>
+          </div>
+
+          <ScaleFigure
+            src="/images/ocean.jpg"
+            alt="A calm ocean under heavy mist"
+            width={1920}
+            height={1180}
+            sizes="(min-width: 64rem) 56vw, 100vw"
+            caption="Presentation folder, Oryx Institute print kit"
+          />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ The record */}
+      {/* The institute's own printed matter, in the artifact carousel. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-2xl text-ink">
+            Printed matter, <span className="em-serif text-accent">kept</span>
+          </h2>
+          <Link href="/brand" className="link-type text-[0.95rem]">
+            The full brand register
+          </Link>
+        </div>
+        <div className="mt-12">
+          <ArtifactCarousel items={artifactItems} />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ Action */}
+      <section className="chapter shell">
+        <div className="relative overflow-hidden rounded-[var(--r-card)] bg-accent px-6 py-20 text-center sm:px-12 md:py-28">
+          <h2 className="display-hero mx-auto max-w-5xl text-accent-ink">
+            Apply <span className="em-serif">now.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-[38ch] text-[1.05rem] leading-relaxed text-accent-ink opacity-90">
+            Applications open by enquiry, addressed to the Principal&apos;s
+            office. One message starts it.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/apply"
+              className="pill"
+              style={{ background: "#FFF8EE", color: "#71111F", borderColor: "#FFF8EE" }}
+            >
+              Start your application
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+            <a
+              href={`mailto:${site.email}`}
+              className="pill pill-photo !border-accent-ink/40"
+            >
+              {site.email}
+            </a>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[0.85rem] text-accent-ink opacity-80">
+            <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
+              {site.phoneDisplay}
+            </a>
+            <span>{site.address}</span>
           </div>
         </div>
       </section>

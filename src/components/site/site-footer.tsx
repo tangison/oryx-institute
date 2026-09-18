@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { OryxLogo } from "@/components/site/oryx-logo";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -8,41 +8,30 @@ export function SiteFooter() {
       <div className="shell py-20 md:py-24">
         <p className="foot-statement">{site.closingLine}</p>
         <p className="measure mt-6 text-soft">
-          We add value to our clients, through dedicated service delivery.
+          {site.headline}
         </p>
 
         <div className="hair-t mt-14 grid gap-10 pt-10 md:grid-cols-[auto_1fr_auto] md:items-start md:gap-12">
           <Link
             href="/"
-            className="flex items-center gap-3"
+            className="flex items-center"
             aria-label={`${site.tradingName}, home`}
           >
-            <Image
-              src="/images/logo-full-sm.png"
-              alt=""
-              width={31}
-              height={34}
-              className="h-[2.1rem] w-auto"
+            <OryxLogo
+              variant="lockup"
+              tone="brand"
+              className="h-[2.2rem] w-auto"
             />
-            <span className="flex flex-col leading-none">
-              <span className="text-[0.95rem] font-bold tracking-[0.015em]">
-                FIX EAGLE
-              </span>
-              <span className="label-caps mt-[3px] text-[0.5rem] tracking-[0.3em] text-soft">
-                Auctioneers
-              </span>
-            </span>
           </Link>
 
           <nav aria-label="Footer" className="md:justify-self-center">
             <ul className="flex flex-wrap gap-x-8 gap-y-3">
               {[
-                { href: "/services", label: "Services" },
-                { href: "/process", label: "Process" },
-                { href: "/case-studies", label: "Case studies" },
+                { href: "/programmes", label: "Programmes" },
                 { href: "/about", label: "About" },
+                { href: "/brand", label: "Brand" },
                 { href: "/faq", label: "FAQ" },
-                { href: "/contact", label: "Contact" },
+                { href: "/apply", label: "Apply" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="label-caps hover:text-accent-deep">

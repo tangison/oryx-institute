@@ -1,55 +1,59 @@
 /* ==========================================================================
-   Fix Eagle Auctioneers · design tokens
+   Oryx Politechnical Institute · design tokens
    --------------------------------------------------------------------------
-   Anchored on the exact brand codes sampled from the company profile:
-     gold        #CDA666  logo disc, accents, headings on brown
-     charcoal    #393936  ink
-     slate-navy  #44536A  headings
-     orange      #EC7C30  accent line, used sparingly
-     white       #FFFFFF  base background
-   Type: Inter variable (closest world-class match to Target's
-   "Helvetica for Target"), weights 400/500/600/700/800.
-   Text-heavy pages (privacy, terms, disclaimer, brand) run the brown
-   theme via .theme-brown. Menu overlay runs fixed warm-black tokens.
+   Anchored on the exact codes from the official logo artwork:
+     ink     #181713  the wordmark's ink, and the dark ground
+     maroon  #71111F  the shield, 理工, accents on light grounds
+     ivory   #FFF8EE  the dark logo variant's ink
+     white   #FFFFFF  the print kit's paper
+   Type: Tinos (Times-metric serif, the wordmark's own register) for
+   display, Geist for UI and body, a two-glyph Noto Serif SC subset for
+   理工 set as live text.
+   Text-heavy pages (privacy, terms, disclaimer) run the ink theme via
+   .theme-ink. The menu overlay runs fixed ink tokens.
+   Derived tints are computed, not guessed: rose #D37084 holds 5.48:1
+   on the ink ground; muted values clear AA on both grounds.
    ========================================================================== */
 
 :root {
-  /* Paper, ink, neutrals. Brand white base, charcoal ink, slate-navy
-     headings. Tints are derived from the brand anchors only. */
+  /* Paper, ink, neutrals. Print-kit white base, brand ink text. */
   --paper:      #FFFFFF;
-  --paper-2:    #F8F6F1;
-  --paper-3:    #F1EDE4;
-  --ink:        #393936;
-  --ink-2:      #44536A;
-  --muted:      #57534A;
-  --rule:       #E6E1D6;
-  --rule-2:     #EFEBE1;
+  --paper-2:    #FAF8F3;
+  --paper-3:    #F4F0E8;
 
-  /* Single accent family: brand gold. Deep gold carries the accent in
-     text and links where the gold itself would fall short of AA on
-     white. Dark text on gold fills stays a warm near-black. */
-  --accent:      #CDA666;
-  --accent-deep: #7A5E22;
-  --accent-ink:  #241F17;
+  --ink:        #181713;
+  --ink-2:      #71111F;
+  --muted:      #57524A;
+  --rule:       #E7E1D6;
+  --rule-2:     #F0ECE3;
 
-  /* Brand orange, used sparingly: focus ring, live markers, the active
-     carousel dot. Deepened once for the focus ring to hold 3:1. */
-  --orange: #EC7C30;
-  --focus:  #C25E12;
+  /* Single accent family: brand maroon. On white it holds 11.65:1,
+     so it carries text, links and fills directly. Ivory sits on the
+     maroon fill at 11.05:1. */
+  --accent:      #71111F;
+  --accent-deep: #570D17;
+  --accent-ink:  #FFF8EE;
 
-  /* Fixed overlay tokens. The hero photograph and the menu overlay are
-     dark in both themes, so text over them never flips with the mode. */
-  --photo-ink: #FBF9F4;
-  --photo-ink-contrast: #241F17;
-  --photo-scrim: oklch(20% 0.012 80);
-  --menu-bg: #17110A;
-  --menu-ink: #FBF9F4;
-  --menu-muted: #B7AC97;
-  --menu-rule: rgba(251, 249, 244, 0.14);
+  /* Focus ring: the maroon itself, 3:1 against white. */
+  --focus: #71111F;
 
-  /* Type. One variable family covers every weight the site uses. */
-  --font-display: var(--font-body-loaded, "Helvetica Neue"), Arial, sans-serif;
-  --font-body: var(--font-body-loaded, "Helvetica Neue"), Arial, sans-serif;
+  /* Fixed overlay tokens. Photography and the menu overlay are dark in
+     both modes, so text over them never flips with the mode. */
+  --photo-ink: #FFF8EE;
+  --photo-ink-contrast: #181713;
+  --photo-scrim: oklch(16% 0.01 60);
+  --menu-bg: #181713;
+  --menu-ink: #FFF8EE;
+  --menu-muted: #A8A196;
+  --menu-rule: rgba(255, 248, 238, 0.14);
+  --menu-accent: #D37084;
+
+  /* Type. Tinos is the wordmark's Times-metric serif; Geist is the UI
+     and body sans; the CJK subset carries 理工 wherever it is live
+     text rather than logo artwork. */
+  --font-display: var(--font-serif-loaded, "Times New Roman"), "Tinos", Times, serif;
+  --font-body: var(--font-sans-loaded, "Helvetica Neue"), Arial, sans-serif;
+  --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
   /* Spacing scale, 4pt base */
   --space-3xs: 0.125rem;
@@ -62,6 +66,7 @@
   --space-2xl: 4rem;
   --space-3xl: 6rem;
   --space-4xl: 9rem;
+  --space-5xl: 13rem;
 
   /* Page gutter */
   --gutter: clamp(1.25rem, 4vw, 4rem);
@@ -92,44 +97,46 @@
 }
 
 .dark {
-  /* Dark mode: warm charcoal paper derived from brand charcoal, same
-     gold anchor. Hue never moves between modes. */
-  --paper:      #26231E;
-  --paper-2:    #2E2A24;
-  --paper-3:    #37332B;
-  --ink:        #F2EFE8;
-  --ink-2:      #C9D2DF;
-  --muted:      #B3AC9D;
-  --rule:       #3B372F;
-  --rule-2:     #333027;
+  /* Dark mode: the brand ink becomes the paper. Rose #D37084 carries
+     the maroon hue at 5.48:1 for accents and links. */
+  --paper:      #181713;
+  --paper-2:    #221F1A;
+  --paper-3:    #2B2721;
 
-  --accent:      #CDA666;
-  --accent-deep: #D6B479;
-  --accent-ink:  #241F17;
+  --ink:        #F5F0E6;
+  --ink-2:      #E8B9C2;
+  --muted:      #A8A196;
+  --rule:       #37322B;
+  --rule-2:     #2E2A24;
 
-  --focus: #EC7C30;
+  --accent:      #71111F;
+  --accent-deep: #D37084;
+  --accent-ink:  #FFF8EE;
+
+  --focus: #D37084;
 }
 
-/* Brown theme: the text-heavy pages. Deep cocoa built from the brand
-   charcoal warmed toward the gold hue, ivory body text, gold headings.
-   Fixed, not mode-flipped: the page reads the same in light and dark.
-   The footer lives outside the page wrapper, so it joins the ground
-   through the same body:has() hook the header uses. */
-.theme-brown,
-body:has(.theme-brown) .site-header,
-body:has(.theme-brown) .site-footer {
-  --paper:      #2E261B;
-  --paper-2:    #382F22;
-  --paper-3:    #42382A;
-  --ink:        #F1EBDF;
-  --ink-2:      #CDA666;
-  --muted:      #D8CEB8;
-  --rule:       #554832;
-  --rule-2:     #463B2A;
+/* Ink theme: the text-heavy pages (privacy, terms, disclaimer). The
+   brand ink is the ground, ivory carries the body, rose carries links
+   at 5.48:1. Fixed, not mode-flipped: the page reads the same in light
+   and dark. The header and footer live outside the page wrapper, so
+   they join the ground through the body:has() hooks. */
+.theme-ink,
+body:has(.theme-ink) .site-header,
+body:has(.theme-ink) .site-footer {
+  --paper:      #181713;
+  --paper-2:    #221F1A;
+  --paper-3:    #2B2721;
 
-  --accent:      #CDA666;
-  --accent-deep: #E3C685;
-  --accent-ink:  #241F17;
+  --ink:        #F5F0E6;
+  --ink-2:      #E8B9C2;
+  --muted:      #A8A196;
+  --rule:       #37322B;
+  --rule-2:     #2E2A24;
 
-  --focus: #EC7C30;
+  --accent:      #71111F;
+  --accent-deep: #D37084;
+  --accent-ink:  #FFF8EE;
+
+  --focus: #D37084;
 }

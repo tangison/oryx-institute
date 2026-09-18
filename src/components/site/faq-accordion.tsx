@@ -1,6 +1,7 @@
 "use client";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { Plus } from "lucide-react";
 
 export function FaqAccordion({
   items,
@@ -21,15 +22,11 @@ export function FaqAccordion({
         >
           <AccordionPrimitive.Header>
             <AccordionPrimitive.Trigger className="faq-trigger">
-              <span className="text-[1.25rem] font-semibold leading-snug tracking-[-0.01em] md:text-[1.4rem]">
-                {item.q}
-              </span>
-              <span className="faq-sign" aria-hidden>
-                +
-              </span>
+              <span>{item.q}</span>
+              <Plus className="faq-icon" strokeWidth={2} aria-hidden />
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
-          <AccordionPrimitive.Content className="faq-content">
+          <AccordionPrimitive.Content className="faq-answer">
             <p className="measure pb-7 text-soft">{item.a}</p>
           </AccordionPrimitive.Content>
         </AccordionPrimitive.Item>
