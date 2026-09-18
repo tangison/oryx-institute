@@ -71,7 +71,6 @@ export function ApplyForm() {
           <p
             id="af-name-error"
             className="field-error"
-            data-hidden={errors.name ? undefined : "true"}
             role={errors.name ? "alert" : undefined}
           >
             {errors.name ?? ""}
@@ -96,7 +95,6 @@ export function ApplyForm() {
           <p
             id="af-phone-error"
             className="field-error"
-            data-hidden={errors.phone ? undefined : "true"}
             role={errors.phone ? "alert" : undefined}
           >
             {errors.phone ?? ""}

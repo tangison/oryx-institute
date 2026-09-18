@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 /**
  * Inner-page header band. Generous top padding clears the fixed
- * header; the title sets in the display serif with an italic accent
- * word; one-line description underneath.
+ * header; the title sets in the display serif with an accent word in
+ * the brand maroon; one-line description underneath.
  */
 export function PageHero({
   title,
@@ -11,7 +11,7 @@ export function PageHero({
   children,
 }: {
   title: string;
-  accent?: string;
+  accent?: ReactNode;
   children?: ReactNode;
 }) {
   return (
