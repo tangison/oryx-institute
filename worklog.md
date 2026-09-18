@@ -179,3 +179,67 @@ Stage Summary:
 - The brown ground now runs edge to edge on privacy, terms, disclaimer
   and brand; every other page stays on the white base. Live at
   https://fix-eagle-targis47s-projects.vercel.app
+
+---
+Task ID: 5
+Agent: Super Z (main agent)
+Task: Full rebrand to Oryx Politechnical Institute per the new filebin
+assets, gpt-taste skill, Tangison webmaster checklist and a 10/10
+optimization pass; deploy with the new tokens.
+
+Work Log:
+- Fetched the new filebin (3kemeowrb1p40dx1): Oryx Institute Brand
+  Assets (two logo variants, eight print-kit pieces) plus a
+  Tangison-New-Skills zip (copywriting, research, scraping, gauntlet,
+  checklist, full-output).
+- Ran gpt-taste (leonxlnx/taste-skill) and read the full SKILL.md;
+  ran the deterministic Python RNG on the prompt (seed 445): Editorial
+  Split hero, Geist sans, Horizontal Accordions + Inline Typography
+  Images + Artifact Carousel, GSAP Image Scale-Fade + Scrubbing Text
+  Reveals.
+- Extracted every fact by reading the print kit with VLM: wordmark
+  ORYX + 理工 (maroon) + INSTITUTE with maroon shield; Principal Tangi
+  Iigonda; P.O. Box 1662 Windhoek; +264 81 341 1522;
+  tangi@oryxinstitute.org; oryxinstitute.org; approved lines "Looks
+  harmless. Isn't." and "graduates solve problems quietly and finish
+  them decisively."; certificate language "excellence in innovation
+  and applied problem-solving".
+- Decoded the logo SVG into its four paths (ORYX, INSTITUTE, 理工,
+  shield) and built the pipeline (scripts/oryx-assets.mjs): React
+  path-data component, SVG lockup files, knockout favicons (512, 180,
+  maskable 192, multi-size favicon.ico), wolf and ocean photo crops,
+  print-kit imagery, OG cards.
+- Typography: Tinos (Times-metric serif, the wordmark's own register)
+  for display, Geist variable for UI and body, a two-glyph Noto Serif
+  SC subset (980 bytes) so 理工 renders as live text.
+- Rebuilt the full site: home (editorial-split hero, gapless bento,
+  GSAP scrub statement, scale-fade ocean, artifact carousel, night
+  CTA band), programmes (horizontal accordion), about, apply
+  (WhatsApp-first composer, verified prefilled handoff), faq
+  (accordion + FAQPage JSON-LD), brand (anatomy tabs + full print kit
+  carousel), ink-themed privacy/terms/disclaimer, 404, error,
+  robots, sitemap, manifest, EducationalOrganization JSON-LD.
+- Hallmark 58-gate sweep: fixed italic display emphasis (38a), token
+  sweep with fixed pill/night tokens and dark-mode accent flips (48),
+  night band replaces the full-accent CTA (23), outline-based input
+  focus with reserved error slots and shared control heights (39),
+  bento breakpoint alignment killing implicit-column overflow at
+  640-768px (50), and inline pill crops holding every cold page under
+  500KB (432KB home, 478KB brand). Added Hallmark stamps and updated
+  .hallmark/log.json.
+- Gauntlet blind critic, labels stripped, against the live-fetched
+  wearecollins.com reference: OUR home won and OUR menu won.
+- Lint clean; tsc clean for src; all routes 200; no console errors;
+  no overflow at 320/375/414/640/700/768/1440; hero fits the fold at
+  1280x800.
+- Preserved the prior remote lineage on archive/pre-rebrand, pushed
+  main (eb03470) to github.com/tangison/oryx-institute with the new
+  PAT, and deployed through the existing git-linked Vercel project
+  with the new token; SSO gate disabled on the vercel.app host.
+
+Stage Summary:
+- Live at https://oryx-institute-tangison-s-projects.vercel.app
+  (auto-deploys from GitHub main). The vercel.app host stays
+  noindexed via src/proxy.ts until oryxinstitute.org is connected as
+  a production domain.
+- Blind-critic wins against the Collins bar on both home and menu.
