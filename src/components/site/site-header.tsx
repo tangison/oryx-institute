@@ -2,56 +2,37 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/site/theme-toggle";
 import { MenuOverlay } from "@/components/site/menu-overlay";
+import { OryxLogo } from "@/components/site/oryx-logo";
 import { navGroups, site } from "@/lib/site";
 
 /**
- * Wordmark lockup: the eagle mark over "FIX EAGLE / AUCTIONEERS".
- * The trading name keeps "Investments" in metadata and legal lines;
- * the wordmark itself carries the two-word lockup only.
+ * Wordmark lockup: the official ORYX 理工 INSTITUTE artwork, rendered
+ * from its own vector paths. Over photography it runs the reverse tone;
+ * once the header turns solid it runs the brand tone.
  */
 export function Wordmark({
   onNavigate,
-  tone = "ink",
+  reverse = false,
 }: {
   onNavigate?: () => void;
-  tone?: "ink" | "menu";
+  reverse?: boolean;
 }) {
   return (
     <Link
       href="/"
       onClick={onNavigate}
-      className="flex items-center gap-2.5"
+      className="flex items-center"
       aria-label={`${site.tradingName}, home`}
     >
-      <Image
-        src="/images/logo-full.png"
-        alt=""
-        width={37}
-        height={40}
-        priority
-        className="h-10 w-auto"
+      <OryxLogo
+        variant="lockup"
+        tone={reverse ? "reverse" : "brand"}
+        className="h-[2.4rem] w-auto min-[48rem]:h-[2.75rem]"
       />
-      <span className="flex flex-col leading-none">
-        <span
-          className={`text-[1.02rem] font-bold tracking-[0.015em] ${
-            tone === "menu" ? "menu-text" : "text-current"
-          }`}
-        >
-          FIX EAGLE
-        </span>
-        <span
-          className={`label-caps mt-[4px] text-[0.55rem] tracking-[0.3em] ${
-            tone === "menu" ? "menu-text-soft" : "opacity-70"
-          }`}
-        >
-          Auctioneers
-        </span>
-      </span>
     </Link>
   );
 }
@@ -106,8 +87,6 @@ function MegaNav({
     };
   }, []);
 
-  const twoCol = items.length > 4;
-
   return (
     <div
       ref={wrapRef}
@@ -132,8 +111,8 @@ function MegaNav({
         />
       </button>
       {open ? (
-        <div className="mega-panel" style={{ minWidth: twoCol ? "36rem" : "24rem" }}>
-          <ul className={twoCol ? "grid gap-1 sm:grid-cols-2" : "grid gap-1"}>
+        <div className="mega-panel" style={{ minWidth: "26rem" }}>
+          <ul className="grid gap-1">
             {items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -163,7 +142,6 @@ export function SiteHeader() {
   const isHome = pathname === "/";
   const [overHero, setOverHero] = useState(isHome);
   const [menuOpen, setMenuOpen] = useState(false);
-
   // Route changes reset the hero state during render, not in an effect.
   const [prevHome, setPrevHome] = useState(isHome);
   if (prevHome !== isHome) {
@@ -195,9 +173,7 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`site-header ${solid ? "is-solid" : ""} ${
-          overHero ? "on-photo" : ""
-        }`}
+        className={`site-header ${solid ? "is-solid" : ""}`}
       >
         <div className="shell-wide flex h-[4.5rem] items-center justify-between gap-6">
           <Wordmark />
@@ -229,15 +205,12 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2.5">
-            <a
-              href={site.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline hidden !px-5 !py-2.5 text-[0.82rem] xl:inline-flex"
+            <Link
+              href="/apply"
+              className="pill !px-5 !py-2.5 text-[0.82rem] hidden xl:inline-flex"
             >
-              WhatsApp
-              <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-            </a>
+              Apply now
+            </Link>
             <ThemeToggle />
             <button
               type="button"

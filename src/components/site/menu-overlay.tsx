@@ -10,13 +10,41 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { featuredWork, navLinks, site } from "@/lib/site";
+import { site } from "@/lib/site";
+
+/** Featured menu artifacts: the brand's own printed matter. */
+const menuArtifacts = [
+  {
+    title: "Recruitment flyer",
+    note: "Looks harmless. Isn't.",
+    photo: "/images/brand/kit-flyer.jpg",
+  },
+  {
+    title: "Certificate of Achievement",
+    note: "Innovation and applied problem-solving",
+    photo: "/images/brand/kit-certificate.jpg",
+  },
+  {
+    title: "Letterhead",
+    note: "P.O. Box 1662, Windhoek",
+    photo: "/images/brand/kit-letterhead.jpg",
+  },
+] as const;
+
+/** Primary menu links, Collins register. */
+const menuLinks = [
+  { href: "/", label: "Home" },
+  { href: "/programmes", label: "Programmes", cjk: "理工" },
+  { href: "/about", label: "About" },
+  { href: "/brand", label: "Brand" },
+  { href: "/faq", label: "FAQ" },
+] as const;
 
 /**
- * Full-screen menu, Collins register: warm-black ground, huge left-set
- * links with lot indexes, a featured-commissions column, gold pill CTA
- * and a contact footer row. The header wordmark repeats inside the
- * overlay with a close control, exactly as the reference does.
+ * Full-screen menu, Collins register: brand-ink ground, huge serif
+ * links with lot indexes, a featured-artifacts column, maroon pill CTA
+ * and a contact footer row. The wordmark repeats inside the overlay
+ * with a close control, exactly as the reference does.
  */
 export function MenuOverlay({
   open,
@@ -49,24 +77,20 @@ export function MenuOverlay({
           <Link
             href="/"
             onClick={close}
-            className="flex items-center gap-2.5"
+            className="flex items-center"
             aria-label={`${site.tradingName}, home`}
           >
-            <Image
-              src="/images/logo-full.png"
+            {/* The cached file variant: the menu ground is always ink,
+                so the reverse lockup file serves it without shipping the
+                path data twice in the document. */}
+            <img
+              src="/images/logo-lockup-dark.svg"
               alt=""
-              width={37}
+              width={116}
               height={40}
-              className="h-10 w-auto"
+              className="h-[2.4rem] w-auto min-[48rem]:h-[2.75rem]"
+              decoding="async"
             />
-            <span className="flex flex-col leading-none">
-              <span className="text-[1.02rem] font-bold tracking-[0.015em]">
-                FIX EAGLE
-              </span>
-              <span className="label-caps mt-[4px] text-[0.55rem] tracking-[0.3em] menu-text-muted">
-                Auctioneers
-              </span>
-            </span>
           </Link>
           <button
             type="button"
@@ -84,7 +108,7 @@ export function MenuOverlay({
         <div className="shell-wide grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1.25fr_1fr] lg:gap-20">
           <nav aria-label="Menu">
             <ul className="flex flex-col gap-4 sm:gap-6">
-              {navLinks.map((link, i) => (
+              {menuLinks.map((link, i) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -93,9 +117,11 @@ export function MenuOverlay({
                     style={{ "--i": i } as React.CSSProperties}
                   >
                     {link.label}
-                    <span className="menu-index" aria-hidden>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    {"cjk" in link && link.cjk ? (
+                      <span className="menu-cjk" aria-hidden>
+                        {link.cjk}
+                      </span>
+                    ) : null}
                   </Link>
                 </li>
               ))}
@@ -107,30 +133,30 @@ export function MenuOverlay({
               className="label-caps mb-2 menu-text-muted"
               style={{ animation: "menu-link-in 480ms var(--ease-out) 280ms forwards", opacity: 0 }}
             >
-              Selected work
+              Printed matter
             </p>
             <div className="flex flex-col">
-              {featuredWork.slice(0, 3).map((work, i) => (
+              {menuArtifacts.map((a, i) => (
                 <Link
-                  key={work.entity}
-                  href="/case-studies"
+                  key={a.title}
+                  href="/brand"
                   onClick={close}
                   className="menu-feature"
                   style={{ "--i": i } as React.CSSProperties}
                 >
                   <span className="relative block h-[4.5rem] w-[4.5rem] flex-none overflow-hidden rounded-[10px]">
                     <Image
-                      src={work.photo}
-                      alt={work.alt}
+                      src={a.photo}
+                      alt={`${a.title}, Oryx Institute brand asset`}
                       fill
                       sizes="72px"
                       className="object-cover"
                     />
                   </span>
                   <span className="min-w-0">
-                    <span className="menu-feature-label">{work.period}</span>
+                    <span className="menu-feature-label">{a.title}</span>
                     <span className="menu-feature-title block truncate">
-                      {work.entity}
+                      {a.note}
                     </span>
                   </span>
                   <ArrowRight
@@ -151,10 +177,10 @@ export function MenuOverlay({
               className="flex flex-wrap items-center gap-6"
               style={{ animation: "menu-link-in 480ms var(--ease-out) 420ms forwards", opacity: 0 }}
             >
-              <a href={site.whatsapp} className="btn on-dark !px-6 !py-3 text-[0.9rem]">
-                Request an appraisal
+              <Link href="/apply" onClick={close} className="pill pill-fill-dark !px-6 !py-3 text-[0.9rem]">
+                Apply now
                 <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </a>
+              </Link>
               <a href={`tel:${site.phoneHref}`} className="menu-utility tnum">
                 {site.phoneDisplay}
               </a>
@@ -177,8 +203,8 @@ export function MenuOverlay({
                 </Link>
               </li>
               <li>
-                <Link href="/brand" onClick={close} className="menu-utility">
-                  Brand
+                <Link href="/disclaimer" onClick={close} className="menu-utility">
+                  Disclaimer
                 </Link>
               </li>
             </ul>

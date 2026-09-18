@@ -1,92 +1,87 @@
 import type { Metadata } from "next";
-import { BrownPage } from "@/components/site/brown-page";
+import { InkPage } from "@/components/site/ink-page";
 import { PageHero } from "@/components/site/page-hero";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions",
+  title: "Terms of Service",
   description:
-    "Terms for using this website and for participating in Fix Eagle auctions, including the as-is basis of sale and the buyer's premium.",
+    "The terms on which this website is offered: what the site does, what an enquiry means, and what it does not promise.",
   alternates: { canonical: "/terms" },
 };
 
 const sections = [
   {
-    h: "The entity",
+    h: "What this site is",
     body: [
-      `These terms are issued by ${site.legalName}, trading as ${site.tradingName}, of ${site.address} ("Fix Eagle", "we"). By using this website or participating in an auction we conduct, you accept these terms and any auction-specific conditions announced for a particular sale.`,
+      `This website presents ${site.legalName} and invites applications by enquiry. It is operated from ${site.address}, Windhoek, Namibia. It takes no payments, creates no accounts, and stores no messages: the application composer hands your message to WhatsApp, where the conversation continues.`,
     ],
   },
   {
-    h: "This website",
+    h: "What an enquiry means",
     body: [
-      "The website describes our services and invites enquiries. Nothing on it is an offer to buy or sell, a quotation, or a valuation. Written terms, valuations and sales plans are issued individually after we have assessed the assets in question.",
-      "We keep the site accurate, but we do not warrant that every detail remains current at all times, and we accept no liability for decisions made on the strength of website content alone.",
+      "Sending the application message asks the Principal's office to read it and reply. It does not create a place, a promise of a place, or any obligation on either side. Admission, programme placement and study arrangements are confirmed only in the written reply from the institute.",
     ],
   },
   {
-    h: "Participating in an auction",
+    h: "The content on these pages",
     body: [
-      "To bid at a live auction you must register before the sale. To bid in an online auction you must register on the platform announced for that sale. We may refuse registration at our discretion, and bids may be rejected where a bidder cannot be identified or has an unpaid account with us.",
-      "Every auction is announced with its own conditions of sale, including the date, venue or platform, viewing arrangements and payment terms for that sale. Those conditions form part of the contract of sale.",
+      "The site describes the institute's disciplines, brand and printed matter as they are published by the institute itself. The disciplines describe direction, not a catalogue of offerings: programme and course specifics are confirmed at the point of application, and the certificate is issued on completion.",
     ],
   },
   {
-    h: "Assets are sold as is",
+    h: "Intellectual property",
     body: [
-      "Unless a specific condition of sale states otherwise, all assets are sold as is, where is, voetstoots, without warranty of condition, fitness, quality or description. Descriptions and photographs in a catalogue are for identification only. Bidders are expected to inspect assets during the announced viewing period and bid on their own judgment.",
+      "The wordmark, the shield emblem, the print kit imagery and the text of this site belong to the institute. You may quote them with attribution and link to this site; you may not republish them as your own or use them to imply any association with the institute.",
     ],
   },
   {
-    h: "Buyer's premium and costs",
+    h: "External channels",
     body: [
-      "A buyer's premium may be payable on the hammer price. Where a premium applies, its rate and calculation are announced in the conditions of the specific auction before bidding opens.",
+      "This site links to WhatsApp for the application handoff. Once your message leaves this site, it travels under the terms of the service you chose to use, not under these terms.",
     ],
   },
   {
-    h: "Payment and collection",
+    h: "Liability",
     body: [
-      "Payment terms, acceptable methods and collection deadlines are set out in the conditions of each auction. Ownership passes and assets may be collected only once the full purchase price and all applicable costs have been received in cleared funds. Storage may be charged on assets left behind after the announced deadline.",
+      "The site is offered as it stands. The institute is not liable for decisions made on the strength of this site alone: the authoritative channel for anything that matters is the written reply from the Principal's office.",
     ],
   },
   {
-    h: "Valuations and sworn appraisals",
+    h: "Changes",
     body: [
-      "Valuations represent our professional opinion at the date stated, based on the information available at that time. Market conditions change, and no valuation guarantees a future sale price. See our separate disclaimer for the full position.",
-    ],
-  },
-  {
-    h: "Governing law",
-    body: [
-      "These terms and any auction we conduct are governed by the laws of the Republic of Namibia, and the courts of Namibia have jurisdiction.",
+      "These terms may be updated as the institute grows. The current version is always the one published on this page.",
     ],
   },
 ];
 
 export default function TermsPage() {
   return (
-    <BrownPage>
+    <InkPage>
       <>
-        <PageHero title="Terms and conditions">
-          The rules of the house, for the website and for the auctions we
-          conduct. Auction-specific conditions are announced with each sale.
+        <PageHero title="Terms of service">
+          <p>
+            Short terms, because the site does little: it shows the
+            institute and carries one message at a time.
+          </p>
         </PageHero>
+
         <section className="shell pb-28">
-          {sections.map((section) => (
-            <div key={section.h} className="hair-t grid gap-4 py-10 md:grid-cols-[14rem_1fr] md:gap-14">
-              <h2 className="text-[1.35rem] font-semibold">{section.h}</h2>
-              <div className="measure space-y-4 text-soft">
-                {section.body.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+          {sections.map((s) => (
+            <div key={s.h} className="mt-10 first:mt-0">
+              <h2>{s.h}</h2>
+              {s.body.map((p, i) => (
+                <p key={i} className="mt-4">
+                  {p}
+                </p>
+              ))}
             </div>
           ))}
-          <div className="hair-t pt-6 text-[0.85rem] text-soft">
-            Last updated September 2026.
-          </div>
+          <p className="doc-meta mt-16">
+            {site.legalName} · {site.address}
+          </p>
         </section>
       </>
-    </BrownPage>
+    </InkPage>
   );
 }

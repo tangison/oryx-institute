@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { BrownPage } from "@/components/site/brown-page";
+import { InkPage } from "@/components/site/ink-page";
 import { PageHero } from "@/components/site/page-hero";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Fix Eagle Investments CC collects, uses and protects personal information, and the rights you have over it.",
+    "How Oryx Politechnical Institute collects, uses and protects personal information, and the rights you have over it.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -14,79 +14,82 @@ const sections = [
   {
     h: "Who we are",
     body: [
-      `This website is operated by ${site.legalName}, trading as ${site.tradingName}, established at ${site.address}. We are an auctioneering, valuation and private sales business. For any privacy question, write to ${site.email} or call ${site.phoneDisplay}.`,
+      `This website is operated by ${site.legalName}, established at ${site.address}, Windhoek, Namibia. For any privacy question, write to ${site.email} or call ${site.phoneDisplay}.`,
     ],
   },
   {
     h: "What we collect",
     body: [
-      "When you contact us through this website, through WhatsApp, by phone or by email, we collect the information you choose to give us: your name, phone number, the region and asset type you write about, and the content of your message.",
-      "We also keep ordinary technical records, such as server logs, which help us keep the site working and secure. This site does not use advertising cookies or third-party analytics trackers.",
+      "The application composer on this site does not store anything. When you press send, the message you have written is handed to WhatsApp addressed to the Principal's office, and from that moment it exists only in the conversation you started.",
+      "If you contact us by phone, email or post instead, we keep what you choose to give us: your name, your contact details, the field of interest you name, and the content of your message.",
     ],
   },
   {
     h: "Why we collect it",
     body: [
-      "To answer your enquiry, to prepare valuations and sales plans, to execute auctions you instruct us to conduct, and to keep the records that auctions and sworn appraisals legally require. We do not sell or rent personal information to anyone.",
+      "To read and answer your application, to arrange what follows it, and to keep the records an institute in Namibia is expected to keep. We do not sell, rent or trade personal information to anyone, and we do not run advertising or third-party analytics trackers on this site.",
     ],
   },
   {
     h: "Who we share it with",
     body: [
-      "Only where an auction or appraisal requires it: for example, with buyers at an auction you instruct, with the courts when a sworn appraisal is submitted, or with service providers who help us run a sale. Wherever personal information is processed for you, it stays within the scope of the instruction you gave us.",
+      "Nobody outside the Principal's office, unless you ask us to or the law requires it. This site sets no advertising cookies and builds no profiles.",
     ],
   },
   {
     h: "How long we keep it",
     body: [
-      "For as long as the law and our professional obligations require. Auction and appraisal records are retained so that sales, proceeds and payments can be accounted for. Enquiry messages that do not lead to work are deleted once the conversation has run its course.",
+      "Applications are kept while the conversation they opened is alive, and for as long as the institute's own record-keeping requires after that. Messages that do not lead anywhere are deleted once the exchange has run its course.",
     ],
   },
   {
     h: "Your rights",
     body: [
-      "You may ask us what personal information we hold about you, ask us to correct it, or ask us to delete it where no legal or professional obligation requires us to keep it. Write to us at the contact details above and we will act on a reasonable request.",
+      "You may ask what personal information we hold about you, ask us to correct it, or ask us to delete it where no obligation requires us to keep it. Write to the email address above and a reasonable request will be acted on.",
     ],
   },
   {
     h: "Security",
     body: [
-      "We keep personal information on systems we control, limit access to the people who need it, and use encrypted channels wherever they are available, including WhatsApp. No method of storage is perfectly secure, but we treat your information with the care the law and our profession demand.",
+      "We keep personal information on systems we control and limit access to the people who need it. No method of storage is perfectly secure, but your information is treated with the care the law and the institute's own standards demand.",
     ],
   },
   {
     h: "Changes to this policy",
     body: [
-      "If we change this policy, we will publish the updated version on this page. The policy applies from the date it is published.",
+      "If we change this policy, the updated version is published on this page. The policy applies from the date it is published.",
     ],
   },
 ];
 
 export default function PrivacyPage() {
   return (
-    <BrownPage>
+    <InkPage>
       <>
         <PageHero title="Privacy policy">
-          Plain language, because the policy behind it is simple: we collect what
-          you send us, we use it to do the work you instruct, and we do not sell
-          it.
+          <p>
+            Plain language, because the policy behind it is simple: the
+            application message you write is yours until you send it, and
+            ours to keep safe afterwards.
+          </p>
         </PageHero>
+
         <section className="shell pb-28">
-          {sections.map((section) => (
-            <div key={section.h} className="hair-t grid gap-4 py-10 md:grid-cols-[14rem_1fr] md:gap-14">
-              <h2 className="text-[1.35rem] font-semibold">{section.h}</h2>
-              <div className="measure space-y-4 text-soft">
-                {section.body.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+          {sections.map((s) => (
+            <div key={s.h} className="mt-10 first:mt-0">
+              <h2>{s.h}</h2>
+              {s.body.map((p, i) => (
+                <p key={i} className="mt-4">
+                  {p}
+                </p>
+              ))}
             </div>
           ))}
-          <div className="hair-t pt-6 text-[0.85rem] text-soft">
-            Last updated September 2026.
-          </div>
+          <p className="doc-meta mt-16">
+            {site.legalName} · {site.address}
+          </p>
         </section>
       </>
-    </BrownPage>
+    </InkPage>
   );
 }
