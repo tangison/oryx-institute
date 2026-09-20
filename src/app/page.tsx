@@ -5,6 +5,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ScrubReveal } from "@/components/site/scrub-reveal";
 import { ScaleFigure } from "@/components/site/scale-figure";
 import { ArtifactCarousel } from "@/components/site/artifact-carousel";
+import { PhotoFigure } from "@/components/site/photo-figure";
+import { motto } from "@/lib/content";
 import { site, disciplines } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -258,6 +260,38 @@ export default function HomePage() {
         </div>
         <div className="mt-12">
           <ArtifactCarousel items={artifactItems} />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ The rule */}
+      {/* The founder's rule and the archive register: the tools are
+          named, the faces are in motion, nothing is posed. */}
+      <section className="chapter shell">
+        <div className="keyline">
+          <p className="label-caps text-soft">{motto.source}</p>
+          <p className="display-statement mt-4 max-w-4xl text-ink">
+            A man is only as good as his tools.{" "}
+            <span className="em-serif text-accent">The brain is the biggest tool.</span>
+          </p>
+          <p className="measure mt-5 text-[1.02rem] leading-relaxed text-soft">
+            So the tools are named, not magic. The institute publishes its
+            own stack, the learner&apos;s spine and the AI stack in the open.
+          </p>
+          <div className="mt-7">
+            <Link href="/tools" className="link-type text-[0.95rem]">
+              The Oryx Tools List
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <PhotoFigure
+            src="/images/1947/people-hero.jpg"
+            alt="Period study in the 1947 documentary register: students and a teacher striding through a tall doorway mid-stride, one laughing, books under arms"
+            caption="Period study: class change, in the 1947 documentary register."
+            sizes="(min-width: 90rem) 1440px, 100vw"
+            ratio="aspect-[21/9]"
+          />
         </div>
       </section>
 

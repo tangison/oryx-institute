@@ -28,9 +28,12 @@ export function SiteFooter() {
             <ul className="flex flex-wrap gap-x-8 gap-y-3">
               {[
                 { href: "/programmes", label: "Programmes" },
+                { href: "/schools", label: "Schools" },
+                { href: "/resources", label: "Resources" },
+                { href: "/compare", label: "Compare" },
+                { href: "/tools", label: "Tools" },
+                { href: "/people", label: "People" },
                 { href: "/about", label: "About" },
-                { href: "/brand", label: "Brand" },
-                { href: "/faq", label: "FAQ" },
                 { href: "/apply", label: "Apply" },
               ].map((l) => (
                 <li key={l.href}>
