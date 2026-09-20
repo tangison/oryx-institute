@@ -243,3 +243,48 @@ Stage Summary:
   noindexed via src/proxy.ts until oryxinstitute.org is connected as
   a production domain.
 - Blind-critic wins against the Collins bar on both home and menu.
+
+---
+Task ID: 6
+Agent: Super Z (main agent)
+Task: Pivot to institute strategy. Run the vercel-labs find-skills flow,
+install the requested skill set, read the worklog and map the AI-native
+GTM strategy with the founder.
+
+Work Log:
+- Ran `npx skills use "https://github.com/vercel-labs/skills" --skill
+  "find-skills"`, read the full SKILL.md output, followed its flow:
+  search via `npx skills find`, verify install counts and source
+  reputation, then install with `-g -y`.
+- Installed 11 skills to ~/.claude/skills: brainstorming (obra/superpowers,
+  368.7K installs), copywriting (coreyhaines31/marketingskills, 203.9K),
+  ai-image-generation (genmedia-labs, 569.8K), gtm-strategy (phuryn/pm-skills,
+  2.9K), business-document-generator (ailabs-393, 1.4K),
+  business-continuity (bagelhole, 266, only option in category),
+  init-textbook + quiz-generator (dmccreary/ibook-skills),
+  ogilvy-copywriting (boraoztunc, 424), glm-master-skill (zai-org/glm-skills,
+  official source after modelscope.cn registry failed to resolve).
+- Read this worklog end to end; grounded all strategy facts in the
+  Task 5 rebrand state (brand codes, approved lines, contacts, live
+  deployment).
+- Web-researched the Namibian market and cited every number: youth
+  unemployment 38.05% (2025), 563,499 youth out of the labour force
+  (NSA Jan 2025), NTA 45,000 TVET target vs 13,500 latest intake, VET
+  levy since 2014, NUST ~10,500 students, entrepreneurship education
+  gap in the literature.
+- Wrote docs/strategy-map.md: positioning (Stanford-on-steroids
+  translation table), the tools motto as strategy, market table, GTM
+  per the gtm-strategy framework (segments S1-S4, levy insight,
+  messaging pillars, channels, KPIs, 90-day roadmap), four new site
+  surfaces (/resources, /compare with non-disparagement rules, /tools,
+  /schools with phased coming-soon, /people), staff strategy
+  (1 admin + agents, practitioner-teacher two tracks, hiring bar,
+  key-person risk), accreditation critical path with publishing
+  guardrails, business plan skeleton, 7-risk contingency table,
+  skill-to-workflow map, and open items for the founder.
+
+Stage Summary:
+- Strategy map live at docs/strategy-map.md on main; founder open
+  items listed in its section 10, including the gauntlet bar pick.
+- Site surfaces in section 5 are the next build queue; no site code
+  changed in this task.
