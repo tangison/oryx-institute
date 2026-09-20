@@ -107,16 +107,31 @@ export const approvedLines = [
 export const navGroups = [
   {
     label: "Programmes",
-    items: disciplines.map((d) => ({
-      href: `/programmes#${d.id}`,
-      name: d.name,
-      desc: d.summary,
-    })),
+    items: [
+      {
+        href: "/schools",
+        name: "The Schools",
+        desc: "Technology, Engineering, Science: three schools, one spine, phased.",
+      },
+      ...disciplines.map((d) => ({
+        href: `/programmes#${d.id}`,
+        name: d.name,
+        desc: d.summary,
+      })),
+      {
+        href: "/tools",
+        name: "The Tools List",
+        desc: "Every tool the institute runs on, published in the open.",
+      },
+    ],
   },
   {
     label: "Institute",
     items: [
       { href: "/about", name: "About", desc: "The institute, the name and the Principal." },
+      { href: "/people", name: "People", desc: "The hiring bar, published before the titles." },
+      { href: "/resources", name: "Resources", desc: "The Oryx Bulletin and the institute's registers." },
+      { href: "/compare", name: "Compare", desc: "Oryx beside the alternatives, honestly." },
       { href: "/brand", name: "Brand", desc: "The wordmark, the emblem, the codes and the voice." },
       { href: "/faq", name: "FAQ", desc: "Applying, programmes and where to find us." },
     ],

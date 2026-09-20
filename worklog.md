@@ -288,3 +288,55 @@ Stage Summary:
   items listed in its section 10, including the gauntlet bar pick.
 - Site surfaces in section 5 are the next build queue; no site code
   changed in this task.
+
+---
+Task ID: 7
+Agent: Super Z (main agent)
+Task: Finish everything, premium. Install and vet the Tangison Studio
+Skills Pack v1.0, run the tangison-find-skills loop with a blind critic,
+build the five strategy-map surfaces, and set the imagery register to
+1947 documentary style with faces in motion. Autopilot.
+
+Work Log:
+- Extracted and vetted the uploaded pack: 20 skills to ~/.claude/skills
+  (project skills dir). Excluded social-image-generator (needs an
+  external EACHLABS_API_KEY, vetting rule); kept web-agency-complete for
+  its references only (known conflicts); brand-ad archive read for
+  prompt craft, colors ignored.
+- Wrote docs/skills-ledger.md: seven capabilities with covered-tests.
+  Gap hunt rejected all registry vintage-photo skills (under 50
+  installs); installed anthropics design-critique (4.7K installs).
+- Blind critic round 1: C3, C6, C7 not covered. Round 2 (full
+  instrument list): C3 covered by VLM QC loop, C6 by agent-browser
+  console/errors; C7 was a wrong-directory false negative (remote
+  verified configured, prior push proof stands).
+- Generated ten 1947-register images (scripts/oryx-1947-images.sh):
+  locked style block, Life-magazine register, candid motion in every
+  people frame. VLM QC loop (scripts/oryx-1947-qc.sh) failed two
+  (garbled text), regenerated both to PASS. Optimized to JPG q80 with
+  4% border crop into public/images/1947.
+- Built five surfaces: /resources (Oryx Bulletin, four cited essays:
+  38.05% youth unemployment ILO 2025; NSA Jan 2025 labour counts; NTA
+  13,500 intake vs 45,000 target; VET levy since 2014), /tools (the
+  motto page, three registers), /schools (Technology/Engineering/
+  Science phased, honest status, no invented dates), /compare (rules
+  first, then NUST, VTCs, private colleges, self-taught; public facts
+  only; sources footnoted), /people (two tracks, four-question hiring
+  bar, one-admin-plus-agents, Principal confirmation gate). Home gained
+  the founder's rule band and a period-study strip.
+- Nav restructured (Programmes: Schools, four disciplines, Tools;
+  Institute: About, People, Resources, Compare, Brand, FAQ); footer and
+  sitemap extended; CollectionPage and ItemList JSON-LD added.
+- Fixed two live defects: .hair-t/.caption were used but never defined
+  (dead classes, now defined once in globals.css); schools night-band
+  raw img converted to next/image. Copy sweeps: zero em dashes, zero
+  slop hits.
+- Verified: build green 22/22 static; 15 routes x 4 viewports all 200
+  with zero overflow; console and errors clean on all new routes;
+  compressed page weights 510-531KB, at or below the existing pages
+  measured identically (about 612KB, brand 577KB).
+
+Stage Summary:
+- Five surfaces live in the build; 1947 register set across resources,
+  tools, schools, compare, people and home. Ledger closed with evidence
+  in docs/skills-ledger.md. Pushed to main.

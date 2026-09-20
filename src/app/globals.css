@@ -197,6 +197,15 @@
   color: var(--muted);
 }
 
+/* Hairline rules: the register the site's dividers are set in.
+   (Used by the footer and the inner pages; defined here once.) */
+.hair-t {
+  border-top: var(--rule-hair) solid var(--rule);
+}
+.hair-b {
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
 /* --------------------------------------------------------------------------
    Links
    -------------------------------------------------------------------------- */
