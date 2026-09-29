@@ -1,15 +1,19 @@
 /**
- * Oryx Politechnical Institute · extended content.
+ * Oryx Institute · extended content.
  * Facts policy: every number carries its source inline. Nothing about
  * programmes, dates, fees, facilities or accreditation is asserted
  * beyond what the print kit and the Principal's office have published.
- * The 1947 register images are period studies: captions never claim
- * they are photographs of the institute.
+ * The images are the master package's own curated photographs:
+ * captions describe what is actually in the frame, and never claim a
+ * picture is a photograph of the institute.
  */
 
 export const motto = {
-  line: "A man is only as good as his tools. The brain is the biggest tool.",
-  source: "The founder's rule",
+  line: "You're only as good as your tools. We forge them.",
+  source: "The Oryx tagline",
+  /** The founder's original idiom, kept as the tagline's origin. */
+  origin:
+    "The founder's rule came first: a man is only as good as his tools, and the brain is the biggest tool. The tagline keeps the register and widens the door.",
 } as const;
 
 /** The four schools, phased. Dates are confirmed by the Principal's
@@ -22,9 +26,9 @@ export const schools = [
     status: "Open for enquiry",
     lead: "The AI-native flagship. First in, because it needs the least: a bench, a meter, a machine that thinks with you.",
     body: "Technology is where the institute starts. The discipline covers the modern tool chain from the inside: how computing systems are taken apart, understood and rebuilt, and how to put AI tools to work without surrendering judgement to them. The study companion runs on the same stack the institute runs on, so students learn on the real thing from the first day.",
-    image: "/images/1947/schools-technology.jpg",
-    alt: "Period study in the 1947 documentary register: students bent over valve radio sets in a workshop, soldering, one walking past with a chassis",
-    caption: "Period study: the radio workshop, in the 1947 documentary register.",
+    image: "/images/photo/stair-light.jpg",
+    alt: "Light falling down a concrete stairwell, a handrail crossing the frame",
+    caption: "Concrete, light, a way up: the technology school's register.",
   },
   {
     id: "engineering",
@@ -33,9 +37,9 @@ export const schools = [
     status: "Coming soon",
     lead: "The making core: work that holds, measured and finished to standard.",
     body: "Engineering follows, because it is the most demanding to stand up properly: machine shops, measurement, the discipline of tolerances. The institute will not open a workshop it cannot staff with people who have cut metal for a living. When the school opens its doors, the certificate standard is already written: excellence in innovation and applied problem-solving.",
-    image: "/images/1947/schools-engineering.jpg",
-    alt: "Period study in the 1947 documentary register: an apprentice at a belt-driven lathe, swarf curling off the tool, another measuring with calipers",
-    caption: "Period study: the machine shop, in the 1947 documentary register.",
+    image: "/images/photo/roofline.jpg",
+    alt: "The roofline of a brick workshop building in iron sheeting, against an overcast sky",
+    caption: "Brick and iron sheeting: the workshop register, measured.",
   },
   {
     id: "science",
@@ -44,9 +48,9 @@ export const schools = [
     status: "Coming soon",
     lead: "The reasoning core: observation, evidence and disciplined thought.",
     body: "Science is the long game. The laboratory takes time to build and the institute refuses to fake one with pictures of other people's benches. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
-    image: "/images/1947/schools-science.jpg",
-    alt: "Period study in the 1947 documentary register: a laboratory with glass beakers and brass instruments, a student pouring mid-motion",
-    caption: "Period study: the laboratory bench, in the 1947 documentary register.",
+    image: "/images/photo/specimen.jpg",
+    alt: "A rock specimen on a plinth, set in window light",
+    caption: "The laboratory bench starts here: a rock, measured.",
   },
 ] as const;
 
@@ -55,9 +59,9 @@ export const schools = [
 export const appliedSpine = {
   name: "Applied problem-solving",
   line: "Not a school. The spine that runs through all three, and the standard named on every certificate.",
-  image: "/images/1947/tools-hands.jpg",
-  alt: "Period study in the 1947 documentary register: the hands of an apprentice holding a drafting compass over a technical drawing",
-  caption: "Period study: the compass on the drawing, in the 1947 documentary register.",
+  image: "/images/photo/lantern.jpg",
+  alt: "A brass lantern on concrete stairs",
+  caption: "The lantern on the stair: light carried, not wished for.",
 } as const;
 
 /** The Oryx Tools List: what the institute actually runs on, published
@@ -92,7 +96,7 @@ export const toolsList = [
       },
       {
         name: "Pencil, ruler, compass",
-        what: "Drafting by hand before drafting by machine. The 1947 register on this site is not nostalgia; it is the standard of finishing.",
+        what: "Drafting by hand before drafting by machine. The documentary register on this site is not nostalgia; it is the standard of finishing.",
       },
       {
         name: "Meter, iron, bench",
@@ -128,13 +132,13 @@ export const toolsList = [
  * Every figure carries its source. No fabricated statistics. */
 export const insights = [
   {
-    id: "what-a-politechnical-is",
+    id: "what-a-polytechnic-is",
     no: "Bulletin No. 1",
-    title: "What a politechnical is, and what ours is for",
+    title: "What a polytechnic is, and what ours is for",
     date: "2026",
     dek: "The word is old, the characters are older, and the idea is exactly right for Windhoek.",
     body: [
-      "A politechnical institute teaches the made world: the sciences that explain it, the engineering that builds it, the technology that runs it. The word carries a Greek root, poli meaning many, techne meaning craft. Many crafts, one discipline. In the Oryx wordmark the idea stands in Chinese, 理工, li gong, science and engineering, set in maroon exactly where the word belongs.",
+      "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, the technology that runs it. The word carries a Greek root, poli meaning many, techne meaning craft. Many crafts, one discipline. In the Oryx wordmark the idea stands in Chinese, 理工, li gong, science and engineering, set in maroon exactly where the word belongs.",
       "The institute's version is built on four disciplines: science, engineering, technology, and applied problem-solving. The last one is not a subject, it is the standard. It is named on every certificate the institute issues, and it is the reason the institute is small on purpose. A student who can take a problem apart, decide what is actually wrong, and finish a working answer is worth more to Namibia than a corridor of unapplied theory.",
       "What ours is for, then: the graduate the flyer promises. Solves problems quietly, finishes them decisively. The institute is new, and it says so on every page. What it will not do is pretend to be anything other than what the certificate says.",
     ],
@@ -269,13 +273,18 @@ export const comparisons = [
 
 /** People: the hiring philosophy, published before the staff are. */
 export const peoplePage = {
+  /** Strategy decision 7: the institute calls its teaching staff
+   * Smiths, with Masters as the formal fallback in corporate-facing
+   * material. Never lecturers, not instructors. */
+  titleNote:
+    "The institute calls its teaching staff Smiths, after the tagline: we forge our own tools. In corporate-facing material the formal fallback is Masters. Never lecturers, not instructors.",
   tracks: [
     {
-      name: "Core faculty",
+      name: "Core Smiths",
       what: "Small, senior, full-time. Each one owns a school's spine and teaches across programmes. Hired slowly, on evidence, and kept for the standard they hold.",
     },
     {
-      name: "Practitioner adjuncts",
+      name: "Practitioner Smiths",
       what: "Working engineers, developers, accountants and tradespeople who teach one evening block, paid per block. A startup institute teaches wide this way without pretending to be large.",
     },
   ],

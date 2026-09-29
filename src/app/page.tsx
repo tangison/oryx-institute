@@ -10,18 +10,18 @@ import { motto } from "@/lib/content";
 import { site, disciplines } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Oryx Politechnical Institute | Looks harmless. Isn't.",
+  title: "Oryx Institute | Looks harmless. Isn't.",
   description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Oryx Politechnical Institute | Looks harmless. Isn't.",
+    title: "Oryx Institute | Looks harmless. Isn't.",
     description: site.description,
     images: [
       {
         url: "/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Oryx Politechnical Institute: the wordmark over the wolf in sheep's clothing",
+        alt: "Oryx Institute: the wordmark over the wolf in sheep's clothing",
       },
     ],
   },
@@ -109,7 +109,7 @@ export default function HomePage() {
       <section className="relative grid min-h-[94svh] lg:grid-cols-[1.18fr_1fr]">
         <div className="flex flex-col justify-end gap-8 px-[var(--gutter)] pb-24 pt-36 sm:gap-10 lg:justify-start lg:pb-28 lg:pt-[16vh] lg:pl-[max(var(--gutter),calc((100vw-84rem)/2+var(--gutter)))] lg:pr-16">
           <p className="kicker label-caps text-soft">
-            Oryx Politechnical Institute · Windhoek
+            Oryx Institute · Windhoek
           </p>
 
           {/* The 2-line iron rule: wide container, two lines exactly. */}
@@ -138,7 +138,7 @@ export default function HomePage() {
             block hangs low and left. Asymmetry by placement. */}
         <div className="relative min-h-[64svh] lg:min-h-full">
           <Image
-            src="/images/wolf.jpg"
+            src="/images/photo/flyer-wolf.jpg"
             alt="A wolf wearing a sheep's fleece, staring straight out of the frame"
             fill
             priority
@@ -159,13 +159,13 @@ export default function HomePage() {
           Four disciplines, one temperament:{" "}
           <span
             className="inline-img"
-            style={{ backgroundImage: "url(/images/pill-wolf.jpg)" }}
+            style={{ backgroundImage: "url(/images/photo/pill-wolf.jpg)" }}
             aria-hidden
           />{" "}
           <span className="em-serif text-accent">quiet</span>, then{" "}
           <span
             className="inline-img"
-            style={{ backgroundImage: "url(/images/pill-ocean.jpg)" }}
+            style={{ backgroundImage: "url(/images/photo/pill-coast.jpg)" }}
             aria-hidden
           />{" "}
           decisive.
@@ -237,12 +237,12 @@ export default function HomePage() {
           </div>
 
           <ScaleFigure
-            src="/images/ocean.jpg"
-            alt="A calm ocean under heavy mist"
-            width={1920}
-            height={1180}
+            src="/images/photo/coast-fog.jpg"
+            alt="Fog rolling over the Namibian coast, the water calm beneath"
+            width={1000}
+            height={720}
             sizes="(min-width: 64rem) 56vw, 100vw"
-            caption="Presentation folder, Oryx Institute print kit"
+            caption="Calm water, mist, patience"
           />
         </div>
       </section>
@@ -270,8 +270,8 @@ export default function HomePage() {
         <div className="keyline">
           <p className="label-caps text-soft">{motto.source}</p>
           <p className="display-statement mt-4 max-w-4xl text-ink">
-            A man is only as good as his tools.{" "}
-            <span className="em-serif text-accent">The brain is the biggest tool.</span>
+            You&apos;re only as good as your tools.{" "}
+            <span className="em-serif text-accent">We forge them.</span>
           </p>
           <p className="measure mt-5 text-[1.02rem] leading-relaxed text-soft">
             So the tools are named, not magic. The institute publishes its
@@ -286,9 +286,9 @@ export default function HomePage() {
 
         <div className="mt-14">
           <PhotoFigure
-            src="/images/1947/people-hero.jpg"
-            alt="Period study in the 1947 documentary register: students and a teacher striding through a tall doorway mid-stride, one laughing, books under arms"
-            caption="Period study: class change, in the 1947 documentary register."
+            src="/images/photo/people-door.jpg"
+            alt="A staff member in khaki walking through a stone doorway, mid-step"
+            caption="The doorway: the institute's documentary register."
             sizes="(min-width: 90rem) 1440px, 100vw"
             ratio="aspect-[21/9]"
           />

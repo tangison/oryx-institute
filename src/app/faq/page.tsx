@@ -7,10 +7,10 @@ import { faqs, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Applying to Oryx Politechnical Institute, the four disciplines, the meaning of 理工, the certificate and where to find the office in Windhoek.",
+    "Applying to Oryx Institute, the four disciplines, the meaning of 理工, the certificate and where to find the office in Windhoek.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "FAQ | Oryx Politechnical Institute",
+    title: "FAQ | Oryx Institute",
     description:
       "Applying, programmes, the certificate and the office, answered.",
     url: "/faq",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "Frequently asked questions about Oryx Politechnical Institute",
+        alt: "Frequently asked questions about Oryx Institute",
       },
     ],
   },

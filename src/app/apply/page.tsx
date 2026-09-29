@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Apply",
   description:
-    "Apply to Oryx Politechnical Institute. One message to the Principal's office in Windhoek: your name, your contact and your field of interest.",
+    "Apply to Oryx Institute. One message to the Principal's office in Windhoek: your name, your contact and your field of interest.",
   alternates: { canonical: "/apply" },
   openGraph: {
-    title: "Apply | Oryx Politechnical Institute",
+    title: "Apply | Oryx Institute",
     description:
       "One message to the Principal's office in Windhoek starts your application.",
     images: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "Apply to Oryx Politechnical Institute",
+        alt: "Apply to Oryx Institute",
       },
     ],
   },

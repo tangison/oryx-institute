@@ -8,10 +8,10 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Programmes",
   description:
-    "The four disciplines of a 理工 education at Oryx Politechnical Institute: science, engineering, technology and applied problem-solving. Applications open by enquiry.",
+    "The four disciplines of a 理工 education at Oryx Institute: science, engineering, technology and applied problem-solving. Applications open by enquiry.",
   alternates: { canonical: "/programmes" },
   openGraph: {
-    title: "Programmes | Oryx Politechnical Institute",
+    title: "Programmes | Oryx Institute",
     description:
       "Science, engineering, technology and applied problem-solving: the four disciplines of a 理工 education in Windhoek.",
     images: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "The disciplines of Oryx Politechnical Institute",
+        alt: "The disciplines of Oryx Institute",
       },
     ],
   },
@@ -33,7 +33,7 @@ export default function ProgrammesPage() {
         accent={<span className="wordmark-cjk">理工</span>}
       >
         <p>
-          A politechnical education stands on four legs. The institute
+          A polytechnic education stands on four legs. The institute
           teaches them together, because a problem never arrives divided
           into subjects.
         </p>

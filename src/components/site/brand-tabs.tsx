@@ -60,7 +60,7 @@ export function BrandTabs() {
               classic serif, ink {"#181713"};{" "}
               <span className="wordmark-cjk text-accent">理工</span>, the
               characters for science and engineering, stands where the
-              word Politechnical sits in the full name, in maroon{" "}
+              word Polytechnic sits in the full legal name, in maroon{" "}
               {"#71111F"}.
             </p>
             <p className="text-[1.02rem] leading-relaxed text-soft">

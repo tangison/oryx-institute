@@ -8,12 +8,12 @@ import { appliedSpine, schools } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "The Schools | Oryx Politechnical Institute",
+  title: "The Schools | Oryx Institute",
   description:
     "Three schools, one spine: Technology first, then Engineering, then Science, with applied problem-solving running through all of them. Open for enquiry.",
   alternates: { canonical: "/schools" },
   openGraph: {
-    title: "The Schools | Oryx Politechnical Institute",
+    title: "The Schools | Oryx Institute",
     description:
       "Three schools, one spine: Technology, Engineering, Science. Open for enquiry, honest about timing.",
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "The schools of Oryx Politechnical Institute",
+        alt: "The schools of Oryx Institute",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const schoolsLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "The schools of Oryx Politechnical Institute",
+  name: "The schools of Oryx Institute",
   itemListElement: schools.map((s, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -62,12 +62,12 @@ export default function SchoolsPage() {
         </p>
       </PageHero>
 
-      {/* School I, with the classroom period study leading. */}
+      {/* School I, with the classroom leading. */}
       <section className="shell">
         <PhotoFigure
-          src="/images/1947/people-classroom.jpg"
-          alt="Period study in the 1947 documentary register: a teacher mid-gesture at the blackboard, chalk dust in the air, students mid-motion at wooden desks"
-          caption="Period study: the lesson, in the 1947 documentary register."
+          src="/images/photo/classroom.jpg"
+          alt="An empty classroom: wooden desks in rows, shelving against the wall"
+          caption="The classroom, before the first cohort."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"

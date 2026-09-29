@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Thank you",
   description:
-    "Your application to Oryx Politechnical Institute has been prepared.",
+    "Your application to Oryx Institute has been prepared.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/thank-you" },
 };
