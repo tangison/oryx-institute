@@ -7,10 +7,10 @@ import { ArtifactCarousel } from "@/components/site/artifact-carousel";
 export const metadata: Metadata = {
   title: "Brand",
   description:
-    "The Oryx Politechnical Institute brand: the three-script wordmark, the maroon shield, the exact colour codes and the voice the print kit sets.",
+    "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes and the voice the print kit sets.",
   alternates: { canonical: "/brand" },
   openGraph: {
-    title: "Brand | Oryx Politechnical Institute",
+    title: "Brand | Oryx Institute",
     description:
       "The wordmark, the emblem, the codes and the voice, documented.",
     images: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "The Oryx Politechnical Institute brand register",
+        alt: "The Oryx Institute brand register",
       },
     ],
   },

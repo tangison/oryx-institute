@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { directoryAll } from "@/lib/directory";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -21,7 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/disclaimer", priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  return pages.map((page) => ({
+  const docs = directoryAll.map((d) => ({
+    path: `/resources/${d.slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...pages, ...docs].map((page) => ({
     url: `${site.url}${page.path}`,
     lastModified: now,
     changeFrequency: page.changeFrequency,

@@ -7,14 +7,14 @@ import { motto, toolsList } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "The Oryx Tools List | Oryx Politechnical Institute",
+  title: "The Oryx Tools List | Oryx Institute",
   description:
-    "A man is only as good as his tools. The brain is the biggest tool. Every tool the institute runs on, published in the open: office stack, learner's spine, AI stack.",
+    "You're only as good as your tools. We forge them. Every tool the institute runs on, published in the open: office stack, learner's spine, AI stack.",
   alternates: { canonical: "/tools" },
   openGraph: {
-    title: "The Oryx Tools List | Oryx Politechnical Institute",
+    title: "The Oryx Tools List | Oryx Institute",
     description:
-      "Every tool the institute runs on, published in the open. The brain is the biggest tool.",
+      "Every tool the institute runs on, published in the open, per the tagline: we forge them.",
     images: [
       {
         url: "/images/og-inner.jpg",
@@ -38,12 +38,12 @@ export default function ToolsPage() {
         </p>
       </PageHero>
 
-      {/* The motto band, in the 1947 register. */}
+      {/* The motto band, in the documentary register. */}
       <section className="shell">
         <PhotoFigure
-          src="/images/1947/tools-hero.jpg"
-          alt="Period study in the 1947 documentary register: a workshop bench with drafting instruments and calipers in rows, a hand reaching for a micrometer"
-          caption="Period study: the bench, in the 1947 documentary register."
+          src="/images/photo/drafting.jpg"
+          alt="A pencil and a straightedge laid across a worktable beside a window"
+          caption="The bench: pencil, straightedge, daylight."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -102,9 +102,9 @@ export default function ToolsPage() {
             </div>
           </div>
           <PhotoFigure
-            src="/images/1947/tools-hands.jpg"
-            alt="Period study in the 1947 documentary register: the hands of an apprentice holding a drafting compass over a technical drawing, mid-stroke"
-            caption="Period study: the compass on the drawing, in the 1947 documentary register."
+            src="/images/photo/lantern.jpg"
+            alt="A brass lantern on concrete stairs"
+            caption="The lantern on the stair: tools that outlast their owners."
             sizes="(min-width: 64rem) 48vw, 100vw"
             ratio="aspect-[4/5]"
           />

@@ -4,15 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { ScaleFigure } from "@/components/site/scale-figure";
 import { OryxLogo } from "@/components/site/oryx-logo";
-import { site } from "@/lib/site";
+import { site, status } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Oryx Politechnical Institute: the oryx, the characters 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
+    "Oryx Institute: the oryx, the characters 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About | Oryx Politechnical Institute",
+    title: "About | Oryx Institute",
     description:
       "The oryx, the characters 理工 and the Principal's office in Windhoek.",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "About Oryx Politechnical Institute",
+        alt: "About Oryx Institute",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div>
             <p className="label-caps text-soft">The name</p>
             <p className="mt-4 text-[1.05rem] leading-relaxed text-soft">
-              Oryx Politechnical Institute. In the wordmark the middle word
+              Oryx Institute. In the wordmark the middle word
               stands in Chinese: <span className="wordmark-cjk text-accent">理工</span>{" "}
               (li gong), the characters for science and engineering. The
               seal above them is the maroon shield, and the whole lockup
@@ -98,13 +98,57 @@ export default function AboutPage() {
           </div>
 
           <ScaleFigure
-            src="/images/ocean.jpg"
-            alt="A calm ocean under heavy mist, from the institute's presentation folder"
-            width={1920}
-            height={1180}
+            src="/images/photo/coast-fog.jpg"
+            alt="Fog rolling over the Namibian coast, the water calm beneath"
+            width={1000}
+            height={720}
             sizes="(min-width: 64rem) 40vw, 100vw"
-            caption="The presentation folder's register: calm water, mist, patience"
+            caption="Calm water, mist, patience"
           />
+        </div>
+      </section>
+
+      {/* Where the institute stands, stated plainly. Every line comes
+          from the master package's own status note and decisions. */}
+      <section className="chapter shell">
+        <div className="hair-t pt-16">
+          <p className="label-caps text-accent">Where the institute stands</p>
+          <h2 className="display-section mt-4 max-w-3xl text-ink">
+            Prelaunch, and <span className="em-serif text-accent">honest about it.</span>
+          </h2>
+          <p className="measure mt-6 max-w-3xl text-[1.05rem] leading-relaxed text-soft">
+            {status.accreditation} Legal name: {site.legalName}. The
+            institute is being established in Windhoek; what runs today is
+            what works today.
+          </p>
+
+          <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2">
+            {status.liveNow.map((item) => (
+              <div key={item.name} className="bg-paper p-8">
+                <p className="label-caps text-accent">Live now</p>
+                <p className="mt-2 text-[1.05rem] font-semibold text-ink">{item.name}</p>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-soft">{item.line}</p>
+              </div>
+            ))}
+            {status.inDevelopment.map((item) => (
+              <div key={item.name} className="bg-paper p-8">
+                <p className="label-caps text-soft">In development</p>
+                <p className="mt-2 text-[1.05rem] font-semibold text-ink">{item.name}</p>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-soft">{item.line}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-[var(--r-card)] border border-rule bg-paper-2 p-8">
+            <p className="label-caps text-soft">Partnerships</p>
+            <p className="mt-3 max-w-3xl text-[1.02rem] leading-relaxed text-ink/85">
+              {status.partnerships} Write to the office at{" "}
+              <a href={`mailto:${site.emailGeneral}`} className="link-type">
+                {site.emailGeneral}
+              </a>{" "}
+              and say what you have in mind.
+            </p>
+          </div>
         </div>
       </section>
     </>

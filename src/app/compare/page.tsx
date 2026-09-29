@@ -7,12 +7,12 @@ import { compareRules, comparisons } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Compare, honestly | Oryx Politechnical Institute",
+  title: "Compare, honestly | Oryx Institute",
   description:
     "Oryx beside the alternatives: NUST, the public VTCs, private colleges and teaching yourself. Publicly verifiable facts, cited, with Oryx's own status stated as it is.",
   alternates: { canonical: "/compare" },
   openGraph: {
-    title: "Compare, honestly | Oryx Politechnical Institute",
+    title: "Compare, honestly | Oryx Institute",
     description:
       "Oryx beside NUST, the VTCs, private colleges and the self-taught path. Facts cited, status stated as it is.",
     images: [
@@ -43,9 +43,9 @@ export default function ComparePage() {
       {/* The fork in the veld: the page's own art direction. */}
       <section className="shell">
         <PhotoFigure
-          src="/images/1947/compare-road.jpg"
-          alt="Period study in the 1947 documentary register: a gravel road forking across the Namibian veld, a lone figure with a satchel walking the left path"
-          caption="Period study: the fork in the road, in the 1947 documentary register."
+          src="/images/photo/desert-road.jpg"
+          alt="A desert road crossing the Namib, oryx crossing it, the horizon flat behind"
+          caption="The road through the Namib: both directions honest."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"

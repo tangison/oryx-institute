@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -8,18 +7,31 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * Three families, self-hosted, one request each:
- * - Tinos, the Times-metric serif the wordmark itself is drawn in,
- *   carries display type (400, 700, plus the italic for emphasis).
- * - Geist, the variable sans, carries UI and body text.
- * - A two-glyph Noto Serif SC subset carries 理工 set as live text.
+ * The approved master-package type system, self-hosted, one request per
+ * family:
+ * - Radley (Regular + Italic), the brand serif named in the master
+ *   package and used by the published homepage, carries display type.
+ * - Inter (Regular, Medium, SemiBold, Bold), the package's body face,
+ *   carries UI and body text.
+ * - A two-glyph Noto Serif SC subset carries 理工 set as live text (the
+ *   wordmark itself is drawn as vector paths, no font involved).
  */
 const serif = localFont({
   variable: "--font-serif-loaded",
   src: [
-    { path: "../fonts/tinos-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/tinos-latin-400-italic.woff2", weight: "400", style: "italic" },
-    { path: "../fonts/tinos-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/radley-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/radley-latin-400-italic.woff2", weight: "400", style: "italic" },
+  ],
+  display: "swap",
+});
+
+const sans = localFont({
+  variable: "--font-sans-loaded",
+  src: [
+    { path: "../fonts/inter-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/inter-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/inter-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/inter-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
   display: "swap",
 });
@@ -34,15 +46,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default:
-      "Oryx Politechnical Institute | Windhoek, Namibia",
-    template: "%s | Oryx Politechnical Institute",
+      "Oryx Institute | Windhoek, Namibia",
+    template: "%s | Oryx Institute",
   },
   description: site.description,
   applicationName: site.tradingName,
   authors: [{ name: site.principal.name }],
   keywords: [
-    "Oryx Politechnical Institute",
     "Oryx Institute",
+    "Oryx Polytechnic Institute",
     "polytechnic Namibia",
     "engineering Windhoek",
     "applied problem-solving",
@@ -53,20 +65,20 @@ export const metadata: Metadata = {
     siteName: site.tradingName,
     locale: "en_NA",
     url: site.url,
-    title: "Oryx Politechnical Institute",
+    title: "Oryx Institute",
     description: site.description,
     images: [
       {
         url: "/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Oryx Politechnical Institute, Windhoek, Namibia",
+        alt: "Oryx Institute, Windhoek, Namibia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oryx Politechnical Institute",
+    title: "Oryx Institute",
     description: site.description,
     images: ["/images/og-default.jpg"],
   },
@@ -93,7 +105,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${serif.variable} ${cjk.variable} ${GeistSans.variable}`}
+      className={`${serif.variable} ${sans.variable} ${cjk.variable}`}
     >
       <body className="antialiased bg-paper text-ink">
         <ThemeProvider>

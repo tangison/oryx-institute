@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "The terms on which this website is offered: what the site does, what an enquiry means, and what it does not promise.",
   alternates: { canonical: "/terms" },
   openGraph: {
-    title: "Terms of Service | Oryx Politechnical Institute",
+    title: "Terms of Service | Oryx Polytechnic Institute",
     description:
       "What the site does, what an application means, and what it does not promise.",
     url: "/terms",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "Terms of service, Oryx Politechnical Institute",
+        alt: "Terms of service, Oryx Polytechnic Institute",
       },
     ],
   },

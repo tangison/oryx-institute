@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Oryx Politechnical Institute collects, uses and protects personal information, and the rights you have over it.",
+    "How Oryx Polytechnic Institute collects, uses and protects personal information, and the rights you have over it.",
   alternates: { canonical: "/privacy" },
   openGraph: {
-    title: "Privacy Policy | Oryx Politechnical Institute",
+    title: "Privacy Policy | Oryx Polytechnic Institute",
     description:
       "How the institute collects, uses and protects personal information.",
     url: "/privacy",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "Privacy policy, Oryx Politechnical Institute",
+        alt: "Privacy policy, Oryx Polytechnic Institute",
       },
     ],
   },

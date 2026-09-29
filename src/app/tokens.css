@@ -1,14 +1,15 @@
 /* ==========================================================================
-   Oryx Politechnical Institute · design tokens
+   Oryx Institute · design tokens
    --------------------------------------------------------------------------
    Anchored on the exact codes from the official logo artwork:
      ink     #181713  the wordmark's ink, and the dark ground
      maroon  #71111F  the shield, 理工, accents on light grounds
      ivory   #FFF8EE  the dark logo variant's ink
      white   #FFFFFF  the print kit's paper
-   Type: Tinos (Times-metric serif, the wordmark's own register) for
-   display, Geist for UI and body, a two-glyph Noto Serif SC subset for
-   理工 set as live text.
+   Type: the master package's own pairing, Radley (display serif, the
+   published homepage's display face) and Inter (body and UI), both
+   self-hosted. A two-glyph Noto Serif SC subset carries 理工 as live
+   text; the wordmark itself is drawn as vector paths, no font involved.
    Text-heavy pages (privacy, terms, disclaimer) run the ink theme via
    .theme-ink. The menu overlay runs fixed ink tokens.
    Derived tints are computed, not guessed: rose #D37084 holds 5.48:1
@@ -62,11 +63,11 @@
   --menu-rule: rgba(255, 248, 238, 0.14);
   --menu-accent: #D37084;
 
-  /* Type. Tinos is the wordmark's Times-metric serif; Geist is the UI
-     and body sans; the CJK subset carries 理工 wherever it is live
+  /* Type. Radley is the master package's display serif; Inter is the
+     body and UI sans; the CJK subset carries 理工 wherever it is live
      text rather than logo artwork. */
-  --font-display: var(--font-serif-loaded, "Times New Roman"), "Tinos", Times, serif;
-  --font-body: var(--font-sans-loaded, "Helvetica Neue"), Arial, sans-serif;
+  --font-display: var(--font-serif-loaded, "Radley"), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-sans-loaded, "Inter"), "Helvetica Neue", Arial, sans-serif;
   --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
   /* Spacing scale, 4pt base */

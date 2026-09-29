@@ -22,7 +22,7 @@
 
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
-  --font-cjk: var(--font-cjk);
+  --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
   /* shadcn token bridge, mapped onto the Oryx palette */
   --color-background: var(--paper);

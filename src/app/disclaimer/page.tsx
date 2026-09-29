@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "What this website asserts, what it leaves to the Principal's office to confirm, and how the institute's own print kit governs the claims made here.",
   alternates: { canonical: "/disclaimer" },
   openGraph: {
-    title: "Disclaimer | Oryx Politechnical Institute",
+    title: "Disclaimer | Oryx Polytechnic Institute",
     description:
       "What this site asserts and what it leaves to the office to confirm.",
     url: "/disclaimer",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "Disclaimer, Oryx Politechnical Institute",
+        alt: "Disclaimer, Oryx Polytechnic Institute",
       },
     ],
   },

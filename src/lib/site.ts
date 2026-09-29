@@ -1,14 +1,19 @@
 /**
- * Oryx Politechnical Institute · content source of truth.
- * Every fact below is drawn from the brand assets supplied by the client
- * (logos, print kit, flyer, letterhead, business card, certificate).
- * Nothing here is invented: names, contacts and lines match the
- * approved source material exactly.
+ * Oryx Institute · content source of truth.
+ * Every fact below is drawn from the approved master asset package:
+ * logos, print kit, the published homepage, the business plan, the
+ * directory roadmap and the strategy notes. Nothing here is invented:
+ * names, contacts, status and lines match the approved material exactly.
  */
 
 export const site = {
-  legalName: "Oryx Politechnical Institute",
-  tradingName: "Oryx Politechnical Institute",
+  /** The legal name, spelled per the master package documents. It is
+   * used on certificates, contracts and the footer only. */
+  legalName: "Oryx Polytechnic Institute",
+  /** The public-facing brand name, kept short per the business plan's
+   * own recommendation. It carries the header, the titles and the day
+   * to day copy. */
+  tradingName: "Oryx Institute",
   shortName: "Oryx Institute",
   /** The wordmark, exactly as the logo renders it: three scripts. */
   wordmark: {
@@ -25,12 +30,18 @@ export const site = {
   /** Approved certificate language. */
   credentialLine:
     "Excellence in innovation and applied problem-solving.",
+  /** The approved tagline (strategy notes, decision 8): the inclusive
+   * variant of the founder's original idiom. */
+  tagline: "You're only as good as your tools. We forge them.",
   description:
-    "Oryx Politechnical Institute in Windhoek, Namibia. A politechnical institute built on innovation and applied problem-solving. Applications open by enquiry.",
+    "Oryx Institute in Windhoek, Namibia. A polytechnic under development, built on innovation and applied problem-solving. Rapid Response Training and the Oryx Directory are live now; applications open by enquiry.",
   city: "Windhoek",
   country: "Namibia",
   address: "P.O. Box 1662, Windhoek, Namibia",
+  /** The Principal's office address, exactly as the business card prints it. */
   email: "tangi@oryxinstitute.org",
+  /** The general contact line, per the master package status note. */
+  emailGeneral: "info@oryxinstitute.org",
   phoneDisplay: "+264 81 341 1522",
   phoneHref: "+264813411522",
   whatsapp: "https://wa.me/264813411522",
@@ -47,6 +58,47 @@ export const site = {
     maroon: "#71111F",
     ivory: "#FFF8EE",
     white: "#FFFFFF",
+  },
+} as const;
+
+/**
+ * Where the institute stands, stated plainly. Every line is grounded in
+ * the master package's own status note and strategy decisions. The site
+ * never claims accreditation, a campus, or an intake date.
+ */
+export const status = {
+  stage: "Prelaunch",
+  accreditation:
+    "Oryx is pursuing accreditation with the NQA and the NTA. It is not accredited yet, and it says so.",
+  liveNow: [
+    {
+      name: "Rapid Response Training",
+      line: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme, and delivers.",
+    },
+    {
+      name: "The Oryx Directory",
+      line: "Free, Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute, free to access.",
+    },
+  ],
+  inDevelopment: [
+    {
+      name: "Skills Camp (Karibib VTC)",
+      line: "The physical vocational training centre is in research and development, on its own roadmap.",
+    },
+    {
+      name: "The foundational course spine",
+      line: "AI, business, financial literacy, leadership and empathy as the mandatory spine: real once accreditation lands.",
+    },
+  ],
+  /** Strategy decision 9: the partnership stance is stated openly,
+   * never left implicit. */
+  partnerships:
+    "Oryx is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses.",
+  /** Strategy decision 7: what the institute calls its teaching staff. */
+  instructors: {
+    title: "Smiths",
+    formalTitle: "Masters",
+    note: "Never lecturers, not instructors. The name ties to the tagline: we forge our own tools.",
   },
 } as const;
 
@@ -130,7 +182,7 @@ export const navGroups = [
     items: [
       { href: "/about", name: "About", desc: "The institute, the name and the Principal." },
       { href: "/people", name: "People", desc: "The hiring bar, published before the titles." },
-      { href: "/resources", name: "Resources", desc: "The Oryx Bulletin and the institute's registers." },
+      { href: "/resources", name: "Resources", desc: "The Oryx Directory: free crash courses and templates, plus the Bulletin." },
       { href: "/compare", name: "Compare", desc: "Oryx beside the alternatives, honestly." },
       { href: "/brand", name: "Brand", desc: "The wordmark, the emblem, the codes and the voice." },
       { href: "/faq", name: "FAQ", desc: "Applying, programmes and where to find us." },
@@ -152,7 +204,7 @@ export const faqs = [
   },
   {
     q: "What does 理工 mean?",
-    a: "Li gong: the Chinese characters for science and engineering. In the wordmark they stand exactly where the word Politechnical sits in the institute's full name, set in maroon beside ORYX.",
+    a: "Li gong: the Chinese characters for science and engineering. In the wordmark they stand exactly where the word Polytechnic sits in the institute's full legal name, set in maroon beside ORYX.",
   },
   {
     q: "Where is the institute?",
@@ -169,5 +221,21 @@ export const faqs = [
   {
     q: "Can I visit the campus?",
     a: "Arrange it in your first message. The office will confirm where and when to come; the institute's published address is a post box, so appointments are made before visits.",
+  },
+  {
+    q: "Is Oryx accredited?",
+    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today is Rapid Response Training and the Oryx Directory, both of which work before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
+  },
+  {
+    q: "What is Rapid Response Training?",
+    a: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme around that need, and delivers it. It is built for the gap between what a team knows and what it needs to know next. Enquire through the Principal's office.",
+  },
+  {
+    q: "What is the Oryx Directory?",
+    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is proof of rigor before anyone pays a cent. Start with the four crash courses or help yourself to the seven templates.",
+  },
+  {
+    q: "Does Oryx work with partners?",
+    a: "Openly. The institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
   },
 ] as const;

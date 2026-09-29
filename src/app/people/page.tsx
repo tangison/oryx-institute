@@ -7,12 +7,12 @@ import { peoplePage } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "The People | Oryx Politechnical Institute",
+  title: "The People | Oryx Institute",
   description:
     "Practitioner-teachers first, one administrator plus agents, and a hiring bar you can read before you apply. The institute hires on evidence, not titles.",
   alternates: { canonical: "/people" },
   openGraph: {
-    title: "The People | Oryx Politechnical Institute",
+    title: "The People | Oryx Institute",
     description:
       "Practitioner-teachers first, one administrator plus agents, and a hiring bar published in advance.",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/images/og-inner.jpg",
         width: 1200,
         height: 630,
-        alt: "The people of Oryx Politechnical Institute",
+        alt: "The people of Oryx Institute",
       },
     ],
   },
@@ -42,9 +42,9 @@ export default function PeoplePage() {
       {/* The corridor at class change: the page's own register. */}
       <section className="shell">
         <PhotoFigure
-          src="/images/1947/people-hero.jpg"
-          alt="Period study in the 1947 documentary register: students and a teacher striding through a tall doorway mid-stride, one laughing, books under arms"
-          caption="Period study: class change, in the 1947 documentary register."
+          src="/images/photo/people-door.jpg"
+          alt="A staff member in khaki walking through a stone doorway, mid-step"
+          caption="Class change: the doorway does the timing."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -66,6 +66,9 @@ export default function PeoplePage() {
             </div>
           ))}
         </div>
+        <p className="measure mt-8 max-w-3xl text-[0.95rem] leading-relaxed text-soft italic">
+          {peoplePage.titleNote}
+        </p>
       </section>
 
       {/* The hiring bar. */}
@@ -123,9 +126,9 @@ export default function PeoplePage() {
             </p>
           </div>
           <PhotoFigure
-            src="/images/1947/people-classroom.jpg"
-            alt="Period study in the 1947 documentary register: a teacher mid-gesture at the blackboard, chalk dust in the air"
-            caption="Period study: the teacher, in the 1947 documentary register."
+            src="/images/photo/chalkboard.jpg"
+            alt="A teacher mid-gesture at the blackboard, chalk in hand"
+            caption="The teacher, mid-explanation."
             sizes="(min-width: 64rem) 44vw, 100vw"
             ratio="aspect-[4/5]"
           />
