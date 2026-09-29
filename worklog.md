@@ -340,3 +340,70 @@ Stage Summary:
 - Five surfaces live in the build; 1947 register set across resources,
   tools, schools, compare, people and home. Ledger closed with evidence
   in docs/skills-ledger.md. Pushed to main.
+
+---
+Task ID: 8
+Agent: Super Z (main agent)
+Task: Master package swap. Duplicate the site content, swap out the imagery,
+fonts and logo per the approved Oryx_Institute_Master_Package, build the
+Directory, and ship. Autopilot.
+
+Work Log:
+- Fetched the new filebin (o9yvvi9vgfnf6xu8): Oryx_Institute_Master_Package.zip
+  (51 curated images, official logo SVGs, Radley + Inter fonts, the published
+  homepage HTML, 4 crash courses + 7 templates, business plan + directory
+  roadmap + strategy notes), plus the Tangison Skills Pack and brand kit.
+- Read every context document end to end: master README (status: prelaunch,
+  legal name Oryx Polytechnic Institute, NQA/NTA pursuit, RRT + Directory
+  live, Skills Camp Karibib R&D, info@oryxinstitute.org), business plan,
+  directory roadmap, strategy update log (Smiths/Masters, tagline,
+  partnerships, ALI positioning), and the published homepage reference
+  (confirms Radley + Inter as the brand pairing).
+- Verified the new logo SVG paths are byte-identical to the React
+  component's path data (same artwork); refreshed the public SVG files,
+  favicons (512/180/maskable) and OG cards from the official geometry.
+- Fonts: Radley Regular + Italic and Inter Regular/Medium/SemiBold/Bold
+  subset to latin woff2 (26-30 KB each), self-hosted; Tinos, Geist and the
+  standalone build steps retired; the self-referencing --font-cjk token in
+  globals.css fixed; tokens.css stacks and headers updated.
+- Imagery: the master package images turned out to be preview-resolution
+  (343x248 landscapes, 263x370 artifacts). Built an AI-upscale pipeline
+  (scripts/oryx-upscale.py + zed-edit.mjs): 24 images re-rendered at up to
+  1440px with strict preserve-everything prompts, post-cropped to original
+  ratios, spot-QC'd against originals (faithful). The flyer's wolf
+  photograph auto-cropped from the approved flyer at native 2160px for the
+  home hero. 26 slots mapped across home/about/schools/people/tools/
+  compare/resources/apply/brand; every alt and caption rewritten to
+  describe the actual photographs; "1947 period study" claims retired.
+- Print kit crops rebuilt from the approved pieces (card front/back,
+  certificate, envelope, flyer, folder, letterhead, notecard).
+- Content: "Politechnical" spelling swept to "Polytechnic" (zero left);
+  legal name vs public brand split per the business plan recommendation;
+  approved tagline carried on home/tools; status block added to /about
+  (Prelaunch, NQA/NTA honesty, live-now vs in-development, partnerships
+  open with info@); Smiths/Masters instructor titles on /people with the
+  naming note; FAQ extended (accreditation, RRT, Directory, partners).
+- Built The Oryx Directory: 4 crash courses + 7 templates transcribed from
+  the approved package into src/lib/directory.ts (block model, em-dash-free),
+  rendered as 11 SSG reader pages at /resources/[slug] with contents rails,
+  walkaway quotes, tables, source notes and the copyright line; Directory
+  section on /resources; sitemap carries all 11 doc URLs.
+- Verified: build green 33 routes; tsc clean; eslint clean; zero em/en
+  dashes in src; 20 routes + SEO endpoints 200 + real 404; no console
+  errors; no horizontal overflow at 320/390/768/1440; page HTML 52-65 KB
+  compressed; hero AVIF 27 KB; fonts load correctly (Radley 400, Inter
+  400/600 eager, rest lazy).
+- Pushed 40a059b to main; the git-linked Vercel project deployed
+  automatically; live checks confirm the Directory, status block, tagline,
+  legal name and doc pages on production.
+
+Stage Summary:
+- Live at https://oryx-institute-tangison-s-projects.vercel.app
+  (auto-deploys from GitHub main; vercel.app host stays noindexed via
+  src/proxy.ts until oryxinstitute.org connects as the production domain).
+- The site now runs the approved master package end to end: type, imagery,
+  logo files, directory content and institutional status all sourced from
+  the client's own documents, nothing invented.
+- Open item: the People at Work set (05_people) is being redone by the
+  client per the master README; when it lands, map it onto /people and
+  /schools the same way.
