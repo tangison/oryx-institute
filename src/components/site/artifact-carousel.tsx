@@ -11,7 +11,6 @@ export type ArtifactItem = {
   line: string;
   photo: string;
   alt: string;
-  note?: string;
   href?: string;
 };
 
@@ -113,10 +112,7 @@ export function ArtifactCarousel({
                   />
                 </span>
                 <span className="block p-5">
-                  {item.note ? (
-                    <span className="photo-caption tnum">{item.note}</span>
-                  ) : null}
-                  <span className="artifact-title mt-1 block">{item.title}</span>
+                  <span className="artifact-title block">{item.title}</span>
                   <span className="artifact-line line-clamp-2 block">
                     {item.line}
                   </span>

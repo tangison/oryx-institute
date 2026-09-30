@@ -6,6 +6,7 @@ import { ScrubReveal } from "@/components/site/scrub-reveal";
 import { ScaleFigure } from "@/components/site/scale-figure";
 import { ArtifactCarousel } from "@/components/site/artifact-carousel";
 import { PhotoFigure } from "@/components/site/photo-figure";
+import { PhotoCarousel } from "@/components/site/photo-carousel";
 import { motto } from "@/lib/content";
 import { site, disciplines } from "@/lib/site";
 
@@ -52,47 +53,92 @@ const jsonLd = {
 const artifactItems = [
   {
     title: "Recruitment flyer",
-    line: "Looks harmless. Isn't. The wolf in sheep's clothing, full bleed.",
+    line: "The wolf in sheep's clothing, full bleed, with the institute's headline.",
     photo: "/images/brand/kit-flyer.jpg",
     alt: "The Oryx Institute recruitment flyer: a wolf in sheep's clothing",
-    note: "Print kit",
   },
   {
     title: "Certificate of Achievement",
     line: "Awarded for excellence in innovation and applied problem-solving.",
     photo: "/images/brand/kit-certificate.jpg",
     alt: "An Oryx Institute certificate of achievement",
-    note: "Print kit",
   },
   {
     title: "Letterhead",
     line: "P.O. Box 1662, Windhoek. The institute's stationery register.",
     photo: "/images/brand/kit-letterhead.jpg",
     alt: "Oryx Institute letterhead",
-    note: "Print kit",
   },
   {
     title: "Business card",
     line: "Tangi Iigonda, Principal. The card carries the shield alone.",
     photo: "/images/brand/kit-card-back.jpg",
     alt: "Oryx Institute business card, reverse with contact details",
-    note: "Print kit",
   },
   {
     title: "Notecard and envelope",
     line: "The maroon shield, centered, on the institute's correspondence set.",
     photo: "/images/brand/kit-notecard.jpg",
     alt: "Oryx Institute notecard with the shield emblem",
-    note: "Print kit",
   },
   {
     title: "Presentation folder",
     line: "A calm ocean under mist. The institute's presentation register.",
     photo: "/images/brand/kit-folder.jpg",
     alt: "Oryx Institute presentation folder over a misty ocean",
-    note: "Print kit",
   },
 ] as const;
+
+/**
+ * The photographic register: ten frames from the institute's curated
+ * set. Image-only slides; the photographs stand on their own.
+ */
+const registerPhotos = [
+  {
+    src: "/images/photo/courtyard.jpg",
+    alt: "A stone courtyard in daylight, passages leading off it",
+  },
+  {
+    src: "/images/photo/red-door.jpg",
+    alt: "A red door in a whitewashed wall, closed",
+  },
+  {
+    src: "/images/photo/drafting.jpg",
+    alt: "A pencil and a straightedge laid across a worktable beside a window",
+  },
+  {
+    src: "/images/photo/stairwell.jpg",
+    alt: "A concrete stairwell rising through the frame",
+  },
+  {
+    src: "/images/photo/reading-room.jpg",
+    alt: "A reading room with a long table and chairs in window light",
+  },
+  {
+    src: "/images/photo/horns.jpg",
+    alt: "The straight horns of an oryx against the sky",
+  },
+  {
+    src: "/images/photo/walker.jpg",
+    alt: "A figure walking away down a path, mid-stride",
+  },
+  {
+    src: "/images/photo/quiver-tree.jpg",
+    alt: "A quiver tree against a clear sky",
+  },
+  {
+    src: "/images/photo/dune-curves.jpg",
+    alt: "The curved crest of a Namib dune under raking light",
+  },
+  {
+    src: "/images/photo/welwitschia.jpg",
+    alt: "A welwitschia plant on open gravel ground",
+  },
+] as const;
+
+/** Discipline cells carry the published palette as grounds: warm,
+    blush, sand, and the maroon wash for the institute's own standard. */
+const cellTints = ["tint-blush", "tint-sand", "tint-warm", "tint-rose"];
 
 export default function HomePage() {
   return (
@@ -108,10 +154,6 @@ export default function HomePage() {
           and the text block sits low: tension, not a mirror. */}
       <section className="relative grid min-h-[94svh] lg:grid-cols-[1.18fr_1fr]">
         <div className="flex flex-col justify-end gap-8 px-[var(--gutter)] pb-24 pt-36 sm:gap-10 lg:justify-start lg:pb-28 lg:pt-[16vh] lg:pl-[max(var(--gutter),calc((100vw-84rem)/2+var(--gutter)))] lg:pr-16">
-          <p className="kicker label-caps text-soft">
-            Oryx Institute · Windhoek
-          </p>
-
           {/* The 2-line iron rule: wide container, two lines exactly. */}
           <h1 className="display-hero max-w-5xl text-ink">
             Looks harmless.{" "}
@@ -153,22 +195,22 @@ export default function HomePage() {
 
       {/* ------------------------------------------------ Interest */}
       {/* Gapless bento: the four disciplines interlock with the
-          credential band. Dense flow, no voids, no meta-labels. */}
+          credential band. Dense flow, palette grounds, no voids. */}
       <section className="chapter shell">
         <h2 className="display-section max-w-5xl text-ink">
-          Four disciplines, one temperament:{" "}
+          Four disciplines,{" "}
           <span
             className="inline-img"
             style={{ backgroundImage: "url(/images/photo/pill-wolf.jpg)" }}
             aria-hidden
           />{" "}
-          <span className="em-serif text-accent">quiet</span>, then{" "}
+          one measure: quiet work,{" "}
           <span
             className="inline-img"
             style={{ backgroundImage: "url(/images/photo/pill-coast.jpg)" }}
             aria-hidden
           />{" "}
-          decisive.
+          <span className="em-serif text-accent">decisive finishes.</span>
         </h2>
 
         <div className="bento mt-14">
@@ -176,7 +218,7 @@ export default function HomePage() {
             <Link
               key={d.id}
               href={`/programmes#${d.id}`}
-              className={`bento-cell ${i % 2 === 0 ? "md:col-span-7" : "md:col-span-5"}`}
+              className={`bento-cell ${cellTints[i]} ${i % 2 === 0 ? "md:col-span-7" : "md:col-span-5"}`}
             >
               <span
                 className={`flex h-[2.75rem] items-end ${
@@ -199,7 +241,7 @@ export default function HomePage() {
 
           {/* The credential band closes the grid: full width, the
               certificate's own language. */}
-          <div className="bento-cell md:col-span-12 bg-paper-2">
+          <div className="bento-cell tint-rose md:col-span-12">
             <span className="label-caps text-accent">Named on every certificate</span>
             <p className="display-statement max-w-3xl text-ink">
               Excellence in innovation and{" "}
@@ -229,10 +271,9 @@ export default function HomePage() {
           <div className="keyline">
             <p className="label-caps text-soft">The standard</p>
             <p className="mt-4 text-[1.02rem] leading-relaxed text-soft">
-              The line is set by the institute&apos;s own certificate: work is
-              judged on innovation and applied problem-solving, nothing
-              else. Everything the institute prints, from the flyer to the
-              letterhead, keeps the same register.
+              The line is set by the institute&apos;s own certificate: work
+              is judged on innovation and applied problem-solving, nothing
+              else. Everything the institute prints holds that register.
             </p>
           </div>
 
@@ -242,8 +283,24 @@ export default function HomePage() {
             width={1000}
             height={720}
             sizes="(min-width: 64rem) 56vw, 100vw"
-            caption="Calm water, mist, patience"
           />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ The register */}
+      {/* The curated photograph set, image-only, no captions. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-2xl text-ink">
+            The <span className="em-serif text-accent">photographic</span> register
+          </h2>
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft">
+            Namibian ground, real workrooms, people mid-step. Curated, not
+            staged.
+          </p>
+        </div>
+        <div className="mt-12">
+          <PhotoCarousel photos={registerPhotos} ariaLabel="photographs" />
         </div>
       </section>
 
@@ -252,7 +309,7 @@ export default function HomePage() {
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="display-section max-w-2xl text-ink">
-            Printed matter, <span className="em-serif text-accent">kept</span>
+            The printed <span className="em-serif text-accent">record</span>
           </h2>
           <Link href="/brand" className="link-type text-[0.95rem]">
             The full brand register
@@ -264,7 +321,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ The rule */}
-      {/* The founder's rule and the archive register: the tools are
+      {/* The founder's rule and the documentary register: the tools are
           named, the faces are in motion, nothing is posed. */}
       <section className="chapter shell">
         <div className="keyline">
@@ -274,8 +331,8 @@ export default function HomePage() {
             <span className="em-serif text-accent">We forge them.</span>
           </p>
           <p className="measure mt-5 text-[1.02rem] leading-relaxed text-soft">
-            So the tools are named, not magic. The institute publishes its
-            own stack, the learner&apos;s spine and the AI stack in the open.
+            The institute publishes its own stack, the learner&apos;s spine
+            and the AI stack in the open.
           </p>
           <div className="mt-7">
             <Link href="/tools" className="link-type text-[0.95rem]">
@@ -288,7 +345,6 @@ export default function HomePage() {
           <PhotoFigure
             src="/images/photo/people-door.jpg"
             alt="A staff member in khaki walking through a stone doorway, mid-step"
-            caption="The doorway: the institute's documentary register."
             sizes="(min-width: 90rem) 1440px, 100vw"
             ratio="aspect-[21/9]"
           />
@@ -296,32 +352,44 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ Action */}
-      {/* Night band: the brand ink as the closing ground, carrying the
-          maroon pill and the office's own contact line. */}
+      {/* Night band over the misty ocean: the closing ground carries a
+          full image background under a scrim, the maroon pill on top. */}
       <section className="chapter shell">
         <div className="band-night relative overflow-hidden rounded-[var(--r-card)] px-6 py-20 text-center sm:px-12 md:py-28">
-          <h2 className="display-hero mx-auto max-w-5xl">
-            Apply <span className="em-serif text-rose">now.</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-[38ch] text-[1.05rem] leading-relaxed opacity-90">
-            Applications open by enquiry, addressed to the Principal&apos;s
-            office. One message starts it.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/apply" className="pill">
-              Start your application
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-            </Link>
-            <a href={`mailto:${site.email}`} className="pill-ghost-dark pill-ghost !px-6 !py-3">
-              {site.email}
-            </a>
-          </div>
+          <Image
+            src="/images/photo/coast-fog.jpg"
+            alt=""
+            fill
+            loading="lazy"
+            sizes="(min-width: 64rem) 84rem, 100vw"
+            className="object-cover opacity-40"
+            aria-hidden
+          />
+          <div className="photo-scrim" aria-hidden />
+          <div className="relative">
+            <h2 className="display-hero mx-auto max-w-5xl">
+              Apply <span className="em-serif text-rose">now.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-[38ch] text-[1.05rem] leading-relaxed opacity-90">
+              Applications open by enquiry, addressed to the Principal&apos;s
+              office. One message starts it.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Link href="/apply" className="pill">
+                Start your application
+                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+              </Link>
+              <a href={`mailto:${site.email}`} className="pill-ghost-dark pill-ghost !px-6 !py-3">
+                {site.email}
+              </a>
+            </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[0.85rem] opacity-80">
-            <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
-              {site.phoneDisplay}
-            </a>
-            <span>{site.address}</span>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-[0.85rem] opacity-80">
+              <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
+                {site.phoneDisplay}
+              </a>
+              <span>{site.address}</span>
+            </div>
           </div>
         </div>
       </section>

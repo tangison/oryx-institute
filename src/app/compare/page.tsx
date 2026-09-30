@@ -45,7 +45,6 @@ export default function ComparePage() {
         <PhotoFigure
           src="/images/photo/desert-road.jpg"
           alt="A desert road crossing the Namib, oryx crossing it, the horizon flat behind"
-          caption="The road through the Namib: both directions honest."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"

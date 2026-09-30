@@ -6,6 +6,24 @@
  * names, contacts, status and lines match the approved material exactly.
  */
 
+/**
+ * The Oryx voice bar, applied to every line on the site.
+ * Declarative, exact, unhurried: state the fact, cite the source,
+ * stop. The institute's approved lines (the flyer headline, the
+ * graduate line, the certificate language, the tagline) run verbatim
+ * and are the only wit on the site. Nothing annotates its own
+ * imagery; nothing explains itself twice.
+ */
+export const voice = {
+  register: "Declarative, exact, unhurried. State the fact; cite the source; stop.",
+  rules: [
+    "Approved lines run verbatim: Looks harmless. Isn't. / graduates solve problems quietly and finish them decisively. / excellence in innovation and applied problem-solving. / You're only as good as your tools. We forge them.",
+    "Facts carry their source inline or they do not ship.",
+    "No wisecracks, no self-annotation, no captions under images.",
+    "Status is stated as it is: prelaunch, pre-accreditation, honest.",
+  ],
+} as const;
+
 export const site = {
   /** The legal name, spelled per the master package documents. It is
    * used on certificates, contracts and the footer only. */
@@ -114,6 +132,8 @@ export const disciplines = [
     name: "Science",
     summary:
       "The reasoning core of a 理工 education: observation, evidence and disciplined thought.",
+    image: "/images/photo/specimen.jpg",
+    imageAlt: "A rock specimen on a plinth, set in window light",
   },
   {
     id: "engineering",
@@ -121,6 +141,8 @@ export const disciplines = [
     name: "Engineering",
     summary:
       "The making core: work that holds, measured and finished to standard.",
+    image: "/images/photo/roofline.jpg",
+    imageAlt: "The roofline of a brick workshop building in iron sheeting",
   },
   {
     id: "technology",
@@ -128,6 +150,8 @@ export const disciplines = [
     name: "Technology",
     summary:
       "Modern tools taken apart and rebuilt until they are understood, not just used.",
+    image: "/images/photo/stair-light.jpg",
+    imageAlt: "Light falling down a concrete stairwell, a handrail crossing the frame",
   },
   {
     id: "applied",
@@ -135,6 +159,8 @@ export const disciplines = [
     name: "Applied problem-solving",
     summary:
       "The institute's own standard, named on every certificate: innovation in practice.",
+    image: "/images/photo/lantern.jpg",
+    imageAlt: "A brass lantern on concrete stairs",
   },
 ] as const;
 
@@ -232,7 +258,7 @@ export const faqs = [
   },
   {
     q: "What is the Oryx Directory?",
-    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is proof of rigor before anyone pays a cent. Start with the four crash courses or help yourself to the seven templates.",
+    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the four crash courses or help yourself to the seven templates.",
   },
   {
     q: "Does Oryx work with partners?",

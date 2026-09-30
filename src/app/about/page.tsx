@@ -83,18 +83,13 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="grid gap-8">
-          <div className="rounded-[var(--r-card)] border border-rule bg-paper-2 p-10">
+          <div className="grid gap-8">
+          <div className="rounded-[var(--r-card)] border border-rule tint-warm p-10">
             <OryxLogo
               variant="lockup"
               tone="brand"
               className="h-16 w-auto"
             />
-            <p className="photo-caption mt-6">
-              The lockup as printed: ORYX and INSTITUTE in ink,{" "}
-              <span className="wordmark-cjk text-accent">理工</span> and the
-              shield in maroon.
-            </p>
           </div>
 
           <ScaleFigure
@@ -103,7 +98,6 @@ export default function AboutPage() {
             width={1000}
             height={720}
             sizes="(min-width: 64rem) 40vw, 100vw"
-            caption="Calm water, mist, patience"
           />
         </div>
       </section>
@@ -124,14 +118,14 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2">
             {status.liveNow.map((item) => (
-              <div key={item.name} className="bg-paper p-8">
+              <div key={item.name} className="tint-blush p-8">
                 <p className="label-caps text-accent">Live now</p>
                 <p className="mt-2 text-[1.05rem] font-semibold text-ink">{item.name}</p>
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-soft">{item.line}</p>
               </div>
             ))}
             {status.inDevelopment.map((item) => (
-              <div key={item.name} className="bg-paper p-8">
+              <div key={item.name} className="tint-sand p-8">
                 <p className="label-caps text-soft">In development</p>
                 <p className="mt-2 text-[1.05rem] font-semibold text-ink">{item.name}</p>
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-soft">{item.line}</p>

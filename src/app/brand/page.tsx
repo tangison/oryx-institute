@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { BrandTabs } from "@/components/site/brand-tabs";
 import { ArtifactCarousel } from "@/components/site/artifact-carousel";
+import { voice } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Brand",
@@ -27,52 +28,45 @@ export const metadata: Metadata = {
 const kitItems = [
   {
     title: "Recruitment flyer",
-    line: "Looks harmless. Isn't. Full-bleed wolf, three-word headline.",
+    line: "Full-bleed wolf, three-word headline.",
     photo: "/images/brand/kit-flyer.jpg",
     alt: "The recruitment flyer with the wolf in sheep's clothing",
-    note: "216 × 270",
   },
   {
     title: "Certificate of Achievement",
     line: "Double-rule border, Principal's signature line, dated by hand.",
     photo: "/images/brand/kit-certificate.jpg",
     alt: "The certificate of achievement",
-    note: "Landscape",
   },
   {
     title: "Letterhead",
     line: "Lockup top left, shield watermark, contact rule at the foot.",
     photo: "/images/brand/kit-letterhead.jpg",
     alt: "The letterhead",
-    note: "A4",
   },
   {
     title: "Business card",
     line: "The shield alone on the front; the Principal's card on the back.",
     photo: "/images/brand/kit-card-back.jpg",
     alt: "The business card reverse with the Principal's contact details",
-    note: "DL",
   },
   {
     title: "Notecard",
     line: "The shield centered on white. Nothing else.",
     photo: "/images/brand/kit-notecard.jpg",
     alt: "The notecard with the shield emblem",
-    note: "Correspondence",
   },
   {
     title: "Envelope",
     line: "Lockup and post box address, the shield at the right.",
     photo: "/images/brand/kit-envelope.jpg",
     alt: "The envelope with the wordmark and post box address",
-    note: "DL",
   },
   {
     title: "Presentation folder",
     line: "The lockup over a misty ocean. Patience as paper.",
     photo: "/images/brand/kit-folder.jpg",
     alt: "The presentation folder over a misty ocean",
-    note: "Presentation",
   },
 ] as const;
 
@@ -138,11 +132,25 @@ export default function BrandPage() {
             />
           </div>
         </div>
-        <p className="photo-caption mt-6">
-          Flyer, certificate and folder at actual proportion. The full kit
-          also carries the letterhead, business card, notecard and
-          envelope, shown in the carousel above.
-        </p>
+      </section>
+
+      {/* The voice, with its bar. The rules are the contract the site
+          itself is written under. */}
+      <section className="chapter shell">
+        <div className="band-blush rounded-[var(--r-card)] p-8 md:p-12">
+          <p className="label-caps text-accent">The voice, with a bar</p>
+          <p className="display-statement mt-4 max-w-3xl text-ink">
+            {voice.register}
+          </p>
+          <ul className="mt-8 grid max-w-4xl gap-4">
+            {voice.rules.map((r) => (
+              <li key={r} className="flex gap-3 text-[1.02rem] leading-relaxed text-ink/85">
+                <span className="mt-[0.55em] h-[5px] w-[5px] shrink-0 rounded-full bg-accent" aria-hidden />
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );

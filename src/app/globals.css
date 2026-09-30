@@ -19,6 +19,11 @@
   --color-accent-ink: var(--accent-ink);
   --color-focus: var(--focus);
   --color-rose: #D37084;
+  --color-warm: var(--warm);
+  --color-blush: var(--blush);
+  --color-blush-deep: var(--blush-deep);
+  --color-sand: var(--sand);
+  --color-sand-deep: var(--sand-deep);
 
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
@@ -173,7 +178,7 @@
   letter-spacing: -0.01em;
 }
 
-/* Small caps label: nav, captions, metadata. Geist, tracked out. */
+/* Small caps label: nav, metadata, kickers. Inter, tracked out. */
 .label-caps {
   font-family: var(--font-body);
   font-weight: 600;
@@ -186,15 +191,6 @@
 .wordmark-cjk {
   font-family: var(--font-cjk);
   letter-spacing: 0.06em;
-}
-
-/* Photo caption, provenance register */
-.photo-caption {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--muted);
 }
 
 /* Hairline rules: the register the site's dividers are set in.
@@ -789,6 +785,67 @@ body:has(.theme-ink) .site-header.is-solid {
 }
 
 /* --------------------------------------------------------------------------
+   Photo carousel: image-only slides, rounded frames, no captions.
+   Shares the carousel chrome (arrows, dots) with the artifact track.
+   -------------------------------------------------------------------------- */
+
+.carousel-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.carousel-photo img {
+  transition: transform 700ms var(--ease-out);
+}
+.carousel-photo:hover img {
+  transform: scale(1.04);
+}
+@media (max-width: 47.99rem) {
+  .carousel-photo {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Published-palette tints: warm, blush and sand grounds. The client's
+   released homepage palette, carried as reusable washes. Each keeps
+   ink or maroon text on top; none of them carries text itself.
+   -------------------------------------------------------------------------- */
+
+.tint-warm {
+  background: var(--warm);
+}
+.tint-blush {
+  background: color-mix(in srgb, var(--blush) 42%, var(--paper));
+}
+.tint-sand {
+  background: color-mix(in srgb, var(--sand) 46%, var(--paper));
+}
+.tint-rose {
+  background: color-mix(in srgb, var(--accent) 6%, var(--warm));
+}
+.tint-blush:hover,
+.tint-blush:focus-visible {
+  background: color-mix(in srgb, var(--blush) 60%, var(--paper));
+}
+.tint-sand:hover,
+.tint-sand:focus-visible {
+  background: color-mix(in srgb, var(--sand) 64%, var(--paper));
+}
+.tint-rose:hover,
+.tint-rose:focus-visible {
+  background: color-mix(in srgb, var(--accent) 10%, var(--warm));
+}
+
+/* A full blush band for section closes and statement strips. */
+.band-blush {
+  background: color-mix(in srgb, var(--blush) 34%, var(--warm));
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
    Bento grid: gapless interlock, dense flow
    -------------------------------------------------------------------------- */
 
@@ -817,6 +874,37 @@ body:has(.theme-ink) .site-header.is-solid {
 .bento-cell:hover,
 .bento-cell:focus-visible {
   background: var(--paper-2);
+}
+/* Tinted discipline cells: the palette enters the grid as grounds.
+   Compound selectors beat the .bento-cell base ground; hover deepens
+   each wash. The rules keep the interlock legible. */
+.bento-cell.tint-warm {
+  background: var(--warm);
+}
+.bento-cell.tint-warm:hover,
+.bento-cell.tint-warm:focus-visible {
+  background: var(--paper-3);
+}
+.bento-cell.tint-blush {
+  background: color-mix(in srgb, var(--blush) 42%, var(--paper));
+}
+.bento-cell.tint-blush:hover,
+.bento-cell.tint-blush:focus-visible {
+  background: color-mix(in srgb, var(--blush) 60%, var(--paper));
+}
+.bento-cell.tint-sand {
+  background: color-mix(in srgb, var(--sand) 46%, var(--paper));
+}
+.bento-cell.tint-sand:hover,
+.bento-cell.tint-sand:focus-visible {
+  background: color-mix(in srgb, var(--sand) 64%, var(--paper));
+}
+.bento-cell.tint-rose {
+  background: color-mix(in srgb, var(--accent) 6%, var(--warm));
+}
+.bento-cell.tint-rose:hover,
+.bento-cell.tint-rose:focus-visible {
+  background: color-mix(in srgb, var(--accent) 10%, var(--warm));
 }
 /* Interior cells only carry their top and left rules; the outer frame
    comes from the grid container, so the interlock is gapless. */
@@ -865,8 +953,9 @@ body:has(.theme-ink) .site-header.is-solid {
 }
 
 /* --------------------------------------------------------------------------
-   Horizontal accordion (programmes): vertical slices that expand on
-   focus and hover, each revealing its glyph and summary.
+   Horizontal accordion (programmes): slices that expand on hover,
+   focus and tap. Names always read horizontally; every slice carries
+   its own tint and its expanded body shows a photograph.
    -------------------------------------------------------------------------- */
 
 .h-accordion {
@@ -879,7 +968,7 @@ body:has(.theme-ink) .site-header.is-solid {
 @media (min-width: 64rem) {
   .h-accordion {
     flex-direction: row;
-    min-height: 30rem;
+    min-height: 28rem;
   }
 }
 
@@ -889,7 +978,9 @@ body:has(.theme-ink) .site-header.is-solid {
   justify-content: flex-start;
   border-top: var(--rule-hair) solid var(--rule);
   background: var(--paper);
-  transition: background-color var(--dur-long) var(--ease-out);
+  transition:
+    background-color var(--dur-long) var(--ease-out),
+    flex var(--dur-long) var(--ease-out);
 }
 .h-slice:first-child {
   border-top: none;
@@ -907,8 +998,26 @@ body:has(.theme-ink) .site-header.is-solid {
   .h-slice:hover,
   .h-slice:focus-within {
     flex: 2.4;
-    background: var(--paper-2);
   }
+  /* The open slice keeps its tint; closed slices rest on paper. */
+  .h-slice[data-open="true"] {
+    flex: 2.4;
+  }
+}
+
+/* Accordion slices carry the same palette grounds; compound selectors
+   beat the .h-slice base. */
+.h-slice.tint-warm {
+  background: var(--warm);
+}
+.h-slice.tint-blush {
+  background: color-mix(in srgb, var(--blush) 42%, var(--paper));
+}
+.h-slice.tint-sand {
+  background: color-mix(in srgb, var(--sand) 46%, var(--paper));
+}
+.h-slice.tint-rose {
+  background: color-mix(in srgb, var(--accent) 6%, var(--warm));
 }
 
 .h-slice > .h-head {
@@ -923,7 +1032,7 @@ body:has(.theme-ink) .site-header.is-solid {
     padding: 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.2rem;
+    gap: 1rem;
     cursor: default;
   }
 }
@@ -945,19 +1054,8 @@ body:has(.theme-ink) .site-header.is-solid {
   font-size: 1.2rem;
   white-space: nowrap;
 }
-@media (min-width: 64rem) {
-  .h-slice .h-name {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 1.45rem;
-    white-space: nowrap;
-  }
-  .h-slice:hover .h-name,
-  .h-slice:focus-within .h-name {
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-}
+/* Names always read horizontally, on every viewport. The vertical
+   register was a live defect: sideways labels and dead slices. */
 
 .h-slice .h-body {
   max-height: 0;
@@ -978,19 +1076,33 @@ body:has(.theme-ink) .site-header.is-solid {
   }
   .h-slice:hover .h-body,
   .h-slice:focus-within .h-body {
-    max-height: 20rem;
+    max-height: 32rem;
     opacity: 1;
   }
 }
 .h-slice[data-open="true"] .h-body {
-  max-height: 20rem;
+  max-height: 32rem;
   padding-bottom: var(--space-lg);
+  opacity: 1;
+}
+@media (min-width: 64rem) {
+  .h-slice[data-open="true"] .h-body {
+    padding-bottom: 0;
+  }
 }
 .h-slice .h-desc {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--muted);
   max-width: 38ch;
+}
+/* The expanded slice's photograph: rounded, no caption, pure image. */
+.h-slice .h-thumb {
+  margin-top: 1.1rem;
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: calc(var(--r-card) - 4px);
+  overflow: hidden;
 }
 .h-slice .h-link {
   margin-top: 1rem;

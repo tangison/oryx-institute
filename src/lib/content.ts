@@ -3,8 +3,8 @@
  * Facts policy: every number carries its source inline. Nothing about
  * programmes, dates, fees, facilities or accreditation is asserted
  * beyond what the print kit and the Principal's office have published.
- * The images are the master package's own curated photographs:
- * captions describe what is actually in the frame, and never claim a
+ * The images are the master package's own curated photographs. The
+ * photographs stand on their own: no captions, no claims that a
  * picture is a photograph of the institute.
  */
 
@@ -28,7 +28,6 @@ export const schools = [
     body: "Technology is where the institute starts. The discipline covers the modern tool chain from the inside: how computing systems are taken apart, understood and rebuilt, and how to put AI tools to work without surrendering judgement to them. The study companion runs on the same stack the institute runs on, so students learn on the real thing from the first day.",
     image: "/images/photo/stair-light.jpg",
     alt: "Light falling down a concrete stairwell, a handrail crossing the frame",
-    caption: "Concrete, light, a way up: the technology school's register.",
   },
   {
     id: "engineering",
@@ -39,7 +38,6 @@ export const schools = [
     body: "Engineering follows, because it is the most demanding to stand up properly: machine shops, measurement, the discipline of tolerances. The institute will not open a workshop it cannot staff with people who have cut metal for a living. When the school opens its doors, the certificate standard is already written: excellence in innovation and applied problem-solving.",
     image: "/images/photo/roofline.jpg",
     alt: "The roofline of a brick workshop building in iron sheeting, against an overcast sky",
-    caption: "Brick and iron sheeting: the workshop register, measured.",
   },
   {
     id: "science",
@@ -47,10 +45,9 @@ export const schools = [
     name: "School of Science",
     status: "Coming soon",
     lead: "The reasoning core: observation, evidence and disciplined thought.",
-    body: "Science is the long game. The laboratory takes time to build and the institute refuses to fake one with pictures of other people's benches. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
+    body: "Science is the long game. The laboratory takes time to build, and the institute will not present borrowed laboratories as its own. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
     image: "/images/photo/specimen.jpg",
     alt: "A rock specimen on a plinth, set in window light",
-    caption: "The laboratory bench starts here: a rock, measured.",
   },
 ] as const;
 
@@ -61,7 +58,6 @@ export const appliedSpine = {
   line: "Not a school. The spine that runs through all three, and the standard named on every certificate.",
   image: "/images/photo/lantern.jpg",
   alt: "A brass lantern on concrete stairs",
-  caption: "The lantern on the stair: light carried, not wished for.",
 } as const;
 
 /** The Oryx Tools List: what the institute actually runs on, published
@@ -148,7 +144,7 @@ export const insights = [
     no: "Bulletin No. 2",
     title: "38 percent, and the seats that could change it",
     date: "2026",
-    dek: "The labour numbers are brutal. The training numbers do not have to be.",
+    dek: "The labour figures are published. The training gap is measurable.",
     body: [
       "Start with the facts on the record. Namibia's youth unemployment rate stood at 38.05 percent in 2025, on the ILO estimate carried by Statista and the St. Louis Fed. The Namibia Statistics Agency's labour survey of January 2025 counted 1,018,529 Namibians aged 15 to 34. Of those, 563,499 were outside the labour force entirely, and 202,144 were looking for work that was not there.",
       "Now the training side. The Namibia Training Authority's own strategic plan set a target of 45,000 vocational enrolments, recorded in the World Bank's skills policy note for Namibia. The most recent reported intake the NTA publicised was 13,500 new trainees. Those two numbers are the whole argument: the country planned for a river and is running on a stream.",

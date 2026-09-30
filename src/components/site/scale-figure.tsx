@@ -23,8 +23,6 @@ export function ScaleFigure({
   priority = false,
   className,
   imgClassName,
-  caption,
-  captionClassName,
 }: {
   src: string;
   alt: string;
@@ -34,8 +32,6 @@ export function ScaleFigure({
   priority?: boolean;
   className?: string;
   imgClassName?: string;
-  caption?: string;
-  captionClassName?: string;
 }) {
   const scope = useRef<HTMLElement>(null);
 
@@ -87,11 +83,6 @@ export function ScaleFigure({
           className={`h-auto w-full object-cover ${imgClassName ?? ""}`}
         />
       </div>
-      {caption ? (
-        <figcaption className={`photo-caption mt-3 ${captionClassName ?? ""}`}>
-          {caption}
-        </figcaption>
-      ) : null}
     </figure>
   );
 }

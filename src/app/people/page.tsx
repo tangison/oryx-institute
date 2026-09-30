@@ -44,7 +44,6 @@ export default function PeoplePage() {
         <PhotoFigure
           src="/images/photo/people-door.jpg"
           alt="A staff member in khaki walking through a stone doorway, mid-step"
-          caption="Class change: the doorway does the timing."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -120,7 +119,7 @@ export default function PeoplePage() {
                 {site.phoneDisplay}
               </a>
             </div>
-            <p className="photo-caption mt-6">
+            <p className="measure mt-6 max-w-md text-[0.85rem] leading-relaxed text-soft">
               Staff pages go live as the Principal confirms each name.
               Nothing is published ahead of that confirmation.
             </p>
@@ -128,7 +127,6 @@ export default function PeoplePage() {
           <PhotoFigure
             src="/images/photo/chalkboard.jpg"
             alt="A teacher mid-gesture at the blackboard, chalk in hand"
-            caption="The teacher, mid-explanation."
             sizes="(min-width: 64rem) 44vw, 100vw"
             ratio="aspect-[4/5]"
           />
