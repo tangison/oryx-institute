@@ -2,28 +2,24 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
-export type ArtifactItem = {
-  title: string;
-  line: string;
-  photo: string;
+export type PhotoSlide = {
+  src: string;
   alt: string;
-  href?: string;
 };
 
 /**
- * Artifact card carousel: embla track, circular prev and next arrows
- * in the Collins register, maroon active dot pagination. Cards link to
- * the brand register by default.
+ * Photo carousel: image-only slides in rounded frames. No captions,
+ * no text under the images; the controls stay in the established
+ * register (dots left, circular arrows right).
  */
-export function ArtifactCarousel({
-  items,
-  ariaLabel = "Brand artifacts",
+export function PhotoCarousel({
+  photos,
+  ariaLabel = "Photographs",
 }: {
-  items: readonly ArtifactItem[];
+  photos: readonly PhotoSlide[];
   ariaLabel?: string;
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -44,8 +40,7 @@ export function ArtifactCarousel({
 
   useEffect(() => {
     if (!emblaApi) return;
-    // Canonical embla + React pattern: the API only exists after mount,
-    // so sync state from it here and on every select / reInit.
+    // Canonical embla + React pattern: the API only exists after mount.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSnaps(emblaApi.scrollSnapList());
     onSelect();
@@ -57,8 +52,6 @@ export function ArtifactCarousel({
 
   return (
     <div>
-      {/* Controls above the track: dots left, arrows right, so the
-          carousel is discoverable before the first swipe. */}
       <div className="mb-6 flex items-center justify-between gap-6">
         <div className="flex items-center gap-2" role="tablist" aria-label="Carousel position">
           {snaps.map((_, i) => (
@@ -96,28 +89,17 @@ export function ArtifactCarousel({
 
       <div className="carousel-viewport" ref={emblaRef}>
         <div className="carousel-track -mx-[var(--gutter)] px-[var(--gutter)]">
-          {items.map((item) => (
-            <div className="carousel-slide" key={item.title}>
-              <Link
-                href={item.href ?? "/brand"}
-                className="artifact-card group block"
-              >
-                <span className="artifact-figure relative block aspect-[4/3]">
-                  <Image
-                    src={item.photo}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 72rem) 33vw, (min-width: 48rem) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </span>
-                <span className="block p-5">
-                  <span className="artifact-title block">{item.title}</span>
-                  <span className="artifact-line line-clamp-2 block">
-                    {item.line}
-                  </span>
-                </span>
-              </Link>
+          {photos.map((p) => (
+            <div className="carousel-slide" key={p.src}>
+              <div className="carousel-photo">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  sizes="(min-width: 72rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           ))}
         </div>

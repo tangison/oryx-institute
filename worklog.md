@@ -407,3 +407,62 @@ Stage Summary:
 - Open item: the People at Work set (05_people) is being redone by the
   client per the master README; when it lands, map it onto /people and
   /schools the same way.
+
+---
+Task ID: 9
+Agent: Super Z (main agent)
+Task: Client revision round: hide the homepage kicker, richer color per
+the released palette, a held voice bar, copy rewrite, more imagery
+(backgrounds + carousels), captions banned site-wide, programmes
+accordion repaired, publishing roadmap for textbooks and crash courses.
+Ship it.
+
+Work Log:
+- Ran the audit against the live site and the source: scored 3.5/10
+  overall (color 3, voice bar 4, copy 5, imagery 4, captions 2,
+  programmes 3). Findings mapped to files; the picks table for the
+  skill set was presented before the work (web-design-guidelines,
+  audit-website, copywriting, taste-skill redesign, design-critique,
+  init-textbook/quiz-generator; impeccable@audit install failed and
+  was reported per the failure rule).
+- tokens.css: the client's released homepage palette is now first-class
+  (warm #F3EDE2, blush #E8B4BB, sand #D8D0C2 plus derived deeps), the
+  papers warmed (paper-2 = warm, paper-3 derived), rules re-tinted,
+  dark-mode values set for every tint.
+- globals.css: tint system (tint-warm/blush/sand/rose + band-blush)
+  with compound bento-cell and h-slice selectors that beat the base
+  grounds; .photo-caption deleted; accordion CSS reworked (names read
+  horizontally everywhere, vertical-rl retired, h-thumb for slice
+  photos, data-open body opacity fixed); carousel-photo styles added.
+- Home: "Oryx Institute · Windhoek" kicker removed; bento cells and
+  the credential band carry the palette; a new ten-frame image-only
+  PhotoCarousel ("The photographic register") built and mounted; the
+  night band now sits over the misty ocean under a scrim; both figure
+  captions removed; headings rewritten to the register.
+- Captions banned: PhotoFigure and ScaleFigure lost their caption
+  props and figcaptions, the artifact carousel lost its note label,
+  and every page caption was swept out (home, about, schools, people,
+  tools, compare, resources, apply, brand). Zero figcaptions remain.
+- Voice bar published: voice export in site.ts (register + four rules),
+  rendered on /brand as a blush band ("The voice, with a bar"). Copy
+  raised across site.ts, content.ts and every page; approved lines run
+  verbatim; wisecracks and self-annotation removed.
+- Programmes accordion: slices tinted, first slice open by default,
+  each expanded body shows its photograph, no dead zones, no sideways
+  text (verified computed writing-mode on all four names).
+- Docs: publishing-roadmap.md written (crash courses 5-12 in three
+  waves, three textbook volumes with chapter plans, the AI-native
+  production pipeline with six passes, quality gates, accreditation
+  evidence mapping, distribution, sequence table).
+- Verified: tsc clean, eslint clean, build green 33/33 static; all
+  routes 200 + real 404; kicker absent, figcaptions absent, palette
+  hexes present in the built CSS; zero horizontal overflow at 320/390;
+  console and page errors clean.
+
+Stage Summary:
+- The site runs the client's released palette end to end, holds one
+  documented voice, carries no image captions anywhere, uses its
+  photography as grounds, backgrounds and two carousels, and the
+  programmes page reads horizontally with imagery in every slice.
+- Publishing roadmap at docs/publishing-roadmap.md is the working plan
+  for the crash course waves and the three textbook volumes.

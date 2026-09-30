@@ -78,14 +78,10 @@ export default function ApplyPage() {
             </address>
           </div>
 
-          <div className="rounded-[var(--r-card)] bg-paper-2 p-8">
+          <div className="rounded-[var(--r-card)] tint-warm p-8">
             <p className="display-statement text-ink">
               Looks harmless.{" "}
               <span className="em-serif text-accent">Isn&apos;t.</span>
-            </p>
-            <p className="photo-caption mt-4">
-              The flyer&apos;s line. It reads as a promise about the
-              education, not a warning about the animal.
             </p>
           </div>
         </aside>

@@ -67,7 +67,6 @@ export default function SchoolsPage() {
         <PhotoFigure
           src="/images/photo/classroom.jpg"
           alt="An empty classroom: wooden desks in rows, shelving against the wall"
-          caption="The classroom, before the first cohort."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -106,7 +105,6 @@ export default function SchoolsPage() {
             <PhotoFigure
               src={s.image}
               alt={s.alt}
-              caption={s.caption}
               sizes="(min-width: 64rem) 48vw, 100vw"
               ratio="aspect-[5/4]"
             />
@@ -139,7 +137,6 @@ export default function SchoolsPage() {
                   className="object-cover"
                 />
               </div>
-              <p className="photo-caption mt-3">{appliedSpine.caption}</p>
             </div>
           </div>
         </div>

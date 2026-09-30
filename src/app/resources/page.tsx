@@ -62,7 +62,6 @@ export default function ResourcesPage() {
         <PhotoFigure
           src="/images/photo/notebook.jpg"
           alt="An open notebook with a ribbon marker, on a desk beside a window"
-          caption="The reading room: a notebook, opened."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -144,12 +143,11 @@ export default function ResourcesPage() {
       {/* ------------------------------------------------ Resources */}
       <section className="chapter shell">
         <h2 className="display-section max-w-3xl text-ink">
-          The registers, <span className="em-serif text-accent">kept</span>
+          The registers, <span className="em-serif text-accent">in one place</span>
         </h2>
         <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
-          Everything the institute publishes in one place. The prospectus is
-          issued on request rather than left to go stale on a server, which
-          is the institute&apos;s honesty rule applied to paper.
+          Everything the institute publishes, listed here. The prospectus
+          is issued on request rather than left to go stale on a server.
         </p>
 
         <ul className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule">
@@ -199,7 +197,7 @@ export default function ResourcesPage() {
             >
               <div className="lg:w-44">
                 <p className="label-caps text-accent">{a.no}</p>
-                <p className="photo-caption mt-2">{a.date}</p>
+                <p className="mt-2 text-[0.85rem] leading-relaxed text-soft">{a.date}</p>
               </div>
               <div className="min-w-0">
                 <h3 className="display-statement max-w-3xl text-ink">
@@ -225,7 +223,6 @@ export default function ResourcesPage() {
           <PhotoFigure
             src="/images/photo/typewriter.jpg"
             alt="A typewriter on a concrete surface, its carriage set"
-            caption="The pressroom register: type, set by hand."
             sizes="(min-width: 64rem) 44vw, 100vw"
             ratio="aspect-[4/5]"
           />
@@ -237,9 +234,6 @@ export default function ResourcesPage() {
               The Bulletin follows the institute&apos;s publishing rule:
               every figure carries its source, nothing is invented to fill a
               gap, and when a fact changes, the Bulletin changes with it.
-              The photographs on this page are the institute&apos;s curated
-              register, not stock claims about its own pressroom; the
-              honesty rule applies to pictures too.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/apply" className="pill">

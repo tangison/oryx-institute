@@ -43,7 +43,6 @@ export default function ToolsPage() {
         <PhotoFigure
           src="/images/photo/drafting.jpg"
           alt="A pencil and a straightedge laid across a worktable beside a window"
-          caption="The bench: pencil, straightedge, daylight."
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -104,7 +103,6 @@ export default function ToolsPage() {
           <PhotoFigure
             src="/images/photo/lantern.jpg"
             alt="A brass lantern on concrete stairs"
-            caption="The lantern on the stair: tools that outlast their owners."
             sizes="(min-width: 64rem) 48vw, 100vw"
             ratio="aspect-[4/5]"
           />

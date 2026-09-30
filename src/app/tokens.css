@@ -6,6 +6,11 @@
      maroon  #71111F  the shield, 理工, accents on light grounds
      ivory   #FFF8EE  the dark logo variant's ink
      white   #FFFFFF  the print kit's paper
+   The published site palette is carried as first-class tints, per the
+   client's own released homepage:
+     warm    #F3EDE2  the released warm paper tint
+     blush   #E8B4BB  the released rose tint
+     sand    #D8D0C2  the released grey-beige tint
    Type: the master package's own pairing, Radley (display serif, the
    published homepage's display face) and Inter (body and UI), both
    self-hosted. A two-glyph Noto Serif SC subset carries 理工 as live
@@ -13,20 +18,34 @@
    Text-heavy pages (privacy, terms, disclaimer) run the ink theme via
    .theme-ink. The menu overlay runs fixed ink tokens.
    Derived tints are computed, not guessed: rose #D37084 holds 5.48:1
-   on the ink ground; muted values clear AA on both grounds.
+   on the ink ground; muted values clear AA on both grounds. The maroon
+   accent stays the only text-bearing accent on light grounds; blush,
+   sand and warm carry grounds, rules and fills only.
    ========================================================================== */
 
 :root {
-  /* Paper, ink, neutrals. Print-kit white base, brand ink text. */
+  /* Paper, ink, neutrals. Print-kit white base, brand ink text. The
+     secondary and tertiary papers take the client's released warm
+     tint #F3EDE2 and a deeper derived step, so section grounds read
+     warm rather than white-on-white. */
   --paper:      #FFFFFF;
-  --paper-2:    #FAF8F3;
-  --paper-3:    #F4F0E8;
+  --paper-2:    #F3EDE2;
+  --paper-3:    #EAE1D2;
 
   --ink:        #181713;
   --ink-2:      #71111F;
   --muted:      #57524A;
-  --rule:       #E7E1D6;
-  --rule-2:     #F0ECE3;
+  --rule:       #E2D9C8;
+  --rule-2:     #EEE8DC;
+
+  /* Published palette tints: grounds, washes and fills. Sand and
+     blush never carry text on light grounds; they sit behind ink or
+     maroon, or appear as rules and card washes. */
+  --warm:        #F3EDE2;
+  --blush:       #E8B4BB;
+  --blush-deep:  #C4888F;
+  --sand:        #D8D0C2;
+  --sand-deep:   #B9AE99;
 
   /* Single accent family: brand maroon. On white it holds 11.65:1,
      so it carries text, links and fills directly. Ivory sits on the
@@ -48,6 +67,9 @@
 
   /* Focus ring: the maroon itself, strong on white. */
   --focus: #71111F;
+
+  /* Dark-mode value for the fixed tints above; the light-mode values
+     stay on :root and the fixed register classes keep them stable. */
 
   /* Shared control height: inputs and pills answer one measure. */
   --control-h: 3.1rem;
@@ -114,10 +136,17 @@
 .dark {
   /* Dark mode: the brand ink becomes the paper. The accent flips to
      the rose family so text, rules and indicators stay legible on the
-     ink ground; the pills keep their fixed maroon tokens. */
+     ink ground; the pills keep their fixed maroon tokens. The tints
+     deepen in place so warm grounds stay warm without glaring. */
   --paper:      #181713;
-  --paper-2:    #221F1A;
-  --paper-3:    #2B2721;
+  --paper-2:    #262019;
+  --paper-3:    #2E2820;
+
+  --warm:        #262019;
+  --blush:       #4A3238;
+  --blush-deep:  #E8B4BB;
+  --sand:        #3A342B;
+  --sand-deep:   #8F8574;
 
   --ink:        #F5F0E6;
   --ink-2:      #E8B9C2;
