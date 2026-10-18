@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { PhotoFigure } from "@/components/site/photo-figure";
 import { motto, toolsList } from "@/lib/content";
 import { site } from "@/lib/site";
+
+/** The master package's artifact set, at native scale. */
+const artifactTiles = Array.from({ length: 10 }, (_, i) => ({
+  src: `/images/register/artifacts/artifact_${String(i + 1).padStart(2, "0")}.webp`,
+  alt: `Institute artifact ${i + 1} of 10, from the master set`,
+}));
 
 export const metadata: Metadata = {
   title: "The Oryx Tools List | Oryx Institute",
@@ -39,14 +46,42 @@ export default function ToolsPage() {
       </PageHero>
 
       {/* The motto band, in the documentary register. */}
-      <section className="shell">
+      <section className="shell" data-reveal>
         <PhotoFigure
-          src="/images/photo/drafting.jpg"
-          alt="A pencil and a straightedge laid across a worktable beside a window"
+          src="/images/1947/tools-hero.jpg"
+          alt="Hands at work on the institute's tools, from the 1947 register"
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
         />
+      </section>
+
+      {/* The working objects: the master package's artifact set, at
+          native scale, image only, no captions. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
+            The working <span className="em-serif text-accent">objects.</span>
+          </h2>
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
+            Ten frames from the master package&apos;s artifact set: the
+            things a working institute keeps on its shelves.
+          </p>
+        </div>
+        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-5" data-reveal-group>
+          {artifactTiles.map((t) => (
+            <li key={t.src} className="specimen-tile">
+              <Image
+                src={t.src}
+                alt={t.alt}
+                width={344}
+                height={248}
+                sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw"
+                className="h-full w-full object-cover"
+              />
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* The three registers. */}
@@ -101,8 +136,8 @@ export default function ToolsPage() {
             </div>
           </div>
           <PhotoFigure
-            src="/images/photo/lantern.jpg"
-            alt="A brass lantern on concrete stairs"
+            src="/images/1947/tools-hands.jpg"
+            alt="Hands on the work, from the institute's 1947 register"
             sizes="(min-width: 64rem) 48vw, 100vw"
             ratio="aspect-[4/5]"
           />

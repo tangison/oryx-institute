@@ -51,8 +51,10 @@ export const site = {
   /** The approved tagline (strategy notes, decision 8): the inclusive
    * variant of the founder's original idiom. */
   tagline: "You're only as good as your tools. We forge them.",
+  /** Meta description, sized for search results (kept under 160
+   * characters) and led by what runs today: the consulting practice. */
   description:
-    "Oryx Institute in Windhoek, Namibia. A polytechnic under development, built on innovation and applied problem-solving. Rapid Response Training and the Oryx Directory are live now; applications open by enquiry.",
+    "Oryx Institute, Windhoek: business counselling, market research and development, and Rapid Response Training, live now. Free Directory; applications by enquiry.",
   city: "Windhoek",
   country: "Namibia",
   address: "P.O. Box 1662, Windhoek, Namibia",
@@ -90,6 +92,14 @@ export const status = {
     "Oryx is pursuing accreditation with the NQA and the NTA. It is not accredited yet, and it says so.",
   liveNow: [
     {
+      name: "Business counselling",
+      line: "One desk in the Principal's office: bring the problem as it stands, leave with a decision you can act on the same week. Namibian rates, Namibian context.",
+    },
+    {
+      name: "Market research and development",
+      line: "Evidence before money moves. Feasibility, market sizing and route-to-market work, gathered on the ground in Namibia and written to be used, not shelved.",
+    },
+    {
       name: "Rapid Response Training",
       line: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme, and delivers.",
     },
@@ -99,6 +109,10 @@ export const status = {
     },
   ],
   inDevelopment: [
+    {
+      name: "The AI training programme",
+      line: "Built with a technology company, announced 18 October 2026. In development now; the partnership is confirmed, the schedule is not.",
+    },
     {
       name: "Skills Camp (Karibib VTC)",
       line: "The physical vocational training centre is in research and development, on its own roadmap.",
@@ -119,6 +133,38 @@ export const status = {
     note: "Never lecturers, not instructors. The name ties to the tagline: we forge our own tools.",
   },
 } as const;
+
+/**
+ * The consulting practice: what the institute sells today, while the
+ * schools are phased in. Ordered as the office prefers enquiries to
+ * arrive. Nothing here promises a credential; every line promises work.
+ */
+export const services = [
+  {
+    id: "counselling",
+    name: "Business counselling",
+    line: "Decisions, not decks.",
+    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or on WhatsApp, and the outcome is written down: what was decided, and what happens next.",
+  },
+  {
+    id: "research",
+    name: "Market research and development",
+    line: "Evidence before money moves.",
+    body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
+  },
+  {
+    id: "rapid-response",
+    name: "Rapid Response Training",
+    line: "A team, brought up to standard.",
+    body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know next.",
+  },
+  {
+    id: "directory",
+    name: "The Oryx Directory",
+    line: "Free, and it proves the standard.",
+    body: "Namibia-specific crash courses and business templates, copyrighted to the institute and free to access. Published proof of how the institute writes, sources and teaches, available before any fee is discussed.",
+  },
+] as const;
 
 /**
  * The four disciplines of a 理工 (science and engineering) education,
@@ -209,6 +255,7 @@ export const navGroups = [
       { href: "/about", name: "About", desc: "The institute, the name and the Principal." },
       { href: "/people", name: "People", desc: "The hiring bar, published before the titles." },
       { href: "/resources", name: "Resources", desc: "The Oryx Directory: free crash courses and templates, plus the Bulletin." },
+      { href: "/announcements", name: "Announcements", desc: "What the institute has made public, dated as it was said." },
       { href: "/compare", name: "Compare", desc: "Oryx beside the alternatives, honestly." },
       { href: "/brand", name: "Brand", desc: "The wordmark, the emblem, the codes and the voice." },
       { href: "/faq", name: "FAQ", desc: "Applying, programmes and where to find us." },
@@ -226,7 +273,11 @@ export const faqs = [
   },
   {
     q: "What programmes does the institute offer?",
-    a: "The education stands on four disciplines: science, engineering, technology and applied problem-solving. Programme and course offerings are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+    a: "Today, the consulting practice: business counselling, market research and development, and Rapid Response Training. The education stands on four disciplines, science, engineering, technology and applied problem-solving, and it is phased in as accreditation progresses. Programme and course offerings are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+  },
+  {
+    q: "Does Oryx consult for businesses?",
+    a: "Yes, and it is the institute's live practice. Business counselling runs from the Principal's office, and market research and development work (feasibility, sizing, route-to-market) is taken on per engagement. Write to the office with the problem as it stands; the first reply names what the institute can and cannot do for you.",
   },
   {
     q: "What does 理工 mean?",
@@ -263,5 +314,28 @@ export const faqs = [
   {
     q: "Does Oryx work with partners?",
     a: "Openly. The institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
+  },
+] as const;
+
+/**
+ * Announcements: what the institute has made public, dated as it was
+ * said. Nothing is announced before it is certain, and nothing here
+ * names a partner before that partner has agreed to be named.
+ */
+export const announcements = [
+  {
+    slug: "ai-training-programme",
+    date: "18 October 2026",
+    dateISO: "2026-10-18",
+    kicker: "Announcement",
+    title: "An AI training programme is in development",
+    standfirst:
+      "Built with a technology company, for Namibian teams and learners. The partnership is confirmed; the schedule is not. Details follow as they land.",
+    body: [
+      "Oryx Institute will run an AI training programme, developed in collaboration with a technology company. The programme is in development now. The partnership is confirmed and the work has started; the schedule, the syllabus and the enrolment route are not final, so none of them are printed here yet.",
+      "The shape of the thing, as it stands: practical AI work for Namibian teams and learners, built on the institute's existing rule that tools are named, not magic. It will follow the same standard the institute holds everywhere else, evidence first, decoration never, and it will be announced in full before any fee is discussed.",
+      "The collaboration grew out of the institute's consulting practice: businesses kept asking for AI capability, and the honest answer was to build the training properly rather than improvise it. That work is now under way with the institute's technology partner.",
+      "Enquiries go to the Principal's office in the usual way, on WhatsApp to +264 81 341 1522 or by email to tangi@oryxinstitute.org. Organizations that want the programme brought to their teams early can say so in the first message; the office keeps a list, and nothing else.",
+    ],
   },
 ] as const;

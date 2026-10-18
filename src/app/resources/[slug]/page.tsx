@@ -105,13 +105,23 @@ export default async function DirectoryDocPage({
   const others = siblings.filter((d) => d.slug !== doc.slug);
   const index = directoryAll.findIndex((d) => d.slug === doc.slug);
 
+  /** Truthful structured data: a CreativeWork published by the
+      institute. The author is the institute itself (no invented
+      person), the image is the page's own share image, and no date is
+      asserted beyond the copyright year: the visible "Updated" line is
+      month-granular and is not masqueraded as an ISO date. */
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "CreativeWork",
     headline: doc.title,
     description: doc.standfirst,
-    datePublished: "2026-09-01",
     url: `${site.url}/resources/${doc.slug}`,
+    image: `${site.url}/images/og-inner.jpg`,
+    author: {
+      "@type": "EducationalOrganization",
+      name: site.legalName,
+      url: site.url,
+    },
     publisher: {
       "@type": "EducationalOrganization",
       name: site.legalName,
@@ -122,7 +132,9 @@ export default async function DirectoryDocPage({
       "@type": "EducationalOrganization",
       name: site.legalName,
     },
+    copyrightYear: "2026",
     isAccessibleForFree: true,
+    license: `${site.url}/resources/${doc.slug}`,
   };
 
   return (
@@ -144,6 +156,13 @@ export default async function DirectoryDocPage({
         <p className="mt-4 text-[0.85rem] leading-relaxed text-soft italic">
           {FREE_LINE}
         </p>
+        {doc.kind === "template" ? (
+          <p className="mt-3 rounded-[var(--r-card)] border border-rule bg-paper-2 px-5 py-4 text-[0.9rem] leading-relaxed text-soft">
+            A fill-in template: every field in brackets, like [your business
+            name], is yours to replace before use. Nothing here is legal,
+            tax or financial advice.
+          </p>
+        ) : null}
       </PageHero>
 
       <section className="chapter shell">

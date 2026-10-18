@@ -146,3 +146,41 @@ working documents, not promises.
 
 The bar for adding anything to this roadmap is the same bar for the
 site: state the fact, cite the source, and ship only what is finished.
+
+---
+
+## 10. The AI training programme (announced 18 October 2026)
+
+The announcement is live on the site: Oryx will run an AI training
+programme, developed in collaboration with a technology company. The
+partnership is confirmed; the schedule, syllabus and enrolment route are
+not final, so the site prints none of them. This section is where the
+publishing work for the programme is planned, so the announcement's
+"details follow as they land" has a real pipeline behind it.
+
+**Positioning.** The programme sits on the consulting side of the house,
+not the schools: it is corporate and team training first, built on the
+same rule as everything else the institute publishes, tools are named,
+not magic. It is the productization of what the AI stack page already
+documents, and it feeds the Technology school's curriculum later.
+
+**Publishing commitments tied to the programme:**
+
+| Milestone | What ships | Gate |
+|-----------|------------|------|
+| Syllabus locked | Course outline published as an Announcement update, same URL, corrected date | Partner sign-off on the outline |
+| Second announcement | Schedule, format, fees, enrolment route | Contract signed with the partner |
+| Courseware | Learner workbook drafted through the six-pass pipeline, published as a Directory crash course on AI for Namibian teams | Quality gates, then free release as proof of standard |
+| Evidence | Facilitation record, assessment bank, review log filed for NQA/NTA | First cohort completed |
+
+**Writing rule for the programme material:** every capability claim in
+the syllabus must name the exercise that proves it. Where a tool is
+taught, the tool is named and the version pinned. No invented
+statistics, no vendor marketing language, partner named only as the
+partner agreed to be named.
+
+**Sequencing with the waves:** the programme's courseware runs ahead of
+Wave 2 (courses 8-9, the AI modules) so the free Directory release and
+the paid programme draw on the same material and the same evidence base.
+Wave 1 is unaffected.
+

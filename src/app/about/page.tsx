@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { ScaleFigure } from "@/components/site/scale-figure";
+import { PhotoFigure } from "@/components/site/photo-figure";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { site, status } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About the Institute",
   description:
-    "Oryx Institute: the oryx, the characters 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
+    "Oryx Institute: the oryx, the characters 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About | Oryx Institute",
+    title: "About the Institute | Oryx Institute",
     description:
-      "The oryx, the characters 理工 and the Principal's office in Windhoek.",
+      "The oryx, the characters 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     images: [
       {
         url: "/images/og-inner.jpg",
@@ -25,6 +26,13 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+/** The ground plan: twelve of the master package's architecture
+    frames, shown at native scale, image only. */
+const groundTiles = Array.from({ length: 12 }, (_, i) => ({
+  src: `/images/register/architecture/architecture_${String(i + 1).padStart(2, "0")}.webp`,
+  alt: `Institute architecture, frame ${i + 1} of 12, from the master set`,
+}));
 
 export default function AboutPage() {
   return (
@@ -39,6 +47,18 @@ export default function AboutPage() {
         </p>
       </PageHero>
 
+      {/* The page's own register: the oryx at the water's edge, from
+          the institute's coastal set. */}
+      <section className="shell" data-reveal>
+        <PhotoFigure
+          src="/images/photo/coast-oryx.jpg"
+          alt="An oryx at the Atlantic shoreline, fog moving in behind it"
+          priority
+          sizes="(min-width: 90rem) 1440px, 100vw"
+          ratio="aspect-[21/9]"
+        />
+      </section>
+
       <section className="chapter shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
         <div className="grid gap-8">
           <div>
@@ -50,6 +70,18 @@ export default function AboutPage() {
               seal above them is the maroon shield, and the whole lockup
               sets in a classic serif, the way it is printed on the
               institute&apos;s letterhead.
+            </p>
+          </div>
+
+          <div>
+            <p className="label-caps text-soft">The practice</p>
+            <p className="mt-4 text-[1.05rem] leading-relaxed text-soft">
+              Today the institute works as a consultancy. Business
+              counselling runs from the Principal&apos;s office; market
+              research and development work is taken on per engagement;
+              Rapid Response Training brings teams up to standard. The
+              schools are phased in behind the practice, in order, as
+              accreditation progresses, not before.
             </p>
           </div>
 
@@ -91,15 +123,46 @@ export default function AboutPage() {
               className="h-16 w-auto"
             />
           </div>
-
-          <ScaleFigure
-            src="/images/photo/coast-fog.jpg"
-            alt="Fog rolling over the Namibian coast, the water calm beneath"
-            width={1000}
-            height={720}
-            sizes="(min-width: 64rem) 40vw, 100vw"
-          />
         </div>
+      </section>
+
+      {/* The ground plan: the institute's buildings, from the master
+          package's architecture set, image only, no captions. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
+            The ground, <span className="em-serif text-accent">in frames.</span>
+          </h2>
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
+            The institute&apos;s buildings and rooms, from the master
+            package&apos;s architecture set. Twelve frames, unedited.
+          </p>
+        </div>
+        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+          {groundTiles.map((t) => (
+            <li key={t.src} className="specimen-tile">
+              <Image
+                src={t.src}
+                alt={t.alt}
+                width={344}
+                height={248}
+                sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 33vw, 50vw"
+                className="h-full w-full object-cover"
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* The name, remembered: the oryx skull in flower, from the
+          institute's own set. */}
+      <section className="shell" data-reveal>
+        <PhotoFigure
+          src="/images/photo/skull-flower.jpg"
+          alt="An oryx skull with straight horns, a desert flower growing beside it"
+          sizes="(min-width: 90rem) 1440px, 100vw"
+          ratio="aspect-[21/9]"
+        />
       </section>
 
       {/* Where the institute stands, stated plainly. Every line comes

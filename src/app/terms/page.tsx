@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms on which this website is offered: what the site does, what an enquiry means, and what it does not promise.",
+    "The terms on which this website is offered: what the site does, what an enquiry means, what the certificates claim, and what the institute does not promise.",
   alternates: { canonical: "/terms" },
   openGraph: {
     title: "Terms of Service | Oryx Polytechnic Institute",

@@ -216,7 +216,10 @@ export function SiteHeader() {
               type="button"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              aria-controls="site-menu"
+              /** The menu overlay unmounts when closed, so the
+                  aria-controls target only exists while the menu is
+                  open; pointing at a missing id reads as an error. */
+              aria-controls={menuOpen ? "site-menu" : undefined}
               onClick={() => setMenuOpen(true)}
               className="menu-toggle"
             >

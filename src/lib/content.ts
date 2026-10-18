@@ -26,8 +26,8 @@ export const schools = [
     status: "Open for enquiry",
     lead: "The AI-native flagship. First in, because it needs the least: a bench, a meter, a machine that thinks with you.",
     body: "Technology is where the institute starts. The discipline covers the modern tool chain from the inside: how computing systems are taken apart, understood and rebuilt, and how to put AI tools to work without surrendering judgement to them. The study companion runs on the same stack the institute runs on, so students learn on the real thing from the first day.",
-    image: "/images/photo/stair-light.jpg",
-    alt: "Light falling down a concrete stairwell, a handrail crossing the frame",
+    image: "/images/1947/schools-technology.jpg",
+    alt: "A technology classroom from the institute's 1947 register: benches, instruments, tall windows",
   },
   {
     id: "engineering",
@@ -36,8 +36,8 @@ export const schools = [
     status: "Coming soon",
     lead: "The making core: work that holds, measured and finished to standard.",
     body: "Engineering follows, because it is the most demanding to stand up properly: machine shops, measurement, the discipline of tolerances. The institute will not open a workshop it cannot staff with people who have cut metal for a living. When the school opens its doors, the certificate standard is already written: excellence in innovation and applied problem-solving.",
-    image: "/images/photo/roofline.jpg",
-    alt: "The roofline of a brick workshop building in iron sheeting, against an overcast sky",
+    image: "/images/1947/schools-engineering.jpg",
+    alt: "An engineering workshop from the institute's 1947 register: machine tools under a shed roof",
   },
   {
     id: "science",
@@ -46,8 +46,8 @@ export const schools = [
     status: "Coming soon",
     lead: "The reasoning core: observation, evidence and disciplined thought.",
     body: "Science is the long game. The laboratory takes time to build, and the institute will not present borrowed laboratories as its own. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
-    image: "/images/photo/specimen.jpg",
-    alt: "A rock specimen on a plinth, set in window light",
+    image: "/images/1947/schools-science.jpg",
+    alt: "A science laboratory from the institute's 1947 register: benches and glassware in daylight",
   },
 ] as const;
 
@@ -56,8 +56,8 @@ export const schools = [
 export const appliedSpine = {
   name: "Applied problem-solving",
   line: "Not a school. The spine that runs through all three, and the standard named on every certificate.",
-  image: "/images/photo/lantern.jpg",
-  alt: "A brass lantern on concrete stairs",
+  image: "/images/1947/people-classroom.jpg",
+  alt: "A full classroom from the institute's 1947 register: students at work, a teacher moving between the desks",
 } as const;
 
 /** The Oryx Tools List: what the institute actually runs on, published

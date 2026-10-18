@@ -1396,3 +1396,71 @@ body:has(.theme-ink) .site-header.is-solid {
 .band-night .display-hero {
   color: var(--pill-ink);
 }
+
+/* --------------------------------------------------------------------------
+   The specimen wall: isolated brand objects on paper tiles, image only.
+   One file per tile, no captions; the alt text carries the description.
+   -------------------------------------------------------------------------- */
+.specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--rule-hair);
+  border: var(--rule-hair) solid var(--rule);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--rule);
+}
+@media (min-width: 40rem) {
+  .specimen-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 64rem) {
+  .specimen-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.specimen-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--paper-2);
+  overflow: hidden;
+  transition: background-color var(--dur-short) var(--ease-out);
+}
+.specimen-tile img {
+  transition: transform var(--dur-long) var(--ease-out);
+}
+.specimen-tile:hover img,
+.specimen-tile:focus-within img {
+  transform: scale(1.045);
+}
+
+/* Announcement band: blush paper, one line of news, one action. */
+.announce-band {
+  background: color-mix(in srgb, var(--blush) 55%, var(--paper));
+  border: var(--rule-hair) solid var(--rule);
+  border-radius: var(--r-card);
+}
+.announce-dot {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  animation: announce-pulse 2.4s var(--ease-in-out) infinite;
+}
+@keyframes announce-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.82); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announce-dot {
+    animation: none;
+  }
+}
+
+/* Register figures keep their grounds quiet; the WebP register set
+   renders slightly lifted so the paper shows through the frame. */
+.register-figure {
+  background: var(--paper-2);
+  box-shadow: 0 1px 0 rgba(24, 23, 19, 0.04);
+}

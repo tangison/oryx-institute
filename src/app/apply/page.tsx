@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { ApplyForm } from "@/components/site/apply-form";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Apply",
+  title: "Apply to Oryx Institute",
   description:
-    "Apply to Oryx Institute. One message to the Principal's office in Windhoek: your name, your contact and your field of interest.",
+    "Apply to Oryx Institute, or book the consulting practice: counselling, market research and development, Rapid Response Training. One message to the Principal's office.",
   alternates: { canonical: "/apply" },
   openGraph: {
     title: "Apply | Oryx Institute",
@@ -30,7 +31,9 @@ export default function ApplyPage() {
         <p>
           There is no portal and no queue. Write to the Principal&apos;s
           office directly, and the application starts with your first
-          message.
+          message. The consulting practice books through the same desk:
+          counselling, market research and development, Rapid Response
+          Training.
         </p>
       </PageHero>
 
@@ -83,6 +86,17 @@ export default function ApplyPage() {
               Looks harmless.{" "}
               <span className="em-serif text-accent">Isn&apos;t.</span>
             </p>
+          </div>
+
+          <div className="rounded-[var(--r-card)] border border-rule bg-paper-2 p-8" data-reveal>
+            <Image
+              src="/images/register/cutouts/cutout_16.webp"
+              alt="A maroon wax seal, the kind the institute's certificates carry"
+              width={274}
+              height={184}
+              sizes="320px"
+              className="h-auto w-full max-w-[280px] rounded-[calc(var(--r-card)-0.5rem)] object-cover"
+            />
           </div>
         </aside>
       </section>

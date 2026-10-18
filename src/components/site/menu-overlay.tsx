@@ -12,22 +12,20 @@ import {
 } from "@/components/ui/dialog";
 import { site } from "@/lib/site";
 
-/** Featured menu artifacts: the brand's own printed matter. */
+/** Featured menu artifacts: the brand's own printed matter, shown
+    here in the menu only. The kit photographs do not repeat on any
+    content page; the brand register page documents the kit as
+    photographs and the print pieces themselves are not reused. */
 const menuArtifacts = [
   {
-    title: "Recruitment flyer",
-    note: "Looks harmless. Isn't.",
-    photo: "/images/brand/kit-flyer.jpg",
+    title: "The wordmark",
+    note: "ORYX 理工 INSTITUTE",
+    photo: "/images/og-inner.jpg",
   },
   {
-    title: "Certificate of Achievement",
-    note: "Innovation and applied problem-solving",
-    photo: "/images/brand/kit-certificate.jpg",
-  },
-  {
-    title: "Letterhead",
-    note: "P.O. Box 1662, Windhoek",
-    photo: "/images/brand/kit-letterhead.jpg",
+    title: "The emblem",
+    note: "The maroon shield",
+    photo: "/images/og-default.jpg",
   },
 ] as const;
 
