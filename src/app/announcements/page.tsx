@@ -3,12 +3,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { PhotoFigure } from "@/components/site/photo-figure";
+import ShinyText from "@/components/reactbits/ShinyText/ShinyText";
 import { announcements, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Announcements",
   description:
-    "What Oryx Institute has made public, dated as it was said: the AI training programme with a technology company, and everything that follows.",
+    "What Oryx Institute has made public, dated as it was said: the AI training programme with Tangison Technologies, and everything that follows.",
   alternates: { canonical: "/announcements" },
   openGraph: {
     title: "Announcements | Oryx Institute",
@@ -55,7 +56,13 @@ export default function AnnouncementsPage() {
               className="group flex flex-col gap-2 bg-paper p-8 transition-colors hover:bg-paper-2 md:flex-row md:items-center md:gap-10 md:p-10"
             >
               <span className="shrink-0 lg:w-44">
-                <span className="label-caps text-accent">{a.kicker}</span>
+                <ShinyText
+                  text={a.kicker}
+                  color="#71111F"
+                  shineColor="#D37084"
+                  speed={4}
+                  className="label-caps"
+                />
                 <span className="mt-1 block text-[0.85rem] text-soft">{a.date}</span>
               </span>
               <span className="min-w-0 flex-1">

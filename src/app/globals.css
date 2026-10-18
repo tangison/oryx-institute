@@ -1464,3 +1464,30 @@ body:has(.theme-ink) .site-header.is-solid {
   background: var(--paper-2);
   box-shadow: 0 1px 0 rgba(24, 23, 19, 0.04);
 }
+
+/* --------------------------------------------------------------------------
+   Lenis (smooth scroll) — official integration styles.
+   When Lenis is active it tags <html> with .lenis; the native
+   scroll-behavior above is switched off so the two never fight. When
+   Lenis is not active (reduced motion, no JS) these rules never match.
+   -------------------------------------------------------------------------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
