@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { BrandTabs } from "@/components/site/brand-tabs";
-import { ArtifactCarousel } from "@/components/site/artifact-carousel";
+import { PhotoCarousel } from "@/components/site/photo-carousel";
 import { voice } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Brand",
+  title: "The Brand Register",
   description:
-    "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes and the voice the print kit sets.",
+    "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes, the print kit in full and the voice the site is written under.",
   alternates: { canonical: "/brand" },
   openGraph: {
-    title: "Brand | Oryx Institute",
+    title: "The Brand Register | Oryx Institute",
     description:
       "The wordmark, the emblem, the codes and the voice, documented.",
     images: [
@@ -25,49 +25,32 @@ export const metadata: Metadata = {
   },
 };
 
-const kitItems = [
-  {
-    title: "Recruitment flyer",
-    line: "Full-bleed wolf, three-word headline.",
-    photo: "/images/brand/kit-flyer.jpg",
-    alt: "The recruitment flyer with the wolf in sheep's clothing",
-  },
-  {
-    title: "Certificate of Achievement",
-    line: "Double-rule border, Principal's signature line, dated by hand.",
-    photo: "/images/brand/kit-certificate.jpg",
-    alt: "The certificate of achievement",
-  },
-  {
-    title: "Letterhead",
-    line: "Lockup top left, shield watermark, contact rule at the foot.",
-    photo: "/images/brand/kit-letterhead.jpg",
-    alt: "The letterhead",
-  },
-  {
-    title: "Business card",
-    line: "The shield alone on the front; the Principal's card on the back.",
-    photo: "/images/brand/kit-card-back.jpg",
-    alt: "The business card reverse with the Principal's contact details",
-  },
-  {
-    title: "Notecard",
-    line: "The shield centered on white. Nothing else.",
-    photo: "/images/brand/kit-notecard.jpg",
-    alt: "The notecard with the shield emblem",
-  },
-  {
-    title: "Envelope",
-    line: "Lockup and post box address, the shield at the right.",
-    photo: "/images/brand/kit-envelope.jpg",
-    alt: "The envelope with the wordmark and post box address",
-  },
-  {
-    title: "Presentation folder",
-    line: "The lockup over a misty ocean. Patience as paper.",
-    photo: "/images/brand/kit-folder.jpg",
-    alt: "The presentation folder over a misty ocean",
-  },
+const kitSlides = [
+  { src: "/images/brand/kit-flyer.jpg", alt: "The recruitment flyer with the wolf in sheep's clothing" },
+  { src: "/images/brand/kit-certificate.jpg", alt: "The certificate of achievement, double-rule border and signature line" },
+  { src: "/images/brand/kit-letterhead.jpg", alt: "The letterhead: lockup top left, shield watermark, contact rule at the foot" },
+  { src: "/images/brand/kit-card-front.jpg", alt: "The business card front, the maroon shield alone" },
+  { src: "/images/brand/kit-card-back.jpg", alt: "The business card reverse with the Principal's contact details" },
+  { src: "/images/brand/kit-notecard.jpg", alt: "The notecard with the shield emblem centered" },
+  { src: "/images/brand/kit-envelope.jpg", alt: "The envelope with the wordmark and post box address" },
+  { src: "/images/brand/kit-folder.jpg", alt: "The presentation folder over a misty ocean" },
+] as const;
+
+/** The specimen wall: twelve of the master package's isolated objects,
+    shown at native scale, image only, no captions. */
+const specimenTiles = [
+  { src: "/images/register/cutouts/cutout_01.webp", alt: "Oryx horns, isolated" },
+  { src: "/images/register/cutouts/cutout_02.webp", alt: "A brass drafting compass, isolated" },
+  { src: "/images/register/cutouts/cutout_03.webp", alt: "A wooden slide rule, isolated" },
+  { src: "/images/register/cutouts/cutout_06.webp", alt: "A brass storm lantern, isolated" },
+  { src: "/images/register/cutouts/cutout_10.webp", alt: "A welwitschia plant, isolated" },
+  { src: "/images/register/cutouts/cutout_11.webp", alt: "A single green leaf, isolated" },
+  { src: "/images/register/cutouts/cutout_12.webp", alt: "A raw mineral specimen, isolated" },
+  { src: "/images/register/cutouts/cutout_13.webp", alt: "A welding torch tip, isolated" },
+  { src: "/images/register/cutouts/cutout_14.webp", alt: "A canvas sun helmet, isolated" },
+  { src: "/images/register/cutouts/cutout_15.webp", alt: "A laboratory beaker, isolated" },
+  { src: "/images/register/cutouts/cutout_17.webp", alt: "The oryx, full body, isolated" },
+  { src: "/images/register/cutouts/cutout_18.webp", alt: "A wooden set square, isolated" },
 ] as const;
 
 export default function BrandPage() {
@@ -86,53 +69,61 @@ export default function BrandPage() {
       </section>
 
       <section className="chapter shell">
-        <h2 className="display-section max-w-2xl text-ink">
+        <h2 className="display-section max-w-2xl text-ink" data-reveal>
           The print kit, <span className="em-serif text-accent">in full</span>
         </h2>
-        <p className="measure mt-4 text-[1.02rem] leading-relaxed text-soft">
-          Seven pieces, printed and photographed. The site samples them
+        <p className="measure mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
+          Eight pieces, printed and photographed. The site samples them
           exactly as supplied: the wolf from the flyer, the misty ocean
           from the folder, the layouts as they come.
         </p>
-        <div className="mt-12">
-          <ArtifactCarousel items={kitItems} ariaLabel="Print kit pieces" />
+        <div className="mt-12" data-reveal>
+          <PhotoCarousel photos={kitSlides} ariaLabel="print kit pieces" />
         </div>
       </section>
 
-      <section className="chapter shell">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="overflow-hidden rounded-[var(--r-card)] border border-rule">
-            <Image
-              src="/images/brand/kit-flyer.jpg"
-              alt="The recruitment flyer laid flat"
-              width={1400}
-              height={1750}
-              sizes="(min-width: 64rem) 30vw, 100vw"
-              className="h-auto w-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden rounded-[var(--r-card)] border border-rule">
-            <Image
-              src="/images/brand/kit-certificate.jpg"
-              alt="The certificate of achievement laid flat"
-              width={1400}
-              height={990}
-              sizes="(min-width: 64rem) 30vw, 100vw"
-              className="h-auto w-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden rounded-[var(--r-card)] border border-rule">
-            <Image
-              src="/images/brand/kit-folder.jpg"
-              alt="The presentation folder laid flat"
-              width={1400}
-              height={1930}
-              sizes="(min-width: 64rem) 30vw, 100vw"
-              className="h-auto w-full object-cover"
-            />
-          </div>
+      {/* The muse: the animal the identity is drawn from, image only. */}
+      <section className="shell" data-reveal>
+        <div className="overflow-hidden rounded-[var(--r-card)] border border-rule">
+          <Image
+            src="/images/wolf.jpg"
+            alt="The wolf in the sheep's fleece, the animal behind the flyer's headline"
+            width={1920}
+            height={1458}
+            sizes="(min-width: 90rem) 1440px, 100vw"
+            className="h-auto w-full object-cover"
+          />
         </div>
       </section>
+
+      {/* The specimen wall: the emblem objects, isolated. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
+            The specimen <span className="em-serif text-accent">wall.</span>
+          </h2>
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
+            Twelve objects from the master package&apos;s cutout set, the
+            things the identity is built out of, isolated on paper.
+          </p>
+        </div>
+        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+          {specimenTiles.map((t) => (
+            <li key={t.src} className="specimen-tile">
+              <Image
+                src={t.src}
+                alt={t.alt}
+                width={273}
+                height={184}
+                sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 33vw, 50vw"
+                className="h-full w-full object-cover"
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      
 
       {/* The voice, with its bar. The rules are the contract the site
           itself is written under. */}

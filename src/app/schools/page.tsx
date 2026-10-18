@@ -75,7 +75,7 @@ export default function SchoolsPage() {
 
       {schools.map((s) => (
         <section key={s.id} id={s.id} className="chapter shell">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center" data-reveal-group>
             <div>
               <div className="flex flex-wrap items-center gap-4">
                 <p className="label-caps text-accent">{s.phase}</p>

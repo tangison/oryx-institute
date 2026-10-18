@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { disciplines, site } from "@/lib/site";
+import { disciplines, services, site } from "@/lib/site";
 
 type Errors = { name?: string; phone?: string };
 
@@ -61,6 +61,7 @@ export function ApplyForm() {
             name="name"
             type="text"
             autoComplete="name"
+            enterKeyHint="next"
             className="field-input"
             placeholder="Your full name"
             value={name}
@@ -85,6 +86,7 @@ export function ApplyForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
+            enterKeyHint="next"
             className="field-input"
             placeholder="+264 81 000 0000"
             value={phone}
@@ -116,6 +118,11 @@ export function ApplyForm() {
                 {d.name}
               </option>
             ))}
+            {services.map((s) => (
+              <option key={s.id} value={s.name}>
+                {s.name}
+              </option>
+            ))}
             <option value="Not sure yet">Not sure yet</option>
           </select>
           <p className="field-error" aria-hidden>
@@ -131,6 +138,7 @@ export function ApplyForm() {
           id="af-message"
           name="message"
           rows={5}
+          enterKeyHint="send"
           className="field-textarea resize-y"
           placeholder="Tell us where you are coming from and what you want to learn"
           value={message}

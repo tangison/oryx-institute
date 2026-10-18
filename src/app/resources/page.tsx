@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Resources & Insights",
   description:
-    "The Oryx Directory: free Namibia-specific crash courses and business templates, plus the Oryx Bulletin, cited insights on Namibian skills, training and the tools of an AI-native institute.",
+    "Free Namibia-specific crash courses and fill-in business templates from the Oryx Directory, plus the Oryx Bulletin: cited insights on Namibian skills and tools.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Resources & Insights",
@@ -58,13 +58,24 @@ export default function ResourcesPage() {
       </PageHero>
 
       {/* The Bulletin, in the institute's documentary register. */}
-      <section className="shell">
+      <section className="shell" data-reveal>
         <PhotoFigure
-          src="/images/photo/notebook.jpg"
-          alt="An open notebook with a ribbon marker, on a desk beside a window"
+          src="/images/1947/resources-hero.jpg"
+          alt="The institute's written record at work, from the 1947 register"
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
+        />
+      </section>
+
+      {/* The Directory's own register: the open doorway. */}
+      <section className="shell" data-reveal>
+        <PhotoFigure
+          src="/images/photo/doorway.jpg"
+          alt="An open stone doorway in a whitewashed wall"
+          priority
+          sizes="(min-width: 90rem) 1440px, 100vw"
+          ratio="aspect-[16/10]"
         />
       </section>
 
@@ -82,10 +93,10 @@ export default function ResourcesPage() {
           </p>
         </div>
 
-        <h3 className="display-statement mt-14 max-w-2xl text-ink">
+        <h2 className="display-statement mt-14 max-w-2xl text-ink" data-reveal>
           Crash courses, <span className="em-serif text-accent">Namibia first.</span>
-        </h3>
-        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule">
+        </h2>
+        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule" data-reveal-group>
           {directoryCourses.map((d) => (
             <li key={d.slug} className="bg-paper">
               <Link
@@ -114,10 +125,10 @@ export default function ResourcesPage() {
           ))}
         </ul>
 
-        <h3 className="display-statement mt-16 max-w-2xl text-ink">
+        <h2 className="display-statement mt-16 max-w-2xl text-ink" data-reveal>
           Business templates, <span className="em-serif text-accent">ready to fill.</span>
-        </h3>
-        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule sm:grid-cols-2">
+        </h2>
+        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule sm:grid-cols-2" data-reveal-group>
           {directoryTemplates.map((d) => (
             <li key={d.slug} className="bg-paper">
               <Link
@@ -142,8 +153,14 @@ export default function ResourcesPage() {
 
       {/* ------------------------------------------------ Resources */}
       <section className="chapter shell">
-        <h2 className="display-section max-w-3xl text-ink">
-          The registers, <span className="em-serif text-accent">in one place</span>
+        <h2 className="display-section max-w-3xl text-ink" data-reveal>
+          The registers{" "}
+          <span
+            className="inline-img"
+            style={{ backgroundImage: "url(/images/pill-ocean.jpg)" }}
+            aria-hidden
+          />{" "}
+          <span className="em-serif text-accent">in one place</span>
         </h2>
         <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
           Everything the institute publishes, listed here. The prospectus
@@ -189,6 +206,15 @@ export default function ResourcesPage() {
           </p>
         </div>
 
+        <div className="mt-10" data-reveal>
+          <PhotoFigure
+            src="/images/photo/notebook.jpg"
+            alt="An open notebook with a ribbon marker, on a desk beside a window"
+            sizes="(min-width: 90rem) 1440px, 100vw"
+            ratio="aspect-[21/9]"
+          />
+        </div>
+
         <div className="mt-6 grid gap-16">
           {insights.map((a) => (
             <article
@@ -221,10 +247,10 @@ export default function ResourcesPage() {
       <section className="chapter shell">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <PhotoFigure
-            src="/images/photo/typewriter.jpg"
-            alt="A typewriter on a concrete surface, its carriage set"
+            src="/images/1947/resources-press.jpg"
+            alt="The institute's press, from the 1947 register"
             sizes="(min-width: 64rem) 44vw, 100vw"
-            ratio="aspect-[4/5]"
+            ratio="aspect-[1/1]"
           />
           <div>
             <h2 className="display-section max-w-xl text-ink">

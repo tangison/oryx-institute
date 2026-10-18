@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Compare, honestly | Oryx Institute",
   description:
-    "Oryx beside the alternatives: NUST, the public VTCs, private colleges and teaching yourself. Publicly verifiable facts, cited, with Oryx's own status stated as it is.",
+    "Oryx beside NUST, the public VTCs, private colleges and teaching yourself: facts cited, with Oryx's own new-and-small status stated as it is.",
   alternates: { canonical: "/compare" },
   openGraph: {
     title: "Compare, honestly | Oryx Institute",
@@ -41,7 +41,7 @@ export default function ComparePage() {
       </PageHero>
 
       {/* The fork in the veld: the page's own art direction. */}
-      <section className="shell">
+      <section className="shell" data-reveal>
         <PhotoFigure
           src="/images/photo/desert-road.jpg"
           alt="A desert road crossing the Namib, oryx crossing it, the horizon flat behind"
@@ -55,7 +55,7 @@ export default function ComparePage() {
       <section className="chapter shell">
         <div className="rounded-[var(--r-card)] border border-rule bg-paper-2 p-8 md:p-10">
           <p className="label-caps text-accent">The rules of this page</p>
-          <ul className="mt-5 grid gap-3">
+          <ul className="mt-5 grid gap-3" data-reveal-group>
             {compareRules.map((r) => (
               <li
                 key={r}

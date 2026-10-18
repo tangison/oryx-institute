@@ -15,7 +15,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <header className="shell pb-10 pt-32 md:pb-14 md:pt-44">
+    <header data-reveal-group className="shell pb-10 pt-32 md:pb-14 md:pt-44">
       <h1 className="display-hero max-w-[16ch] text-ink">
         {title}
         {accent ? <span className="em-serif text-accent"> {accent}</span> : null}

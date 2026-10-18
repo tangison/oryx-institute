@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { ScrollMotion } from "@/components/site/scroll-motion";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -109,6 +110,7 @@ export default function RootLayout({
     >
       <body className="antialiased bg-paper text-ink">
         <ThemeProvider>
+          <ScrollMotion />
           <a href="#main" className="skip-link">
             Skip to content
           </a>

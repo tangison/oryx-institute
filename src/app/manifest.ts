@@ -8,18 +8,22 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#FFFFFF",
-    theme_color: "#71111F",
+    background_color: "#FFF8EE",
+    /** Matches the light-scheme page theme color declared in the
+        root layout's viewport export, as the audit requires. */
+    theme_color: "#FFFFFF",
     icons: [
       {
+        /** The installed PNG measures 512x512; it is declared at its
+            true size (the audit caught a 192 declaration on a 512 file). */
         src: "/images/icon-maskable-192.png",
-        sizes: "192x192",
+        sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
         src: "/images/icon-maskable-192.png",
-        sizes: "192x192",
+        sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },

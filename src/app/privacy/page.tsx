@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Oryx Polytechnic Institute collects, uses and protects personal information, and the rights you have over it.",
+    "How Oryx Polytechnic Institute collects, uses and protects personal information: the WhatsApp and email handoff, what is never stored, and your rights over it.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Oryx Polytechnic Institute",

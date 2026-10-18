@@ -4,7 +4,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Disclaimer",
+  title: "Disclaimer & Acceptable Use",
   description:
     "What this website asserts, what it leaves to the Principal's office to confirm, and how the institute's own print kit governs the claims made here.",
   alternates: { canonical: "/disclaimer" },

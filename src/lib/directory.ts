@@ -364,14 +364,14 @@ export const directoryTemplates: Doc[] = [
     no: "Template 01",
     title: "Letterhead",
     standfirst:
-      "The correspondence register: who you are, where you write from, one idea per paragraph.",
+      "The correspondence register: who you are, where you write from and how to reach you, set one idea per paragraph, with the institute's own letterhead as the worked example.",
     readMinutes: 2,
     updated: "September 2026",
     sections: [
       {
         heading: "The template",
         blocks: [
-          { t: "p", text: "Your business name, with a tagline or registered activity on one line, and your contact line: P.O. Box, town, Namibia, phone, email, website." },
+          { t: "p", text: "Replace the bracketed fields as you go: [your business name] takes your registered name, with a tagline or registered activity on one line, and your contact line: P.O. Box, town, Namibia, phone, email, website. Nothing in brackets should survive into the printed letterhead." },
           { t: "p", text: "Then the letter itself: date, recipient name and title, address, and \"Dear [Recipient]\". The body carries one idea per paragraph, plain language, no filler. It closes \"Yours sincerely\" over a signature, name and title." },
         ],
       },
@@ -384,7 +384,7 @@ export const directoryTemplates: Doc[] = [
     no: "Template 02",
     title: "Business Plan",
     standfirst:
-      "Ten sections, written in the order that keeps you honest: the executive summary comes last.",
+      "Ten sections, written in the order that keeps you honest: the executive summary comes last, every figure is marked as an assumption until it is an actual, and Namibian funders' expectations are built in.",
     readMinutes: 6,
     updated: "September 2026",
     sections: [
@@ -414,7 +414,7 @@ export const directoryTemplates: Doc[] = [
     no: "Template 03",
     title: "Financial Projections",
     standfirst:
-      "Monthly for year one, quarterly for years two and three, with every figure marked as an assumption until it is an actual.",
+      "Monthly figures for year one, quarterly for years two and three, with every assumption labelled until it becomes an actual, and a VAT line that matches Namibian registration thresholds.",
     readMinutes: 4,
     updated: "September 2026",
     sections: [
@@ -469,14 +469,14 @@ export const directoryTemplates: Doc[] = [
     no: "Template 04",
     title: "Invoice / Quotation",
     standfirst:
-      "One page, two documents: what you bill and what you promise, both with the VAT line handled correctly.",
+      "One page, two documents: what you bill and what you promise, both with the VAT line handled correctly at 15 percent, payment terms written plainly and a fill-in example to copy.",
     readMinutes: 3,
     updated: "September 2026",
     sections: [
       {
         heading: "The invoice",
         blocks: [
-          { t: "p", text: "Your business name and contact line at the top, then invoice number, date, and due date. \"Bill to\" carries the client name and address. A table of description, quantity, unit price and total follows, then subtotal, VAT at 15% if you are registered, and the total due. Payment details close it: bank or mobile money." },
+          { t: "p", text: "Replace the bracketed fields as you fill it in: [your business name] and your contact line at the top, then invoice number, date, and due date. \"Bill to\" carries the client name and address. A table of description, quantity, unit price and total follows, then subtotal, VAT at 15% if you are registered, and the total due. Payment details close it: bank or mobile money." },
         ],
       },
       {
@@ -494,7 +494,7 @@ export const directoryTemplates: Doc[] = [
     no: "Template 05",
     title: "Non-Disclosure Agreement",
     standfirst:
-      "Purpose, obligations, exclusions, term: the four clauses a working NDA needs, governed by Namibian law.",
+      "Purpose, obligations, exclusions and term: the four clauses a working non-disclosure agreement needs, written for Namibian law and plain enough to read before signing.",
     readMinutes: 3,
     updated: "September 2026",
     sections: [
@@ -521,7 +521,7 @@ export const directoryTemplates: Doc[] = [
     no: "Template 06",
     title: "Employment Contract",
     standfirst:
-      "The statutory minimums built in: hours, overtime, leave and notice, per the Labour Act 11 of 2007.",
+      "A one-page contract with the statutory minimums built in: ordinary hours, overtime, annual leave and notice periods, written to match the Labour Act 11 of 2007 as it stands.",
     readMinutes: 4,
     updated: "September 2026",
     sections: [
@@ -549,7 +549,7 @@ export const directoryTemplates: Doc[] = [
     no: "Template 07",
     title: "Meeting Minutes",
     standfirst:
-      "Who met, what was decided, who owns it, when it is due. Nothing else survives the week.",
+      "Who met, what was decided, who owns the action and when it is due: a one-page format that records decisions without turning a meeting into an essay. Nothing else survives the week.",
     readMinutes: 2,
     updated: "September 2026",
     sections: [

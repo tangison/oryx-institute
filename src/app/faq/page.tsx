@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoFigure } from "@/components/site/photo-figure";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { faqs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Questions & Answers",
   description:
     "Applying to Oryx Institute, the four disciplines, the meaning of 理工, the certificate and where to find the office in Windhoek.",
   alternates: { canonical: "/faq" },
@@ -49,6 +50,17 @@ export default function FaqPage() {
           answers directly.
         </p>
       </PageHero>
+
+      {/* The road before the questions: the page's own register. */}
+      <section className="shell" data-reveal>
+        <PhotoFigure
+          src="/images/1947/compare-road.jpg"
+          alt="A road crossing open country, from the institute's 1947 register"
+          priority
+          sizes="(min-width: 90rem) 1440px, 100vw"
+          ratio="aspect-[21/9]"
+        />
+      </section>
 
       <section className="chapter shell grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-start">
         <FaqAccordion items={faqs} />

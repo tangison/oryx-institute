@@ -40,10 +40,10 @@ export default function PeoplePage() {
       </PageHero>
 
       {/* The corridor at class change: the page's own register. */}
-      <section className="shell">
+      <section className="shell" data-reveal>
         <PhotoFigure
-          src="/images/photo/people-door.jpg"
-          alt="A staff member in khaki walking through a stone doorway, mid-step"
+          src="/images/1947/people-hero.jpg"
+          alt="The institute's people at work, from the 1947 register"
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
@@ -55,7 +55,7 @@ export default function PeoplePage() {
         <h2 className="display-section max-w-3xl text-ink">
           Two tracks, <span className="em-serif text-accent">one standard.</span>
         </h2>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2" data-reveal-group>
           {peoplePage.tracks.map((t) => (
             <div key={t.name} className="bg-paper p-8 md:p-10">
               <p className="label-caps text-accent">{t.name}</p>

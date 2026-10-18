@@ -4,11 +4,10 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ScrubReveal } from "@/components/site/scrub-reveal";
 import { ScaleFigure } from "@/components/site/scale-figure";
-import { ArtifactCarousel } from "@/components/site/artifact-carousel";
 import { PhotoFigure } from "@/components/site/photo-figure";
 import { PhotoCarousel } from "@/components/site/photo-carousel";
 import { motto } from "@/lib/content";
-import { site, disciplines } from "@/lib/site";
+import { site, disciplines, services, announcements } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Oryx Institute | Looks harmless. Isn't.",
@@ -50,48 +49,10 @@ const jsonLd = {
   },
 };
 
-const artifactItems = [
-  {
-    title: "Recruitment flyer",
-    line: "The wolf in sheep's clothing, full bleed, with the institute's headline.",
-    photo: "/images/brand/kit-flyer.jpg",
-    alt: "The Oryx Institute recruitment flyer: a wolf in sheep's clothing",
-  },
-  {
-    title: "Certificate of Achievement",
-    line: "Awarded for excellence in innovation and applied problem-solving.",
-    photo: "/images/brand/kit-certificate.jpg",
-    alt: "An Oryx Institute certificate of achievement",
-  },
-  {
-    title: "Letterhead",
-    line: "P.O. Box 1662, Windhoek. The institute's stationery register.",
-    photo: "/images/brand/kit-letterhead.jpg",
-    alt: "Oryx Institute letterhead",
-  },
-  {
-    title: "Business card",
-    line: "Tangi Iigonda, Principal. The card carries the shield alone.",
-    photo: "/images/brand/kit-card-back.jpg",
-    alt: "Oryx Institute business card, reverse with contact details",
-  },
-  {
-    title: "Notecard and envelope",
-    line: "The maroon shield, centered, on the institute's correspondence set.",
-    photo: "/images/brand/kit-notecard.jpg",
-    alt: "Oryx Institute notecard with the shield emblem",
-  },
-  {
-    title: "Presentation folder",
-    line: "A calm ocean under mist. The institute's presentation register.",
-    photo: "/images/brand/kit-folder.jpg",
-    alt: "Oryx Institute presentation folder over a misty ocean",
-  },
-] as const;
-
 /**
  * The photographic register: ten frames from the institute's curated
- * set. Image-only slides; the photographs stand on their own.
+ * set, full resolution. Image-only slides; the photographs stand on
+ * their own.
  */
 const registerPhotos = [
   {
@@ -136,11 +97,29 @@ const registerPhotos = [
   },
 ] as const;
 
+/**
+ * The working record: six of the master package's isolated objects,
+ * shown at native scale on bordered tiles, image only, no captions.
+ */
+const workingRecord = [
+  { src: "/images/register/cutouts/cutout_05.webp", w: 274, h: 184, alt: "An open ledger with ruled pages" },
+  { src: "/images/register/cutouts/cutout_04.webp", w: 274, h: 184, alt: "A black fountain pen with a gold nib" },
+  { src: "/images/register/cutouts/cutout_08.webp", w: 273, h: 184, alt: "A rolled parchment tied with cord" },
+  { src: "/images/register/cutouts/cutout_09.webp", w: 274, h: 184, alt: "A brass theodolite and compass, surveying instruments" },
+  { src: "/images/register/cutouts/cutout_07.webp", w: 274, h: 184, alt: "A leather satchel with buckle and strap" },
+  { src: "/images/register/cutouts/cutout_19.webp", w: 274, h: 184, alt: "A maroon wax seal with ribbon" },
+] as const;
+
 /** Discipline cells carry the published palette as grounds: warm,
     blush, sand, and the maroon wash for the institute's own standard. */
 const cellTints = ["tint-blush", "tint-sand", "tint-warm", "tint-rose"];
 
+/** Service cells run the same palette, one step quieter. */
+const serviceTints = ["tint-warm", "tint-sand", "tint-blush", "tint-rose"];
+
 export default function HomePage() {
+  const announcement = announcements[0];
+
   return (
     <>
       <script
@@ -163,6 +142,11 @@ export default function HomePage() {
           <p className="max-w-[36ch] text-[1.18rem] leading-[1.55] text-ink/80 md:text-[1.3rem]">
             Oryx Institute graduates solve problems quietly and finish them
             decisively.
+          </p>
+
+          <p className="label-caps text-soft">
+            Business counselling · Market research and development · Rapid
+            Response Training — live now in Windhoek
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -197,7 +181,7 @@ export default function HomePage() {
       {/* Gapless bento: the four disciplines interlock with the
           credential band. Dense flow, palette grounds, no voids. */}
       <section className="chapter shell">
-        <h2 className="display-section max-w-5xl text-ink">
+        <h2 className="display-section max-w-5xl text-ink" data-reveal>
           Four disciplines,{" "}
           <span
             className="inline-img"
@@ -213,7 +197,7 @@ export default function HomePage() {
           <span className="em-serif text-accent">decisive finishes.</span>
         </h2>
 
-        <div className="bento mt-14">
+        <div className="bento mt-14" data-reveal-group>
           {disciplines.map((d, i) => (
             <Link
               key={d.id}
@@ -258,9 +242,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------ What runs now */}
+      {/* The consulting practice, first because it is first in real
+          life: counselling, research and development, rapid response
+          training, and the free Directory. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="display-section max-w-3xl text-ink" data-reveal>
+            What runs <span className="em-serif text-accent">now.</span>
+          </h2>
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
+            The consulting practice is live. The schools are phased in
+            behind it, in order, as accreditation progresses.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2" data-reveal-group>
+          {services.map((s, i) => (
+            <div key={s.id} className={`p-8 md:p-10 ${serviceTints[i]}`}>
+              <p className="label-caps text-accent">{s.line}</p>
+              <p className="mt-3 text-[1.15rem] font-semibold text-ink">{s.name}</p>
+              <p className="mt-3 text-[0.98rem] leading-relaxed text-ink/75">{s.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link href="/apply" className="pill">
+            Book a counselling session
+            <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+          </Link>
+          <Link href="/resources" className="pill-ghost">
+            Take the free Directory first
+          </Link>
+        </div>
+      </section>
+
       {/* ------------------------------------------------ Desire */}
       {/* The scroll chapter: the graduate statement scrubs to full ink
-          word by word, then the misty ocean grows and recedes. */}
+          word by word, then the sea storm holds the standard. */}
       <section className="chapter shell-wide">
         <ScrubReveal
           text="Oryx Institute graduates solve problems quietly and finish them decisively."
@@ -268,7 +288,7 @@ export default function HomePage() {
         />
 
         <div className="mt-20 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end">
-          <div className="keyline">
+          <div className="keyline" data-reveal>
             <p className="label-caps text-soft">The standard</p>
             <p className="mt-4 text-[1.02rem] leading-relaxed text-soft">
               The line is set by the institute&apos;s own certificate: work
@@ -277,54 +297,68 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ScaleFigure
-            src="/images/photo/coast-fog.jpg"
-            alt="Fog rolling over the Namibian coast, the water calm beneath"
-            width={1000}
-            height={720}
-            sizes="(min-width: 64rem) 56vw, 100vw"
-          />
+          <div data-reveal>
+            <ScaleFigure
+              src="/images/photo/coast-fog.jpg"
+              alt="Fog rolling over the Namibian coast, the water calm beneath"
+              width={1000}
+              height={720}
+              sizes="(min-width: 64rem) 56vw, 100vw"
+            />
+          </div>
         </div>
       </section>
 
       {/* ------------------------------------------------ The register */}
-      {/* The curated photograph set, image-only, no captions. */}
+      {/* The curated landscape set, image-only, no captions. */}
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="display-section max-w-2xl text-ink">
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
             The <span className="em-serif text-accent">photographic</span> register
           </h2>
-          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft">
-            Namibian ground, real workrooms, people mid-step. Curated, not
-            staged.
+          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
+            Namibian ground, from the master set: dunes, coast, desert
+            roads. Curated, not staged.
           </p>
         </div>
-        <div className="mt-12">
+        <div className="mt-12" data-reveal>
           <PhotoCarousel photos={registerPhotos} ariaLabel="photographs" />
         </div>
       </section>
 
-      {/* ------------------------------------------------ The record */}
-      {/* The institute's own printed matter, in the artifact carousel. */}
+      {/* ------------------------------------------------ The working record */}
+      {/* Six of the package's isolated objects, at native scale, image
+          only, no captions. The institute's tools, named in objects. */}
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="display-section max-w-2xl text-ink">
-            The printed <span className="em-serif text-accent">record</span>
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
+            The <span className="em-serif text-accent">working</span> record
           </h2>
-          <Link href="/brand" className="link-type text-[0.95rem]">
-            The full brand register
+          <Link href="/tools" className="link-type text-[0.95rem]">
+            The Oryx Tools List
           </Link>
         </div>
-        <div className="mt-12">
-          <ArtifactCarousel items={artifactItems} />
-        </div>
+        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-6" data-reveal-group>
+          {workingRecord.map((o) => (
+            <li key={o.src} className="specimen-tile">
+              <Image
+                src={o.src}
+                alt={o.alt}
+                width={o.w}
+                height={o.h}
+                sizes="220px"
+                className="h-full w-full object-cover"
+              />
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ------------------------------------------------ The rule */}
       {/* The founder's rule and the documentary register: the tools are
           named, the faces are in motion, nothing is posed. */}
       <section className="chapter shell">
-        <div className="keyline">
+        <div className="keyline" data-reveal>
           <p className="label-caps text-soft">{motto.source}</p>
           <p className="display-statement mt-4 max-w-4xl text-ink">
             You&apos;re only as good as your tools.{" "}
@@ -341,7 +375,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-14" data-reveal>
           <PhotoFigure
             src="/images/photo/people-door.jpg"
             alt="A staff member in khaki walking through a stone doorway, mid-step"
@@ -351,20 +385,51 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------ Announcement */}
+      {/* One dated line of news, on blush paper. */}
+      <section className="shell">
+        <div className="announce-band flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between" data-reveal>
+          <div className="flex items-start gap-4">
+            <span className="announce-dot mt-3 shrink-0" aria-hidden />
+            <div>
+              <p className="label-caps text-accent">
+                {announcement.kicker} · {announcement.date}
+              </p>
+              <p className="mt-2 max-w-2xl text-[1.1rem] font-semibold text-ink">
+                {announcement.title}, built with a technology company.
+              </p>
+              <p className="mt-1 max-w-2xl text-[0.95rem] leading-relaxed text-ink/70">
+                The partnership is confirmed; the schedule is not. Details
+                follow as they land.
+              </p>
+            </div>
+          </div>
+          <Link
+            href={`/announcements/${announcement.slug}`}
+            className="pill shrink-0"
+          >
+            Read the announcement
+            <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+          </Link>
+        </div>
+      </section>
+
       {/* ------------------------------------------------ Action */}
       {/* Night band over the misty ocean: the closing ground carries a
           full image background under a scrim, the maroon pill on top. */}
       <section className="chapter shell">
         <div className="band-night relative overflow-hidden rounded-[var(--r-card)] px-6 py-20 text-center sm:px-12 md:py-28">
-          <Image
-            src="/images/photo/coast-fog.jpg"
-            alt=""
-            fill
-            loading="lazy"
-            sizes="(min-width: 64rem) 84rem, 100vw"
-            className="object-cover opacity-40"
-            aria-hidden
-          />
+          <div className="absolute inset-0" data-parallax>
+            <Image
+              src="/images/ocean.jpg"
+              alt=""
+              fill
+              loading="lazy"
+              sizes="(min-width: 64rem) 84rem, 100vw"
+              className="object-cover opacity-40"
+              aria-hidden
+            />
+          </div>
           <div className="photo-scrim" aria-hidden />
           <div className="relative">
             <h2 className="display-hero mx-auto max-w-5xl">
