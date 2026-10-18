@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/site/theme-provider";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { ScrollMotion } from "@/components/site/scroll-motion";
+import { SmoothScroll } from "@/components/site/smooth-scroll";
+import Noise from "@/components/reactbits/Noise/Noise";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -110,7 +112,19 @@ export default function RootLayout({
     >
       <body className="antialiased bg-paper text-ink">
         <ThemeProvider>
+          <SmoothScroll />
           <ScrollMotion />
+          {/* React Bits Noise: one fixed film-grain plane over the
+              whole site. Static (no fps animation), near-invisible,
+              pointer-transparent — the print-stock feel. */}
+          <Noise
+            fixed
+            zIndex={90}
+            opacity={0.036}
+            size={1}
+            fps={0}
+            blendMode="normal"
+          />
           <a href="#main" className="skip-link">
             Skip to content
           </a>

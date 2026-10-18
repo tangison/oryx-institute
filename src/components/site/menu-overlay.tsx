@@ -58,6 +58,22 @@ export function MenuOverlay({
     onOpenChange(false);
   }, [pathname, onOpenChange]);
 
+  // Lenis hands the scroll loop to the overlay while it is open and
+  // takes it back when it closes. No-op when Lenis is not active
+  // (reduced motion): the page keeps its native scroll behaviour.
+  useEffect(() => {
+    const lenis = window.__lenis;
+    if (!lenis) return;
+    if (open) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+    return () => {
+      lenis.start();
+    };
+  }, [open]);
+
   const close = () => onOpenChange(false);
 
   return (

@@ -71,6 +71,26 @@ export function ScrollMotion() {
         );
       });
 
+      // Rules and keylines grow with the scroll: the page's own
+      // print rules draw themselves in, scrubbed, origin left.
+      gsap.utils.toArray<HTMLElement>("[data-line-grow]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            ease: "none",
+            transformOrigin: "left center",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 92%",
+              end: "top 55%",
+              scrub: true,
+            },
+          }
+        );
+      });
+
       ScrollTrigger.refresh();
     });
 

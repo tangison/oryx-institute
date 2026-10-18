@@ -6,6 +6,11 @@ import { ScrubReveal } from "@/components/site/scrub-reveal";
 import { ScaleFigure } from "@/components/site/scale-figure";
 import { PhotoFigure } from "@/components/site/photo-figure";
 import { PhotoCarousel } from "@/components/site/photo-carousel";
+import { HeroSplitTitle } from "@/components/site/hero-split-title";
+import ShinyText from "@/components/reactbits/ShinyText/ShinyText";
+import GradientText from "@/components/reactbits/GradientText/GradientText";
+import StarBorder from "@/components/reactbits/StarBorder/StarBorder";
+import Magnet from "@/components/reactbits/Magnet/Magnet";
 import { motto } from "@/lib/content";
 import { site, disciplines, services, announcements } from "@/lib/site";
 
@@ -133,27 +138,38 @@ export default function HomePage() {
           and the text block sits low: tension, not a mirror. */}
       <section className="relative grid min-h-[94svh] lg:grid-cols-[1.18fr_1fr]">
         <div className="flex flex-col justify-end gap-8 px-[var(--gutter)] pb-24 pt-36 sm:gap-10 lg:justify-start lg:pb-28 lg:pt-[16vh] lg:pl-[max(var(--gutter),calc((100vw-84rem)/2+var(--gutter)))] lg:pr-16">
-          {/* The 2-line iron rule: wide container, two lines exactly. */}
-          <h1 className="display-hero max-w-5xl text-ink">
-            Looks harmless.{" "}
-            <span className="em-serif text-accent">Isn&apos;t.</span>
-          </h1>
+          {/* The 2-line iron rule: wide container, two lines exactly.
+              React Bits × GSAP SplitText raises the words on mount. */}
+          <HeroSplitTitle
+            title="Looks harmless."
+            accent="Isn't."
+            className="display-hero max-w-5xl text-ink"
+          />
 
           <p className="max-w-[36ch] text-[1.18rem] leading-[1.55] text-ink/80 md:text-[1.3rem]">
             Oryx Institute graduates solve problems quietly and finish them
             decisively.
           </p>
 
-          <p className="label-caps text-soft">
-            Business counselling · Market research and development · Rapid
-            Response Training — live now in Windhoek
-          </p>
+          {/* React Bits ShinyText: the offer line carries a slow rose
+              sheen over the muted caps. */}
+          <ShinyText
+            text="Business counselling · Market research and development · Rapid Response Training — live now in Windhoek"
+            color="#57524A"
+            shineColor="#D37084"
+            speed={3}
+            className="label-caps"
+          />
 
+          {/* React Bits Magnet: the primary pill leans toward the
+              pointer within a small radius. */}
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/apply" className="pill">
-              Apply now
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-            </Link>
+            <Magnet padding={40} magnetStrength={3} maxOffset={10}>
+              <Link href="/apply" className="pill">
+                Apply now
+                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+              </Link>
+            </Magnet>
             <Link href="/programmes" className="pill-ghost">
               View programmes
             </Link>
@@ -249,7 +265,7 @@ export default function HomePage() {
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="display-section max-w-3xl text-ink" data-reveal>
-            What runs <span className="em-serif text-accent">now.</span>
+            What runs <GradientText colors={["#71111F", "#D37084", "#71111F"]} animationSpeed={7}><span className="em-serif">now.</span></GradientText>
           </h2>
           <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
             The consulting practice is live. The schools are phased in
@@ -386,9 +402,23 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ Announcement */}
-      {/* One dated line of news, on blush paper. */}
-      <section className="shell">
-        <div className="announce-band flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between" data-reveal>
+      {/* One dated line of news, on blush paper, inside a React Bits
+          StarBorder: a slow maroon comet laps the card's edge. */}
+      <section className="shell" data-reveal>
+        <StarBorder
+          as="div"
+          theme="light"
+          color="#71111F"
+          trailColor="#D37084"
+          borderColor="transparent"
+          backgroundColor="transparent"
+          radius={14}
+          thickness={1.2}
+          duration={7}
+          glow={0.3}
+          className="announce-band w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between !p-8 sm:!p-10"
+          style={{ display: "flex" }}
+        >
           <div className="flex items-start gap-4">
             <span className="announce-dot mt-3 shrink-0" aria-hidden />
             <div>
@@ -396,22 +426,25 @@ export default function HomePage() {
                 {announcement.kicker} · {announcement.date}
               </p>
               <p className="mt-2 max-w-2xl text-[1.1rem] font-semibold text-ink">
-                {announcement.title}, built with a technology company.
+                {announcement.title}.
               </p>
               <p className="mt-1 max-w-2xl text-[0.95rem] leading-relaxed text-ink/70">
-                The partnership is confirmed; the schedule is not. Details
-                follow as they land.
+                The curriculum is already under construction and a flagship
+                product is being built on it. The schedule lands when it is
+                earned.
               </p>
             </div>
           </div>
-          <Link
-            href={`/announcements/${announcement.slug}`}
-            className="pill shrink-0"
-          >
-            Read the announcement
-            <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-          </Link>
-        </div>
+          <Magnet padding={36} magnetStrength={3} maxOffset={9}>
+            <Link
+              href={`/announcements/${announcement.slug}`}
+              className="pill"
+            >
+              Read the announcement
+              <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+          </Magnet>
+        </StarBorder>
       </section>
 
       {/* ------------------------------------------------ Action */}
@@ -440,10 +473,12 @@ export default function HomePage() {
               office. One message starts it.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/apply" className="pill">
-                Start your application
-                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </Link>
+              <Magnet padding={40} magnetStrength={3} maxOffset={10}>
+                <Link href="/apply" className="pill">
+                  Start your application
+                  <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+                </Link>
+              </Magnet>
               <a href={`mailto:${site.email}`} className="pill-ghost-dark pill-ghost !px-6 !py-3">
                 {site.email}
               </a>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
+import Magnet from "@/components/reactbits/Magnet/Magnet";
 import { announcements, site } from "@/lib/site";
 import { notFound } from "next/navigation";
 
@@ -87,7 +88,18 @@ export default async function AnnouncementPage({
       </PageHero>
 
       <section className="chapter shell">
-        <div className="measure grid gap-6 text-[1.05rem] leading-[1.75] text-soft">
+        <div
+          data-line-grow
+          className="mb-10 h-px w-full bg-rule"
+          aria-hidden
+        />
+        {/* The body reveals through the site-wide ScrollMotion pass:
+            content is server-rendered visible and only animated FROM a
+            hidden state when JS runs — no-JS visitors lose nothing. */}
+        <div
+          data-reveal
+          className="measure grid gap-6 text-[1.05rem] leading-[1.75] text-soft"
+        >
           {a.body.map((p, i) => (
             <p key={i} className={i === 0 ? "text-ink" : undefined}>
               {p}
@@ -95,29 +107,33 @@ export default async function AnnouncementPage({
           ))}
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2" data-reveal-group>
           <div className="bg-paper p-8">
             <p className="label-caps text-soft">What is certain</p>
             <p className="mt-3 text-[0.98rem] leading-relaxed text-soft">
-              The programme exists and is in development. The technology
-              partnership is confirmed. It will carry the institute&apos;s
-              usual standard: tools named, evidence first.
+              The partner is named: Tangison Technologies. The curriculum is
+              being written now, and a flagship product is under construction
+              on top of it. It will carry the institute&apos;s usual standard:
+              tools named, evidence first.
             </p>
           </div>
           <div className="bg-paper p-8">
             <p className="label-caps text-soft">What is not, yet</p>
             <p className="mt-3 text-[0.98rem] leading-relaxed text-soft">
               The schedule, the syllabus and the enrolment route are not
-              final, so they are not printed. A second announcement will
+              final, so they are not printed. The flagship product itself
+              stays quiet until it can be shown. A second announcement will
               follow when they are.
             </p>
           </div>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Link href="/apply" className="pill">
-            Register interest with the office
-          </Link>
+          <Magnet padding={36} magnetStrength={3} maxOffset={9}>
+            <Link href="/apply" className="pill">
+              Register interest with the office
+            </Link>
+          </Magnet>
           <Link href="/announcements" className="pill-ghost">
             <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden />
             All announcements
