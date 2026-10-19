@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { appliedSpine, schools } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -62,82 +62,83 @@ export default function SchoolsPage() {
         </p>
       </PageHero>
 
-      {/* School I, with the classroom leading. */}
-      <section className="shell">
+      {/* The room the institute will teach in, from the master set's
+          architecture register. Image only. */}
+      <section className="shell" data-reveal>
         <PhotoFigure
-          src="/images/photo/classroom.jpg"
-          alt="An empty classroom: wooden desks in rows, shelving against the wall"
+          src="/images/register/architecture/architecture_09.webp"
+          alt="A classroom with wooden desks and shelving, from the master set"
           priority
           sizes="(min-width: 90rem) 1440px, 100vw"
           ratio="aspect-[16/9]"
         />
       </section>
 
+      {/* The three schools and the spine, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="The three schools and the spine">
+          {schools.map((s, i) => (
+            <article
+              key={s.id}
+              className={`hs-card hover-lift ${["tint-warm", "tint-sand", "tint-blush"][i]}`}
+            >
+              <p className="label-caps text-accent">{s.phase}</p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{s.name}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{s.lead}</p>
+              <p className="mt-auto pt-6 label-caps text-soft">{s.status}</p>
+            </article>
+          ))}
+          <article className="hs-card bg-ink text-paper">
+            <p className="label-caps opacity-70">The fourth discipline</p>
+            <p className="mt-3 text-[1.1rem] font-semibold">{appliedSpine.name}</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed opacity-80">{appliedSpine.line}</p>
+          </article>
+        </HorizontalScroll>
+      </section>
+
       {schools.map((s) => (
         <section key={s.id} id={s.id} className="chapter shell">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center" data-reveal-group>
-            <div>
-              <div className="flex flex-wrap items-center gap-4">
-                <p className="label-caps text-accent">{s.phase}</p>
-                <p className="label-caps rounded-full border border-rule px-3 py-1 text-soft">
-                  {s.status}
-                </p>
-              </div>
-              <h2 className="display-section mt-4 max-w-xl text-ink">
-                {s.name.replace("School of ", "")}
-                {s.id === "technology" ? (
-                  <span className="em-serif text-accent"> first.</span>
-                ) : null}
-              </h2>
-              <p className="measure mt-4 text-[1.05rem] italic leading-relaxed text-ink/80">
-                {s.lead}
+          <div className="keyline max-w-3xl" data-reveal-group>
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="label-caps text-accent">{s.phase}</p>
+              <p className="label-caps rounded-full border border-rule px-3 py-1 text-soft">
+                {s.status}
               </p>
-              <p className="measure mt-5 text-[1.02rem] leading-[1.7] text-soft">
-                {s.body}
-              </p>
-              <div className="mt-8">
-                <Link href="/apply" className="pill-ghost">
-                  Enquire to the office
-                  <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-                </Link>
-              </div>
             </div>
-            <PhotoFigure
-              src={s.image}
-              alt={s.alt}
-              sizes="(min-width: 64rem) 48vw, 100vw"
-              ratio="aspect-[5/4]"
-            />
+            <h2 className="display-section mt-4 max-w-xl text-ink">
+              {s.name.replace("School of ", "")}
+              {s.id === "technology" ? (
+                <span className="em-serif text-accent"> first.</span>
+              ) : null}
+            </h2>
+            <p className="measure mt-4 text-[1.05rem] italic leading-relaxed text-ink/80">
+              {s.lead}
+            </p>
+            <p className="measure mt-5 text-[1.02rem] leading-[1.7] text-soft">
+              {s.body}
+            </p>
+            <div className="mt-8">
+              <Link href="/apply" className="pill-ghost">
+                Enquire to the office
+                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+              </Link>
+            </div>
           </div>
         </section>
       ))}
 
       {/* The spine: not a school. */}
       <section className="chapter shell">
-        <div className="band-night relative overflow-hidden rounded-[var(--r-card)] px-6 py-16 text-left sm:px-12 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-            <div>
-              <p className="label-caps opacity-80">The fourth discipline</p>
-              <h2 className="display-section mt-4 max-w-xl">
-                {appliedSpine.name},{" "}
-                <span className="em-serif text-rose">everywhere.</span>
-              </h2>
-              <p className="measure mt-5 max-w-xl text-[1.02rem] leading-relaxed opacity-90">
-                {appliedSpine.line}
-              </p>
-            </div>
-            <div className="rounded-[var(--r-card)] border border-white/15 p-2">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(var(--r-card)-0.35rem)]">
-                <Image
-                  src={appliedSpine.image}
-                  alt={appliedSpine.alt}
-                  fill
-                  loading="lazy"
-                  sizes="(min-width: 64rem) 44vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+        <div className="band-night rounded-[var(--r-card)] px-6 py-16 text-left sm:px-12 md:py-20">
+          <div className="max-w-2xl">
+            <p className="label-caps opacity-80">The fourth discipline</p>
+            <h2 className="display-section mt-4 max-w-xl">
+              {appliedSpine.name},{" "}
+              <span className="em-serif text-rose">everywhere.</span>
+            </h2>
+            <p className="measure mt-5 max-w-xl text-[1.02rem] leading-relaxed opacity-90">
+              {appliedSpine.line}
+            </p>
           </div>
         </div>
       </section>

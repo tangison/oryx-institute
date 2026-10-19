@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { BrandTabs } from "@/components/site/brand-tabs";
-import { PhotoCarousel } from "@/components/site/photo-carousel";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { voice } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,15 +25,16 @@ export const metadata: Metadata = {
   },
 };
 
+/** The print kit, photographed as supplied. The flyer, the card
+    reverse and the envelope are held back from the site: they print
+    contact details and artwork the institute is not publishing while
+    it is being established. */
 const kitSlides = [
-  { src: "/images/brand/kit-flyer.jpg", alt: "The recruitment flyer with the wolf in sheep's clothing" },
   { src: "/images/brand/kit-certificate.jpg", alt: "The certificate of achievement, double-rule border and signature line" },
   { src: "/images/brand/kit-letterhead.jpg", alt: "The letterhead: lockup top left, shield watermark, contact rule at the foot" },
   { src: "/images/brand/kit-card-front.jpg", alt: "The business card front, the maroon shield alone" },
-  { src: "/images/brand/kit-card-back.jpg", alt: "The business card reverse with the Principal's contact details" },
   { src: "/images/brand/kit-notecard.jpg", alt: "The notecard with the shield emblem centered" },
-  { src: "/images/brand/kit-envelope.jpg", alt: "The envelope with the wordmark and post box address" },
-  { src: "/images/brand/kit-folder.jpg", alt: "The presentation folder over a misty ocean" },
+  { src: "/images/brand/kit-folder.jpg", alt: "The presentation folder over the institute's own coastal frame" },
 ] as const;
 
 /** The specimen wall: twelve of the master package's isolated objects,
@@ -68,31 +69,31 @@ export default function BrandPage() {
         <BrandTabs />
       </section>
 
-      <section className="chapter shell">
+      <section className="chapter shell pb-0">
         <h2 className="display-section max-w-2xl text-ink" data-reveal>
-          The print kit, <span className="em-serif text-accent">in full</span>
+          The print kit, <span className="em-serif text-accent">in print</span>
         </h2>
         <p className="measure mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
-          Eight pieces, printed and photographed. The site samples them
-          exactly as supplied: the wolf from the flyer, the misty ocean
-          from the folder, the layouts as they come.
+          The pieces the institute publishes while it is being
+          established, photographed as supplied and carried horizontally.
         </p>
-        <div className="mt-12" data-reveal>
-          <PhotoCarousel photos={kitSlides} ariaLabel="print kit pieces" />
-        </div>
-      </section>
-
-      {/* The muse: the animal the identity is drawn from, image only. */}
-      <section className="shell" data-reveal>
-        <div className="overflow-hidden rounded-[var(--r-card)] border border-rule">
-          <Image
-            src="/images/wolf.jpg"
-            alt="The wolf in the sheep's fleece, the animal behind the flyer's headline"
-            width={1920}
-            height={1458}
-            sizes="(min-width: 90rem) 1440px, 100vw"
-            className="h-auto w-full object-cover"
-          />
+        <div className="pt-12">
+          <HorizontalScroll label="The print kit">
+            {kitSlides.map((k) => (
+              <figure key={k.src} className="hs-card hs-card--plate hs-card--wide">
+                <div className="plate-clip img-zoom w-full">
+                  <Image
+                    src={k.src}
+                    alt={k.alt}
+                    width={1000}
+                    height={700}
+                    sizes="560px"
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              </figure>
+            ))}
+          </HorizontalScroll>
         </div>
       </section>
 

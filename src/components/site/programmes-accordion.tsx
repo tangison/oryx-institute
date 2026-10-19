@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { disciplines } from "@/lib/site";
@@ -15,7 +14,8 @@ const sliceTints = ["tint-blush", "tint-sand", "tint-warm", "tint-rose"];
  * Horizontal accordion: on wide screens the four disciplines stand as
  * slices that expand on hover and keyboard focus; on small screens the
  * slices stack and open on tap. Names read horizontally on every
- * viewport. The open slice shows its photograph; no captions.
+ * viewport. The open slice carries its discipline glyph as a large
+ * watermark — the identity itself, not a stock photograph.
  */
 export function ProgrammesAccordion() {
   const [open, setOpen] = useState<string | null>(disciplines[0].id);
@@ -50,15 +50,16 @@ export function ProgrammesAccordion() {
 
             <div className="h-body">
               <p className="h-desc">{d.summary}</p>
-              <div className="h-thumb">
-                <Image
-                  src={d.image}
-                  alt={d.imageAlt}
-                  fill
-                  loading="lazy"
-                  sizes="(min-width: 64rem) 30vw, 100vw"
-                  className="object-cover"
-                />
+              <div className="h-thumb flex items-center justify-center" aria-hidden>
+                <span
+                  className={`select-none opacity-15 ${
+                    d.glyph.length > 2
+                      ? "bento-glyph-latin text-[clamp(4rem,9vw,8rem)]"
+                      : "bento-glyph wordmark-cjk text-[clamp(5rem,11vw,10rem)]"
+                  }`}
+                >
+                  {d.glyph}
+                </span>
               </div>
               <Link href="/apply" className="h-link">
                 Apply in this field

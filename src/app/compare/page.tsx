@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { compareRules, comparisons } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -40,15 +40,28 @@ export default function ComparePage() {
         </p>
       </PageHero>
 
-      {/* The fork in the veld: the page's own art direction. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/photo/desert-road.jpg"
-          alt="A desert road crossing the Namib, oryx crossing it, the horizon flat behind"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/9]"
-        />
+      {/* The comparisons ahead, carried horizontally: one card per
+          table, so the choice is visible before the detail. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="The four comparisons">
+          {comparisons.map((c, i) => (
+            <Link
+              key={c.id}
+              href={`#${c.id}`}
+              className={`hs-card hover-lift ${["tint-blush", "tint-warm", "tint-sand", "tint-rose"][i]}`}
+            >
+              <p className="label-caps text-accent">{String(i + 1).padStart(2, "0")}</p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{c.title}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">
+                {c.rows.length} axes, side by side.
+              </p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
+                Read the table
+                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+              </span>
+            </Link>
+          ))}
+        </HorizontalScroll>
       </section>
 
       {/* The rules, stated before the tables. */}

@@ -195,9 +195,6 @@ export function MenuOverlay({
                 Apply now
                 <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden />
               </Link>
-              <a href={`tel:${site.phoneHref}`} className="menu-utility tnum">
-                {site.phoneDisplay}
-              </a>
               <a href={`mailto:${site.email}`} className="menu-utility">
                 {site.email}
               </a>

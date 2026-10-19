@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { peoplePage } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -39,20 +40,28 @@ export default function PeoplePage() {
         </p>
       </PageHero>
 
-      {/* The corridor at class change: the page's own register. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/1947/people-hero.jpg"
-          alt="The institute's people at work, from the 1947 register"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/9]"
-        />
+      {/* The hiring bar, carried horizontally: four questions, four
+          cards. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="The hiring bar, four questions">
+          {peoplePage.hiringBar.map((item, i) => (
+            <article
+              key={item.q}
+              className={`hs-card hover-lift ${["tint-blush", "tint-sand", "tint-warm", "tint-rose"][i]}`}
+            >
+              <p className="display-hero text-accent/90" aria-hidden>
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{item.q}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{item.a}</p>
+            </article>
+          ))}
+        </HorizontalScroll>
       </section>
 
       {/* The two tracks. */}
       <section className="chapter shell">
-        <h2 className="display-section max-w-3xl text-ink">
+        <h2 className="display-section max-w-3xl text-ink" data-reveal>
           Two tracks, <span className="em-serif text-accent">one standard.</span>
         </h2>
         <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule md:grid-cols-2" data-reveal-group>
@@ -70,7 +79,7 @@ export default function PeoplePage() {
         </p>
       </section>
 
-      {/* The hiring bar. */}
+      {/* The hiring bar, in full. */}
       <section className="chapter shell">
         <div className="hair-t grid gap-10 pt-16 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
           <p className="label-caps text-accent">The hiring bar</p>
@@ -115,9 +124,6 @@ export default function PeoplePage() {
                 Write to the office
                 <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
               </a>
-              <a href={site.whatsapp} className="pill-ghost">
-                {site.phoneDisplay}
-              </a>
             </div>
             <p className="measure mt-6 max-w-md text-[0.85rem] leading-relaxed text-soft">
               Staff pages go live as the Principal confirms each name.
@@ -125,8 +131,8 @@ export default function PeoplePage() {
             </p>
           </div>
           <PhotoFigure
-            src="/images/photo/chalkboard.jpg"
-            alt="A teacher mid-gesture at the blackboard, chalk in hand"
+            src="/images/register/architecture/architecture_12.webp"
+            alt="A teacher mid-gesture at the blackboard, from the master set"
             sizes="(min-width: 64rem) 44vw, 100vw"
             ratio="aspect-[4/5]"
           />

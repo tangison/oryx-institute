@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import Magnet from "@/components/reactbits/Magnet/Magnet";
 import { announcements, site } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -86,6 +87,35 @@ export default async function AnnouncementPage({
           <span className="text-soft">{a.date}</span>
         </div>
       </PageHero>
+
+      {/* The three facts of this announcement, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="What this announcement states">
+          {[
+            {
+              t: "The partner",
+              b: "Tangison Technologies, named. The collaboration grew out of real client work, not a signing ceremony.",
+              c: "tint-blush",
+            },
+            {
+              t: "The curriculum",
+              b: "Being written now, module by module, to the institute's rule: tools named, not magic, nothing taught that cannot be demonstrated.",
+              c: "tint-warm",
+            },
+            {
+              t: "The flagship",
+              b: "Under construction on top of the curriculum. It stays deliberately quiet until it can be shown.",
+              c: "tint-sand",
+            },
+          ].map((s) => (
+            <article key={s.t} className={`hs-card hover-lift ${s.c}`}>
+              <p className="label-caps text-accent">Stated</p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{s.t}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{s.b}</p>
+            </article>
+          ))}
+        </HorizontalScroll>
+      </section>
 
       <section className="chapter shell">
         <div

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { insights, resources } from "@/lib/content";
 import { directoryCourses, directoryTemplates } from "@/lib/directory";
 import { site } from "@/lib/site";
@@ -57,26 +57,25 @@ export default function ResourcesPage() {
         </p>
       </PageHero>
 
-      {/* The Bulletin, in the institute's documentary register. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/1947/resources-hero.jpg"
-          alt="The institute's written record at work, from the 1947 register"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/9]"
-        />
-      </section>
-
-      {/* The Directory's own register: the open doorway. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/photo/doorway.jpg"
-          alt="An open stone doorway in a whitewashed wall"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/10]"
-        />
+      {/* ------------------------------------------------ The registers,
+          carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="Everything the institute publishes">
+          {resources.map((r, i) => (
+            <Link
+              key={r.name}
+              href={r.action.href}
+              className={`hs-card hover-lift ${["tint-blush", "tint-warm", "tint-sand", "tint-rose", "tint-warm"][i]}`}
+            >
+              <p className="text-[1.1rem] font-semibold text-ink">{r.name}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{r.what}</p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
+                {r.action.label}
+                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+              </span>
+            </Link>
+          ))}
+        </HorizontalScroll>
       </section>
 
       {/* ------------------------------------------------ The Directory */}
@@ -155,11 +154,6 @@ export default function ResourcesPage() {
       <section className="chapter shell">
         <h2 className="display-section max-w-3xl text-ink" data-reveal>
           The registers{" "}
-          <span
-            className="inline-img"
-            style={{ backgroundImage: "url(/images/pill-ocean.jpg)" }}
-            aria-hidden
-          />{" "}
           <span className="em-serif text-accent">in one place</span>
         </h2>
         <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
@@ -206,16 +200,7 @@ export default function ResourcesPage() {
           </p>
         </div>
 
-        <div className="mt-10" data-reveal>
-          <PhotoFigure
-            src="/images/photo/notebook.jpg"
-            alt="An open notebook with a ribbon marker, on a desk beside a window"
-            sizes="(min-width: 90rem) 1440px, 100vw"
-            ratio="aspect-[21/9]"
-          />
-        </div>
-
-        <div className="mt-6 grid gap-16">
+        <div className="mt-10 grid gap-16">
           {insights.map((a) => (
             <article
               key={a.id}
@@ -245,31 +230,23 @@ export default function ResourcesPage() {
 
       {/* ------------------------------------------------ Press */}
       <section className="chapter shell">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <PhotoFigure
-            src="/images/1947/resources-press.jpg"
-            alt="The institute's press, from the 1947 register"
-            sizes="(min-width: 64rem) 44vw, 100vw"
-            ratio="aspect-[1/1]"
-          />
-          <div>
-            <h2 className="display-section max-w-xl text-ink">
-              Set in ink, <span className="em-serif text-accent">kept honest.</span>
-            </h2>
-            <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
-              The Bulletin follows the institute&apos;s publishing rule:
-              every figure carries its source, nothing is invented to fill a
-              gap, and when a fact changes, the Bulletin changes with it.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/apply" className="pill">
-                Apply now
-                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </Link>
-              <Link href="/compare" className="pill-ghost">
-                Compare the options
-              </Link>
-            </div>
+        <div className="keyline max-w-3xl">
+          <h2 className="display-section max-w-xl text-ink">
+            Set in ink, <span className="em-serif text-accent">kept honest.</span>
+          </h2>
+          <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
+            The Bulletin follows the institute&apos;s publishing rule:
+            every figure carries its source, nothing is invented to fill a
+            gap, and when a fact changes, the Bulletin changes with it.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/apply" className="pill">
+              Apply now
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+            <Link href="/compare" className="pill-ghost">
+              Compare the options
+            </Link>
           </div>
         </div>
       </section>

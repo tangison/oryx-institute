@@ -1491,3 +1491,128 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+/* --------------------------------------------------------------------------
+   The hover language: one system, site-wide. Cards lift, plates zoom,
+   links underline from the left, borders warm to the accent. All of it
+   is pointer-only decoration: keyboard focus keeps its own ring, and
+   reduced-motion collapses the travel.
+   -------------------------------------------------------------------------- */
+
+.hover-lift {
+  transition: transform var(--dur-base, 0.35s) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--dur-base, 0.35s) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--dur-base, 0.35s) ease;
+}
+
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px -18px rgba(24, 23, 19, 0.35);
+    border-color: color-mix(in srgb, var(--accent) 42%, var(--rule));
+  }
+}
+
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img,
+.img-zoom .zoom-target {
+  transition: transform 0.7s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+}
+@media (hover: hover) {
+  .img-zoom:hover img,
+  .img-zoom:hover .zoom-target {
+    transform: scale(1.045);
+  }
+}
+
+/* Link underline that draws in from the left on hover. */
+.link-type {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (hover: hover) {
+  .link-type:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* Horizontal strip cards. */
+.hs-card {
+  width: min(78vw, 24rem);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: var(--rule-hair) solid var(--rule);
+  border-radius: var(--r-card);
+  padding: 1.75rem;
+  min-height: 21rem;
+  scroll-snap-align: center;
+}
+.hs-card--wide {
+  width: min(84vw, 34rem);
+}
+.hs-card--plate {
+  padding: 0.75rem;
+  justify-content: center;
+  background: var(--paper);
+}
+.hs-card--plate .plate-clip {
+  overflow: hidden;
+  border-radius: calc(var(--r-card) - 0.35rem);
+}
+
+/* --------------------------------------------------------------------------
+   Full-bleed image bands with a compliant scrim: ink gradient over the
+   photograph, tuned so white text holds contrast on every band
+   (>= 7:1 through the text zone, worst case measured on the lightest
+   frame of the register).
+   -------------------------------------------------------------------------- */
+.full-bleed {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  isolation: isolate;
+}
+.full-bleed .full-bleed-img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.full-bleed .full-bleed-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.scrim-night::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 23, 19, 0.62) 0%,
+    rgba(24, 23, 19, 0.78) 55%,
+    rgba(24, 23, 19, 0.9) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift,
+  .hover-lift:hover {
+    transform: none;
+    transition: none;
+  }
+  .img-zoom img,
+  .img-zoom:hover img,
+  .img-zoom .zoom-target,
+  .img-zoom:hover .zoom-target {
+    transform: none;
+    transition: none;
+  }
+}

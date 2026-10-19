@@ -3,11 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { motto, toolsList } from "@/lib/content";
 import { site } from "@/lib/site";
 
-/** The master package's artifact set, at native scale. */
+/** The master package's artifact set, at native scale, carried
+    horizontally: the working objects as a drawer of plates. */
 const artifactTiles = Array.from({ length: 10 }, (_, i) => ({
   src: `/images/register/artifacts/artifact_${String(i + 1).padStart(2, "0")}.webp`,
   alt: `Institute artifact ${i + 1} of 10, from the master set`,
@@ -38,50 +39,32 @@ export default function ToolsPage() {
     <>
       <PageHero title="The tools," accent="named.">
         <p>
-          The institute&apos;s rule is the founder&apos;s: {motto.line} So
+          The institute&apos;s rule is the tagline&apos;s: {motto.line} So
           the tools are named, not magic. What the institute runs on is
           listed here in the open, because a school that hides its tools is
           asking you to trust it blind.
         </p>
       </PageHero>
 
-      {/* The motto band, in the documentary register. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/1947/tools-hero.jpg"
-          alt="Hands at work on the institute's tools, from the 1947 register"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/9]"
-        />
-      </section>
-
       {/* The working objects: the master package's artifact set, at
-          native scale, image only, no captions. */}
-      <section className="chapter shell">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="display-section max-w-2xl text-ink" data-reveal>
-            The working <span className="em-serif text-accent">objects.</span>
-          </h2>
-          <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
-            Ten frames from the master package&apos;s artifact set: the
-            things a working institute keeps on its shelves.
-          </p>
-        </div>
-        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-5" data-reveal-group>
+          native scale, carried horizontally, image only, no captions. */}
+      <section className="shell pt-4">
+        <HorizontalScroll label="The working objects">
           {artifactTiles.map((t) => (
-            <li key={t.src} className="specimen-tile">
-              <Image
-                src={t.src}
-                alt={t.alt}
-                width={344}
-                height={248}
-                sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw"
-                className="h-full w-full object-cover"
-              />
-            </li>
+            <figure key={t.src} className="hs-card hs-card--plate">
+              <div className="plate-clip img-zoom w-full">
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  width={263}
+                  height={370}
+                  sizes="380px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </figure>
           ))}
-        </ul>
+        </HorizontalScroll>
       </section>
 
       {/* The three registers. */}
@@ -109,38 +92,30 @@ export default function ToolsPage() {
         </section>
       ))}
 
-      {/* The close: compass in hand, the spine made visible. */}
+      {/* The close: the spine made visible. */}
       <section className="chapter shell">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <div>
-            <h2 className="display-section max-w-xl text-ink">
-              The biggest tool{" "}
-              <span className="em-serif text-accent">thinks.</span>
-            </h2>
-            <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
-              Every tool on this page multiplies the same instrument: a
-              trained mind, working on evidence, finishing what it starts.
-              The AI stack is the newest multiplier and it gets named like
-              everything else, because the institute&apos;s rule does not
-              have an exception for software. Learn the tools, then forget
-              none of them.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/schools" className="pill">
-                See the schools
-                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </Link>
-              <a href={site.whatsapp} className="pill-ghost">
-                Ask the office
-              </a>
-            </div>
+        <div className="keyline max-w-3xl">
+          <h2 className="display-section max-w-xl text-ink">
+            The biggest tool{" "}
+            <span className="em-serif text-accent">thinks.</span>
+          </h2>
+          <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
+            Every tool on this page multiplies the same instrument: a
+            trained mind, working on evidence, finishing what it starts.
+            The AI stack is the newest multiplier and it gets named like
+            everything else, because the institute&apos;s rule does not
+            have an exception for software. Learn the tools, then forget
+            none of them.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/schools" className="pill">
+              See the schools
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+            <a href={`mailto:${site.email}`} className="pill-ghost">
+              Ask the office
+            </a>
           </div>
-          <PhotoFigure
-            src="/images/1947/tools-hands.jpg"
-            alt="Hands on the work, from the institute's 1947 register"
-            sizes="(min-width: 64rem) 48vw, 100vw"
-            ratio="aspect-[4/5]"
-          />
         </div>
       </section>
     </>

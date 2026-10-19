@@ -50,11 +50,23 @@ export function SiteFooter() {
               {site.email}
             </a>
             <br />
-            <a href={`tel:${site.phoneHref}`} className="link-type">
-              {site.phoneDisplay}
-            </a>
-            <br />
-            {site.address}
+            {site.city}, {site.country}
+            {site.socials.length > 0 ? (
+              <>
+                <br />
+                {site.socials.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-type"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </>
+            ) : null}
           </address>
         </div>
 

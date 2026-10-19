@@ -40,8 +40,9 @@ export const site = {
     chineseMeaning: "science and engineering",
     bottom: "INSTITUTE",
   },
-  /** Approved flyer copy. */
-  headline: "Looks harmless. Isn't.",
+  /** The homepage headline. The institute is stated by what it does,
+   * in the city it works from. */
+  headline: "Applied problem-solving, Windhoek.",
   /** Approved flyer line on graduates. */
   closingLine:
     "Oryx Institute graduates solve problems quietly and finish them decisively.",
@@ -55,18 +56,24 @@ export const site = {
    * characters) and led by what runs today: the consulting practice. */
   description:
     "Oryx Institute, Windhoek: business counselling, market research and development, and Rapid Response Training, live now. Free Directory; applications by enquiry.",
+  /** Where the institute works from. There is no public premises yet:
+   * no street address, no post box and no campus are claimed. When a
+   * location exists, it is added here once and every page follows. */
   city: "Windhoek",
   country: "Namibia",
-  address: "P.O. Box 1662, Windhoek, Namibia",
-  /** The Principal's office address, exactly as the business card prints it. */
-  email: "tangi@oryxinstitute.org",
-  /** The general contact line, per the master package status note. */
-  emailGeneral: "info@oryxinstitute.org",
-  phoneDisplay: "+264 81 341 1522",
-  phoneHref: "+264813411522",
-  whatsapp: "https://wa.me/264813411522",
-  whatsappText:
-    "Hello Oryx Institute, I would like to apply. My name is ",
+  areaServed: "Windhoek, Namibia",
+  /** The one mailbox. Everything runs through it while the institute
+   * is young: applications, partnerships, the press. */
+  email: "info@oryxinstitute.org",
+  /** The business telephone line is deliberately not printed. A
+   * dedicated business number lands before launch; when it does, it is
+   * added here once and the header, footer and FAQ follow. */
+  phoneDisplay: null,
+  phoneHref: null,
+  /** Social channels, launching with the institute. Add each one here
+   * as it goes live and the footer renders it; nothing is linked
+   * before it exists. */
+  socials: [] as { label: string; href: string }[],
   url: "https://oryxinstitute.org",
   principal: {
     name: "Tangi Iigonda",
@@ -111,7 +118,7 @@ export const status = {
   inDevelopment: [
     {
       name: "The AI training programme",
-      line: "Built with a technology company, announced 18 October 2026. In development now; the partnership is confirmed, the schedule is not.",
+      line: "Built with Tangison Technologies, announced 18 October 2026. In development now; the curriculum is being written and a flagship product is under construction.",
     },
     {
       name: "Skills Camp (Karibib VTC)",
@@ -178,8 +185,6 @@ export const disciplines = [
     name: "Science",
     summary:
       "The reasoning core of a 理工 education: observation, evidence and disciplined thought.",
-    image: "/images/photo/specimen.jpg",
-    imageAlt: "A rock specimen on a plinth, set in window light",
   },
   {
     id: "engineering",
@@ -187,8 +192,6 @@ export const disciplines = [
     name: "Engineering",
     summary:
       "The making core: work that holds, measured and finished to standard.",
-    image: "/images/photo/roofline.jpg",
-    imageAlt: "The roofline of a brick workshop building in iron sheeting",
   },
   {
     id: "technology",
@@ -196,8 +199,6 @@ export const disciplines = [
     name: "Technology",
     summary:
       "Modern tools taken apart and rebuilt until they are understood, not just used.",
-    image: "/images/photo/stair-light.jpg",
-    imageAlt: "Light falling down a concrete stairwell, a handrail crossing the frame",
   },
   {
     id: "applied",
@@ -205,8 +206,6 @@ export const disciplines = [
     name: "Applied problem-solving",
     summary:
       "The institute's own standard, named on every certificate: innovation in practice.",
-    image: "/images/photo/lantern.jpg",
-    imageAlt: "A brass lantern on concrete stairs",
   },
 ] as const;
 
@@ -269,7 +268,7 @@ export const navGroups = [
 export const faqs = [
   {
     q: "How do I apply?",
-    a: "Write to the Principal's office. Send one message on WhatsApp to +264 81 341 1522 or an email to tangi@oryxinstitute.org with your name, a contact for the reply, and your field of interest. The application starts with that message.",
+    a: "Write to the office. Send one email to info@oryxinstitute.org with your name, a contact for the reply, and your field of interest. The application starts with that message.",
   },
   {
     q: "What programmes does the institute offer?",
@@ -285,19 +284,19 @@ export const faqs = [
   },
   {
     q: "Where is the institute?",
-    a: "In Windhoek, Namibia. The office answers by post at P.O. Box 1662, Windhoek, by telephone on +264 81 341 1522, and by email at tangi@oryxinstitute.org.",
+    a: "The institute works from Windhoek, Namibia. It is being established and does not operate public premises yet, so no street address or post box is printed. The office answers every enquiry by email at info@oryxinstitute.org, and visits are arranged by appointment.",
   },
   {
     q: "Who leads the institute?",
-    a: "Tangi Iigonda is the Principal. Applications are read in the Principal's office, and the business card carries no other name.",
+    a: "Tangi Iigonda is the Principal. Applications are read in the Principal's office.",
   },
   {
     q: "Is there a certificate?",
     a: "Yes. The institute issues its Certificate of Achievement on completion, recognizing excellence in innovation and applied problem-solving. The certificate is signed by the Principal and dated by hand.",
   },
   {
-    q: "Can I visit the campus?",
-    a: "Arrange it in your first message. The office will confirm where and when to come; the institute's published address is a post box, so appointments are made before visits.",
+    q: "Can I visit the office?",
+    a: "Yes, by appointment. Say in your first message that you would like to meet, and the office will confirm a time and place in Windhoek that suits both sides.",
   },
   {
     q: "Is Oryx accredited?",
@@ -305,7 +304,7 @@ export const faqs = [
   },
   {
     q: "What is Rapid Response Training?",
-    a: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme around that need, and delivers it. It is built for the gap between what a team knows and what it needs to know next. Enquire through the Principal's office.",
+    a: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme around that need, and delivers it. It is built for the gap between what a team knows and what it needs to know next. Enquire through the office.",
   },
   {
     q: "What is the Oryx Directory?",
@@ -336,7 +335,7 @@ export const announcements = [
       "On top of that curriculum, a flagship product is in development with Tangison Technologies. It is the first thing learners and client teams will touch, and it is being built before the programme is advertised, not after. What it is, exactly, stays deliberately quiet until it can be shown; what can be said today is that it exists, it is under construction, and it sets the bar the whole programme will be judged against.",
       "Tangison Technologies is the right partner for this because the collaboration did not start as a partnership at all. It started as work: businesses kept coming to the institute's consulting practice asking for real AI capability, and the honest answer was to build the training and the tooling properly rather than improvise them. Tangison builds that tooling for a living. The programme is the result of that overlap.",
       "The schedule, the syllabus and the enrolment route are not final, so none of them are printed here yet. A second announcement will follow when they are, and it will be as plain as this one.",
-      "Enquiries go to the Principal's office in the usual way, on WhatsApp to +264 81 341 1522 or by email to tangi@oryxinstitute.org. Organizations that want the programme brought to their teams early can say so in the first message; the office keeps a list, and nothing else.",
+      "Enquiries go to the office: one email to info@oryxinstitute.org. Organizations that want the programme brought to their teams early can say so in the first message; the office keeps a list, and nothing else.",
     ],
   },
 ] as const;

@@ -4,16 +4,21 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { disciplines, services, site } from "@/lib/site";
 
-type Errors = { name?: string; phone?: string };
+type Errors = { name?: string; contact?: string };
 
 /**
- * WhatsApp-first application composer. The form builds a prefilled
- * WhatsApp message addressed to the Principal's office and hands off
- * to the institute's primary channel. No data is stored on this site.
+ * Email-first application composer. The form builds a prefilled email
+ * to the office's mailbox and hands off to the visitor's own mail
+ * client. No data is stored on this site; nothing is sent anywhere
+ * until the visitor presses send in their own client.
+ *
+ * The business telephone line is deliberately not published while the
+ * institute is being established; when one lands, a phone field and a
+ * tel handoff are added back here.
  */
 export function ApplyForm() {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [contact, setContact] = useState("");
   const [discipline, setDiscipline] = useState<string>(disciplines[0].name);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
@@ -23,9 +28,15 @@ export function ApplyForm() {
     if (!name.trim()) {
       next.name = "Please tell us your name so we know who is applying.";
     }
-    if (phone.trim() && !/^[+\d][\d\s()-]{5,}$/.test(phone.trim())) {
-      next.phone =
-        "That phone number does not look complete. Include the country code, for example +264 81 000 0000.";
+    const c = contact.trim();
+    const looksEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c);
+    const looksPhone = /^[+\d][\d\s()-]{5,}$/.test(c);
+    if (!c) {
+      next.contact =
+        "Add one way to reach you: an email address, or a phone number if you prefer a call.";
+    } else if (!looksEmail && !looksPhone) {
+      next.contact =
+        "That does not look complete. Use an email address (name@example.com) or a phone number with its country code.";
     }
     return next;
   }
@@ -36,17 +47,21 @@ export function ApplyForm() {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const lines = [
+    const subject = `Application — ${name.trim()} — ${discipline}`;
+    const body = [
+      `Hello Oryx Institute,`,
+      ``,
       `Name: ${name.trim()}`,
-      phone.trim() ? `Phone: ${phone.trim()}` : null,
+      `Reply to: ${contact.trim()}`,
       `Field of interest: ${discipline}`,
       message.trim() ? `Message: ${message.trim()}` : null,
-    ].filter(Boolean) as string[];
+    ]
+      .filter(Boolean)
+      .join("\n");
 
-    const url = `${site.whatsapp}?text=${encodeURIComponent(
-      `Hello Oryx Institute, I would like to apply.\n\n${lines.join("\n")}`
-    )}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -78,28 +93,28 @@ export function ApplyForm() {
           </p>
         </div>
         <div>
-          <label htmlFor="af-phone" className="field-label">
-            Phone, optional
+          <label htmlFor="af-contact" className="field-label">
+            Email for the reply
           </label>
           <input
-            id="af-phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
+            id="af-contact"
+            name="contact"
+            type="text"
+            autoComplete="email"
             enterKeyHint="next"
             className="field-input"
-            placeholder="+264 81 000 0000"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            aria-invalid={errors.phone ? true : undefined}
-            aria-describedby={errors.phone ? "af-phone-error" : undefined}
+            placeholder="name@example.com"
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
+            aria-invalid={errors.contact ? true : undefined}
+            aria-describedby={errors.contact ? "af-contact-error" : undefined}
           />
           <p
-            id="af-phone-error"
+            id="af-contact-error"
             className="field-error"
-            role={errors.phone ? "alert" : undefined}
+            role={errors.contact ? "alert" : undefined}
           >
-            {errors.phone ?? ""}
+            {errors.contact ?? ""}
           </p>
         </div>
         <div className="md:col-span-2">
@@ -147,12 +162,12 @@ export function ApplyForm() {
       </div>
       <div className="flex flex-wrap items-center gap-6">
         <button type="submit" className="pill">
-          Send on WhatsApp
+          Prepare the email
           <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} aria-hidden />
         </button>
         <p className="text-[0.85rem] text-soft">
-          Opens WhatsApp with your application prefilled. Nothing is stored
-          on this site.
+          Opens your own mail client with the application addressed to{" "}
+          {site.email}. Nothing is stored on this site.
         </p>
       </div>
     </form>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { InkPage } from "@/components/site/ink-page";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Oryx Polytechnic Institute collects, uses and protects personal information: the WhatsApp and email handoff, what is never stored, and your rights over it.",
+    "How Oryx Polytechnic Institute collects, uses and protects personal information: the email handoff, what is never stored, and your rights over it.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Oryx Polytechnic Institute",
@@ -28,14 +29,14 @@ const sections = [
   {
     h: "Who we are",
     body: [
-      `This website is operated by ${site.legalName}, established at ${site.address}, Windhoek, Namibia. For any privacy question, write to ${site.email} or call ${site.phoneDisplay}.`,
+      `This website is operated by ${site.legalName}, working from ${site.city}, ${site.country}. For any privacy question, write to ${site.email}.`,
     ],
   },
   {
     h: "What we collect",
     body: [
-      "The application composer on this site does not store anything. When you press send, the message you have written is handed to WhatsApp addressed to the Principal's office, and from that moment it exists only in the conversation you started.",
-      "If you contact us by phone, email or post instead, we keep what you choose to give us: your name, your contact details, the field of interest you name, and the content of your message.",
+      "The application composer on this site does not store anything. When you press send, the message you have written opens in your own mail client addressed to the office, and from that moment it exists only in the conversation you started.",
+      "If you contact us by email instead, we keep what you choose to give us: your name, your contact details, the field of interest you name, and the content of your message.",
     ],
   },
   {
@@ -88,6 +89,24 @@ export default function PrivacyPage() {
           </p>
         </PageHero>
 
+      {/* The register of this page, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="This page, carried horizontally">
+          <article className={`hs-card hover-lift tint-blush`}>
+            <p className="text-[1.05rem] font-semibold text-ink">Who runs this site</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Oryx Polytechnic Institute, working from Windhoek, Namibia.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-warm`}>
+            <p className="text-[1.05rem] font-semibold text-ink">What the site stores</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Nothing. The composer prepares an email in your own mail client; no message touches a server here.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-sand`}>
+            <p className="text-[1.05rem] font-semibold text-ink">How to reach the office</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">One mailbox: info@oryxinstitute.org. Questions about privacy get the same answer as applications: in writing.</p>
+          </article>
+        </HorizontalScroll>
+      </section>
+
         <section className="shell pb-28">
           {sections.map((s) => (
             <div key={s.h} className="mt-10 first:mt-0">
@@ -100,7 +119,7 @@ export default function PrivacyPage() {
             </div>
           ))}
           <p className="doc-meta mt-16">
-            {site.legalName} · {site.address}
+            {site.legalName} · {site.city}, {site.country}
           </p>
         </section>
       </>

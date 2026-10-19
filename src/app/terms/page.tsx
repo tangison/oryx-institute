@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InkPage } from "@/components/site/ink-page";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ const sections = [
   {
     h: "What this site is",
     body: [
-      `This website presents ${site.legalName} and invites applications by enquiry. It is operated from ${site.address}, Windhoek, Namibia. It takes no payments, creates no accounts, and stores no messages: the application composer hands your message to WhatsApp, where the conversation continues.`,
+      `This website presents ${site.legalName} and invites applications by enquiry. It is operated from ${site.city}, ${site.country}. It takes no payments, creates no accounts, and stores no messages: the application composer prepares an email in your own mail client, where the conversation continues.`,
     ],
   },
   {
@@ -52,7 +53,7 @@ const sections = [
   {
     h: "External channels",
     body: [
-      "This site links to WhatsApp for the application handoff. Once your message leaves this site, it travels under the terms of the service you chose to use, not under these terms.",
+      "This site hands the application to your own mail client. Once your message leaves this site, it travels under the terms of the service you chose to use, not under these terms.",
     ],
   },
   {
@@ -80,6 +81,24 @@ export default function TermsPage() {
           </p>
         </PageHero>
 
+      {/* The register of this page, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="This page, carried horizontally">
+          <article className={`hs-card hover-lift tint-warm`}>
+            <p className="text-[1.05rem] font-semibold text-ink">What the site does</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Presents the institute and prepares an application email. Nothing more, nothing hidden.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-sand`}>
+            <p className="text-[1.05rem] font-semibold text-ink">What it never does</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Takes payments, creates accounts, or stores your messages.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-blush`}>
+            <p className="text-[1.05rem] font-semibold text-ink">Where content lives</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">The words on this site are the institute's own; the handoff happens in your mail client, under its terms.</p>
+          </article>
+        </HorizontalScroll>
+      </section>
+
         <section className="shell pb-28">
           {sections.map((s) => (
             <div key={s.h} className="mt-10 first:mt-0">
@@ -92,7 +111,7 @@ export default function TermsPage() {
             </div>
           ))}
           <p className="doc-meta mt-16">
-            {site.legalName} · {site.address}
+            {site.legalName} · {site.city}, {site.country}
           </p>
         </section>
       </>

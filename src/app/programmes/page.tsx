@@ -4,18 +4,16 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { ProgrammesAccordion } from "@/components/site/programmes-accordion";
-import { site } from "@/lib/site";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
+import { disciplines, site } from "@/lib/site";
 
-/** The country the disciplines are named for: the master package's
-    landscape set plus the institute's own dune frame, at native
-    scale, image only. */
-const groundFrames = [
-  ...Array.from({ length: 10 }, (_, i) => ({
-    src: `/images/register/landscape/landscape_${String(i + 1).padStart(2, "0")}.webp`,
-    alt: `Namibian ground, frame ${i + 1} of 11, from the master set`,
-  })),
-  { src: "/images/photo/dune-oryx.jpg", alt: "An oryx on a red dune crest, from the institute's own set" },
-];
+/** The ground the institute is named for: the master set's one wide
+    coastal frame, carried horizontally beside the four discipline
+    cards. Image only. */
+const groundPlate = {
+  src: "/images/register-hd/landscape/landscape_06.webp",
+  alt: "The Namibian coast where the desert meets the water, from the master set",
+};
 
 export const metadata: Metadata = {
   title: "Programmes & Disciplines",
@@ -56,32 +54,48 @@ export default function ProgrammesPage() {
         <ProgrammesAccordion />
       </section>
 
-      {/* The ground the institute is named for: the master package's
-          landscape set, image only, no captions. */}
-      <section className="chapter shell">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      {/* The ground the institute is named for: one wide coastal frame
+          and the four discipline cards, carried horizontally. */}
+      <section className="chapter shell pb-0">
+        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
           <h2 className="display-section max-w-2xl text-ink" data-reveal>
             The ground it is <span className="em-serif text-accent">named for.</span>
           </h2>
           <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
-            Eleven frames from the master package&apos;s landscape set:
-            dunes, coast, desert roads, the oryx among them.
+            Hard country, taken straight from the master set: the coast,
+            the desert, the discipline both demand.
           </p>
         </div>
-        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
-          {groundFrames.map((t) => (
-            <li key={t.src} className="specimen-tile">
+
+        <HorizontalScroll label="The ground and the four disciplines">
+          <figure className="hs-card hs-card--plate hs-card--wide">
+            <div className="plate-clip img-zoom w-full">
               <Image
-                src={t.src}
-                alt={t.alt}
-                width={343}
-                height={248}
-                sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 33vw, 50vw"
+                src={groundPlate.src}
+                alt={groundPlate.alt}
+                width={695}
+                height={249}
+                sizes="560px"
                 className="h-full w-full object-cover"
               />
-            </li>
+            </div>
+          </figure>
+          {disciplines.map((d, i) => (
+            <article
+              key={d.id}
+              className={`hs-card hover-lift ${["tint-blush", "tint-sand", "tint-warm", "tint-rose"][i]}`}
+            >
+              <span
+                className={`${d.glyph.length > 2 ? "bento-glyph-latin" : "bento-glyph wordmark-cjk"}`}
+                aria-hidden
+              >
+                {d.glyph}
+              </span>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{d.name}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{d.summary}</p>
+            </article>
           ))}
-        </ul>
+        </HorizontalScroll>
       </section>
 
       <section className="chapter shell">
