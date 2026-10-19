@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
 import { FaqAccordion } from "@/components/site/faq-accordion";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { faqs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,15 +51,21 @@ export default function FaqPage() {
         </p>
       </PageHero>
 
-      {/* The road before the questions: the page's own register. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/1947/compare-road.jpg"
-          alt="A road crossing open country, from the institute's 1947 register"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[21/9]"
-        />
+      {/* The four questions applicants ask first, carried
+          horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="The questions applicants ask first">
+          {faqs.slice(0, 4).map((f, i) => (
+            <article
+              key={f.q}
+              className={`hs-card hover-lift ${["tint-blush", "tint-warm", "tint-sand", "tint-rose"][i]}`}
+            >
+              <p className="label-caps text-accent">Asked first</p>
+              <p className="mt-3 text-[1.08rem] font-semibold text-ink">{f.q}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{f.a}</p>
+            </article>
+          ))}
+        </HorizontalScroll>
       </section>
 
       <section className="chapter shell grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-start">
@@ -79,8 +85,11 @@ export default function FaqPage() {
               >
                 Apply now
               </Link>
-              <a href={`tel:${site.phoneHref}`} className="pill-ghost !px-5 !py-2.5 text-[0.85rem]">
-                {site.phoneDisplay}
+              <a
+                href={`mailto:${site.email}`}
+                className="pill-ghost !px-5 !py-2.5 text-[0.85rem]"
+              >
+                Email the office
               </a>
             </div>
           </div>
@@ -88,7 +97,7 @@ export default function FaqPage() {
           <div className="keyline">
             <p className="label-caps text-soft">The office</p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-soft">
-              {site.address}
+              {site.city}, {site.country} — by appointment.
               <br />
               <a href={`mailto:${site.email}`} className="link-type">
                 {site.email}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InkPage } from "@/components/site/ink-page";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -46,7 +47,7 @@ const sections = [
   {
     h: "The application channel",
     body: [
-      `Applications run through WhatsApp and email to the Principal's office (${site.email}, ${site.phoneDisplay}). No message is stored by this site, and no portal here takes a place, a payment or a promise.`,
+      `Applications run by email to the office (${site.email}). No message is stored by this site, and no portal here takes a place, a payment or a promise.`,
     ],
   },
   {
@@ -68,6 +69,24 @@ export default function DisclaimerPage() {
           </p>
         </PageHero>
 
+      {/* The register of this page, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="This page, carried horizontally">
+          <article className={`hs-card hover-lift tint-sand`}>
+            <p className="text-[1.05rem] font-semibold text-ink">Status, as it is</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Prelaunch and pre-accreditation. Nothing here claims a credential the institute does not hold.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-blush`}>
+            <p className="text-[1.05rem] font-semibold text-ink">Figures carry sources</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Every number in the Bulletin names its source inline, or it does not ship.</p>
+          </article>
+          <article className={`hs-card hover-lift tint-warm`}>
+            <p className="text-[1.05rem] font-semibold text-ink">Not advice</p>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">The free Directory is teaching material, not legal, tax or financial advice.</p>
+          </article>
+        </HorizontalScroll>
+      </section>
+
         <section className="shell pb-28">
           {sections.map((s) => (
             <div key={s.h} className="mt-10 first:mt-0">
@@ -80,7 +99,7 @@ export default function DisclaimerPage() {
             </div>
           ))}
           <p className="doc-meta mt-16">
-            {site.legalName} · {site.address}
+            {site.legalName} · {site.city}, {site.country}
           </p>
         </section>
       </>

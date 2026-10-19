@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, FileText } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import {
   directoryAll,
   directoryCourses,
@@ -231,49 +232,38 @@ export default async function DirectoryDocPage({
           <h2 className="display-section text-ink">
             More in the <span className="em-serif text-accent">{doc.kind === "course" ? "courses." : "templates."}</span>
           </h2>
-          <ul className="mt-10 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule sm:grid-cols-2">
-            {others.map((d) => (
-              <li key={d.slug} className="bg-paper">
+          <div className="mt-10">
+            <HorizontalScroll label="More in this register">
+              {others.map((d) => (
                 <Link
+                  key={d.slug}
                   href={`/resources/${d.slug}`}
-                  className="group flex items-center gap-4 p-6 transition-colors hover:bg-paper-2"
+                  className={`hs-card hover-lift ${"tint-warm"}`}
                 >
-                  <FileText className="h-4 w-4 shrink-0 text-accent" strokeWidth={2} aria-hidden />
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[1rem] font-semibold text-ink">{d.title}</span>
-                    <span className="mt-0.5 block text-[0.85rem] text-soft">{d.no} · {d.readMinutes} min</span>
+                  <p className="label-caps text-accent">{d.no}</p>
+                  <p className="mt-3 text-[1.05rem] font-semibold text-ink">{d.title}</p>
+                  <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{d.standfirst}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
+                    {d.readMinutes} min
+                    <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
                   </span>
-                  <ArrowUpRight
-                    className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
                 </Link>
-              </li>
-            ))}
-            {others.length % 2 === 1 && (
-              <li className="bg-paper-2">
-                <Link
-                  href="/resources#directory"
-                  className="group flex h-full items-center gap-4 p-6 transition-colors hover:bg-paper-3"
-                >
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[1rem] font-semibold text-ink">
-                      The full Directory
-                    </span>
-                    <span className="mt-0.5 block text-[0.85rem] text-soft">
-                      All {directoryAll.length} documents, courses and templates
-                    </span>
-                  </span>
-                  <ArrowUpRight
-                    className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </Link>
-              </li>
-            )}
-          </ul>
+              ))}
+              <Link
+                href="/resources#directory"
+                className="hs-card hover-lift bg-ink text-paper"
+              >
+                <p className="label-caps opacity-70">The full Directory</p>
+                <p className="mt-3 text-[1.05rem] font-semibold">
+                  All {directoryAll.length} documents, courses and templates
+                </p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-pale-rose">
+                  Open the Directory
+                  <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                </span>
+              </Link>
+            </HorizontalScroll>
+          </div>
           <p className="mt-8 text-[0.88rem] text-soft">
             Document {index + 1} of {directoryAll.length} in the Oryx Directory.
           </p>

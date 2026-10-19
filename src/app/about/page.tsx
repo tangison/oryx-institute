@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
 import { OryxLogo } from "@/components/site/oryx-logo";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site, status } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,11 +27,12 @@ export const metadata: Metadata = {
   },
 };
 
-/** The ground plan: twelve of the master package's architecture
-    frames, shown at native scale, image only. */
-const groundTiles = Array.from({ length: 12 }, (_, i) => ({
-  src: `/images/register/architecture/architecture_${String(i + 1).padStart(2, "0")}.webp`,
-  alt: `Institute architecture, frame ${i + 1} of 12, from the master set`,
+/** The ground plan: ten of the master package's architecture frames,
+    carried horizontally — the page's own drawer of buildings and
+    rooms, image only. */
+const groundTiles = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11].map((n) => ({
+  src: `/images/register/architecture/architecture_${String(n).padStart(2, "0")}.webp`,
+  alt: `Institute architecture, frame ${n} of the master set`,
 }));
 
 export default function AboutPage() {
@@ -46,18 +47,6 @@ export default function AboutPage() {
           engineering, set in the logo exactly where the two belong.
         </p>
       </PageHero>
-
-      {/* The page's own register: the oryx at the water's edge, from
-          the institute's coastal set. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/photo/coast-oryx.jpg"
-          alt="An oryx at the Atlantic shoreline, fog moving in behind it"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[21/9]"
-        />
-      </section>
 
       <section className="chapter shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
         <div className="grid gap-8">
@@ -98,9 +87,14 @@ export default function AboutPage() {
           <div>
             <p className="label-caps text-soft">The office</p>
             <p className="mt-4 text-[1.05rem] leading-relaxed text-soft">
-              {site.address}. The Principal, {site.principal.name}, reads
-              every application personally. Reach the office by telephone
-              on {site.phoneDisplay} or by email at {site.email}.
+              The institute works from {site.city}, {site.country}, and
+              does not operate public premises yet, so no street address
+              is printed. The Principal, {site.principal.name}, reads
+              every application personally. Reach the office by email at{" "}
+              <a href={`mailto:${site.email}`} className="link-type">
+                {site.email}
+              </a>
+              .
             </p>
           </div>
 
@@ -126,43 +120,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The ground plan: the institute's buildings, from the master
-          package's architecture set, image only, no captions. */}
-      <section className="chapter shell">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      {/* The ground plan: the institute's buildings and rooms, carried
+          horizontally, image only, no captions. */}
+      <section className="chapter shell pb-0 md:pb-0">
+        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
           <h2 className="display-section max-w-2xl text-ink" data-reveal>
             The ground, <span className="em-serif text-accent">in frames.</span>
           </h2>
           <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
             The institute&apos;s buildings and rooms, from the master
-            package&apos;s architecture set. Twelve frames, unedited.
+            package&apos;s architecture set. Unedited.
           </p>
         </div>
-        <ul className="specimen-grid mt-12 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
-          {groundTiles.map((t) => (
-            <li key={t.src} className="specimen-tile">
-              <Image
-                src={t.src}
-                alt={t.alt}
-                width={344}
-                height={248}
-                sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 33vw, 50vw"
-                className="h-full w-full object-cover"
-              />
-            </li>
-          ))}
-        </ul>
-      </section>
 
-      {/* The name, remembered: the oryx skull in flower, from the
-          institute's own set. */}
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/photo/skull-flower.jpg"
-          alt="An oryx skull with straight horns, a desert flower growing beside it"
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[21/9]"
-        />
+        <HorizontalScroll label="The ground plan, in frames">
+          {groundTiles.map((t) => (
+            <figure
+              key={t.src}
+              className="hs-card hs-card--plate hs-card--wide"
+            >
+              <div className="plate-clip img-zoom w-full">
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  width={344}
+                  height={248}
+                  sizes="560px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </figure>
+          ))}
+        </HorizontalScroll>
       </section>
 
       {/* Where the institute stands, stated plainly. Every line comes
@@ -200,8 +189,8 @@ export default function AboutPage() {
             <p className="label-caps text-soft">Partnerships</p>
             <p className="mt-3 max-w-3xl text-[1.02rem] leading-relaxed text-ink/85">
               {status.partnerships} Write to the office at{" "}
-              <a href={`mailto:${site.emailGeneral}`} className="link-type">
-                {site.emailGeneral}
+              <a href={`mailto:${site.email}`} className="link-type">
+                {site.email}
               </a>{" "}
               and say what you have in mind.
             </p>

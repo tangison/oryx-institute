@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { ApplyForm } from "@/components/site/apply-form";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -37,16 +38,48 @@ export default function ApplyPage() {
         </p>
       </PageHero>
 
+      {/* The application path, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="How the application runs">
+          {[
+            {
+              n: "01",
+              t: "Write one message",
+              b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares it.",
+              c: "tint-blush",
+            },
+            {
+              n: "02",
+              t: "The office replies",
+              b: "The Principal's office reads every message and answers personally, usually within the week.",
+              c: "tint-warm",
+            },
+            {
+              n: "03",
+              t: "Talk, then decide",
+              b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides agree.",
+              c: "tint-sand",
+            },
+          ].map((s) => (
+            <article key={s.n} className={`hs-card hover-lift ${s.c}`}>
+              <p className="display-hero text-accent/90" aria-hidden>{s.n}</p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{s.t}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{s.b}</p>
+            </article>
+          ))}
+        </HorizontalScroll>
+      </section>
+
       <section className="chapter shell grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-start">
         <div className="rounded-[var(--r-card)] border border-rule bg-paper p-6 sm:p-10">
           <h2 className="display-section text-ink">The application message</h2>
           <p className="mt-3 text-[0.98rem] leading-relaxed text-soft">
-            Fill it in and send it on WhatsApp to {site.phoneDisplay}, or
-            take the details and write to{" "}
+            Fill it in and it opens as an email addressed to{" "}
             <a href={`mailto:${site.email}`} className="link-type">
               {site.email}
             </a>
-            . Nothing is stored on this site.
+            . Nothing is stored on this site; nothing is sent until you
+            press send in your own mail client.
           </p>
           <div className="mt-10">
             <ApplyForm />
@@ -69,11 +102,7 @@ export default function ApplyPage() {
             <address className="mt-4 not-italic text-[0.98rem] leading-relaxed text-soft">
               {site.principal.name}, {site.principal.role}
               <br />
-              {site.address}
-              <br />
-              <a href={`tel:${site.phoneHref}`} className="link-type">
-                {site.phoneDisplay}
-              </a>
+              {site.city}, {site.country} — by appointment
               <br />
               <a href={`mailto:${site.email}`} className="link-type">
                 {site.email}

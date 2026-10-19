@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { PhotoFigure } from "@/components/site/photo-figure";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import ShinyText from "@/components/reactbits/ShinyText/ShinyText";
 import { announcements, site } from "@/lib/site";
 
@@ -37,62 +37,44 @@ export default function AnnouncementsPage() {
         </p>
       </PageHero>
 
-      <section className="shell" data-reveal>
-        <PhotoFigure
-          src="/images/photo/typewriter.jpg"
-          alt="A typewriter on a concrete surface, its carriage set"
-          priority
-          sizes="(min-width: 90rem) 1440px, 100vw"
-          ratio="aspect-[16/9]"
-        />
-      </section>
-
-      <section className="chapter shell">
-        <div className="grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule" data-reveal-group>
-          {announcements.map((a) => (
+      {/* The paper trail: the wax seal plate and the announcements
+          themselves, carried horizontally. */}
+      <section className="shell pt-16">
+        <HorizontalScroll label="The announcements">
+          {announcements.map((a, i) => (
             <Link
               key={a.slug}
               href={`/announcements/${a.slug}`}
-              className="group flex flex-col gap-2 bg-paper p-8 transition-colors hover:bg-paper-2 md:flex-row md:items-center md:gap-10 md:p-10"
+              className={`hs-card hs-card--wide hover-lift ${["tint-blush", "tint-warm"][i % 2]}`}
             >
-              <span className="shrink-0 lg:w-44">
-                <ShinyText
-                  text={a.kicker}
-                  color="#71111F"
-                  shineColor="#D37084"
-                  speed={4}
-                  className="label-caps"
-                />
-                <span className="mt-1 block text-[0.85rem] text-soft">{a.date}</span>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-[1.15rem] font-semibold text-ink">
-                  {a.title}
-                </span>
-                <span className="mt-1 block text-[0.98rem] leading-relaxed text-soft">
-                  {a.standfirst}
-                </span>
-              </span>
-              <span className="inline-flex shrink-0 items-center gap-2 text-[0.85rem] font-semibold text-accent">
+              <ShinyText
+                text={a.kicker}
+                color="#71111F"
+                shineColor="#D37084"
+                speed={4}
+                className="label-caps"
+              />
+              <span className="mt-1 block text-[0.85rem] text-soft">{a.date}</span>
+              <p className="mt-3 text-[1.08rem] font-semibold text-ink">{a.title}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{a.standfirst}</p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
                 Read
-                <ArrowUpRight
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={2}
-                  aria-hidden
-                />
+                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
               </span>
             </Link>
           ))}
-        </div>
+        </HorizontalScroll>
+      </section>
 
-        <p className="measure mt-8 text-[0.95rem] leading-relaxed text-soft">
-          Enquiries about any announcement go to the Principal&apos;s
-          office: WhatsApp {site.phoneDisplay} or{" "}
-          <a href={`mailto:${site.email}`} className="link-type">
-            {site.email}
-          </a>
-          .
-        </p>
+      <section className="chapter shell">
+        <div className="rounded-[var(--r-card)] border border-rule bg-paper-2 p-8 md:p-10">
+          <p className="label-caps text-soft">The standing rule</p>
+          <p className="mt-4 text-[1.02rem] leading-[1.7] text-soft">
+            Nothing is announced before it is certain, and nothing is dated
+            twice. Each entry on this page is the institute&apos;s full
+            public statement on the day it was made.
+          </p>
+        </div>
       </section>
     </>
   );

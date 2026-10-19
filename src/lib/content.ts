@@ -8,16 +8,18 @@
  * picture is a photograph of the institute.
  */
 
+/** The founder's rule, kept as the tagline's origin, one line. */
 export const motto = {
   line: "You're only as good as your tools. We forge them.",
   source: "The Oryx tagline",
-  /** The founder's original idiom, kept as the tagline's origin. */
   origin:
-    "The founder's rule came first: a man is only as good as his tools, and the brain is the biggest tool. The tagline keeps the register and widens the door.",
+    "The tagline keeps the founder's rule and widens the door: the brain is the biggest tool, and the institute trains the people who use it.",
 } as const;
 
 /** The four schools, phased. Dates are confirmed by the Principal's
- * office at the point of application, never printed in advance. */
+ * office at the point of application, never printed in advance. The
+ * school cards carry no photographs: there is no campus to photograph
+ * yet, and the institute does not borrow one. */
 export const schools = [
   {
     id: "technology",
@@ -26,8 +28,6 @@ export const schools = [
     status: "Open for enquiry",
     lead: "The AI-native flagship. First in, because it needs the least: a bench, a meter, a machine that thinks with you.",
     body: "Technology is where the institute starts. The discipline covers the modern tool chain from the inside: how computing systems are taken apart, understood and rebuilt, and how to put AI tools to work without surrendering judgement to them. The study companion runs on the same stack the institute runs on, so students learn on the real thing from the first day.",
-    image: "/images/1947/schools-technology.jpg",
-    alt: "A technology classroom from the institute's 1947 register: benches, instruments, tall windows",
   },
   {
     id: "engineering",
@@ -36,8 +36,6 @@ export const schools = [
     status: "Coming soon",
     lead: "The making core: work that holds, measured and finished to standard.",
     body: "Engineering follows, because it is the most demanding to stand up properly: machine shops, measurement, the discipline of tolerances. The institute will not open a workshop it cannot staff with people who have cut metal for a living. When the school opens its doors, the certificate standard is already written: excellence in innovation and applied problem-solving.",
-    image: "/images/1947/schools-engineering.jpg",
-    alt: "An engineering workshop from the institute's 1947 register: machine tools under a shed roof",
   },
   {
     id: "science",
@@ -46,8 +44,6 @@ export const schools = [
     status: "Coming soon",
     lead: "The reasoning core: observation, evidence and disciplined thought.",
     body: "Science is the long game. The laboratory takes time to build, and the institute will not present borrowed laboratories as its own. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
-    image: "/images/1947/schools-science.jpg",
-    alt: "A science laboratory from the institute's 1947 register: benches and glassware in daylight",
   },
 ] as const;
 
@@ -56,8 +52,6 @@ export const schools = [
 export const appliedSpine = {
   name: "Applied problem-solving",
   line: "Not a school. The spine that runs through all three, and the standard named on every certificate.",
-  image: "/images/1947/people-classroom.jpg",
-  alt: "A full classroom from the institute's 1947 register: students at work, a teacher moving between the desks",
 } as const;
 
 /** The Oryx Tools List: what the institute actually runs on, published
@@ -69,16 +63,12 @@ export const toolsList = [
     intro: "How the institute itself runs, in the open. If it is on this list, it is really in use.",
     items: [
       {
-        name: "One WhatsApp number",
-        what: "The front desk. Applications, questions and appointments all start on +264 81 341 1522.",
-      },
-      {
         name: "One mailbox",
-        what: "tangi@oryxinstitute.org, read in the Principal's office. Paper post answered at P.O. Box 1662, Windhoek.",
+        what: "info@oryxinstitute.org, read in the Principal's office. It is the front desk: applications, questions and appointments all start there.",
       },
       {
         name: "The print kit",
-        what: "Letterhead, flyer, certificate, business card. The institute's paper register, carried through every page of this site.",
+        what: "Letterhead, certificate, business card. The institute's paper register, carried through every page of this site.",
       },
     ],
   },
@@ -109,8 +99,8 @@ export const toolsList = [
     intro: "The institute is AI-native, which means the tools are named, not magic.",
     items: [
       {
-        name: "GLM study companion",
-        what: "A GLM-backed tutor that runs on the institute's own stack: practice questions, worked examples, patient repetition, in plain language.",
+        name: "The AI study companion",
+        what: "An AI-backed tutor that runs on the institute's own stack: practice questions, worked examples, patient repetition, in plain language. The model behind it is named in the course packs, not on a web page.",
       },
       {
         name: "Practice banks, generated per course",
