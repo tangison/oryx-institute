@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Apply to Oryx Institute",
   description:
-    "Apply to Oryx Institute, or book the consulting practice: counselling, market research and development, Rapid Response Training. One message to the Principal's office.",
+    "Apply to Oryx Institute, or book the practice: counselling, business administration, IT, market research and development, Rapid Response Training. One message to the Principal's office.",
   alternates: { canonical: "/apply" },
   openGraph: {
     title: "Apply | Oryx Institute",
@@ -32,9 +32,9 @@ export default function ApplyPage() {
         <p>
           There is no portal and no queue. Write to the Principal&apos;s
           office directly, and the application starts with your first
-          message. The consulting practice books through the same desk:
-          counselling, market research and development, Rapid Response
-          Training.
+          message. The practice books through the same desk:
+          counselling, business administration, IT, market research and
+          development, Rapid Response Training.
         </p>
       </PageHero>
 

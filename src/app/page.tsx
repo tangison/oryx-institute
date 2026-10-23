@@ -52,6 +52,33 @@ const jsonLd = [
       addressLocality: site.city,
       addressCountry: "NA",
     },
+    /** AEO: the live practice, named as an offer catalog so answer
+        engines can quote the offering list without guessing. */
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "The Oryx practice",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: s.name,
+          description: s.line,
+          areaServed: site.areaServed,
+          provider: { "@type": "Organization", name: site.legalName },
+        },
+      })),
+    },
+    /** AEO: what the institute actually works in, plus the partners
+        named in public. */
+    knowsAbout: [
+      ...new Set([
+        ...disciplines.map((d) => d.name),
+        "Business administration",
+        "Information technology",
+        "Market research and development",
+        "Rapid Response Training",
+      ]),
+    ],
     ...(site.socials.length > 0
       ? { sameAs: site.socials.map((s) => s.href) }
       : {}),
@@ -129,7 +156,7 @@ export default function HomePage() {
           {/* React Bits ShinyText: the offer line carries a slow rose
               sheen over the muted caps. */}
           <ShinyText
-            text="Business counselling · Market research and development · Rapid Response Training — live now in Windhoek"
+            text="Counselling · Business administration · IT · Market R&D · Rapid Response Training — live now in Windhoek"
             color="#57524A"
             shineColor="#D37084"
             speed={3}
@@ -217,8 +244,8 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ What runs now */}
-      {/* The consulting practice, scrubbed horizontally: four service
-          cards travel the page sideways as the visitor scrolls down. */}
+      {/* The practice, scrubbed horizontally: six service cards
+          travel the page sideways as the visitor scrolls down. */}
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
           <h2 className="display-section max-w-3xl text-ink" data-reveal>
@@ -228,16 +255,17 @@ export default function HomePage() {
             </GradientText>
           </h2>
           <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
-            The consulting practice is live. The schools are phased in
-            behind it, in order, as accreditation progresses.
+            The practice is live: counselling, administration, IT,
+            research, training. The schools are phased in behind it, in
+            order, as accreditation progresses.
           </p>
         </div>
 
-        <HorizontalScroll label="The consulting practice">
+        <HorizontalScroll label="The practice, live now">
           {services.map((s, i) => (
             <article
               key={s.id}
-              className={`hs-card hover-lift ${["tint-warm", "tint-sand", "tint-blush", "tint-rose"][i]}`}
+              className={`hs-card hover-lift ${["tint-warm", "tint-sand", "tint-blush", "tint-rose"][i % 4]}`}
             >
               <p className="label-caps text-accent">{s.line}</p>
               <p className="mt-3 text-[1.15rem] font-semibold text-ink">{s.name}</p>

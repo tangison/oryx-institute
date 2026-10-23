@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
-import { site } from "@/lib/site";
+import { site, partners } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -29,6 +29,7 @@ export function SiteFooter() {
               {[
                 { href: "/programmes", label: "Programmes" },
                 { href: "/schools", label: "Schools" },
+                { href: "/research", label: "Research" },
                 { href: "/resources", label: "Resources" },
                 { href: "/compare", label: "Compare" },
                 { href: "/tools", label: "Tools" },
@@ -69,6 +70,37 @@ export function SiteFooter() {
             ) : null}
           </address>
         </div>
+
+        {/* The partners, carried as their own marks: byte-exact from
+            each partner's site, no recolouring. The currentColor mark
+            takes the footer's ink; the self-coloured one stands as is. */}
+        {partners.length > 0 ? (
+          <div className="hair-t mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 pt-8">
+            <p className="label-caps text-soft">In practice with</p>
+            {partners.map((p) => (
+              <a
+                key={p.id}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${p.name} — ${p.href.replace("https://", "").replace("/", "")}`}
+                className={`flex h-6 items-center transition-opacity hover:opacity-100 ${
+                  p.tone === "ink"
+                    ? "text-ink/60 hover:text-ink"
+                    : "opacity-80 hover:opacity-100"
+                }`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  className="h-full w-auto"
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+        ) : null}
 
         <div className="mt-12 flex flex-col gap-4 border-t border-rule-2 pt-6 text-[0.8rem] text-soft md:flex-row md:items-center md:justify-between">
           <p>
