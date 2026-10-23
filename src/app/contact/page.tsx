@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact the Office",
   description:
-    "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office in Windhoek.",
+    "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact | Oryx Institute",
