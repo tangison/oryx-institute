@@ -37,6 +37,21 @@ export default function AnnouncementsPage() {
         </p>
       </PageHero>
 
+      <section className="shell">
+        <div className="keyline max-w-3xl">
+          <p className="label-caps text-soft">How to read this page</p>
+          <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
+            The page is short because the institute is young: one dated
+            statement stands below, and more follow only when there is
+            something certain to say. Everything printed here is quotable
+            &mdash; the partner names, the state of the work, and the
+            dates &mdash; and anything not printed here is not yet public.
+            Enquiries about any entry go to the office by email, and the
+            answer does not outrun the announcement itself.
+          </p>
+        </div>
+      </section>
+
       {/* The paper trail: the wax seal plate and the announcements
           themselves, carried horizontally. */}
       <section className="shell pt-16">

@@ -88,6 +88,14 @@ export const site = {
   },
 } as const;
 
+/** Canonical schema node IDs, shared by every JSON-LD block on the
+ * site so the Organization and the WebSite are ONE entity each, not
+ * re-declared per page. */
+export const schemaIds = {
+  org: `${site.url}/#organization`,
+  website: `${site.url}/#website`,
+} as const;
+
 /**
  * Where the institute stands, stated plainly. Every line is grounded in
  * the master package's own status note and strategy decisions. The site
@@ -381,6 +389,8 @@ export const announcements = [
     dateISO: "2026-10-18",
     kicker: "Announcement",
     title: "An AI training programme with Tangison Technologies",
+    /** Search-result description, sized under 160 characters. */
+    meta: "Confirmed: an AI training programme with Tangison Technologies. The curriculum is in build, and a flagship product is under construction.",
     standfirst:
       "Built with Tangison Technologies, for Namibian teams and learners. The partnership is confirmed, the curriculum is already under construction, and a flagship product is being built on it. The schedule lands when it is earned.",
     body: [

@@ -19,6 +19,15 @@ export function generateStaticParams() {
   return directoryAll.map((d) => ({ slug: d.slug }));
 }
 
+
+/** Meta descriptions are sized for search results: the visible
+    standfirst stands uncut on the page; only the meta is trimmed. */
+function metaOf(doc: { standfirst: string }): string {
+  return doc.standfirst.length <= 158
+    ? doc.standfirst
+    : `${doc.standfirst.slice(0, 155).replace(/\s+\S*$/, "")}\u2026`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -29,11 +38,11 @@ export async function generateMetadata({
   if (!doc) return {};
   return {
     title: `${doc.title} | The Oryx Directory`,
-    description: doc.standfirst,
+    description: metaOf(doc),
     alternates: { canonical: `/resources/${doc.slug}` },
     openGraph: {
       title: `${doc.title} | The Oryx Directory`,
-      description: doc.standfirst,
+      description: metaOf(doc),
       images: [
         {
           url: "/images/og-inner.jpg",
@@ -115,7 +124,7 @@ export default async function DirectoryDocPage({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     headline: doc.title,
-    description: doc.standfirst,
+    description: metaOf(doc),
     url: `${site.url}/resources/${doc.slug}`,
     image: `${site.url}/images/og-inner.jpg`,
     author: {

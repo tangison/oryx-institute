@@ -135,6 +135,7 @@ export default function PeoplePage() {
             alt="A teacher mid-gesture at the blackboard, from the master set"
             sizes="(min-width: 64rem) 44vw, 100vw"
             ratio="aspect-[4/5]"
+            priority
           />
         </div>
       </section>

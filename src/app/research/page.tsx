@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { HorizontalScroll } from "@/components/site/horizontal-scroll";
-import { site, services, status, partners } from "@/lib/site";
+import { site, services, status, partners, schemaIds } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Research & Development | Oryx Institute",
@@ -38,15 +38,14 @@ const jsonLd = [
     url: `${site.url}/research`,
     description:
       "The R&D practice at Oryx Institute: market research and development for hire, and the institute's own development work with named partners.",
-    isPartOf: { "@type": "WebSite", name: site.tradingName, url: site.url },
+    isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
     about: {
       "@type": "Service",
       name: "Market research and development",
       provider: {
         "@type": "EducationalOrganization",
+        "@id": schemaIds.org,
         name: site.legalName,
-        email: site.email,
-        areaServed: site.areaServed,
       },
       areaServed: site.areaServed,
     },
@@ -192,6 +191,8 @@ export default function ResearchPage() {
                   <img
                     src={p.logo}
                     alt={`${p.name} logo`}
+                    width={p.id === "tangison" ? 1383 : 1024}
+                    height={p.id === "tangison" ? 296 : 401}
                     className={`h-9 w-auto md:h-10 ${
                       p.tone === "ink"
                         ? "text-ink"

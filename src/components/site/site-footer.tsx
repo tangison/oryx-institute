@@ -94,6 +94,8 @@ export function SiteFooter() {
                 <img
                   src={p.logo}
                   alt={`${p.name} logo`}
+                  width={p.id === "tangison" ? 1383 : 1024}
+                  height={p.id === "tangison" ? 296 : 401}
                   className="h-full w-auto"
                   loading="lazy"
                 />
