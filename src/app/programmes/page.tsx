@@ -45,8 +45,10 @@ export default function ProgrammesPage() {
         <p>
           A polytechnic education stands on four legs. The institute
           teaches them together, because a problem never arrives divided
-          into subjects. Today the live offer is the consulting practice;
-          the schools phase in behind it as accreditation progresses.
+          into subjects. Today the teaching runs as crash courses and
+          short courses in business administration and IT and related
+          fields; the schools phase in behind as accreditation
+          progresses.
         </p>
       </PageHero>
 
@@ -54,20 +56,21 @@ export default function ProgrammesPage() {
         <ProgrammesAccordion />
       </section>
 
-      {/* What sits beside the disciplines: the live practice, named
-          honestly so a visitor knows what can be booked today. */}
+      {/* What runs today: the crash and short courses, with the live
+          practice named beside them so a visitor knows what books. */}
       <section className="chapter shell">
         <div className="keyline max-w-3xl">
           <p className="label-caps text-soft">Beside the disciplines</p>
           <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
-            The disciplines describe the education being phased in; the
-            practice described on the home page is what runs today.
-            Business counselling, business administration, IT and related
-            fields, market research and development and Rapid Response
-            Training are all live, and each of them is booked the same
-            way: one message to the Principal&apos;s office. The research
-            and development page names what the institute is building
-            behind the practice, and with whom.
+            The disciplines describe the education being phased in; today
+            the teaching runs as crash courses and short courses in
+            business administration and IT and related fields — and
+            nothing longer. Beside the teaching, the practice —
+            counselling, market research and development, Rapid Response
+            Training — is live, and everything books the same way: one
+            message to the Principal&apos;s office. The research and
+            development page names what the institute is building behind
+            it, and with whom.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link href="/research" className="pill-ghost">

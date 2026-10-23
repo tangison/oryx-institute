@@ -9,7 +9,7 @@ The public site of **Oryx Polytechnic Institute** (trading as **Oryx Institute**
 ## Facts agents can rely on
 
 - **Contact**: info@oryxinstitute.org — the one mailbox for applications, partnerships and press. No telephone number is published; no street address exists yet (visits by appointment in Windhoek only).
-- **Live offerings**: business counselling, business administration, IT and related fields, market research and development, Rapid Response Training, and the free Oryx Directory (four crash courses, seven business templates).
+- **Live offerings**: crash and short courses in business administration and IT and related fields (the teaching offer — no long programmes), business counselling, market research and development, Rapid Response Training, and the free Oryx Directory (four crash courses, seven business templates).
 - **Status**: prelaunch. Pursuing NQA and NTA accreditation; not accredited yet. No campus, no premises, no intake dates are claimed anywhere on the site.
 - **Partners**: Tangison Technologies (tangison.com) — AI training programme and flagship product; Mendozer (mendozer.com) — concept collaboration.
 

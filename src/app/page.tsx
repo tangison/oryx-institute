@@ -58,16 +58,25 @@ const jsonLd = [
         engines can quote the offering list without guessing. */
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "The Oryx practice",
+      name: "What Oryx offers",
       itemListElement: services.map((s) => ({
         "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.name,
-          description: s.line,
-          areaServed: site.areaServed,
-          provider: { "@type": "Organization", name: site.legalName },
-        },
+        itemOffered:
+          s.id === "business-administration" || s.id === "it"
+            ? {
+                "@type": "Course",
+                name: s.name,
+                description: `${s.line} ${s.body}`,
+                areaServed: site.areaServed,
+                provider: { "@type": "Organization", name: site.legalName },
+              }
+            : {
+                "@type": "Service",
+                name: s.name,
+                description: s.line,
+                areaServed: site.areaServed,
+                provider: { "@type": "Organization", name: site.legalName },
+              },
       })),
     },
     /** AEO: what the institute actually works in, plus the partners
@@ -160,7 +169,7 @@ export default function HomePage() {
           {/* React Bits ShinyText: the offer line carries a slow rose
               sheen over the muted caps. */}
           <ShinyText
-            text="Counselling · Business administration · IT · Market R&D · Rapid Response Training — live now in Windhoek"
+            text="Crash & short courses: Business Administration · IT · Counselling · Market R&D · Rapid Response — live now in Windhoek"
             color="#57524A"
             shineColor="#D37084"
             speed={3}
@@ -248,7 +257,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ What runs now */}
-      {/* The practice, scrubbed horizontally: six service cards
+      {/* Courses and practice, scrubbed horizontally: six cards
           travel the page sideways as the visitor scrolls down. */}
       <section className="chapter shell">
         <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
@@ -259,13 +268,13 @@ export default function HomePage() {
             </GradientText>
           </h2>
           <p className="max-w-[34ch] text-[0.98rem] leading-relaxed text-soft" data-reveal>
-            The practice is live: counselling, administration, IT,
-            research, training. The schools are phased in behind it, in
-            order, as accreditation progresses.
+            Crash and short courses in business administration and IT,
+            beside counselling, research and training. The schools are
+            phased in behind it, in order, as accreditation progresses.
           </p>
         </div>
 
-        <HorizontalScroll label="The practice, live now">
+        <HorizontalScroll label="Courses and practice, live now">
           {services.map((s, i) => (
             <article
               key={s.id}
