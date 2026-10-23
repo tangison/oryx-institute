@@ -53,9 +53,10 @@ export const site = {
    * variant of the founder's original idiom. */
   tagline: "You're only as good as your tools. We forge them.",
   /** Meta description, sized for search results (kept under 160
-   * characters) and led by what runs today: the practice. */
+   * characters) and led by what runs today: the crash and short
+   * courses. */
   description:
-    "Oryx Institute, Windhoek: counselling, business administration, IT, market R&D and Rapid Response Training, live now. Free Directory; applications open.",
+    "Oryx Institute, Windhoek: crash and short courses in business administration and IT, beside counselling, market R&D and Rapid Response Training. Free Directory.",
   /** Where the institute works from. There is no public premises yet:
    * no street address, no post box and no campus are claimed. When a
    * location exists, it is added here once and every page follows. */
@@ -112,11 +113,11 @@ export const status = {
     },
     {
       name: "Business administration",
-      line: "Registrations, records, filings and processes: the back office, run to standard.",
+      line: "A teaching department: crash and short courses in records, filings, registers and the everyday processes a business runs on.",
     },
     {
       name: "IT and related fields",
-      line: "Systems set up and kept running, and teams trained on the software their work runs on.",
+      line: "A teaching department: crash and short courses in the systems and software work runs on. Every tool named, not magic.",
     },
     {
       name: "Market research and development",
@@ -158,9 +159,10 @@ export const status = {
 } as const;
 
 /**
- * The consulting practice: what the institute sells today, while the
- * schools are phased in. Ordered as the office prefers enquiries to
- * arrive. Nothing here promises a credential; every line promises work.
+ * What runs today, ordered as the office prefers enquiries to arrive:
+ * two teaching departments (crash and short courses only) beside the
+ * practice. Nothing here promises a credential; every line promises
+ * work.
  */
 export const services = [
   {
@@ -172,14 +174,14 @@ export const services = [
   {
     id: "business-administration",
     name: "Business administration",
-    line: "The back office, held to standard.",
-    body: "Registrations, records, filings and the everyday processes a business runs on, done properly and kept that way. The institute takes the administration that stalls a small business and turns it into a system the owner can see, check and trust.",
+    line: "Crash and short courses.",
+    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only — each course narrow, practical, and finished.",
   },
   {
     id: "it",
     name: "IT and related fields",
-    line: "Tools that work, and people who can use them.",
-    body: "Information-technology work and training under one roof: systems set up and kept running, the tool stack named openly, and teams brought up to speed on the software their work actually runs on. The standing rule applies here too: the tools are named, not magic.",
+    line: "Crash and short courses.",
+    body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named, not magic.",
   },
   {
     id: "research",
@@ -329,7 +331,7 @@ export const faqs = [
   },
   {
     q: "What programmes does the institute offer?",
-    a: "Today, the practice: business counselling, business administration, IT and related fields, market research and development, and Rapid Response Training. The education stands on four disciplines, science, engineering, technology and applied problem-solving, and it is phased in as accreditation progresses. Programme and course offerings are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it — no long programmes are offered. Beside the teaching, the practice runs: business counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
   },
   {
     q: "Does Oryx consult for businesses?",
@@ -357,7 +359,7 @@ export const faqs = [
   },
   {
     q: "Is Oryx accredited?",
-    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today is Rapid Response Training and the Oryx Directory, both of which work before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
+    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today — the crash and short courses, Rapid Response Training and the Oryx Directory — works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
   },
   {
     q: "What is Rapid Response Training?",
