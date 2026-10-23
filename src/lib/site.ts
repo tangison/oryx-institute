@@ -53,9 +53,9 @@ export const site = {
    * variant of the founder's original idiom. */
   tagline: "You're only as good as your tools. We forge them.",
   /** Meta description, sized for search results (kept under 160
-   * characters) and led by what runs today: the consulting practice. */
+   * characters) and led by what runs today: the practice. */
   description:
-    "Oryx Institute, Windhoek: business counselling, market research and development, and Rapid Response Training, live now. Free Directory; applications by enquiry.",
+    "Oryx Institute, Windhoek: counselling, business administration, IT, market R&D and Rapid Response Training, live now. Free Directory; applications open.",
   /** Where the institute works from. There is no public premises yet:
    * no street address, no post box and no campus are claimed. When a
    * location exists, it is added here once and every page follows. */
@@ -101,6 +101,14 @@ export const status = {
     {
       name: "Business counselling",
       line: "One desk in the Principal's office: bring the problem as it stands, leave with a decision you can act on the same week. Namibian rates, Namibian context.",
+    },
+    {
+      name: "Business administration",
+      line: "Registrations, records, filings and processes: the back office, run to standard.",
+    },
+    {
+      name: "IT and related fields",
+      line: "Systems set up and kept running, and teams trained on the software their work runs on.",
     },
     {
       name: "Market research and development",
@@ -151,7 +159,19 @@ export const services = [
     id: "counselling",
     name: "Business counselling",
     line: "Decisions, not decks.",
-    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or on WhatsApp, and the outcome is written down: what was decided, and what happens next.",
+    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens next.",
+  },
+  {
+    id: "business-administration",
+    name: "Business administration",
+    line: "The back office, held to standard.",
+    body: "Registrations, records, filings and the everyday processes a business runs on, done properly and kept that way. The institute takes the administration that stalls a small business and turns it into a system the owner can see, check and trust.",
+  },
+  {
+    id: "it",
+    name: "IT and related fields",
+    line: "Tools that work, and people who can use them.",
+    body: "Information-technology work and training under one roof: systems set up and kept running, the tool stack named openly, and teams brought up to speed on the software their work actually runs on. The standing rule applies here too: the tools are named, not magic.",
   },
   {
     id: "research",
@@ -226,6 +246,34 @@ export const approvedLines = [
   },
 ] as const;
 
+/**
+ * The partners the institute names in public. Logos are carried
+ * byte-exact from each partner's own site (see public/partners/);
+ * nothing was recoloured or redrawn.
+ */
+export const partners = [
+  {
+    id: "tangison",
+    name: "Tangison Technologies",
+    href: "https://tangison.com",
+    logo: "/partners/tangison-logo.svg",
+    alt: "Tangison Technologies",
+    note: "The AI training programme and the flagship product, built together.",
+    /** The mark is drawn in currentColor; it takes the page's ink. */
+    tone: "ink" as const,
+  },
+  {
+    id: "mendozer",
+    name: "Mendozer",
+    href: "https://mendozer.com",
+    logo: "/partners/mendozer-logo.svg",
+    alt: "Mendozer",
+    note: "Collaborating in concepts.",
+    /** The mark carries its own gradient; it stands unaltered. */
+    tone: "self" as const,
+  },
+] as const;
+
 /** Primary navigation: two mega groups and the Apply action. */
 export const navGroups = [
   {
@@ -253,6 +301,7 @@ export const navGroups = [
     items: [
       { href: "/about", name: "About", desc: "The institute, the name and the Principal." },
       { href: "/people", name: "People", desc: "The hiring bar, published before the titles." },
+      { href: "/research", name: "Research & Development", desc: "The R&D practice, the current work, and the partners it runs with." },
       { href: "/resources", name: "Resources", desc: "The Oryx Directory: free crash courses and templates, plus the Bulletin." },
       { href: "/announcements", name: "Announcements", desc: "What the institute has made public, dated as it was said." },
       { href: "/compare", name: "Compare", desc: "Oryx beside the alternatives, honestly." },
@@ -272,7 +321,7 @@ export const faqs = [
   },
   {
     q: "What programmes does the institute offer?",
-    a: "Today, the consulting practice: business counselling, market research and development, and Rapid Response Training. The education stands on four disciplines, science, engineering, technology and applied problem-solving, and it is phased in as accreditation progresses. Programme and course offerings are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+    a: "Today, the practice: business counselling, business administration, IT and related fields, market research and development, and Rapid Response Training. The education stands on four disciplines, science, engineering, technology and applied problem-solving, and it is phased in as accreditation progresses. Programme and course offerings are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
   },
   {
     q: "Does Oryx consult for businesses?",
@@ -311,8 +360,12 @@ export const faqs = [
     a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the four crash courses or help yourself to the seven templates.",
   },
   {
+    q: "What does the research and development practice cover?",
+    a: "Two sides of the same desk. For clients: feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground. For the institute itself: the AI training programme now being built with Tangison Technologies, the flagship product under construction on it, and the Skills Camp concept. The R&D page names what is live and what is in development.",
+  },
+  {
     q: "Does Oryx work with partners?",
-    a: "Openly. The institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
+    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and concept work runs with Mendozer. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
   },
 ] as const;
 
