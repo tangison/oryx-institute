@@ -51,6 +51,10 @@ export function SiteFooter() {
               {site.email}
             </a>
             <br />
+            <Link href="/contact" className="link-type">
+              Contact the office
+            </Link>
+            <br />
             {site.city}, {site.country}
             {site.socials.length > 0 ? (
               <>
