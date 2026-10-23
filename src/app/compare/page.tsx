@@ -93,6 +93,9 @@ export default function ComparePage() {
 
             <div className="mt-10 overflow-hidden rounded-[var(--r-card)] border border-rule">
               <table className="w-full border-collapse text-left">
+                <caption className="sr-only">
+                  {c.title}: the other path beside Oryx, axis by axis
+                </caption>
                 <thead>
                   <tr className="bg-paper-2">
                     <th className="label-caps p-4 align-bottom text-soft md:p-5" scope="col">
@@ -109,12 +112,14 @@ export default function ComparePage() {
                 <tbody>
                   {c.rows.map((row) => (
                     <tr key={row.axis} className="border-t border-rule align-top">
-                      <th
+                      {/* Row label as td, not th: the first column header
+                          then has real data cells beneath it, and screen
+                          readers still get the emphasized label. */}
+                      <td
                         className="p-4 text-[0.92rem] font-semibold text-ink md:p-5"
-                        scope="row"
                       >
                         {row.axis}
-                      </th>
+                      </td>
                       <td className="p-4 text-[0.95rem] leading-relaxed text-soft md:p-5">
                         {row.them}
                       </td>

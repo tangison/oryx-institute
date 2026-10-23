@@ -74,6 +74,7 @@ function BlockView({ block }: { block: Block }) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full min-w-[36rem] border-collapse text-left text-[0.92rem]">
+        <caption className="sr-only">{block.head.join(" · ")}</caption>
         <thead>
           <tr>
             {block.head.map((h, i) => (

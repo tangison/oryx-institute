@@ -99,7 +99,7 @@ export function ApplyForm() {
           <input
             id="af-contact"
             name="contact"
-            type="text"
+            type="email"
             autoComplete="email"
             enterKeyHint="next"
             className="field-input"

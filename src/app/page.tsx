@@ -93,7 +93,7 @@ const jsonLd = [
     url: site.url,
     description: site.description,
     publisher: {
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "@id": schemaIds.org,
       name: site.legalName,
     },

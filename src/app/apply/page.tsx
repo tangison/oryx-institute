@@ -119,6 +119,8 @@ export default function ApplyPage() {
               is committed until both sides agree. No message is stored
               by this site: the composer only prepares the email, and the
               conversation happens in your own mailbox, where it belongs.
+              If a week passes without a reply, write again — the office
+              would rather be asked twice than leave a question standing.
             </p>
           </div>
 

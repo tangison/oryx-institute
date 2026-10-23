@@ -35,6 +35,7 @@ export function SiteFooter() {
                 { href: "/tools", label: "Tools" },
                 { href: "/people", label: "People" },
                 { href: "/about", label: "About" },
+                { href: "/faq", label: "FAQ" },
                 { href: "/apply", label: "Apply" },
               ].map((l) => (
                 <li key={l.href}>
@@ -97,7 +98,7 @@ export function SiteFooter() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={p.logo}
-                  alt={`${p.name} logo`}
+                  alt=""
                   width={p.id === "tangison" ? 1383 : 1024}
                   height={p.id === "tangison" ? 296 : 401}
                   className="h-full w-auto"
