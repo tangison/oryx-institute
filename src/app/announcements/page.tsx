@@ -50,6 +50,17 @@ export default function AnnouncementsPage() {
             answer does not outrun the announcement itself.
           </p>
         </div>
+        <div className="keyline mt-10 max-w-3xl">
+          <p className="label-caps text-soft">What announcements are not</p>
+          <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
+            They are not marketing. No entry is published to fill a
+            schedule, and none will promise a date, a fee or a credential
+            ahead of its evidence. When the schedule of the AI training
+            programme is final, when the flagship product can be shown,
+            and when the schools open for enrolment, each of those facts
+            lands here first &mdash; dated, plain, and standing on its own.
+          </p>
+        </div>
       </section>
 
       {/* The paper trail: the wax seal plate and the announcements

@@ -13,16 +13,23 @@ export default function manifest(): MetadataRoute.Manifest {
         root layout's viewport export, as the audit requires. */
     theme_color: "#FFFFFF",
     icons: [
+      /** True-size PNGs, one file per declared size (the audit caught
+          a 512 file declared as 192). 192 for browser UI, 512 for
+          installs; both also declared maskable with safe padding. */
       {
-        /** The installed PNG measures 512x512; it is declared at its
-            true size (the audit caught a 192 declaration on a 512 file). */
-        src: "/images/icon-maskable-192.png",
+        src: "/images/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/images/icon-512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/images/icon-maskable-192.png",
+        src: "/images/icon-512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",

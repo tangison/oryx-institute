@@ -110,6 +110,18 @@ export default function ApplyPage() {
             </address>
           </div>
 
+          <div className="keyline">
+            <p className="label-caps text-soft">What happens next</p>
+            <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
+              The Principal&apos;s office reads every message and answers
+              personally, usually within the week. The first reply names
+              what the institute can and cannot do for you, and nothing
+              is committed until both sides agree. No message is stored
+              by this site: the composer only prepares the email, and the
+              conversation happens in your own mailbox, where it belongs.
+            </p>
+          </div>
+
           <div className="rounded-[var(--r-card)] tint-warm p-8">
             <p className="display-statement text-ink">
               Looks harmless.{" "}

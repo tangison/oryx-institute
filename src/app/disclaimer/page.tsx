@@ -53,7 +53,13 @@ const sections = [
   {
     h: "Imagery",
     body: [
-      "The wolf and the misty ocean appear exactly as the institute's print kit publishes them, cropped only to fit the page. They are brand imagery, not depictions of the campus or its students.",
+      "The photographs and prints on this site come from the institute's own master asset package, and each is used once. They are brand and register imagery, not depictions of a campus: the institute has no premises to photograph yet, and it does not borrow one. Images carry no captions and make no claims of their own.",
+    ],
+  },
+  {
+    h: "Questions about this page",
+    body: [
+      `If anything printed here reads as a claim the institute does not make, write to ${site.email} and the office will correct the record. The disclaimer, the terms and the privacy note are updated as the institute's status changes, and the current text of each is the standing one.`,
     ],
   },
 ];

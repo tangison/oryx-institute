@@ -60,13 +60,13 @@ export default async function AnnouncementPage({
     datePublished: a.dateISO,
     dateModified: a.dateISO,
     author: {
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "@id": schemaIds.org,
       name: site.legalName,
       url: site.url,
     },
     publisher: {
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "@id": schemaIds.org,
       name: site.legalName,
       logo: {
