@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Apply to Oryx Institute",
   description:
-    "Apply to Oryx Institute, or book the practice: counselling, business administration, IT, market research and development, Rapid Response Training. One message to the Principal's office.",
+    "Apply to Oryx Institute, or book the practice: counselling, business administration, IT, market research, Rapid Response Training. One message.",
   alternates: { canonical: "/apply" },
   openGraph: {
     title: "Apply | Oryx Institute",

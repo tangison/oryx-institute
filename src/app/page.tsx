@@ -11,7 +11,7 @@ import GradientText from "@/components/reactbits/GradientText/GradientText";
 import StarBorder from "@/components/reactbits/StarBorder/StarBorder";
 import Magnet from "@/components/reactbits/Magnet/Magnet";
 import { motto } from "@/lib/content";
-import { site, disciplines, services, announcements } from "@/lib/site";
+import { site, disciplines, services, announcements, schemaIds } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Oryx Institute | Applied problem-solving, Windhoek",
@@ -41,6 +41,8 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
+    /** One entity, referenced by every other page's schema. */
+    "@id": schemaIds.org,
     name: site.legalName,
     alternateName: site.shortName,
     url: site.url,
@@ -86,11 +88,13 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": schemaIds.website,
     name: site.tradingName,
     url: site.url,
     description: site.description,
     publisher: {
       "@type": "Organization",
+      "@id": schemaIds.org,
       name: site.legalName,
     },
   },

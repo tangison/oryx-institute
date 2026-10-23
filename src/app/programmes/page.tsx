@@ -54,6 +54,33 @@ export default function ProgrammesPage() {
         <ProgrammesAccordion />
       </section>
 
+      {/* What sits beside the disciplines: the live practice, named
+          honestly so a visitor knows what can be booked today. */}
+      <section className="chapter shell">
+        <div className="keyline max-w-3xl">
+          <p className="label-caps text-soft">Beside the disciplines</p>
+          <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
+            The disciplines describe the education being phased in; the
+            practice described on the home page is what runs today.
+            Business counselling, business administration, IT and related
+            fields, market research and development and Rapid Response
+            Training are all live, and each of them is booked the same
+            way: one message to the Principal&apos;s office. The research
+            and development page names what the institute is building
+            behind the practice, and with whom.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link href="/research" className="pill-ghost">
+              See Research &amp; Development
+            </Link>
+            <Link href="/apply" className="pill">
+              Book the practice
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* The ground the institute is named for: one wide coastal frame
           and the four discipline cards, carried horizontally. */}
       <section className="chapter shell pb-0">

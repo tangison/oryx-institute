@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import Magnet from "@/components/reactbits/Magnet/Magnet";
-import { announcements, site } from "@/lib/site";
+import { announcements, site, schemaIds } from "@/lib/site";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
@@ -20,12 +20,14 @@ export async function generateMetadata({
   const a = announcements.find((x) => x.slug === slug);
   if (!a) return {};
   return {
-    title: `${a.title} | Announcements`,
-    description: a.standfirst,
+    /** Absolute: the headline is the announcement's full published
+        title; a site suffix would push it past the 60-char bar. */
+    title: { absolute: a.title },
+    description: a.meta,
     alternates: { canonical: `/announcements/${a.slug}` },
     openGraph: {
-      title: `${a.title} | Oryx Institute`,
-      description: a.standfirst,
+      title: a.title,
+      description: a.meta,
       images: [
         {
           url: "/images/og-inner.jpg",
@@ -48,21 +50,24 @@ export default async function AnnouncementPage({
   if (!a) notFound();
 
   /** Truthful structured data: a dated public statement by the
-      institute as publisher. Every field matches visible content. */
+      institute as publisher. The Organization and WebSite are
+      referenced by @id — one entity site-wide, not re-declared. */
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: a.title,
-    description: a.standfirst,
+    description: a.meta,
     datePublished: a.dateISO,
     dateModified: a.dateISO,
     author: {
       "@type": "Organization",
+      "@id": schemaIds.org,
       name: site.legalName,
       url: site.url,
     },
     publisher: {
       "@type": "Organization",
+      "@id": schemaIds.org,
       name: site.legalName,
       logo: {
         "@type": "ImageObject",
@@ -84,7 +89,9 @@ export default async function AnnouncementPage({
       <PageHero title={a.title} accent="">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem]">
           <span className="label-caps text-accent">{a.kicker}</span>
-          <span className="text-soft">{a.date}</span>
+          <time dateTime={a.dateISO} className="text-soft">
+            {a.date}
+          </time>
         </div>
       </PageHero>
 
