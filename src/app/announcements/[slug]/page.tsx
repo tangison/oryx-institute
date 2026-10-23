@@ -125,9 +125,16 @@ export default async function AnnouncementPage({
       </section>
 
       <section className="chapter shell">
+        {/* The date, restated where the article proper begins: the
+            statement carries its date in reading order, not only in
+            the header band. */}
+        <p className="label-caps text-soft">
+          Dated{" "}
+          <time dateTime={a.dateISO}>{a.date}</time>
+        </p>
         <div
           data-line-grow
-          className="mb-10 h-px w-full bg-rule"
+          className="mb-10 mt-6 h-px w-full bg-rule"
           aria-hidden
         />
         {/* The body reveals through the site-wide ScrollMotion pass:

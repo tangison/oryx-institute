@@ -190,7 +190,7 @@ export default function ResearchPage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={p.logo}
-                    alt={`${p.name} logo`}
+                    alt=""
                     width={p.id === "tangison" ? 1383 : 1024}
                     height={p.id === "tangison" ? 296 : 401}
                     className={`h-9 w-auto md:h-10 ${

@@ -59,6 +59,8 @@ export default function AnnouncementsPage() {
             programme is final, when the flagship product can be shown,
             and when the schools open for enrolment, each of those facts
             lands here first &mdash; dated, plain, and standing on its own.
+            Until then, the absence of an announcement is itself the
+            accurate statement of where the work stands.
           </p>
         </div>
       </section>

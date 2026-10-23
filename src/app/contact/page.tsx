@@ -123,6 +123,23 @@ export default function ContactPage() {
 
       <section className="chapter shell">
         <div className="keyline max-w-3xl">
+          <p className="label-caps text-soft">What to expect of the reply</p>
+          <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
+            The first reply is written by a person, and it does three
+            things: it confirms what you asked, it names what the
+            institute can and cannot do for you at this stage, and it
+            sets out the next step in one line. No fee is quoted before
+            the scope of the work is understood, and nothing in the
+            reply claims a credential, a campus or a schedule the
+            institute does not hold. If your question sits outside the
+            practice, the reply says so plainly and points you to where
+            the answer is, so no one&apos;s time is spent politely.
+          </p>
+        </div>
+      </section>
+
+      <section className="chapter shell">
+        <div className="keyline max-w-3xl">
           <p className="label-caps text-soft">Before you write</p>
           <p className="mt-4 text-[1.02rem] leading-relaxed text-soft" data-reveal>
             The FAQ answers the common questions: how to apply, what the
