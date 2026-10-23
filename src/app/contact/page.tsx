@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/site/page-hero";
+import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -136,6 +137,58 @@ export default function ContactPage() {
             the answer is, so no one&apos;s time is spent politely.
           </p>
         </div>
+      </section>
+
+      {/* The four kinds of message, carried horizontally like every
+          page on the site. Text only; the office is the destination. */}
+      <section className="chapter shell">
+        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
+          <h2 className="display-section max-w-2xl text-ink" data-reveal>
+            What you can <span className="em-serif text-accent">write about.</span>
+          </h2>
+        </div>
+        <HorizontalScroll label="What the office handles">
+          {[
+            {
+              t: "An application",
+              b: "Name, a contact for the reply, and your field of interest. The application starts with that message.",
+              c: "tint-blush",
+            },
+            {
+              t: "A business problem",
+              b: "Counselling, administration, IT, or research work: bring the problem as it stands, in your own words.",
+              c: "tint-warm",
+            },
+            {
+              t: "A partnership",
+              b: "Training bodies, accreditation partners, sponsors, complementary businesses. Say what you have in mind.",
+              c: "tint-sand",
+            },
+            {
+              t: "The press",
+              b: "Questions about the institute, the programme with Tangison Technologies, or the work with Mendozer.",
+              c: "tint-rose",
+            },
+          ].map((s) => (
+            <article key={s.t} className={`hs-card hover-lift ${s.c}`}>
+              <p className="label-caps text-accent">The office handles</p>
+              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{s.t}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{s.b}</p>
+            </article>
+          ))}
+          <article className="hs-card hs-card--wide bg-ink text-paper">
+            <p className="label-caps opacity-70">One rule</p>
+            <p className="mt-3 text-[1.15rem] font-semibold">
+              Every message gets a reply from a person, not a queue.
+            </p>
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-4 inline-flex items-center gap-2 text-[0.85rem] font-semibold text-pale-rose"
+            >
+              {site.email}
+            </a>
+          </article>
+        </HorizontalScroll>
       </section>
 
       <section className="chapter shell">
