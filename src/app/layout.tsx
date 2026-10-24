@@ -1,23 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { ThemeProvider } from "@/components/site/theme-provider";
-import { SiteHeader } from "@/components/site/site-header";
-import { SiteFooter } from "@/components/site/site-footer";
-import { ScrollMotion } from "@/components/site/scroll-motion";
-import { SmoothScroll } from "@/components/site/smooth-scroll";
-import Noise from "@/components/reactbits/Noise/Noise";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * The approved master-package type system, self-hosted, one request per
- * family:
- * - Radley (Regular + Italic), the brand serif named in the master
- *   package and used by the published homepage, carries display type.
- * - Inter (Regular, Medium, SemiBold, Bold), the package's body face,
- *   carries UI and body text.
- * - A two-glyph Noto Serif SC subset carries 理工 set as live text (the
- *   wordmark itself is drawn as vector paths, no font involved).
+ * The coming-soon layout: the approved type system, self-hosted, one
+ * request per family, and nothing else — no providers, no chrome, no
+ * client script. Radley carries display, Inter carries text.
  */
 const serif = localFont({
   variable: "--font-serif-loaded",
@@ -39,37 +28,24 @@ const sans = localFont({
   display: "swap",
 });
 
-const cjk = localFont({
-  variable: "--font-cjk-loaded",
-  src: [{ path: "../fonts/noto-serif-sc-li-gong.woff2", weight: "400" }],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default:
-      "Oryx Institute | Windhoek, Namibia",
+    default: "Coming soon | Oryx Institute",
     template: "%s | Oryx Institute",
   },
-  description: site.description,
+  description:
+    "The Oryx Institute site is being rebuilt. The office answers at info@oryxinstitute.org — Windhoek, Namibia.",
   applicationName: site.tradingName,
   authors: [{ name: site.principal.name }],
-  keywords: [
-    "Oryx Institute",
-    "Oryx Polytechnic Institute",
-    "polytechnic Namibia",
-    "engineering Windhoek",
-    "applied problem-solving",
-    "理工 Namibia",
-  ],
   openGraph: {
     type: "website",
     siteName: site.tradingName,
     locale: "en_NA",
     url: site.url,
-    title: "Oryx Institute",
-    description: site.description,
+    title: "Coming soon | Oryx Institute",
+    description:
+      "The Oryx Institute site is being rebuilt. The office answers at info@oryxinstitute.org — Windhoek, Namibia.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -81,8 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oryx Institute",
-    description: site.description,
+    title: "Coming soon | Oryx Institute",
+    description:
+      "The Oryx Institute site is being rebuilt. The office answers at info@oryxinstitute.org — Windhoek, Namibia.",
     images: ["/images/og-default.jpg"],
   },
   alternates: { canonical: "/" },
@@ -92,10 +69,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
-    { media: "(prefers-color-scheme: dark)", color: "#181713" },
-  ],
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#FFF8EE" }],
 };
 
 export default function RootLayout({
@@ -107,34 +81,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      data-scroll-behavior="smooth"
-      className={`${serif.variable} ${sans.variable} ${cjk.variable}`}
+      className={`${serif.variable} ${sans.variable}`}
     >
-      <body className="antialiased bg-paper text-ink">
-        <ThemeProvider>
-          <SmoothScroll />
-          <ScrollMotion />
-          {/* React Bits Noise: one fixed film-grain plane over the
-              whole site. Static (no fps animation), near-invisible,
-              pointer-transparent — the print-stock feel. */}
-          <Noise
-            fixed
-            zIndex={90}
-            opacity={0.036}
-            size={1}
-            fps={0}
-            blendMode="normal"
-          />
-          <a href="#main" className="skip-link">
-            Skip to content
-          </a>
-          <SiteHeader />
-          <main id="main" className="w-full max-w-full overflow-x-clip">
-            {children}
-          </main>
-          <SiteFooter />
-        </ThemeProvider>
-      </body>
+      <body className="antialiased bg-paper text-ink">{children}</body>
     </html>
   );
 }
