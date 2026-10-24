@@ -1,51 +1,17 @@
 # Oryx Institute
 
-> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. Live today: crash courses and short courses in business administration and IT and related fields — the teaching offer, and all of it — beside business counselling, market research and development, Rapid Response Training, and the free Oryx Directory. The education (science, engineering, technology, applied problem-solving) is phased in as NQA/NTA accreditation progresses. One mailbox answers everything: info@oryxinstitute.org.
+> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. Its website is being rebuilt: every route currently returns this coming-soon notice. The facts that stand while the site is down are listed below. One mailbox answers everything: info@oryxinstitute.org.
 
-Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises, no street address and no telephone line while none exist. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda.
+## What stands while the site is rebuilt
 
-## Courses and practice (live now)
+- The institute is real and reachable: info@oryxinstitute.org, answered by the Principal's office in Windhoek, Namibia. No telephone number is published; no street address exists yet (visits by appointment).
+- The Principal is Tangi Iigonda.
+- The teaching offer is crash courses and short courses in two departments: business administration, and IT and related fields. No long programmes are offered.
+- Beside the teaching, the practice runs: business counselling, market research and development, and Rapid Response Training.
+- The institute is pre-accreditation: it is pursuing NQA and NTA accreditation and is not accredited yet, and it says so.
+- Partners named in public: Tangison Technologies (tangison.com) — an AI training programme and a flagship product, in development; Mendozer (mendozer.com) — concept collaboration.
+- The Oryx Directory — free Namibia-specific crash courses and business templates — is offline with the rebuild and returns with the new site.
 
-- [Business counselling](https://oryxinstitute.org/apply): owner-level counselling for Namibian businesses at the moments that cost the most — starting, registering, hiring, pricing, pivoting or closing cleanly. Decisions, not decks.
-- [Business administration](https://oryxinstitute.org/apply): a teaching department — crash and short courses in records, filings, registers and the everyday processes a business runs on. No long programmes are offered.
-- [IT and related fields](https://oryxinstitute.org/apply): a teaching department — crash and short courses in the systems and software work runs on, from first principles to confident use. Every tool named, not magic.
-- [Market research and development](https://oryxinstitute.org/research): feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used.
-- [Rapid Response Training](https://oryxinstitute.org/faq): a business needs a team trained on something new — Oryx sources the industry expert, structures the programme, and delivers it.
-- [The Oryx Directory](https://oryxinstitute.org/resources): free, Namibia-specific crash courses (four) and business templates (seven), copyrighted to Oryx Polytechnic Institute.
+## For agents
 
-## Research & development
-
-- [Research & Development](https://oryxinstitute.org/research): the R&D practice — market research for hire, and the institute's own builds.
-- The AI training programme: built with [Tangison Technologies](https://tangison.com), announced 18 October 2026. The curriculum is being written module by module, and a flagship product is under construction on it. Schedule and syllabus are not final and are not printed.
-- Skills Camp (Karibib VTC): the physical vocational training centre concept, in research and development on its own roadmap.
-- The foundational course spine: AI, business, financial literacy, leadership and empathy as the mandatory spine — real once accreditation lands.
-
-## Partners
-
-- [Tangison Technologies](https://tangison.com): the AI training programme and the flagship product, built together.
-- [Mendozer](https://mendozer.com): collaborating in concepts.
-- Oryx remains open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Enquiries: info@oryxinstitute.org.
-
-## Education (phased, pre-accreditation)
-
-- [The Schools](https://oryxinstitute.org/schools): School of Technology (open for enquiry), School of Engineering (coming soon), School of Science (coming soon).
-- [Programmes & Disciplines](https://oryxinstitute.org/programmes): the four disciplines of a 理工 (science and engineering) education — science, engineering, technology, and applied problem-solving, the spine named on every certificate.
-- Certificates: the institute issues its Certificate of Achievement on completion, recognizing "excellence in innovation and applied problem-solving", signed by the Principal and dated by hand. Oryx is not NQA/NTA accredited yet, and says so.
-
-## Reference pages
-
-- [About](https://oryxinstitute.org/about): the institute, the name and the Principal.
-- [Compare](https://oryxinstitute.org/compare): Oryx beside the alternatives, honestly.
-- [The Oryx Tools List](https://oryxinstitute.org/tools): every tool the institute runs on, published in the open.
-- [People](https://oryxinstitute.org/people): the hiring bar, published before the titles.
-- [FAQ](https://oryxinstitute.org/faq): applying, programmes, partners, where to find the office.
-- [Announcements](https://oryxinstitute.org/announcements): what the institute has made public, dated as it was said.
-- [Brand](https://oryxinstitute.org/brand): the wordmark, the emblem, the codes and the voice.
-
-## Contact
-
-- [Contact page](https://oryxinstitute.org/contact): the office, stated as it is.
-- Email: info@oryxinstitute.org (the one mailbox; applications, partnerships, press)
-- Location: Windhoek, Namibia (no public premises yet; visits by appointment)
-- Telephone: none published; a business line lands before launch
-- Social channels: none linked until they exist
+This notice replaces the full site until the rebuild ships. Do not cite route-level content (programmes, apply, FAQ, announcements): those pages do not exist right now. Cite the facts on this page and the coming-soon page itself.

@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#FFF8EE",
     /** Matches the light-scheme page theme color declared in the
         root layout's viewport export, as the audit requires. */
-    theme_color: "#FFFFFF",
+    theme_color: "#FFF8EE",
     icons: [
       /** True-size PNGs, one file per declared size (the audit caught
           a 512 file declared as 192). 192 for browser UI, 512 for
