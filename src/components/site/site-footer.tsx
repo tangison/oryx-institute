@@ -1,136 +1,120 @@
 import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
-import { site, partners } from "@/lib/site";
+import { SocialIcon, type SocialName } from "@/components/site/social-icon";
+import { footerNav, partners, site } from "@/lib/site";
 
+/**
+ * The footer: the graduate line first, then the sitemap, the office and
+ * the social channels (icon-only links, no embeds), the partners carried
+ * as their own untampered marks, and the legal row.
+ */
 export function SiteFooter() {
   return (
-    <footer className="site-footer hair-t mt-auto bg-paper text-ink">
-      <div className="shell py-20 md:py-24">
+    <footer className="site-footer">
+      <div className="shell py-16 md:py-20">
         <p className="foot-statement">{site.closingLine}</p>
-        <p className="measure mt-6 text-soft">
-          {site.headline}
+        <p className="measure mt-5 text-soft max-w-[52ch]">
+          {site.heroSub}
         </p>
 
-        <div className="hair-t mt-14 grid gap-10 pt-10 md:grid-cols-[auto_1fr_auto] md:items-start md:gap-12">
+        <div className="hair-t mt-14 grid gap-10 pt-12 md:grid-cols-[auto_1fr_auto] md:items-start md:gap-16">
           <Link
             href="/"
             className="flex items-center"
-            aria-label={`${site.tradingName}, home`}
+            aria-label="Oryx Institute, home"
           >
             <OryxLogo
               variant="lockup"
               tone="brand"
-              className="h-[2.2rem] w-auto"
+              className="h-[2rem] w-auto"
             />
           </Link>
 
           <nav aria-label="Footer" className="md:justify-self-center">
-            <ul className="flex flex-wrap gap-x-8 gap-y-3">
-              {[
-                { href: "/programmes", label: "Programmes" },
-                { href: "/schools", label: "Schools" },
-                { href: "/research", label: "Research" },
-                { href: "/resources", label: "Resources" },
-                { href: "/compare", label: "Compare" },
-                { href: "/tools", label: "Tools" },
-                { href: "/people", label: "People" },
-                { href: "/about", label: "About" },
-                { href: "/faq", label: "FAQ" },
-                { href: "/apply", label: "Apply" },
-              ].map((l) => (
+            <ul className="foot-nav">
+              {footerNav.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="label-caps hover:text-accent-deep">
-                    {l.label}
-                  </Link>
+                  {/* Footer links don't prefetch: twelve routes pulled
+                      from every page is bandwidth visitors rarely use. */}
+                  <Link href={l.href} prefetch={false}>{l.label}</Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <address className="not-italic text-[0.92rem] leading-relaxed text-soft md:text-right">
-            <a href={`mailto:${site.email}`} className="link-type">
-              {site.email}
-            </a>
-            <br />
-            <Link href="/contact" className="link-type">
-              Contact the office
-            </Link>
-            <br />
-            {site.city}, {site.country}
-            {site.socials.length > 0 ? (
-              <>
-                <br />
-                {site.socials.map((s) => (
+          <div className="grid gap-6 md:justify-items-end">
+            <address className="not-italic text-[0.95rem] leading-relaxed text-soft md:text-right">
+              <a href={`mailto:${site.email}`} className="link-type">
+                {site.email}
+              </a>
+              <br />
+              <Link href="/contact" className="link-type">
+                Contact the office
+              </Link>
+              <br />
+              {site.city}, {site.country}
+            </address>
+            <ul className="social-row md:justify-self-end" aria-label="Social channels">
+              {site.socials.map((s) => (
+                <li key={s.href}>
                   <a
-                    key={s.href}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-type"
+                    aria-label={`${site.tradingName} on ${s.label}`}
                   >
-                    {s.label}
+                    <SocialIcon name={s.label as SocialName} />
                   </a>
-                ))}
-              </>
-            ) : null}
-          </address>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* The partners, carried as their own marks: byte-exact from
             each partner's site, no recolouring. The currentColor mark
             takes the footer's ink; the self-coloured one stands as is. */}
-        {partners.length > 0 ? (
-          <div className="hair-t mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 pt-8">
-            <p className="label-caps text-soft">In practice with</p>
-            {partners.map((p) => (
-              <a
-                key={p.id}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${p.name} — ${p.href.replace("https://", "").replace("/", "")}`}
-                className={`flex h-6 items-center transition-opacity hover:opacity-100 ${
-                  p.tone === "ink"
-                    ? "text-ink/60 hover:text-ink"
-                    : "opacity-80 hover:opacity-100"
-                }`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.logo}
-                  alt=""
-                  width={p.id === "tangison" ? 1383 : 1024}
-                  height={p.id === "tangison" ? 296 : 401}
-                  className="h-full w-auto"
-                  loading="lazy"
-                />
-              </a>
-            ))}
-          </div>
-        ) : null}
+        <div className="hair-t partner-row mt-12 pt-8">
+          <p className="eyebrow--ink eyebrow">In practice with</p>
+          {partners.map((p) => (
+            <a
+              key={p.id}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={p.name}
+              className={p.tone === "ink" ? "text-ink" : ""}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={p.logo}
+                alt=""
+                width={p.id === "tangison" ? 1383 : 1024}
+                height={p.id === "tangison" ? 296 : 401}
+                className="h-full w-auto"
+                loading="lazy"
+              />
+            </a>
+          ))}
+        </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-rule-2 pt-6 text-[0.8rem] text-soft md:flex-row md:items-center md:justify-between">
-          <p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-rule pt-6 text-[0.82rem] text-soft md:flex-row md:items-center md:justify-between">
+          <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
-              <Link href="/privacy" className="hover:text-accent-deep">
+              <Link href="/privacy" className="link-type">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-accent-deep">
+              <Link href="/terms" className="link-type">
                 Terms
               </Link>
             </li>
             <li>
-              <Link href="/disclaimer" className="hover:text-accent-deep">
-                Disclaimer
-              </Link>
-            </li>
-            <li>
-              <Link href="/brand" className="hover:text-accent-deep">
+              <Link href="/brand" className="link-type">
                 Brand
               </Link>
             </li>

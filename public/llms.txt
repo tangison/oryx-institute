@@ -1,24 +1,30 @@
 # Oryx Institute
 
-> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. Live today: crash courses and short courses in business administration and IT and related fields — the teaching offer, and all of it — beside business counselling, market research and development, Rapid Response Training, and the free Oryx Directory. The education (science, engineering, technology, applied problem-solving) is phased in as NQA/NTA accreditation progresses. One mailbox answers everything: info@oryxinstitute.org.
+> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It runs three engines to one standard: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields — the teaching offer, and all of it — beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. The education (science, engineering, technology, applied problem-solving) is phased in as NQA/NTA accreditation progresses. One mailbox answers everything: info@oryxinstitute.org.
 
 Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises, no street address and no telephone line while none exist. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda.
 
-## Courses and practice (live now)
+## What runs today (six offers)
 
-- [Business counselling](https://oryxinstitute.org/apply): owner-level counselling for Namibian businesses at the moments that cost the most — starting, registering, hiring, pricing, pivoting or closing cleanly. Decisions, not decks.
-- [Business administration](https://oryxinstitute.org/apply): a teaching department — crash and short courses in records, filings, registers and the everyday processes a business runs on. No long programmes are offered.
-- [IT and related fields](https://oryxinstitute.org/apply): a teaching department — crash and short courses in the systems and software work runs on, from first principles to confident use. Every tool named, not magic.
-- [Market research and development](https://oryxinstitute.org/research): feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used.
-- [Rapid Response Training](https://oryxinstitute.org/faq): a business needs a team trained on something new — Oryx sources the industry expert, structures the programme, and delivers it.
+- [Owner's Desk](https://oryxinstitute.org/programmes#owners-desk): one-on-one business counselling. The outcome is written down. Decisions, not decks.
+- [Business Administration](https://oryxinstitute.org/programmes#business-administration): a teaching department — crash and short courses in records, filings, registers and the everyday processes a business runs on. No long programmes are offered.
+- [IT & Related Fields](https://oryxinstitute.org/programmes#it): a teaching department — crash and short courses in the systems and software work runs on, from first principles to confident use. Every tool named, not magic.
+- [Market R&D](https://oryxinstitute.org/programmes#market-rd): feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used.
+- [Rapid Response Training](https://oryxinstitute.org/programmes#rapid-response): a business needs a team trained on something new — Oryx sources the industry expert, structures the programme, and delivers it.
 - [The Oryx Directory](https://oryxinstitute.org/resources): free, Namibia-specific crash courses (four) and business templates (seven), copyrighted to Oryx Polytechnic Institute.
 
 ## Research & development
 
-- [Research & Development](https://oryxinstitute.org/research): the R&D practice — market research for hire, and the institute's own builds.
+- [Research](https://oryxinstitute.org/research): the R&D practice — market research for hire, the Bulletin, fieldwork notes, papers, researchers and partners.
+- The Bulletin: four published essays, every figure carrying its source — [read them in the Directory](https://oryxinstitute.org/resources#bulletin).
 - The AI training programme: built with [Tangison Technologies](https://tangison.com), announced 18 October 2026. The curriculum is being written module by module, and a flagship product is under construction on it. Schedule and syllabus are not final and are not printed.
 - Skills Camp (Karibib VTC): the physical vocational training centre concept, in research and development on its own roadmap.
 - The foundational course spine: AI, business, financial literacy, leadership and empathy as the mandatory spine — real once accreditation lands.
+
+## Ventures
+
+- [Ventures](https://oryxinstitute.org/ventures): small operating companies the institute opens to test sectors. Each one is a live classroom and a live lab.
+- Corner Spa: the first venture, announced as a concept — wellness and service operations in Windhoek. Premises, licensing and the service menu are in development; it opens as a business or it does not open.
 
 ## Partners
 
@@ -29,18 +35,20 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 ## Education (phased, pre-accreditation)
 
 - [The Schools](https://oryxinstitute.org/schools): School of Technology (open for enquiry), School of Engineering (coming soon), School of Science (coming soon).
-- [Programmes & Disciplines](https://oryxinstitute.org/programmes): the four disciplines of a 理工 (science and engineering) education — science, engineering, technology, and applied problem-solving, the spine named on every certificate.
+- [Programmes](https://oryxinstitute.org/programmes): the four disciplines of a 理工 (science and engineering) education — science, engineering, technology, and applied problem-solving, the spine named on every certificate.
 - Certificates: the institute issues its Certificate of Achievement on completion, recognizing "excellence in innovation and applied problem-solving", signed by the Principal and dated by hand. Oryx is not NQA/NTA accredited yet, and says so.
+
+## News and feeds
+
+- [News](https://oryxinstitute.org/news): announcements, field notes and press, dated as they were said.
+- RSS: https://oryxinstitute.org/feed.xml · JSON: https://oryxinstitute.org/feed.json
 
 ## Reference pages
 
-- [About](https://oryxinstitute.org/about): the institute, the name and the Principal.
-- [Compare](https://oryxinstitute.org/compare): Oryx beside the alternatives, honestly.
+- [About](https://oryxinstitute.org/about): the institute, the name, 理工, the Principal and the legal standing.
 - [The Oryx Tools List](https://oryxinstitute.org/tools): every tool the institute runs on, published in the open.
-- [People](https://oryxinstitute.org/people): the hiring bar, published before the titles.
-- [FAQ](https://oryxinstitute.org/faq): applying, programmes, partners, where to find the office.
-- [Announcements](https://oryxinstitute.org/announcements): what the institute has made public, dated as it was said.
-- [Brand](https://oryxinstitute.org/brand): the wordmark, the emblem, the codes and the voice.
+- [FAQ](https://oryxinstitute.org/faq): applying, programmes, ventures, partners, where to find the office.
+- [Brand](https://oryxinstitute.org/brand): the wordmark, the emblem, the codes, the voice — and the asset downloads.
 
 ## Contact
 
@@ -48,4 +56,4 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 - Email: info@oryxinstitute.org (the one mailbox; applications, partnerships, press)
 - Location: Windhoek, Namibia (no public premises yet; visits by appointment)
 - Telephone: none published; a business line lands before launch
-- Social channels: none linked until they exist
+- Social: Instagram @oryx_institute, Facebook /oryxinstitute, LinkedIn /company/oryxpolytechnicinstitute

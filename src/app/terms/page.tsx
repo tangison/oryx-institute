@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { InkPage } from "@/components/site/ink-page";
-import { PageHero } from "@/components/site/page-hero";
-import { HorizontalScroll } from "@/components/site/horizontal-scroll";
+import { PageHead } from "@/components/site/page-head";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,10 +11,9 @@ export const metadata: Metadata = {
     title: "Terms of Service | Oryx Polytechnic Institute",
     description:
       "What the site does, what an application means, and what it does not promise.",
-    url: "/terms",
     images: [
       {
-        url: "/images/og-inner.jpg",
+        url: "/brand/og/default.png",
         width: 1200,
         height: 630,
         alt: "Terms of service, Oryx Polytechnic Institute",
@@ -72,49 +69,31 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <InkPage>
-      <>
-        <PageHero title="Terms of service">
-          <p>
-            Short terms, because the site does little: it shows the
-            institute and carries one message at a time.
-          </p>
-        </PageHero>
+    <>
+      <PageHead eyebrow="Legal" title="Terms of service.">
+        <p>
+          Short terms, because the site does little: it shows the
+          institute and carries one message at a time.
+        </p>
+      </PageHead>
 
-      {/* The register of this page, carried horizontally. */}
-      <section className="shell pt-16">
-        <HorizontalScroll label="This page, carried horizontally">
-          <article className={`hs-card hover-lift tint-warm`}>
-            <p className="text-[1.05rem] font-semibold text-ink">What the site does</p>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Presents the institute and prepares an application email. Nothing more, nothing hidden.</p>
-          </article>
-          <article className={`hs-card hover-lift tint-sand`}>
-            <p className="text-[1.05rem] font-semibold text-ink">What it never does</p>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">Takes payments, creates accounts, or stores your messages.</p>
-          </article>
-          <article className={`hs-card hover-lift tint-blush`}>
-            <p className="text-[1.05rem] font-semibold text-ink">Where content lives</p>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">The words on this site are the institute's own; the handoff happens in your mail client, under its terms.</p>
-          </article>
-        </HorizontalScroll>
+      <section className="section-lg">
+        <div className="shell">
+          <div className="article max-w-3xl">
+            {sections.map((s) => (
+              <div key={s.h} className="mt-12 first:mt-0" data-reveal>
+                <h2 className="h-sub">{s.h}</h2>
+                {s.body.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            ))}
+            <p className="meta mt-16">
+              {site.legalName} · {site.city}, {site.country}
+            </p>
+          </div>
+        </div>
       </section>
-
-        <section className="shell pb-28">
-          {sections.map((s) => (
-            <div key={s.h} className="mt-10 first:mt-0">
-              <h2>{s.h}</h2>
-              {s.body.map((p, i) => (
-                <p key={i} className="mt-4">
-                  {p}
-                </p>
-              ))}
-            </div>
-          ))}
-          <p className="doc-meta mt-16">
-            {site.legalName} · {site.city}, {site.country}
-          </p>
-        </section>
-      </>
-    </InkPage>
+    </>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { disciplines, services, site } from "@/lib/site";
+import { useEffect, useState } from "react";
+import { offers, site } from "@/lib/site";
 
 type Errors = { name?: string; contact?: string };
 
@@ -12,6 +11,9 @@ type Errors = { name?: string; contact?: string };
  * client. No data is stored on this site; nothing is sent anywhere
  * until the visitor presses send in their own client.
  *
+ * A ?for=<offer-id> query preselects the field of interest (e.g. the
+ * CTAs on /programmes) — read client-side so the page stays static.
+ *
  * The business telephone line is deliberately not published while the
  * institute is being established; when one lands, a phone field and a
  * tel handoff are added back here.
@@ -19,9 +21,16 @@ type Errors = { name?: string; contact?: string };
 export function ApplyForm() {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [discipline, setDiscipline] = useState<string>(disciplines[0].name);
+  const [discipline, setDiscipline] = useState<string>(offers[0].name);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
+
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("for");
+    if (!wanted) return;
+    const hit = offers.find((o) => o.id === wanted);
+    if (hit) setDiscipline(hit.name);
+  }, []);
 
   function validate(): Errors {
     const next: Errors = {};
@@ -128,21 +137,13 @@ export function ApplyForm() {
             value={discipline}
             onChange={(e) => setDiscipline(e.target.value)}
           >
-            {disciplines.map((d) => (
-              <option key={d.id} value={d.name}>
-                {d.name}
-              </option>
-            ))}
-            {services.map((s) => (
-              <option key={s.id} value={s.name}>
-                {s.name}
+            {offers.map((o) => (
+              <option key={o.id} value={o.name}>
+                {o.name}
               </option>
             ))}
             <option value="Not sure yet">Not sure yet</option>
           </select>
-          <p className="field-error" aria-hidden>
-            &nbsp;
-          </p>
         </div>
       </div>
       <div>
@@ -154,22 +155,32 @@ export function ApplyForm() {
           name="message"
           rows={5}
           enterKeyHint="send"
-          className="field-textarea resize-y"
+          className="field-textarea"
           placeholder="Tell us where you are coming from and what you want to learn"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
       <div className="flex flex-wrap items-center gap-6">
-        <button type="submit" className="pill">
+        <button type="submit" className="btn">
           Prepare the email
-          <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} aria-hidden />
         </button>
         <p className="text-[0.85rem] text-soft">
           Opens your own mail client with the application addressed to{" "}
           {site.email}. Nothing is stored on this site.
         </p>
       </div>
+      {/* With JavaScript off, the composer cannot run; the address
+          itself is the application. */}
+      <noscript>
+        <p className="field-error">
+          The composer needs JavaScript. Without it, the application is
+          the same email written by hand:{" "}
+          <a href={`mailto:${site.email}`} className="link-type">
+            {site.email}
+          </a>
+        </p>
+      </noscript>
     </form>
   );
 }

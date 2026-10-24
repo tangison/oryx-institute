@@ -1,27 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
-import { PageHero } from "@/components/site/page-hero";
-import { HorizontalScroll } from "@/components/site/horizontal-scroll";
+import { PageHead } from "@/components/site/page-head";
 import { insights, resources } from "@/lib/content";
 import { directoryCourses, directoryTemplates } from "@/lib/directory";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Resources & Insights",
+  title: "The Oryx Directory & Bulletin",
   description:
-    "Free Namibia-specific crash courses and fill-in business templates from the Oryx Directory, plus the Oryx Bulletin: cited insights on Namibian skills and tools.",
+    "Free Namibia-specific crash courses and fill-in business templates from the Oryx Directory, plus the Oryx Bulletin: cited essays on Namibia's skills and tools.",
   alternates: { canonical: "/resources" },
   openGraph: {
-    title: "Resources & Insights",
+    title: "The Oryx Directory & Bulletin | Oryx Institute",
     description:
-      "The Oryx Directory: free crash courses and business templates, with the Oryx Bulletin's cited insights.",
+      "The Oryx Directory: free crash courses and business templates, with the Bulletin's cited essays.",
     images: [
       {
-        url: "/images/og-inner.jpg",
+        url: "/brand/og/resources.png",
         width: 1200,
         height: 630,
-        alt: "Resources and insights from Oryx Institute",
+        alt: "Resources from Oryx Institute",
       },
     ],
   },
@@ -47,7 +45,7 @@ export default function ResourcesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bulletinLd) }}
       />
 
-      <PageHero title="The Oryx Directory" accent="and Bulletin.">
+      <PageHead eyebrow="Resources" title="The Oryx Directory and Bulletin.">
         <p>
           The institute writes down what it knows, and gives it away. The
           Directory carries the free resource library: Namibia-specific
@@ -55,197 +53,150 @@ export default function ResourcesPage() {
           accreditation. The Bulletin carries the numbers behind the
           mission. Nothing here asks you to take a claim on faith.
         </p>
-      </PageHero>
+      </PageHead>
 
-      {/* ------------------------------------------------ The registers,
-          carried horizontally. */}
-      <section className="shell pt-16">
-        <HorizontalScroll label="Everything the institute publishes">
-          {resources.map((r, i) => (
-            <Link
-              key={r.name}
-              href={r.action.href}
-              className={`hs-card hover-lift ${["tint-blush", "tint-warm", "tint-sand", "tint-rose", "tint-warm"][i]}`}
-            >
-              <p className="text-[1.1rem] font-semibold text-ink">{r.name}</p>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{r.what}</p>
-              <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
-                {r.action.label}
-                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-              </span>
-            </Link>
-          ))}
-        </HorizontalScroll>
-      </section>
+      {/* The Directory — crash courses */}
+      <section id="directory" className="section">
+        <div className="shell">
+          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
+            <p className="eyebrow">The Oryx Directory</p>
+            <p className="measure text-soft" data-reveal>
+              Free, Namibia-specific, and copyrighted to Oryx Polytechnic
+              Institute: not open-source, but free to access. It is real
+              value on day one, before accreditation, and proof of the
+              rigor everything the institute charges for is held to. Every
+              figure is sourced or labelled as an assumption. None of it
+              is legal, tax, or financial advice.
+            </p>
+          </div>
 
-      {/* ------------------------------------------------ The Directory */}
-      <section id="directory" className="chapter shell">
-        <div className="hair-t grid gap-10 pt-16 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-          <p className="label-caps text-accent">The Oryx Directory</p>
-          <p className="measure text-[1.02rem] leading-relaxed text-soft">
-            Free, Namibia-specific, and copyrighted to Oryx Polytechnic
-            Institute: not open-source, but free to access. It is real
-            value on day one, before accreditation, and proof of the rigor
-            everything the institute charges for is held to. Every figure
-            is sourced or labelled as an assumption. None of it is legal,
-            tax, or financial advice.
-          </p>
-        </div>
-
-        <h2 className="display-statement mt-14 max-w-2xl text-ink" data-reveal>
-          Crash courses, <span className="em-serif text-accent">Namibia first.</span>
-        </h2>
-        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule" data-reveal-group>
-          {directoryCourses.map((d) => (
-            <li key={d.slug} className="bg-paper">
-              <Link
-                href={`/resources/${d.slug}`}
-                className="group flex flex-col gap-2 p-6 transition-colors hover:bg-paper-2 sm:flex-row sm:items-center sm:gap-8 md:p-8"
-              >
-                <span className="min-w-0 flex-1">
-                  <span className="label-caps text-accent">{d.no}</span>
-                  <span className="mt-1 block text-[1.05rem] font-semibold text-ink">
-                    {d.title}
-                  </span>
-                  <span className="mt-1 block text-[0.95rem] leading-relaxed text-soft">
-                    {d.standfirst}
-                  </span>
-                </span>
-                <span className="inline-flex shrink-0 items-center gap-2 text-[0.85rem] font-semibold text-accent">
-                  {d.readMinutes} min read
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <h2 className="display-statement mt-16 max-w-2xl text-ink" data-reveal>
-          Business templates, <span className="em-serif text-accent">ready to fill.</span>
-        </h2>
-        <ul className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule sm:grid-cols-2" data-reveal-group>
-          {directoryTemplates.map((d) => (
-            <li key={d.slug} className="bg-paper">
-              <Link
-                href={`/resources/${d.slug}`}
-                className="group flex items-center gap-4 p-6 transition-colors hover:bg-paper-2"
-              >
-                <FileText className="h-4 w-4 shrink-0 text-accent" strokeWidth={2} aria-hidden />
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[1rem] font-semibold text-ink">{d.title}</span>
-                  <span className="mt-0.5 block text-[0.85rem] text-soft">{d.readMinutes} min · {d.updated}</span>
-                </span>
-                <ArrowUpRight
-                  className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* ------------------------------------------------ Resources */}
-      <section className="chapter shell">
-        <h2 className="display-section max-w-3xl text-ink" data-reveal>
-          The registers{" "}
-          <span className="em-serif text-accent">in one place</span>
-        </h2>
-        <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
-          Everything the institute publishes, listed here. The prospectus
-          is issued on request rather than left to go stale on a server.
-        </p>
-
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-[var(--r-card)] border border-rule bg-rule">
-          {resources.map((r) => (
-            <li key={r.name} className="bg-paper">
-              <Link
-                href={r.action.href}
-                className="group flex flex-col gap-2 p-6 transition-colors hover:bg-paper-2 sm:flex-row sm:items-center sm:gap-8 md:p-8"
-              >
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[1.05rem] font-semibold text-ink">
-                    {r.name}
-                  </span>
-                  <span className="mt-1 block text-[0.95rem] leading-relaxed text-soft">
-                    {r.what}
-                  </span>
-                </span>
-                <span className="inline-flex shrink-0 items-center gap-2 text-[0.85rem] font-semibold text-accent">
-                  {r.action.label}
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* ------------------------------------------------ Bulletin */}
-      <section id="bulletin" className="chapter shell">
-        <div className="hair-t grid gap-10 pt-16 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-          <p className="label-caps text-accent">The Oryx Bulletin</p>
-          <p className="measure text-[1.02rem] leading-relaxed text-soft">
-            Cited essays on the numbers, the method and the tools. Written
-            the way the institute teaches: evidence first, decoration never.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-16">
-          {insights.map((a) => (
-            <article
-              key={a.id}
-              className="hair-t grid gap-8 pt-12 lg:grid-cols-[auto_1fr] lg:gap-16"
-            >
-              <div className="lg:w-44">
-                <p className="label-caps text-accent">{a.no}</p>
-                <p className="mt-2 text-[0.85rem] leading-relaxed text-soft">{a.date}</p>
-              </div>
-              <div className="min-w-0">
-                <h3 className="display-statement max-w-3xl text-ink">
-                  {a.title}
-                </h3>
-                <p className="measure mt-4 text-[1.05rem] italic leading-relaxed text-soft">
-                  {a.dek}
-                </p>
-                <div className="measure mt-6 grid gap-5 text-[1.02rem] leading-[1.7] text-soft">
-                  {a.body.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ------------------------------------------------ Press */}
-      <section className="chapter shell">
-        <div className="keyline max-w-3xl">
-          <h2 className="display-section max-w-xl text-ink">
-            Set in ink, <span className="em-serif text-accent">kept honest.</span>
+          <h2 className="h-section mt-14 max-w-[22ch]" data-reveal>
+            Crash courses, Namibia first.
           </h2>
-          <p className="measure mt-6 text-[1.02rem] leading-relaxed text-soft">
+          <div className="ledger mt-10">
+            {directoryCourses.map((d) => (
+              <Link
+                href={`/resources/${d.slug}`}
+                className="ledger-row group"
+                key={d.slug}
+                data-reveal
+              >
+                <p className="ledger-date">{d.no}</p>
+                <div>
+                  <h3 className="news-title">{d.title}</h3>
+                  <p className="mt-2 max-w-[62ch] text-soft">{d.standfirst}</p>
+                  <p className="meta mt-3">{d.readMinutes} minute read</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <h2 className="h-section mt-16 max-w-[22ch]" data-reveal>
+            Business templates, ready to fill.
+          </h2>
+          <div className="ledger mt-10">
+            {directoryTemplates.map((d) => (
+              <Link
+                href={`/resources/${d.slug}`}
+                className="ledger-row group"
+                key={d.slug}
+                data-reveal
+              >
+                <p className="ledger-date">{d.no}</p>
+                <div>
+                  <h3 className="news-title">{d.title}</h3>
+                  <p className="meta mt-2">
+                    {d.readMinutes} min · Updated {d.updated}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The other registers, in one place */}
+      <section className="section">
+        <div className="shell">
+          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
+            <p className="eyebrow">The registers</p>
+            <p className="measure text-soft" data-reveal>
+              Everything the institute publishes, listed here. The
+              prospectus is issued on request rather than left to go
+              stale on a server.
+            </p>
+          </div>
+          <div className="ledger mt-10">
+            {resources.map((r) => (
+              <Link href={r.action.href} className="ledger-row group" key={r.name} data-reveal>
+                <p className="ledger-date">Register</p>
+                <div>
+                  <h3 className="news-title">{r.name}</h3>
+                  <p className="mt-2 max-w-[62ch] text-soft">{r.what}</p>
+                  <p className="meta mt-3">{r.action.label}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Bulletin */}
+      <section id="bulletin" className="section-lg">
+        <div className="shell">
+          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
+            <p className="eyebrow">The Oryx Bulletin</p>
+            <p className="measure text-soft" data-reveal>
+              Cited essays on the numbers, the method and the tools.
+              Written the way the institute teaches: evidence first,
+              decoration never.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-20">
+            {insights.map((a) => (
+              <article
+                key={a.id}
+                id={`bulletin-${a.id}`}
+                className="hair-t grid gap-8 pt-12 scroll-mt-28 lg:grid-cols-[180px_1fr] lg:gap-16"
+                data-reveal
+              >
+                <div>
+                  <p className="eyebrow">{a.no}</p>
+                  <p className="meta mt-3">{a.date}</p>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="h-section max-w-[26ch]">{a.title}</h3>
+                  <p className="lede measure mt-5 text-soft">{a.dek}</p>
+                  <div className="article mt-8">
+                    {a.body.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Publishing rule close */}
+      <section className="cta-band section-lg on-ink">
+        <div className="shell">
+          <h2 className="h-section max-w-[20ch]" data-reveal>
+            Set in ink, kept honest.
+          </h2>
+          <p className="measure mt-6 text-ivory-80" data-reveal>
             The Bulletin follows the institute&apos;s publishing rule:
             every figure carries its source, nothing is invented to fill a
             gap, and when a fact changes, the Bulletin changes with it.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/apply" className="pill">
+          <div className="mt-10 flex flex-wrap items-center gap-5" data-reveal>
+            <Link href="/apply" className="btn">
               Apply now
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
             </Link>
-            <Link href="/compare" className="pill-ghost">
-              Compare the options
+            <Link href="/programmes" className="btn--quiet btn--quiet--ivory">
+              What runs today <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

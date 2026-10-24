@@ -9,21 +9,19 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="shell flex min-h-[80dvh] flex-col items-start justify-center py-32">
+    <section className="shell flex min-h-[70vh] flex-col items-start justify-center py-24">
       <OryxLogo variant="emblem" tone="brand" className="h-24 w-auto" />
-      <h1 className="display-hero mt-8 text-ink">
-        Nothing here. <span className="em-serif text-accent">Yet.</span>
-      </h1>
+      <h1 className="h-display mt-8 max-w-[16ch]">Nothing here. Yet.</h1>
       <p className="measure mt-5 text-soft">
         The page you were looking for is not on the ground. Everything
         else is one click away.
       </p>
       <div className="mt-9 flex flex-wrap items-center gap-7">
-        <Link href="/" className="pill-ghost">
+        <Link href="/" className="btn--outline btn">
           Back to the home page
         </Link>
-        <Link href="/apply" className="link-type text-[0.95rem]">
-          Apply now
+        <Link href="/apply" className="btn--quiet">
+          Apply now <span className="arr" aria-hidden="true">→</span>
         </Link>
       </div>
     </section>

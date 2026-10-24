@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { PageHero } from "@/components/site/page-hero";
+import { PageHead } from "@/components/site/page-head";
 import { ApplyForm } from "@/components/site/apply-form";
-import { HorizontalScroll } from "@/components/site/horizontal-scroll";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Apply to Oryx Institute",
+  title: "Apply",
   description:
-    "Apply for crash and short courses in business administration and IT, or book the practice: counselling, market research, Rapid Response Training.",
+    "Apply for crash and short courses in business administration and IT, or book the practice: the Owner's Desk, market research, Rapid Response Training.",
   alternates: { canonical: "/apply" },
   openGraph: {
     title: "Apply | Oryx Institute",
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
       "One message to the Principal's office in Windhoek starts your application.",
     images: [
       {
-        url: "/images/og-inner.jpg",
+        url: "/brand/og/apply.png",
         width: 1200,
         height: 630,
         alt: "Apply to Oryx Institute",
@@ -25,124 +23,92 @@ export const metadata: Metadata = {
   },
 };
 
+const steps = [
+  {
+    n: "01",
+    t: "Write one message",
+    b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares it.",
+  },
+  {
+    n: "02",
+    t: "The office replies",
+    b: "The Principal's office reads every message and answers personally, usually within the week.",
+  },
+  {
+    n: "03",
+    t: "Talk, then decide",
+    b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides agree.",
+  },
+] as const;
+
 export default function ApplyPage() {
   return (
     <>
-      <PageHero title="Apply" accent="now.">
+      <PageHead eyebrow="Apply" title="Apply now.">
         <p>
           There is no portal and no queue. Write to the Principal&apos;s
           office directly, and the application starts with your first
           message. The teaching is crash courses and short courses in
-          business administration and IT and related fields. The
-          practice books through the same desk: counselling, market
+          business administration and IT and related fields. The practice
+          books through the same desk: the Owner&apos;s Desk, market
           research and development, Rapid Response Training.
         </p>
-      </PageHero>
+      </PageHead>
 
-      {/* The application path, carried horizontally. */}
-      <section className="shell pt-16">
-        <HorizontalScroll label="How the application runs">
-          {[
-            {
-              n: "01",
-              t: "Write one message",
-              b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares it.",
-              c: "tint-blush",
-            },
-            {
-              n: "02",
-              t: "The office replies",
-              b: "The Principal's office reads every message and answers personally, usually within the week.",
-              c: "tint-warm",
-            },
-            {
-              n: "03",
-              t: "Talk, then decide",
-              b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides agree.",
-              c: "tint-sand",
-            },
-          ].map((s) => (
-            <article key={s.n} className={`hs-card hover-lift ${s.c}`}>
-              <p className="display-hero text-accent/90" aria-hidden>{s.n}</p>
-              <p className="mt-3 text-[1.1rem] font-semibold text-ink">{s.t}</p>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{s.b}</p>
-            </article>
-          ))}
-        </HorizontalScroll>
-      </section>
-
-      <section className="chapter shell grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-start">
-        <div className="rounded-[var(--r-card)] border border-rule bg-paper p-6 sm:p-10">
-          <h2 className="display-section text-ink">The application message</h2>
-          <p className="mt-3 text-[0.98rem] leading-relaxed text-soft">
-            Fill it in and it opens as an email addressed to{" "}
-            <a href={`mailto:${site.email}`} className="link-type">
-              {site.email}
-            </a>
-            . Nothing is stored on this site; nothing is sent until you
-            press send in your own mail client.
-          </p>
-          <div className="mt-10">
-            <ApplyForm />
+      {/* How the application runs — three steps, hairline ledger */}
+      <section className="section">
+        <div className="shell">
+          <div className="ledger">
+            {steps.map((s) => (
+              <div className="ledger-row" key={s.n} data-reveal>
+                <p className="ledger-date">{s.n}</p>
+                <div>
+                  <h2 className="h-sub">{s.t}</h2>
+                  <p className="measure mt-3 text-soft">{s.b}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        <aside className="grid gap-8">
-          <div className="keyline">
-            <p className="label-caps text-soft">What to include</p>
-            <ul className="mt-4 grid gap-2 text-[0.98rem] leading-relaxed text-soft">
-              <li>Your name, as you sign it.</li>
-              <li>A phone number or email address for the reply.</li>
-              <li>The field of interest, or &ldquo;not sure yet&rdquo;.</li>
-              <li>Where you are coming from, if you want it read.</li>
-            </ul>
-          </div>
-
-          <div className="keyline">
-            <p className="label-caps text-soft">Where it goes</p>
-            <address className="mt-4 not-italic text-[0.98rem] leading-relaxed text-soft">
-              {site.principal.name}, {site.principal.role}
-              <br />
-              {site.city}, {site.country} — by appointment
-              <br />
+      {/* The composer */}
+      <section className="section-lg">
+        <div className="shell grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-start">
+          <div className="panel p-6 sm:p-10">
+            <h2 className="h-sub">The application message</h2>
+            <p className="mt-3 text-[0.98rem] leading-relaxed text-soft">
+              Fill it in and it opens as an email addressed to{" "}
               <a href={`mailto:${site.email}`} className="link-type">
                 {site.email}
               </a>
-            </address>
-          </div>
-
-          <div className="keyline">
-            <p className="label-caps text-soft">What happens next</p>
-            <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
-              The Principal&apos;s office reads every message and answers
-              personally, usually within the week. The first reply names
-              what the institute can and cannot do for you, and nothing
-              is committed until both sides agree. No message is stored
-              by this site: the composer only prepares the email, and the
-              conversation happens in your own mailbox, where it belongs.
-              If a week passes without a reply, write again — the office
-              would rather be asked twice than leave a question standing.
+              . Nothing is stored on this site; nothing is sent until you
+              press send in your own mail client.
             </p>
+            <div className="mt-8">
+              <ApplyForm />
+            </div>
           </div>
 
-          <div className="rounded-[var(--r-card)] tint-warm p-8">
-            <p className="display-statement text-ink">
-              Looks harmless.{" "}
-              <span className="em-serif text-accent">Isn&apos;t.</span>
-            </p>
+          <div className="grid gap-8">
+            <div className="hair-t pt-8">
+              <p className="eyebrow eyebrow--ink">Zero data collection</p>
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
+                The site runs no analytics, no cookies and no accounts.
+                The application exists the moment your email client opens
+                it — before that, it does not exist at all.
+              </p>
+            </div>
+            <div className="hair-t pt-8">
+              <p className="eyebrow eyebrow--ink">Who reads it</p>
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
+                {site.principal.name}, {site.principal.role}, reads every
+                application personally. The office answers every enquiry
+                by email, and visits are arranged by appointment.
+              </p>
+            </div>
           </div>
-
-          <div className="rounded-[var(--r-card)] border border-rule bg-paper-2 p-8" data-reveal>
-            <Image
-              src="/images/register/cutouts/cutout_16.webp"
-              alt="A maroon wax seal, the kind the institute's certificates carry"
-              width={274}
-              height={184}
-              sizes="320px"
-              className="h-auto w-full max-w-[280px] rounded-[calc(var(--r-card)-0.5rem)] object-cover"
-            />
-          </div>
-        </aside>
+        </div>
       </section>
     </>
   );

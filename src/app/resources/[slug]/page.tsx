@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { PageHero } from "@/components/site/page-hero";
-import { HorizontalScroll } from "@/components/site/horizontal-scroll";
+import { PageHead } from "@/components/site/page-head";
 import {
   directoryAll,
   directoryCourses,
@@ -18,7 +16,6 @@ import { site } from "@/lib/site";
 export function generateStaticParams() {
   return directoryAll.map((d) => ({ slug: d.slug }));
 }
-
 
 /** Meta descriptions are sized for search results: the visible
     standfirst stands uncut on the page; only the meta is trimmed. */
@@ -37,7 +34,7 @@ export async function generateMetadata({
   const doc = getDoc(slug);
   if (!doc) return {};
   return {
-    title: `${doc.title} | The Oryx Directory`,
+    title: { absolute: `${doc.title} | The Oryx Directory` },
     description: metaOf(doc),
     alternates: { canonical: `/resources/${doc.slug}` },
     openGraph: {
@@ -45,7 +42,7 @@ export async function generateMetadata({
       description: metaOf(doc),
       images: [
         {
-          url: "/images/og-inner.jpg",
+          url: "/brand/og/resources.png",
           width: 1200,
           height: 630,
           alt: `${doc.title}, from the Oryx Directory`,
@@ -64,7 +61,10 @@ function BlockView({ block }: { block: Block }) {
       <ul className="grid gap-3">
         {block.items.map((item, i) => (
           <li key={i} className="flex gap-3">
-            <span className="mt-[0.55em] h-px w-4 shrink-0 bg-accent" aria-hidden />
+            <span
+              className="mt-[0.55em] h-px w-4 shrink-0 bg-maroon"
+              aria-hidden="true"
+            />
             <span>{item}</span>
           </li>
         ))}
@@ -80,7 +80,7 @@ function BlockView({ block }: { block: Block }) {
             {block.head.map((h, i) => (
               <th
                 key={i}
-                className="border-b border-ink/25 pb-2 pr-6 align-bottom font-semibold text-ink"
+                className="border-b border-ink/25 pb-2 pr-6 align-bottom font-[500] text-ink"
               >
                 {h}
               </th>
@@ -116,37 +116,54 @@ export default async function DirectoryDocPage({
   const others = siblings.filter((d) => d.slug !== doc.slug);
   const index = directoryAll.findIndex((d) => d.slug === doc.slug);
 
-  /** Truthful structured data: a CreativeWork published by the
-      institute. The author is the institute itself (no invented
-      person), the image is the page's own share image, and no date is
-      asserted beyond the copyright year: the visible "Updated" line is
-      month-granular and is not masqueraded as an ISO date. */
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    headline: doc.title,
-    description: metaOf(doc),
-    url: `${site.url}/resources/${doc.slug}`,
-    image: `${site.url}/images/og-inner.jpg`,
-    author: {
-      "@type": "EducationalOrganization",
-      name: site.legalName,
-      url: site.url,
-    },
-    publisher: {
-      "@type": "EducationalOrganization",
-      name: site.legalName,
-      alternateName: site.tradingName,
-      url: site.url,
-    },
-    copyrightHolder: {
-      "@type": "EducationalOrganization",
-      name: site.legalName,
-    },
-    copyrightYear: "2026",
-    isAccessibleForFree: true,
-    license: `${site.url}/resources/${doc.slug}`,
-  };
+  /** Truthful structured data: courses carry Course, templates carry
+      CreativeWork. The author is the institute itself (no invented
+      person), and no date is asserted beyond the copyright year: the
+      visible "Updated" line is month-granular and is not masqueraded
+      as an ISO date. */
+  const jsonLd =
+    doc.kind === "course"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: doc.title,
+          description: metaOf(doc),
+          url: `${site.url}/resources/${doc.slug}`,
+          provider: {
+            "@type": "EducationalOrganization",
+            name: site.legalName,
+            alternateName: site.tradingName,
+            url: site.url,
+          },
+          isAccessibleForFree: true,
+          educationalLevel: "Crash course",
+          inLanguage: "en",
+          teaches: doc.standfirst,
+        }
+      : {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          headline: doc.title,
+          description: metaOf(doc),
+          url: `${site.url}/resources/${doc.slug}`,
+          author: {
+            "@type": "EducationalOrganization",
+            name: site.legalName,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "EducationalOrganization",
+            name: site.legalName,
+            alternateName: site.tradingName,
+            url: site.url,
+          },
+          copyrightHolder: {
+            "@type": "EducationalOrganization",
+            name: site.legalName,
+          },
+          copyrightYear: "2026",
+          isAccessibleForFree: true,
+        };
 
   return (
     <>
@@ -155,66 +172,56 @@ export default async function DirectoryDocPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHero title={doc.title} accent={doc.kind === "course" ? "One on one." : "Free to use."}>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem]">
-          <span className="label-caps text-accent">{doc.no}</span>
-          <span className="text-soft">{doc.readMinutes} minute read</span>
-          <span className="text-soft">Updated {doc.updated}</span>
-        </div>
-        <p className="measure mt-5 text-[1.08rem] leading-relaxed text-ink/85">
-          {doc.standfirst}
-        </p>
-        <p className="mt-4 text-[0.85rem] leading-relaxed text-soft italic">
-          {FREE_LINE}
-        </p>
+      <PageHead eyebrow={`${doc.no} · ${doc.readMinutes} minute read · Updated ${doc.updated}`} title={doc.title}>
+        <p>{doc.standfirst}</p>
+        <p className="mt-4 italic">{FREE_LINE}</p>
         {doc.kind === "template" ? (
-          <p className="mt-3 rounded-[var(--r-card)] border border-rule bg-paper-2 px-5 py-4 text-[0.9rem] leading-relaxed text-soft">
-            A fill-in template: every field in brackets, like [your business
-            name], is yours to replace before use. Nothing here is legal,
-            tax or financial advice.
+          <p className="mt-3 border-l-2 border-maroon pl-5 text-[0.9rem]">
+            A fill-in template: every field in brackets, like [your
+            business name], is yours to replace before use. Nothing here
+            is legal, tax or financial advice.
           </p>
         ) : null}
-      </PageHero>
+      </PageHead>
 
-      <section className="chapter shell">
-        <div className="grid gap-16 lg:grid-cols-[auto_1fr] lg:gap-20">
+      <section className="section-lg">
+        <div className="shell grid gap-16 lg:grid-cols-[auto_1fr] lg:gap-20">
           {/* Document index rail */}
           <nav aria-label="Contents" className="lg:w-56">
-            <p className="label-caps text-soft">Contents</p>
+            <p className="eyebrow eyebrow--ink">Contents</p>
             <ol className="mt-4 grid gap-2 text-[0.88rem]">
               {doc.sections.map((s, i) => (
                 <li key={i}>
-                  <a
-                    href={`#s${i}`}
-                    className="link-type text-soft hover:text-accent"
-                  >
+                  <a href={`#s${i}`} className="link-type text-soft">
                     {String(i + 1).padStart(2, "0")} {s.heading}
                   </a>
                 </li>
               ))}
             </ol>
             <div className="hair-t mt-8 pt-6">
-              <Link
-                href="/resources"
-                className="inline-flex items-center gap-2 text-[0.85rem] font-semibold text-accent"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-                The Oryx Directory
+              <Link href="/resources" className="btn--quiet">
+                The Oryx Directory{" "}
+                <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
           </nav>
 
           {/* The document */}
-          <article className="measure min-w-0 max-w-3xl">
+          <article className="article min-w-0 max-w-3xl">
             {doc.sections.map((s, i) => (
-              <div key={i} id={`s${i}`} className="hair-t mb-14 scroll-mt-32 pt-10 first:border-t-0 first:pt-0">
-                <h2 className="display-statement text-ink">{s.heading}</h2>
+              <div
+                key={i}
+                id={`s${i}`}
+                className="hair-t mb-14 scroll-mt-28 pt-10 first:border-t-0 first:pt-0"
+                data-reveal
+              >
+                <h2 className="h-sub">{s.heading}</h2>
                 {s.walkaway ? (
-                  <p className="mt-3 border-l-2 border-accent pl-4 text-[0.95rem] italic leading-relaxed text-soft">
+                  <p className="mt-3 border-l-2 border-maroon pl-4 text-[0.95rem] italic leading-relaxed text-soft">
                     You&apos;ll walk away knowing: {s.walkaway}
                   </p>
                 ) : null}
-                <div className="mt-7 grid gap-6 text-[1.02rem] leading-[1.7] text-ink/85">
+                <div className="mt-7 grid gap-6">
                   {s.blocks.map((b, bi) => (
                     <BlockView key={bi} block={b} />
                   ))}
@@ -225,10 +232,10 @@ export default async function DirectoryDocPage({
             {/* Provenance */}
             <footer className="hair-t mt-4 pt-8">
               <p className="text-[0.88rem] leading-relaxed text-soft">
-                <span className="font-semibold text-ink">Source note: </span>
+                <span className="font-[500] text-ink">Source note: </span>
                 {doc.sourceNote}
               </p>
-              <p className="mt-4 text-[0.88rem] font-semibold text-ink">
+              <p className="mt-4 text-[0.88rem] font-[500] text-ink">
                 {COPYRIGHT_LINE}
               </p>
             </footer>
@@ -237,46 +244,42 @@ export default async function DirectoryDocPage({
       </section>
 
       {/* More in this register */}
-      <section className="chapter shell">
-        <div className="hair-t pt-14">
-          <h2 className="display-section text-ink">
-            More in the <span className="em-serif text-accent">{doc.kind === "course" ? "courses." : "templates."}</span>
-          </h2>
-          <div className="mt-10">
-            <HorizontalScroll label="More in this register">
+      <section className="section-lg">
+        <div className="shell">
+          <div className="hair-t pt-14">
+            <h2 className="h-section max-w-[24ch]" data-reveal>
+              More in the {doc.kind === "course" ? "courses." : "templates."}
+            </h2>
+            <div className="ledger mt-10">
               {others.map((d) => (
                 <Link
-                  key={d.slug}
                   href={`/resources/${d.slug}`}
-                  className={`hs-card hover-lift ${"tint-warm"}`}
+                  className="ledger-row group"
+                  key={d.slug}
+                  data-reveal
                 >
-                  <p className="label-caps text-accent">{d.no}</p>
-                  <p className="mt-3 text-[1.05rem] font-semibold text-ink">{d.title}</p>
-                  <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/75">{d.standfirst}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-accent">
-                    {d.readMinutes} min
-                    <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-                  </span>
+                  <p className="ledger-date">{d.no}</p>
+                  <div>
+                    <h3 className="news-title">{d.title}</h3>
+                    <p className="mt-2 max-w-[62ch] text-soft">{d.standfirst}</p>
+                    <p className="meta mt-3">{d.readMinutes} minute read</p>
+                  </div>
                 </Link>
               ))}
-              <Link
-                href="/resources#directory"
-                className="hs-card hover-lift bg-ink text-paper"
-              >
-                <p className="label-caps opacity-70">The full Directory</p>
-                <p className="mt-3 text-[1.05rem] font-semibold">
-                  All {directoryAll.length} documents, courses and templates
-                </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.85rem] font-semibold text-pale-rose">
-                  Open the Directory
-                  <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-                </span>
+              <Link href="/resources#directory" className="ledger-row group" data-reveal>
+                <p className="ledger-date">Directory</p>
+                <div>
+                  <h3 className="news-title">
+                    All {directoryAll.length} documents, courses and templates
+                  </h3>
+                  <p className="meta mt-3">Open the Directory</p>
+                </div>
               </Link>
-            </HorizontalScroll>
+            </div>
+            <p className="meta mt-8">
+              Document {index + 1} of {directoryAll.length} in the Oryx Directory
+            </p>
           </div>
-          <p className="mt-8 text-[0.88rem] text-soft">
-            Document {index + 1} of {directoryAll.length} in the Oryx Directory.
-          </p>
         </div>
       </section>
     </>
