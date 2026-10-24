@@ -24,3 +24,40 @@ SquirrelScan P1/P2 remediation.
 ## Gaps
 
 - None. Scroll craft, copy, QA and output rules all covered.
+
+---
+
+## Round 8 — coming-soon pivot: the website-auditing library (48 installed)
+
+User command executed: `npx skills add https://github.com/vercel-labs/skills --skill find-skills`
+(installed via the CLI's non-interactive flags; the TUI lingers after "Done!" and needs stdin dismissed).
+
+Discovery ran through find-skills' documented flow: skills.sh API search sweep
+(53 query terms → 4,430 unique registry skills), curated down to website-auditing
+relevance, installed with `npx skills add <repo> --skill <name> -a claude-code -y -g`.
+
+**Installed (48), all verified on disk under ~/.claude/skills/:**
+
+| Domain | Skills |
+|---|---|
+| Audit engines | audit-website, squirrelscan, web-quality-audit, minimal-run-and-audit, ponytail-audit, production-grade |
+| Performance | performance, core-web-vitals, web-perf, vercel-optimize, gsap-performance, shipping-and-launch |
+| Accessibility | accessibility, best-practices |
+| SEO | seo, seo-audit, ai-seo, programmatic-seo, schema, site-architecture |
+| Analytics/CRO | analytics, conversion-tracking, cro, landing-page-conversion-audit, ab-testing |
+| Review craft | code-review, requesting-code-review, receiving-code-review, triage, diagnosing-bugs, 21st-ui-review, ui-ux-pro-max |
+| Browser/testing | agent-browser, browser-use, playwright-cli, playwright-best-practices, webapp-testing, browser-testing-with-devtools* |
+| Security | firebase-security-rules-auditor, security-and-hardening* |
+| Content/marketing | copy-editing, competitor-profiling, frontend-design, brand-guidelines, theme-factory, web-design-guidelines |
+| Crawling | firecrawl-crawl, firecrawl-scrape |
+| Meta | find-skills, vercel-react-best-practices |
+
+\* installed earlier within the addyosmani/agent-skills batch.
+
+**Rejected/failed:** ui-taste (uizze.sh — install fails from both repo forms and short name);
+composition-patterns, schema-markup, analytics-tracking, react-best-practices (wrong-name/
+transient misses; correct names installed where they existed).
+
+**Audit engines run on the site this round:** SquirrelScan CLI (85/100 full site · 54/100
+coming-soon), Lighthouse 13.5 (both targets), axe-core (10 full-site pages + live page),
+header/meta verification via curl. Raw outputs: /home/z/oryx-audit/ (squirrel-*.txt, lh/*.json, axe-fullsite.json).
