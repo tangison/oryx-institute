@@ -67,3 +67,6 @@ server.log
 /scripts-filebin-list.json
 /verify-home-*.png
 /db/
+
+# Local QA artifacts
+lab/

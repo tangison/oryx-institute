@@ -1,9 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { SiteHeader } from "@/components/site/site-header";
-import { SiteFooter } from "@/components/site/site-footer";
-import { SiteMotion } from "@/components/site/reveal";
-import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
@@ -46,59 +42,10 @@ const cjk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL("https://oryxinstitute.org"),
   title: {
     default: "Oryx Institute | A New Polytechnic for Namibia",
     template: "%s | Oryx Institute",
-  },
-  description: site.description,
-  applicationName: site.tradingName,
-  authors: [{ name: site.principal.name }],
-  keywords: [
-    "Oryx Institute",
-    "Oryx Polytechnic Institute",
-    "polytechnic Namibia",
-    "Windhoek crash courses",
-    "business administration Windhoek",
-    "IT courses Windhoek",
-    "market research Namibia",
-    "理工 Namibia",
-  ],
-  icons: {
-    icon: [
-      { url: "/brand/favicon.ico", sizes: "any" },
-      { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-  },
-  openGraph: {
-    type: "website",
-    siteName: site.tradingName,
-    locale: "en_NA",
-    url: site.url,
-    title: "Oryx Institute",
-    description: site.description,
-    images: [
-      {
-        url: "/brand/og/default.png",
-        width: 1200,
-        height: 630,
-        alt: "Oryx Institute — a new polytechnic for Namibia",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Oryx Institute",
-    description: site.description,
-    images: ["/brand/og/default.png"],
-  },
-  alternates: {
-    canonical: "/",
-    types: {
-      "application/rss+xml": `${site.url}/feed.xml`,
-    },
   },
 };
 
@@ -120,17 +67,7 @@ export default function RootLayout({
       className={`${serif.variable} ${sans.variable} ${cjk.variable}`}
     >
       <body className="antialiased bg-paper text-ink min-h-screen flex flex-col">
-        {/* The one motion module: GSAP ScrollTrigger, code-split, loaded
-            only for visitors who have not asked for reduced motion. */}
-        <SiteMotion />
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main" className="w-full max-w-full overflow-x-clip flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );

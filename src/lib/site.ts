@@ -75,9 +75,10 @@ export const site = {
   socials: [
     { label: "Instagram", href: "https://instagram.com/oryx_institute" },
     { label: "Facebook", href: "https://facebook.com/oryxinstitute" },
-    /* TODO founder: confirm the exact LinkedIn company slug before
-       launch — the brief carries it as /oryxpolytechnicinstitute. */
-    { label: "LinkedIn", href: "https://linkedin.com/company/oryxpolytechnicinstitute" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/oryx-polytechnic-institute/",
+    },
   ] as { label: string; href: string }[],
   url: "https://oryxinstitute.org",
   principal: {
@@ -188,7 +189,7 @@ export const offers = [
     tag: "Teaching",
     line: "Crash & short courses in records, filings, registers.",
     cta: { label: "Enquire", href: "/apply?for=business-administration" },
-    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only — each course narrow, practical, and finished.",
+    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and finished.",
   },
   {
     id: "it",
@@ -254,11 +255,11 @@ export const ventures = {
   cornerSpa: {
     name: "Corner Spa",
     status: "Concept",
-    line: "Wellness and service operations — the first live lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold — a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor, not from a slide. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then it says so plainly: it is a concept, not a storefront.",
+    line: "Wellness and service operations: the first live lab.",
+    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor, not from a slide. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then it says so plainly: it is a concept, not a storefront.",
   },
   futureLine:
-    "The next venture is not named yet. When one opens, the opening enters the register — dated, public, and verifiable.",
+    "The next venture is not named yet. When one opens, the opening enters the register: dated, public, and verifiable.",
 } as const;
 
 /**
@@ -348,7 +349,7 @@ export const partners = [
     href: "https://mendozer.com",
     logo: "/partners/mendozer-logo.svg",
     alt: "Mendozer",
-    note: "Collaborating in concepts.",
+    note: "Building Corner Spa and the ventures beyond it, together.",
     /** The mark carries its own gradient; it stands unaltered. */
     tone: "self" as const,
   },
@@ -387,7 +388,7 @@ export const faqs = [
   },
   {
     q: "What programmes does the institute offer?",
-    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it — no long programmes are offered. Beside the teaching, the practice runs: the Owner's Desk for one-on-one counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it: no long programmes are offered. Beside the teaching, the practice runs: the Owner's Desk for one-on-one counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
   },
   {
     q: "Does Oryx consult for businesses?",
@@ -415,7 +416,7 @@ export const faqs = [
   },
   {
     q: "Is Oryx accredited?",
-    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today — the crash and short courses, Rapid Response Training and the Oryx Directory — works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
+    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today (the crash and short courses, Rapid Response Training and the Oryx Directory) works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
   },
   {
     q: "What is Rapid Response Training?",
@@ -443,6 +444,6 @@ export const faqs = [
   },
   {
     q: "Can I read the research?",
-    a: "Yes, and it is free. The Oryx Bulletin — the institute's essay series on Namibia's working realities, every figure carrying its source — is published in full on this site, no fee and no account. The Oryx Directory carries the free crash courses and templates beside it.",
+    a: "Yes, and it is free. The Oryx Bulletin, the institute's essay series on Namibia's working realities with every figure carrying its source, is published in full on this site, no fee and no account. The Oryx Directory carries the free crash courses and templates beside it.",
   },
 ] as const;

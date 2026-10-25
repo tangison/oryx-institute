@@ -38,7 +38,8 @@
 @layer base {
   html {
     color-scheme: light;
-    scroll-padding-top: calc(var(--header-h) + 1.5rem);
+    /* Anchors land below the floating bar with room to breathe. */
+    scroll-padding-top: calc(var(--header-h) + 3rem);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -387,23 +388,39 @@
 }
 
 /* --------------------------------------------------------------------------
-   Header — flat cream bar, hairline foot, details-disclosure mobile menu
+   Header — the floating bar: cream, hairline-framed, detached from the
+   top edge, riding above the page. The menu trigger carries every
+   screen size into the off-canvas sitemap.
    -------------------------------------------------------------------------- */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 60;
-  background: var(--paper);
-  border-bottom: 1px solid var(--rule);
+  position: fixed;
+  top: 0.8rem;
+  inset-inline: 0;
+  z-index: 90;
+  padding-inline: clamp(0.9rem, 2.5vw, 1.75rem);
+  pointer-events: none;
 }
 
-.header-inner {
+.header-bar {
+  pointer-events: auto;
+  position: relative;
+  z-index: 100; /* the bar rides above the ink panel it commands */
+  max-width: 82.5rem;
+  margin-inline: auto;
   height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding-inline: clamp(1rem, 2.5vw, 1.9rem);
+}
+
+/* The page clears the floating bar and its top offset. */
+.main-under-float {
+  padding-top: calc(var(--header-h) + 1.9rem);
 }
 
 .nav-links {
@@ -411,7 +428,7 @@
   align-items: center;
   gap: 2.25rem;
 }
-@media (min-width: 56rem) {
+@media (min-width: 64rem) {
   .nav-links {
     display: flex;
   }
@@ -432,15 +449,65 @@
   color: var(--maroon);
 }
 
-/* Mobile menu: a native <details>, works without JavaScript */
-.menu {
-  position: relative;
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
 }
-@media (min-width: 56rem) {
-  .menu {
-    display: none;
+
+/* Search trigger: desktop only. The overlay is an enhancement, and it
+   stays one: no JavaScript, no button. */
+.search-trigger {
+  display: none;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0.4rem 0;
+  transition: color var(--dur-short) var(--ease-out);
+}
+.search-trigger:hover {
+  color: var(--maroon-deep);
+}
+@media (min-width: 64rem) {
+  .search-trigger {
+    display: inline-flex;
   }
 }
+
+/* Language toggle: current held still, the other one a link. */
+.lang-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+.lang-current {
+  color: var(--ink-60);
+}
+.lang-sep {
+  color: var(--ink-40);
+}
+.lang-link {
+  color: var(--ink);
+  transition: color var(--dur-short) var(--ease-out);
+}
+.lang-link:hover {
+  color: var(--maroon-deep);
+}
+
+/* --------------------------------------------------------------------------
+   Off-canvas menu — a checkbox disclosure: the label lives in the
+   floating bar, the full-screen ink panel is a sibling below it, so the
+   bar (with its Close word) paints above the panel. Opens, navigates
+   and closes with JavaScript off.
+   -------------------------------------------------------------------------- */
+
 .menu-summary {
   display: inline-flex;
   align-items: center;
@@ -449,7 +516,9 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0.65rem 0.25rem;
+  padding: 0.65rem 0.1rem;
+  cursor: pointer;
+  user-select: none;
 }
 .menu-lines {
   display: inline-grid;
@@ -460,42 +529,292 @@
   width: 1.35rem;
   height: 1.5px;
   background: var(--ink);
+  transition: transform var(--dur-short) var(--ease-out);
 }
-.menu[open] .menu-lines i:first-child {
+/* One word shows at a time: the open word, or the close word. */
+.menu-word--close {
+  display: none;
+}
+.menu-toggle:checked ~ .header-bar .menu-word--open {
+  display: none;
+}
+.menu-toggle:checked ~ .header-bar .menu-word--close {
+  display: inline;
+}
+.menu-toggle:checked ~ .header-bar .menu-lines i:first-child {
   transform: translateY(3.25px) rotate(45deg);
 }
-.menu[open] .menu-lines i:last-child {
+.menu-toggle:checked ~ .header-bar .menu-lines i:last-child {
   transform: translateY(-3.25px) rotate(-45deg);
 }
-.menu-panel {
-  position: absolute;
-  top: calc(100% + 1px);
-  right: calc(var(--gutter) * -1);
-  left: calc(var(--gutter) * -1);
-  background: var(--paper);
-  border-bottom: 1px solid var(--rule);
-  padding: 1rem var(--gutter) 1.75rem;
+/* Keyboard users toggle the hidden checkbox; the ring lands on the label. */
+.menu-toggle:focus-visible ~ .header-bar .menu-summary {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }
-.menu-panel ul {
+
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: var(--ink);
+  color: var(--ivory);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--header-h) + 3.4rem) var(--gutter) 3rem;
+  transform: translateY(-102%);
+  visibility: hidden;
+  transition: transform 520ms var(--ease-out), visibility 0s linear 520ms;
+}
+.menu-toggle:checked ~ .menu-panel {
+  transform: none;
+  visibility: visible;
+  transition: transform 520ms var(--ease-out);
+}
+
+.menu-inner {
+  max-width: 82.5rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+/* Primary links in the brand serif, arriving line by line. */
+.menu-primary ul {
   display: grid;
 }
-.menu-panel li + li {
-  border-top: 1px solid var(--rule);
+.menu-primary li {
+  border-top: 1px solid var(--rule-ink);
 }
-.menu-panel a {
+.menu-primary li:last-child {
+  border-bottom: 1px solid var(--rule-ink);
+}
+.menu-primary a {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  font-size: 0.95rem;
-  color: var(--ink);
+  gap: 1.5rem;
+  padding-block: clamp(0.9rem, 2.2vh, 1.5rem);
+  color: var(--ivory);
 }
-.menu-panel a:hover {
+.menu-link-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  transition: transform var(--dur-long) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.menu-primary a:hover .menu-link-text,
+.menu-primary a:focus-visible .menu-link-text {
+  transform: translateX(0.18em);
+  color: var(--ivory);
+}
+.menu-arr {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--ivory-60);
+  transition: transform var(--dur-long) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.menu-primary a:hover .menu-arr,
+.menu-primary a:focus-visible .menu-arr {
+  transform: translateX(0.3em);
+  color: var(--ivory);
+}
+
+/* The arrival: primary links rise, staggered, once the panel lands. */
+.menu-primary a,
+.menu-secondary a,
+.menu-meta > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 440ms var(--ease-out), transform 440ms var(--ease-out);
+}
+.menu-toggle:checked ~ .menu-panel .menu-primary a,
+.menu-toggle:checked ~ .menu-panel .menu-secondary a,
+.menu-toggle:checked ~ .menu-panel .menu-meta > * {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(140ms + var(--i, 0) * 55ms), calc(140ms + var(--i, 0) * 55ms);
+}
+
+.menu-secondary ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+}
+@media (min-width: 48rem) {
+  .menu-secondary ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.menu-secondary li {
+  padding-block: 0.35rem;
+}
+.menu-secondary a {
+  font-size: 0.95rem;
+  color: var(--ivory-80);
+  transition: color var(--dur-short) var(--ease-out), opacity 440ms var(--ease-out), transform 440ms var(--ease-out);
+}
+.menu-secondary a:hover {
+  color: var(--ivory);
+}
+
+.menu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1rem 2.5rem;
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 1.75rem;
+}
+.menu-mail {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ivory);
+}
+.menu-mail:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ivory-60);
+  text-underline-offset: 0.22em;
+}
+.menu-place {
+  font-size: 0.9rem;
+  color: var(--ivory-60);
+}
+.menu-social {
+  display: flex;
+  gap: 1.4rem;
+}
+.menu-social a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+  transition: color var(--dur-short) var(--ease-out);
+}
+.menu-social a:hover {
+  color: var(--ivory);
+}
+.menu-legal {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  color: var(--ivory-60);
+}
+
+/* Scroll lock while the panel holds the page. */
+body.menu-locked {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Search — a client overlay over a static index. No fetch, no round
+   trip; the results render as the office's own ledger rows.
+   -------------------------------------------------------------------------- */
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: rgba(24, 23, 19, 0.46);
+}
+
+.search-panel {
+  position: absolute;
+  top: clamp(4.5rem, 14vh, 8rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 42rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.4rem 1.6rem 1.2rem;
+}
+
+.search-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.55rem;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink);
+  padding: 0;
+}
+.search-input::placeholder {
+  color: var(--ink-40);
+}
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-close {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  transition: color var(--dur-short) var(--ease-out);
+}
+.search-close:hover {
   color: var(--maroon-deep);
 }
-.menu-panel .meta {
-  white-space: nowrap;
+
+.search-results {
+  margin-top: 0.4rem;
+  max-height: min(52vh, 26rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.search-results li {
+  border-bottom: 1px solid var(--rule);
+}
+.search-results li > a {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 0.4rem;
+}
+.search-results li.is-active > a,
+.search-results li > a:hover {
+  background: var(--paper-2);
+}
+.search-group {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+.search-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.search-excerpt {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.search-empty {
+  padding: 1.1rem 0.4rem 0.6rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.search-hint {
+  color: var(--ink-60);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------------------
@@ -1165,121 +1484,112 @@
   }
 }
 
-/* ============================================================
-   COMING SOON — the whole site until the rebuild returns.
-   Zero client JavaScript: the grain is an inline SVG, the
-   movement is CSS, and every line is server HTML.
-   ============================================================ */
+/* ==========================================================================
+   The scroll layer · scrollcraft device stylesheet, vendored engine,
+   themed to the Oryx tokens. The engine reads data-sc-* attributes and
+   writes transform + opacity only. Every hiding rule is gated on
+   html.sc-ready, a class only the engine adds: with JavaScript off,
+   nothing here ever hides content.
+   ========================================================================== */
 
-.coming {
+.sc-act--pinned {
   position: relative;
-  min-height: 100svh;
+}
+.sc-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+  z-index: 1;
+}
+
+[data-sc-pan] {
   display: flex;
-  flex-direction: column;
-  background:
-    radial-gradient(120% 90% at 18% 0%, var(--paper-2) 0%, transparent 58%),
-    var(--paper);
+  will-change: transform;
+}
+[data-sc-reveal] {
+  will-change: clip-path;
+}
+[data-sc-parallax] {
+  will-change: transform;
 }
 
-.coming-grain {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Pre-paint state, only once the engine is actually running. */
+html.sc-ready [data-sc-cue] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+html.sc-ready [data-sc-in],
+html.sc-ready [data-sc-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out);
+}
+html.sc-ready [data-sc-in].sc-in,
+html.sc-ready [data-sc-stagger] > .sc-in {
+  opacity: 1;
+  transform: none;
+}
+/* Blocks already inside the viewport on load land still, by design. */
+.sc-instant {
+  transition: none !important;
 }
 
-.coming-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1.4rem, 3vh, 2.2rem);
-  padding: clamp(4rem, 10vh, 7rem) var(--gutter) 2rem;
-  text-align: center;
+/* Kinetic splits: masked lines, room bought back for descenders. */
+.sc-split {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.sc-split--line {
+  display: block;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.sc-split__i {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.sc-is-split {
+  opacity: 1 !important;
 }
 
-.coming-eyebrow {
-  color: var(--soft, #57524A);
-  letter-spacing: 0.22em;
+/* Entry counters settle their layout while they tick. */
+[data-sc-count] {
+  font-variant-numeric: tabular-nums;
 }
-
-.coming-mark {
-  width: min(30rem, 82vw);
-  height: auto;
-  color: var(--ink);
-}
-
-.coming-title {
-  max-width: 12ch;
-}
-
-.coming-line {
-  max-width: 44ch;
-  font-size: 1.08rem;
-  line-height: 1.6;
-  color: var(--ink-soft, #57524A);
-}
-
-.coming-mail {
-  margin-top: 0.4rem;
-}
-
-.coming-foot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 2.2rem var(--gutter) 2.6rem;
-  border-top: 1px solid var(--rule);
-}
-
-.coming-tagline {
-  font-size: 1.12rem;
-  color: var(--ink);
-}
-
-.coming-legal {
-  color: var(--soft, #57524A);
-}
-
-/* The entrance: a quiet rise, staggered, CSS-only. */
-@keyframes coming-rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.coming-eyebrow,
-.coming-mark,
-.coming-title,
-.coming-line,
-.coming-mail,
-.coming-foot {
-  animation: coming-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.coming-eyebrow { animation-delay: 0.05s; }
-.coming-mark    { animation-delay: 0.15s; }
-.coming-title   { animation-delay: 0.28s; }
-.coming-line    { animation-delay: 0.42s; }
-.coming-mail    { animation-delay: 0.55s; }
-.coming-foot    { animation-delay: 0.7s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .coming-eyebrow,
-  .coming-mark,
-  .coming-title,
-  .coming-line,
-  .coming-mail,
-  .coming-foot {
-    animation: none;
+  /* Fewer and gentler, not zero: opacity still carries the reveal,
+     every position change is dropped. */
+  html.sc-ready [data-sc-in],
+  html.sc-ready [data-sc-stagger] > * {
+    transform: none;
+    transition-duration: 220ms;
   }
+  [data-sc-parallax],
+  [data-sc-pan],
+  .sc-split__i {
+    transform: none !important;
+  }
+  [data-sc-reveal] {
+    clip-path: none !important;
+  }
+}
+
+/* Parallax media carriers: the wrapper owns the overscan, so the
+   engine's translate never reveals an edge at either extreme. */
+.hero-media {
+  position: absolute;
+  inset: -6%;
+}
+.plate-media {
+  position: absolute;
+  inset: -6%;
+}
+
+/* Flat ledger rows: no date rail. The rail is reserved for dates. */
+.ledger-row--flat {
+  grid-template-columns: 1fr;
 }

@@ -42,9 +42,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "yearly" as const,
   }));
 
-  return [...pages, ...docs, ...news].map((page) => ({
-    url: `${site.url}${page.path}`,
-    changeFrequency: page.changeFrequency,
-    priority: page.priority,
-  }));
+  /** Every URL carries its Afrikaans alternate, and every Afrikaans URL
+      carries the English one back: one entity per page, two languages. */
+  return [...pages, ...docs, ...news].flatMap((page) => [
+    {
+      url: `${site.url}${page.path}`,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      alternates: {
+        languages: {
+          en: `${site.url}${page.path}`,
+          af: `${site.url}/af${page.path === "/" ? "" : page.path}`,
+          "x-default": `${site.url}${page.path}`,
+        },
+      },
+    },
+    {
+      url: `${site.url}/af${page.path === "/" ? "" : page.path}`,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      alternates: {
+        languages: {
+          en: `${site.url}${page.path}`,
+          af: `${site.url}/af${page.path === "/" ? "" : page.path}`,
+          "x-default": `${site.url}${page.path}`,
+        },
+      },
+    },
+  ]);
 }
