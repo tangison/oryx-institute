@@ -55,6 +55,7 @@ server.log
 # Local build artifacts and client source material (not part of the site)
 /scripts/*
 !/scripts/gen-news-meta.mjs
+!/scripts/prod-*.mjs
 /tool-results/
 /download/
 /upload/
