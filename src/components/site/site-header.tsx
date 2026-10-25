@@ -2,19 +2,21 @@ import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { SearchControl } from "@/components/site/search-dialog";
 import { MenuBehaviour } from "@/components/site/menu-behaviour";
-import { LangToggle } from "@/components/site/lang-toggle";
+import { MenuLang } from "@/components/site/menu-lang";
+import { MenuClock } from "@/components/site/menu-clock";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { navLinks, footerNav, site } from "@/lib/site";
 import { navAf, siteAf } from "@/lib/site-af";
 
 /**
- * The floating header: a cream bar detached from the top edge, hairline
+ * The floating header: a cream bar flush with the top edge, hairline
  * framed, riding above the page. Wordmark left; the brief's four links,
- * then search (desktop) and the language toggle right; the menu trigger
- * carries every screen into the off-canvas sitemap.
+ * then search (desktop); the menu trigger is the only tool on the
+ * right, and it carries every screen into the off-canvas sitemap.
  *
- * The menu is a native <details>: full-screen ink, the primary links in
- * the brand serif, the rest of the sitemap beneath, the office line at
+ * The menu is a native <details>-style checkbox disclosure: full-screen
+ * ink, the primary links in the brand serif, the language switch and
+ * the rest of the sitemap beneath, the office line and Windhoek time at
  * the bottom. It opens, navigates and closes with JavaScript off.
  */
 export function SiteHeader({ lang }: { lang: Lang }) {
@@ -69,7 +71,6 @@ export function SiteHeader({ lang }: { lang: Lang }) {
 
         <div className="header-tools">
           <SearchControl lang={lang} />
-          <LangToggle lang={lang} />
 
           <label htmlFor="site-menu-toggle" className="menu-summary">
             <span className="menu-lines" aria-hidden="true">
@@ -115,7 +116,10 @@ export function SiteHeader({ lang }: { lang: Lang }) {
             </ul>
           </nav>
 
+          <MenuLang lang={lang} />
+
           <div className="menu-meta">
+            <MenuClock />
             <a href={`mailto:${site.email}`} className="menu-mail">
               {site.email}
             </a>

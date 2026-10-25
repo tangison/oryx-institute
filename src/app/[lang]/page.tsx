@@ -17,6 +17,37 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
   return <GlyphVentures className="h-full w-full" />;
 }
 
+/**
+ * The offer ledger's object plates: the tool each offer is done with.
+ * One object per row, named in the image as it is named in the copy.
+ */
+const offerPlates: Record<string, { src: string; alt: string }> = {
+  "owners-desk": {
+    src: "/images/register/cutouts/cutout_04.webp",
+    alt: "A black fountain pen with a gold nib on white ground",
+  },
+  "business-administration": {
+    src: "/images/register/cutouts/cutout_05.webp",
+    alt: "An open ledger with ruled pages",
+  },
+  it: {
+    src: "/images/register/cutouts/cutout_03.webp",
+    alt: "A slide rule, every notch of it named",
+  },
+  "market-rd": {
+    src: "/images/register/cutouts/cutout_09.webp",
+    alt: "A brass theodolite and compass, surveying instruments",
+  },
+  "rapid-response": {
+    src: "/images/register/cutouts/cutout_07.webp",
+    alt: "A leather satchel with buckle and strap",
+  },
+  directory: {
+    src: "/images/register/cutouts/cutout_08.webp",
+    alt: "A rolled parchment tied with cord",
+  },
+};
+
 /** Page-local copy in both languages; the voice bar holds in each. */
 const copy = {
   en: {
@@ -253,17 +284,30 @@ export default async function HomePage({
           <div className="offers mt-14" data-sc-in data-sc-stagger="70">
             {s.offers.map((o) => (
               <div className="offer" key={o.id} id={o.id}>
-                <p className="offer-tag">{o.tag}</p>
-                <h3 className="offer-name">{o.name}</h3>
-                <p className="max-w-[44ch] text-soft">{o.line}</p>
-                <Link
-                  href={o.cta.href.startsWith("/")
-                    ? `${af ? "/af" : ""}${o.cta.href}`
-                    : o.cta.href}
-                  className="btn--quiet mt-2"
-                >
-                  {o.cta.label} <span className="arr" aria-hidden="true">→</span>
-                </Link>
+                <div className="offer-main">
+                  <p className="offer-tag">{o.tag}</p>
+                  <h3 className="offer-name">{o.name}</h3>
+                  <p className="max-w-[44ch] text-soft">{o.line}</p>
+                  <Link
+                    href={o.cta.href.startsWith("/")
+                      ? `${af ? "/af" : ""}${o.cta.href}`
+                      : o.cta.href}
+                    className="btn--quiet mt-2"
+                  >
+                    {o.cta.label} <span className="arr" aria-hidden="true">→</span>
+                  </Link>
+                </div>
+                {offerPlates[o.id] ? (
+                  <figure className="offer-plate" aria-hidden="true">
+                    <Image
+                      src={offerPlates[o.id].src}
+                      alt=""
+                      width={274}
+                      height={184}
+                      sizes="104px"
+                    />
+                  </figure>
+                ) : null}
               </div>
             ))}
           </div>
@@ -277,14 +321,14 @@ export default async function HomePage({
         </p>
       </div>
 
-      {/* Research pull: notebook, latest Bulletin. */}
+      {/* Research pull: the ground it is gathered on, latest Bulletin. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate plate--float aspect-[3/4]">
+          <figure className="plate plate--float aspect-[3/2]">
             <div className="plate-media" data-sc-parallax="0.5">
               <Image
-                src="/images/kinfolk/k05-notebook.jpg"
-                alt="A maroon notebook lies open on cream paper, pen resting in the fold"
+                src="/images/register-hd/landscape/landscape_07.webp"
+                alt="An oryx skull and desert flowers lying on cracked clay"
                 fill
                 sizes="(min-width: 768px) 26rem, 100vw"
                 className="object-cover"
@@ -354,14 +398,15 @@ export default async function HomePage({
         </div>
       </div>
 
-      {/* Ventures: Corner Spa, the first live lab. */}
+      {/* Ventures: the venture set out on open ground, the first live
+          lab named beneath it. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate plate--float aspect-[4/3] md:order-2 md:aspect-[3/4]">
+          <figure className="plate plate--float aspect-[4/3] md:order-2">
             <div className="plate-media" data-sc-parallax="0.5">
               <Image
-                src="/images/kinfolk/k08-spa.jpg"
-                alt="Folded linen, stone and a candle on a warm counter"
+                src="/images/register-hd/landscape/landscape_02.webp"
+                alt="A lone tree standing on open desert ground"
                 fill
                 sizes="(min-width: 768px) 26rem, 100vw"
                 className="object-cover"

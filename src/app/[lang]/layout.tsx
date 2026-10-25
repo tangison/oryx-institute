@@ -111,7 +111,7 @@ export default async function LangLayout({
         {t.skip}
       </a>
       <SiteHeader lang={lang} />
-      <main id="main" className="w-full max-w-full overflow-x-clip flex-1 main-under-float">
+      <main id="main" className="w-full max-w-full overflow-x-clip flex-1">
         {children}
       </main>
       <SiteFooter lang={lang} />

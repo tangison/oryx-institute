@@ -112,12 +112,12 @@ export default async function SchoolsPage({
         <p>{t.headLede}</p>
       </PageHead>
 
-      {/* The place the schools will teach in: held still, no text.
-          Above the fold here, so it loads eagerly. */}
+      {/* The place the schools will teach in: a plain classroom, held
+          still, no text. Above the fold here, so it loads eagerly. */}
       <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
         <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
           <Image
-            src="/images/kinfolk/k07-windhoek.jpg"
+            src="/images/register-hd/architecture/architecture_09.webp"
             alt=""
             fill
             priority

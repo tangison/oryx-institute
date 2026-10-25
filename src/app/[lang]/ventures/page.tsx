@@ -164,6 +164,20 @@ export default async function VenturesPage({
         </div>
       </section>
 
+      {/* The exit exam, held still: the game plays out to an outcome.
+          No text over it; the section above already said it. */}
+      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
+        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
+          <Image
+            src="/images/kinfolk/k04-red-game.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+
       {/* Close */}
       <section className="cta-band section-lg on-ink">
         <div className="shell" data-sc-in data-sc-stagger="80">

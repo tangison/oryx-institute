@@ -236,20 +236,34 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The notebook, the research image */}
+      {/* The instruments: the theodolite and the ground it reads,
+          paired plates, held still. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16">
-          <figure className="plate aspect-[3/4]">
-            <div className="plate-media" data-sc-parallax="0.5">
-              <Image
-                src="/images/kinfolk/k05-notebook.jpg"
-                alt="A maroon notebook lies open on cream paper, pen resting in the fold"
-                fill
-                sizes="(min-width: 768px) 24rem, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </figure>
+          <div className="grid grid-cols-2 items-start gap-4 sm:gap-6">
+            <figure className="plate aspect-[3/4]">
+              <div className="plate-media" data-sc-parallax="0.5">
+                <Image
+                  src="/images/register/artifacts/artifact_04.webp"
+                  alt="A surveying theodolite on its tripod, set up in a bare room"
+                  fill
+                  sizes="(min-width: 768px) 12rem, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <figure className="plate mt-10 aspect-[3/4]">
+              <div className="plate-media" data-sc-parallax="0.35">
+                <Image
+                  src="/images/register/artifacts/artifact_09.webp"
+                  alt="A stone specimen resting on a shelf in hard light"
+                  fill
+                  sizes="(min-width: 768px) 12rem, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          </div>
           <div data-sc-in data-sc-stagger="70">
             <p className="eyebrow eyebrow--ink">{t.fieldEyebrow}</p>
             <p className="lede measure mt-5">{t.fieldLede}</p>

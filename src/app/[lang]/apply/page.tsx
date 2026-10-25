@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { ApplyForm } from "@/components/site/apply-form";
 import { site } from "@/lib/site";
@@ -157,6 +158,17 @@ export default async function ApplyPage({
           </div>
 
           <div className="grid gap-8" data-sc-in data-sc-stagger="70">
+            <figure className="plate plate--float aspect-[3/2] w-full max-w-[15rem]">
+              <div className="plate-media" data-sc-parallax="0.4">
+                <Image
+                  src="/images/register/cutouts/cutout_19.webp"
+                  alt="A maroon wax seal pressed on a folded letter, ribbon beneath"
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
             <div className="hair-t pt-8">
               <p className="eyebrow eyebrow--ink">{t.dataEyebrow}</p>
               <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">

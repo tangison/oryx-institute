@@ -395,10 +395,10 @@
 
 .site-header {
   position: fixed;
-  top: 0.8rem;
+  top: 0;
   inset-inline: 0;
   z-index: 90;
-  padding-inline: clamp(0.9rem, 2.5vw, 1.75rem);
+  padding-inline: clamp(0.75rem, 2vw, 1.5rem);
   pointer-events: none;
 }
 
@@ -416,11 +416,6 @@
   background: var(--paper);
   border: 1px solid var(--rule);
   padding-inline: clamp(1rem, 2.5vw, 1.9rem);
-}
-
-/* The page clears the floating bar and its top offset. */
-.main-under-float {
-  padding-top: calc(var(--header-h) + 1.9rem);
 }
 
 .nav-links {
@@ -561,7 +556,7 @@
   color: var(--ivory);
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: calc(var(--header-h) + 3.4rem) var(--gutter) 3rem;
+  padding: calc(var(--header-h) + 2.6rem) var(--gutter) 3rem;
   transform: translateY(-102%);
   visibility: hidden;
   transition: transform 520ms var(--ease-out), visibility 0s linear 520ms;
@@ -576,7 +571,7 @@
   max-width: 82.5rem;
   margin-inline: auto;
   display: grid;
-  gap: clamp(2.5rem, 6vh, 4.5rem);
+  gap: clamp(2.25rem, 5vh, 4rem);
 }
 
 /* Primary links in the brand serif, arriving line by line. */
@@ -624,6 +619,7 @@
 /* The arrival: primary links rise, staggered, once the panel lands. */
 .menu-primary a,
 .menu-secondary a,
+.menu-lang > *,
 .menu-meta > * {
   opacity: 0;
   transform: translateY(16px);
@@ -631,6 +627,7 @@
 }
 .menu-toggle:checked ~ .menu-panel .menu-primary a,
 .menu-toggle:checked ~ .menu-panel .menu-secondary a,
+.menu-toggle:checked ~ .menu-panel .menu-lang > *,
 .menu-toggle:checked ~ .menu-panel .menu-meta > * {
   opacity: 1;
   transform: none;
@@ -659,6 +656,43 @@
   color: var(--ivory);
 }
 
+/* The language switch, held in the panel: the current language is the
+   page you are on; the other one is one large serif link. */
+.menu-lang {
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 1.75rem;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+}
+.menu-lang-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55em;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ivory);
+  transition: color var(--dur-short) var(--ease-out);
+}
+.menu-lang-link:hover,
+.menu-lang-link:focus-visible {
+  color: var(--ivory);
+}
+.menu-lang-link .menu-arr {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  transition: transform var(--dur-long) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.menu-lang-link:hover .menu-arr,
+.menu-lang-link:focus-visible .menu-arr {
+  transform: translateX(0.3em);
+  color: var(--ivory);
+}
+.menu-lang-note {
+  font-size: 0.9rem;
+  color: var(--ivory-60);
+}
+
 .menu-meta {
   display: flex;
   flex-wrap: wrap;
@@ -666,6 +700,15 @@
   gap: 1rem 2.5rem;
   border-top: 1px solid var(--rule-ink);
   padding-top: 1.75rem;
+}
+.menu-clock {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-60);
+  font-variant-numeric: tabular-nums;
 }
 .menu-mail {
   font-family: var(--font-display);
@@ -907,7 +950,11 @@ body.menu-locked {
 
 .hero {
   position: relative;
-  min-height: min(88vh, 56rem);
+  /* Full-bleed from the very top edge: the field runs behind the
+     floating header, so the bar sits on the photograph, not on the
+     page ground. */
+  min-height: min(92vh, 58rem);
+  min-height: min(92svh, 58rem);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -916,7 +963,7 @@ body.menu-locked {
 .hero-content {
   position: relative;
   width: 100%;
-  padding-block: clamp(3rem, 6vh, 5rem) clamp(2.5rem, 5vh, 4rem);
+  padding-block: clamp(3rem, 6vh, 5rem) clamp(2.25rem, 4.5vh, 3.5rem);
   /* The legibility scrim lives on the content block itself, so the
      wash sits exactly where the type sits — and contrast evaluators
      see the ground the type actually sits on. */
@@ -992,7 +1039,9 @@ body.menu-locked {
   height: 100%;
 }
 
-/* Offers: two-column hairline list, caps tag per offer */
+/* Offers: two-column hairline list, caps tag per offer. Each row
+   carries its own object on a small print plate: the tool the offer
+   is done with, named in the image as it is named in the copy. */
 .offers {
   display: grid;
   gap: 0;
@@ -1008,7 +1057,36 @@ body.menu-locked {
   border-top: 1px solid var(--rule);
   padding-block: 1.75rem;
   display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1.25rem;
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .offer {
+    column-gap: 2.5rem;
+  }
+}
+.offer-main {
+  display: grid;
   gap: 0.65rem;
+}
+.offer-plate {
+  width: 4.25rem;
+  aspect-ratio: 3 / 2;
+  flex: none;
+  border: 1px solid var(--rule);
+  background: var(--white);
+  overflow: hidden;
+}
+@media (min-width: 64rem) {
+  .offer-plate {
+    width: 6.5rem;
+  }
+}
+.offer-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .offer-name {
   font-family: var(--font-display);
@@ -1113,7 +1191,11 @@ body.menu-locked {
    -------------------------------------------------------------------------- */
 
 .page-head {
-  padding-block: clamp(3.5rem, 8vh, 6.5rem) clamp(2.5rem, 5vh, 4rem);
+  /* The floating bar rides over the page; the head carries its own
+     clearance instead of a global padding, so full-bleed photography
+     (the home hero) can run behind the bar to the top edge. */
+  padding-block: calc(var(--header-h) + clamp(2.75rem, 7vh, 5rem))
+    clamp(2.5rem, 5vh, 4rem);
   border-bottom: 1px solid var(--rule);
 }
 .page-head .h-display {

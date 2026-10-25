@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { OryxLogo } from "@/components/site/oryx-logo";
@@ -232,6 +233,34 @@ export default async function AboutPage({
           </div>
         </div>
       </section>
+
+      {/* The rooms, held still: the courtyard and the corridor. The
+          institute has no premises to photograph yet; these are the
+          register's own frames, carried without captions or claims. */}
+      <div className="shell grid gap-4 sm:gap-6 md:grid-cols-2" data-sc-in data-sc-stagger="80">
+        <figure className="plate aspect-[4/3]">
+          <div className="plate-media" data-sc-parallax="0.4">
+            <Image
+              src="/images/register-hd/architecture/architecture_10.webp"
+              alt="A young tree stands in the courtyard of a plain plastered building"
+              fill
+              sizes="(min-width: 768px) 40rem, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+        <figure className="plate aspect-[4/3] md:mt-14">
+          <div className="plate-media" data-sc-parallax="0.25">
+            <Image
+              src="/images/register-hd/architecture/architecture_04.webp"
+              alt="Sunlight crosses the floor of a plain corridor"
+              fill
+              sizes="(min-width: 768px) 40rem, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+      </div>
 
       {/* Where the institute stands */}
       <section className="section">

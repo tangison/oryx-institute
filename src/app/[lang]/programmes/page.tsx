@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { offers, disciplines, site, schemaIds } from "@/lib/site";
@@ -152,6 +153,44 @@ export default async function ProgrammesPage({
           </div>
         </div>
       </section>
+
+      {/* The measures: the ruler, the standard, the rigging. One quiet
+          strip between the offers and the disciplines. */}
+      <div className="shell grid grid-cols-3 gap-3 sm:gap-5" data-sc-in data-sc-stagger="80" aria-hidden="true">
+        <figure className="plate aspect-[3/4]">
+          <div className="plate-media" data-sc-parallax="0.35">
+            <Image
+              src="/images/register/artifacts/artifact_01.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+        <figure className="plate mt-8 aspect-[3/4] sm:mt-12">
+          <div className="plate-media" data-sc-parallax="0.25">
+            <Image
+              src="/images/register/artifacts/artifact_02.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+        <figure className="plate aspect-[3/4]">
+          <div className="plate-media" data-sc-parallax="0.4">
+            <Image
+              src="/images/register/artifacts/artifact_06.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+      </div>
 
       {/* The disciplines the offers sit inside */}
       <section className="section">

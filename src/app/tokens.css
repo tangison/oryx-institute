@@ -59,10 +59,12 @@
   --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
   /* Spacing — 8pt grid. Outer padding 64 / 96 / 128 (mobile / tablet /
-     desktop); major sections breathe ≥160px between them on desktop. */
+     desktop); major sections breathe ≥140px between them on desktop.
+     Tight enough that the hairlines read as one system, loose enough
+     that each section lands. */
   --gutter: clamp(1.25rem, 4vw, 5rem);
-  --section-y: clamp(4rem, 7vw, 6rem);      /* per edge; pairs give ≥160 */
-  --section-y-lg: clamp(5rem, 9vw, 8rem);
+  --section-y: clamp(3.5rem, 6vw, 5.5rem);    /* per edge; pairs give ≥140 */
+  --section-y-lg: clamp(4.5rem, 8vw, 7rem);
 
   /* Motion — nothing animates but transform + opacity, and only under
      prefers-reduced-motion: no-preference. */

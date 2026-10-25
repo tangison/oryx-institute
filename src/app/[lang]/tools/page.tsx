@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { motto, toolsList } from "@/lib/content";
@@ -115,6 +116,44 @@ export default async function ToolsPage({
           </div>
         </section>
       ))}
+
+      {/* The objects: satchel, lantern, typewriter. The list above,
+          held in still life. */}
+      <div className="shell grid grid-cols-3 gap-3 sm:gap-5" data-sc-in data-sc-stagger="80" aria-hidden="true">
+        <figure className="plate aspect-[3/4]">
+          <div className="plate-media" data-sc-parallax="0.35">
+            <Image
+              src="/images/register/artifacts/artifact_03.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+        <figure className="plate mt-8 aspect-[3/4] sm:mt-12">
+          <div className="plate-media" data-sc-parallax="0.25">
+            <Image
+              src="/images/register/artifacts/artifact_07.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+        <figure className="plate aspect-[3/4]">
+          <div className="plate-media" data-sc-parallax="0.4">
+            <Image
+              src="/images/register/artifacts/artifact_08.webp"
+              alt=""
+              fill
+              sizes="(min-width: 768px) 20rem, 34vw"
+              className="object-cover"
+            />
+          </div>
+        </figure>
+      </div>
 
       {/* The close: the spine made visible */}
       <section className="section-lg">

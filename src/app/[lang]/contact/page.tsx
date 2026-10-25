@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { SocialIcon } from "@/components/site/social-icon";
@@ -188,7 +189,19 @@ export default async function ContactPage({
             </div>
           </div>
 
-          <div className="panel p-8 md:p-10" data-sc-in>
+          <div className="grid gap-8">
+            <figure className="plate plate--float aspect-[3/2]" data-sc-in>
+              <div className="plate-media" data-sc-parallax="0.4">
+                <Image
+                  src="/images/register-hd/architecture/architecture_11.webp"
+                  alt="A red door in a plain plastered wall, closed"
+                  fill
+                  sizes="(min-width: 1024px) 30rem, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <div className="panel p-8 md:p-10" data-sc-in>
             <p className="eyebrow eyebrow--ink">{t.statedEyebrow}</p>
             <dl className="mt-6 grid gap-6 text-[0.95rem] leading-relaxed">
               <div>
@@ -211,6 +224,7 @@ export default async function ContactPage({
                 <dd className="mt-1 text-soft">{t.social.dd}</dd>
               </div>
             </dl>
+            </div>
           </div>
         </div>
       </section>
