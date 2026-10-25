@@ -1,0 +1,20 @@
+/* TEAM human text — the humans behind the site, per humans.txt */
+
+/* TEAM */
+  name: Oryx Institute
+  site: https://oryxinstitute.org
+  location: Windhoek, Namibia
+  contact: info@oryxinstitute.org
+
+  name: Tangi Iigonda
+  role: Principal
+  location: Windhoek, Namibia
+
+  name: Tangison Studio
+  role: Design and build
+  site: https://studio.tangison.com
+
+/* SITE */
+  standards: HTML, CSS, TypeScript, Next.js (App Router)
+  components: GSAP ScrollTrigger (reduced-motion aware), zero third-party scripts
+  fonts: Radley, Inter (self-hosted, latin subsets), Noto Serif SC subset (理工)

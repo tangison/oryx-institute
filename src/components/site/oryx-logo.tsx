@@ -15,12 +15,17 @@ import {
  * Variants:
  * - "lockup"  ORYX 理工 INSTITUTE with the shield
  * - "wordmark" ORYX 理工 INSTITUTE without the shield
- * - "emblem"   the maroon shield alone, ivory mark knocked through
+ * - "emblem"   the shield alone
  *
  * Tones:
  * - "brand"   ink letters, maroon 理工 and shield (for light grounds)
- * - "reverse" ivory letters, rose 理工 and shield (for ink grounds)
+ * - "reverse" all ivory (for ink and maroon grounds)
  * - "mono"    everything one currentColor
+ *
+ * Geometry note: the shield path is authored in the wordmark's own
+ * coordinate space; both the lockup and the emblem windows translate it
+ * into place with TS. (The pre-rebuild emblem variant dropped that
+ * translate and rendered outside its viewBox — fixed here.)
  */
 
 type Variant = "lockup" | "wordmark" | "emblem";
@@ -48,7 +53,7 @@ export function OryxLogo({
 }) {
   const box = VIEWBOX[variant];
   const ink = tone === "reverse" ? "#FFF8EE" : "currentColor";
-  const maroon = tone === "reverse" ? "#D37084" : tone === "mono" ? "currentColor" : "#71111F";
+  const mark = tone === "brand" ? "#71111F" : tone === "reverse" ? "#FFF8EE" : "currentColor";
 
   const letters = (
     <g fill={ink} aria-hidden="true">
@@ -59,23 +64,15 @@ export function OryxLogo({
 
   const liGong =
     variant !== "emblem" ? (
-      <g fill={maroon} aria-hidden="true">
+      <g fill={mark} aria-hidden="true">
         <path d={LI_GONG_PATH} transform={T} />
       </g>
     ) : null;
 
   const shield =
-    variant === "lockup" ? (
+    variant !== "wordmark" ? (
       <g aria-hidden="true">
-        <path d={SHIELD_PATH} transform={TS} fill={tone === "mono" ? "currentColor" : "#FFF8EE"} />
-        <path d={SHIELD_PATH} transform={TS} fill={maroon} />
-      </g>
-    ) : variant === "emblem" ? (
-      <g aria-hidden="true">
-        {/* The mark is knocked through the shield; a white under-copy
-            keeps it legible on any ground. */}
-        <path d={SHIELD_PATH} fill={tone === "mono" ? "none" : "#FFF8EE"} />
-        <path d={SHIELD_PATH} fill={maroon} />
+        <path d={SHIELD_PATH} transform={TS} fill={mark} />
       </g>
     ) : null;
 

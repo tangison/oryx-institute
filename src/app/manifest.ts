@@ -8,31 +8,21 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#FFF8EE",
-    /** Matches the light-scheme page theme color declared in the
-        root layout's viewport export, as the audit requires. */
-    theme_color: "#FFF8EE",
+    /** The register's own ground and theme: cream canvas, ink chrome. */
+    background_color: "#F4EEE4",
+    theme_color: "#181713",
     icons: [
-      /** True-size PNGs, one file per declared size (the audit caught
-          a 512 file declared as 192). 192 for browser UI, 512 for
-          installs; both also declared maskable with safe padding. */
       {
-        src: "/images/icon-192.png",
+        src: "/brand/icon-192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/images/icon-512.png",
+        src: "/brand/icon-512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
-      },
-      {
-        src: "/images/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
       },
     ],
   };

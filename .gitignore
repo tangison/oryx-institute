@@ -53,7 +53,8 @@ server.log
 # Skills directory
 /skills/
 # Local build artifacts and client source material (not part of the site)
-/scripts/
+/scripts/*
+!/scripts/gen-news-meta.mjs
 /tool-results/
 /download/
 /upload/
