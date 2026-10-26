@@ -161,8 +161,8 @@ export default async function ApplyPage({
             <figure className="plate plate--float aspect-[3/2] w-full max-w-[15rem]">
               <div className="plate-media" data-sc-parallax="0.4">
                 <Image
-                  src="/images/register/cutouts/cutout_19.webp"
-                  alt="A maroon wax seal pressed on a folded letter, ribbon beneath"
+                  src="/images/studio/studio-seal.webp"
+                  alt="A cream envelope sealed with a deep red wax stamp"
                   fill
                   sizes="240px"
                   className="object-cover"

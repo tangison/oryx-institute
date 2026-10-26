@@ -156,11 +156,11 @@ export default async function ProgrammesPage({
 
       {/* The measures: the ruler, the standard, the rigging. One quiet
           strip between the offers and the disciplines. */}
-      <div className="shell grid grid-cols-3 gap-3 sm:gap-5" data-sc-in data-sc-stagger="80" aria-hidden="true">
+      <div className="shell grid grid-cols-3 gap-3 sm:gap-5" data-sc-act="flow" data-sc-in data-sc-stagger="80" aria-hidden="true">
         <figure className="plate aspect-[3/4]">
           <div className="plate-media" data-sc-parallax="0.35">
             <Image
-              src="/images/register/artifacts/artifact_01.webp"
+              src="/images/studio/studio-rule.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"
@@ -171,7 +171,7 @@ export default async function ProgrammesPage({
         <figure className="plate mt-8 aspect-[3/4] sm:mt-12">
           <div className="plate-media" data-sc-parallax="0.25">
             <Image
-              src="/images/register/artifacts/artifact_02.webp"
+              src="/images/studio/studio-horns.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"
@@ -182,7 +182,7 @@ export default async function ProgrammesPage({
         <figure className="plate aspect-[3/4]">
           <div className="plate-media" data-sc-parallax="0.4">
             <Image
-              src="/images/register/artifacts/artifact_06.webp"
+              src="/images/studio/studio-rope.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"

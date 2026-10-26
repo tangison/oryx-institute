@@ -117,7 +117,7 @@ export default async function SchoolsPage({
       <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
         <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
           <Image
-            src="/images/register-hd/architecture/architecture_09.webp"
+            src="/images/studio/studio-classroom.webp"
             alt=""
             fill
             priority

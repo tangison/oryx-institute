@@ -126,7 +126,7 @@ export default async function VenturesPage({
             >
               <div className="absolute inset-[-6%]" data-sc-parallax="0.5">
                 <Image
-                  src="/images/kinfolk/k08-spa.jpg"
+                  src="/images/studio/studio-spa.webp"
                   alt="Folded linen, stone and a candle on a warm counter"
                   fill
                   sizes="(min-width: 1024px) 30rem, 100vw"

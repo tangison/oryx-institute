@@ -23,27 +23,27 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
  */
 const offerPlates: Record<string, { src: string; alt: string }> = {
   "owners-desk": {
-    src: "/images/register/cutouts/cutout_04.webp",
+    src: "/images/studio/studio-pen.webp",
     alt: "A black fountain pen with a gold nib on white ground",
   },
   "business-administration": {
-    src: "/images/register/cutouts/cutout_05.webp",
-    alt: "An open ledger with ruled pages",
+    src: "/images/studio/studio-ledger.webp",
+    alt: "A linen-bound ledger held with an elastic band",
   },
   it: {
-    src: "/images/register/cutouts/cutout_03.webp",
+    src: "/images/studio/studio-slide-rule.webp",
     alt: "A slide rule, every notch of it named",
   },
   "market-rd": {
-    src: "/images/register/cutouts/cutout_09.webp",
-    alt: "A brass theodolite and compass, surveying instruments",
+    src: "/images/studio/studio-survey.webp",
+    alt: "A brass theodolite, a surveying instrument",
   },
   "rapid-response": {
-    src: "/images/register/cutouts/cutout_07.webp",
+    src: "/images/studio/studio-case.webp",
     alt: "A leather satchel with buckle and strap",
   },
   directory: {
-    src: "/images/register/cutouts/cutout_08.webp",
+    src: "/images/studio/studio-parchment.webp",
     alt: "A rolled parchment tied with cord",
   },
 };
@@ -327,7 +327,7 @@ export default async function HomePage({
           <figure className="plate plate--float aspect-[3/2]">
             <div className="plate-media" data-sc-parallax="0.5">
               <Image
-                src="/images/register-hd/landscape/landscape_07.webp"
+                src="/images/studio/studio-clay-reading.webp"
                 alt="An oryx skull and desert flowers lying on cracked clay"
                 fill
                 sizes="(min-width: 768px) 26rem, 100vw"
@@ -405,7 +405,7 @@ export default async function HomePage({
           <figure className="plate plate--float aspect-[4/3] md:order-2">
             <div className="plate-media" data-sc-parallax="0.5">
               <Image
-                src="/images/register-hd/landscape/landscape_02.webp"
+                src="/images/studio/studio-lone-tree.webp"
                 alt="A lone tree standing on open desert ground"
                 fill
                 sizes="(min-width: 768px) 26rem, 100vw"

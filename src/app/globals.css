@@ -397,7 +397,9 @@
   position: fixed;
   top: 0;
   inset-inline: 0;
-  z-index: 90;
+  /* Above the search dim (95): the bar stays live while search is
+     open, so one tap on the menu opens it as the search closes. */
+  z-index: 96;
   padding-inline: clamp(0.75rem, 2vw, 1.5rem);
   pointer-events: none;
 }
@@ -556,6 +558,10 @@
   color: var(--ivory);
   overflow-y: auto;
   overscroll-behavior: contain;
+  /* The header container disables pointer events so the page shows
+     through around the bar; the panel must take them back or every
+     link inside it is click-transparent and the page beneath wins. */
+  pointer-events: auto;
   padding: calc(var(--header-h) + 2.6rem) var(--gutter) 3rem;
   transform: translateY(-102%);
   visibility: hidden;
@@ -759,7 +765,12 @@ body.menu-locked {
 .search-overlay {
   position: fixed;
   inset: 0;
-  z-index: 95;
+  /* The overlay lives inside the header bar's own stacking context,
+     so a positive z-index would cover the bar's controls: the menu
+     label would eat one dead tap before the search closes. Behind
+     the bar's content it still dims the whole page, keeps the panel
+     interactive, and lets the bar stay live in one tap. */
+  z-index: -1;
   background: rgba(24, 23, 19, 0.46);
 }
 

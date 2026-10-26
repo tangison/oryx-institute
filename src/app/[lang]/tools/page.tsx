@@ -123,7 +123,7 @@ export default async function ToolsPage({
         <figure className="plate aspect-[3/4]">
           <div className="plate-media" data-sc-parallax="0.35">
             <Image
-              src="/images/register/artifacts/artifact_03.webp"
+              src="/images/studio/studio-satchel.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"
@@ -134,7 +134,7 @@ export default async function ToolsPage({
         <figure className="plate mt-8 aspect-[3/4] sm:mt-12">
           <div className="plate-media" data-sc-parallax="0.25">
             <Image
-              src="/images/register/artifacts/artifact_07.webp"
+              src="/images/studio/studio-lantern.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"
@@ -145,7 +145,7 @@ export default async function ToolsPage({
         <figure className="plate aspect-[3/4]">
           <div className="plate-media" data-sc-parallax="0.4">
             <Image
-              src="/images/register/artifacts/artifact_08.webp"
+              src="/images/studio/studio-typewriter.webp"
               alt=""
               fill
               sizes="(min-width: 768px) 20rem, 34vw"

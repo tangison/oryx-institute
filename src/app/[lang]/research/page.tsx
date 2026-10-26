@@ -244,8 +244,8 @@ export default async function ResearchPage({
             <figure className="plate aspect-[3/4]">
               <div className="plate-media" data-sc-parallax="0.5">
                 <Image
-                  src="/images/register/artifacts/artifact_04.webp"
-                  alt="A surveying theodolite on its tripod, set up in a bare room"
+                  src="/images/studio/studio-theodolite.webp"
+                  alt="A brass theodolite on its wooden tripod against a clay wall"
                   fill
                   sizes="(min-width: 768px) 12rem, 50vw"
                   className="object-cover"
@@ -255,8 +255,8 @@ export default async function ResearchPage({
             <figure className="plate mt-10 aspect-[3/4]">
               <div className="plate-media" data-sc-parallax="0.35">
                 <Image
-                  src="/images/register/artifacts/artifact_09.webp"
-                  alt="A stone specimen resting on a shelf in hard light"
+                  src="/images/studio/studio-stone.webp"
+                  alt="A stone specimen resting on folded linen in hard light"
                   fill
                   sizes="(min-width: 768px) 12rem, 50vw"
                   className="object-cover"

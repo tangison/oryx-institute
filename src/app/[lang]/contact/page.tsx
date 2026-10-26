@@ -193,7 +193,7 @@ export default async function ContactPage({
             <figure className="plate plate--float aspect-[3/2]" data-sc-in>
               <div className="plate-media" data-sc-parallax="0.4">
                 <Image
-                  src="/images/register-hd/architecture/architecture_11.webp"
+                  src="/images/studio/studio-red-door.webp"
                   alt="A red door in a plain plastered wall, closed"
                   fill
                   sizes="(min-width: 1024px) 30rem, 100vw"

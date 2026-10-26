@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SCMotion } from "@/components/site/sc-motion";
+import { LangSync } from "@/components/site/lang-sync";
 import { LANGS, chrome, langFromParams, type Lang } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
@@ -43,7 +44,6 @@ export async function generateMetadata({
       "business administration Windhoek",
       "IT courses Windhoek",
       "market research Namibia",
-      "理工 Namibia",
     ],
     icons: {
       icon: [
@@ -107,6 +107,7 @@ export default async function LangLayout({
         />
       ) : null}
       <SCMotion />
+      <LangSync lang={lang} />
       <a href="#main" className="skip-link">
         {t.skip}
       </a>

@@ -237,12 +237,12 @@ export default async function AboutPage({
       {/* The rooms, held still: the courtyard and the corridor. The
           institute has no premises to photograph yet; these are the
           register's own frames, carried without captions or claims. */}
-      <div className="shell grid gap-4 sm:gap-6 md:grid-cols-2" data-sc-in data-sc-stagger="80">
+      <div className="shell grid gap-4 sm:gap-6 md:grid-cols-2" data-sc-act="flow" data-sc-in data-sc-stagger="80">
         <figure className="plate aspect-[4/3]">
           <div className="plate-media" data-sc-parallax="0.4">
             <Image
-              src="/images/register-hd/architecture/architecture_10.webp"
-              alt="A young tree stands in the courtyard of a plain plastered building"
+              src="/images/studio/studio-courtyard.webp"
+              alt="The sunlit courtyard of a clay-walled campus building"
               fill
               sizes="(min-width: 768px) 40rem, 100vw"
               className="object-cover"
@@ -252,8 +252,8 @@ export default async function AboutPage({
         <figure className="plate aspect-[4/3] md:mt-14">
           <div className="plate-media" data-sc-parallax="0.25">
             <Image
-              src="/images/register-hd/architecture/architecture_04.webp"
-              alt="Sunlight crosses the floor of a plain corridor"
+              src="/images/studio/studio-walkway.webp"
+              alt="Sunlight crosses a clay-walled campus walkway"
               fill
               sizes="(min-width: 768px) 40rem, 100vw"
               className="object-cover"
