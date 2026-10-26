@@ -48,9 +48,6 @@ export const site = {
   /** Approved certificate language. */
   credentialLine:
     "Excellence in innovation and applied problem-solving.",
-  /** The approved tagline (strategy notes, decision 8): the inclusive
-   * variant of the founder's original idiom. */
-  tagline: "You're only as good as your tools. We forge them.",
   /** Meta description, sized for search results (kept under 160
    * characters) and led by what the institute is. */
   description:
@@ -163,7 +160,7 @@ export const status = {
   instructors: {
     title: "Smiths",
     formalTitle: "Masters",
-    note: "The staff are called Smiths, formally Masters, after the tagline: we forge our own tools.",
+    note: "The staff are called Smiths, formally Masters, after the founder's rule: we forge our own tools.",
   },
 } as const;
 
@@ -351,31 +348,39 @@ export const partners = [
   },
 ] as const;
 
-/** Primary navigation: the brief's four top-bar links. */
+/** Primary navigation: top bar and mobile list. The wordmark carries
+ * Home; Apply is the last item and takes the maroon button on
+ * desktop. Every href must resolve; nothing dead ships in the nav,
+ * anywhere. */
 export const navLinks = [
-  { href: "/programmes", label: "Programmes" },
-  { href: "/research", label: "Research" },
-  { href: "/news", label: "News" },
-  { href: "/apply", label: "Apply" },
-] as const;
-
-/** Footer navigation: the full sitemap. Every href must resolve:
-    nothing dead ships in the nav, anywhere. */
-export const footerNav = [
-  { href: "/programmes", label: "Programmes" },
   { href: "/research", label: "Research" },
   { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
-  { href: "/register", label: "Register" },
-  { href: "/schools", label: "Schools" },
-  { href: "/resources", label: "Resources" },
-  { href: "/tools", label: "Tools" },
-  { href: "/news", label: "News" },
-  { href: "/apply", label: "Apply" },
-  { href: "/contact", label: "Contact" },
+  { href: "/resources", label: "The Directory" },
+  { href: "/resources#bulletin", label: "Bulletin" },
+  { href: "/register", label: "The Register" },
   { href: "/about", label: "About" },
   { href: "/brand", label: "Brand" },
+  { href: "/apply", label: "Apply" },
+] as const;
+
+/** Footer navigation: the same links, plain text on ink ground, plus
+ * the office pages and the legal pair. Socials and the mailto render
+ * beside this list from site.socials and site.email. */
+export const footerNav = [
+  { href: "/research", label: "Research" },
+  { href: "/practice", label: "Practice" },
+  { href: "/ventures", label: "Ventures" },
+  { href: "/resources", label: "The Directory" },
+  { href: "/resources#bulletin", label: "Bulletin" },
+  { href: "/register", label: "The Register" },
+  { href: "/about", label: "About" },
+  { href: "/brand", label: "Brand" },
+  { href: "/apply", label: "Apply" },
+  { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
+  { href: "/legal/privacy", label: "Privacy" },
+  { href: "/legal/terms", label: "Terms" },
 ] as const;
 
 /** FAQ entries: every answer is grounded in the institute's published

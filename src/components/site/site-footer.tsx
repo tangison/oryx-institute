@@ -2,7 +2,7 @@ import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { footerNav, site } from "@/lib/site";
-import { navAf } from "@/lib/site-af";
+import { navZh, siteZh } from "@/lib/site-zh";
 
 /**
  * The ink footer: the close of every page. Wordmark, the inline
@@ -13,8 +13,8 @@ import { navAf } from "@/lib/site-af";
  */
 export function SiteFooter({ lang }: { lang: Lang }) {
   const t = chrome[lang];
-  const af = lang === "af";
-  const links = af ? navAf.footerNav : footerNav;
+  const zh = lang === "zh";
+  const links = zh ? navZh.footerNav : footerNav;
 
   return (
     <footer className="site-footer">
@@ -32,7 +32,9 @@ export function SiteFooter({ lang }: { lang: Lang }) {
                 className="h-[2rem] w-auto"
               />
             </Link>
-            <p className="foot-place mt-6">{af ? "Windhoek, Namibië" : "Windhoek, Namibia"}</p>
+            <p className="foot-place mt-6">
+              {zh ? "温得和克 · 2026 年创立" : "WINDHOEK · EST. 2026"}
+            </p>
           </div>
 
           <nav aria-label={t.footerNav} className="foot-nav-wrap">
@@ -54,7 +56,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             <a href={`mailto:${site.email}`} className="foot-mail link-type">
               {site.email}
             </a>
-            <ul className="foot-social" aria-label={af ? "Sosiale kanale" : "Social channels"}>
+            <ul className="foot-social" aria-label={zh ? "社交频道" : "Social channels"}>
               {site.socials.map((s) => (
                 <li key={s.href}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer">
@@ -70,24 +72,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. {t.rights}
           </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            <li>
-              <Link href={langPath(lang, "/legal/privacy")} className="link-type">
-                {af ? "Privaatheid" : "Privacy"}
-              </Link>
-            </li>
-            <li>
-              <Link href={langPath(lang, "/legal/terms")} className="link-type">
-                {af ? "Voorwaardes" : "Terms"}
-              </Link>
-            </li>
-            <li>
-              <Link href={langPath(lang, "/brand")} className="link-type">
-                {af ? "Handelsmerk" : "Brand"}
-              </Link>
-            </li>
-          </ul>
-          <p className="foot-credit">{af ? "Gebou deur Tangison" : "Built by Tangison"}</p>
+          <p className="foot-credit">{zh ? "由 Tangison 构建" : "Built by Tangison"}</p>
         </div>
       </div>
     </footer>

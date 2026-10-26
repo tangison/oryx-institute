@@ -18,6 +18,9 @@ import { usePathname } from "next/navigation";
  *   data-sc-in                      fade+rise once on entry (CSS class
  *                                  .sc-in; with data-sc-stagger="ms" the
  *                                  children reveal in a stagger instead).
+ *   data-sc-reveal                  the element unmasks from its left
+ *                                  edge (clip-path wipe, once on entry;
+ *                                  CSS owns the pre-hide and the ease).
  *   data-sc-row                     inside a pinned stage: rows cross-fade
  *                                  one at a time across the pin.
  *   data-sc-scrim                   inside a pinned stage: the copy block
@@ -73,6 +76,9 @@ function revealAll(root: Document) {
       );
     }
   });
+  root
+    .querySelectorAll<HTMLElement>("[data-sc-reveal]")
+    .forEach((el) => el.classList.add("sc-revealed", "sc-instant"));
 }
 
 function build(root: Document, engine: Engine) {
@@ -190,6 +196,22 @@ function build(root: Document, engine: Engine) {
         },
       });
     });
+
+    /* Edge reveals: the element unmasks from its left edge (clip-path
+       wipe). CSS owns the pre-hide and the transition; this only
+       decides when the class lands. */
+    root.querySelectorAll<HTMLElement>("[data-sc-reveal]").forEach((el) => {
+      if (el.getBoundingClientRect().top < vh * 0.85) {
+        el.classList.add("sc-revealed", "sc-instant");
+        return;
+      }
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 82%",
+        once: true,
+        onEnter: () => el.classList.add("sc-revealed"),
+      });
+    });
   }, root);
 }
 
@@ -219,7 +241,33 @@ export function SCMotion() {
       if (dead) return;
       armed = true;
       document.documentElement.classList.add("sc-ready");
+      /* Pinning inserts spacers, which can drag the viewport when the
+         engine builds after the visitor has already scrolled. Capture
+         the intent, build, then restore it — the restore's scroll
+         event drives every trigger to the right state at once. */
+      const savedScroll = window.scrollY;
       ctx = build(document, engine);
+      engine.ScrollTrigger.refresh();
+      if (Math.abs(window.scrollY - savedScroll) > 2) {
+        window.scrollTo(0, savedScroll);
+      }
+      /* Pin spacers change the page's length, so an in-flight anchor
+         jump lands where the target USED to be. If the URL carries a
+         hash, re-issue the jump now that the layout is final. */
+      if (window.location.hash.length > 1) {
+        const target = document.getElementById(
+          decodeURIComponent(window.location.hash.slice(1))
+        );
+        if (target) {
+          const pad = parseFloat(
+            getComputedStyle(document.documentElement).scrollPaddingTop || "0"
+          );
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - pad,
+            behavior: "instant" as ScrollBehavior,
+          });
+        }
+      }
     };
 
     if (armed) {

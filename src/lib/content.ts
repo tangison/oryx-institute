@@ -8,114 +8,6 @@
  * picture is a photograph of the institute.
  */
 
-/** The founder's rule, kept as the tagline's origin, one line. */
-export const motto = {
-  line: "You're only as good as your tools. We forge them.",
-  source: "The Oryx tagline",
-  origin:
-    "The tagline keeps the founder's rule and widens the door: the brain is the biggest tool, and the institute trains the people who use it.",
-} as const;
-
-/** The four schools, phased. Dates are confirmed by the Principal's
- * office at the point of application, never printed in advance. The
- * school cards carry no photographs: there is no campus to photograph
- * yet, and the institute does not borrow one. */
-export const schools = [
-  {
-    id: "technology",
-    phase: "School I",
-    name: "School of Technology",
-    status: "Open for enquiry",
-    lead: "The AI-native flagship. First in, because it needs the least: a bench, a meter, a machine that thinks with you.",
-    body: "Technology is where the institute starts. The discipline covers the modern tool chain from the inside: how computing systems are taken apart, understood and rebuilt, and how to put AI tools to work without surrendering judgement to them. The study companion runs on the same stack the institute runs on, so students learn on the real thing from the first day.",
-  },
-  {
-    id: "engineering",
-    phase: "School II",
-    name: "School of Engineering",
-    status: "Coming soon",
-    lead: "The making core: work that holds, measured and finished to standard.",
-    body: "Engineering follows, because it is the most demanding to stand up properly: machine shops, measurement, the discipline of tolerances. The institute will not open a workshop it cannot staff with people who have cut metal for a living. When the school opens its doors, the certificate standard is already written: excellence in innovation and applied problem-solving.",
-  },
-  {
-    id: "science",
-    phase: "School III",
-    name: "School of Science",
-    status: "Coming soon",
-    lead: "The reasoning core: observation, evidence and disciplined thought.",
-    body: "Science is the long game. The laboratory takes time to build, and the institute will not present borrowed laboratories as its own. The school arrives when the benches are real, and it arrives with the same spine every other school carries: evidence first, decoration never, and a venture in every cohort.",
-  },
-] as const;
-
-/** Applied problem-solving is not a school; it is the spine that runs
- * through all of them, and it is named on every certificate. */
-export const appliedSpine = {
-  name: "Applied problem-solving",
-  line: "Not a school. The spine that runs through all three, and the standard named on every certificate.",
-} as const;
-
-/** The Oryx Tools List: what the institute actually runs on, published
- * openly. Three registers: the office stack, the learner's tool spine,
- * and the AI stack. Nothing listed is claimed as a campus facility. */
-export const toolsList = [
-  {
-    register: "The office stack",
-    intro: "How the institute itself runs, in the open. If it is on this list, it is really in use.",
-    items: [
-      {
-        name: "One mailbox",
-        what: "info@oryxinstitute.org, read in the Principal's office. It is the front desk: applications, questions and appointments all start there.",
-      },
-      {
-        name: "The print kit",
-        what: "Letterhead, certificate, business card. The institute's paper register, carried through every page of this site.",
-      },
-    ],
-  },
-  {
-    register: "The learner's tool spine",
-    intro: "The disciplined basics every course assumes, arranged per cohort where the course needs them.",
-    items: [
-      {
-        name: "The brain",
-        what: "The biggest tool, per the founder's rule. Everything else on this page is downstream of it.",
-      },
-      {
-        name: "Pencil, ruler, compass",
-        what: "Drafting by hand before drafting by machine. It is where the standard of finishing starts.",
-      },
-      {
-        name: "Meter, iron, bench",
-        what: "Measure, solder, make. Workshop access is arranged per cohort and stated plainly before enrolment, never implied by pictures.",
-      },
-      {
-        name: "The notebook",
-        what: "Every course keeps a written record. Graduates leave with their own evidence trail, in their own hand.",
-      },
-    ],
-  },
-  {
-    register: "The AI stack",
-    intro: "The institute is AI-native, and every tool is named.",
-    items: [
-      {
-        name: "The AI study companion",
-        what: "An AI-backed tutor that runs on the institute's own stack: practice questions, worked examples, patient repetition, in plain language. The model behind it is named in the course packs, not on a web page.",
-      },
-      {
-        name: "Practice banks, generated per course",
-        what: "Quiz sets and exercises produced from each course's own materials, checked by the teaching staff before they reach a student.",
-      },
-      {
-        name: "Offline-first study packs",
-        what: "Course packs that keep working when the connection does not. Windhoek taught the institute that lesson before the AI did.",
-      },
-    ],
-  },
-] as const;
-
-/** The Oryx Bulletin: the institute's insights, written to be read.
- * Every figure carries its source. No fabricated statistics. */
 export const insights = [
   {
     id: "what-a-polytechnic-is",
@@ -173,11 +65,6 @@ export const resources = [
     name: "The Oryx Bulletin",
     what: "The institute's own insights, set below and on this page. Cited figures, plain language, no filler.",
     action: { label: "Read the Bulletin", href: "#bulletin" },
-  },
-  {
-    name: "The Oryx Tools List",
-    what: "Every tool the institute runs on, published in the open: the office stack, the learner's spine, the AI stack.",
-    action: { label: "See the tools", href: "/tools" },
   },
   {
     name: "The application guide",

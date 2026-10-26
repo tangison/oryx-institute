@@ -20,19 +20,30 @@ const nextConfig: NextConfig = {
     qualities: [75],
   },
   redirects: () => [
-    { source: "/announcements", destination: "/news", permanent: true },
-    { source: "/compare", destination: "/programmes", permanent: true },
+    /* Afrikaans retired: the second language is Chinese now. Every
+       old /af link lands on its /zh equivalent. */
+    { source: "/af", destination: "/zh", permanent: true },
+    { source: "/af/:path*", destination: "/zh/:path*", permanent: true },
+    /* Retired sections land on the page that now carries the work:
+       the teaching offer lives on /practice, announcements live in
+       the register, the free library lives in the Directory. */
+    { source: "/programmes", destination: "/practice", permanent: true },
+    { source: "/compare", destination: "/practice", permanent: true },
+    { source: "/schools", destination: "/practice", permanent: true },
+    { source: "/news", destination: "/register", permanent: true },
+    { source: "/announcements", destination: "/register", permanent: true },
+    { source: "/tools", destination: "/resources", permanent: true },
     { source: "/people", destination: "/about", permanent: true },
     { source: "/disclaimer", destination: "/about", permanent: true },
     { source: "/thank-you", destination: "/apply", permanent: true },
     /* The Bulletin's clean URL lands on its home in Resources. */
     { source: "/bulletin", destination: "/resources#bulletin", permanent: true },
-    { source: "/af/bulletin", destination: "/af/resources#bulletin", permanent: true },
+    { source: "/zh/bulletin", destination: "/zh/resources#bulletin", permanent: true },
     /* Legal pages live under /legal; the launch URLs still resolve. */
     { source: "/privacy", destination: "/legal/privacy", permanent: true },
     { source: "/terms", destination: "/legal/terms", permanent: true },
-    { source: "/af/privacy", destination: "/af/legal/privacy", permanent: true },
-    { source: "/af/terms", destination: "/af/legal/terms", permanent: true },
+    { source: "/zh/privacy", destination: "/zh/legal/privacy", permanent: true },
+    { source: "/zh/terms", destination: "/zh/legal/terms", permanent: true },
   ],
 };
 

@@ -11,20 +11,20 @@ import { swapLang, type Lang } from "@/lib/i18n";
  * with JavaScript off, exactly like the rest of the panel.
  */
 export function MenuLang({ lang }: { lang: Lang }) {
-  const tSwap = lang === "en" ? "Afrikaans" : "English";
-  const eyebrow = lang === "en" ? "Language" : "Taal";
-  const note = lang === "en" ? "Every page, in both languages." : "Elke bladsy, in albei tale.";
+  const tSwap = lang === "en" ? "中文" : "English";
+  const eyebrow = lang === "en" ? "Language" : "语言";
+  const note = lang === "en" ? "Every page, in both languages." : "每个页面，两种语言。";
   const pathname = usePathname();
-  /* The middleware serves /programmes as /en/programmes internally, so
+  /* The middleware serves /practice as /en/practice internally, so
      strip a leading locale segment before swapping. */
-  const bare = pathname.replace(/^\/(en|af)(?=\/|$)/, "") || "/";
+  const bare = pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
 
   return (
     <div className="menu-lang">
       <p className="eyebrow eyebrow--ivory">{eyebrow}</p>
       <Link
         href={swapLang(lang, bare)}
-        hrefLang={lang === "en" ? "af" : "en"}
+        hrefLang={lang === "en" ? "zh" : "en"}
         className="menu-lang-link"
       >
         {tSwap}

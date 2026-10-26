@@ -1,29 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import { ErrorScreen, statusFromError } from "@/components/site/error-screen";
 
-export default function ErrorPage({
+/** The root render-error boundary: same screen, English chrome. */
+export default function RootError({
+  error,
   reset,
 }: {
-  error: Error & { digest?: string };
+  error: Error & { digest?: string; status?: unknown; statusCode?: unknown };
   reset: () => void;
 }) {
-  return (
-    <section className="shell flex min-h-[70vh] flex-col items-start justify-center py-24">
-      <h1 className="h-display max-w-[16ch]">Something broke. Quietly.</h1>
-      <p className="measure mt-5 text-soft">
-        A page on our side failed to load. Try again, and if it keeps
-        failing, tell the office directly.
-      </p>
-      <div className="mt-9 flex flex-wrap items-center gap-7">
-        <button type="button" onClick={reset} className="btn">
-          Try again
-        </button>
-        <Link href="/" className="btn--quiet">
-          Back to the home page{" "}
-          <span className="arr" aria-hidden="true">→</span>
-        </Link>
-      </div>
-    </section>
-  );
+  return <ErrorScreen status={statusFromError(error)} lang="en" onReset={reset} />;
 }

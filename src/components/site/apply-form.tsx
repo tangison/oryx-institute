@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { offers, site } from "@/lib/site";
-import { offersAf } from "@/lib/site-af";
+import { offersZh } from "@/lib/site-zh";
 import type { Lang } from "@/lib/i18n";
 
 type Errors = { name?: string; contact?: string };
@@ -53,34 +53,31 @@ const labels = {
         .filter(Boolean)
         .join("\n"),
   },
-  af: {
-    name: "Naam",
-    namePlaceholder: "Jou volle naam",
-    nameError: "Vertel ons asseblief jou naam sodat ons weet wie aansoek doen.",
-    contact: "E-pos vir die antwoord",
-    contactErrorEmpty:
-      "Voeg een manier by om jou te bereik: 'n e-posadres, of 'n telefoonnommer as jy liever 'n oproep wil hê.",
+  zh: {
+    name: "姓名",
+    namePlaceholder: "你的完整姓名",
+    nameError: "请告诉我们你的名字，好知道申请的是谁。",
+    contact: "用于回复的邮箱",
+    contactErrorEmpty: "留一种联系方式：电子邮箱，或者你更希望接电话的话，留电话号码。",
     contactErrorBad:
-      "Dit lyk nie volledig nie. Gebruik 'n e-posadres (naam@voorbeeld.com) of 'n telefoonnommer met sy landkode.",
-    field: "Belangstellingsveld",
-    notSure: "Nog nie seker nie",
-    message: "Boodskap, opsioneel",
-    messagePlaceholder:
-      "Vertel ons waarvandaan jy kom en wat jy wil leer",
-    submit: "Berei die e-pos voor",
+      "看起来不完整。请用一个电子邮箱（name@example.com），或带国家区号的电话号码。",
+    field: "感兴趣的领域",
+    notSure: "还没想好",
+    message: "留言，可选",
+    messagePlaceholder: "说说你从哪里来，想学什么",
+    submit: "准备邮件",
     submitNote: (email: string) =>
-      `Maak jou eie e-poskliënt oop met die aansoek geadresseer aan ${email}. Niks word op hierdie werf gestoor nie.`,
+      `打开你自己的邮件客户端，收件人已是 ${email}。本站不存储任何东西。`,
     noScript: (email: string) => (
       <>
-        Die komponeerder benodig JavaScript. Sonder dit is die aansoek
-        dieselfde e-pos, met die hand geskryf:{" "}
+        拟稿器需要 JavaScript。没有它，申请就是同一封手写的邮件：{" "}
         <a href={`mailto:${email}`} className="link-type">
           {email}
         </a>
       </>
     ),
     subject: (name: string, discipline: string) =>
-      `Aansoek: ${name} · ${discipline}`,
+      `申请：${name} · ${discipline}`,
     body: (
       name: string,
       contact: string,
@@ -88,12 +85,12 @@ const labels = {
       message: string
     ) =>
       [
-        `Goeiedag Oryx Instituut,`,
+        `你好，Oryx 理工学院：`,
         ``,
-        `Naam: ${name}`,
-        `Antwoord aan: ${contact}`,
-        `Belangstellingsveld: ${discipline}`,
-        message ? `Boodskap: ${message}` : null,
+        `姓名：${name}`,
+        `回复至：${contact}`,
+        `感兴趣的领域：${discipline}`,
+        message ? `留言：${message}` : null,
       ]
         .filter(Boolean)
         .join("\n"),
@@ -115,7 +112,7 @@ const labels = {
  */
 export function ApplyForm({ lang }: { lang: Lang }) {
   const t = labels[lang];
-  const offerList = lang === "af" ? offersAf : offers;
+  const offerList = lang === "zh" ? offersZh : offers;
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [discipline, setDiscipline] = useState<string>(offerList[0].name);

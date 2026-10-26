@@ -429,9 +429,9 @@
 .nav-links {
   display: none;
   align-items: center;
-  gap: 2.25rem;
+  gap: clamp(1.2rem, 1.6vw, 2.25rem);
 }
-@media (min-width: 64rem) {
+@media (min-width: 75rem) {
   .nav-links {
     display: flex;
   }
@@ -450,6 +450,24 @@
 }
 .nav-link[aria-current="page"] {
   color: var(--maroon);
+}
+/* Apply is the one button on the bar: maroon ground, cream word,
+   hairline radius. It reads as a button without shouting. */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--maroon);
+  color: var(--ivory);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.62rem 1.1rem;
+  transition: background var(--dur-short) var(--ease-out);
+}
+.nav-cta:hover {
+  background: var(--maroon-deep);
+  color: var(--ivory);
 }
 
 .header-tools {
@@ -475,7 +493,7 @@
 .search-trigger:hover {
   color: var(--maroon-deep);
 }
-@media (min-width: 64rem) {
+@media (min-width: 75rem) {
   .search-trigger {
     display: inline-flex;
   }
@@ -560,8 +578,10 @@
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: var(--ink);
-  color: var(--ivory);
+  /* The slideover is the same cream paper as the site: ink type on
+     cream, no dark panel anywhere in the frame. */
+  background: var(--paper);
+  color: var(--ink);
   overflow-y: auto;
   overscroll-behavior: contain;
   /* The header container disables pointer events so the page shows
@@ -591,10 +611,10 @@
   display: grid;
 }
 .menu-primary li {
-  border-top: 1px solid var(--rule-ink);
+  border-top: 1px solid var(--rule);
 }
 .menu-primary li:last-child {
-  border-bottom: 1px solid var(--rule-ink);
+  border-bottom: 1px solid var(--rule);
 }
 .menu-primary a {
   display: flex;
@@ -602,11 +622,11 @@
   justify-content: space-between;
   gap: 1.5rem;
   padding-block: clamp(0.9rem, 2.2vh, 1.5rem);
-  color: var(--ivory);
+  color: var(--ink);
 }
 .menu-link-text {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  font-size: clamp(2.5rem, 5.5vw, 3rem);
   line-height: 1.06;
   letter-spacing: -0.01em;
   transition: transform var(--dur-long) var(--ease-out), color var(--dur-short) var(--ease-out);
@@ -614,18 +634,18 @@
 .menu-primary a:hover .menu-link-text,
 .menu-primary a:focus-visible .menu-link-text {
   transform: translateX(0.18em);
-  color: var(--ivory);
+  color: var(--maroon);
 }
 .menu-arr {
   font-family: var(--font-body);
   font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: var(--ivory-60);
+  color: var(--ink-40);
   transition: transform var(--dur-long) var(--ease-out), color var(--dur-short) var(--ease-out);
 }
 .menu-primary a:hover .menu-arr,
 .menu-primary a:focus-visible .menu-arr {
   transform: translateX(0.3em);
-  color: var(--ivory);
+  color: var(--maroon);
 }
 
 /* The arrival: primary links rise, staggered, once the panel lands. */
@@ -651,27 +671,22 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 2rem;
 }
-@media (min-width: 48rem) {
-  .menu-secondary ul {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
 .menu-secondary li {
   padding-block: 0.35rem;
 }
 .menu-secondary a {
-  font-size: 0.95rem;
-  color: var(--ivory-80);
+  font-size: 1.125rem;
+  color: var(--ink-60);
   transition: color var(--dur-short) var(--ease-out), opacity 440ms var(--ease-out), transform 440ms var(--ease-out);
 }
 .menu-secondary a:hover {
-  color: var(--ivory);
+  color: var(--maroon);
 }
 
 /* The language switch, held in the panel: the current language is the
    page you are on; the other one is one large serif link. */
 .menu-lang {
-  border-top: 1px solid var(--rule-ink);
+  border-top: 1px solid var(--rule);
   padding-top: 1.75rem;
   display: grid;
   gap: 0.7rem;
@@ -684,12 +699,12 @@
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 4vw, 2.6rem);
   line-height: 1.1;
-  color: var(--ivory);
+  color: var(--maroon);
   transition: color var(--dur-short) var(--ease-out);
 }
 .menu-lang-link:hover,
 .menu-lang-link:focus-visible {
-  color: var(--ivory);
+  color: var(--maroon-deep);
 }
 .menu-lang-link .menu-arr {
   font-size: clamp(1rem, 1.8vw, 1.35rem);
@@ -698,11 +713,11 @@
 .menu-lang-link:hover .menu-arr,
 .menu-lang-link:focus-visible .menu-arr {
   transform: translateX(0.3em);
-  color: var(--ivory);
+  color: var(--maroon-deep);
 }
 .menu-lang-note {
   font-size: 0.9rem;
-  color: var(--ivory-60);
+  color: var(--ink-60);
 }
 
 .menu-meta {
@@ -710,7 +725,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 1rem 2.5rem;
-  border-top: 1px solid var(--rule-ink);
+  border-top: 1px solid var(--rule);
   padding-top: 1.75rem;
 }
 .menu-clock {
@@ -719,23 +734,23 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ivory-60);
+  color: var(--ink-60);
   font-variant-numeric: tabular-nums;
 }
 .menu-mail {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--ivory);
+  color: var(--ink);
 }
 .menu-mail:hover {
   text-decoration: underline;
-  text-decoration-color: var(--ivory-60);
+  text-decoration-color: var(--ink-40);
   text-underline-offset: 0.22em;
 }
 .menu-place {
   font-size: 0.9rem;
-  color: var(--ivory-60);
+  color: var(--ink-60);
 }
 .menu-social {
   display: flex;
@@ -746,16 +761,16 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ivory-80);
+  color: var(--ink-60);
   transition: color var(--dur-short) var(--ease-out);
 }
 .menu-social a:hover {
-  color: var(--ivory);
+  color: var(--ink);
 }
 .menu-legal {
   flex-basis: 100%;
   font-size: 0.78rem;
-  color: var(--ivory-60);
+  color: var(--ink-60);
 }
 
 /* Scroll lock while the panel holds the page. */
@@ -1244,6 +1259,15 @@ body.menu-locked {
   line-height: 1.6;
 }
 
+/* Pull quotes: Radley italic, the brief's own scale. */
+.pull-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
 /* Image plates inside sections */
 .plate {
   position: relative;
@@ -1566,6 +1590,46 @@ body.menu-locked {
   box-shadow: 10px 10px 0 -1px var(--paper-2), 10px 10px 0 0 var(--rule);
 }
 
+/* Print-kit gallery: one piece per screen. The photograph is
+   contained, never cropped; the real mark sits over it in code. The
+   offset-plate shadow is the one shadow the register allows. */
+.kit-stack {
+  display: grid;
+  gap: clamp(3rem, 8vh, 6rem);
+}
+.kit-plate {
+  position: relative;
+  min-height: min(80vh, 52rem);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vh, 3rem) var(--gutter);
+}
+/* The frame shrinks to the photograph, so the percentage-positioned
+   overlays ride on the photo itself, not the page. */
+.kit-plate-frame {
+  position: relative;
+  display: inline-block;
+}
+.kit-plate-frame > img {
+  display: block;
+  height: min(72vh, 46rem);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  box-shadow: 14px 14px 0 -1px var(--paper-2), 14px 14px 0 0 var(--rule);
+}
+@media (max-width: 767px) {
+  .kit-plate {
+    min-height: 0;
+  }
+  .kit-plate-frame > img {
+    height: auto;
+    width: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    News + article typography
    -------------------------------------------------------------------------- */
@@ -1699,6 +1763,16 @@ html.sc-ready [data-sc-stagger] > .sc-in {
 html.sc-ready [data-sc-scrim] {
   opacity: 0;
 }
+/* Edge reveal: the element unmasks from its left edge. The pre-hide
+   is a closed clip-path, the reveal a wipe; transform and opacity
+   stay untouched so the type never moves. */
+html.sc-ready [data-sc-reveal] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 950ms var(--ease-out);
+}
+html.sc-ready [data-sc-reveal].sc-revealed {
+  clip-path: inset(0 0 0 0);
+}
 /* Blocks already inside the viewport on load land still, by design. */
 .sc-instant {
   transition: none !important;
@@ -1723,6 +1797,19 @@ html.sc-ready [data-sc-scrim] {
 .hero-media {
   position: absolute;
   inset: -6%;
+}
+
+/* The hero plate is shot portrait: on wide viewports the cover crop
+   must keep the oryx and its shadow in frame, with the terracotta
+   sky carrying the type. Mobile swings the crop toward the animal. */
+.hero-media img {
+  object-position: 50% 78%;
+}
+
+@media (max-width: 767px) {
+  .hero-media img {
+    object-position: 68% 42%;
+  }
 }
 
 /* Flat ledger rows: no date rail. The rail is reserved for dates. */

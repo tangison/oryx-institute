@@ -6,7 +6,7 @@ import { MenuLang } from "@/components/site/menu-lang";
 import { MenuClock } from "@/components/site/menu-clock";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { navLinks, footerNav, site } from "@/lib/site";
-import { navAf, siteAf } from "@/lib/site-af";
+import { navZh, siteZh } from "@/lib/site-zh";
 
 /**
  * The floating header: a cream bar flush with the top edge, hairline
@@ -14,16 +14,17 @@ import { navAf, siteAf } from "@/lib/site-af";
  * then search (desktop); the menu trigger is the only tool on the
  * right, and it carries every screen into the off-canvas sitemap.
  *
- * The menu is a native <details>-style checkbox disclosure: full-screen
- * ink, the primary links in the brand serif, the language switch and
- * the rest of the sitemap beneath, the office line and Windhoek time at
- * the bottom. It opens, navigates and closes with JavaScript off.
+ * The menu is a native <details>-style checkbox disclosure: a
+ * full-screen cream slideover, the primary links in the brand serif,
+ * the language switch and the rest of the sitemap beneath, the office
+ * line and Windhoek time at the bottom. It opens, navigates and
+ * closes with JavaScript off.
  */
 export function SiteHeader({ lang }: { lang: Lang }) {
   const t = chrome[lang];
-  const af = lang === "af";
-  const links = af ? navAf.navLinks : navLinks;
-  const sitemap = af ? navAf.footerNav : footerNav;
+  const zh = lang === "zh";
+  const links = zh ? navZh.navLinks : navLinks;
+  const sitemap = zh ? navZh.footerNav : footerNav;
   const secondary = sitemap.filter(
     (l) => !links.some((n) => n.href === l.href)
   );
@@ -61,7 +62,10 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           <ul className="flex items-center gap-9">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={langPath(lang, l.href)} className="nav-link">
+                <Link
+                  href={langPath(lang, l.href)}
+                  className={l.href === "/apply" ? "nav-cta" : "nav-link"}
+                >
                   {l.label}
                 </Link>
               </li>
@@ -124,9 +128,9 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               {site.email}
             </a>
             <p className="menu-place">
-              {site.city}, {af ? siteAf.country : site.country}
+              {site.city}, {zh ? siteZh.country : site.country}
             </p>
-            <ul className="menu-social" aria-label={af ? "Sosiale kanale" : "Social channels"}>
+            <ul className="menu-social" aria-label={zh ? "社交频道" : "Social channels"}>
               {site.socials.map((s) => (
                 <li key={s.href}>
                   <a

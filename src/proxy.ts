@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
  *
  * 1. Locale routing, next-intl style, without the library. English is
  *    the default and keeps the clean URLs the site launched with: the
- *    proxy rewrites /programmes to /en/programmes internally, so no
+ *    proxy rewrites /practice to /en/practice internally, so no
  *    existing link, sitemap entry or search result ever breaks.
- *    Afrikaans lives at /af/... physically; anything that already
+ *    Chinese lives at /zh/... physically; anything that already
  *    carries a language prefix passes straight through.
  * 2. The preview guard. Production hosts serve indexable pages; every
  *    other host (vercel.app aliases, preview deployments) is marked
@@ -15,7 +15,7 @@ import { NextRequest, NextResponse } from "next/server";
  *    domain changes, set the PRODUCTION_HOST environment variable.
  */
 
-const LANGS = ["en", "af"];
+const LANGS = ["en", "zh"];
 
 const DEFAULT_PRODUCTION_HOSTS = [
   "oryxinstitute.org",

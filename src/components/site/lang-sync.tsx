@@ -13,7 +13,9 @@ import { usePathname } from "next/navigation";
 export function LangSync({ lang }: { lang: string }) {
   const pathname = usePathname();
   useEffect(() => {
-    document.documentElement.lang = lang;
+    /* zh carries its region subtag: the CJK font stacks and hyphenation
+       both key on the full BCP-47 tag, not the bare language. */
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
   }, [lang, pathname]);
   return null;
 }
