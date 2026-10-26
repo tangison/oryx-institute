@@ -142,25 +142,32 @@ const ROUTES = [
   /* ---------- GSAP motion ---------- */
   console.log("\n[6] GSAP ScrollTrigger, desktop");
   await page.goto(BASE + "/", { waitUntil: "load" });
-  // arm the engine
+  // arm the engine (poll: on real networks the dynamic import takes longer)
   await page.mouse.wheel(0, 200);
-  await page.waitForTimeout(900);
+  await page.waitForFunction(() => document.documentElement.classList.contains("sc-ready"), { timeout: 15000 }).catch(() => {});
+  await page.waitForTimeout(400);
   const gsapInfo = await page.evaluate(async () => {
     const spacers = document.querySelectorAll(".pin-spacer").length;
     const stages = document.querySelectorAll('[data-sc-act="pin"] [data-sc-stage]').length;
     const ready = document.documentElement.classList.contains("sc-ready");
     /* Real evidence: fetch every loaded chunk and look for GSAP's
        own signature strings inside the code. */
-    const chunks = performance.getEntriesByType("resource")
-      .map((r) => r.name).filter((n) => /static\/chunks\/.*\.js/.test(n));
+    let chunkUrls = performance.getEntriesByType("resource")
+      .map((r) => r.name).filter((n) => /static\/(immutable\/)?chunks\/.*\.js/.test(n));
+    if (chunkUrls.length === 0) {
+      /* Some contexts clear resource timing; fall back to the
+         document's own script tags. */
+      chunkUrls = [...document.querySelectorAll("script[src]")]
+        .map((s) => s.src).filter((n) => /static\/(immutable\/)?chunks\/.*\.js/.test(n));
+    }
     let gsapInChunk = false;
-    for (const c of chunks.slice(0, 40)) {
+    for (const c of chunkUrls.slice(0, 60)) {
       try {
         const txt = await (await fetch(c)).text();
         if (/ScrollTrigger/.test(txt) && /gsap/.test(txt)) { gsapInChunk = true; break; }
       } catch {}
     }
-    return { spacers, stages, ready, gsapInChunk, chunkCount: chunks.length };
+    return { spacers, stages, ready, gsapInChunk, chunkCount: chunkUrls.length };
   });
   check("sc-ready armed", gsapInfo.ready);
   check("GSAP ScrollTrigger in loaded chunks", gsapInfo.gsapInChunk, JSON.stringify(gsapInfo));
@@ -258,7 +265,8 @@ const ROUTES = [
   const mp = await mob.newPage();
   await mp.goto(BASE + "/", { waitUntil: "load" });
   await mp.mouse.wheel(0, 200);
-  await mp.waitForTimeout(900);
+  await mp.waitForFunction(() => document.documentElement.classList.contains("sc-ready"), { timeout: 15000 }).catch(() => {});
+  await mp.waitForTimeout(400);
   const mobInfo = await mp.evaluate(() => {
     const act = document.querySelector('[data-sc-act="pin"]');
     const r = act.getBoundingClientRect();
