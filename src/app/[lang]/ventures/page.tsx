@@ -11,19 +11,19 @@ const copy = {
     meta: {
       title: "Ventures",
       description:
-        "Ventures are the proof: small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first live lab.",
+        "Small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first.",
       ogTitle: "Ventures | Oryx Institute",
       ogDescription:
         "Small operating companies the institute opens to test sectors. Corner Spa is the first.",
       ldName: "Ventures",
       ldDescription:
-        "The ventures engine at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
+        "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
     },
     exitEyebrow: "The exit exam",
     exitLede:
-      "A venture cannot be faked. It works or it doesn't. A customer pays or doesn't.",
+      "A venture is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Every course the institute teaches ends in something that works and something that sells. The ventures engine is the institute holding itself to its own exit exam: small companies, run to standard, their openings dated in the public register.",
+      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
     nextEyebrow: "Next",
     readRegister: "Read the register in the news",
     closeTitle: "A sector you think Oryx should test?",
@@ -35,19 +35,19 @@ const copy = {
     meta: {
       title: "Ondernemings",
       description:
-        "Ondernemings is die bewys: klein bedrywende maatskappye wat Oryx Instituut open om sektors toets. Corner Spa, welstand en diensbedrywighede, is die eerste lewende laboratorium.",
+        "Klein bedrywende maatskappye wat Oryx Instituut open om sektors toets. Corner Spa, welstand en diensbedrywighede, is die eerste.",
       ogTitle: "Ondernemings | Oryx Instituut",
       ogDescription:
         "Klein bedrywende maatskappye wat die instituut open om sektors toets. Corner Spa is die eerste.",
       ldName: "Ondernemings",
       ldDescription:
-        "Die ondernemingsenjin by Oryx Instituut: klein bedrywende maatskappye geopen om sektors toets, beginnende met Corner Spa.",
+        "Die ondernemings by Oryx Instituut: klein bedrywende maatskappye geopen om sektors toets, beginnende met Corner Spa.",
     },
     exitEyebrow: "Die uitgangseksamen",
     exitLede:
-      "'n Onderneming kan nie geveins word nie. Dit werk, of dit werk nie. 'n Kliënt betaal, of nie.",
+      "'n Onderneming word gemeet aan die twee dinge wat nie kan lieg nie: of dit werk, en of iemand daarvoor betaal.",
     exitBody:
-      "Elke kursus wat die instituut onderrig eindig in iets wat werk en iets wat verkoop. Die ondernemingsenjin is die instituut wat homself aan sy eie uitgangseksamen hou: klein maatskappye, tot standaard bedryf, hulle openings gedateer in die openbare register.",
+      "Elke kursus wat die instituut onderrig eindig in iets wat werk en iets wat verkoop. Ondernemings is hoe die instituut homself aan daardie reël hou: klein maatskappye, tot standaard bedryf, hulle openings gedateer in die openbare register.",
     nextEyebrow: "Volgende",
     readRegister: "Lees die register in die nuus",
     closeTitle: "'n Sektor wat jy dink Oryx moet toets?",

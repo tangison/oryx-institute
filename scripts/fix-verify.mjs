@@ -137,7 +137,7 @@ const ROUTES = [
   check("Facebook URL+tab", fb && fb.href === "https://facebook.com/oryxinstitute" && fb.target === "_blank" && /noopener/.test(fb.rel || ""));
   check("LinkedIn URL+tab", li && li.href === "https://www.linkedin.com/company/oryx-polytechnic-institute/" && li.target === "_blank" && /noopener/.test(li.rel || ""));
   const footPlace = await page.$eval(".foot-place", (p) => p.textContent).catch(() => "");
-  check("WINDHOEK · EST. 2026 in footer", /windhoek/i.test(footPlace) && /2026/.test(footPlace), footPlace);
+  check("place line in footer (Windhoek, Namibia; no EST tag)", /windhoek/i.test(footPlace) && !/est\.?\s*2026/i.test(footPlace), footPlace);
 
   /* ---------- GSAP motion ---------- */
   console.log("\n[6] GSAP ScrollTrigger, desktop");

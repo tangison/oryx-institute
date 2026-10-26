@@ -70,7 +70,7 @@ export const toolsListAf = [
       },
       {
         name: "Potlood, liniaal, kompas",
-        what: "Met die hand geteken voor die masjien teken. Die dokumentêre register op hierdie werf is geen nostalgie nie; dit is die standaard van voltooiing.",
+        what: "Met die hand geteken voor die masjien teken. Dit is waar die standaard van voltooiing begin.",
       },
       {
         name: "Meter, soldeerbout, werkbank",
@@ -84,7 +84,7 @@ export const toolsListAf = [
   },
   {
     register: "Die KI-stelsel",
-    intro: "Die instituut is KI-inheems, wat beteken die gereedskap word by die naam genoem, nie as towerkrag nie.",
+    intro: "Die instituut is KI-inheems, en elke gereedskap word by die naam genoem.",
     items: [
       {
         name: "Die KI-studievennoot",

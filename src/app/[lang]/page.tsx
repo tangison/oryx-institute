@@ -21,14 +21,14 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
  * The homepage, laid out as one scroll composition:
  *
  *   hero (scrub) · positioning (flow) · 03 silent divider (flow) ·
- *   three engines (PIN) · what runs today (flow) · practice peak
- *   (PIN) · research zigzag (flow) · ventures reverse-zigzag (flow) ·
- *   07 silent divider (flow) · the register (flow) · close (PIN) ·
- *   footer.
+ *   the three kinds of work (PIN) · what runs today (flow) · practice
+ *   peak (PIN) · research zigzag (flow) · ventures reverse-zigzag
+ *   (flow) · 07 silent divider (flow) · the register (flow) · close
+ *   (PIN) · footer.
  *
- * Three pins, two silent dividers, one engineered peak. No device
- * twice in a row. The core plates run in act order: 01, 02, 03, 05,
- * 04, 08, 07, 10 (Image Asset Manifest v4).
+ * Three pins, two silent dividers, one pinned peak. No device twice in
+ * a row. The core plates run in act order: 01, 02, 03, 05, 04, 08, 07,
+ * 10 (Image Asset Manifest v4).
  */
 const copy = {
   en: {
@@ -37,7 +37,7 @@ const copy = {
       description: site.description,
     },
     positioning:
-      "A new polytechnic for Namibia, working from Windhoek. It is prelaunch and pursuing accreditation with the NQA and the NTA, and it says so plainly. Every step is dated on the register below.",
+      "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA. Every step is dated on the register below.",
     engines: [
       {
         key: "research" as const,
@@ -58,22 +58,22 @@ const copy = {
         link: "See",
       },
     ],
-    /* TODO founder: positioning H2 for the engines block. */
-    enginesTitle: "Three engines. One standard.",
+    /* TODO founder: positioning H2 for this block. */
+    enginesTitle: "How the institute works.",
     runsTitle: "What runs today.",
     runsBody:
-      "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. Nothing here promises a credential; every line promises work.",
+      "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. What they promise is work, because credentials come only after accreditation.",
     researchTitle: "Research runs from day one.",
     researchLine:
-      "Research is not a department that opens when buildings arrive. It is why the institute exists.",
+      "No buildings are needed for this work, so no buildings delay it.",
     practiceTitle: "Practice.",
     practiceBody:
-      "Work that holds. Measured and finished to standard. Every tool named, not magic.",
-    venturesTitle: "Ventures are the proof.",
-    registerMeta: "Dated. Public. Updated as the work lands.",
+      "Work measured and finished to standard, with every tool named.",
+    venturesTitle: "Small companies, real customers.",
+    registerMeta: "Dated as the work lands, public to read.",
     closeTitle: "One email starts it.",
     closeBody:
-      "Applications, research enquiries, partnerships, and press begin with one message. The reply is personal. Nothing is committed until both sides agree.",
+      "Applications, research enquiries, partnerships and press all begin with one message, and the reply comes from a person. Nothing is committed until both sides agree.",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
     seeWhatRuns: "See what runs now",
@@ -87,7 +87,7 @@ const copy = {
       description: siteAf.description,
     },
     positioning:
-      "'n Nuwe politegniek vir Namibië, werkend vanuit Windhoek. Dit is voor lansering en besig met akkreditering by die NQA en die NTA, en sê dit self so. Elke stap is gedateer op die register hieronder.",
+      "'n Nuwe politegniek vir Namibië, werkend vanuit Windhoek. Voor lansering, en besig met akkreditering by die NQA en die NTA. Elke stap is gedateer op die register hieronder.",
     engines: [
       {
         key: "research" as const,
@@ -108,22 +108,22 @@ const copy = {
         link: "Sien",
       },
     ],
-    /* TODO founder: posisionerende H2 vir die enjins-blok. */
-    enginesTitle: "Drie enjins. Een standaard.",
+    /* TODO founder: posisionerende H2 vir dié blok. */
+    enginesTitle: "Hoe die instituut werk.",
     runsTitle: "Wat vandag loop.",
     runsBody:
-      "Ses aanbiedings, lewendig vanuit die kantoor in Windhoek. Twee onderrigdepartemente loop kondens- en kortkursusse alleen; die praktyk en die gratis Gids loop langs hulle. Niks hier belowe 'n kwalifikasie nie; elke reël belowe werk.",
+      "Ses aanbiedings, lewendig vanuit die kantoor in Windhoek. Twee onderrigdepartemente loop kondens- en kortkursusse alleen; die praktyk en die gratis Gids loop langs hulle. Wat hulle belowe is werk, want kwalifikasies kom eers ná akkreditering.",
     researchTitle: "Navorsing loop van dag een af.",
     researchLine:
-      "Navorsing is nie 'n departement wat open wanneer geboue opdaag nie. Dit is hoekom die instituut bestaan.",
+      "Hierdie werk benodig geen geboue nie, dus hou geen geboue dit op nie.",
     practiceTitle: "Praktyk.",
     practiceBody:
-      "Werk wat hou. Gemeet en tot standaard voltooi. Elke gereedskap by die naam genoem, nie as towerkrag nie.",
-    venturesTitle: "Ondernemings is die bewys.",
-    registerMeta: "Gedateer. Openbaar. Opgedateer namate die werk land.",
+      "Werk wat gemeet en tot standaard voltooi word, met elke gereedskap by die naam genoem.",
+    venturesTitle: "Klein maatskappye, werklike kliënte.",
+    registerMeta: "Gedateer namate die werk land, openbaar om te lees.",
     closeTitle: "Een e-pos begin dit.",
     closeBody:
-      "Aansoeke, navorsingsnavrae, vennootskappe en die pers begin met een boodskap. Die antwoord is persoonlik. Niks word bevestig voordat albei kante saamstem nie.",
+      "Aansoeke, navorsingsnavrae, vennootskappe en die pers begin almal met een boodskap, en die antwoord kom van 'n mens. Niks word bevestig voordat albei kante saamstem nie.",
     writeOffice: "Skryf aan die kantoor",
     readFaq: "Lees die gereelde vrae",
     seeWhatRuns: "Sien wat nou loop",
@@ -156,7 +156,6 @@ export default async function HomePage({
   const t = copy[lang];
   const s = af
     ? {
-        heroTag: siteAf.heroTag,
         headline: siteAf.headline,
         heroSub: siteAf.heroSub,
         offers: offersAf,
@@ -164,7 +163,6 @@ export default async function HomePage({
         ventures: venturesAf,
       }
     : {
-        heroTag: site.heroTag,
         headline: site.headline,
         heroSub: site.heroSub,
         offers,
@@ -238,8 +236,7 @@ export default async function HomePage({
         </div>
         <div className="hero-content shell">
           <div data-sc-parallax="-0.06">
-            <p className="hero-tag">{s.heroTag}</p>
-            <h1 className="hero-title mt-5 max-w-[13ch]">{s.headline}</h1>
+            <h1 className="hero-title max-w-[13ch]">{s.headline}</h1>
           </div>
           <div className="mt-6" data-sc-parallax="0.08">
             <p className="hero-sub max-w-[44ch]">{s.heroSub}</p>
@@ -276,7 +273,7 @@ export default async function HomePage({
       </section>
 
       {/* First silent divider: wood and rope, a breath before the
-          engines. No text, no overlay, one full viewport. */}
+          three kinds of work. No text, no overlay, one full viewport. */}
       <div
         className="divider divider--full overflow-hidden"
         data-sc-act="flow"
@@ -293,8 +290,9 @@ export default async function HomePage({
         </div>
       </div>
 
-      {/* Three engines, pinned: one engine at a time, cross-faded.
-          Ink ground, no cards, each engine answers with its page. */}
+      {/* The three kinds of work, pinned: one row at a time,
+          cross-faded. Ink ground, no cards, each row answers with its
+          own page. */}
       <section
         className="on-ink"
         style={{ background: "var(--ink)", color: "var(--ivory)" }}

@@ -995,14 +995,6 @@ body.menu-locked {
   );
 }
 
-.hero-tag {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ivory);
-}
-
 .hero-title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -1025,8 +1017,8 @@ body.menu-locked {
    Section primitives
    -------------------------------------------------------------------------- */
 
-/* Three engines, pinned: one engine at a time, cross-faded on ink.
-   The first row holds the flow height; the engine CSS layers the
+/* The three kinds of work, pinned: one row at a time, cross-faded on
+   ink. The first row holds the flow height; the motion CSS layers the
    rest. No cards, no columns. */
 .engine-rows {
   display: grid;

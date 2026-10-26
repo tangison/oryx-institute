@@ -15,7 +15,7 @@ const copy = {
     meta: {
       title: "The Register",
       description:
-        "The Oryx Institute register: every public step the institute has taken, dated as it was said, newest first. Dated, public, and updated as the work lands.",
+        "The Oryx Institute register: every public step the institute has taken, dated as it was said, newest first, updated as the work lands.",
       ogTitle: "The Register | Oryx Institute",
       ogDescription:
         "Every public step the institute has taken, dated as it was said, newest first.",
@@ -25,13 +25,13 @@ const copy = {
       lede: "What the institute has made public, dated as it was said. Nothing is announced before it is certain, and nothing here names a partner before that partner has agreed to be named. Rows without a date yet print \"Date to be confirmed\".",
     },
     closing:
-      "Updated as the work lands. When a date is public, it is printed; until then, the row says so plainly.",
+      "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
   },
   af: {
     meta: {
       title: "Die Register",
       description:
-        "Die Oryx Instituut-register: elke openbare stap wat die instituut geneem het, gedateer soos dit gesê is, nuutste eerste. Gedateer, openbaar, en opgedateer namate die werk land.",
+        "Die Oryx Instituut-register: elke openbare stap wat die instituut geneem het, gedateer soos dit gesê is, nuutste eerste, opgedateer namate die werk land.",
       ogTitle: "Die Register | Oryx Instituut",
       ogDescription:
         "Elke openbare stap wat die instituut geneem het, gedateer soos dit gesê is, nuutste eerste.",
@@ -41,7 +41,7 @@ const copy = {
       lede: "Wat die instituut publiek gemaak het, gedateer soos dit gesê is. Niks word aangekondig voordat dit seker is nie, en niks hier noem 'n vennoot voordat daardie vennoot ingestem het om genoem te word nie. Rye sonder 'n datum druk \"Datum moet nog bevestig word\".",
     },
     closing:
-      "Opgedateer namate die werk land. Wanneer 'n datum publiek is, word dit gedruk; tot dan sê die ry dit self.",
+      "Opgedateer namate die werk land. Wanneer 'n datum publiek is, word dit gedruk; tot dan druk die ry \"Datum moet nog bevestig word\".",
   },
 } as const;
 

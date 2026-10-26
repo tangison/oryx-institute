@@ -1,7 +1,7 @@
 /**
- * The three engine glyphs (Research / Practice / Ventures), redrawn as
+ * The three glyphs (Research / Practice / Ventures), redrawn as
  * quiet line marks after the build pack's SVGs: 1.4px strokes,
- * currentColor, no fills. They sit on the ink engines band, where they
+ * currentColor, no fills. They sit on the ink band, where they
  * take the ivory.
  */
 

@@ -20,7 +20,7 @@ const copy = {
       eyebrow: "Tools & method",
       title: "The tools, named.",
       mottoLead: "The institute's rule is the tagline's:",
-      lede: "So the tools are named, not magic. What the institute runs on is listed here in the open, because a school that hides its tools is asking you to trust it blind.",
+      lede: "What the institute runs on is listed here in the open, because a school that hides its tools is asking you to trust it blind.",
     },
     closeTitle: "The biggest tool thinks.",
     closeBody:
@@ -41,7 +41,7 @@ const copy = {
       eyebrow: "Gereedskap en metode",
       title: "Die gereedskap, by die naam.",
       mottoLead: "Die instituut se reël is die slagspreuk s'n:",
-      lede: "So word die gereedskap by die naam genoem, nie as towerkrag nie. Waarop die instituut loop staan hier openlik gelys, want 'n skool wat sy gereedskap wegsteek vra jou om dit blind te vertrou.",
+      lede: "Waarop die instituut loop staan hier openlik gelys, want 'n skool wat sy gereedskap wegsteek vra jou om dit blind te vertrou.",
     },
     closeTitle: "Die grootste gereedskap dink.",
     closeBody:

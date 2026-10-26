@@ -42,7 +42,6 @@ export const site = {
   headline: "Oryx Institute.",
   heroSub:
     "A new polytechnic for Namibia. Research, practice, and companies that prove the work.",
-  heroTag: "Windhoek · Est. 2026",
   /** Approved flyer line on graduates. */
   closingLine:
     "Oryx Institute graduates solve problems quietly and finish them decisively.",
@@ -115,7 +114,7 @@ export const schemaIds = {
 export const status = {
   stage: "Prelaunch",
   accreditation:
-    "Oryx is pursuing accreditation with the NQA and the NTA. It is not accredited yet, and it says so.",
+    "Oryx is pursuing accreditation with the NQA and the NTA. It is not accredited yet.",
   liveNow: [
     {
       name: "Owner's Desk",
@@ -164,7 +163,7 @@ export const status = {
   instructors: {
     title: "Smiths",
     formalTitle: "Masters",
-    note: "Never lecturers, not instructors. The name ties to the tagline: we forge our own tools.",
+    note: "The staff are called Smiths, formally Masters, after the tagline: we forge our own tools.",
   },
 } as const;
 
@@ -197,7 +196,7 @@ export const offers = [
     tag: "Teaching",
     line: "Crash & short courses in the systems work runs on. Every tool named.",
     cta: { label: "Enquire", href: "/apply?for=it" },
-    body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named, not magic.",
+    body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
   },
   {
     id: "market-rd",
@@ -242,21 +241,21 @@ export const register = [
 ] as const;
 
 /**
- * The ventures engine. A venture is a small operating company the
- * institute opens to test a sector — a live classroom and a live lab.
- * Only what is real is listed; the concept stage is stated as a concept.
+ * Ventures. A venture is a small operating company the institute opens
+ * to test a sector — a live classroom and a live lab. Only what is real
+ * is listed; the concept stage is stated as a concept.
  */
 export const ventures = {
-  lead: "Ventures are the proof.",
-  body: "When Oryx wants to understand a sector, it opens a small company inside it. A venture cannot be faked. It works or it doesn't. A customer pays or doesn't. That is the exit exam.",
+  lead: "Small companies, real customers.",
+  body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the result.",
   cornerSpa: {
     name: "Corner Spa",
     status: "Concept",
     line: "Wellness and service operations: the first live lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor, not from a slide. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then it says so plainly: it is a concept, not a storefront.",
+    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is a concept.",
   },
   futureLine:
-    "The next venture is not named yet. When one opens, the opening enters the register: dated, public, and verifiable.",
+    "The next venture is not named yet. When one opens, the opening enters the register with its date.",
 } as const;
 
 /**
@@ -416,7 +415,7 @@ export const faqs = [
   },
   {
     q: "Is Oryx accredited?",
-    a: "Not yet, and the institute says so plainly. Oryx is pursuing accreditation with the NQA and the NTA. What runs today (the crash and short courses, Rapid Response Training and the Oryx Directory) works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
+    a: "Not yet. Oryx is pursuing accreditation with the NQA and the NTA. What runs today (the crash and short courses, Rapid Response Training and the Oryx Directory) works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
   },
   {
     q: "What is Rapid Response Training?",
@@ -436,7 +435,7 @@ export const faqs = [
   },
   {
     q: "What is a venture?",
-    a: "A small operating company the institute opens inside a sector it wants to understand. A venture is a live classroom and a live lab: it works or it doesn't, and a customer pays or doesn't. That is the exit exam. Ventures are announced as concepts and entered in the register when they open.",
+    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: students learn on its floor, and its customers decide whether it works. Ventures are announced as concepts and entered in the register when they open.",
   },
   {
     q: "What is Corner Spa?",

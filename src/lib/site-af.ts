@@ -12,7 +12,6 @@ export const siteAf = {
   tradingName: "Oryx Instituut",
   legalName: "Oryx Polytechnic Institute",
   headline: "Oryx Instituut.",
-  heroTag: "Windhoek · Gestig 2026",
   heroSub:
     "'n Nuwe politegniek vir Namibië. Navorsing, praktyk, en maatskappye wat die werk bewys.",
   closingLine:
@@ -28,7 +27,7 @@ export const siteAf = {
 export const statusAf = {
   stage: "Voorlansering",
   accreditation:
-    "Oryx baan aansoek om akkreditering by die NQA en die NTA aan. Dit is nog nie geakkrediteer nie, en dit sê so.",
+    "Oryx baan aansoek om akkreditering by die NQA en die NTA aan. Dit is nog nie geakkrediteer nie.",
   liveNow: [
     {
       name: "Eienaar se Lessenaar",
@@ -74,7 +73,7 @@ export const statusAf = {
   instructors: {
     title: "Smede",
     formalTitle: "Meesters",
-    note: "Nooit dosente, nie instrukteurs nie. Die naam gryp aan by die slagspreuk: ons smee ons eie gereedskap.",
+    note: "Die personeel word Smede genoem, formeel Meesters, na aanleiding van die slagspreuk: ons smee ons eie gereedskap.",
   },
 } as const;
 
@@ -101,7 +100,7 @@ export const offersAf = [
     tag: "Onderrig",
     line: "Kondens- en kortkursusse in die stelsels waarop werk loop. Elke gereedskap word genoem.",
     cta: { label: "Doen navraag", href: "/apply?for=it" },
-    body: "Die departement onderrig die stelsels en sagteware waarop 'n besigheid loop, van eerste beginsels tot seker gebruik. Kondens- en kortkursusse alleen, en elke gereedskap word by die naam genoem, nie as towerkrag nie.",
+    body: "Die departement onderrig die stelsels en sagteware waarop 'n besigheid loop, van eerste beginsels tot seker gebruik. Kondens- en kortkursusse alleen, en elke gereedskap word by die naam genoem.",
   },
   {
     id: "market-rd",
@@ -140,16 +139,16 @@ export const registerAf = [
 ] as const;
 
 export const venturesAf = {
-  lead: "Ondernemings is die bewys.",
-  body: "As Oryx 'n sektor wil verstaan, open dit 'n klein maatskappy binne-in daardie sektor. 'n Onderneming kan nie geveins word nie. Dit werk, of dit werk nie. 'n Kliënt betaal, of nie. Dit is die uitgangseksamen.",
+  lead: "Klein maatskappye, werklike kliënte.",
+  body: "As Oryx 'n sektor wil verstaan, open dit 'n klein maatskappy binne-in daardie sektor. Die kliënte besluit of dit werk, en die register publiseer die uitslag.",
   cornerSpa: {
     name: "Corner Spa",
     status: "Konsep",
     line: "Welstand en diensbedrywighede: die eerste lewende laboratorium.",
-    body: "Corner Spa is die instituut se eerste onderneming: 'n klein welstands- en diensbesigheid, aangekondig as 'n konsep en geopen as 'n besigheid. Die doel is tweevoudig: 'n werklike diens wat vir werklike kliënte in Windhoek loop, en 'n lewende klaskamer waar besigheidsadministrasie, diensstandaarde en ontvangsbedrywighede op die vloer onderrig word, nie vanaf 'n skyfie nie. Die konsep is in ontwikkeling: persele, lisensies en die dienskaart word in orde gewerk. As dit open, kom die opening in die register op hierdie werf, gedateer. Tot daardie tyd sê dit dit self: dit is 'n konsep, nie 'n winkeldeur nie.",
+    body: "Corner Spa is die instituut se eerste onderneming: 'n klein welstands- en diensbesigheid, aangekondig as 'n konsep en geopen as 'n besigheid. Die doel is tweevoudig: 'n werklike diens wat vir werklike kliënte in Windhoek loop, en 'n lewende klaskamer waar besigheidsadministrasie, diensstandaarde en ontvangsbedrywighede op die vloer van die besigheid self onderrig word. Die konsep is in ontwikkeling: persele, lisensies en die dienskaart word in orde gewerk. As dit open, kom die opening in die register op hierdie werf, gedateer. Tot daardie tyd bly dit 'n konsep.",
   },
   futureLine:
-    "Die volgende onderneming het nog nie 'n naam nie. As een open, kom die opening in die register: gedateer, openbaar en verifieerbaar.",
+    "Die volgende onderneming het nog nie 'n naam nie. As een open, kom die opening met sy datum in die register.",
 } as const;
 
 export const disciplinesAf = [
@@ -254,7 +253,7 @@ export const faqsAf = [
   },
   {
     q: "Is Oryx geakkrediteer?",
-    a: "Nog nie, en die instituut sê dit so. Oryx baan aansoek om akkreditering by die NQA en die NTA aan. Wat vandag loop, die kondens- en kortkursusse, Spoedreaksie-opleiding en die Oryx-gids, werk voordat akkreditering saak maak. Niks op hierdie werf beweer 'n kwalifikasie wat die instituut nie het nie.",
+    a: "Nog nie. Oryx baan aansoek om akkreditering by die NQA en die NTA aan. Wat vandag loop, die kondens- en kortkursusse, Spoedreaksie-opleiding en die Oryx-gids, werk voordat akkreditering saak maak. Niks op hierdie werf beweer 'n kwalifikasie wat die instituut nie het nie.",
   },
   {
     q: "Wat is Spoedreaksie-opleiding?",
@@ -274,7 +273,7 @@ export const faqsAf = [
   },
   {
     q: "Wat is 'n onderneming?",
-    a: "'n Klein bedrywende maatskappy wat die instituut binne-in 'n sektor open wat dit wil verstaan. 'n Onderneming is 'n lewende klaskamer en 'n lewende laboratorium: dit werk of dit werk nie, en 'n kliënt betaal of nie. Dit is die uitgangseksamen. Ondernemings word as konsepte aangekondig en in die register geboek wanneer dit open.",
+    a: "'n Klein bedrywende maatskappy wat die instituut binne-in 'n sektor open wat dit wil verstaan. Die onderneming dien terselfdertyd as 'n lewende klaskamer: studente leer op sy vloer, en sy kliënte besluit of dit werk. Ondernemings word as konsepte aangekondig en in die register geboek wanneer dit open.",
   },
   {
     q: "Wat is Corner Spa?",

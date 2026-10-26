@@ -7,7 +7,7 @@ import { offersAf, siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 /**
- * The practice engine, on its own page: counselling, market R&D and
+ * The practice, on its own page: counselling, market R&D and
  * rapid response training. The maker's hands open the page as the
  * pinned peak; the offers run as hairline rows; the wood and rope
  * close the argument.
@@ -24,15 +24,15 @@ const copy = {
     },
     head: {
       title: "Practice.",
-      lede: "The practice engine: one-on-one counselling, market research and development, and rapid response training, run from the Principal's office in Windhoek beside the teaching departments. Delivered to Namibian standards.",
+      lede: "The practice: one-on-one counselling, market research and development, and rapid response training, run from the Principal's office in Windhoek beside the teaching departments. Delivered to Namibian standards.",
     },
     peakLine:
-      "Work that holds. Measured and finished to standard. Every tool named, not magic.",
+      "Work measured and finished to standard, with every tool named.",
     runsTitle: "What the practice runs.",
     holdsTitle: "The outcome is written down.",
     holdsBody: [
       "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named. Training engagements close with a programme structured around the need that asked for it, delivered by the industry expert the need calls for.",
-      "Nothing here promises a credential; every line promises work. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
+      "Nothing here promises a credential; the promise is the work itself. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
     ],
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
@@ -48,15 +48,15 @@ const copy = {
     },
     head: {
       title: "Praktyk.",
-      lede: "Die praktyk-enjin: een-tot-een berading, marknavorsing en -ontwikkeling, en spoedreaksie-opleiding, vanuit die Prinsipaal se kantoor in Windhoek langs die onderrigdepartemente. Volgens Namibiese standaarde gelewer.",
+      lede: "Die praktyk: een-tot-een berading, marknavorsing en -ontwikkeling, en spoedreaksie-opleiding, vanuit die Prinsipaal se kantoor in Windhoek langs die onderrigdepartemente. Volgens Namibiese standaarde gelewer.",
     },
     peakLine:
-      "Werk wat hou. Gemeet en tot standaard voltooi. Elke gereedskap by die naam genoem, nie as towerkrag nie.",
+      "Werk wat gemeet en tot standaard voltooi word, met elke gereedskap by die naam genoem.",
     runsTitle: "Wat die praktyk loop.",
     holdsTitle: "Die uitkoms word neergeskryf.",
     holdsBody: [
       "Elke opdrag eindig op dieselfde manier: op papier. Beradingsessies sluit met wat besluit is en wat volg, neergeskryf. Navorsingsopdragte sluit met bevindinge, opsies en die besluit wat hulle dra, op Namibiese grond bymekaargemaak met bronne genoem. Opleidingsopdragte sluit met 'n program rondom die behoefte wat dit gevra het, gelewer deur die bedryfskenner wat die behoefte roep.",
-      "Niks hier belowe 'n kwalifikasie nie; elke reël belowe werk. Fooie word deur die Prinsipaal se kantoor by navraag bevestig, en die eerste antwoord noem wat die instituut vir jou kan en nie kan doen nie.",
+      "Niks hier belowe 'n kwalifikasie nie; die belofte is die werk self. Fooie word deur die Prinsipaal se kantoor by navraag bevestig, en die eerste antwoord noem wat die instituut vir jou kan en nie kan doen nie.",
     ],
     writeOffice: "Skryf aan die kantoor",
     readFaq: "Lees die gereelde vrae",

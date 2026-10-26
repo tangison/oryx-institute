@@ -1,6 +1,6 @@
 # Oryx Institute
 
-> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It runs three engines to one standard: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields — the teaching offer, and all of it — beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. The education (science, engineering, technology, applied problem-solving) is phased in as NQA/NTA accreditation progresses. One mailbox answers everything: info@oryxinstitute.org.
+> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It works through three parts: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields — the teaching offer, and all of it — beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. The education (science, engineering, technology, applied problem-solving) is phased in as NQA/NTA accreditation progresses. One mailbox answers everything: info@oryxinstitute.org.
 
 Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises, no street address and no telephone line while none exist. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda.
 
@@ -8,7 +8,7 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 
 - [Owner's Desk](https://oryxinstitute.org/programmes#owners-desk): one-on-one business counselling. The outcome is written down. Decisions, not decks.
 - [Business Administration](https://oryxinstitute.org/programmes#business-administration): a teaching department — crash and short courses in records, filings, registers and the everyday processes a business runs on. No long programmes are offered.
-- [IT & Related Fields](https://oryxinstitute.org/programmes#it): a teaching department — crash and short courses in the systems and software work runs on, from first principles to confident use. Every tool named, not magic.
+- [IT & Related Fields](https://oryxinstitute.org/programmes#it): a teaching department — crash and short courses in the systems and software work runs on, from first principles to confident use. Every tool named.
 - [Market R&D](https://oryxinstitute.org/programmes#market-rd): feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used.
 - [Rapid Response Training](https://oryxinstitute.org/programmes#rapid-response): a business needs a team trained on something new — Oryx sources the industry expert, structures the programme, and delivers it.
 - [The Oryx Directory](https://oryxinstitute.org/resources): free, Namibia-specific crash courses (four) and business templates (seven), copyrighted to Oryx Polytechnic Institute.
@@ -36,7 +36,7 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 
 - [The Schools](https://oryxinstitute.org/schools): School of Technology (open for enquiry), School of Engineering (coming soon), School of Science (coming soon).
 - [Programmes](https://oryxinstitute.org/programmes): the four disciplines of a 理工 (science and engineering) education — science, engineering, technology, and applied problem-solving, the spine named on every certificate.
-- Certificates: the institute issues its Certificate of Achievement on completion, recognizing "excellence in innovation and applied problem-solving", signed by the Principal and dated by hand. Oryx is not NQA/NTA accredited yet, and says so.
+- Certificates: the institute issues its Certificate of Achievement on completion, recognizing "excellence in innovation and applied problem-solving", signed by the Principal and dated by hand. Oryx is not NQA/NTA accredited yet.
 
 ## News and feeds
 

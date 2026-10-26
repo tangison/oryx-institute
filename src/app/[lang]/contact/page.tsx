@@ -21,7 +21,7 @@ const copy = {
     head: {
       eyebrow: "Contact",
       title: "Contact the office.",
-      lede: "One mailbox answers everything: applications, partnerships, the press. It is read in the Principal's office, and every message gets a reply from a person, not a queue.",
+      lede: "One mailbox answers everything: applications, partnerships, the press. It is read in the Principal's office, and every message gets a reply from a person.",
     },
     addressEyebrow: "The address that works",
     addressBody:
@@ -60,7 +60,7 @@ const copy = {
     head: {
       eyebrow: "Kontak",
       title: "Kontak die kantoor.",
-      lede: "Een posbus antwoord alles: aansoeke, vennootskappe, die pers. Dit word in die Prinsipaal se kantoor gelees, en elke boodskap kry 'n antwoord van 'n mens, nie van 'n tou nie.",
+      lede: "Een posbus antwoord alles: aansoeke, vennootskappe, die pers. Dit word in die Prinsipaal se kantoor gelees, en elke boodskap kry 'n antwoord van 'n mens.",
     },
     addressEyebrow: "Die adres wat werk",
     addressBody:

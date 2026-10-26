@@ -2,7 +2,7 @@ import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { footerNav, site } from "@/lib/site";
-import { navAf, siteAf } from "@/lib/site-af";
+import { navAf } from "@/lib/site-af";
 
 /**
  * The ink footer: the close of every page. Wordmark, the inline
@@ -32,9 +32,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
                 className="h-[2rem] w-auto"
               />
             </Link>
-            <p className="foot-place mt-6">
-              {af ? siteAf.heroTag : site.heroTag}
-            </p>
+            <p className="foot-place mt-6">{af ? "Windhoek, Namibië" : "Windhoek, Namibia"}</p>
           </div>
 
           <nav aria-label={t.footerNav} className="foot-nav-wrap">

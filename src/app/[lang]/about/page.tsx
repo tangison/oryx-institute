@@ -32,7 +32,7 @@ const copy = {
     readBulletin: "Read Bulletin No. 1",
     practiceEyebrow: "The practice",
     practiceBody:
-      "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools are phased in behind the practice, in order, as accreditation progresses, not before.",
+      "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses.",
     temperEyebrow: "The temper",
     temperBody:
       "The institute's own flyer says it in three words: looks harmless, isn't. Graduates are measured the same way the certificate measures them, on innovation and applied problem-solving. Quiet work, decisive finishes.",
@@ -86,7 +86,7 @@ const copy = {
     readBulletin: "Lees Bulletin No. 1",
     practiceEyebrow: "Die praktyk",
     practiceBody:
-      "Vandag werk die instituut as 'n konsultasiepraktyk. Die Eienaar se Lessenaar loop besigheidsberading vanuit die Prinsipaal se kantoor; marknavorsings- en -ontwikkelingswerk word per opdrag aangeneem; Spoedreaksie-opleiding bring spanne tot standaard. Die skole tree agter die praktyk in, in volgorde, namate akkreditering vorder, nie vantevore nie.",
+      "Vandag werk die instituut as 'n konsultasiepraktyk. Die Eienaar se Lessenaar loop besigheidsberading vanuit die Prinsipaal se kantoor; marknavorsings- en -ontwikkelingswerk word per opdrag aangeneem; Spoedreaksie-opleiding bring spanne tot standaard. Die skole volg die praktyk in volgorde, namate akkreditering vorder.",
     temperEyebrow: "Die geaardheid",
     temperBody:
       "Die instituut se eie flieër sê dit in drie woorde: lyk onskuldig, is dit nie. Gegradueerdes word gemeet net soos die sertifikaat hulle meet, op innovasie en toegepaste probleemoplossing. Stille werk, beslisse eindes.",
