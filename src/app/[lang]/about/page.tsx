@@ -170,7 +170,7 @@ export default async function AboutPage({
         <div className="shell">
           <figure className="plate-fig">
             <Image
-              src="/images/kinfolk/k02-stone.jpg"
+              src="/images/core/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
               width={1122}
               height={1402}
@@ -206,7 +206,7 @@ export default async function AboutPage({
               </div>
               <figure className="ligong-plate" data-sc-in>
                 <Image
-                  src="/images/kinfolk/k09-horns.jpg"
+                  src="/images/core/09-horns.jpg"
                   alt="Two shed oryx horns, crossed, centred on cream paper"
                   width={1122}
                   height={1402}
@@ -260,33 +260,11 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* The rooms, held still: the courtyard and the corridor. The
-          institute has no premises to photograph yet; these are the
-          register's own frames, carried without captions or claims. */}
-      <div className="shell grid gap-4 sm:gap-6 md:grid-cols-2" data-sc-act="flow" data-sc-in data-sc-stagger="80">
-        <figure className="plate aspect-[4/3]">
-          <div className="plate-media" data-sc-parallax="0.4">
-            <Image
-              src="/images/studio/studio-courtyard.webp"
-              alt="The sunlit courtyard of a clay-walled campus building"
-              fill
-              sizes="(min-width: 768px) 40rem, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-        <figure className="plate aspect-[4/3] md:mt-14">
-          <div className="plate-media" data-sc-parallax="0.25">
-            <Image
-              src="/images/studio/studio-walkway.webp"
-              alt="Sunlight crosses a clay-walled campus walkway"
-              fill
-              sizes="(min-width: 768px) 40rem, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-      </div>
+      {/* The rooms: the institute has no premises to photograph yet, and
+          manifest v4 assigns no plate here — the claim stays typographic.
+          TODO image (founder to commission, if wanted): two register
+          frames of the future premises — a sunlit clay-walled courtyard
+          and a corridor walkway, hard upper-left light, no people. */}
 
       {/* Where the institute stands */}
       <section className="section">

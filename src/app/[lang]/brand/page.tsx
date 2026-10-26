@@ -57,10 +57,10 @@ const copy = {
     dont4: "Never restack the lockup or rebuild it in another typeface.",
     kitEyebrow: "The print kit",
     kitBody:
-      "The pieces the institute publishes while it is being established, photographed as supplied. Hard daylight, one piece per frame.",
+      "The pieces the institute publishes while it is being established, photographed in the house register — hard daylight, walnut and cream grounds, one piece per frame.",
     specimensEyebrow: "Specimens",
     specimensBody:
-      "The objects the identity is built from, one per plate, on cream. Replaced with real Windhoek objects as they are collected.",
+      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Windhoek objects as they are collected.",
     shieldCaption: "Specimen · the shield",
     voiceEyebrow: "The voice, with a bar",
     approvedEyebrow: "Approved lines",
@@ -116,10 +116,10 @@ const copy = {
     dont4: "Herstapel die sluitstel nooit, of bou dit nie in 'n ander lettertipe nie.",
     kitEyebrow: "Die drukpakket",
     kitBody:
-      "Die stukke wat die instituut publiseer terwyl dit gestig word, gefotografeer soos verskaf. Harde daglig, een stuk per raam.",
+      "Die stukke wat die instituut publiseer terwyl dit gestig word, gefotografeer in die huis se register — harde daglig, okkerneut- en crème-gronde, een stuk per raam.",
     specimensEyebrow: "Eksemplare",
     specimensBody:
-      "Die voorwerpe waaruit die identiteit gebou is, een per plaat, op crème. Vervang met werklike Windhoek-voorwerpe namate hulle versamel word.",
+      "Die voorwerpe waaruit die identiteit gebou is, een per plaat, op crème en terracotta. Vervang met werklike Windhoek-voorwerpe namate hulle versamel word.",
     shieldCaption: "Eksemplaar · die skild",
     voiceEyebrow: "Die stem, met 'n lat",
     approvedEyebrow: "Goedgekeurde reëls",
@@ -213,39 +213,66 @@ function downloads(af: boolean) {
   ];
 }
 
-/** The print kit, photographed as supplied. The flyer, the card reverse
- *  and the envelope are held back from the site: they print contact
- *  details and artwork the institute is not publishing while it is
- *  being established. */
+/** The print kit, photographed in the house register (Image Asset
+ *  Manifest v4, print/): certificate, letterhead, business card
+ *  reverse, notecard, folder — restaged on walnut and cream grounds,
+ *  no contact details printed on any face shown. */
 const kitPieces = [
-  { src: "/images/brand/kit-certificate.jpg", alt: "The certificate of achievement, double-rule border and signature line" },
-  { src: "/images/brand/kit-letterhead.jpg", alt: "The letterhead: lockup top left, shield watermark, contact rule at the foot" },
-  { src: "/images/brand/kit-card-front.jpg", alt: "The business card front, the maroon shield alone" },
-  { src: "/images/brand/kit-notecard.jpg", alt: "The notecard with the shield emblem centered" },
-  { src: "/images/brand/kit-folder.jpg", alt: "The presentation folder over the institute's own coastal frame" },
+  {
+    src: "/images/print/01-certificate.jpg",
+    alt: "The certificate: cream sheet, double-rule maroon border, on dark walnut",
+    w: 864,
+    h: 1152,
+  },
+  {
+    src: "/images/print/02-letterhead.jpg",
+    alt: "The letterhead: cream sheet, small maroon wordmark top left, on dark walnut",
+    w: 864,
+    h: 1152,
+  },
+  {
+    src: "/images/print/03-business-card.jpg",
+    alt: "The business card reverse: maroon stock, cream shield centred, on cream",
+    w: 864,
+    h: 1152,
+  },
+  {
+    src: "/images/print/04-notecard.jpg",
+    alt: "The folded notecard: cream stock, maroon shield centred, on dark walnut",
+    w: 864,
+    h: 1152,
+  },
+  {
+    src: "/images/print/05-folder.jpg",
+    alt: "The presentation folder: maroon stock, cream shield centred, on cream",
+    w: 864,
+    h: 1152,
+  },
 ] as const;
 
-/** The specimen wall: one object per full-bleed cream plate. */
+/** The specimen wall: one object per full-bleed cream plate — the
+ *  three plates manifest v4 assigns to this wall. */
 const specimens = [
   {
-    src: "/images/kinfolk/k02-stone.jpg",
+    src: "/images/core/02-stone.jpg",
     alt: "One weathered stone specimen, centred on cream paper",
     caption: "stone",
+    w: 1122,
+    h: 1402,
   },
   {
-    src: "/images/kinfolk/k09-horns.jpg",
-    alt: "Two shed oryx horns, crossed, centred on cream paper",
+    src: "/images/core/06-game-board.jpg",
+    alt: "A carved morabaraba board, one springbok coin in its centre ring, on terracotta",
+    caption: "game",
+    w: 1024,
+    h: 1024,
+  },
+  {
+    src: "/images/core/09-horns.jpg",
+    alt: "Two shed oryx horns, parallel, centred on cream paper",
     caption: "horns",
-  },
-  {
-    src: "/images/kinfolk/k10-wax.jpg",
-    alt: "A maroon wax seal with ribbon, centred on cream paper",
-    caption: "seal",
-  },
-  {
-    src: "/images/kinfolk/k05-notebook.jpg",
-    alt: "A bound maroon notebook with ribbon, centred on cream paper",
-    caption: "notebook",
+    w: 1122,
+    h: 1402,
   },
 ] as const;
 
@@ -565,10 +592,10 @@ export default async function BrandPage({
                 <Image
                   src={k.src}
                   alt={k.alt}
-                  width={1000}
-                  height={700}
+                  width={k.w}
+                  height={k.h}
                   sizes="(min-width: 80rem) 30vw, (min-width: 48rem) 45vw, 90vw"
-                  className="h-auto w-full object-cover"
+                  className="h-auto w-full"
                 />
               </figure>
             ))}
@@ -596,8 +623,8 @@ export default async function BrandPage({
             <Image
               src={s.src}
               alt={s.alt}
-              width={1120}
-              height={1400}
+              width={s.w}
+              height={s.h}
               sizes="(min-width: 1024px) 60vw, 90vw"
               className="obj h-auto"
             />

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { appliedSpine, schools } from "@/lib/content";
@@ -112,21 +111,11 @@ export default async function SchoolsPage({
         <p>{t.headLede}</p>
       </PageHead>
 
-      {/* The place the schools will teach in: a plain classroom, held
-          still, no text. Above the fold here, so it loads eagerly. */}
-      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
-          <Image
-            src="/images/studio/studio-classroom.webp"
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
+      {/* The place the schools will teach in: no premises to photograph
+          yet, and manifest v4 assigns no plate here — the page opens on
+          type alone. TODO image (founder to commission, if wanted): a
+          plain register frame of the future classroom — chalk ledge,
+          hard upper-left window light, empty desks, no people. */}
 
       {/* The three schools, status set in type weight, not pills */}
       {list.map((s) => (

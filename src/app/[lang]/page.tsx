@@ -20,15 +20,15 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
 /**
  * The homepage, laid out as one scroll composition:
  *
- *   hero (scrub) · positioning (flow) · k03 silent divider (flow) ·
+ *   hero (scrub) · positioning (flow) · 03 silent divider (flow) ·
  *   three engines (PIN) · what runs today (flow) · practice peak
  *   (PIN) · research zigzag (flow) · ventures reverse-zigzag (flow) ·
- *   k07 silent divider (flow) · the register (flow) · close (PIN) ·
+ *   07 silent divider (flow) · the register (flow) · close (PIN) ·
  *   footer.
  *
  * Three pins, two silent dividers, one engineered peak. No device
- * twice in a row. The k-images run in act order: k01, k02, k03, k06,
- * k05, k08, k07, k10.
+ * twice in a row. The core plates run in act order: 01, 02, 03, 05,
+ * 04, 08, 07, 10 (Image Asset Manifest v4).
  */
 const copy = {
   en: {
@@ -227,7 +227,7 @@ export default async function HomePage({
       <section className="hero" data-sc-act="scrub">
         <div className="hero-media" data-sc-parallax="0.45" aria-hidden="true">
           <Image
-            src="/images/kinfolk/k01-oryx.jpg"
+            src="/images/core/01-hero-oryx.jpg"
             alt=""
             fill
             priority
@@ -264,7 +264,7 @@ export default async function HomePage({
           <p className="lede measure text-ink">{t.positioning}</p>
           <figure className="positioning-plate" data-sc-in>
             <Image
-              src="/images/kinfolk/k02-stone.jpg"
+              src="/images/core/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
               width={1122}
               height={1402}
@@ -284,7 +284,7 @@ export default async function HomePage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/k03-wood-rope.jpg"
+            src="/images/core/03-wood-rope-divider.jpg"
             alt=""
             fill
             sizes="100vw"
@@ -371,7 +371,7 @@ export default async function HomePage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/k06-hands.jpg"
+              src="/images/core/05-hands-peak.jpg"
               alt="A pair of hands mid-task in a shaft of hard daylight"
               fill
               sizes="100vw"
@@ -390,7 +390,7 @@ export default async function HomePage({
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig" data-sc-in>
             <Image
-              src="/images/kinfolk/k05-notebook.jpg"
+              src="/images/core/04-notebook.jpg"
               alt="A bound maroon notebook with ribbon, centred on cream paper"
               width={1086}
               height={1448}
@@ -425,10 +425,10 @@ export default async function HomePage({
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig md:order-2" data-sc-in>
             <Image
-              src="/images/kinfolk/k08-spa.jpg"
+              src="/images/core/08-spa-dish.jpg"
               alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
               width={810}
-              height={1080}
+              height={810}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
             />
@@ -462,7 +462,7 @@ export default async function HomePage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/k07-windhoek.jpg"
+            src="/images/core/07-windhoek-divider.jpg"
             alt=""
             fill
             sizes="100vw"
@@ -502,7 +502,7 @@ export default async function HomePage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/k10-wax.jpg"
+              src="/images/core/10-wax-seal.jpg"
               alt="A maroon wax seal with ribbon, centred on cream paper"
               fill
               sizes="100vw"

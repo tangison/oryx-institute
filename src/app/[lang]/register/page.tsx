@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { register, site, schemaIds } from "@/lib/site";
 import { registerAf } from "@/lib/site-af";
@@ -7,8 +6,9 @@ import { alternates, langFromParams } from "@/lib/i18n";
 
 /**
  * The register, in full: what the institute has made public, dated as
- * it was said, newest first. The same ledger the homepage carries,
- * on its own page, with the stone beside it.
+ * it was said, newest first. The same ledger the homepage carries, on
+ * its own page — text only, per the Image Asset Manifest v4 (the
+ * register is a ledger, not a plate).
  */
 const copy = {
   en: {
@@ -105,19 +105,7 @@ export default async function RegisterPage({
       />
 
       <PageHead title={t.head.title}>
-        <div className="register-grid">
-          <p>{t.head.lede}</p>
-          <figure className="register-plate" data-sc-in>
-            <Image
-              src="/images/kinfolk/k02-stone.jpg"
-              alt="One weathered stone specimen, centred on cream paper"
-              width={1122}
-              height={1402}
-              sizes="(min-width: 1024px) 18rem, min(70vw, 22rem)"
-              className="h-auto w-full"
-            />
-          </figure>
-        </div>
+        <p>{t.head.lede}</p>
       </PageHead>
 
       <section className="section-lg">

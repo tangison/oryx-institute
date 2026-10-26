@@ -160,7 +160,7 @@ export default async function ApplyPage({
           <div className="grid gap-8" data-sc-in data-sc-stagger="70">
             <figure className="apply-plate">
               <Image
-                src="/images/kinfolk/k10-wax.jpg"
+                src="/images/core/10-wax-seal.jpg"
                 alt="A maroon wax seal with ribbon, centred on cream paper"
                 width={1254}
                 height={1254}

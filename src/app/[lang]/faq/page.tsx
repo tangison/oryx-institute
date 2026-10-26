@@ -97,7 +97,7 @@ export default async function FaqPage({
         <div className="shell">
           <figure className="faq-plate">
             <Image
-              src="/images/kinfolk/k09-horns.jpg"
+              src="/images/core/09-horns.jpg"
               alt="Two shed oryx horns, crossed, centred on cream paper"
               width={1122}
               height={1402}

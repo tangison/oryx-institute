@@ -224,7 +224,7 @@ export default async function ContactPage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.9">
           <Image
-            src="/images/kinfolk/k07-windhoek.jpg"
+            src="/images/core/07-windhoek-divider.jpg"
             alt=""
             fill
             sizes="100vw"

@@ -158,7 +158,7 @@ export default async function ResearchPage({
         <div className="shell">
           <figure className="plate-fig">
             <Image
-              src="/images/kinfolk/k05-notebook.jpg"
+              src="/images/core/04-notebook.jpg"
               alt="A bound maroon notebook with ribbon, centred on cream paper"
               width={1086}
               height={1448}
@@ -229,37 +229,37 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The instruments: the theodolite and the ground it reads,
-          paired plates, held still. */}
+      {/* Mid-page breath: wood and rope, the same silent divider the
+          homepage takes before its engines. No text, no overlay, one
+          full viewport. */}
+      <div
+        className="divider divider--full overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
+          <Image
+            src="/images/core/03-wood-rope-divider.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Fieldwork and papers: the ledes stand in type. Manifest v4
+          assigns no plate to this stretch of the desk. TODO image
+          (founder to commission, if wanted): paired portrait plates in
+          the site register — a brass instrument on cream, a stone
+          specimen on linen — beside the fieldwork lede. */}
       <section className="section" data-sc-act="flow">
-        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16">
-          <div className="grid grid-cols-2 items-start gap-4 sm:gap-6">
-            <figure className="plate aspect-[3/4]">
-              <div className="plate-media" data-sc-parallax="0.5">
-                <Image
-                  src="/images/studio/studio-theodolite.webp"
-                  alt="A brass theodolite on its wooden tripod against a clay wall"
-                  fill
-                  sizes="(min-width: 768px) 12rem, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-            <figure className="plate mt-10 aspect-[3/4]">
-              <div className="plate-media" data-sc-parallax="0.35">
-                <Image
-                  src="/images/studio/studio-stone.webp"
-                  alt="A stone specimen resting on folded linen in hard light"
-                  fill
-                  sizes="(min-width: 768px) 12rem, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-          </div>
-          <div data-sc-in data-sc-stagger="70">
+        <div className="shell grid gap-12 md:grid-cols-2" data-sc-in data-sc-stagger="70">
+          <div className="hair-t pt-14">
             <p className="lede measure">{t.fieldLede}</p>
-            <p className="lede measure mt-10">{t.papersLede}</p>
+          </div>
+          <div className="hair-t pt-14">
+            <p className="lede measure">{t.papersLede}</p>
           </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ export default async function ResearchPage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
           <Image
-            src="/images/kinfolk/k04-red-game.jpg"
+            src="/images/core/06-game-board.jpg"
             alt=""
             fill
             sizes="100vw"

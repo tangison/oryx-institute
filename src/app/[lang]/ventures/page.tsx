@@ -124,10 +124,10 @@ export default async function VenturesPage({
               style={{ background: "var(--sand)" }}
             >
               <Image
-                src="/images/kinfolk/k08-spa.jpg"
+                src="/images/core/08-spa-dish.jpg"
                 alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
                 width={810}
-                height={1080}
+                height={810}
                 sizes="(min-width: 1024px) 30rem, 88vw"
                 className="h-auto max-h-[36rem] w-auto max-w-full"
                 priority
@@ -161,19 +161,10 @@ export default async function VenturesPage({
         </div>
       </section>
 
-      {/* The exit exam, held still: the game plays out to an outcome.
-          No text over it; the section above already said it. */}
-      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
-          <Image
-            src="/images/kinfolk/k04-red-game.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
+      {/* Manifest v4 assigns no plate to this page beyond the spa hero
+          above. TODO image (founder to commission, if wanted): a quiet
+          ventures divider in the site register — e.g. a chalk line and
+          folded ledger on walnut — to breathe before the close. */}
 
       {/* Close */}
       <section className="cta-band section-lg on-ink">

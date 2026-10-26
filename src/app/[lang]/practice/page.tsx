@@ -130,7 +130,7 @@ export default async function PracticePage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/k06-hands.jpg"
+              src="/images/core/05-hands-peak.jpg"
               alt="A pair of hands mid-task in a shaft of hard daylight"
               fill
               sizes="100vw"
@@ -169,22 +169,11 @@ export default async function PracticePage({
         </div>
       </section>
 
-      {/* Material divider: wood and rope, no text. */}
-      <div
-        className="divider overflow-hidden"
-        data-sc-act="flow"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
-          <Image
-            src="/images/kinfolk/k03-wood-rope.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
+      {/* The practice holds its own weight in type; the manifest v4
+          assigns no plate here. TODO image (founder to commission, if
+          wanted): a material divider in the site register — e.g. whetstone
+          and honing oil on cream, hard upper-left light — to breathe
+          between the offers and what the practice holds. */}
 
       {/* What the practice holds, and the close. */}
       <section className="section-lg">

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { motto, toolsList } from "@/lib/content";
@@ -116,43 +115,10 @@ export default async function ToolsPage({
         </section>
       ))}
 
-      {/* The objects: satchel, lantern, typewriter. The list above,
-          held in still life. */}
-      <div className="shell grid grid-cols-3 gap-3 sm:gap-5" data-sc-in data-sc-stagger="80" aria-hidden="true">
-        <figure className="plate aspect-[3/4]">
-          <div className="plate-media" data-sc-parallax="0.35">
-            <Image
-              src="/images/studio/studio-satchel.webp"
-              alt=""
-              fill
-              sizes="(min-width: 768px) 20rem, 34vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-        <figure className="plate mt-8 aspect-[3/4] sm:mt-12">
-          <div className="plate-media" data-sc-parallax="0.25">
-            <Image
-              src="/images/studio/studio-lantern.webp"
-              alt=""
-              fill
-              sizes="(min-width: 768px) 20rem, 34vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-        <figure className="plate aspect-[3/4]">
-          <div className="plate-media" data-sc-parallax="0.4">
-            <Image
-              src="/images/studio/studio-typewriter.webp"
-              alt=""
-              fill
-              sizes="(min-width: 768px) 20rem, 34vw"
-              className="object-cover"
-            />
-          </div>
-        </figure>
-      </div>
+      {/* The objects: the desk named above, in still life. Manifest v4
+          assigns no plate here. TODO image (founder to commission, if
+          wanted): three portrait register plates — a leather satchel on
+          walnut, a brass lantern on cream, a typewriter on cream. */}
 
       {/* The close: the spine made visible */}
       <section className="section-lg">

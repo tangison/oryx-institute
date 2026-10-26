@@ -1074,24 +1074,6 @@ body.menu-locked {
   max-width: 100%;
 }
 
-/* The register page: lede left, the stone beside it. */
-.register-grid {
-  display: grid;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
-}
-@media (min-width: 64rem) {
-  .register-grid {
-    grid-template-columns: 1fr minmax(0, 18rem);
-  }
-}
-.register-plate img {
-  margin-inline: auto;
-  max-height: clamp(16rem, 34vh, 24rem);
-  width: auto;
-  max-width: 100%;
-}
-
 /* The 理工 paragraph with the horns beside it. */
 .ligong-grid {
   display: grid;
@@ -1747,10 +1729,6 @@ html.sc-ready [data-sc-scrim] {
 /* Parallax media carriers: the wrapper owns the overscan, so the
    engine's translate never reveals an edge at either extreme. */
 .hero-media {
-  position: absolute;
-  inset: -6%;
-}
-.plate-media {
   position: absolute;
   inset: -6%;
 }

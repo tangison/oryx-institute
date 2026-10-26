@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { insights, resources } from "@/lib/content";
@@ -216,6 +217,22 @@ export default async function ResourcesPage({
           </div>
         </div>
       </section>
+
+      {/* The Bulletin divider: the game plays out to an outcome, the
+          same plate the research context carries. No text, no overlay.
+          (Image Asset Manifest v4: 06-game-board, /resources Bulletin
+          divider.) */}
+      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.8">
+          <Image
+            src="/images/core/06-game-board.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
 
       {/* The Bulletin. The essays publish in English; the AF page says so. */}
       <section id="bulletin" className="section-lg">
