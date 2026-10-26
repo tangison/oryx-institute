@@ -165,43 +165,67 @@ export default async function AboutPage({
         </p>
       </PageHead>
 
+      {/* The feature plate: the stone, centred, held still. */}
+      <section className="section-sm" data-sc-act="flow" data-sc-in>
+        <div className="shell">
+          <figure className="plate-fig">
+            <Image
+              src="/images/kinfolk/k02-stone.jpg"
+              alt="One weathered stone specimen, centred on cream paper"
+              width={1122}
+              height={1402}
+              sizes="(min-width: 1024px) 56rem, 92vw"
+              className="h-auto w-full"
+              priority
+            />
+          </figure>
+        </div>
+      </section>
+
       {/* The name and the 理工 paragraph */}
       <section className="section">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div className="grid gap-10" data-sc-in data-sc-stagger="70">
             <div>
-              <p className="eyebrow eyebrow--ink">{t.nameEyebrow}</p>
-              <p className="measure mt-5 text-soft">
+              <p className="measure text-soft">
                 {t.nameBody.pre}
                 <span className="wordmark-cjk">理工</span>
                 {t.nameBody.post}
               </p>
             </div>
 
-            <div>
-              <p className="eyebrow eyebrow--ink">{t.ligongEyebrow}</p>
-              <p className="measure mt-5 body-lg">{liGongEssay}</p>
-              <Link
-                href={A("/resources#bulletin-what-a-polytechnic-is")}
-                className="btn--quiet mt-5"
-              >
-                {t.readBulletin} <span className="arr" aria-hidden="true">→</span>
-              </Link>
+            <div className="ligong-grid">
+              <div>
+                <p className="measure body-lg">{liGongEssay}</p>
+                <Link
+                  href={A("/resources#bulletin-what-a-polytechnic-is")}
+                  className="btn--quiet mt-5"
+                >
+                  {t.readBulletin} <span className="arr" aria-hidden="true">→</span>
+                </Link>
+              </div>
+              <figure className="ligong-plate" data-sc-in>
+                <Image
+                  src="/images/kinfolk/k09-horns.jpg"
+                  alt="Two shed oryx horns, crossed, centred on cream paper"
+                  width={1122}
+                  height={1402}
+                  sizes="(min-width: 1024px) 14rem, 60vw"
+                  className="h-auto w-full"
+                />
+              </figure>
             </div>
 
             <div>
-              <p className="eyebrow eyebrow--ink">{t.practiceEyebrow}</p>
-              <p className="measure mt-5 text-soft">{t.practiceBody}</p>
+              <p className="measure text-soft">{t.practiceBody}</p>
             </div>
 
             <div>
-              <p className="eyebrow eyebrow--ink">{t.temperEyebrow}</p>
-              <p className="measure mt-5 text-soft">{t.temperBody}</p>
+              <p className="measure text-soft">{t.temperBody}</p>
             </div>
 
             <div>
-              <p className="eyebrow eyebrow--ink">{t.officeEyebrow}</p>
-              <p className="measure mt-5 text-soft">
+              <p className="measure text-soft">
                 {t.officeBody.pre}
                 <a href={`mailto:${site.email}`} className="link-type">
                   {site.email}
@@ -221,10 +245,12 @@ export default async function AboutPage({
               <OryxLogo variant="emblem" tone="brand" className="h-52 w-auto" />
             </div>
             <div className="p-8 md:p-10">
-              <p className="eyebrow eyebrow--ink">
-                {af ? "Prinsipaal" : site.principal.role}
-              </p>
-              <h2 className="h-sub mt-3">{site.principal.name}</h2>
+              <h2 className="h-sub">
+                {site.principal.name}
+                <span className="ml-3 align-middle text-[0.72rem] font-[500] tracking-[0.14em] uppercase text-soft">
+                  {af ? "Prinsipaal" : site.principal.role}
+                </span>
+              </h2>
               <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
                 {t.principalBody}
               </p>
@@ -266,8 +292,7 @@ export default async function AboutPage({
       <section className="section">
         <div className="shell">
           <div className="hair-t pt-14">
-            <p className="eyebrow">{t.standsEyebrow}</p>
-            <h2 className="h-section mt-5 max-w-[22ch]">{t.standsTitle}</h2>
+            <h2 className="h-section max-w-[22ch]">{t.standsTitle}</h2>
             <p className="measure mt-6 text-soft">
               {st.accreditation}
               {t.standsBody.pre}
@@ -295,8 +320,7 @@ export default async function AboutPage({
             </div>
 
             <div className="panel mt-12 p-8 md:p-10" data-sc-in>
-              <p className="eyebrow eyebrow--ink">{t.partnershipsEyebrow}</p>
-              <p className="measure mt-4 text-[1.0rem] leading-relaxed">
+              <p className="measure text-[1.0rem] leading-relaxed">
                 {st.partnerships}{" "}
                 {af ? "Skryf aan die kantoor by " : "Write to the office at "}
                 <a href={`mailto:${site.email}`} className="link-type">
@@ -313,8 +337,7 @@ export default async function AboutPage({
       <section className="section-lg">
         <div className="shell">
           <div className="hair-t pt-14">
-            <p className="eyebrow eyebrow--ink">{t.legalEyebrow}</p>
-            <div className="measure mt-6 grid gap-5 text-[0.92rem] leading-relaxed text-soft">
+            <div className="measure grid gap-5 text-[0.92rem] leading-relaxed text-soft">
               <p>
                 {t.legalBipa.pre}
                 {/* TODO founder: print the BIPA registration number when
@@ -324,8 +347,8 @@ export default async function AboutPage({
               <p>{st.accreditation}</p>
               <p>{t.legalImagery}</p>
               <p className="flex flex-wrap gap-x-8 gap-y-2">
-                <Link href={A("/privacy")} className="link-type">{t.privacy}</Link>
-                <Link href={A("/terms")} className="link-type">{t.terms}</Link>
+                <Link href={A("/legal/privacy")} className="link-type">{t.privacy}</Link>
+                <Link href={A("/legal/terms")} className="link-type">{t.terms}</Link>
                 <a href={`mailto:${site.email}`} className="link-type">{site.email}</a>
               </p>
             </div>

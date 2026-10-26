@@ -155,9 +155,20 @@ export function ApplyForm({ lang }: { lang: Lang }) {
     const subject = t.subject(name.trim(), discipline);
     const body = t.body(name.trim(), contact.trim(), discipline, message.trim());
 
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
+    /* Hand off to the visitor's own mail client. A real anchor click
+       is the one handoff every desktop and mobile client honours;
+       window.location is not, in several of them. The anchor carries
+       the built URL, so it can be read back after the click. */
+    const url = `mailto:${site.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
+    const link = document.createElement("a");
+    link.href = url;
+    link.dataset.mailto = "prepared";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    window.setTimeout(() => link.remove(), 8000);
   }
 
   return (

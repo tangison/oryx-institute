@@ -146,15 +146,14 @@ export default async function ContactPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 
       <section className="section-lg">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div className="hair-t pt-14" data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.addressEyebrow}</p>
-            <h2 className="h-section mt-5 max-w-[24ch]">
+            <h2 className="h-section max-w-[24ch]">
               <a href={`mailto:${site.email}`} className="link-type">
                 {site.email}
               </a>
@@ -170,8 +169,7 @@ export default async function ContactPage({
             </div>
 
             <div className="mt-12">
-              <p className="eyebrow eyebrow--ink">{t.channelsEyebrow}</p>
-              <ul className="mt-5 flex flex-wrap gap-3">
+              <ul className="flex flex-wrap gap-3">
                 {site.socials.map((s) => (
                   <li key={s.href}>
                     <a
@@ -190,20 +188,8 @@ export default async function ContactPage({
           </div>
 
           <div className="grid gap-8">
-            <figure className="plate plate--float aspect-[3/2]" data-sc-in>
-              <div className="plate-media" data-sc-parallax="0.4">
-                <Image
-                  src="/images/studio/studio-red-door.webp"
-                  alt="A red door in a plain plastered wall, closed"
-                  fill
-                  sizes="(min-width: 1024px) 30rem, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
             <div className="panel p-8 md:p-10" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.statedEyebrow}</p>
-            <dl className="mt-6 grid gap-6 text-[0.95rem] leading-relaxed">
+            <dl className="grid gap-6 text-[0.95rem] leading-relaxed">
               <div>
                 <dt className="font-[500]">{t.where.dt}</dt>
                 <dd className="mt-1 text-soft">
@@ -228,6 +214,24 @@ export default async function ContactPage({
           </div>
         </div>
       </section>
+
+      {/* The place, held still: Windhoek below the contact block, no
+          text over it. */}
+      <div
+        className="divider overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.9">
+          <Image
+            src="/images/kinfolk/k07-windhoek.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
     </>
   );
 }

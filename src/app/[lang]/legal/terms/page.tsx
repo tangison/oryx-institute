@@ -136,7 +136,7 @@ export async function generateMetadata({
   return {
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/terms", site.url),
+    alternates: alternates(lang, "/legal/terms", site.url),
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
@@ -162,7 +162,7 @@ export default async function TermsPage({
 
   return (
     <>
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 

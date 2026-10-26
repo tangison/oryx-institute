@@ -56,6 +56,9 @@ server.log
 /scripts/*
 !/scripts/gen-news-meta.mjs
 !/scripts/prod-*.mjs
+!/scripts/fix-verify.mjs
+!/scripts/visual-qa.mjs
+!/scripts/lcp-diag.mjs
 /tool-results/
 /download/
 /upload/

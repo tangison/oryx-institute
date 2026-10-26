@@ -367,9 +367,9 @@ export default async function BrandPage({
       {/* Assets and downloads, the reason the page exists */}
       <section id="downloads" className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.dlEyebrow}</p>
-            <p className="measure text-soft">{t.dlBody}</p>
+          <div className="hair-t pt-14">
+            <h2 className="h-sub">{t.dlEyebrow}</h2>
+            <p className="measure text-soft mt-4">{t.dlBody}</p>
           </div>
 
           <div className="dl-grid mt-12" data-sc-in data-sc-stagger="60">
@@ -410,8 +410,8 @@ export default async function BrandPage({
             <LogoPlate src="/brand/oryx-lockup.svg" w={440} h={152} alt="The Oryx Institute lockup: ORYX, 理工, INSTITUTE, with the shield" />
           </div>
           <div className="grid gap-5" data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.wordmarkEyebrow}</p>
-            <p className="text-soft">{t.wordmarkA}</p>
+            <h2 className="h-sub">{t.wordmarkEyebrow}</h2>
+            <p className="mt-4 text-soft">{t.wordmarkA}</p>
             <p className="text-soft">{t.wordmarkB}</p>
           </div>
         </div>
@@ -424,8 +424,8 @@ export default async function BrandPage({
             <LogoPlate src="/brand/oryx-emblem-ivory.svg" w={112} h={147} alt="The shield emblem, reverse" />
           </div>
           <div className="grid gap-5 order-1 lg:order-2" data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.emblemEyebrow}</p>
-            <p className="text-soft">{t.emblemA}</p>
+            <h2 className="h-sub">{t.emblemEyebrow}</h2>
+            <p className="mt-4 text-soft">{t.emblemA}</p>
             <p className="text-soft">{t.emblemB}</p>
           </div>
         </div>
@@ -434,9 +434,9 @@ export default async function BrandPage({
       {/* Colour codes */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.colourEyebrow}</p>
-            <p className="measure text-soft">{t.colourBody}</p>
+          <div className="hair-t pt-14">
+            <h2 className="h-sub">{t.colourEyebrow}</h2>
+            <p className="measure text-soft mt-4">{t.colourBody}</p>
           </div>
           <div
             className="mt-12 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3"
@@ -473,8 +473,8 @@ export default async function BrandPage({
             </div>
           </div>
           <div className="grid gap-5" data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.clearspaceEyebrow}</p>
-            <p className="text-soft">{t.clearspaceA}</p>
+            <h2 className="h-sub">{t.clearspaceEyebrow}</h2>
+            <p className="mt-4 text-soft">{t.clearspaceA}</p>
             <p className="text-soft">{t.clearspaceB}</p>
           </div>
         </div>
@@ -483,9 +483,9 @@ export default async function BrandPage({
       {/* Do / don't */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.ddEyebrow}</p>
-            <p className="measure text-soft">{t.ddBody}</p>
+          <div className="hair-t pt-14">
+            <h2 className="h-sub">{t.ddEyebrow}</h2>
+            <p className="measure text-soft mt-4">{t.ddBody}</p>
           </div>
           <div className="dd-grid mt-12" data-sc-in data-sc-stagger="60">
             <div className="dd-card">
@@ -555,9 +555,9 @@ export default async function BrandPage({
       {/* Print kit gallery: the one place a shadow is allowed */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.kitEyebrow}</p>
-            <p className="measure text-soft">{t.kitBody}</p>
+          <div className="hair-t pt-14">
+            <h2 className="h-sub">{t.kitEyebrow}</h2>
+            <p className="measure text-soft mt-4">{t.kitBody}</p>
           </div>
           <div className="kit-grid mt-12" data-sc-in data-sc-stagger="70">
             {kitPieces.map((k) => (
@@ -579,9 +579,9 @@ export default async function BrandPage({
       {/* Specimen wall: one object per cream plate */}
       <section className="section" id="specimens">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.specimensEyebrow}</p>
-            <p className="measure text-soft">{t.specimensBody}</p>
+          <div className="hair-t pt-14">
+            <h2 className="h-sub">{t.specimensEyebrow}</h2>
+            <p className="measure text-soft mt-4">{t.specimensBody}</p>
           </div>
         </div>
 
@@ -613,7 +613,7 @@ export default async function BrandPage({
       <section className="section-lg">
         <div className="shell">
           <div className="panel p-8 md:p-12" data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.voiceEyebrow}</p>
+            <h3 className="h-sub">{t.voiceEyebrow}</h3>
             <p className="h-section mt-5 max-w-[26ch]">{voiceText.register}</p>
             <ul className="mt-8 grid max-w-4xl gap-4">
               {voiceText.rules.map((r) => (
@@ -631,7 +631,7 @@ export default async function BrandPage({
             </ul>
 
             <div className="hair-t mt-10 pt-8">
-              <p className="eyebrow eyebrow--ink">{t.approvedEyebrow}</p>
+              <h3 className="h-sub">{t.approvedEyebrow}</h3>
               <ul className="mt-5 grid max-w-3xl gap-3 text-[0.95rem] leading-relaxed text-soft">
                 {lines.map((l) => (
                   <li key={l.line}>

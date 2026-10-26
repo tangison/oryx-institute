@@ -20,38 +20,28 @@ const copy = {
         "Market R&D for hire, the AI training programme with Tangison Technologies, and concept work with Mendozer.",
     },
     head: {
-      eyebrow: "Research",
       title: "Research runs from day one.",
       lede: "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both, market research taken on per engagement, and the programme and product work the institute runs with named partners.",
     },
-    hireEyebrow: "For hire",
     hireTitle: "The market side of the desk.",
     bring: "Bring a problem",
     whatRuns: "What runs today",
-    howEyebrow: "How the work lands",
     how: [
       { k: "1 · The question.", v: "Written down as it stands, before any method is discussed." },
       { k: "2 · The ground.", v: "Evidence gathered on Namibian ground, sources named." },
       { k: "3 · The document.", v: "Written to be used: findings, options, and the decision they support. Not shelved." },
     ],
-    bulletinEyebrow: "The Bulletin",
     bulletinBody:
       "Cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never. Every figure carries its source, or it does not ship.",
     read: "Read",
-    fieldEyebrow: "Fieldwork notes",
     fieldLede:
       "Fieldwork notes open when fieldwork starts. The Bulletin carries the writing until then.",
-    papersEyebrow: "Papers",
     papersLede:
       "Cited papers publish as the research programme produces them. None exist yet; none are claimed.",
-    bandWord: "Evidence.",
-    researchersEyebrow: "Researchers",
     researchersBody:
       "The research register at launch is one desk wide. It widens as researchers join, and each one is named here when they do.",
     principalBody:
       "Principal of the institute. Reads every application personally, writes the Bulletin's register, and holds the desk the research runs from.",
-    devEyebrow: "In development",
-    partnersEyebrow: "Partners",
     partnersBody:
       "Named, and by their own marks: the collaborations the research runs with, carried as the partners print them.",
   },
@@ -65,38 +55,28 @@ const copy = {
         "Marknavorsing te huur, die KI-opleidingsprogram saam met Tangison Technologies, en konsepswerk saam met Mendozer.",
     },
     head: {
-      eyebrow: "Navorsing",
       title: "Navorsing loop van dag een af.",
       lede: "Bewys voor geld beweeg: vir kliënte, en vir die instituut se eie bouwerke. Dieselfde lessenaar doen albei, marknavorsing per opdrag aangeneem, en die program- en produksiewerk wat die instituut met genoemde vennote loop.",
     },
-    hireEyebrow: "Te huur",
     hireTitle: "Die markkant van die lessenaar.",
     bring: "Bring 'n probleem",
     whatRuns: "Wat vandag loop",
-    howEyebrow: "Hoe die werk tank",
     how: [
       { k: "1 · Die vraag.", v: "Neergeskryf soos dit staan, voordat enige metode bespreek word." },
       { k: "2 · Die grond.", v: "Bewys op Namibiese grond bymekaargemaak, bronne genoem." },
       { k: "3 · Die dokument.", v: "Geskrewe om gebruik te word: bevindinge, opsies, en die besluit wat hulle dra. Nie geskrap nie." },
     ],
-    bulletinEyebrow: "Die Bulletin",
     bulletinBody:
       "Aangehaalde opstelle oor die syfers, die metode en die gereedskap, geskryf soos die instituut onderrig: bewys eerste, versiering nooit. Elke syfer dra sy bron, of dit gaan nie uit nie.",
     read: "Lees",
-    fieldEyebrow: "Veldwerknotas",
     fieldLede:
       "Veldwerknotas open wanneer veldwerk begin. Die Bulletin dra die geskrewe tot daardie tyd.",
-    papersEyebrow: "Verhandelings",
     papersLede:
       "Aangehaalde verhandelings verskyn namate die navorsingsprogram hulle voortbring. Nog bestaan daar geen; nog word daar geen geëis nie.",
-    bandWord: "Bewys.",
-    researchersEyebrow: "Navorsers",
     researchersBody:
       "Die navorsingsregister is by afskop een lessenaar breed. Dit verbreed namate navorsers aansluit, en elkeen word hier genoem sodra dit gebeur.",
     principalBody:
       "Prinsipaal van die instituut. Lees elke aansoek persoonlik, skryf die Bulletin se register, en hou die lessenaar waarvandaan die navorsing loop.",
-    devEyebrow: "In ontwikkeling",
-    partnersEyebrow: "Vennote",
     partnersBody:
       "Genoem, en met hulle eie merke: die samewerkings waarby die navorsing loop, gedra soos die vennote hulle druk.",
   },
@@ -168,18 +148,33 @@ export default async function ResearchPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
+
+      {/* The research register, opened at its own desk: the notebook,
+          centred, held still. */}
+      <section className="section-sm" data-sc-act="flow" data-sc-in>
+        <div className="shell">
+          <figure className="plate-fig">
+            <Image
+              src="/images/kinfolk/k05-notebook.jpg"
+              alt="A bound maroon notebook with ribbon, centred on cream paper"
+              width={1086}
+              height={1448}
+              sizes="(min-width: 1024px) 56rem, 92vw"
+              className="h-auto w-full"
+              priority
+            />
+          </figure>
+        </div>
+      </section>
 
       {/* For hire, the market side of the desk */}
       <section className="section">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.hireEyebrow}</p>
-            <h2 className="h-section mt-5 max-w-[20ch]">
-              {t.hireTitle}
-            </h2>
+            <h2 className="h-section max-w-[20ch]">{t.hireTitle}</h2>
             <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
             <div className="mt-8 flex flex-wrap gap-5">
               <Link href={A("/apply?for=market-rd")} className="btn">
@@ -192,8 +187,7 @@ export default async function ResearchPage({
           </div>
 
           <div className="panel p-8 md:p-10" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.howEyebrow}</p>
-            <ol className="mt-6 grid gap-5 text-[0.98rem] leading-relaxed text-soft">
+            <ol className="grid gap-5 text-[0.98rem] leading-relaxed text-soft">
               {t.how.map((h) => (
                 <li key={h.k}>
                   <span className="font-[500] text-ink">{h.k}</span> {h.v}
@@ -208,8 +202,7 @@ export default async function ResearchPage({
           themselves: they publish in English, and the AF page says so. */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.bulletinEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">
               {af ? `${chrome.af.bulletinInEnglish} ${t.bulletinBody}` : t.bulletinBody}
             </p>
@@ -265,26 +258,34 @@ export default async function ResearchPage({
             </figure>
           </div>
           <div data-sc-in data-sc-stagger="70">
-            <p className="eyebrow eyebrow--ink">{t.fieldEyebrow}</p>
-            <p className="lede measure mt-5">{t.fieldLede}</p>
-            <p className="eyebrow eyebrow--ink mt-12">{t.papersEyebrow}</p>
-            <p className="lede measure mt-5">{t.papersLede}</p>
+            <p className="lede measure">{t.fieldLede}</p>
+            <p className="lede measure mt-10">{t.papersLede}</p>
           </div>
         </div>
       </section>
 
-      {/* Terracotta research divider */}
-      <div className="band band--terracotta" data-sc-act="flow">
-        <p className="band-word" data-sc-cue="0.25 0.75 0.2 0.4" data-sc-kinetic="lines">
-          {t.bandWord}
-        </p>
+      {/* Research-context divider: the game plays out to an outcome.
+          No text, no overlay. */}
+      <div
+        className="divider overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
+          <Image
+            src="/images/kinfolk/k04-red-game.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
 
       {/* Researchers, the Principal, at launch */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.researchersEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">{t.researchersBody}</p>
           </div>
           <div
@@ -304,18 +305,19 @@ export default async function ResearchPage({
                 />
               </div>
               <div className="p-8 md:p-10">
-                <p className="eyebrow eyebrow--ink">
-                  {af ? "Prinsipaal" : site.principal.role}
-                </p>
-                <h3 className="h-sub mt-3">{site.principal.name}</h3>
+                <h3 className="h-sub">
+                  {site.principal.name}
+                  <span className="ml-3 align-middle text-[0.72rem] font-[500] tracking-[0.14em] uppercase text-soft">
+                    {af ? "Prinsipaal" : site.principal.role}
+                  </span>
+                </h3>
                 <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
                   {t.principalBody}
                 </p>
               </div>
             </div>
             <div className="quiet-card p-8 md:p-10">
-              <p className="eyebrow eyebrow--ink">{t.devEyebrow}</p>
-              <ul className="mt-6 grid gap-6">
+              <ul className="grid gap-6">
                 {devList.map((item) => (
                   <li key={item.name} className="hair-b hair-b--ink pb-6 last:border-0 last:pb-0">
                     <p className="font-[500]">{item.name}</p>
@@ -330,11 +332,11 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* Partners */}
+      {/* Partners: named, carried as their own untampered marks, not
+          as outgoing links. */}
       <section className="section-lg">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.partnersEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">{t.partnersBody}</p>
           </div>
           <div
@@ -344,24 +346,19 @@ export default async function ResearchPage({
           >
             {partners.map((p) => (
               <div key={p.id} className="bg-paper p-8 md:p-10">
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={p.name}
+                <span
                   className={`inline-flex h-8 items-center ${p.tone === "ink" ? "text-ink" : ""}`}
-                  title={partnerNote(p.id)}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={p.id === "mendozer" ? "/partners/mendozer-logo-ink.svg" : p.logo}
-                    alt=""
+                    alt={p.alt}
                     width={p.id === "tangison" ? 1383 : 1024}
                     height={p.id === "tangison" ? 296 : 401}
                     className="h-full w-auto"
                     loading="lazy"
                   />
-                </a>
+                </span>
                 <p className="mt-6 text-[0.95rem] leading-relaxed text-soft">
                   {partnerNote(p.id)}
                 </p>

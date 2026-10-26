@@ -16,7 +16,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/", priority: 1, changeFrequency: "monthly" },
     { path: "/programmes", priority: 0.9, changeFrequency: "monthly" },
     { path: "/research", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/practice", priority: 0.9, changeFrequency: "monthly" },
     { path: "/ventures", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/register", priority: 0.8, changeFrequency: "monthly" },
     { path: "/apply", priority: 0.9, changeFrequency: "monthly" },
     { path: "/resources", priority: 0.8, changeFrequency: "monthly" },
     { path: "/tools", priority: 0.8, changeFrequency: "monthly" },
@@ -26,8 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
-    { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/legal/privacy", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/legal/terms", priority: 0.3, changeFrequency: "yearly" },
   ];
 
   const docs = directoryAll.map((d) => ({

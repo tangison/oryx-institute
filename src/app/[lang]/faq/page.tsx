@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { faqs, site } from "@/lib/site";
@@ -90,6 +91,22 @@ export default async function FaqPage({
       <PageHead title={t.headTitle}>
         <p>{t.headLede}</p>
       </PageHead>
+
+      {/* The horns, small, beside the questions. */}
+      <section className="section-sm" data-sc-act="flow" data-sc-in>
+        <div className="shell">
+          <figure className="faq-plate">
+            <Image
+              src="/images/kinfolk/k09-horns.jpg"
+              alt="Two shed oryx horns, crossed, centred on cream paper"
+              width={1122}
+              height={1402}
+              sizes="(min-width: 1024px) 18rem, min(70vw, 22rem)"
+              className="h-auto w-full"
+            />
+          </figure>
+        </div>
+      </section>
 
       <section className="section-lg">
         <div className="shell">

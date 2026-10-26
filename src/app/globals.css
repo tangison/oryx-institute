@@ -240,6 +240,10 @@
 
 .section {
   padding-block: var(--section-y);
+  /* Between sections of a page's spine. */
+}
+.section-sm {
+  padding-block: calc(var(--section-y) * 0.5);
 }
 
 .section-lg {
@@ -295,11 +299,13 @@
 }
 
 .on-ink .link-type,
+.site-footer .link-type,
 .link-type--ivory {
   color: var(--ivory);
   text-decoration-color: var(--ivory-60);
 }
-.link-type--ivory:hover {
+.link-type--ivory:hover,
+.site-footer .link-type:hover {
   color: var(--ivory);
   text-decoration-color: var(--ivory);
 }
@@ -872,21 +878,13 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   Footer — cream, statement first, hairlines between registers
+   Footer — ink ground, cream type: the close of every page
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  border-top: 1px solid var(--rule);
-  background: var(--paper);
+  background: var(--ink);
+  color: var(--ivory);
   margin-top: auto;
-}
-
-.foot-statement {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2vw + 0.8rem, 2rem);
-  line-height: 1.35;
-  max-width: 34ch;
-  text-wrap: balance;
 }
 
 .foot-grid {
@@ -895,11 +893,23 @@ body.menu-locked {
 }
 @media (min-width: 64rem) {
   .foot-grid {
-    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-columns: 1fr 1.4fr 1fr;
     gap: 4rem;
+    align-items: start;
   }
 }
 
+.foot-place {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-60);
+}
+
+.foot-nav-wrap {
+  align-self: center;
+}
 .foot-nav {
   columns: 2;
   column-gap: 3rem;
@@ -911,48 +921,47 @@ body.menu-locked {
   display: inline-block;
   padding-block: 0.42rem;
   font-size: 0.95rem;
-  color: var(--muted);
+  color: var(--ivory-80);
   transition: color var(--dur-short) var(--ease-out);
 }
 .foot-nav a:hover {
-  color: var(--maroon-deep);
+  color: var(--ivory);
 }
 
-.social-row {
-  display: flex;
-  gap: 0.9rem;
-}
-.social-row a {
+.foot-office {
   display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--rule);
-  color: var(--ink);
-  transition: border-color var(--dur-short) var(--ease-out),
-    color var(--dur-short) var(--ease-out);
+  gap: 1.5rem;
+  justify-items: start;
 }
-.social-row a:hover {
-  border-color: var(--ink);
-  color: var(--maroon-deep);
+@media (min-width: 64rem) {
+  .foot-office {
+    justify-items: end;
+  }
 }
-
-.partner-row {
+.foot-mail {
+  color: var(--ivory);
+}
+.foot-social {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap-x: 2.5rem;
-  gap-y: 1.25rem;
+  column-gap: 1.5rem;
+  row-gap: 0.4rem;
 }
-.partner-row a {
-  display: inline-flex;
-  align-items: center;
-  height: 1.6rem;
-  opacity: 0.75;
-  transition: opacity var(--dur-short) var(--ease-out);
+.foot-social a {
+  font-size: 0.95rem;
+  color: var(--ivory-80);
+  transition: color var(--dur-short) var(--ease-out);
 }
-.partner-row a:hover {
-  opacity: 1;
+.foot-social a:hover {
+  color: var(--ivory);
+}
+
+.foot-credit {
+  color: var(--ivory-60);
+}
+
+.foot-legal {
+  border-top: 1px solid var(--rule-ink);
 }
 
 /* --------------------------------------------------------------------------
@@ -1016,43 +1025,131 @@ body.menu-locked {
    Section primitives
    -------------------------------------------------------------------------- */
 
-/* Three engines: hairline-separated columns, no cards, no shadows */
-.engines {
+/* Three engines, pinned: one engine at a time, cross-faded on ink.
+   The first row holds the flow height; the engine CSS layers the
+   rest. No cards, no columns. */
+.engine-rows {
   display: grid;
 }
-@media (min-width: 64rem) {
-  .engines {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .engines > * + * {
-    border-left: 1px solid var(--rule-ink);
-    padding-left: clamp(2rem, 3vw, 3.5rem);
-  }
-  .engines > * + * {
-    margin-top: 0;
-  }
+.engine-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
 }
-@media (max-width: 63.99rem) {
-  .engines > * + * {
-    border-top: 1px solid var(--rule-ink);
-    padding-top: 2.5rem;
-    margin-top: 2.5rem;
-  }
-}
-
-.engine-glyph {
+.engine-row-mark {
   width: 3rem;
   height: 3rem;
   color: var(--ivory);
+  margin-top: 0.4rem;
 }
-.engine-glyph svg {
+.engine-row-mark svg {
   width: 100%;
   height: 100%;
 }
+.engine-row-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.4vw + 0.9rem, 3.1rem);
+  line-height: 1.08;
+  color: var(--ivory);
+}
 
-/* Offers: two-column hairline list, caps tag per offer. Each row
-   carries its own object on a small print plate: the tool the offer
-   is done with, named in the image as it is named in the copy. */
+/* Positioning: the sentence left, the stone plate right-aligned
+   beside it, on cream. */
+.positioning {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+@media (min-width: 64rem) {
+  .positioning {
+    grid-template-columns: 1fr minmax(0, 22rem);
+  }
+}
+.positioning-plate img {
+  margin-inline: auto;
+  max-height: clamp(20rem, 44vh, 30rem);
+  width: auto;
+  max-width: 100%;
+}
+
+/* The register page: lede left, the stone beside it. */
+.register-grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 64rem) {
+  .register-grid {
+    grid-template-columns: 1fr minmax(0, 18rem);
+  }
+}
+.register-plate img {
+  margin-inline: auto;
+  max-height: clamp(16rem, 34vh, 24rem);
+  width: auto;
+  max-width: 100%;
+}
+
+/* The 理工 paragraph with the horns beside it. */
+.ligong-grid {
+  display: grid;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: center;
+}
+@media (min-width: 64rem) {
+  .ligong-grid {
+    grid-template-columns: 1fr minmax(0, 14rem);
+  }
+}
+.ligong-plate img {
+  margin-inline: auto;
+  max-height: clamp(14rem, 30vh, 20rem);
+  width: auto;
+  max-width: 100%;
+}
+
+/* The wax seal on the apply page. */
+.apply-plate {
+  margin: 0;
+  max-width: 15rem;
+}
+.apply-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The horns on the FAQ page: a small plate, centred. */
+.faq-plate {
+  margin: 0;
+  max-width: 18rem;
+  margin-inline: auto;
+}
+.faq-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Specimen plates: the photograph carries its own cream ground, so
+   the plate is the picture at its natural ratio, subject centred,
+   margins intact. Never cropped. */
+.plate-fig {
+  margin: 0;
+}
+.plate-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: clamp(24rem, 56vh, 38rem);
+  object-fit: contain;
+  margin-inline: auto;
+}
+
+/* Offers: hairline ledger, one per row. The tag sits far right;
+   the verbal CTA ends the sentence. No images, no boxes. */
 .offers {
   display: grid;
   gap: 0;
@@ -1063,7 +1160,6 @@ body.menu-locked {
     column-gap: clamp(3rem, 5vw, 6rem);
   }
 }
-
 .offer {
   border-top: 1px solid var(--rule);
   padding-block: 1.75rem;
@@ -1081,28 +1177,17 @@ body.menu-locked {
   display: grid;
   gap: 0.65rem;
 }
-.offer-plate {
-  width: 4.25rem;
-  aspect-ratio: 3 / 2;
-  flex: none;
-  border: 1px solid var(--rule);
-  background: var(--white);
-  overflow: hidden;
-}
-@media (min-width: 64rem) {
-  .offer-plate {
-    width: 6.5rem;
-  }
-}
-.offer-plate img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .offer-name {
   font-family: var(--font-display);
   font-size: 1.35rem;
   line-height: 1.25;
+}
+.offer-line {
+  max-width: 44ch;
+  color: var(--muted);
+}
+.offer-cta {
+  white-space: nowrap;
 }
 .offer-tag {
   font-size: 0.66rem;
@@ -1110,6 +1195,7 @@ body.menu-locked {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--maroon);
+  padding-top: 0.5rem;
 }
 
 /* The register: two-column dated ledger, date rail fixed at 140px */
@@ -1139,36 +1225,49 @@ body.menu-locked {
   font-variant-numeric: tabular-nums;
 }
 
-/* Full-bleed colour bands: flat terracotta or ink, one centred word */
-.band {
-  min-height: clamp(18rem, 42vh, 28rem);
-  display: grid;
-  place-items: center;
-  padding-block: clamp(3rem, 8vh, 5rem);
-}
-.band--terracotta {
-  background: var(--terracotta);
-}
-.band--ink {
-  background: var(--ink);
-}
-.band-word {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.5vw + 0.5rem, 3.75rem);
-  color: var(--ivory);
-  line-height: 1.1;
-  text-align: center;
-}
-
-/* Material close-up dividers: full-bleed photograph, no overlaid text */
+/* Material close-up dividers: full-bleed photograph, no overlaid
+   text. The homepage pair run a full viewport; interior pages use
+   the shorter measure. */
 .divider {
   position: relative;
   height: clamp(22rem, 62vh, 42rem);
+}
+.divider--full {
+  height: 100vh;
+  height: 100svh;
 }
 .divider img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Pinned peaks: the photograph full-bleed, the copy on a small
+   cream block bottom left, large enough for the words and nothing
+   else. */
+.peak {
+  position: relative;
+}
+.peak-media {
+  position: absolute;
+  inset: 0;
+}
+.peak-scrim {
+  position: absolute;
+  left: max(
+    var(--gutter),
+    calc((100vw - 82.5rem) / 2 + var(--gutter))
+  );
+  bottom: clamp(2.5rem, 7vh, 4.5rem);
+  width: min(26rem, calc(100vw - 3rem));
+  background: var(--paper);
+  color: var(--ink);
+  padding: 2rem;
+}
+.peak-line {
+  margin-top: 0.9rem;
+  max-width: 36ch;
+  line-height: 1.6;
 }
 
 /* Image plates inside sections */
@@ -1578,41 +1677,40 @@ body.menu-locked {
 }
 
 /* ==========================================================================
-   The scroll layer · scrollcraft device stylesheet, vendored engine,
-   themed to the Oryx tokens. The engine reads data-sc-* attributes and
-   writes transform + opacity only. Every hiding rule is gated on
-   html.sc-ready, a class only the engine adds: with JavaScript off,
-   nothing here ever hides content.
+   The scroll layer · GSAP + ScrollTrigger device stylesheet, themed to
+   the Oryx tokens. The engine reads data-sc-* attributes and writes
+   transform + opacity only. Every hiding rule is gated on
+   html.sc-ready, a class only the engine adds: with JavaScript off or
+   reduced motion on, nothing here ever hides content.
    ========================================================================== */
 
-.sc-act--pinned {
-  position: relative;
-}
+/* Pinned acts: ScrollTrigger pins the stage itself, so the stage
+   stands in normal flow (no sticky) and the pin-spacer owns the
+   travel. With the engine off, the stage is simply a tall block. */
 .sc-stage {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100vh;
   height: 100svh;
   overflow: clip;
-  z-index: 1;
 }
 
-[data-sc-pan] {
-  display: flex;
-  will-change: transform;
+/* Cross-faded rows inside a pinned stage: the first row holds the
+   flow height; the rest overlay it, and only under the engine. */
+[data-sc-rows] {
+  position: relative;
 }
-[data-sc-reveal] {
-  will-change: clip-path;
+html.sc-ready [data-sc-rows] > [data-sc-row] + [data-sc-row] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
 }
-[data-sc-parallax] {
+
+[data-sc-parallax],
+[data-sc-scale] {
   will-change: transform;
 }
 
 /* Pre-paint state, only once the engine is actually running. */
-html.sc-ready [data-sc-cue] {
-  opacity: 0;
-  will-change: opacity, transform;
-}
 html.sc-ready [data-sc-in],
 html.sc-ready [data-sc-stagger] > * {
   opacity: 0;
@@ -1624,33 +1722,12 @@ html.sc-ready [data-sc-stagger] > .sc-in {
   opacity: 1;
   transform: none;
 }
+html.sc-ready [data-sc-scrim] {
+  opacity: 0;
+}
 /* Blocks already inside the viewport on load land still, by design. */
 .sc-instant {
   transition: none !important;
-}
-
-/* Kinetic splits: masked lines, room bought back for descenders. */
-.sc-split {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-}
-.sc-split--line {
-  display: block;
-  padding-bottom: 0.14em;
-  margin-bottom: -0.14em;
-}
-.sc-split__i {
-  display: inline-block;
-  will-change: transform, opacity;
-}
-.sc-is-split {
-  opacity: 1 !important;
-}
-
-/* Entry counters settle their layout while they tick. */
-[data-sc-count] {
-  font-variant-numeric: tabular-nums;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1662,12 +1739,8 @@ html.sc-ready [data-sc-stagger] > .sc-in {
     transition-duration: 220ms;
   }
   [data-sc-parallax],
-  [data-sc-pan],
-  .sc-split__i {
+  [data-sc-scale] {
     transform: none !important;
-  }
-  [data-sc-reveal] {
-    clip-path: none !important;
   }
 }
 

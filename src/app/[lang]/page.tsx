@@ -18,65 +18,51 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
 }
 
 /**
- * The offer ledger's object plates: the tool each offer is done with.
- * One object per row, named in the image as it is named in the copy.
+ * The homepage, laid out as one scroll composition:
+ *
+ *   hero (scrub) · positioning (flow) · k03 silent divider (flow) ·
+ *   three engines (PIN) · what runs today (flow) · practice peak
+ *   (PIN) · research zigzag (flow) · ventures reverse-zigzag (flow) ·
+ *   k07 silent divider (flow) · the register (flow) · close (PIN) ·
+ *   footer.
+ *
+ * Three pins, two silent dividers, one engineered peak. No device
+ * twice in a row. The k-images run in act order: k01, k02, k03, k06,
+ * k05, k08, k07, k10.
  */
-const offerPlates: Record<string, { src: string; alt: string }> = {
-  "owners-desk": {
-    src: "/images/studio/studio-pen.webp",
-    alt: "A black fountain pen with a gold nib on white ground",
-  },
-  "business-administration": {
-    src: "/images/studio/studio-ledger.webp",
-    alt: "A linen-bound ledger held with an elastic band",
-  },
-  it: {
-    src: "/images/studio/studio-slide-rule.webp",
-    alt: "A slide rule, every notch of it named",
-  },
-  "market-rd": {
-    src: "/images/studio/studio-survey.webp",
-    alt: "A brass theodolite, a surveying instrument",
-  },
-  "rapid-response": {
-    src: "/images/studio/studio-case.webp",
-    alt: "A leather satchel with buckle and strap",
-  },
-  directory: {
-    src: "/images/studio/studio-parchment.webp",
-    alt: "A rolled parchment tied with cord",
-  },
-};
-
-/** Page-local copy in both languages; the voice bar holds in each. */
 const copy = {
   en: {
     meta: {
       title: "A New Polytechnic for Namibia",
       description: site.description,
     },
+    positioning:
+      "A new polytechnic for Namibia, working from Windhoek. It is prelaunch and pursuing accreditation with the NQA and the NTA, and it says so plainly. Every step is dated on the register below.",
     engines: [
       {
-        key: "research",
-        eyebrow: "Research",
+        key: "research" as const,
+        name: "Research",
         body: "Fieldwork, bulletin essays, and cited papers on Namibia's working realities. Free before anything is charged.",
+        link: "Read",
       },
       {
-        key: "practice",
-        eyebrow: "Practice",
+        key: "practice" as const,
+        name: "Practice",
         body: "Crash courses, business counselling, market R&D, rapid response training. Delivered to Namibian standards.",
+        link: "See",
       },
       {
-        key: "ventures",
-        eyebrow: "Ventures",
+        key: "ventures" as const,
+        name: "Ventures",
         body: "Small operating companies the institute opens to test sectors. Each one is a live classroom and a live lab.",
+        link: "See",
       },
     ],
+    /* TODO founder: positioning H2 for the engines block. */
     enginesTitle: "Three engines. One standard.",
     runsTitle: "What runs today.",
     runsBody:
       "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. Nothing here promises a credential; every line promises work.",
-    bandWord: "Research.",
     researchTitle: "Research runs from day one.",
     researchLine:
       "Research is not a department that opens when buildings arrive. It is why the institute exists.",
@@ -93,34 +79,40 @@ const copy = {
     seeWhatRuns: "See what runs now",
     apply: "Apply",
     read: "Read",
+    dateTbc: "Date to be confirmed",
   },
   af: {
     meta: {
       title: "'n Nuwe politegniek vir Namibië",
       description: siteAf.description,
     },
+    positioning:
+      "'n Nuwe politegniek vir Namibië, werkend vanuit Windhoek. Dit is voor lansering en besig met akkreditering by die NQA en die NTA, en sê dit self so. Elke stap is gedateer op die register hieronder.",
     engines: [
       {
-        key: "research",
-        eyebrow: "Navorsing",
+        key: "research" as const,
+        name: "Navorsing",
         body: "Veldwerk, Bulletin-opstelle, en aangehaalde verhandelings oor Namibië se werklikhede. Gratis voordat enigiets gehef word.",
+        link: "Lees",
       },
       {
-        key: "practice",
-        eyebrow: "Praktyk",
+        key: "practice" as const,
+        name: "Praktyk",
         body: "Kondenskursusse, besigheidsberading, marknavorsing, spoedreaksie-opleiding. Volgens Namibiese standaarde gelewer.",
+        link: "Sien",
       },
       {
-        key: "ventures",
-        eyebrow: "Ondernemings",
+        key: "ventures" as const,
+        name: "Ondernemings",
         body: "Klein bedrywende maatskappye wat die instituut open om sektors toets. Elke een is 'n lewende klaskamer en 'n lewende laboratorium.",
+        link: "Sien",
       },
     ],
+    /* TODO founder: posisionerende H2 vir die enjins-blok. */
     enginesTitle: "Drie enjins. Een standaard.",
     runsTitle: "Wat vandag loop.",
     runsBody:
       "Ses aanbiedings, lewendig vanuit die kantoor in Windhoek. Twee onderrigdepartemente loop kondens- en kortkursusse alleen; die praktyk en die gratis Gids loop langs hulle. Niks hier belowe 'n kwalifikasie nie; elke reël belowe werk.",
-    bandWord: "Navorsing.",
     researchTitle: "Navorsing loop van dag een af.",
     researchLine:
       "Navorsing is nie 'n departement wat open wanneer geboue opdaag nie. Dit is hoekom die instituut bestaan.",
@@ -128,7 +120,7 @@ const copy = {
     practiceBody:
       "Werk wat hou. Gemeet en tot standaard voltooi. Elke gereedskap by die naam genoem, nie as towerkrag nie.",
     venturesTitle: "Ondernemings is die bewys.",
-    registerMeta: "Gedateer. Openbaar. Opgedateer namate die werk tank.",
+    registerMeta: "Gedateer. Openbaar. Opgedateer namate die werk land.",
     closeTitle: "Een e-pos begin dit.",
     closeBody:
       "Aansoeke, navorsingsnavrae, vennootskappe en die pers begin met een boodskap. Die antwoord is persoonlik. Niks word bevestig voordat albei kante saamstem nie.",
@@ -137,6 +129,7 @@ const copy = {
     seeWhatRuns: "Sien wat nou loop",
     apply: "Skryf in",
     read: "Lees",
+    dateTbc: "Datum moet nog bevestig word",
   },
 } as const;
 
@@ -179,6 +172,11 @@ export default async function HomePage({
         ventures,
       };
   const latest = insights[insights.length - 1];
+  const engineHref: Record<string, string> = {
+    research: af ? "/af/research" : "/research",
+    practice: af ? "/af/practice" : "/practice",
+    ventures: af ? "/af/ventures" : "/ventures",
+  };
 
   const dateFmt = new Intl.DateTimeFormat(af ? "af" : "en-GB", {
     day: "numeric",
@@ -223,10 +221,10 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
-      {/* Hero: the oryx on the terracotta field, type held in the open
-          sky. The photograph breathes at its own depth; the type lands
-          still, by design. */}
-      <section className="hero" data-sc-act="flow">
+      {/* Hero: the oryx on the terracotta field, three planes moving at
+          three rates. The photograph breathes at its own depth; the
+          nameplate recedes a hair; the line beneath it drifts. */}
+      <section className="hero" data-sc-act="scrub">
         <div className="hero-media" data-sc-parallax="0.45" aria-hidden="true">
           <Image
             src="/images/kinfolk/k01-oryx.jpg"
@@ -239,155 +237,52 @@ export default async function HomePage({
           />
         </div>
         <div className="hero-content shell">
-          <p className="hero-tag">{s.heroTag}</p>
-          <h1 className="hero-title mt-5 max-w-[13ch]">{s.headline}</h1>
-          <p className="hero-sub mt-6 max-w-[44ch]">{s.heroSub}</p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a href="#what-runs" className="btn btn--cream">
-              {t.seeWhatRuns}
-            </a>
-            <Link href={af ? "/af/apply" : "/apply"} className="btn btn--cream">
-              {t.apply}
-            </Link>
+          <div data-sc-parallax="-0.06">
+            <p className="hero-tag">{s.heroTag}</p>
+            <h1 className="hero-title mt-5 max-w-[13ch]">{s.headline}</h1>
           </div>
-        </div>
-      </section>
-
-      {/* Three engines. One standard. Ink band, hairline columns. */}
-      <section
-        className="on-ink section-lg"
-        style={{ background: "var(--ink)", color: "var(--ivory)" }}
-      >
-        <div className="shell">
-          <h2 className="h-caps h-section">{t.enginesTitle}</h2>
-          <div className="engines mt-14 md:mt-20" data-sc-in data-sc-stagger="90">
-            {t.engines.map((e) => (
-              <div key={e.key}>
-                <p className="eyebrow--ivory eyebrow">{e.eyebrow}</p>
-                <div className="engine-glyph mt-6" aria-hidden="true">
-                  <Glyph name={e.key as "research"} />
-                </div>
-                <p className="mt-7 max-w-[38ch] text-ivory body-lg leading-relaxed">
-                  {e.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What runs today: six offers, hairline ledger. */}
-      <section id="what-runs" className="section-lg">
-        <div className="shell">
-          <h2 className="h-section max-w-[18ch]">{t.runsTitle}</h2>
-          <p className="measure mt-6 text-soft">{t.runsBody}</p>
-          <div className="offers mt-14" data-sc-in data-sc-stagger="70">
-            {s.offers.map((o) => (
-              <div className="offer" key={o.id} id={o.id}>
-                <div className="offer-main">
-                  <p className="offer-tag">{o.tag}</p>
-                  <h3 className="offer-name">{o.name}</h3>
-                  <p className="max-w-[44ch] text-soft">{o.line}</p>
-                  <Link
-                    href={o.cta.href.startsWith("/")
-                      ? `${af ? "/af" : ""}${o.cta.href}`
-                      : o.cta.href}
-                    className="btn--quiet mt-2"
-                  >
-                    {o.cta.label} <span className="arr" aria-hidden="true">→</span>
-                  </Link>
-                </div>
-                {offerPlates[o.id] ? (
-                  <figure className="offer-plate" aria-hidden="true">
-                    <Image
-                      src={offerPlates[o.id].src}
-                      alt=""
-                      width={274}
-                      height={184}
-                      sizes="104px"
-                    />
-                  </figure>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Colour-band divider: pure terracotta, one centred word. */}
-      <div className="band band--terracotta" data-sc-act="flow" aria-hidden="true">
-        <p className="band-word" data-sc-cue="0.25 0.75 0.2 0.4" data-sc-kinetic="lines">
-          {t.bandWord}
-        </p>
-      </div>
-
-      {/* Research pull: the ground it is gathered on, latest Bulletin. */}
-      <section className="section-lg" data-sc-act="flow">
-        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate plate--float aspect-[3/2]">
-            <div className="plate-media" data-sc-parallax="0.5">
-              <Image
-                src="/images/studio/studio-clay-reading.webp"
-                alt="An oryx skull and desert flowers lying on cracked clay"
-                fill
-                sizes="(min-width: 768px) 26rem, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </figure>
-          <div>
-            <h2 className="h-section max-w-[20ch]">{t.researchTitle}</h2>
-            <p className="measure mt-6 text-soft">{latest.dek}</p>
-            <div className="panel mt-8 p-7 md:p-9" data-sc-in>
-              <p className="eyebrow--ink eyebrow">
-                {latest.no} · 2026
-              </p>
-              <h3 className="h-sub mt-3">{latest.title}</h3>
-              <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
-                {latest.body[0].slice(0, 220)}…
-              </p>
-              <Link href={af ? "/af/resources#bulletin" : "/resources#bulletin"} className="btn--quiet mt-6">
-                {t.read} <span className="arr" aria-hidden="true">→</span>
+          <div className="mt-6" data-sc-parallax="0.08">
+            <p className="hero-sub max-w-[44ch]">{s.heroSub}</p>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <a href="#what-runs" className="btn btn--cream">
+                {t.seeWhatRuns}
+              </a>
+              <Link
+                href={af ? "/af/apply" : "/apply"}
+                className="btn btn--cream"
+              >
+                {t.apply}
               </Link>
             </div>
-            <p className="lede measure mt-10 text-ink">{t.researchLine}</p>
           </div>
         </div>
       </section>
 
-      {/* Practice: full-bleed, type over the light. The photograph moves
-          at its own depth; the copy holds. */}
-      <section className="relative" data-sc-act="flow">
-        <div className="relative h-[68vh] min-h-[26rem] overflow-hidden">
-          <div className="absolute inset-[-8%]" data-sc-parallax="0.8">
+      {/* Positioning: the sentence, with the stone beside it. */}
+      <section className="section-lg" data-sc-act="flow">
+        <div className="shell positioning">
+          <p className="lede measure text-ink">{t.positioning}</p>
+          <figure className="positioning-plate" data-sc-in>
             <Image
-              src="/images/kinfolk/k06-hands.jpg"
-              alt="A pair of hands mid-task in a shaft of hard daylight"
-              fill
-              sizes="100vw"
-              className="object-cover"
+              src="/images/kinfolk/k02-stone.jpg"
+              alt="One weathered stone specimen, centred on cream paper"
+              width={1122}
+              height={1402}
+              sizes="(min-width: 1024px) 22rem, min(78vw, 26rem)"
+              className="h-auto w-full"
             />
-          </div>
-          <div
-            className="absolute inset-x-0 top-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(24,23,19,0.62) 0%, rgba(24,23,19,0.30) 52%, rgba(24,23,19,0) 100%)",
-            }}
-          >
-            <div className="shell pt-14 pb-28 md:pt-20">
-              <h2 className="h-section text-ivory">{t.practiceTitle}</h2>
-              <p className="body-lg mt-5 max-w-[42ch] text-ivory">
-                {t.practiceBody}
-              </p>
-            </div>
-          </div>
+          </figure>
         </div>
       </section>
 
-      {/* Material divider: wood and rope, no text, all depth. */}
-      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.2">
+      {/* First silent divider: wood and rope, a breath before the
+          engines. No text, no overlay, one full viewport. */}
+      <div
+        className="divider divider--full overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
             src="/images/kinfolk/k03-wood-rope.jpg"
             alt=""
@@ -398,20 +293,145 @@ export default async function HomePage({
         </div>
       </div>
 
-      {/* Ventures: the venture set out on open ground, the first live
-          lab named beneath it. */}
-      <section className="section-lg" data-sc-act="flow">
-        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate plate--float aspect-[4/3] md:order-2">
-            <div className="plate-media" data-sc-parallax="0.5">
-              <Image
-                src="/images/studio/studio-lone-tree.webp"
-                alt="A lone tree standing on open desert ground"
-                fill
-                sizes="(min-width: 768px) 26rem, 100vw"
-                className="object-cover"
-              />
+      {/* Three engines, pinned: one engine at a time, cross-faded.
+          Ink ground, no cards, each engine answers with its page. */}
+      <section
+        className="on-ink"
+        style={{ background: "var(--ink)", color: "var(--ivory)" }}
+        data-sc-act="pin"
+        data-sc-span="2.5"
+      >
+        <div className="sc-stage" data-sc-stage>
+          <div className="shell flex h-full flex-col justify-center py-24">
+            <h2 className="h-section max-w-[18ch]">{t.enginesTitle}</h2>
+            <div className="engine-rows mt-16 md:mt-24" data-sc-rows>
+              {t.engines.map((e) => (
+                <article className="engine-row" data-sc-row key={e.key}>
+                  <div className="engine-row-mark" aria-hidden="true">
+                    <Glyph name={e.key} />
+                  </div>
+                  <div className="engine-row-body">
+                    <h3 className="engine-row-name">{e.name}</h3>
+                    <p className="mt-5 max-w-[46ch] body-lg leading-relaxed">
+                      {e.body}
+                    </p>
+                    <Link
+                      href={engineHref[e.key]}
+                      className="btn--quiet btn--quiet--ivory mt-7"
+                    >
+                      {e.link}{" "}
+                      <span className="arr" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What runs today: six offers, hairline ledger, no images.
+          The tag sits far right; the verbal CTA ends the sentence. */}
+      <section id="what-runs" className="section-lg">
+        <div className="shell">
+          <h2 className="h-section max-w-[18ch]">{t.runsTitle}</h2>
+          <p className="measure mt-6 text-soft">{t.runsBody}</p>
+          <div className="offers mt-14" data-sc-in data-sc-stagger="80">
+            {s.offers.map((o) => (
+              <div className="offer" key={o.id} id={o.id}>
+                <div className="offer-main">
+                  <h3 className="offer-name">{o.name}</h3>
+                  <p className="offer-line">
+                    {o.line}{" "}
+                    <Link
+                      href={
+                        o.cta.href.startsWith("/")
+                          ? `${af ? "/af" : ""}${o.cta.href}`
+                          : o.cta.href
+                      }
+                      className="offer-cta"
+                    >
+                      {o.cta.label}{" "}
+                      <span className="arr" aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                </div>
+                <p className="offer-tag">{o.tag}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Practice peak: maker's hands, pinned for three viewports.
+          The copy arrives on a small cream block, bottom left. */}
+      <section className="peak" data-sc-act="pin" data-sc-span="3">
+        <div className="sc-stage" data-sc-stage>
+          <div className="peak-media" data-sc-scale>
+            <Image
+              src="/images/kinfolk/k06-hands.jpg"
+              alt="A pair of hands mid-task in a shaft of hard daylight"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="peak-scrim" data-sc-scrim>
+            <h2 className="h-section">{t.practiceTitle}</h2>
+            <p className="peak-line">{t.practiceBody}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Research pull: the notebook plate, the latest Bulletin. */}
+      <section className="section-lg" data-sc-act="flow">
+        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
+          <figure className="plate-fig" data-sc-in>
+            <Image
+              src="/images/kinfolk/k05-notebook.jpg"
+              alt="A bound maroon notebook with ribbon, centred on cream paper"
+              width={1086}
+              height={1448}
+              sizes="(min-width: 768px) 24rem, 88vw"
+              className="h-auto w-full"
+            />
+          </figure>
+          <div>
+            <h2 className="h-section max-w-[20ch]">{t.researchTitle}</h2>
+            <p className="measure mt-6 text-soft">{latest.dek}</p>
+            <div className="panel mt-8 p-7 md:p-9" data-sc-in>
+              <p className="eyebrow--ink eyebrow">{latest.no} · 2026</p>
+              <h3 className="h-sub mt-3">{latest.title}</h3>
+              <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
+                {latest.body[0].slice(0, 220)}…
+              </p>
+              <Link
+                href={af ? "/af/resources#bulletin" : "/resources#bulletin"}
+                className="btn--quiet mt-6"
+              >
+                {t.read} <span className="arr" aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <p className="lede measure mt-10 text-ink">{t.researchLine}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Ventures: paragraph left, the spa plate right. Corner Spa is
+          the first venture lab, named. */}
+      <section className="section-lg" data-sc-act="flow">
+        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
+          <figure className="plate-fig md:order-2" data-sc-in>
+            <Image
+              src="/images/kinfolk/k08-spa.jpg"
+              alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
+              width={810}
+              height={1080}
+              sizes="(min-width: 768px) 24rem, 88vw"
+              className="h-auto w-full"
+            />
           </figure>
           <div className="md:order-1">
             <h2 className="h-section max-w-[16ch]">{t.venturesTitle}</h2>
@@ -433,9 +453,14 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Place: Windhoek, held still, no text. */}
-      <div className="divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.2">
+      {/* Second silent divider: Windhoek, a breath before the
+          ledger. No text. */}
+      <div
+        className="divider divider--full overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
             src="/images/kinfolk/k07-windhoek.jpg"
             alt=""
@@ -460,18 +485,9 @@ export default async function HomePage({
             {s.register.map((r, i) => (
               <div className="ledger-row" key={i}>
                 <p className="ledger-date">
-                  {r.date ? (
-                    dateFmt.format(new Date(`${r.date}T00:00:00Z`))
-                  ) : (
-                    <>
-                      {af ? "Ongedateer" : "Undated"}
-                      <span className="sr-only">
-                        {af
-                          ? "datum moet nog bevestig word"
-                          : "date to be confirmed"}
-                      </span>
-                    </>
-                  )}
+                  {r.date
+                    ? dateFmt.format(new Date(`${r.date}T00:00:00Z`))
+                    : t.dateTbc}
                 </p>
                 <p className="max-w-[62ch]">{r.entry}</p>
               </div>
@@ -480,21 +496,25 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* One email starts it. Ink close. */}
-      <section className="cta-band section-lg on-ink">
-        <div className="shell">
-          <h2 className="h-section max-w-[16ch]">{t.closeTitle}</h2>
-          <p className="mt-6 max-w-[52ch] text-ivory-80">{t.closeBody}</p>
-          <div className="mt-10 flex flex-wrap items-center gap-5">
-            <a href={`mailto:${site.email}`} className="btn">
+      {/* Close: the wax seal, pinned for two viewports. One email
+          starts it, on a small cream block, maroon button. */}
+      <section className="peak" data-sc-act="pin" data-sc-span="2">
+        <div className="sc-stage" data-sc-stage>
+          <div className="peak-media" data-sc-scale>
+            <Image
+              src="/images/kinfolk/k10-wax.jpg"
+              alt="A maroon wax seal with ribbon, centred on cream paper"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="peak-scrim" data-sc-scrim>
+            <h2 className="h-section">{t.closeTitle}</h2>
+            <p className="peak-line">{t.closeBody}</p>
+            <a href={`mailto:${site.email}`} className="btn mt-8">
               {t.writeOffice}
             </a>
-            <Link
-              href={af ? "/af/faq" : "/faq"}
-              className="btn--quiet btn--quiet--ivory"
-            >
-              {t.readFaq} <span className="arr" aria-hidden="true">→</span>
-            </Link>
           </div>
         </div>
       </section>

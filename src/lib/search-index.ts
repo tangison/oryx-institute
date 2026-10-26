@@ -49,7 +49,9 @@ export function buildIndex(lang: Lang): SearchEntry[] {
     ? [
         ["Programme", "Bladsye", "Kondens- en kortkursusse in twee departemente: besigheidsadministrasie, en IT en verwante velde.", "/programmes"],
         ["Navorsing", "Bladsye", "Die praktyk, die Bulletin, en wat in ontwikkeling is.", "/research"],
+        ["Praktyk", "Bladsye", "Berading, marknavorsing en spoedreaksie-opleiding, tot standaard gelewer.", "/practice"],
         ["Ondernemings", "Bladsye", "Klein maatskappye wat die instituut open om 'n sektor te verstaan. Corner Spa is die eerste.", "/ventures"],
+        ["Die register", "Bladsye", "Elke openbare stap wat die instituut geneem het, gedateer soos dit gesê is.", "/register"],
         ["Skole", "Bladsye", "Drie skole, gefaseer. Tegnologie is oop vir navraag.", "/schools"],
         ["Hulpbronne", "Bladsye", "Die Oryx-gids: gratis kondenskursusse en besigheidssjablone, plus die Bulletin.", "/resources"],
         ["Gereedskap", "Bladsye", "Elke gereedskap waarop die instituut loop, openlik gepubliseer.", "/tools"],
@@ -63,7 +65,9 @@ export function buildIndex(lang: Lang): SearchEntry[] {
     : [
         ["Programmes", "Pages", "Crash and short courses in two departments: business administration, and IT and related fields.", "/programmes"],
         ["Research", "Pages", "The practice, the Bulletin, and what is in development.", "/research"],
+        ["Practice", "Pages", "Counselling, market R&D and rapid response training, delivered to standard.", "/practice"],
         ["Ventures", "Pages", "Small companies the institute opens to understand a sector. Corner Spa is the first.", "/ventures"],
+        ["The register", "Pages", "Every public step the institute has taken, dated as it was said.", "/register"],
         ["Schools", "Pages", "Three schools, phased. Technology is open for enquiry.", "/schools"],
         ["Resources", "Pages", "The Oryx Directory: free crash courses and business templates, plus the Bulletin.", "/resources"],
         ["Tools", "Pages", "Every tool the institute runs on, published in the open.", "/tools"],

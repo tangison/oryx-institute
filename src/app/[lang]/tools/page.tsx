@@ -87,7 +87,7 @@ export default async function ToolsPage({
 
   return (
     <>
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>
           {t.head.mottoLead} <em className="font-serif">{m.line}</em>{" "}
           {t.head.lede}
@@ -99,8 +99,7 @@ export default async function ToolsPage({
       {list.map((reg) => (
         <section key={reg.register} className="section">
           <div className="shell">
-            <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-              <p className="eyebrow">{reg.register}</p>
+            <div className="hair-t pt-14">
               <p className="measure text-soft">{reg.intro}</p>
             </div>
             <div className="ledger mt-10" data-sc-in data-sc-stagger="60">

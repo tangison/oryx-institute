@@ -183,7 +183,7 @@ export default async function DirectoryDocPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={eyebrow} title={doc.title}>
+      <PageHead title={doc.title}>
         <p>{doc.standfirst}</p>
         <p className="mt-4 italic">
           {af
@@ -208,7 +208,7 @@ export default async function DirectoryDocPage({
         <div className="shell grid gap-16 lg:grid-cols-[auto_1fr] lg:gap-20">
           {/* Document index rail */}
           <nav aria-label={af ? "Inhoud" : "Contents"} className="lg:w-56" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{af ? "Inhoud" : "Contents"}</p>
+            <p className="meta">{af ? "Inhoud" : "Contents"}</p>
             <ol className="mt-4 grid gap-2 text-[0.88rem]">
               {doc.sections.map((s, i) => (
                 <li key={i}>

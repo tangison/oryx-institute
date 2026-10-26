@@ -126,7 +126,7 @@ export default async function ProgrammesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 
@@ -195,8 +195,7 @@ export default async function ProgrammesPage({
       {/* The disciplines the offers sit inside */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow eyebrow--ink">{t.besideEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">{t.besideBody}</p>
           </div>
 
@@ -229,7 +228,6 @@ export default async function ProgrammesPage({
       <section className="section-lg">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div className="hair-t pt-14" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.readEyebrow}</p>
             <p className="measure mt-6 text-soft">{t.readBody}</p>
             <div className="mt-8 flex flex-wrap gap-5">
               <Link href={A("/apply")} className="btn">

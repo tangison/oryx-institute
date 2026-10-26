@@ -100,7 +100,6 @@ export default async function NewsPage({
               <article className="news-row" key={n.slug}>
                 <div>
                   <p className="ledger-date">{formatNewsDate(n.date)}</p>
-                  <p className="eyebrow mt-3">{n.category}</p>
                 </div>
                 <div>
                   <h2 className="news-title">
@@ -118,7 +117,6 @@ export default async function NewsPage({
           </div>
 
           <div className="hair-t mt-14 flex flex-wrap items-center gap-8 pt-8" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.feedEyebrow}</p>
             <a href="/feed.xml" className="btn--quiet">
               RSS <span className="arr" aria-hidden="true">→</span>
             </a>

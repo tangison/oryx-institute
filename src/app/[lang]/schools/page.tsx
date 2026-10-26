@@ -134,7 +134,7 @@ export default async function SchoolsPage({
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
               <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                <p className="eyebrow">{s.phase}</p>
+                <p className="meta">{s.phase}</p>
                 <p className="lede text-soft">{s.status}</p>
               </div>
               <h2 className="h-section mt-5 max-w-[20ch]">
@@ -156,8 +156,7 @@ export default async function SchoolsPage({
       {/* The spine: not a school */}
       <section className="cta-band section-lg on-ink">
         <div className="shell" data-sc-in data-sc-stagger="80">
-          <p className="eyebrow eyebrow--ivory">{t.spineEyebrow}</p>
-          <h2 className="h-section mt-5 max-w-[22ch]">
+          <h2 className="h-section max-w-[22ch]">
             {spine.name}
             {t.spineSuffix}
           </h2>

@@ -140,25 +140,23 @@ export default async function ResourcesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bulletinLd) }}
       />
 
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 
       {/* The Directory: crash courses */}
       <section id="directory" className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.dirEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">
               {af ? `${chrome.af.directoryInEnglish} ${t.dirBody}` : t.dirBody}
             </p>
           </div>
 
-          {/* The real count, printed. Four because four are published;
-              seven because seven are. */}
-          <p className="meta mt-8 tnum" data-sc-in>
-            <span data-sc-count="0 4">0</span> {t.coursesWord} ·{" "}
-            <span data-sc-count="0 7">0</span> {t.templatesWord}
+          {/* The real count, printed, from the listings themselves. */}
+          <p className="meta mt-8 tnum">
+            {directoryCourses.length} {t.coursesWord} ·{" "}
+            {directoryTemplates.length} {t.templatesWord}
           </p>
 
           <h2 className="h-section mt-14 max-w-[22ch]">{t.coursesTitle}</h2>
@@ -197,8 +195,7 @@ export default async function ResourcesPage({
       {/* The other registers, in one place */}
       <section className="section">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.registersEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">{t.registersBody}</p>
           </div>
           <div className="ledger mt-10" data-sc-in data-sc-stagger="60">
@@ -223,8 +220,7 @@ export default async function ResourcesPage({
       {/* The Bulletin. The essays publish in English; the AF page says so. */}
       <section id="bulletin" className="section-lg">
         <div className="shell">
-          <div className="hair-t grid gap-10 pt-14 md:grid-cols-[auto_1fr] md:items-baseline md:gap-16">
-            <p className="eyebrow">{t.bulletinEyebrow}</p>
+          <div className="hair-t pt-14">
             <p className="measure text-soft">
               {af ? `${chrome.af.bulletinInEnglish} ${t.bulletinBody}` : t.bulletinBody}
             </p>

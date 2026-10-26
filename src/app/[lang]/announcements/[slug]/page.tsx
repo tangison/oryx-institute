@@ -86,7 +86,7 @@ export default async function AnnouncementPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={eyebrow} title={post.title}>
+      <PageHead title={post.title}>
         {post.standfirst ? <p>{post.standfirst}</p> : null}
       </PageHead>
 

@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
     { source: "/people", destination: "/about", permanent: true },
     { source: "/disclaimer", destination: "/about", permanent: true },
     { source: "/thank-you", destination: "/apply", permanent: true },
+    /* The Bulletin's clean URL lands on its home in Resources. */
+    { source: "/bulletin", destination: "/resources#bulletin", permanent: true },
+    { source: "/af/bulletin", destination: "/af/resources#bulletin", permanent: true },
+    /* Legal pages live under /legal; the launch URLs still resolve. */
+    { source: "/privacy", destination: "/legal/privacy", permanent: true },
+    { source: "/terms", destination: "/legal/terms", permanent: true },
+    { source: "/af/privacy", destination: "/af/legal/privacy", permanent: true },
+    { source: "/af/terms", destination: "/af/legal/terms", permanent: true },
   ],
 };
 

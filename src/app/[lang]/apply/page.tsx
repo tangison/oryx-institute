@@ -119,7 +119,7 @@ export default async function ApplyPage({
 
   return (
     <>
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 
@@ -158,26 +158,23 @@ export default async function ApplyPage({
           </div>
 
           <div className="grid gap-8" data-sc-in data-sc-stagger="70">
-            <figure className="plate plate--float aspect-[3/2] w-full max-w-[15rem]">
-              <div className="plate-media" data-sc-parallax="0.4">
-                <Image
-                  src="/images/studio/studio-seal.webp"
-                  alt="A cream envelope sealed with a deep red wax stamp"
-                  fill
-                  sizes="240px"
-                  className="object-cover"
-                />
-              </div>
+            <figure className="apply-plate">
+              <Image
+                src="/images/kinfolk/k10-wax.jpg"
+                alt="A maroon wax seal with ribbon, centred on cream paper"
+                width={1254}
+                height={1254}
+                sizes="(min-width: 1024px) 15rem, 60vw"
+                className="h-auto w-full"
+              />
             </figure>
             <div className="hair-t pt-8">
-              <p className="eyebrow eyebrow--ink">{t.dataEyebrow}</p>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
+              <p className="text-[0.95rem] leading-relaxed text-soft">
                 {t.dataBody}
               </p>
             </div>
             <div className="hair-t pt-8">
-              <p className="eyebrow eyebrow--ink">{t.readerEyebrow}</p>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
+              <p className="text-[0.95rem] leading-relaxed text-soft">
                 {t.readerBody}
               </p>
             </div>

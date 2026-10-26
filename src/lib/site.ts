@@ -14,7 +14,7 @@
 export const voice = {
   register: "Declarative, exact, unhurried. State the fact; cite the source; stop.",
   rules: [
-    "Approved lines run verbatim: Looks harmless. Isn't. / graduates solve problems quietly and finish them decisively. / excellence in innovation and applied problem-solving. / You're only as good as your tools. We forge them.",
+    "Approved lines run verbatim: Looks harmless. Isn't. / graduates solve problems quietly and finish them decisively. / excellence in innovation and applied problem-solving.",
     "Facts carry their source inline or they do not ship.",
     "No wisecracks, no self-annotation, no captions under images.",
     "Status is stated as it is: prelaunch, pre-accreditation, honest.",
@@ -227,19 +227,16 @@ export const offers = [
 
 /**
  * The register: what the institute has made public, dated as it was
- * said. Rows with a null date are confirmed-but-undated; the founder
- * fills each date when it is public. Nothing is announced before it is
- * certain, and nothing here names a partner before that partner has
- * agreed to be named.
+ * said, newest first. Rows with a null date print "Date to be
+ * confirmed". Nothing is announced before it is certain, and nothing
+ * here names a partner before that partner has agreed to be named.
  */
 export const register = [
-  /* TODO founder: BIPA registration date */
-  { date: null, entry: "BIPA registration confirmed, Oryx Polytechnic Institute." },
+  { date: "2026-10-25", entry: "BIPA registration confirmed, Oryx Polytechnic Institute." },
+  { date: "2026-10-25", entry: "Website relaunched." },
+  { date: "2026-10-18", entry: "AI training programme announced with Tangison Technologies." },
   /* TODO founder: Directory publication date */
   { date: null, entry: "The Oryx Directory published: four crash courses, seven business templates." },
-  { date: "2026-10-18", entry: "AI training programme announced with Tangison Technologies." },
-  /* TODO founder: relaunch date */
-  { date: null, entry: "Website relaunched." },
   /* TODO founder: Corner Spa announcement date */
   { date: null, entry: "Corner Spa concept announced." },
 ] as const;
@@ -330,13 +327,14 @@ export const approvedLines = [
 /**
  * The partners the institute names in public. Logos are carried
  * byte-exact from each partner's own site (see public/partners/);
- * nothing was recoloured or redrawn.
+ * nothing was recoloured or redrawn. The marks stand as content on
+ * the research page: the institute does not link out to partner
+ * sites from its own pages.
  */
 export const partners = [
   {
     id: "tangison",
     name: "Tangison Technologies",
-    href: "https://tangison.com",
     logo: "/partners/tangison-logo.svg",
     alt: "Tangison Technologies",
     note: "The AI training programme and the flagship product, built together.",
@@ -346,7 +344,6 @@ export const partners = [
   {
     id: "mendozer",
     name: "Mendozer",
-    href: "https://mendozer.com",
     logo: "/partners/mendozer-logo.svg",
     alt: "Mendozer",
     note: "Building Corner Spa and the ventures beyond it, together.",
@@ -363,11 +360,14 @@ export const navLinks = [
   { href: "/apply", label: "Apply" },
 ] as const;
 
-/** Footer navigation: the full sitemap. */
+/** Footer navigation: the full sitemap. Every href must resolve:
+    nothing dead ships in the nav, anywhere. */
 export const footerNav = [
   { href: "/programmes", label: "Programmes" },
   { href: "/research", label: "Research" },
+  { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
+  { href: "/register", label: "Register" },
   { href: "/schools", label: "Schools" },
   { href: "/resources", label: "Resources" },
   { href: "/tools", label: "Tools" },

@@ -150,7 +150,7 @@ export async function generateMetadata({
   return {
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/privacy", site.url),
+    alternates: alternates(lang, "/legal/privacy", site.url),
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
@@ -176,7 +176,7 @@ export default async function PrivacyPage({
 
   return (
     <>
-      <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
+      <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
 

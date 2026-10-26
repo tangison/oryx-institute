@@ -9,7 +9,7 @@ export async function GET() {
 
   const feed = {
     version: "https://jsonfeed.org/version/1.1",
-    title: `${site.tradingName} — News`,
+    title: `${site.tradingName} · News`,
     home_page_url: `${site.url}/news`,
     feed_url: `${site.url}/feed.json`,
     language: "en",

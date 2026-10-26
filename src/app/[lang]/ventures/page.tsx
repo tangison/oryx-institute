@@ -111,7 +111,7 @@ export default async function VenturesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead eyebrow={t.meta.ldName} title={v.lead}>
+      <PageHead title={v.lead}>
         <p>{v.body}</p>
       </PageHead>
 
@@ -120,19 +120,18 @@ export default async function VenturesPage({
         <div className="shell">
           <div className="quiet-card lg:grid lg:grid-cols-[minmax(0,30rem)_1fr]" data-sc-in>
             <figure
-              className="relative min-h-[20rem] overflow-hidden lg:min-h-full"
+              className="relative flex min-h-[20rem] items-center justify-center p-8 md:p-12"
               style={{ background: "var(--sand)" }}
-              data-sc-act="flow"
             >
-              <div className="absolute inset-[-6%]" data-sc-parallax="0.5">
-                <Image
-                  src="/images/studio/studio-spa.webp"
-                  alt="Folded linen, stone and a candle on a warm counter"
-                  fill
-                  sizes="(min-width: 1024px) 30rem, 100vw"
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src="/images/kinfolk/k08-spa.jpg"
+                alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
+                width={810}
+                height={1080}
+                sizes="(min-width: 1024px) 30rem, 88vw"
+                className="h-auto max-h-[36rem] w-auto max-w-full"
+                priority
+              />
             </figure>
             <div className="p-8 md:p-12 lg:p-14">
               <p className="offer-tag">{v.cornerSpa.status}</p>
@@ -148,13 +147,11 @@ export default async function VenturesPage({
       <section className="section-lg">
         <div className="shell grid gap-12 md:grid-cols-2" data-sc-in data-sc-stagger="80">
           <div className="hair-t pt-14">
-            <p className="eyebrow eyebrow--ink">{t.exitEyebrow}</p>
-            <p className="lede measure mt-6">{t.exitLede}</p>
+            <p className="lede measure">{t.exitLede}</p>
             <p className="measure mt-6 text-soft">{t.exitBody}</p>
           </div>
           <div className="hair-t pt-14">
-            <p className="eyebrow eyebrow--ink">{t.nextEyebrow}</p>
-            <p className="lede measure mt-6">{v.futureLine}</p>
+            <p className="lede measure">{v.futureLine}</p>
             <div className="mt-8">
               <Link href={A("/news")} className="btn--quiet">
                 {t.readRegister} <span className="arr" aria-hidden="true">→</span>

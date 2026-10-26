@@ -130,10 +130,12 @@ export const offersAf = [
 ] as const;
 
 export const registerAf = [
-  { date: null, entry: "BIPA-registrasie bevestig: Oryx Polytechnic Institute." },
-  { date: null, entry: "Die Oryx-gids gepubliseer: vier kondenskursusse, sewe besigheidssjablone." },
+  { date: "2026-10-25", entry: "BIPA-registrasie bevestig: Oryx Polytechnic Institute." },
+  { date: "2026-10-25", entry: "Webwerf herlaai." },
   { date: "2026-10-18", entry: "KI-opleidingsprogram aangekondig saam met Tangison Technologies." },
-  { date: null, entry: "Webwerf herlaai." },
+  /* TODO founder: Gids-publikasiedatum */
+  { date: null, entry: "Die Oryx-gids gepubliseer: vier kondenskursusse, sewe besigheidssjablone." },
+  /* TODO founder: Corner Spa-aankondigingsdatum */
   { date: null, entry: "Corner Spa-konsep aangekondig." },
 ] as const;
 
@@ -294,7 +296,9 @@ export const navAf = {
   footerNav: [
     { href: "/programmes", label: "Programme" },
     { href: "/research", label: "Navorsing" },
+    { href: "/practice", label: "Praktyk" },
     { href: "/ventures", label: "Ondernemings" },
+    { href: "/register", label: "Register" },
     { href: "/schools", label: "Skole" },
     { href: "/resources", label: "Hulpbronne" },
     { href: "/tools", label: "Gereedskap" },
