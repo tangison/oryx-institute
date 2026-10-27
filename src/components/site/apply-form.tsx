@@ -203,7 +203,11 @@ export function ApplyForm({ lang }: { lang: Lang }) {
           <input
             id="af-contact"
             name="contact"
-            type="email"
+            /* Text, not email: the office takes a mailbox or a phone
+               number here, and the form runs its own validation. The
+               email keyboard still comes up via inputMode. */
+            type="text"
+            inputMode="email"
             autoComplete="email"
             enterKeyHint="next"
             className="field-input"

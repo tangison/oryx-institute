@@ -53,7 +53,7 @@ const copy = {
     meta: {
       title: "研究与开发",
       description:
-        "Oryx 理工学院的研究与开发：对外接单的市场调研、与 Tangison Technologies 共建的 AI 培训课程，以及与 Mendozer 共同推进的概念工作。",
+        "Oryx 理工学院的研究与开发：对外接单的市场调研（可行性、市场规模、竞品研判、通路设计），在纳米比亚的地面上采集，写成可用的报告；对内自建的课程：与 Tangison Technologies 共建的 AI 培训课程，旗舰产品在它之上施工；与 Mendozer 共同推进的概念工作。研究登记册随研究者加入而变宽。",
       ogTitle: "研究与开发 | Oryx 理工学院",
       ogDescription:
         "对外接单的市场调研、与 Tangison Technologies 共建的 AI 培训课程，以及与 Mendozer 共同推进的概念工作。",
@@ -123,6 +123,11 @@ export default async function ResearchPage({
 }) {
   const lang = langFromParams(await params);
   const zh = lang === "zh";
+  /* The quote pin points at Bulletin No. 4; the accessible name of its
+     read link names the essay it opens. */
+  const quoteEssay =
+    insights.find((i) => i.id === "why-every-course-ends-in-a-venture")
+      ?.title ?? "";
   const t = copy[lang];
   const marketRnD = (zh ? offersZh : offers).find((o) => o.id === "market-rd");
   const devList = zh ? statusZh.inDevelopment : status.inDevelopment;
@@ -238,9 +243,10 @@ export default async function ResearchPage({
           <Image
             src="/images/kinfolk/03-wood-rope-divider.jpg"
             alt=""
-            fill
+            width={1122}
+            height={1402}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>
@@ -268,6 +274,11 @@ export default async function ResearchPage({
               <Link
                 href={A("/resources#bulletin-why-every-course-ends-in-a-venture")}
                 className="btn--quiet mt-8"
+                aria-label={
+                  zh
+                    ? `${t.read}${quoteEssay}`
+                    : `${t.read}: ${quoteEssay}`
+                }
               >
                 {t.read} <span className="arr" aria-hidden="true">→</span>
               </Link>
@@ -297,6 +308,7 @@ export default async function ResearchPage({
                   <Link
                     href={A(`/resources#bulletin-${a.id}`)}
                     className="btn--quiet mt-3"
+                    aria-label={zh ? `${t.read}${a.title}` : `${t.read}: ${a.title}`}
                   >
                     {t.read} <span className="arr" aria-hidden="true">→</span>
                   </Link>
@@ -318,9 +330,10 @@ export default async function ResearchPage({
           <Image
             src="/images/kinfolk/06-game-board.jpg"
             alt=""
-            fill
+            width={1402}
+            height={1122}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>

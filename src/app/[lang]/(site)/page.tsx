@@ -82,7 +82,7 @@ const copy = {
   },
   zh: {
     meta: {
-      title: "纳米比亚的一所新理工学校",
+      title: "纳米比亚的一所新理工学校，温得和克",
       description: siteZh.description,
     },
     positioning:
@@ -203,7 +203,11 @@ export default async function HomePage({
         "@type": "WebSite",
         "@id": schemaIds.website,
         url: site.url,
-        name: zh ? siteZh.tradingName : site.tradingName,
+        /* One WebSite entity, one canonical name, in both locales:
+           the localized name rides as alternateName so the graph does
+           not disagree with itself. */
+        name: site.tradingName,
+        alternateName: siteZh.tradingName,
         publisher: { "@id": schemaIds.org },
         inLanguage: lang,
       },
@@ -225,11 +229,12 @@ export default async function HomePage({
           <Image
             src="/images/kinfolk/01-hero-oryx.jpg"
             alt=""
-            fill
+            width={1122}
+            height={1402}
             priority
             fetchPriority="high"
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <div className="hero-content shell">
@@ -281,9 +286,10 @@ export default async function HomePage({
           <Image
             src="/images/kinfolk/03-wood-rope-divider.jpg"
             alt=""
-            fill
+            width={1122}
+            height={1402}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>
@@ -314,6 +320,7 @@ export default async function HomePage({
                     <Link
                       href={kindHref[e.key]}
                       className="btn--quiet btn--quiet--ivory mt-7"
+                      aria-label={zh ? `${e.link}${e.name}` : `${e.link} ${e.name}`}
                     >
                       {e.link}{" "}
                       <span className="arr" aria-hidden="true">
@@ -348,6 +355,7 @@ export default async function HomePage({
                           : o.cta.href
                       }
                       className="offer-cta"
+                      aria-label={zh ? `${o.name}，${o.cta.label}` : `${o.cta.label} ${o.name}`}
                     >
                       {o.cta.label}{" "}
                       <span className="arr" aria-hidden="true">→</span>
@@ -369,9 +377,10 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/05-hands-peak.jpg"
               alt="A pair of hands mid-task in a shaft of hard daylight"
-              fill
+              width={1402}
+              height={1122}
               sizes="100vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
           <div className="peak-scrim" data-sc-scrim>
@@ -406,6 +415,7 @@ export default async function HomePage({
               <Link
                 href={zh ? "/zh/resources#bulletin" : "/resources#bulletin"}
                 className="btn--quiet mt-6"
+                aria-label={zh ? `${t.read}${latest.title}` : `${t.read}: ${latest.title}`}
               >
                 {t.read} <span className="arr" aria-hidden="true">→</span>
               </Link>
@@ -441,6 +451,11 @@ export default async function HomePage({
               <Link
                 href={zh ? "/zh/ventures" : "/ventures"}
                 className="btn--quiet mt-5"
+                aria-label={
+                  zh
+                    ? `${t.read}${s.ventures.cornerSpa.name}`
+                    : `${t.read}: ${s.ventures.cornerSpa.name}`
+                }
               >
                 {t.read} <span className="arr" aria-hidden="true">→</span>
               </Link>
@@ -460,9 +475,10 @@ export default async function HomePage({
           <Image
             src="/images/kinfolk/07-windhoek-divider.jpg"
             alt=""
-            fill
+            width={1402}
+            height={1122}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>
@@ -500,9 +516,10 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/10-wax-seal.jpg"
               alt="A maroon wax seal with ribbon, centred on cream paper"
-              fill
+              width={1254}
+              height={1254}
               sizes="100vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
           <div className="peak-scrim" data-sc-scrim>

@@ -8,7 +8,7 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Ventures",
+      title: "Small Companies, Real Customers",
       description:
         "Small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first.",
       ogTitle: "Ventures | Oryx Institute",
@@ -33,7 +33,7 @@ const copy = {
     meta: {
       title: "实业",
       description:
-        "Oryx 理工学院为检验行业而开设的小型运营公司。Corner Spa，康养与服务运营，是第一项。",
+        "Oryx 理工学院的实业：学院想弄懂一个行业，就在其中开一家小公司，让真实的顾客决定它行不行。每一家实业同时是一间活的教室：学生在它的地板上学习。第一项是 Corner Spa，康养与服务运营，现以概念公布：场地、执照与服务单正在逐项推进；开业之日，登记册记下日期。",
       ogTitle: "实业 | Oryx 理工学院",
       ogDescription:
         "学院为弄懂一个行业而开设的小公司。Corner Spa 是第一项。",
@@ -98,7 +98,10 @@ export default async function VenturesPage({
     url: `${site.url}${A("/ventures")}`,
     description: t.meta.ldDescription,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
-    about: { "@type": "Organization", "@id": schemaIds.org },
+    about: {
+      "@type": "EducationalOrganization",
+      "@id": schemaIds.org,
+    },
   };
 
   return (

@@ -39,13 +39,17 @@ export default function proxy(request: NextRequest) {
   const host = (request.headers.get("host") ?? "").replace(/:\d+$/, "");
   const isProduction = hosts.includes(host);
 
+  /* The rewrite carries the query string with it: ?for= deep links
+     into /apply must survive the locale hop, or the server never sees
+     which offer the visitor arrived on. */
+  const rewritten = new URL(
+    `/en${pathname === "/" ? "" : pathname}`,
+    request.nextUrl.origin
+  );
+  rewritten.search = request.nextUrl.search;
+
   const response = needsRewrite
-    ? NextResponse.rewrite(
-        new URL(
-          `/en${pathname === "/" ? "" : pathname}`,
-          request.nextUrl.origin
-        )
-      )
+    ? NextResponse.rewrite(rewritten)
     : NextResponse.next();
 
   if (!isProduction) {

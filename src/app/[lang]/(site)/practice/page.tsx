@@ -15,7 +15,7 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Practice",
+      title: "The Practice: Work That Holds",
       description:
         "The practice at Oryx Institute: Owner's Desk counselling, market R&D, and Rapid Response Training, delivered to Namibian standards from Windhoek.",
       ogTitle: "Practice | Oryx Institute",
@@ -43,7 +43,7 @@ const copy = {
     meta: {
       title: "实务",
       description:
-        "Oryx 理工学院的实务：经营者案头咨询、市场调研、快速响应培训，从温得和克按纳米比亚的标准交付。",
+        "Oryx 理工学院的实务：经营者案头的一对一经营咨询，专挑代价最高的时刻，结果落在纸面：定了什么，接下来做什么；对外接单的市场调研与开发，可行性、市场规模与通路设计，在纳米比亚的地面上采集；快速响应培训，为团队补上下一步所需。一切从温得和克交付，按学院自己的标准：立得住的活。",
       ogTitle: "实务 | Oryx 理工学院",
       ogDescription: "经营者案头咨询、市场调研、快速响应培训，按标准交付。",
     },
@@ -131,9 +131,10 @@ export default async function PracticePage({
             <Image
               src="/images/kinfolk/05-hands-peak.jpg"
               alt="A pair of dark-skinned hands holding a chisel at an oak bench in window light"
-              fill
+              width={1402}
+              height={1122}
               sizes="100vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
               priority
             />
           </div>

@@ -13,7 +13,7 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "The Register",
+      title: "The Public Register",
       description:
         "The Oryx Institute register: every public step the institute has taken, dated as it was said, newest first, updated as the work lands.",
       ogTitle: "The Register | Oryx Institute",
@@ -31,7 +31,7 @@ const copy = {
     meta: {
       title: "登记册",
       description:
-        "Oryx 理工学院登记册：学院走过的每一步公开的路，说了就记下日期，最新的在前，随工作落定而更新。",
+        "Oryx 理工学院的登记册：学院公开走过的每一步，说了就记下，记下就带日期，最新的排在最前。2026年10月25日，BIPA 注册确认，网站重新上线；10月18日，与 Tangison Technologies 公布 AI 培训课程。尚未落定的事，如实写明日期待确认。",
       ogTitle: "登记册 | Oryx 理工学院",
       ogDescription: "学院走过的每一步公开的路，说了就记下日期，最新的在前。",
     },

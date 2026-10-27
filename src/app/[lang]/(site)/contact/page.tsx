@@ -12,7 +12,7 @@ const copy = {
     meta: {
       title: "Contact the Office",
       description:
-        "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office. Visits by appointment.",
+        "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office.",
       ogTitle: "Contact | Oryx Institute",
       ogDescription:
         "One mailbox answers everything: info@oryxinstitute.org. The office reads every message, Windhoek, Namibia.",
@@ -52,7 +52,7 @@ const copy = {
     meta: {
       title: "联系办公室",
       description:
-        "Oryx 理工学院的一个邮箱回答一切：info@oryxinstitute.org。申请、合作与媒体，由院长办公室阅处。到访请预约。",
+        "Oryx 理工学院的一个邮箱回答一切：info@oryxinstitute.org。申请、合作与媒体，由院长办公室阅处，每封信都由一个人回复。学院在温得和克开展工作，暂无公开场所，不设公开电话；到访请预约，时间与地点由双方商定。写明来意，办公室通常在一周之内回复。",
       ogTitle: "联系 | Oryx 理工学院",
       ogDescription:
         "一个邮箱回答一切：info@oryxinstitute.org。办公室阅读每封来信。温得和克，纳米比亚。",
@@ -228,9 +228,10 @@ export default async function ContactPage({
           <Image
             src="/images/kinfolk/07-windhoek-divider.jpg"
             alt=""
-            fill
+            width={1402}
+            height={1122}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>

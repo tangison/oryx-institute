@@ -31,7 +31,12 @@ export async function generateMetadata({
       default: zh
         ? "Oryx 理工学院 | 纳米比亚的一所新理工学校"
         : "Oryx Institute | A New Polytechnic for Namibia",
-      template: zh ? `%s | ${name}` : "%s | Oryx Institute",
+      /* Chinese titles carry the Latin brand after the localized one:
+         the wordmark itself is trilingual, and one name per title keeps
+         the whole site on a single title pattern. */
+      template: zh
+        ? `%s | ${name} · Oryx Institute`
+        : "%s | Oryx Institute",
     },
     description,
     applicationName: site.tradingName,
@@ -57,7 +62,9 @@ export async function generateMetadata({
       type: "website",
       siteName: name,
       locale: zh ? "zh_CN" : "en_NA",
-      url: site.url,
+      /* og:url names THIS page, not the homepage: it must match the
+         canonical the page declares. */
+      url: `${site.url}${zh ? "/zh" : ""}`,
       title: name,
       description,
       images: [

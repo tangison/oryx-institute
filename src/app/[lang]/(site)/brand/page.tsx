@@ -10,7 +10,7 @@ const copy = {
     meta: {
       title: "The Brand Register",
       description:
-        "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes, the print kit in full, the voice the site is written under, and the downloads, ready for any printer.",
+        "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
       ogTitle: "The Brand Register | Oryx Institute",
       ogDescription:
         "The wordmark, the emblem, the codes, the voice: documented, with the asset downloads.",
@@ -72,7 +72,7 @@ const copy = {
     meta: {
       title: "品牌登记册",
       description:
-        "Oryx 理工学院的品牌：三体字标、栗色盾徽、精确色码、完整印刷套件、本站书写的文风，以及随时可交印厂的下载文件。",
+        "Oryx 理工学院的品牌：三体字标、栗色盾徽、精确色码、完整印刷套件、本站书写的文风，以及随时可交印厂的下载文件。字标中间一词是中文：理工，科学和工程二字，站在全名里理工学院的位置。色码逐项列明，墨色、栗色、奶油色各有其处；文风成文，写明本站如何说话。一切可下载，一切可交印厂。",
       ogTitle: "品牌登记册 | Oryx 理工学院",
       ogDescription: "字标、徽记、色码、文风：全部成文，附资产下载。",
     },
@@ -388,6 +388,10 @@ function LogoPlate({
       width={w}
       height={h}
       style={style}
+      /* The specimen wall sits below the fold on every screen; the
+         browser fetches each mark as it approaches the viewport. */
+      loading="lazy"
+      decoding="async"
       className="h-auto w-auto max-h-full max-w-full"
     />
   );

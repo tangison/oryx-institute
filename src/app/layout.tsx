@@ -42,7 +42,7 @@ const cjk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oryxinstitute.org"),
+  metadataBase: new URL("https://www.oryxinstitute.org"),
   title: {
     default: "Oryx Institute | A New Polytechnic for Namibia",
     template: "%s | Oryx Institute",

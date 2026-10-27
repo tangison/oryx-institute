@@ -36,8 +36,16 @@ export async function generateMetadata({
   if (!doc) return {};
   const lang = langFromParams({ lang: rawLang });
   const shelf = lang === "zh" ? "Oryx 资源目录" : "The Oryx Directory";
+  /* The title stays a plain string so the locale template adds the
+     brand: every title on the site ends the same way, and the shelf
+     stays visible in the share card. Templates name their kind, so a
+     short title like "Letterhead" still clears the SERP minimum. */
+  const docTitle =
+    doc.kind === "template" && lang === "en"
+      ? `${doc.title} Template`
+      : doc.title;
   return {
-    title: { absolute: `${doc.title} | ${shelf}` },
+    title: docTitle,
     description: metaOf(doc),
     alternates: alternates(lang, `/resources/${doc.slug}`, site.url),
     openGraph: {

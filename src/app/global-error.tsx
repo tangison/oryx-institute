@@ -16,6 +16,12 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* This boundary owns the whole document; without a title here
+            the tab falls back to Next's default error string. */}
+        <title>Something broke at the printer. | Oryx Institute</title>
+        <meta name="robots" content="noindex" />
+      </head>
       <body
         style={{
           margin: 0,

@@ -128,7 +128,7 @@ const copy = {
     meta: {
       title: "隐私政策",
       description:
-        "Oryx Polytechnic Institute 如何收集、使用与保护个人信息：邮件交接、永不存储的东西，以及你对此的权利。",
+        "Oryx Polytechnic Institute 如何收集、使用与保护个人信息，逐条写明：本站不设统计、不设 cookie、不设账户；你的申请邮件在你按下发送之前并不存在，发出之后直达院长办公室的信箱；除回复所需外，学院不留存、不转交、不出售任何个人信息；你对自己的信息享有知情、更正与删除的权利。",
       ogTitle: "隐私政策 | Oryx Polytechnic Institute",
       ogDescription: "学院如何收集、使用与保护个人信息。",
     },

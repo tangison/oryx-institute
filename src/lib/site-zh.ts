@@ -17,7 +17,7 @@ export const siteZh = {
   credentialLine: "以创新与实用解题见长。",
   tagline: "工欲善其事。我们打造工具。",
   description:
-    "Oryx 理工学院，温得和克：纳米比亚的一所新理工学校。速成课与短期课程、经营咨询、市场调研，以及证明这一切的实业。",
+    "Oryx 理工学院，温得和克：纳米比亚的一所新理工学校。速成课与短期课程、经营咨询、市场调研，以及证明这一切的实业。学院开办之前即如实陈述现状：正向 NQA 与 NTA 申请认证，暂无公开场所，不设公开电话；一切垂询经 info@oryxinstitute.org 由院长办公室亲自回复。",
   country: "纳米比亚",
   areaServed: "纳米比亚温得和克",
 } as const;

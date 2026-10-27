@@ -50,7 +50,7 @@ const copy = {
     meta: {
       title: "Oryx 资源目录与公报",
       description:
-        "Oryx 资源目录：免费的纳米比亚专题速成课与可填写的商业模板，另有 Oryx 公报：注明出处的文章，写纳米比亚的技能与工具。",
+        "Oryx 资源目录，全部免费，无需账户：四门纳米比亚专题的速成课（在纳米比亚注册公司、NQA 与 NTA 认证解读、纳米比亚劳动法基础、纳米比亚保险），七份可填写的商业模板（信笺、商业计划、财务预测、报价单、保密协议、雇佣合同、会议纪要），另有 Oryx 公报：注明出处的文章，写纳米比亚真实的技能与工具。",
       ogTitle: "Oryx 资源目录与公报 | Oryx 理工学院",
       ogDescription:
         "Oryx 资源目录：免费速成课与商业模板，附公报的注明出处的文章。",
@@ -192,9 +192,10 @@ export default async function ResourcesPage({
           <Image
             src="/images/kinfolk/06-game-board.jpg"
             alt=""
-            fill
+            width={1402}
+            height={1122}
             sizes="100vw"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>
