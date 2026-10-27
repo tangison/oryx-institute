@@ -11,7 +11,7 @@ import {
   FREE_LINE,
   type Block,
 } from "@/lib/directory";
-import { site } from "@/lib/site";
+import { site, schemaIds } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -159,20 +159,13 @@ export default async function DirectoryDocPage({
           headline: doc.title,
           description: metaOf(doc),
           url: `${site.url}/resources/${doc.slug}`,
-          author: {
-            "@type": "EducationalOrganization",
-            name: site.legalName,
-            url: site.url,
-          },
-          publisher: {
-            "@type": "EducationalOrganization",
-            name: site.legalName,
-            alternateName: site.tradingName,
-            url: site.url,
-          },
+          /* One organization, referenced by id: the same node every
+             other page points at, not a second inline copy. */
+          author: { "@type": "EducationalOrganization", "@id": schemaIds.org },
+          publisher: { "@type": "EducationalOrganization", "@id": schemaIds.org },
           copyrightHolder: {
             "@type": "EducationalOrganization",
-            name: site.legalName,
+            "@id": schemaIds.org,
           },
           copyrightYear: "2026",
           isAccessibleForFree: true,

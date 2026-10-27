@@ -21,6 +21,7 @@ const copy = {
       "What applicants ask before they write. Anything else, put it in the application message itself: the Principal's office answers directly.",
     writeOffice: "Write to the office",
     applyNow: "Apply now",
+    contactLink: "Contact the office",
   },
   zh: {
     meta: {
@@ -36,6 +37,7 @@ const copy = {
       "申请者动笔之前问的东西。别的，写进申请邮件里就好：院长办公室直接回复。",
     writeOffice: "给办公室写信",
     applyNow: "现在申请",
+    contactLink: "联系办公室",
   },
 } as const;
 
@@ -134,6 +136,11 @@ export default async function FaqPage({
             </a>
             <Link href={A("/apply")} className="btn--quiet">
               {t.applyNow} <span className="arr" aria-hidden="true">→</span>
+            </Link>
+            {/* The office page, from the page content: one route into
+                /contact that is not the chrome. */}
+            <Link href={A("/contact")} className="btn--quiet">
+              {t.contactLink} <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

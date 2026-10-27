@@ -5,7 +5,7 @@ import { PageHead } from "@/components/site/page-head";
 import { insights, resources } from "@/lib/content";
 import { resourcesZh } from "@/lib/content-zh";
 import { directoryCourses, directoryTemplates } from "@/lib/directory";
-import { site } from "@/lib/site";
+import { site, schemaIds } from "@/lib/site";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
 
 const copy = {
@@ -127,11 +127,7 @@ export default async function ResourcesPage({
     "@type": "CollectionPage",
     name: t.meta.ldName,
     url: `${site.url}${A("/resources")}`,
-    publisher: {
-      "@type": "EducationalOrganization",
-      name: site.legalName,
-      url: site.url,
-    },
+    publisher: { "@type": "EducationalOrganization", "@id": schemaIds.org },
   };
 
   return (

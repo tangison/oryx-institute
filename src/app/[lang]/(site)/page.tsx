@@ -4,7 +4,7 @@ import Link from "next/link";
 import { site, offers, register, ventures, schemaIds } from "@/lib/site";
 import { siteZh, offersZh, registerZh, venturesZh } from "@/lib/site-zh";
 import { insights } from "@/lib/content";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { alternates, chrome, langFromParams } from "@/lib/i18n";
 import {
   GlyphResearch,
   GlyphPractice,
@@ -38,6 +38,7 @@ const copy = {
     },
     positioning:
       "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA. Every step is dated on the register below.",
+    aboutLink: "About the institute",
     kinds: [
       {
         key: "research" as const,
@@ -87,6 +88,7 @@ const copy = {
     },
     positioning:
       "纳米比亚的一所新理工学校，在温得和克开展工作。开办之前，正在向 NQA 与 NTA 申请认证。每一步都带日期，记在下面的登记册里。",
+    aboutLink: "关于学院",
     kinds: [
       {
         key: "research" as const,
@@ -258,10 +260,23 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Positioning: the sentence, with the stone beside it. */}
+      {/* Positioning: the sentence, with the stone beside it. The
+          about link gives the institute page a contextual inbound
+          route, not only the chrome. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell positioning">
           <p className="lede measure text-ink">{t.positioning}</p>
+          <Link
+            href={zh ? "/zh/about" : "/about"}
+            className="link-type mt-6 inline-block"
+          >
+            {t.aboutLink} <span className="arr" aria-hidden="true">→</span>
+          </Link>
+          <p className="meta mt-10">
+            <Link href={zh ? "/" : "/zh"} className="link-type">
+              {chrome[lang].langNote}
+            </Link>
+          </p>
           <figure className="positioning-plate" data-sc-in>
             <Image
               src="/images/kinfolk/02-stone.jpg"
