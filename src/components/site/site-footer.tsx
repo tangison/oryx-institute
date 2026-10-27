@@ -29,6 +29,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               <OryxLogo
                 variant="lockup"
                 tone="reverse"
+                loading="lazy"
                 className="h-[2rem] w-auto"
               />
             </Link>

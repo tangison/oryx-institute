@@ -103,6 +103,7 @@ export default async function FaqPage({
               height={1254}
               sizes="(min-width: 1024px) 16rem, min(60vw, 20rem)"
               className="h-auto w-full"
+              priority
             />
           </figure>
         </div>

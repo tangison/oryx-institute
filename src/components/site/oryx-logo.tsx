@@ -52,11 +52,15 @@ export function OryxLogo({
   tone = "brand",
   className,
   title,
+  loading = "eager",
 }: {
   variant?: Variant;
   tone?: Tone;
   className?: string;
   title?: string;
+  /** The header mark loads with the page; the footer mark sits below
+   *  the fold on every route and loads as it approaches view. */
+  loading?: "lazy" | "eager";
 }) {
   const [w, h] = BOX[variant];
   return (
@@ -67,6 +71,7 @@ export function OryxLogo({
       height={h}
       alt={title ?? ""}
       aria-hidden={title ? undefined : true}
+      loading={loading}
       decoding="async"
       className={className}
     />

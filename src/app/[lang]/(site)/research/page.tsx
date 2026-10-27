@@ -356,6 +356,7 @@ export default async function ResearchPage({
                 <OryxLogo
                   variant="emblem"
                   tone="brand"
+                  loading="lazy"
                   className="h-44 w-auto"
                   title=""
                 />
