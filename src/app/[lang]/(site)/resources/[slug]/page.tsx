@@ -148,6 +148,7 @@ export default async function DirectoryDocPage({
       ? {
           "@context": "https://schema.org",
           "@type": "Course",
+          "@id": `${site.url}/resources/${doc.slug}#course`,
           name: doc.title,
           description: metaOf(doc),
           url: `${site.url}/resources/${doc.slug}`,
@@ -166,6 +167,7 @@ export default async function DirectoryDocPage({
       : {
           "@context": "https://schema.org",
           "@type": "CreativeWork",
+          "@id": `${site.url}/resources/${doc.slug}#work`,
           headline: doc.title,
           description: metaOf(doc),
           url: `${site.url}/resources/${doc.slug}`,

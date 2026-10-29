@@ -187,7 +187,11 @@ export default async function ApplyPage({
           <p className="measure mt-6 text-soft">{t.offersNote}</p>
           <div className="ledger mt-10" data-sc-in data-sc-stagger="60">
             {(lang === "zh" ? offersZh : offers).map((o) => (
-              <div className="ledger-row ledger-row--flat" key={o.id}>
+              <div
+                className="ledger-row ledger-row--flat"
+                key={o.id}
+                id={o.id}
+              >
                 <div>
                   <p className="offer-tag">{o.tag}</p>
                   <h3 className="h-sub mt-2">{o.name}</h3>

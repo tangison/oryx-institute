@@ -32,10 +32,10 @@ const copy = {
     statedEyebrow: "Stated as it is",
     messageEyebrow: "What to put in the message",
     messageBody:
-      "Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; the office does not need formality, it needs the facts. If the matter is an application, say which of the six doors you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
+      "Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six doors you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
     methodEyebrow: "How the office works",
     methodBody:
-      "Every message is read by a person in the Principal's office, usually within the week. Replies are written, not templated: what you get back names what the institute can do, what it cannot, and what the next step would cost you in time. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
+      "Every message is read by a person, usually within the week. Replies are written, not templated: what you get back names what the institute can do, what it cannot, and what the next step would cost you in time. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
     where: {
       dt: "Where the office is",
       dd: ". No public premises yet, so no street address is printed.",

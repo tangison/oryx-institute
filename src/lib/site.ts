@@ -188,7 +188,7 @@ export const offers = [
     name: "Business Administration",
     tag: "Teaching",
     line: "Crash & short courses in records, filings, registers.",
-    cta: { label: "Enquire", href: "/apply#business-administration" },
+    cta: { label: "Enquire about the diploma", href: "/apply#business-administration" },
     body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and finished.",
   },
   {
@@ -196,7 +196,7 @@ export const offers = [
     name: "IT & Related Fields",
     tag: "Teaching",
     line: "Crash & short courses in the systems work runs on. Every tool named.",
-    cta: { label: "Enquire", href: "/apply#it" },
+    cta: { label: "Enquire about IT", href: "/apply#it" },
     body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
   },
   {

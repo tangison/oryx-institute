@@ -89,7 +89,7 @@ export const offersZh = [
     name: "工商管理",
     tag: "教学",
     line: "账目、申报、登记册方面的速成课与短期课程。",
-    cta: { label: "垂询", href: "/apply#business-administration" },
+    cta: { label: "垂询工商管理", href: "/apply#business-administration" },
     body: "这个系教一门生意怎么运转：账目、申报、登记册，以及背后的日常流程。只开速成课与短期课程，每门课都窄、都实用、都收尾。",
   },
   {
@@ -97,7 +97,7 @@ export const offersZh = [
     name: "信息技术及相关领域",
     tag: "教学",
     line: "教业务赖以运转的系统。每一件工具都有名字。",
-    cta: { label: "垂询", href: "/apply#it" },
+    cta: { label: "垂询信息技术", href: "/apply#it" },
     body: "这个系教一门生意赖以运转的系统与软件，从第一性原理讲到用得有把握。只开速成课与短期课程，每一件工具都有名字。",
   },
   {

@@ -51,7 +51,7 @@ function sections(zh: boolean) {
       ]
     : [
         {
-          h: "What this site is",
+          h: "What this website is",
           body: [
             `This website presents ${site.legalName} and invites applications by enquiry. It is operated from ${site.city}, ${site.country}. It takes no payments, creates no accounts, and stores no messages: the application composer prepares an email in your own mail client, where the conversation continues.`,
           ],
@@ -71,7 +71,7 @@ function sections(zh: boolean) {
         {
           h: "Intellectual property",
           body: [
-            "The wordmark, the shield emblem, the print kit imagery and the text of this site belong to the institute. You may quote them with attribution and link to this site; you may not republish them as your own or use them to imply any association with the institute.",
+            "The wordmark, the shield emblem, the print kit imagery and the text of this website belong to the institute. You may quote them with attribution and link to this website; you may not republish them as your own or use them to imply any association with the institute.",
           ],
         },
         {
@@ -100,14 +100,14 @@ const copy = {
     meta: {
       title: "Terms of Service",
       description:
-        "The terms on which this website is offered: what the site does, what an enquiry means, what the certificates claim, and what the institute does not promise.",
+        "The terms on which this website is offered: what the website does, what an enquiry means, what the certificates claim, and what the institute does not promise.",
       ogTitle: "Terms of Service | Oryx Polytechnic Institute",
-      ogDescription: "What the site does, what an application means, and what it does not promise.",
+      ogDescription: "What the website does, what an application means, and what it does not promise.",
     },
     head: {
       eyebrow: "Legal",
       title: "Terms of service.",
-      lede: "Short terms, because the site does little: it shows the institute and carries one message at a time.",
+      lede: "Short terms, because the website does little: it shows the institute and carries one message at a time.",
     },
   },
   zh: {

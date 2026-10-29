@@ -392,9 +392,9 @@ function LogoPlate({
       width={w}
       height={h}
       style={style}
-      /* The specimen wall sits below the fold on every screen; the
-         browser fetches each mark as it approaches the viewport. */
-      loading="lazy"
+      /* The wordmark plates sit in the first viewport on small screens,
+         so the marks load eagerly; the wall is small SVGs, not plates. */
+      loading="eager"
       decoding="async"
       className="h-auto w-auto max-h-full max-w-full"
     />

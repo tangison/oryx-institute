@@ -147,6 +147,14 @@ export async function generateMetadata({
       title: copy[lang].meta.title,
       description: copy[lang].meta.description,
       url: `${site.url}${lang === "zh" ? "/zh" : ""}/`,
+      images: [
+        {
+          url: "/brand/og/default.png",
+          width: 1200,
+          height: 630,
+          alt: copy[lang].meta.title,
+        },
+      ],
     },
   };
 }
@@ -438,7 +446,6 @@ export default async function HomePage({
               <Link
                 href={zh ? "/zh/resources#bulletin" : "/resources#bulletin"}
                 className="btn--quiet mt-6"
-                aria-label={zh ? `${t.read}${latest.title}` : `${t.read}: ${latest.title}`}
               >
                 {zh ? "阅读公报" : "Read the Bulletin"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
@@ -475,11 +482,6 @@ export default async function HomePage({
               <Link
                 href={zh ? "/zh/ventures" : "/ventures"}
                 className="btn--quiet mt-5"
-                aria-label={
-                  zh
-                    ? `${t.read}${s.ventures.cornerSpa.name}`
-                    : `${t.read}: ${s.ventures.cornerSpa.name}`
-                }
               >
                 {zh ? "阅读 Corner Spa" : "Read about Corner Spa"}{" "}
                 <span className="arr" aria-hidden="true">→</span>

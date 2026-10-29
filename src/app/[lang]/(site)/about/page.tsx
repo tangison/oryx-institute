@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
-import { site, status } from "@/lib/site";
+import { site, status, schemaIds } from "@/lib/site";
 import { siteZh, statusZh } from "@/lib/site-zh";
 import { insights } from "@/lib/content";
 import { alternates, langFromParams } from "@/lib/i18n";
@@ -145,8 +145,35 @@ export default async function AboutPage({
   const st = zh ? statusZh : status;
   const A = (path: string) => (zh ? `/zh${path}` : path);
 
+  /* Truthful structured data: this is the about page of one
+     organization, referenced by the same id every other page uses. */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: t.meta.ogTitle,
+    url: `${site.url}${A("/about")}`,
+    isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
+    mainEntity: {
+      "@type": "EducationalOrganization",
+      "@id": schemaIds.org,
+      name: site.legalName,
+      alternateName: site.tradingName,
+      url: site.url,
+      email: site.email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: site.city,
+        addressCountry: "NA",
+      },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHead title={t.headTitle}>
         <p>
           {t.headLede.pre}

@@ -26,12 +26,15 @@ const copy = {
     },
     closing:
       "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
+    readingEyebrow: "How to read this register",
+    readingBody:
+      "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once — a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim — and no entry asks the reader to take the institute's word where a document could speak instead.",
     ruleEyebrow: "The rules the register keeps",
     ruleBody:
-      "Three rules hold every row on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is dated before it has happened — the register records, it does not promise. And no row is deleted: when a date moves or a plan changes, the row is corrected in place, because a register that quietly forgets is worth nothing.",
+      "Three rules hold every entry on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no entry is deleted: when timing moves or a plan changes, the entry is corrected in place, because a register that quietly forgets is worth nothing.",
     sourceEyebrow: "Where the rows come from",
     sourceBody:
-      "Every row traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a row — a journalist checking a date, a partner confirming a detail — write to the office and the row's source is produced.",
+      "Every entry traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind an entry — a journalist checking a fact, a partner confirming a detail — write to the office and the entry's source is produced.",
   },
   zh: {
     meta: {
@@ -47,6 +50,9 @@ const copy = {
     },
     closing:
       "随工作落定而更新。日期公开了就印出来；在那之前，这一行印\"日期待确认\"。",
+    readingEyebrow: "怎么读这本登记册",
+    readingBody:
+      "从头读到尾，学院的形状就出来了：哪一天注册了什么，哪些课程先发布，哪些伙伴同意被指名，哪些还在等一纸签署。这本册子同时为三种读者而写——想确认学院真实存在的学生、核对细节的伙伴、核实说法的记者——凡是文件能说话的地方，没有一行要求读者只凭学院的一面之词。",
     ruleEyebrow: "登记册守的规矩",
     ruleBody:
       "三条规矩管着这里的每一行。没有定数的事不公布——意图不是事件。没有发生的事不写日期——登记册记录，不许诺。任何一行都不删除：日期变了、计划变了，就在原处更正，因为会悄悄忘事的登记册一文不值。",
@@ -136,9 +142,13 @@ export default async function RegisterPage({
               </div>
             ))}
           </div>
-          {/* The register's own rules, so the page explains the practice
-              it keeps and not only the rows it prints. */}
+          {/* How to read the register, then the rules it keeps: the page
+              explains the practice, not only the entries it prints. */}
           <div className="hair-t mt-14 pt-12">
+            <p className="eyebrow eyebrow--ink">{t.readingEyebrow}</p>
+            <p className="measure mt-5 text-soft">{t.readingBody}</p>
+          </div>
+          <div className="hair-t mt-12 pt-12">
             <p className="eyebrow eyebrow--ink">{t.ruleEyebrow}</p>
             <p className="measure mt-5 text-soft">{t.ruleBody}</p>
           </div>

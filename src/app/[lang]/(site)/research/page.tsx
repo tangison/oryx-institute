@@ -275,11 +275,6 @@ export default async function ResearchPage({
               <Link
                 href={A("/resources#bulletin-why-every-course-ends-in-a-venture")}
                 className="btn--quiet mt-8"
-                aria-label={
-                  zh
-                    ? `${t.read}${quoteEssay}`
-                    : `${t.read}: ${quoteEssay}`
-                }
               >
                 {zh ? "读这篇文章" : "Read the essay"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
@@ -410,7 +405,7 @@ export default async function ResearchPage({
                     width={p.id === "tangison" ? 1383 : 1024}
                     height={p.id === "tangison" ? 296 : 401}
                     className="h-full w-auto"
-                    loading="lazy"
+                    loading="eager"
                   />
                 </span>
                 <p className="mt-6 text-[0.95rem] leading-relaxed text-soft">
