@@ -234,6 +234,7 @@ export default async function ApplyPage({
                 height={1150}
                 sizes="(min-width: 1024px) 15rem, 60vw"
                 className="h-auto w-full"
+                loading="eager"
               />
             </figure>
             <div className="hair-t pt-8">
