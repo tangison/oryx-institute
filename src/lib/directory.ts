@@ -288,13 +288,13 @@ export const directoryCourses: Doc[] = [
     no: "Course 04",
     title: "Insurance in Namibia",
     standfirst:
-      "Who regulates insurance, why there are two separate regimes, and the rule that surprises most people: commission only, no exceptions.",
+      "Who regulates the industry, why there are two separate regimes, and the rule that surprises most people: commission only, no exceptions.",
     readMinutes: 10,
     updated: "September 2026",
     sections: [
       {
         heading: "Who regulates insurance here",
-        walkaway: "The one name that matters before you trust anyone selling insurance.",
+        walkaway: "The one name that matters before you trust anyone selling cover.",
         blocks: [
           {
             t: "p",
@@ -303,12 +303,12 @@ export const directoryCourses: Doc[] = [
         ],
       },
       {
-        heading: "Two separate insurance regimes",
+        heading: "Two separate regimes",
         walkaway: "Why insurance is not one licence.",
         blocks: [
           {
             t: "p",
-            text: "Namibia separates Long-Term Insurance (life, funeral, retirement-linked products) from Short-Term Insurance (motor, property, liability and similar), each governed by its own Act (the Long-Term Insurance Act and the Short-Term Insurance Act, both 1998, now operating alongside FIMA). A broker or agent typically registers against the specific category they operate in, not a single blanket insurance licence.",
+            text: "Namibia separates Long-Term Insurance (life, funeral, retirement-linked products) from Short-Term Insurance (motor, property, liability and similar), each governed by its own Act (the Long-Term Insurance Act and the Short-Term Insurance Act, both 1998, now operating alongside FIMA). A broker or agent typically registers against the specific category they operate in, not a single blanket licence.",
           },
         ],
       },
@@ -318,7 +318,7 @@ export const directoryCourses: Doc[] = [
         blocks: [
           {
             t: "p",
-            text: "Nobody may act as an insurance agent, broker, or reinsurance broker in Namibia unless registered with NAMFISA. This applies to anyone performing the duties, including clerks and salespeople, regardless of whether insurance is their core role or an occasional task. Transacting through an unregistered agent or broker is a criminal offence, with convictions carrying fines of up to N$150,000, up to 10 years' imprisonment, or both. The public can and should request proof of registration before transacting.",
+            text: "Nobody may act as an insurance agent, broker, or reinsurance broker in Namibia unless registered with NAMFISA. This applies to anyone performing the duties, including clerks and salespeople, regardless of whether selling is their core role or an occasional task. Transacting through an unregistered agent or broker is a criminal offence, with convictions carrying fines of up to N$150,000, up to 10 years' imprisonment, or both. The public can and should request proof of registration before transacting.",
           },
         ],
       },
@@ -343,11 +343,11 @@ export const directoryCourses: Doc[] = [
         ],
       },
       {
-        heading: "Why this matters beyond the insurance industry itself",
+        heading: "Why this matters beyond the industry itself",
         blocks: [
           {
             t: "p",
-            text: "For Oryx specifically: any future Oryx product involving insurance-linked advice or distribution would fall under this exact regime. This course is not only for people entering insurance as a career; it is a boundary map for what any business can and cannot say about insurance without a NAMFISA registration.",
+            text: "For Oryx specifically: any future Oryx product involving insurance-linked advice or distribution would fall under this exact regime. This course is not only for people entering the sector as a career; it is a boundary map for what any business can and cannot say about insurance without a NAMFISA registration.",
           },
         ],
       },
@@ -371,7 +371,7 @@ export const directoryTemplates: Doc[] = [
       {
         heading: "The template",
         blocks: [
-          { t: "p", text: "Replace the bracketed fields as you go: [your business name] takes your registered name, with a tagline or registered activity on one line, and your contact line: P.O. Box, town, Namibia, phone, email, website. Nothing in brackets should survive into the printed letterhead." },
+          { t: "p", text: "Replace the bracketed fields as you go: [Business name] takes your registered name, with a tagline or registered activity on one line, and your contact line: P.O. Box, town, Namibia, phone, email, website. Nothing in brackets should survive into the printed letterhead." },
           { t: "p", text: "Then the letter itself: date, recipient name and title, address, and \"Dear [Recipient]\". The body carries one idea per paragraph, plain language, no filler. It closes \"Yours sincerely\" over a signature, name and title." },
         ],
       },
@@ -476,7 +476,7 @@ export const directoryTemplates: Doc[] = [
       {
         heading: "The invoice",
         blocks: [
-          { t: "p", text: "Replace the bracketed fields as you fill it in: [your business name] and your contact line at the top, then invoice number, date, and due date. \"Bill to\" carries the client name and address. A table of description, quantity, unit price and total follows, then subtotal, VAT at 15% if you are registered, and the total due. Payment details close it: bank or mobile money." },
+          { t: "p", text: "Replace the bracketed fields as you fill it in: [Business name] and your contact line at the top, then invoice number, date, and due date. \"Bill to\" carries the client name and address. A table of description, quantity, unit price and total follows, then subtotal, VAT at 15% if you are registered, and the total due. Payment details close it: bank or mobile money." },
         ],
       },
       {
@@ -576,3 +576,72 @@ export const directoryAll: Doc[] = [...directoryCourses, ...directoryTemplates];
 export function getDoc(slug: string): Doc | undefined {
   return directoryAll.find((d) => d.slug === slug);
 }
+
+
+/**
+ * Chinese listing metadata for the eleven Directory documents. The
+ * directory's zh pages used to share one generic description, which
+ * read as duplicate content to a crawler; each document now carries
+ * its own title and description, sized for search results, and each
+ * states plainly that the document body is published in English.
+ */
+export const directoryZhMeta: Record<
+  string,
+  { title: string; description: string }
+> = {
+  "registering-a-business-in-namibia": {
+    title: "在纳米比亚注册公司（免费速成课） | Oryx 理工学院",
+    description:
+      "免费速成课：独资、CC 与私人公司三种法律形式怎么选，BIPA 名称保留的实际流程，注册证书之后还要办哪些登记。逐项注明出处。文档以英文发布，条目说明为中文。",
+  },
+  "nqa-nta-accreditation-explained": {
+    title: "NQA 与 NTA 认证解读（免费速成课） | Oryx 理工学院",
+    description:
+      "免费速成课：纳米比亚资格局（NQA）与培训局（NTA）各管什么，一家培训机构从注册到认证要经过哪些门，常见的误读与真实的次序。逐项注明出处。文档以英文发布，条目说明为中文。",
+  },
+  "namibian-labour-law-basics": {
+    title: "纳米比亚劳动法基础（免费速成课） | Oryx 理工学院",
+    description:
+      "免费速成课：雇佣合同的最低要件，试用期与解雇通知，加班与工时的法定上限，社保与劳动专员的角色。逐项注明出处，不构成法律意见。文档以英文发布，条目说明为中文。",
+  },
+  "insurance-in-namibia": {
+    title: "纳米比亚保险入门（免费速成课） | Oryx 理工学院",
+    description:
+      "免费速成课：纳米比亚的保险监管格局，小企业最常接触的险种及其真实作用，免赔额与除外责任的读法，如何核对一家保险人的持牌状态。逐项注明出处。文档以英文发布，条目说明为中文。",
+  },
+  "letterhead-template": {
+    title: "信笺模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的信笺模板：页眉要放什么、不放什么，法定信息的位置，打印与电子两个版本的区别。括号内每个字段都由你替换。文档以英文发布，条目说明为中文。",
+  },
+  "business-plan-template": {
+    title: "商业计划模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的商业计划模板：十一节，从问题到资金用途，每一节都有引导问题与纳米比亚本地的示例。括号内每个字段都由你替换。文档以英文发布，条目说明为中文。",
+  },
+  "financial-projections-template": {
+    title: "财务预测模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的财务预测模板：十二个月的现金流、损益与 assumptions 表，每个数字注明来源或标注为假设。括号内每个字段都由你替换。文档以英文发布，条目说明为中文。",
+  },
+  "invoice-quotation-template": {
+    title: "报价单与发票模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的报价单与发票模板：法定必填项、编号规则、付款条款的写法，以及报价转发票的衔接。括号内每个字段都由你替换。文档以英文发布，条目说明为中文。",
+  },
+  "nda-template": {
+    title: "保密协议模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的保密协议模板：单向与双向两种结构，保密范围、期限与例外，签署前的核对清单。括号内每个字段都由你替换，不构成法律意见。文档以英文发布，条目说明为中文。",
+  },
+  "employment-contract-template": {
+    title: "雇佣合同模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的雇佣合同模板：法定最低要件、试用期条款、通知期与离职程序，与纳米比亚劳动法对表。括号内每个字段都由你替换，不构成法律意见。文档以英文发布，条目说明为中文。",
+  },
+  "meeting-minutes-template": {
+    title: "会议纪要模板（可填写） | Oryx 理工学院",
+    description:
+      "可填写的会议纪要模板：出席与法定人数、决议与行动项的记法，以及让纪要在 ninety 天后仍可用的归档习惯。括号内每个字段都由你替换。文档以英文发布，条目说明为中文。",
+  },
+};

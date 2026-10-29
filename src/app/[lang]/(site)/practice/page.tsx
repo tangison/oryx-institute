@@ -82,6 +82,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/practice`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -131,8 +132,8 @@ export default async function PracticePage({
             <Image
               src="/images/kinfolk/05-hands-peak.jpg"
               alt="A pair of dark-skinned hands holding a chisel at an oak bench in window light"
-              width={1402}
-              height={1122}
+              width={1250}
+              height={1000}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
               priority
@@ -185,10 +186,11 @@ export default async function PracticePage({
             <Image
               src="/images/kinfolk/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="(min-width: 768px) 20rem, 88vw"
               className="h-auto w-full"
+              loading="eager"
             />
           </figure>
           <div className="md:order-1" data-sc-in>

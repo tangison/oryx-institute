@@ -180,7 +180,7 @@ export const offers = [
     name: "Owner's Desk",
     tag: "Practice",
     line: "One-on-one business counselling. The outcome is written down.",
-    cta: { label: "Book", href: "/apply?for=owners-desk" },
+    cta: { label: "Book", href: "/apply#owners-desk" },
     body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens next.",
   },
   {
@@ -188,7 +188,7 @@ export const offers = [
     name: "Business Administration",
     tag: "Teaching",
     line: "Crash & short courses in records, filings, registers.",
-    cta: { label: "Enquire", href: "/apply?for=business-administration" },
+    cta: { label: "Enquire", href: "/apply#business-administration" },
     body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and finished.",
   },
   {
@@ -196,7 +196,7 @@ export const offers = [
     name: "IT & Related Fields",
     tag: "Teaching",
     line: "Crash & short courses in the systems work runs on. Every tool named.",
-    cta: { label: "Enquire", href: "/apply?for=it" },
+    cta: { label: "Enquire", href: "/apply#it" },
     body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
   },
   {
@@ -204,7 +204,7 @@ export const offers = [
     name: "Market R&D",
     tag: "Research",
     line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian ground.",
-    cta: { label: "Engage", href: "/apply?for=market-rd" },
+    cta: { label: "Engage", href: "/apply#market-rd" },
     body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
   },
   {
@@ -212,7 +212,7 @@ export const offers = [
     name: "Rapid Response Training",
     tag: "Practice",
     line: "Sourced experts, structured programmes, delivered to standard.",
-    cta: { label: "Brief us", href: "/apply?for=rapid-response" },
+    cta: { label: "Brief us", href: "/apply#rapid-response" },
     body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know next.",
   },
   {
@@ -356,15 +356,14 @@ export const partners = [
  * Home; Apply is the last item and takes the maroon button on
  * desktop. Every href must resolve; nothing dead ships in the nav,
  * anywhere. */
+/* The brief's four links, plus the Apply door. The register, the
+   Bulletin, About and Brand stay in the menu slideover and the footer:
+   the bar carries the four pillars, not the whole sitemap. */
 export const navLinks = [
   { href: "/research", label: "Research" },
   { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
   { href: "/resources", label: "The Directory" },
-  { href: "/resources#bulletin", label: "Bulletin" },
-  { href: "/register", label: "The Register" },
-  { href: "/about", label: "About" },
-  { href: "/brand", label: "Brand" },
   { href: "/apply", label: "Apply" },
 ] as const;
 

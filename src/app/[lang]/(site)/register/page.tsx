@@ -26,6 +26,12 @@ const copy = {
     },
     closing:
       "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
+    ruleEyebrow: "The rules the register keeps",
+    ruleBody:
+      "Three rules hold every row on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is dated before it has happened — the register records, it does not promise. And no row is deleted: when a date moves or a plan changes, the row is corrected in place, because a register that quietly forgets is worth nothing.",
+    sourceEyebrow: "Where the rows come from",
+    sourceBody:
+      "Every row traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a row — a journalist checking a date, a partner confirming a detail — write to the office and the row's source is produced.",
   },
   zh: {
     meta: {
@@ -41,6 +47,12 @@ const copy = {
     },
     closing:
       "随工作落定而更新。日期公开了就印出来；在那之前，这一行印\"日期待确认\"。",
+    ruleEyebrow: "登记册守的规矩",
+    ruleBody:
+      "三条规矩管着这里的每一行。没有定数的事不公布——意图不是事件。没有发生的事不写日期——登记册记录，不许诺。任何一行都不删除：日期变了、计划变了，就在原处更正，因为会悄悄忘事的登记册一文不值。",
+    sourceEyebrow: "每一行从哪里来",
+    sourceBody:
+      "每一行都对应学院持有的一份文件：一件注册、一份备案、一份签署的协议、一门已发布的课程。凡提到伙伴之名，都是先有书面同意再写。如果你需要某一行背后的文件——记者核对日期、伙伴确认细节——给办公室写信，该行的出处会呈上。",
   },
 } as const;
 
@@ -58,6 +70,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/register`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -122,6 +135,16 @@ export default async function RegisterPage({
                 <p className="max-w-[62ch]">{r.entry}</p>
               </div>
             ))}
+          </div>
+          {/* The register's own rules, so the page explains the practice
+              it keeps and not only the rows it prints. */}
+          <div className="hair-t mt-14 pt-12">
+            <p className="eyebrow eyebrow--ink">{t.ruleEyebrow}</p>
+            <p className="measure mt-5 text-soft">{t.ruleBody}</p>
+          </div>
+          <div className="hair-t mt-12 pt-12">
+            <p className="eyebrow eyebrow--ink">{t.sourceEyebrow}</p>
+            <p className="measure mt-5 text-soft">{t.sourceBody}</p>
           </div>
           <p className="measure mt-12 text-soft">{t.closing}</p>
         </div>

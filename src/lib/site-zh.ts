@@ -81,7 +81,7 @@ export const offersZh = [
     name: "经营者案头",
     tag: "实务",
     line: "一对一经营咨询。结果落在纸面。",
-    cta: { label: "预约", href: "/apply?for=owners-desk" },
+    cta: { label: "预约", href: "/apply#owners-desk" },
     body: "为纳米比亚的经营者提供一对一咨询，专挑代价最高的时刻：开张、注册、雇人、定价、转向，或者体面地收尾。面谈在院长办公室进行，也可邮件往来，结果落在纸面：定了什么，接下来做什么。",
   },
   {
@@ -89,7 +89,7 @@ export const offersZh = [
     name: "工商管理",
     tag: "教学",
     line: "账目、申报、登记册方面的速成课与短期课程。",
-    cta: { label: "垂询", href: "/apply?for=business-administration" },
+    cta: { label: "垂询", href: "/apply#business-administration" },
     body: "这个系教一门生意怎么运转：账目、申报、登记册，以及背后的日常流程。只开速成课与短期课程，每门课都窄、都实用、都收尾。",
   },
   {
@@ -97,7 +97,7 @@ export const offersZh = [
     name: "信息技术及相关领域",
     tag: "教学",
     line: "教业务赖以运转的系统。每一件工具都有名字。",
-    cta: { label: "垂询", href: "/apply?for=it" },
+    cta: { label: "垂询", href: "/apply#it" },
     body: "这个系教一门生意赖以运转的系统与软件，从第一性原理讲到用得有把握。只开速成课与短期课程，每一件工具都有名字。",
   },
   {
@@ -105,7 +105,7 @@ export const offersZh = [
     name: "市场调研",
     tag: "研究",
     line: "可行性、市场规模、对手研判、入市路径，都在纳米比亚的土地上取材。",
-    cta: { label: "委托", href: "/apply?for=market-rd" },
+    cta: { label: "委托", href: "/apply#market-rd" },
     body: "可行性研究、市场规模测算、对手研判与入市路径规划，都在纳米比亚的土地上取材，写成能直接用的东西。学院自己的申报文件练出了这套方法；同样的严谨，现在对外接单。",
   },
   {
@@ -113,7 +113,7 @@ export const offersZh = [
     name: "快速响应培训",
     tag: "实务",
     line: "约请行家，搭好课程，按标准交付。",
-    cta: { label: "说明需求", href: "/apply?for=rapid-response" },
+    cta: { label: "说明需求", href: "/apply#rapid-response" },
     body: "当一家企业需要团队学会新东西，Oryx 去约请行家，围绕这个需求搭课程，然后交付。它为这段差距而设：团队已经会的，与下一步必须会的之间。",
   },
   {
@@ -287,10 +287,6 @@ export const navZh = {
     { href: "/practice", label: "实务" },
     { href: "/ventures", label: "实业" },
     { href: "/resources", label: "资源目录" },
-    { href: "/resources#bulletin", label: "公报" },
-    { href: "/register", label: "登记册" },
-    { href: "/about", label: "关于" },
-    { href: "/brand", label: "品牌" },
     { href: "/apply", label: "申请" },
   ],
   footerNav: [

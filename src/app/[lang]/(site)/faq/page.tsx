@@ -55,6 +55,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/faq`,
       images: [
         { url: "/brand/og/faq.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -101,8 +102,8 @@ export default async function FaqPage({
             <Image
               src="/images/kinfolk/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="(min-width: 1024px) 16rem, min(60vw, 20rem)"
               className="h-auto w-full"
               priority

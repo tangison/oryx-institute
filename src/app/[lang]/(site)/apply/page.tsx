@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { ApplyForm } from "@/components/site/apply-form";
+import { ApplyOfferMeta } from "@/components/site/apply-offer-meta";
 import { site, offers } from "@/lib/site";
 import { siteZh, offersZh } from "@/lib/site-zh";
 import { alternates, langFromParams } from "@/lib/i18n";
@@ -94,78 +95,29 @@ const copy = {
   },
 } as const;
 
-/* Meta descriptions are sized for search results (120–158 chars):
-   the offer is named, the route in is one email, and the longest
-   tail that fits is chosen. The clean URL stays the canonical for
-   every ?for= variant. */
-function enOfferDesc(name: string, line: string): string {
-  const base = `${name} at Oryx Institute: ${line}`;
-  const tails = [
-    " Write to the Principal's office in Windhoek; the application starts with your first message.",
-    " Write to the office in Windhoek; the application starts with your first message.",
-    " Write to the office with the gap you need closed; one email starts it.",
-    " Write to the office; one email starts the application.",
-    " Write to the office; one email starts it.",
-  ];
-  for (const t of tails) {
-    const d = base + t;
-    if (d.length <= 158) return d;
-  }
-  return base;
-}
-
-function zhOfferDesc(name: string, line: string): string {
-  const base = `${name}：${line}`;
-  return (
-    base +
-    "申请方式只有一种：给温得和克的院长办公室写一封邮件，写明姓名、回复方式与你感兴趣的领域。没有门户，也不排队；院长办公室亲自阅读每一封邮件，通常在一周之内回复。先谈，再定；邮件往来，或在温得和克见一面，双方同意之前不会定下任何事。"
-  );
-}
-
+/* The route stays statically generated: the per-offer variants used to
+   await searchParams here, which forced a server render per ?for= deep
+   link and showed up as five slow-TTFB errors in the crawl. The deep
+   links are hash anchors now (the legacy ?for= form still works), and
+   ApplyOfferMeta sets each offer's title and description after
+   hydration. The clean URL stays the canonical for every variant. */
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: Promise<{ lang: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
-  const sp = await searchParams;
-  const forParam = typeof sp.for === "string" ? sp.for : undefined;
   const m = copy[lang].meta;
-
-  /* Each ?for= deep link carries its own title and description, so the
-     six doors into this page read as six pages to a crawler: the offer
-     is named, the route in is one email. The clean URL stays the
-     canonical for every variant. */
-  let title: string = m.title;
-  let description: string = m.description;
-  let ogTitle: string = m.ogTitle;
-  if (forParam) {
-    const offer =
-      lang === "zh"
-        ? offersZh.find((o) => o.id === forParam)
-        : offers.find((o) => o.id === forParam);
-    if (offer) {
-      if (lang === "zh") {
-        title = `申请：${offer.name}`;
-        description = zhOfferDesc(offer.name, offer.line);
-        ogTitle = `申请：${offer.name} | Oryx 理工学院`;
-      } else {
-        title = `Apply: ${offer.name}`;
-        description = enOfferDesc(offer.name, offer.line);
-        ogTitle = `Apply: ${offer.name} | Oryx Institute`;
-      }
-    }
-  }
+  const ogTitle = m.ogTitle;
 
   return {
-    title,
-    description,
+    title: m.title,
+    description: m.description,
     alternates: alternates(lang, "/apply", site.url),
     openGraph: {
       title: ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/apply`,
       images: [
         { url: "/brand/og/apply.png", width: 1200, height: 630, alt: ogTitle },
       ],
@@ -183,6 +135,8 @@ export default async function ApplyPage({
 
   return (
     <>
+      <ApplyOfferMeta lang={lang} />
+
       {/* The opener, under scrub: the proposition on the left, the wax
           seal drifting at its own rate on the right. */}
       <section className="section" data-sc-act="scrub">
@@ -196,8 +150,8 @@ export default async function ApplyPage({
             <Image
               src="/images/kinfolk/10-wax-seal.jpg"
               alt="A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="(min-width: 768px) 18rem, 70vw"
               className="h-auto w-full"
               priority
@@ -272,8 +226,8 @@ export default async function ApplyPage({
               <Image
                 src="/images/kinfolk/10-wax-seal.jpg"
                 alt="A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper"
-                width={1254}
-                height={1254}
+                width={1150}
+                height={1150}
                 sizes="(min-width: 1024px) 15rem, 60vw"
                 className="h-auto w-full"
               />

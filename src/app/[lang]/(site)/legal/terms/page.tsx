@@ -140,6 +140,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/legal/terms`,
       images: [
         {
           url: "/brand/og/default.png",

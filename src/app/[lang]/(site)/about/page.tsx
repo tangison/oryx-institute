@@ -122,6 +122,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/about`,
       images: [
         { url: "/brand/og/about.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -163,8 +164,8 @@ export default async function AboutPage({
             <Image
               src="/images/kinfolk/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
               priority
@@ -252,10 +253,11 @@ export default async function AboutPage({
             <Image
               src="/images/kinfolk/09-horns.jpg"
               alt="Two shed oryx horns lying parallel, centred on cream paper"
-              width={1402}
-              height={1122}
+              width={1250}
+              height={1000}
               sizes="(min-width: 768px) 22rem, 88vw"
               className="h-auto w-full"
+              loading="eager"
             />
           </figure>
           <div data-sc-in>

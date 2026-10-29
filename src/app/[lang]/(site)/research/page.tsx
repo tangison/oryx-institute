@@ -104,6 +104,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/research`,
       images: [
         {
           url: "/brand/og/research.png",
@@ -173,8 +174,8 @@ export default async function ResearchPage({
             <Image
               src="/images/kinfolk/04-notebook.jpg"
               alt="A bound maroon notebook with ribbon, centred on cream paper"
-              width={1402}
-              height={1122}
+              width={1250}
+              height={1000}
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
               priority
@@ -190,7 +191,7 @@ export default async function ResearchPage({
             <h2 className="h-section max-w-[20ch]">{t.hireTitle}</h2>
             <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
             <div className="mt-8 flex flex-wrap gap-5">
-              <Link href={A("/apply?for=market-rd")} className="btn">
+              <Link href={A("/apply#market-rd")} className="btn">
                 {t.bring}
               </Link>
               <Link href={A("/practice")} className="btn--quiet">
@@ -280,7 +281,8 @@ export default async function ResearchPage({
                     : `${t.read}: ${quoteEssay}`
                 }
               >
-                {t.read} <span className="arr" aria-hidden="true">→</span>
+                {zh ? "读这篇文章" : "Read the essay"}{" "}
+                <span className="arr" aria-hidden="true">→</span>
               </Link>
             </figure>
           </div>
@@ -301,17 +303,12 @@ export default async function ResearchPage({
               <div className="ledger-row" key={a.id}>
                 <p className="ledger-date">{a.no}</p>
                 <div>
+                  {/* The title is the link: one row, one door, the register
+                      the Directory pages keep. */}
                   <h3 className="news-title">
                     <Link href={A(`/resources#bulletin-${a.id}`)}>{a.title}</Link>
                   </h3>
                   <p className="mt-2 max-w-[62ch] text-soft">{a.dek}</p>
-                  <Link
-                    href={A(`/resources#bulletin-${a.id}`)}
-                    className="btn--quiet mt-3"
-                    aria-label={zh ? `${t.read}${a.title}` : `${t.read}: ${a.title}`}
-                  >
-                    {t.read} <span className="arr" aria-hidden="true">→</span>
-                  </Link>
                 </div>
               </div>
             ))}
@@ -330,8 +327,8 @@ export default async function ResearchPage({
           <Image
             src="/images/kinfolk/06-game-board.jpg"
             alt=""
-            width={1402}
-            height={1122}
+            width={1200}
+            height={960}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

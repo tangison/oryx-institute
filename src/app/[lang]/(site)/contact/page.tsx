@@ -30,6 +30,12 @@ const copy = {
     applyInstead: "Apply instead",
     channelsEyebrow: "The channels",
     statedEyebrow: "Stated as it is",
+    messageEyebrow: "What to put in the message",
+    messageBody:
+      "Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; the office does not need formality, it needs the facts. If the matter is an application, say which of the six doors you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
+    methodEyebrow: "How the office works",
+    methodBody:
+      "Every message is read by a person in the Principal's office, usually within the week. Replies are written, not templated: what you get back names what the institute can do, what it cannot, and what the next step would cost you in time. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
     where: {
       dt: "Where the office is",
       dd: ". No public premises yet, so no street address is printed.",
@@ -70,6 +76,12 @@ const copy = {
     applyInstead: "去申请",
     channelsEyebrow: "渠道",
     statedEyebrow: "照实说",
+    messageEyebrow: "邮件里写什么",
+    messageBody:
+      "三件事，顺序随意：你是谁，这封信谈什么，你希望回信定下什么。第一行就写明来意的信先被读到；办公室不需要客套，需要的是事实。如果是申请，写明你指的是六扇门中的哪一扇；如果是生意上的问题，写明你的业务做什么、卡在哪里——一段话就够，缺什么办公室会再问。",
+    methodEyebrow: "办公室怎么做事",
+    methodBody:
+      "每封信都由院长办公室的人阅读，通常在一周之内。回信是写出来的，不是套模板：你能得到的回信会写明学院能做什么、不能做什么，以及下一步要花你多少时间。本站不存储任何东西，也不与任何人共享；对话留在你的邮箱和办公室的邮箱里，一如通信本来的样子。",
     where: {
       dt: "办公室在哪里",
       dd: "。暂无对外场地，所以不印街道地址。",
@@ -104,6 +116,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/contact`,
       images: [
         { url: "/brand/og/contact.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -217,6 +230,21 @@ export default async function ContactPage({
         </div>
       </section>
 
+      {/* The working rules of the mailbox: two entries, set like the
+          ledger everywhere else on the site. */}
+      <section className="section" data-sc-act="flow">
+        <div className="shell">
+          <div className="hair-t pt-14">
+            <p className="eyebrow eyebrow--ink">{t.messageEyebrow}</p>
+            <p className="measure mt-5 text-soft">{t.messageBody}</p>
+          </div>
+          <div className="hair-t mt-12 pt-12">
+            <p className="eyebrow eyebrow--ink">{t.methodEyebrow}</p>
+            <p className="measure mt-5 text-soft">{t.methodBody}</p>
+          </div>
+        </div>
+      </section>
+
       {/* The place, held still: Windhoek as the page's one silent
           divider, no text over it. */}
       <div
@@ -228,8 +256,8 @@ export default async function ContactPage({
           <Image
             src="/images/kinfolk/07-windhoek-divider.jpg"
             alt=""
-            width={1402}
-            height={1122}
+            width={1250}
+            height={1000}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

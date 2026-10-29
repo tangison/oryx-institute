@@ -19,6 +19,9 @@ const copy = {
         "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
     },
     howEyebrow: "How ventures work",
+    lessonEyebrow: "The classroom on the floor",
+    lessonBody:
+      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
@@ -42,6 +45,9 @@ const copy = {
         "Oryx 理工学院的实业：为检验行业而开的小型运营公司，从 Corner Spa 开始。",
     },
     howEyebrow: "实业怎么运作",
+    lessonEyebrow: "地板上的教室",
+    lessonBody:
+      "每一间实业同时是一处教学现场。在 Corner Spa，簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的——不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。文凭上声称的，实业把它摆出来。",
     exitLede:
       "实业做不了假。它由两件不会说谎的事来评判：它能不能运转，以及有没有人愿意为它付钱。",
     exitBody:
@@ -68,6 +74,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/ventures`,
       images: [
         {
           url: "/brand/og/ventures.png",
@@ -123,8 +130,8 @@ export default async function VenturesPage({
             <Image
               src="/images/kinfolk/08-spa-dish.jpg"
               alt="A terracotta dish with folded linen, a river stone and a beeswax candle, centred on sand-beige linen"
-              width={1254}
-              height={1254}
+              width={1000}
+              height={1000}
               sizes="(min-width: 768px) 26rem, 88vw"
               className="h-auto w-full"
               priority
@@ -145,6 +152,12 @@ export default async function VenturesPage({
               {t.exitBody}
             </p>
           </div>
+          <div className="hair-t mt-12 pt-12">
+            <p className="eyebrow eyebrow--ink">{t.lessonEyebrow}</p>
+            <p className="measure mt-6 text-soft" data-sc-in>
+              {t.lessonBody}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -160,10 +173,11 @@ export default async function VenturesPage({
             <Image
               src="/images/kinfolk/08-spa-dish.jpg"
               alt="A terracotta dish with folded linen, a river stone and a beeswax candle, centred on sand-beige linen"
-              width={1254}
-              height={1254}
+              width={1000}
+              height={1000}
               sizes="(min-width: 1024px) 44rem, 92vw"
               className="h-full w-auto max-w-full object-contain"
+              loading="eager"
             />
             <div className="peak-scrim" data-sc-scrim>
               <p className="offer-tag">{v.cornerSpa.status}</p>
@@ -204,7 +218,7 @@ export default async function VenturesPage({
               {zh ? "有一个你认为 Oryx 该检验的行业？" : "A sector you think Oryx should test?"}
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Link href={A("/apply?for=market-rd")} className="btn">
+              <Link href={A("/apply#market-rd")} className="btn">
                 {t.briefUs}
               </Link>
               <a href={`mailto:${site.email}`} className="btn--quiet">

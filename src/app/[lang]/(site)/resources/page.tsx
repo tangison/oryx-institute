@@ -99,6 +99,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/resources`,
       images: [
         {
           url: "/brand/og/resources.png",
@@ -188,8 +189,8 @@ export default async function ResourcesPage({
           <Image
             src="/images/kinfolk/06-game-board.jpg"
             alt=""
-            width={1402}
-            height={1122}
+            width={1200}
+            height={960}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

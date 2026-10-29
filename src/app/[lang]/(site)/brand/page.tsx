@@ -72,7 +72,7 @@ const copy = {
     meta: {
       title: "品牌登记册",
       description:
-        "Oryx 理工学院的品牌：三体字标、栗色盾徽、精确色码、完整印刷套件、本站书写的文风，以及随时可交印厂的下载文件。字标中间一词是中文：理工，科学和工程二字，站在全名里理工学院的位置。色码逐项列明，墨色、栗色、奶油色各有其处；文风成文，写明本站如何说话。一切可下载，一切可交印厂。",
+        "Oryx 理工学院的品牌登记册：三体字标、栗色盾徽、精确色码、印刷套件与文风成文，一切可下载、可交印厂。字标中间一词是中文：理工，立在法定全名中 Polytechnic 的位置。",
       ogTitle: "品牌登记册 | Oryx 理工学院",
       ogDescription: "字标、徽记、色码、文风：全部成文，附资产下载。",
     },
@@ -143,6 +143,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/brand`,
       images: [
         { url: "/brand/og/brand.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -226,8 +227,8 @@ const kitPieces = [
   {
     src: "/images/kinfolk/print/01-certificate.jpg",
     alt: "The certificate: cream sheet with a double-rule maroon border, on dark walnut",
-    w: 864,
-    h: 1152,
+    w: 780,
+    h: 1040,
     overlay: {
       kind: "certificate" as const,
       /** The sheet spans 18%..82% horizontally, 15%..88% vertically. */
@@ -237,8 +238,8 @@ const kitPieces = [
   {
     src: "/images/kinfolk/print/02-letterhead.jpg",
     alt: "The letterhead: cream sheet on dark walnut, the lockup set top left",
-    w: 864,
-    h: 1152,
+    w: 780,
+    h: 1040,
     overlay: {
       kind: "lockup" as const,
       /** The lockup sits on the sheet, one clearspace in from the top
@@ -249,8 +250,8 @@ const kitPieces = [
   {
     src: "/images/kinfolk/print/03-business-card.jpg",
     alt: "The business card reverse: maroon stock on cream, the shield centred",
-    w: 864,
-    h: 1152,
+    w: 780,
+    h: 1040,
     overlay: {
       kind: "emblem-ivory" as const,
       box: { left: "49.2%", top: "49.6%", height: "20.5%" },
@@ -259,8 +260,8 @@ const kitPieces = [
   {
     src: "/images/kinfolk/print/04-notecard.jpg",
     alt: "The folded notecard: cream stock on dark walnut, the shield centred high",
-    w: 864,
-    h: 1152,
+    w: 780,
+    h: 1040,
     overlay: {
       kind: "emblem" as const,
       box: { left: "51.2%", top: "38.8%", height: "14%" },
@@ -269,8 +270,8 @@ const kitPieces = [
   {
     src: "/images/kinfolk/print/05-folder.jpg",
     alt: "The presentation folder: maroon stock on cream, the shield centred",
-    w: 864,
-    h: 1152,
+    w: 780,
+    h: 1040,
     overlay: {
       kind: "emblem-ivory" as const,
       box: { left: "50.6%", top: "42.4%", height: "23.5%" },
@@ -286,29 +287,29 @@ const specimens = [
     src: "/images/kinfolk/02-stone.jpg",
     alt: "One weathered stone specimen, centred on cream paper",
     caption: { en: "stone", zh: "河石" },
-    w: 1254,
-    h: 1254,
+    w: 1150,
+    h: 1150,
   },
   {
     src: "/images/kinfolk/09-horns.jpg",
     alt: "Two shed oryx horns lying parallel, centred on cream paper",
     caption: { en: "horns", zh: "羚羊角" },
-    w: 1402,
-    h: 1122,
+    w: 1250,
+    h: 1000,
   },
   {
     src: "/images/kinfolk/10-wax-seal.jpg",
     alt: "A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper",
     caption: { en: "wax seal", zh: "火漆封缄" },
-    w: 1254,
-    h: 1254,
+    w: 1150,
+    h: 1150,
   },
   {
     src: "/images/kinfolk/04-notebook.jpg",
     alt: "A bound maroon notebook with ribbon, centred on cream paper",
     caption: { en: "notebook", zh: "笔记本" },
-    w: 1402,
-    h: 1122,
+    w: 1250,
+    h: 1000,
   },
 ];
 
@@ -320,7 +321,10 @@ function swatches(zh: boolean) {
       usage: zh ? "字标字母、正文、深底" : "Wordmark letters, body text, dark grounds",
       bg: "#181713",
       fg: "#FFF8EE",
-      mark: "理工",
+      /* Ink carries the Latin specimen: it is the colour the wordmark's
+         letters are set in. The CJK specimen belongs to Maroon, the
+         colour 理工 is set in. */
+      mark: "Aa",
     },
     {
       name: zh ? "栗色" : "Maroon",
@@ -493,11 +497,12 @@ export default async function BrandPage({
               <Image
                 src="/images/kinfolk/06-game-board.jpg"
                 alt="A carved morabaraba game board with one springbok coin in its centre ring, on terracotta"
-                width={1402}
-                height={1122}
+                width={1200}
+                height={960}
                 sizes="(min-width: 1024px) 30rem, 70vw"
                 className="h-auto w-full"
                 priority
+                quality={62}
               />
             </span>
           </figure>
@@ -712,6 +717,7 @@ export default async function BrandPage({
                   width={k.w}
                   height={k.h}
                   sizes="(min-width: 80rem) 44rem, 92vw"
+                  quality={62}
                 />
                 <OverlayMark piece={k} />
               </span>
@@ -747,6 +753,7 @@ export default async function BrandPage({
               height={s.h}
               sizes="(min-width: 1024px) 60vw, 90vw"
               className="obj h-auto"
+              quality={62}
             />
             <p className="caption">
               {t.specimenWord} · {zh ? s.caption.zh : s.caption.en}

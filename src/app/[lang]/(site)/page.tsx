@@ -44,19 +44,19 @@ const copy = {
         key: "research" as const,
         name: "Research",
         body: "Fieldwork, bulletin essays, and cited papers on Namibia's working realities. Free before anything is charged.",
-        link: "Read",
+        link: "Read the research",
       },
       {
         key: "practice" as const,
         name: "Practice",
         body: "Crash courses, business counselling, market R&D, rapid response training. Delivered to Namibian standards.",
-        link: "See",
+        link: "See the practice",
       },
       {
         key: "ventures" as const,
         name: "Ventures",
         body: "Small operating companies the institute opens to test sectors. Each one is a live classroom and a live lab.",
-        link: "See",
+        link: "See the ventures",
       },
     ],
     kindsTitle: "How the institute works.",
@@ -94,19 +94,19 @@ const copy = {
         key: "research" as const,
         name: "研究",
         body: "田野调查、公报文章，以及注明出处的论文，写纳米比亚真实的营商现实。在收取任何费用之前，先免费公开。",
-        link: "阅读",
+        link: "阅读研究",
       },
       {
         key: "practice" as const,
         name: "实务",
         body: "速成课、经营咨询、市场调研、快速响应培训，按纳米比亚的标准交付。",
-        link: "查看",
+        link: "看实务",
       },
       {
         key: "ventures" as const,
         name: "实业",
         body: "学院为了检验一个行业而开设的小型运营公司。每一项都是一间活的课堂，一个实作实验室。",
-        link: "查看",
+        link: "看实业",
       },
     ],
     kindsTitle: "这个学院怎么做事。",
@@ -143,6 +143,11 @@ export async function generateMetadata({
     title: copy[lang].meta.title,
     description: copy[lang].meta.description,
     alternates: alternates(lang, "/", site.url),
+    openGraph: {
+      title: copy[lang].meta.title,
+      description: copy[lang].meta.description,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/`,
+    },
   };
 }
 
@@ -281,10 +286,11 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/02-stone.jpg"
               alt="One weathered stone specimen, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="(min-width: 1024px) 22rem, min(78vw, 26rem)"
               className="h-auto w-full"
+              loading="eager"
             />
           </figure>
         </div>
@@ -392,10 +398,11 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/05-hands-peak.jpg"
               alt="A pair of hands mid-task in a shaft of hard daylight"
-              width={1402}
-              height={1122}
+              width={1250}
+              height={1000}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
             />
           </div>
           <div className="peak-scrim" data-sc-scrim>
@@ -412,10 +419,11 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/04-notebook.jpg"
               alt="A bound maroon notebook with ribbon, centred on cream paper"
-              width={1402}
-              height={1122}
+              width={1250}
+              height={1000}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
+              loading="eager"
             />
           </figure>
           <div>
@@ -432,7 +440,8 @@ export default async function HomePage({
                 className="btn--quiet mt-6"
                 aria-label={zh ? `${t.read}${latest.title}` : `${t.read}: ${latest.title}`}
               >
-                {t.read} <span className="arr" aria-hidden="true">→</span>
+                {zh ? "阅读公报" : "Read the Bulletin"}{" "}
+                <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
             <p className="lede measure mt-10 text-ink">{t.researchLine}</p>
@@ -448,8 +457,8 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/08-spa-dish.jpg"
               alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1000}
+              height={1000}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
             />
@@ -472,7 +481,8 @@ export default async function HomePage({
                     : `${t.read}: ${s.ventures.cornerSpa.name}`
                 }
               >
-                {t.read} <span className="arr" aria-hidden="true">→</span>
+                {zh ? "阅读 Corner Spa" : "Read about Corner Spa"}{" "}
+                <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -490,8 +500,8 @@ export default async function HomePage({
           <Image
             src="/images/kinfolk/07-windhoek-divider.jpg"
             alt=""
-            width={1402}
-            height={1122}
+            width={1250}
+            height={1000}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -531,8 +541,8 @@ export default async function HomePage({
             <Image
               src="/images/kinfolk/10-wax-seal.jpg"
               alt="A maroon wax seal with ribbon, centred on cream paper"
-              width={1254}
-              height={1254}
+              width={1150}
+              height={1150}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
             />

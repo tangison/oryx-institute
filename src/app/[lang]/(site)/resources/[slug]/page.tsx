@@ -6,6 +6,7 @@ import {
   directoryAll,
   directoryCourses,
   directoryTemplates,
+  directoryZhMeta,
   getDoc,
   COPYRIGHT_LINE,
   FREE_LINE,
@@ -44,13 +45,21 @@ export async function generateMetadata({
     doc.kind === "template" && lang === "en"
       ? `${doc.title} Template`
       : doc.title;
+  /* The zh listing used to reuse the English standfirst, so all eleven
+     documents shared one description and read as duplicates to a
+     crawler. directoryZhMeta gives each document its own zh title and
+     description — and says plainly that the body is in English. */
+  const zhMeta = lang === "zh" ? directoryZhMeta[doc.slug] : undefined;
+  const title = zhMeta ? zhMeta.title : docTitle;
+  const description = zhMeta ? zhMeta.description : metaOf(doc);
   return {
-    title: docTitle,
-    description: metaOf(doc),
+    title,
+    description,
     alternates: alternates(lang, `/resources/${doc.slug}`, site.url),
     openGraph: {
-      title: `${doc.title} | ${shelf}`,
-      description: metaOf(doc),
+      title: zhMeta ? zhMeta.title : `${doc.title} | ${shelf}`,
+      description,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/resources/${doc.slug}`,
       images: [
         {
           url: "/brand/og/resources.png",
@@ -144,6 +153,7 @@ export default async function DirectoryDocPage({
           url: `${site.url}/resources/${doc.slug}`,
           provider: {
             "@type": "EducationalOrganization",
+            "@id": schemaIds.org,
             name: site.legalName,
             alternateName: site.tradingName,
             url: site.url,
@@ -193,7 +203,7 @@ export default async function DirectoryDocPage({
           <p className="mt-3 border-l-2 border-maroon pl-5 text-[0.9rem]">
             {zh
               ? "一套供填写的模板：方括号里的每个字段，比如[你的商号]，用前都是你来替换的。这里没有法律、税务或财务建议。"
-              : "A fill-in template: every field in brackets, like [your business name], is yours to replace before use. Nothing here is legal, tax or financial advice."}
+              : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
           </p>
         ) : null}
         {zh ? (
@@ -226,7 +236,11 @@ export default async function DirectoryDocPage({
           </nav>
 
           {/* The document */}
-          <article className="article min-w-0 max-w-3xl" data-sc-in>
+          <article
+            className="article min-w-0 max-w-3xl"
+            data-sc-in
+            data-sc-stagger="60"
+          >
             {doc.sections.map((s, i) => (
               <div
                 key={i}
