@@ -62,7 +62,7 @@ const copy = {
     kindsTitle: "How the institute works.",
     runsTitle: "What runs today.",
     runsBody:
-      "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. What they promise is work, because credentials come only after accreditation.",
+      "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. What they promise is work, because credentials come only after\u00A0accreditation.",
     researchTitle: "Research runs from day one.",
     researchLine:
       "No buildings are needed for this work, so no buildings delay it.",
@@ -130,6 +130,14 @@ const copy = {
     apply: "申请",
     read: "阅读",
     dateTbc: "日期待确认",
+    enLedger: {
+      paras: [
+        "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA; every step is dated on the public register below. The institute divides its work into three kinds. Research publishes fieldwork, bulletin essays and cited papers on Namibia's working realities, free before anything is charged. Practice delivers crash courses, business counselling, market research and development, and rapid response training, measured and finished to standard, with every tool named. Ventures are small operating companies the institute opens to test sectors; each one is a live classroom and a live lab.",
+        "Six offers run today from the office in Windhoek. Two teaching departments — Business Administration, and IT and Related Fields — run crash courses and short courses only: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. The Owner's Desk runs one-on-one business counselling, and the outcome is written down. Market R&D takes feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. Rapid Response Training sources the industry expert a business needs, structures the programme, and delivers it. The Oryx Directory publishes the free, Namibia-specific courses and templates.",
+        "Research runs from day one, because no buildings are needed for this work, so no buildings delay it. The Bulletin carries the institute's published essays, every figure carrying its source. The AI training programme is built with Tangison Technologies. Corner Spa, the first venture, is announced as a concept, and its opening is dated in the register the day it happens.",
+        "Nothing is announced before it is certain. Applications, research enquiries, partnerships and press all begin with one email, and the reply comes from a person. Nothing is committed until both sides agree.",
+      ],
+    },
   },
 } as const;
 
@@ -534,6 +542,24 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page: the
+          institute is bilingual by declaration, and this is the text
+          the rest of the site quotes. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Close: the wax seal, pinned for two viewports. One email
           starts it, on a small cream block, maroon button. */}

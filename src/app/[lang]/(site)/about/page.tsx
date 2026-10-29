@@ -49,7 +49,7 @@ const copy = {
     legalEyebrow: "Legal",
     legalBipa: {
       pre: "Oryx Polytechnic Institute is registered with the Business and Intellectual Property Authority (BIPA), Namibia. ",
-      post: " The registration number prints here when the certificate is in hand.",
+      post: " The registration number prints here when the certificate is in\u00A0hand.",
     },
     legalImagery:
       "The imagery on this site is illustrative, set in the institute's own register, and will be replaced by real photography from Windhoek as it is shot. It is not a depiction of a campus: the institute has no premises to photograph yet, and it does not borrow one. Images carry no captions and make no claims of their own.",
@@ -105,6 +105,14 @@ const copy = {
     closeLine: "没准备好的，直说。",
     privacy: "隐私",
     terms: "条款",
+    enLedger: {
+      paras: [
+        "The institute is named for the oryx: Namibia's own antelope, straight-horned, unhurried and impossible to starve out of dry country. In the wordmark the middle word stands in Chinese: 理工 (li gong), the characters for science and engineering, set exactly where Polytechnic stands in the legal name. The seal above them is the maroon shield, and the whole lockup sets in a classic serif, the way it is printed on the institute's letterhead.",
+        "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses. The institute's own flyer says the temper in three words: looks harmless, isn't. Graduates are measured the way the certificate measures them, on innovation and applied problem-solving. Quiet work, decisive finishes.",
+        "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed; visits are arranged by appointment. The Principal, Tangi Iigonda, reads every application personally and holds the standard the certificate prints: excellence in innovation and applied problem-solving.",
+        "The legal name is Oryx Polytechnic Institute, and the standing is stated as it is: prelaunch, pursuing accreditation with the NQA and the NTA, and honest about what runs and what does not. The institute is registered with the Business and Intellectual Property Authority (BIPA), Namibia; the registration number prints here when the certificate is in hand. The imagery on this site is illustrative, set in the institute's own register, and will be replaced by real photography from Windhoek as it is shot. It is not a depiction of a campus: the institute has no premises to photograph yet, and it does not borrow one.",
+      ],
+    },
   },
 } as const;
 
@@ -345,6 +353,22 @@ export default async function AboutPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Legal */}
       <section className="section-lg" data-sc-act="flow">

@@ -31,7 +31,7 @@ const copy = {
       "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once — a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim — and no entry asks the reader to take the institute's word where a document could speak instead.",
     ruleEyebrow: "The rules the register keeps",
     ruleBody:
-      "Three rules hold every entry on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no entry is deleted: when timing moves or a plan changes, the entry is corrected in place, because a register that quietly forgets is worth nothing.",
+      "Three rules hold every entry on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no entry is deleted: when timing moves or a plan changes, the entry is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
     sourceEyebrow: "Where the rows come from",
     sourceBody:
       "Every entry traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind an entry — a journalist checking a fact, a partner confirming a detail — write to the office and the entry's source is produced.",
@@ -59,6 +59,15 @@ const copy = {
     sourceEyebrow: "每一行从哪里来",
     sourceBody:
       "每一行都对应学院持有的一份文件：一件注册、一份备案、一份签署的协议、一门已发布的课程。凡提到伙伴之名，都是先有书面同意再写。如果你需要某一行背后的文件——记者核对日期、伙伴确认细节——给办公室写信，该行的出处会呈上。",
+    enLedger: {
+      paras: [
+        "What the institute has made public, dated as it was said. Nothing is announced before it is certain, and nothing here names a partner before that partner has agreed to be named. Rows without a date yet print \"Date to be confirmed\".",
+        "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once — a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim — and no entry asks the reader to take the institute's word where a document could speak instead.",
+        "Three rules hold every entry on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no entry is deleted: when timing moves or a plan changes, the entry is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
+        "The register on this page is the same ledger the homepage carries and the same one the English site prints; the entries are not translated summaries but the record itself, kept in both languages. When a date is public it is printed in both; until then the row says so. Corrections happen in place, and the entry's source \u2014 a registration, a filing, a signed agreement, a published course \u2014 is produced on request to the office.",
+        "Every entry traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind an entry — a journalist checking a fact, a partner confirming a detail — write to the office and the entry's source is produced. Updated as the work lands.",
+      ],
+    },
   },
 } as const;
 
@@ -159,6 +168,22 @@ export default async function RegisterPage({
           <p className="measure mt-12 text-soft">{t.closing}</p>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

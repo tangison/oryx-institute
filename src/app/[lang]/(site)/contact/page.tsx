@@ -99,6 +99,15 @@ const copy = {
       dd: "Instagram、Facebook 与 LinkedIn，以图标链接在页脚与上方。不内嵌任何东西；本站不跑第三方脚本。",
     },
     close: "一封邮件，事情就开始。",
+    enLedger: {
+      paras: [
+        "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press arrive in the same place, and every message is read in the Principal's office by a person, usually within the week. The first reply names what the institute can and cannot do for you, and what the next step would cost you in time.",
+        "Say in your first message what the message is. Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six offers you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
+        "Every reply is written, not templated. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
+        "The office keeps Windhoek time. Messages land in one mailbox and are answered in the order they arrive, and the correspondence stays between the two mailboxes from the first line to the last. There is no form submission, no ticket number and no tracking pixel behind the reply; the whole exchange is ordinary email, which is why a person can answer it and why it can be trusted.",
+        "The institute works from Windhoek, Namibia, and states its standing as it is: no public premises yet, so no street address is printed, and no telephone line published yet — a dedicated business line lands before launch, and it appears here and in the footer the day it exists. Visits are arranged by appointment: say in your first message that you would like to meet, and the office confirms a time and place in Windhoek that suits both sides. Instagram, Facebook and LinkedIn are linked as icons; nothing is embedded, and the site runs no third-party scripts.",
+      ],
+    },
   },
 } as const;
 
@@ -244,6 +253,22 @@ export default async function ContactPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* The place, held still: Windhoek as the page's one silent
           divider, no text over it. */}

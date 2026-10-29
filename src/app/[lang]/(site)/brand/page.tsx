@@ -31,14 +31,14 @@ const copy = {
     },
     wordmarkEyebrow: "The wordmark",
     wordmarkA:
-      "Three scripts, one lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where the word Polytechnic sits in the full legal name, in maroon #71111F.",
+      "Three scripts, one lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where the word Polytechnic sits in the full legal name, in maroon\u00A0#71111F.",
     wordmarkB:
       "The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them. The wordmark is never redrawn, never restacked and never set in another typeface: the site renders it from the artwork's own vector paths.",
     emblemEyebrow: "The emblem",
     emblemA:
       "The maroon shield, with its horn-mark knocked through in white. On the business card's reverse the shield stands alone; on the notecard it centres on white; on the envelope it sits at the right of the lockup.",
     emblemB:
-      "The emblem never carries text inside it, never tilts, and never appears in any colour but the maroon or the reverse ivory. On maroon grounds the mark stays ivory; on light grounds it stays white.",
+      "The emblem never carries text inside it, never tilts, and never appears in any colour but the maroon or the reverse ivory. On maroon grounds the mark stays ivory; on light grounds it stays\u00A0white.",
     colourEyebrow: "Colour",
     colourBody:
       "Six codes, sampled from the logo artwork and the register. Tints between them are mixed from these anchors only, and terracotta never touches a button or the mark.",
@@ -50,14 +50,14 @@ const copy = {
     ddEyebrow: "Do / don't",
     ddBody: "Six plates, three of each. The wrong ones are drawn wrong on purpose.",
     do1: "The lockup on paper, ink and maroon, at rest.",
-    do2: "The reverse lockup, ivory on the maroon ground.",
+    do2: "The reverse lockup, ivory on the maroon\u00A0ground.",
     dont1: "Never recolour the mark. Terracotta is for bands and imagery, not the logo.",
     dont2: "Never skew or rotate the lockup.",
-    dont3: "Never add a drop shadow. The mark prints flat, always.",
-    dont4: "Never restack the lockup or rebuild it in another typeface.",
+    dont3: "Never add a drop shadow. The mark prints flat,\u00A0always.",
+    dont4: "Never restack the lockup or rebuild it in another\u00A0typeface.",
     kitEyebrow: "The print kit",
     kitBody:
-      "The pieces the institute publishes while it is being established, photographed in the house register, one piece per screen. Every mark you see is the real vector, set in code over the photograph.",
+      "The pieces the institute publishes while it is being established, photographed in the house register, one piece per screen. Every mark you see is the real vector, set in code over the\u00A0photograph.",
     specimensEyebrow: "Specimens",
     specimensBody:
       "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Windhoek objects as they are collected.",
@@ -126,6 +126,14 @@ const copy = {
     approvedEyebrow: "已核准的句子",
     do: "可以",
     dont: "不可以",
+    enLedger: {
+      paras: [
+        "Everything the institute prints, from the flyer to the certificate, keeps one register, and this page documents it so the identity travels intact. The wordmark carries three scripts in one lockup: ORYX and INSTITUTE in a classic serif, ink #181713, and the two characters 理工 — science and engineering — standing where Polytechnic stands in the legal name, in maroon\u00A0#71111F. The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them; the wordmark is never redrawn, never restacked and never set in another typeface.",
+        "The emblem is the maroon shield with its horn-mark knocked through in white. It never carries text inside it, never tilts, and never appears in any colour but the maroon or the reverse ivory: on maroon grounds the mark stays ivory, on light grounds it stays\u00A0white. Clearspace is one X cap-height around the wordmark and the same margin around the emblem; when in doubt, double it.",
+        "Six colour codes are sampled from the logo artwork and the register. Tints between them are mixed from these anchors only, and terracotta never touches a button or the mark. The do-and-don't plates print each rule beside its deliberate error: never recolour the mark, never tilt or restack the lockup, never add a drop shadow, never rebuild it in another typeface.",
+        "The print kit — letterhead, business card, folder, envelope, flyer, notecard and the certificate — is photographed in the house register, one piece per screen, with every mark rendered from the real vectors in code. The vector marks, the press kit and the transparent PNGs download from this page; embroidery files, signage vectors, co-signing templates and the editable specification are available on request from the office.",
+      ],
+    },
   },
 } as const;
 
@@ -355,7 +363,7 @@ function swatches(zh: boolean) {
       hex: "#B5533A",
       usage: zh
         ? "只用于图像色板与色带：绝不用于界面，绝不用于标志"
-        : "Image palette and colour bands only: never UI, never the logo",
+        : "Image palette and colour bands only: never UI, never the\u00A0logo",
       bg: "#B5533A",
       fg: "#FFF8EE",
       mark: "Aa",
@@ -796,6 +804,22 @@ export default async function BrandPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

@@ -173,6 +173,7 @@ export default async function PrivacyPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
+  const zh = lang === "zh";
   const t = copy[lang];
 
   return (
@@ -184,7 +185,7 @@ export default async function PrivacyPage({
       <section className="section-lg">
         <div className="shell">
           <div className="article max-w-3xl" data-sc-in data-sc-stagger="50">
-            {sections(lang === "zh").map((s) => (
+            {sections(zh).map((s) => (
               <div key={s.h} className="mt-12 first:mt-0">
                 <h2 className="h-sub">{s.h}</h2>
                 {s.body.map((p, i) => (
@@ -192,8 +193,26 @@ export default async function PrivacyPage({
                 ))}
               </div>
             ))}
+            {/* The authoritative English text, printed beneath the
+                Chinese rendering: on legal pages the English original
+                is the text that governs, and the page says so. */}
+            {zh && (
+              <div className="hair-t mt-16 pt-12" lang="en">
+                <p className="eyebrow eyebrow--ink">
+                  英文原文 · The authoritative English text
+                </p>
+                {sections(false).map((s) => (
+                  <div key={s.h} className="mt-12 first:mt-0">
+                    <h2 className="h-sub">{s.h}</h2>
+                    {s.body.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
             <p className="meta mt-16">
-              {site.legalName} · {site.city}, {lang === "zh" ? "纳米比亚" : site.country}
+              {site.legalName} · {site.city}, {zh ? "纳米比亚" : site.country}
             </p>
           </div>
         </div>

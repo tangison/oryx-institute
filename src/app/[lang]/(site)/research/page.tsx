@@ -33,14 +33,14 @@ const copy = {
     ],
     streamsEyebrow: "Three streams",
     bulletinBody:
-      "Cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never. Every figure carries its source, or it does not ship.",
+      "Cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never. Every figure carries its source, or it does not\u00A0ship.",
     read: "Read",
     readBulletin: "Read the Bulletin",
     fieldLede:
       "Fieldwork notes open when fieldwork starts. The Bulletin carries the writing until then.",
     papersLede:
       "Cited papers publish as the research programme produces them. None exist yet; none are claimed.",
-    quote: "Entrepreneurship is not a subject at Oryx. It is the exit exam.",
+    quote: "Entrepreneurship is not a subject at Oryx. It is the exit\u00A0exam.",
     quoteMeta: "Bulletin No. 4 · Why every course here ends in a venture",
     researchersBody:
       "The research register at launch is one desk wide. It widens as researchers join, and each one is named here when they do.",
@@ -87,6 +87,14 @@ const copy = {
       "学院院长。亲自阅读每一份申请，执笔公报的登记册，守着研究出发的这张桌子。",
     partnersBody:
       "指名，且用他们自己的标记：研究的合作方，按伙伴自己印制的样子呈现。",
+    enLedger: {
+      paras: [
+        "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both — market research taken on per engagement, and the programme and product work the institute runs with named partners. The method is three steps: the question, written down as it stands before any method is discussed; the ground, evidence gathered on Namibian ground with sources named; and the document, written to be used — findings, options, and the decision they support, not shelved.",
+        "Three streams run from the desk. The Bulletin carries cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never; every figure carries its source, or it does not ship. Fieldwork notes open when fieldwork starts. Cited papers publish as the research programme produces them; none exist yet, and none are claimed.",
+        "The programme side is public where the work is public. The AI training programme is built with Tangison Technologies and was announced on 18 October 2026; the curriculum is being written module by module, and a flagship product is under construction on it. Concept work with Mendozer is named on the partners' own marks.",
+        "The research register at launch is one desk wide: the Principal reads every application personally, writes the Bulletin's register, and holds the desk the research runs from. It widens as researchers join, and each one is named here when they do.",
+      ],
+    },
   },
 } as const;
 
@@ -421,6 +429,22 @@ export default async function ResearchPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

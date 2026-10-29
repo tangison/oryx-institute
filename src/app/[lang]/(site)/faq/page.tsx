@@ -38,6 +38,14 @@ const copy = {
     writeOffice: "给办公室写信",
     applyNow: "现在申请",
     contactLink: "联系办公室",
+    enLedger: {
+      paras: [
+        "How to apply: there is no portal and no queue. One email to info@oryxinstitute.org starts the application; the Principal's office reads every message and answers personally, usually within the week. Nothing is committed until both sides agree.",
+        "What runs today: crash courses and short courses in business administration and IT and related fields — records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. Beside the teaching: the Owner's Desk for one-on-one business counselling, market research and development taken on per engagement, Rapid Response Training for teams that need a new standard fast, and the free Oryx Directory of Namibia-specific courses and templates.",
+        "What 理工 means: the two characters stand for science and engineering and hold the place Polytechnic occupies in the legal name, Oryx Polytechnic Institute. The wordmark sets them in maroon between the two serif words, and Bulletin No. 1 carries the institute's own published explanation of the word.",
+        "The certificate and the standing: the institute is prelaunch and says so; it is pursuing accreditation with the NQA and the NTA, and every step is dated on the public register. Ventures are small operating companies the institute opens to test sectors — Corner Spa is the first, announced as a concept. The office is in Windhoek; no public premises yet, so visits are arranged by appointment, and no telephone line is published until the business line lands.",
+      ],
+    },
   },
 } as const;
 
@@ -129,7 +137,7 @@ export default async function FaqPage({
           <p className="measure mt-14 text-soft" data-sc-in>
             {zh
               ? "这里没有你要的答案？给办公室写信。"
-              : "If your question isn't answered here, write to the office."}
+              : "If your question isn't answered here, write to the\u00A0office."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6" data-sc-in>
             <a href={`mailto:${site.email}`} className="btn">
@@ -146,6 +154,22 @@ export default async function FaqPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

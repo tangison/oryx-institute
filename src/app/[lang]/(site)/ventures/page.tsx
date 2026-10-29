@@ -57,6 +57,15 @@ const copy = {
     briefUs: "给实业案头写需求",
     futureNote:
       "行业到了该检验的时候，就再开一间。没准备好的，直说。",
+    enLedger: {
+      paras: [
+        "Ventures are small operating companies the institute opens to test sectors. A venture cannot be faked: it is judged by the two things that cannot lie — whether it works, and whether anyone pays for it. Every course the institute teaches ends in something that works and something that sells, and ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
+        "Every venture doubles as a teaching site. Corner Spa, the first, is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+        "Corner Spa is announced as a concept: wellness and service operations in Windhoek. Premises, licensing and the service menu are in development, and the opening is dated in the register the day it happens — as a business, or not at all.",
+        "The venture ledger is short, and deliberately so: one concept, announced, with its opening dated the day it happens. Corner Spa is the first because wellness and service operations teach the whole loop a business runs on \u2014 bookings, stock, standard, and the customer's own verdict \u2014 in one small room. The next venture is chosen the same way: a sector the institute needs to understand, a company small enough to run to standard, and a register row that prints the result either way.",
+        "More labs are opened as sectors warrant them. What is not ready, says so.",
+      ],
+    },
   },
 } as const;
 
@@ -229,6 +238,22 @@ export default async function VenturesPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

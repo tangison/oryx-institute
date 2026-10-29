@@ -50,6 +50,10 @@ Templates: [Letterhead](https://www.oryxinstitute.org/resources/letterhead-templ
 - [Brand](https://www.oryxinstitute.org/brand): the wordmark, the emblem, the codes, the voice — and the asset downloads.
 - [Privacy](https://www.oryxinstitute.org/legal/privacy) and [Terms](https://www.oryxinstitute.org/legal/terms): the legal pair. The site runs no analytics, no cookies and no accounts.
 
+## Markdown mirrors
+
+Every page on this site is also served as clean markdown at `/md/<path>` — [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/resources](https://www.oryxinstitute.org/md/resources), and so on for every route. Any page requested with an `Accept: text/markdown` header returns its markdown form directly; the HTML page stays canonical. Agents and answer engines are welcome to read either form.
+
 ## Contact
 
 - [Contact page](https://www.oryxinstitute.org/contact): the office, stated as it is.

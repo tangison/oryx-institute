@@ -32,7 +32,7 @@ const copy = {
     ],
     kitEyebrow: "The working kit",
     kitBody:
-      "The practice runs on named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by implication.",
+      "The practice runs on named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
     apprenticeship:
       "The apprenticeship bench is not open yet. What is not ready, says so.",
     enquire: "Enquire about the next intake",
@@ -62,6 +62,15 @@ const copy = {
     enquire: "垂询下一期",
     writeOffice: "给办公室写信",
     readFaq: "读常见问题",
+    enLedger: {
+      paras: [
+        "The practice delivers work measured and finished to standard, with every tool named. Three lines run from the desk in Windhoek. The Owner's Desk is one-on-one business counselling for an owner at a decision: the outcome is written down, what was decided and what happens next. Market research and development is taken on per engagement: feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground with sources named, written to be used and not shelved.",
+        "Rapid Response Training exists for the moment a business needs a team trained on something new: Oryx sources the industry expert the need calls for, structures the programme around it, and delivers it. Training engagements close with a programme structured around the need that asked for it, not around a catalogue.",
+        "The working kit is named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
+        "Three engagements, one standard. A counselling engagement at the Owner's Desk closes on paper with what was decided and what happens next. A research engagement closes with findings, options and the decision they support, gathered on Namibian ground with sources named. A training engagement closes with a programme structured around the need that asked for it, delivered by the industry expert the need calls for. Enquiries name the field, the office replies with what is possible, and fees are confirmed before any work is booked, never after.",
+        "Nothing here promises a credential; the promise is the work itself. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you. The apprenticeship bench is not open yet, and the page says so.",
+      ],
+    },
   },
 } as const;
 
@@ -235,6 +244,22 @@ export default async function PracticePage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

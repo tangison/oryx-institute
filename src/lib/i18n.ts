@@ -32,7 +32,9 @@ export function swapLang(lang: Lang, path: string): string {
   return langPath(lang === "en" ? "zh" : "en", path);
 }
 
-/** Canonical + hreflang alternates for one page. */
+/** Canonical + hreflang alternates for one page. The markdown mirror
+ * rides along as a link alternate: every page is also served as clean
+ * markdown from /md for any client that asks for it. */
 export function alternates(lang: Lang, path: string, origin: string) {
   const p = path === "/" ? "/" : `/${path.replace(/^\//, "")}`;
   return {
@@ -41,6 +43,9 @@ export function alternates(lang: Lang, path: string, origin: string) {
       en: `${origin}${langPath("en", p)}`,
       zh: `${origin}${langPath("zh", p)}`,
       "x-default": `${origin}${langPath("en", p)}`,
+    },
+    types: {
+      "text/markdown": `${origin}/md${p === "/" ? "" : p}`,
     },
   };
 }

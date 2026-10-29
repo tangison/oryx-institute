@@ -41,7 +41,7 @@ export const site = {
    * itself plainly, then says what it is made of. */
   headline: "Oryx Institute.",
   heroSub:
-    "A new polytechnic for Namibia. Research, practice, and companies that prove the work.",
+    "A new polytechnic for Namibia. Research, practice, and companies that prove the\u00A0work.",
   /** Approved flyer line on graduates. */
   closingLine:
     "Oryx Institute graduates solve problems quietly and finish them decisively.",
@@ -123,7 +123,7 @@ export const status = {
     },
     {
       name: "Business Administration",
-      line: "Crash & short courses in records, filings, registers.",
+      line: "Crash & short courses in records, filings,\u00A0registers.",
     },
     {
       name: "IT & Related Fields",
@@ -131,7 +131,7 @@ export const status = {
     },
     {
       name: "Market R&D",
-      line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian ground.",
+      line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
     },
     {
       name: "Rapid Response Training",
@@ -145,11 +145,11 @@ export const status = {
   inDevelopment: [
     {
       name: "The AI training programme",
-      line: "Built with Tangison Technologies, announced 18 October 2026. In development now; the curriculum is being written and a flagship product is under construction.",
+      line: "Built with Tangison Technologies, announced 18 October 2026. In development now; the curriculum is being written and a flagship product is under\u00A0construction.",
     },
     {
       name: "Skills Camp (Karibib VTC)",
-      line: "The physical vocational training centre is in research and development, on its own roadmap.",
+      line: "The physical vocational training centre is in research and development, on its own\u00A0roadmap.",
     },
     {
       name: "The foundational course spine",
@@ -181,15 +181,15 @@ export const offers = [
     tag: "Practice",
     line: "One-on-one business counselling. The outcome is written down.",
     cta: { label: "Book", href: "/apply#owners-desk" },
-    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens next.",
+    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens\u00A0next.",
   },
   {
     id: "business-administration",
     name: "Business Administration",
     tag: "Teaching",
-    line: "Crash & short courses in records, filings, registers.",
+    line: "Crash & short courses in records, filings,\u00A0registers.",
     cta: { label: "Enquire about the diploma", href: "/apply#business-administration" },
-    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and finished.",
+    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and\u00A0finished.",
   },
   {
     id: "it",
@@ -203,7 +203,7 @@ export const offers = [
     id: "market-rd",
     name: "Market R&D",
     tag: "Research",
-    line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian ground.",
+    line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
     cta: { label: "Engage", href: "/apply#market-rd" },
     body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
   },
@@ -213,7 +213,7 @@ export const offers = [
     tag: "Practice",
     line: "Sourced experts, structured programmes, delivered to standard.",
     cta: { label: "Brief us", href: "/apply#rapid-response" },
-    body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know next.",
+    body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know\u00A0next.",
   },
   {
     id: "directory",
@@ -232,9 +232,9 @@ export const offers = [
  * here names a partner before that partner has agreed to be named.
  */
 export const register = [
-  { date: "2026-10-25", entry: "BIPA registration confirmed, Oryx Polytechnic Institute." },
+  { date: "2026-10-25", entry: "BIPA registration confirmed, Oryx Polytechnic\u00A0Institute." },
   { date: "2026-10-25", entry: "Website relaunched." },
-  { date: "2026-10-18", entry: "AI training programme announced with Tangison Technologies." },
+  { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
   /* TODO founder: Directory publication date */
   { date: null, entry: "The Oryx Directory published: four crash courses, seven business templates." },
   /* TODO founder: Corner Spa announcement date */
@@ -248,12 +248,12 @@ export const register = [
  */
 export const ventures = {
   lead: "Small companies, real customers.",
-  body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the result.",
+  body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the\u00A0result.",
   cornerSpa: {
     name: "Corner Spa",
     status: "Concept",
-    line: "Wellness and service operations: the first live lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is a concept.",
+    line: "Wellness and service operations: the first live\u00A0lab.",
+    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is a\u00A0concept.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",
@@ -298,26 +298,26 @@ export const disciplines = [
 /** Approved lines used across the site, verbatim from the brand assets
  * and the copywriting rules. */
 export const approvedLines = [
-  { line: "Looks harmless. Isn't.", source: "Recruitment flyer" },
+  { line: "Looks harmless. Isn't.", source: "Recruitment\u00A0flyer" },
   {
     line:
       "Oryx Institute graduates solve problems quietly and finish them decisively.",
-    source: "Recruitment flyer",
+    source: "Recruitment\u00A0flyer",
   },
   {
     line: "Excellence in innovation and applied problem-solving.",
-    source: "Certificate of Achievement",
+    source: "Certificate\u00A0of\u00A0Achievement",
   },
-  { line: "Quiet work, decisive finishes.", source: "Strategy notes" },
+  { line: "Quiet work, decisive finishes.", source: "Strategy\u00A0notes" },
   { line: "Decisions, not decks.", source: "The practice" },
   { line: "Evidence before money moves.", source: "Market R&D" },
   {
     line: "Every figure carries its source, or it does not ship.",
     source: "The Bulletin",
   },
-  { line: "What is not ready, says so.", source: "The register" },
-  { line: "Say the thing. Stop.", source: "The voice" },
-  { line: "Quiet is a register, not a volume.", source: "The voice" },
+  { line: "What is not ready, says so.", source: "The\u00A0register" },
+  { line: "Say the thing. Stop.", source: "The\u00A0voice" },
+  { line: "Quiet is a register, not a volume.", source: "The\u00A0voice" },
   {
     line: "Never claim what the print kit does not print.",
     source: "The brand",
@@ -395,7 +395,7 @@ export const faqs = [
   },
   {
     q: "What programmes does the institute offer?",
-    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it: no long programmes are offered. Beside the teaching, the practice runs: the Owner's Desk for one-on-one counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application message.",
+    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it: no long programmes are offered. Beside the teaching, the practice runs: the Owner's Desk for one-on-one counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application\u00A0message.",
   },
   {
     q: "Does Oryx consult for businesses?",
@@ -443,7 +443,7 @@ export const faqs = [
   },
   {
     q: "What is a venture?",
-    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: students learn on its floor, and its customers decide whether it works. Ventures are announced as concepts and entered in the register when they open.",
+    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: students learn on its floor, and its customers decide whether it works. Ventures are announced as concepts and entered in the register when they\u00A0open.",
   },
   {
     q: "What is Corner Spa?",

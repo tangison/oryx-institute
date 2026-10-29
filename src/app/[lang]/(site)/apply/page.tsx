@@ -20,36 +20,36 @@ const copy = {
     head: {
       eyebrow: "Apply",
       title: "Apply now.",
-      lede: "There is no portal and no queue. Write to the Principal's office directly, and the application starts with your first message. The teaching is crash courses and short courses in business administration and IT and related fields. The practice books through the same desk: the Owner's Desk, market research and development, Rapid Response Training.",
+      lede: "There is no portal and no queue. Write to the Principal's office directly, and the application starts with your first message. The teaching is crash courses and short courses in business administration and IT and related fields. The practice books through the same desk: the Owner's Desk, market research and development, Rapid Response\u00A0Training.",
     },
     steps: [
       {
         t: "Write one message",
-        b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares it.",
+        b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares\u00A0it.",
       },
       {
         t: "The office replies",
-        b: "The Principal's office reads every message and answers personally, usually within the week.",
+        b: "The Principal's office reads every message and answers personally, usually within the\u00A0week.",
       },
       {
         t: "Talk, then decide",
-        b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides agree.",
+        b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides\u00A0agree.",
       },
     ],
     composerTitle: "The application message",
     offersEyebrow: "What you can apply for",
     offersTitle: "Six doors, one desk.",
     offersNote:
-      "Everything the institute runs today, listed as it runs. Name the one you are writing about; the office reads every application against its own offer.",
+      "Everything the institute runs today, listed as it runs. Name the one you are writing about; the office reads every application against its own\u00A0offer.",
     composerBody: (email: string) => ({
       pre: "Fill it in and it opens as an email addressed to ",
-      post: ". Nothing is stored on this site; nothing is sent until you press send in your own mail client.",
+      post: ". Nothing is stored on this site; nothing is sent until you press send in your own mail\u00A0client.",
     }),
     dataEyebrow: "Zero data collection",
     dataBody:
       "The site runs no analytics, no cookies and no accounts. The application exists the moment your email client opens it; before that, it does not exist at all.",
     readerEyebrow: "Who reads it",
-    readerBody: `${site.principal.name}, ${site.principal.role}, reads every application personally. The office answers every enquiry by email, and visits are arranged by appointment.`,
+    readerBody: `${site.principal.name}, ${site.principal.role}, reads every application personally. The office answers every enquiry by email, and visits are arranged by\u00A0appointment.`,
   },
   zh: {
     meta: {
@@ -92,6 +92,15 @@ const copy = {
       "本站不跑统计，不设 cookie，也没有账户。你的邮件客户端打开的那一刻，申请才存在；在那之前，它根本不存在。",
     readerEyebrow: "谁在读",
     readerBody: `${site.principal.name}，${siteZh.tradingName ? "院长" : "院长"}，亲自阅读每一份申请。办公室通过邮件回复每一项垂询，到访按预约安排。`,
+    enLedger: {
+      paras: [
+        "There is no portal and no queue. Write to the Principal's office directly, and the application starts with your first message. Name, a contact for the reply, and the field you are interested in; the composer on this page prepares the message and opens it in your own mail client. Nothing is stored on this site, and nothing is sent until you press send.",
+        "The teaching is crash courses and short courses in business administration and IT and related fields. Business Administration covers records, filings, registers and the everyday processes a business runs on. IT and Related Fields covers the systems and software work runs on, from first principles to confident use, and every tool is named. No long programme is offered until accreditation lands.",
+        "The practice books through the same desk. The Owner's Desk is one-on-one business counselling, and the outcome is written down. Market R&D takes feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. Rapid Response Training brings a team up to standard on something new: Oryx sources the industry expert, structures the programme, and delivers it.",
+        "Six offers are listed on this page in full, each in its own row: the Owner's Desk; Business Administration; IT & Related Fields; Market R&D; Rapid Response Training; and the Oryx Directory, free and open without an account. Name the one you are writing about in the first line of your message, and the office reads the application against that offer's own terms. If the right door is none of the six, write anyway and say what you need; the office answers, and it says so plainly when the answer is no.",
+        "The office replies personally, usually within the week. A conversation follows, by email or an appointment in Windhoek, and nothing is committed until both sides agree. The site runs no analytics, no cookies and no accounts; the application exists the moment your email client opens it, and before that it does not exist at all.",
+      ],
+    },
   },
 } as const;
 
@@ -131,6 +140,7 @@ export default async function ApplyPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
+  const zh = lang === "zh";
   const t = copy[lang];
 
   return (
@@ -251,6 +261,22 @@ export default async function ApplyPage({
           </div>
         </div>
       </section>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {copy.zh.enLedger.paras.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }
