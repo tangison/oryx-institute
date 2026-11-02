@@ -30,6 +30,11 @@ const PAGES: IndexRow[] = [
     note: "Who runs it, how it is funded, what it is for",
   },
   {
+    path: "/about/staff",
+    title: "People",
+    note: "The staff register: the Principal, and appointments as they are confirmed",
+  },
+  {
     path: "/apply",
     title: "Apply: Courses and the Practice",
     note: "One email to the Principal's office starts it",
@@ -53,6 +58,26 @@ const PAGES: IndexRow[] = [
     path: "/practice",
     title: "The Practice: Work That Holds",
     note: "Consulting work the institute takes and holds",
+  },
+  {
+    path: "/practice/safety-officer-course",
+    title: "Safety Officer Training",
+    note: "One, five, and ten days of occupational safety training for Namibian sites",
+  },
+  {
+    path: "/practice/safety-officer-course/level-1-induction",
+    title: "General Worker Safety Induction",
+    note: "The one-day induction: hazards, PPE, emergencies, legal duties",
+  },
+  {
+    path: "/practice/safety-officer-course/level-2-officer",
+    title: "Safety Representative and Site Safety Officer",
+    note: "The five-day officer course: HIRA, incidents, construction, the safety file",
+  },
+  {
+    path: "/practice/safety-officer-course/level-3-management",
+    title: "Advanced Safety Management",
+    note: "The ten-day modular programme: SHEQ, regulation, audit",
   },
   {
     path: "/register",

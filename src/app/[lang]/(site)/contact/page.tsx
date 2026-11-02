@@ -174,6 +174,25 @@ export default async function ContactPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
+      {/* The opener plate: the library wall — a shelf of books and a
+          glass of water, the office's own register. Full measure,
+          drifting at a gentler rate than the page. */}
+      <section className="section-sm" data-sc-act="scrub">
+        <div className="shell" data-sc-in>
+          <figure className="plate-fig" data-sc-parallax="0.18">
+            <Image
+              src="/images/kinfolk/texture/38-library-wall.jpg"
+              alt="A wall of shelved books beside a glass of water on a wooden sill, lit from the left"
+              width={1086}
+              height={1448}
+              priority
+              sizes="(min-width: 1024px) 56rem, 92vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        </div>
+      </section>
+
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div className="hair-t pt-14" data-sc-in data-sc-stagger="70">
@@ -270,8 +289,10 @@ export default async function ContactPage({
         </section>
       )}
 
-      {/* The place, held still: Windhoek as the page's one silent
-          divider, no text over it. */}
+      {/* The place, held still: the Windhoek gate — arriving, a
+          threshold — as the page's one silent divider, no text over
+          it. (The acacia stays on the homepage; the gate is the
+          contact's own.) */}
       <div
         className="divider divider--full overflow-hidden"
         data-sc-act="flow"
@@ -279,10 +300,10 @@ export default async function ContactPage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.9">
           <Image
-            src="/images/kinfolk/07-windhoek-divider.jpg"
+            src="/images/kinfolk/texture/37-windhoek-gate.jpg"
             alt=""
-            width={1250}
-            height={1000}
+            width={1122}
+            height={1402}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

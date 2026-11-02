@@ -158,7 +158,7 @@ export default async function ApplyPage({
           </div>
           <figure className="plate-fig" data-sc-parallax="0.15">
             <Image
-              src="/images/kinfolk/10-wax-seal.jpg"
+              src="/images/kinfolk/core/10-wax-seal.jpg"
               alt="A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper"
               width={1150}
               height={1150}
@@ -231,17 +231,15 @@ export default async function ApplyPage({
           </div>
 
           <div className="grid gap-8" data-sc-in data-sc-stagger="70">
-            {/* The office cup plate is not commissioned yet; the wax
-                seal holds the small-plate slot.
-                TODO image (founder to commission): inner/18 cup — an
-                enamel office cup on cream, hard upper-left light —
-                beside the zero-data copy. */}
+            {/* The applicant's hand beside the zero-data copy: the
+              human plate /apply carries. (Image Audit: k32 beside the
+              zero-data line; the wax seal holds the hero above.) */}
             <figure className="apply-plate" data-sc-reveal>
               <Image
-                src="/images/kinfolk/10-wax-seal.jpg"
-                alt="A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper"
-                width={1150}
-                height={1150}
+                src="/images/kinfolk/people/32-applicant-writing.jpg"
+                alt="A hand writing an application letter with a pen on paper in hard window light"
+                width={1402}
+                height={1122}
                 sizes="(min-width: 1024px) 15rem, 60vw"
                 className="h-auto w-full"
                 loading="eager"

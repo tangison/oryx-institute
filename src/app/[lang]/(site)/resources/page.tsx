@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import { PageHead } from "@/components/site/page-head";
 import { insights, resources } from "@/lib/content";
 import { resourcesZh } from "@/lib/content-zh";
@@ -138,15 +139,28 @@ export default async function ResourcesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bulletinLd) }}
       />
 
-      {/* The opener is typographic on cream. The journal-detail plate
-          (open journal with dip pen) is not commissioned yet.
-          TODO image (founder to commission): inner/16 journal detail,
-          an open journal with a dip pen resting in the fold, hard
-          upper-left light, cream ground, subject centred with margin —
-          as the page hero at roughly 70vh. */}
       <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
+
+      {/* The opener: the journal detail — an open journal with a dip
+          pen resting in the fold — the library's own document, at
+          roughly 70vh under a gentle scrub. */}
+      <section className="section-sm" data-sc-act="scrub">
+        <div className="shell" data-sc-in>
+          <figure className="plate-fig" data-sc-parallax="0.14">
+            <Image
+              src="/images/kinfolk/inner/16-journal-detail.jpg"
+              alt="An open journal with a dip pen resting in the fold, centred on cream"
+              width={1402}
+              height={1122}
+              priority
+              sizes="(min-width: 1024px) 56rem, 92vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        </div>
+      </section>
 
       {/* The Directory: crash courses */}
       <section id="directory" className="section" data-sc-act="flow">
@@ -165,32 +179,45 @@ export default async function ResourcesPage({
           </p>
 
           <h2 className="h-section mt-14 max-w-[22ch]">{t.coursesTitle}</h2>
-          <div className="ledger mt-10" data-sc-in data-sc-stagger="60">
-            {directoryCourses.map((d) => (
-              <Link href={A(`/resources/${d.slug}`)} className="ledger-row group" key={d.slug}>
-                <p className="ledger-date">{d.no}</p>
-                <div>
-                  <h3 className="news-title">{d.title}</h3>
-                  <p className="mt-2 max-w-[62ch] text-soft">{d.standfirst}</p>
-                  <p className="meta mt-3">
-                    {d.readMinutes} {t.minuteRead}
-                  </p>
-                </div>
-              </Link>
-            ))}
+          <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,16rem)_1fr] lg:items-start">
+            <figure className="plate-fig" data-sc-reveal>
+              <Image
+                src="/images/kinfolk/inner/26-course-paper.jpg"
+                alt="A stack of printed course pages with a red pencil, centred on cream"
+                width={1254}
+                height={1254}
+                sizes="(min-width: 1024px) 16rem, 60vw"
+                className="h-auto w-full"
+                loading="lazy"
+              />
+            </figure>
+            <div className="ledger" data-sc-in data-sc-stagger="60">
+              {directoryCourses.map((d) => (
+                <Link href={A(`/resources/${d.slug}`)} className="ledger-row group" key={d.slug}>
+                  <p className="ledger-date">{d.no}</p>
+                  <div>
+                    <h3 className="news-title">{d.title}</h3>
+                    <p className="mt-2 max-w-[62ch] text-soft">{d.standfirst}</p>
+                    <p className="meta mt-3">
+                      {d.readMinutes} {t.minuteRead}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mid-page breath: the game plays out to an outcome. No text,
-          no overlay, one full viewport. */}
+      {/* Mid-page breath: the template ruler — measuring, marking,
+          the template's own instrument. No text, full viewport. */}
       <div className="divider divider--full overflow-hidden" data-sc-act="flow" aria-hidden="true">
         <div className="absolute inset-[-10%]" data-sc-parallax="0.8">
           <Image
-            src="/images/kinfolk/06-game-board.jpg"
+            src="/images/kinfolk/inner/27-template-ruler.jpg"
             alt=""
-            width={1200}
-            height={960}
+            width={1402}
+            height={1122}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -243,10 +270,21 @@ export default async function ResourcesPage({
         </div>
       </section>
 
-      {/* The peak: the Bulletin named on its own cream plate, pinned
-          for two viewports; the line arrives over the pin. */}
+      {/* The peak: the Bulletin named over the reader — a person
+          reading a pamphlet, the one human plate the Directory carries
+          — pinned for two viewports, the line arriving over the pin. */}
       <section className="peak" id="bulletin" data-sc-act="pin" data-sc-span="2">
         <div className="sc-stage" data-sc-stage>
+          <div className="peak-media" data-sc-scale aria-hidden="true">
+            <Image
+              src="/images/kinfolk/people/35-bulletin-reader.jpg"
+              alt=""
+              width={1122}
+              height={1402}
+              sizes="100vw"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
           <div className="shell flex h-full flex-col justify-center py-24">
             <div data-sc-scrim>
               <p className="eyebrow eyebrow--ink">{t.bulletinEyebrow}</p>
@@ -260,19 +298,33 @@ export default async function ResourcesPage({
         </div>
       </section>
 
-      {/* The essays themselves. They publish in English. */}
-      <section className="section-lg" data-sc-act="flow">
-        <div className="shell">
-          <div className="mt-4 grid gap-20" data-sc-in data-sc-stagger="80">
-            {insights.map((a) => (
+      {/* The essays themselves. They publish in English. Each essay
+          ends on the red ground — a silent, full-bleed tail plate that
+          gives the reader a place to land before the next piece
+          (Image Audit: one breath per essay, no text over it). */}
+      {insights.map((a) => (
+        <Fragment key={a.id}>
+          <section className="section" data-sc-act="flow">
+            <div className="shell">
               <article
-                key={a.id}
                 id={`bulletin-${a.id}`}
                 className="hair-t grid gap-8 pt-12 scroll-mt-28 lg:grid-cols-[180px_1fr] lg:gap-16"
+                data-sc-in
               >
                 <div>
                   <p className="eyebrow">{a.no}</p>
                   <p className="meta mt-3">{a.date}</p>
+                  {/* Review metadata (CONTENT-CORRECTIONS §11): author,
+                      review date, reviewer, and the error door. */}
+                  <p className="meta mt-6">{zh ? "作者：Tangi Iigonda，院长" : "Written by Tangi Iigonda, Principal"}</p>
+                  <p className="meta mt-2">{zh ? "复核：2026 年 11 月 1 日 · 复核人：Tangi Iigonda，院长" : "Last reviewed 1 November 2026 · Reviewed by Tangi Iigonda, Principal"}</p>
+                  <a
+                    href="mailto:corrections@oryxinstitute.org?subject=Bulletin%20correction"
+                    className="link-type meta mt-3 inline-block"
+                  >
+                    {zh ? "报告一处错误" : "Report an error"}{" "}
+                    <span className="arr" aria-hidden="true">→</span>
+                  </a>
                 </div>
                 <div className="min-w-0">
                   <h3 className="h-section max-w-[26ch]">{a.title}</h3>
@@ -284,10 +336,26 @@ export default async function ResourcesPage({
                   </div>
                 </div>
               </article>
-            ))}
+            </div>
+          </section>
+          <div
+            className="divider overflow-hidden"
+            data-sc-act="flow"
+            aria-hidden="true"
+          >
+            <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
+              <Image
+                src="/images/kinfolk/texture/39-red-ground.jpg"
+                alt=""
+                width={1254}
+                height={1254}
+                sizes="100vw"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </Fragment>
+      ))}
 
       {/* Publishing rule close, on cream: the footer is the only ink
           ground on the site. */}

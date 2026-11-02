@@ -54,6 +54,8 @@ export function buildIndex(lang: Lang): SearchEntry[] {
         ["申请", "页面", "给办公室的一封邮件，申请就开始了。", "/apply"],
         ["联系", "页面", "唯一的一个邮箱，以及办公室怎么回信。", "/contact"],
         ["关于", "页面", "学院是什么、谁在主持、它站在哪里。", "/about"],
+        ["名册", "页面", "在建这所学院的人：院长、讲师与实业负责人。", "/about/staff"],
+        ["安全员课程", "页面", "一天、五天与十天的职业安全培训，为纳米比亚现场而来。", "/practice/safety-officer-course"],
         ["品牌", "页面", "字标、徽记、色码与文风。", "/brand"],
         ["常见问题", "页面", "办公室对那些每次都会被问到的问题的回答。", "/faq"],
       ]
@@ -66,6 +68,8 @@ export function buildIndex(lang: Lang): SearchEntry[] {
         ["Apply", "Pages", "One email to the office starts the application.", "/apply"],
         ["Contact", "Pages", "The one mailbox, and how the office answers.", "/contact"],
         ["About", "Pages", "What the institute is, who leads it, and where it stands.", "/about"],
+        ["People", "Pages", "The people building the institute: the Principal, instructors, ventures leads.", "/about/staff"],
+        ["Safety officer course", "Pages", "One, five, and ten days of occupational safety training for Namibian sites.", "/practice/safety-officer-course"],
         ["Brand", "Pages", "The wordmark, the emblem, the codes and the voice.", "/brand"],
         ["FAQ", "Pages", "The office's answers to the questions that come every time.", "/faq"],
       ];

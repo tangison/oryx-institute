@@ -174,16 +174,18 @@ export default async function ResearchPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The hero plate: the notebook, full measure, drifting at a
-          gentler rate than the page — the scrub act. */}
+      {/* The hero plate: the game board, full measure, drifting at a
+          gentler rate than the page — the scrub act. (The notebook is
+          the homepage zigzag and the /brand specimen now; the board
+          is the research hero.) */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
           <figure className="plate-fig" data-sc-parallax="0.18">
             <Image
-              src="/images/kinfolk/04-notebook.jpg"
-              alt="A bound maroon notebook with ribbon, centred on cream paper"
-              width={1250}
-              height={1000}
+              src="/images/kinfolk/core/06-game-board.jpg"
+              alt="A carved wooden morabaraba board with scattered counters, centred on terracotta cloth"
+              width={1402}
+              height={1122}
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
               priority
@@ -220,22 +222,36 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The three streams, hairline rows, one by one. */}
+      {/* The three streams, hairline rows, one by one, with the field
+          notes beside them: the work as it is actually kept. */}
       <section className="section" data-sc-act="flow">
-        <div className="shell">
-          <p className="eyebrow eyebrow--ink">{t.streamsEyebrow}</p>
-          <div className="ledger mt-8" data-sc-in data-sc-stagger="80">
-            <div className="ledger-row">
-              <p className="ledger-date">Bulletin</p>
-              <p className="max-w-[62ch] text-soft">{t.bulletinBody}</p>
-            </div>
-            <div className="ledger-row">
-              <p className="ledger-date">{zh ? "田野" : "Fieldwork"}</p>
-              <p className="max-w-[62ch] text-soft">{t.fieldLede}</p>
-            </div>
-            <div className="ledger-row">
-              <p className="ledger-date">{zh ? "论文" : "Papers"}</p>
-              <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
+        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,20rem)_1.15fr] lg:items-start">
+          <figure className="plate-fig" data-sc-reveal>
+            <Image
+              src="/images/kinfolk/inner/24-research-field-notes.jpg"
+              alt="A spread of handwritten field notes with a pencil, centred on cream"
+              width={1254}
+              height={1254}
+              sizes="(min-width: 1024px) 20rem, 88vw"
+              className="h-auto w-full"
+              loading="lazy"
+            />
+          </figure>
+          <div>
+            <p className="eyebrow eyebrow--ink">{t.streamsEyebrow}</p>
+            <div className="ledger mt-8" data-sc-in data-sc-stagger="80">
+              <div className="ledger-row">
+                <p className="ledger-date">Bulletin</p>
+                <p className="max-w-[62ch] text-soft">{t.bulletinBody}</p>
+              </div>
+              <div className="ledger-row">
+                <p className="ledger-date">{zh ? "田野" : "Fieldwork"}</p>
+                <p className="max-w-[62ch] text-soft">{t.fieldLede}</p>
+              </div>
+              <div className="ledger-row">
+                <p className="ledger-date">{zh ? "论文" : "Papers"}</p>
+                <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -250,7 +266,7 @@ export default async function ResearchPage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/03-wood-rope-divider.jpg"
+            src="/images/kinfolk/core/03-wood-rope-divider.jpg"
             alt=""
             width={1122}
             height={1402}
@@ -260,20 +276,25 @@ export default async function ResearchPage({
         </div>
       </div>
 
-      {/* The peak: the Bulletin quote, pinned for two viewports on a
-          cream plate. The journal-detail photograph (open notebook with
-          dip pen) is not commissioned yet; the quote holds the screen in
-          type alone, which is the register anyway.
-          TODO image (founder to commission): inner/16 journal detail —
-          an open journal with a dip pen resting in the fold, hard
-          upper-left light, cream ground — as the pinned plate behind
-          this quote. */}
+      {/* The peak: the Bulletin quote, pinned for two viewports on
+          the journal-detail plate — an open journal with a dip pen
+          resting in the fold, the working document itself. */}
       <section
         className="peak"
         data-sc-act="pin"
         data-sc-span="2"
       >
         <div className="sc-stage" data-sc-stage>
+          <div className="peak-media" data-sc-scale aria-hidden="true">
+            <Image
+              src="/images/kinfolk/inner/16-journal-detail.jpg"
+              alt=""
+              width={1402}
+              height={1122}
+              sizes="100vw"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
           <div className="shell flex h-full flex-col justify-center py-24">
             <figure data-sc-scrim>
               <blockquote className="pull-quote max-w-[24ch]">
@@ -321,22 +342,6 @@ export default async function ResearchPage({
 
       {/* Research-context divider: the game plays out to an outcome.
           No text, no overlay. */}
-      <div
-        className="divider overflow-hidden"
-        data-sc-act="flow"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-[-10%]" data-sc-parallax="1.0">
-          <Image
-            src="/images/kinfolk/06-game-board.jpg"
-            alt=""
-            width={1200}
-            height={960}
-            sizes="100vw"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-      </div>
 
       {/* Researchers, the Principal, at launch */}
       <section className="section" data-sc-act="flow">
@@ -389,36 +394,22 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* Partners: named, carried as their own untampered marks, not
-          as outgoing links. */}
+      {/* Partners: named in text, carried as prose rows. The marks
+          are gone — the credit is a line, not a logo
+          (CONTENT-CORRECTIONS §5). */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
           <div className="hair-t pt-14">
             <p className="measure text-soft">{t.partnersBody}</p>
           </div>
-          <div
-            className="mt-12 grid gap-px border border-rule bg-rule md:grid-cols-2"
-            data-sc-in
-            data-sc-stagger="80"
-          >
+          <div className="ledger mt-12" data-sc-in data-sc-stagger="80">
             {partners.map((p) => (
-              <div key={p.id} className="bg-paper p-8 md:p-10">
-                <span
-                  className={`inline-flex h-8 items-center ${p.tone === "ink" ? "text-ink" : ""}`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.id === "mendozer" ? "/partners/mendozer-logo-ink.svg" : p.logo}
-                    alt={p.alt}
-                    width={p.id === "tangison" ? 1383 : 1024}
-                    height={p.id === "tangison" ? 296 : 401}
-                    className="h-full w-auto"
-                    loading="eager"
-                  />
-                </span>
-                <p className="mt-6 text-[0.95rem] leading-relaxed text-soft">
-                  {partnerNote(p.id)}
-                </p>
+              <div className="ledger-row" key={p.id}>
+                <p className="ledger-date">{zh ? "伙伴" : "Partner"}</p>
+                <div>
+                  <h3 className="h-sub">{p.name}</h3>
+                  <p className="mt-2 max-w-[60ch] text-soft">{partnerNote(p.id)}</p>
+                </div>
               </div>
             ))}
           </div>

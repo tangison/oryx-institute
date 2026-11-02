@@ -23,6 +23,10 @@ const OFFER_NAMES: Record<string, { en: string; zh: string }> = {
   it: { en: "Information Technology", zh: "信息技术" },
   "market-rd": { en: "Market Research & Development", zh: "市场调研" },
   "rapid-response": { en: "Rapid Response Training", zh: "快速响应培训" },
+  safety: { en: "Safety Officer Training", zh: "安全员培训" },
+  "safety-level-1": { en: "Safety Training, Level 1 Induction", zh: "安全培训，一级准入" },
+  "safety-level-2": { en: "Safety Training, Level 2 Officer", zh: "安全培训，二级安全员" },
+  "safety-level-3": { en: "Safety Training, Level 3 Management", zh: "安全培训，三级管理" },
 };
 
 export function offerNameFromSlug(

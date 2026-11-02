@@ -103,15 +103,17 @@ export default async function FaqPage({
         <p>{t.headLede}</p>
       </PageHead>
 
-      {/* The stone, small, above the questions. */}
+      {/* The pencil, small and right-aligned above the questions:
+          marking, answering, editing — the FAQ's own instrument.
+          (Image Bible v6: the regenerated plain graphite.) */}
       <section className="section-sm" data-sc-act="flow" data-sc-in>
-        <div className="shell">
+        <div className="shell flex justify-end">
           <figure className="faq-plate">
             <Image
-              src="/images/kinfolk/02-stone.jpg"
-              alt="One weathered stone specimen, centred on cream paper"
-              width={1150}
-              height={1150}
+              src="/images/kinfolk/inner/20-faq-pencil.jpg"
+              alt="A plain unstained dark-graphite carpenter pencil with one wood shaving beside the tip, diagonal on cream"
+              width={1122}
+              height={1402}
               sizes="(min-width: 1024px) 16rem, min(60vw, 20rem)"
               className="h-auto w-full"
               priority

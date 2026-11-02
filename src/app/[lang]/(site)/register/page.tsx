@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { register, site, schemaIds } from "@/lib/site";
 import { registerZh } from "@/lib/site-zh";
@@ -134,6 +135,25 @@ export default async function RegisterPage({
       <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
+
+      {/* The rubber stamp beside the ledger's intro: a ledger needs a
+          stamp, and this one is the register's own instrument. Small,
+          right-aligned, scrubbing gently. */}
+      <section className="section-sm" data-sc-act="scrub">
+        <div className="shell flex justify-end" data-sc-in>
+          <figure className="plate-fig" data-sc-parallax="0.12" style={{ maxWidth: "16rem" }}>
+            <Image
+              src="/images/kinfolk/inner/21-register-stamp.jpg"
+              alt="A wooden-handled rubber date stamp beside an ink pad, centred on cream"
+              width={1399}
+              height={1124}
+              priority
+              sizes="(min-width: 1024px) 16rem, 60vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        </div>
+      </section>
 
       <section className="section-lg" data-sc-act="flow">
         <div className="shell">

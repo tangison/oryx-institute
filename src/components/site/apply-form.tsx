@@ -36,6 +36,7 @@ const labels = {
     ),
     subject: (name: string, discipline: string) =>
       `Application: ${name} · ${discipline}`,
+    safety: "Safety training",
     body: (
       name: string,
       contact: string,
@@ -78,6 +79,7 @@ const labels = {
     ),
     subject: (name: string, discipline: string) =>
       `申请：${name} · ${discipline}`,
+    safety: "安全培训",
     body: (
       name: string,
       contact: string,
@@ -113,6 +115,10 @@ const labels = {
 export function ApplyForm({ lang }: { lang: Lang }) {
   const t = labels[lang];
   const offerList = lang === "zh" ? offersZh : offers;
+  /* The safety programme takes its own option beside the six offers:
+     the CTAs on the course pages deep-link with ?for=safety (and
+     ?for=safety-level-N), which preselects it. */
+  const SAFETY_IDS = ["safety", "safety-level-1", "safety-level-2", "safety-level-3"];
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [discipline, setDiscipline] = useState<string>(offerList[0].name);
@@ -122,6 +128,10 @@ export function ApplyForm({ lang }: { lang: Lang }) {
   useEffect(() => {
     const wanted = new URLSearchParams(window.location.search).get("for");
     if (!wanted) return;
+    if (SAFETY_IDS.includes(wanted)) {
+      setDiscipline(t.safety);
+      return;
+    }
     const hit = offerList.find((o) => o.id === wanted);
     if (hit) setDiscipline(hit.name);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -241,6 +251,7 @@ export function ApplyForm({ lang }: { lang: Lang }) {
                 {o.name}
               </option>
             ))}
+            <option value={t.safety}>{t.safety}</option>
             <option value={t.notSure}>{t.notSure}</option>
           </select>
         </div>

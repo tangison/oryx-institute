@@ -73,7 +73,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. {t.rights}
           </p>
-          <p className="foot-credit">{zh ? "由 Tangison 构建" : "Built by Tangison"}</p>
+          <p className="foot-credit">{zh ? "形象与搭建：Tangison · 温得和克" : "Identity and build by Tangison · Windhoek"}</p>
         </div>
       </div>
     </footer>

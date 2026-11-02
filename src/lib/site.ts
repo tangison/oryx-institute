@@ -232,7 +232,16 @@ export const offers = [
  * here names a partner before that partner has agreed to be named.
  */
 export const register = [
-  { date: "2026-10-25", entry: "BIPA registration confirmed, Oryx Polytechnic\u00A0Institute." },
+  {
+    date: "2026-11-01",
+    entry:
+      "Safety officer training programme announced. Curriculum published; lead instructor and first cohort dates to be confirmed before enrolments open.",
+  },
+  {
+    date: "2026-10-25",
+    entry:
+      "BIPA registration confirmed, Oryx Polytechnic Institute. Registration number and certificate will be published within 14 days of collection from BIPA.",
+  },
   { date: "2026-10-25", entry: "Website relaunched." },
   { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
   /* TODO founder: Directory publication date */
@@ -306,7 +315,7 @@ export const approvedLines = [
   },
   {
     line: "Excellence in innovation and applied problem-solving.",
-    source: "Certificate\u00A0of\u00A0Achievement",
+    source: "Certificate\u00A0of\u00A0Attendance",
   },
   { line: "Quiet work, decisive finishes.", source: "Strategy\u00A0notes" },
   { line: "Decisions, not decks.", source: "The practice" },
@@ -325,30 +334,21 @@ export const approvedLines = [
 ] as const;
 
 /**
- * The partners the institute names in public. Logos are carried
- * byte-exact from each partner's own site (see public/partners/);
- * nothing was recoloured or redrawn. The marks stand as content on
- * the research page: the institute does not link out to partner
- * sites from its own pages.
+ * The partners the institute names in public. The credit is text only:
+ * no partner marks are carried on the site (the colophon states the
+ * Tangison relationship in prose, per CONTENT-CORRECTIONS §5), and the
+ * institute does not link out to partner sites from its own pages.
  */
 export const partners = [
   {
     id: "tangison",
     name: "Tangison Technologies",
-    logo: "/partners/tangison-logo.svg",
-    alt: "Tangison Technologies",
     note: "The AI training programme and the flagship product, built together.",
-    /** The mark is drawn in currentColor; it takes the page's ink. */
-    tone: "ink" as const,
   },
   {
     id: "mendozer",
     name: "Mendozer",
-    logo: "/partners/mendozer-logo.svg",
-    alt: "Mendozer",
     note: "Building Corner Spa and the ventures beyond it, together.",
-    /** The mark carries its own gradient; it stands unaltered. */
-    tone: "self" as const,
   },
 ] as const;
 
@@ -390,6 +390,14 @@ export const footerNav = [
  * contacts and print kit. Nothing promises what is not printed. */
 export const faqs = [
   {
+    q: "When does the safety officer course start?",
+    a: "Curriculum and pricing will be published on 15 November 2026. Cohort 1 is planned for January 2027. Register your interest via the application form selecting 'Safety training' and we will contact you the moment enrolments open.",
+  },
+  {
+    q: "When will accredited programmes start?",
+    a: "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
+  },
+  {
     q: "How do I apply?",
     a: "Write to the office. Send one email to info@oryxinstitute.org with your name, a contact for the reply, and your field of interest. The application starts with that message.",
   },
@@ -415,7 +423,7 @@ export const faqs = [
   },
   {
     q: "Is there a certificate?",
-    a: "Yes. The institute issues its Certificate of Achievement on completion, recognizing excellence in innovation and applied problem-solving. The certificate is signed by the Principal and dated by hand.",
+    a: "Oryx issues two kinds of document after a course. The Certificate of Attendance is an internal record of completion for every short course or workshop, signed by the Principal; it is not an NQF-credit-bearing qualification and cannot be submitted to NQA as accredited prior learning — it is a record that you completed an Oryx course. The NQF-registered qualification certificate is issued only after Oryx receives NQA accreditation for the relevant qualification; those will carry NQA recognition and credit value, and that is what we are working toward.",
   },
   {
     q: "Can I visit the office?",

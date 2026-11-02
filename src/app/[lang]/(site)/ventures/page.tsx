@@ -128,7 +128,10 @@ export default async function VenturesPage({
       />
 
       {/* The hero, a reverse-zigzag under scrub: the proposition on the
-          left, the spa plate drifting at its own rate on the right. */}
+          left, the spa's own treatment scene drifting at its own rate
+          on the right. (The spa dish stays on the homepage; this is
+          the corner-spa towel — a real treatment scene, not an
+          object.) */}
       <section className="section" data-sc-act="scrub">
         <div className="shell grid items-center gap-12 md:grid-cols-[1fr_minmax(0,26rem)] md:gap-16 lg:gap-24">
           <div data-sc-in>
@@ -137,10 +140,10 @@ export default async function VenturesPage({
           </div>
           <figure className="plate-fig" data-sc-parallax="0.15">
             <Image
-              src="/images/kinfolk/08-spa-dish.jpg"
-              alt="A terracotta dish with folded linen, a river stone and a beeswax candle, centred on sand-beige linen"
-              width={1000}
-              height={1000}
+              src="/images/kinfolk/texture/36-corner-spa-towel.jpg"
+              alt="A terracotta tile with folded linen and a sprig of herbs, a corner-spa treatment scene"
+              width={1254}
+              height={1254}
               sizes="(min-width: 768px) 26rem, 88vw"
               className="h-auto w-full"
               priority
@@ -170,24 +173,16 @@ export default async function VenturesPage({
         </div>
       </section>
 
-      {/* The peak: Corner Spa, named over its own plate on its own
-          sand ground, pinned for two viewports. */}
+      {/* The peak: Corner Spa, named on its own sand ground — the
+          venture's own palette, type and colour only, the treatment
+          scene already seen above. Pinned for two viewports. */}
       <section className="peak" data-sc-act="pin" data-sc-span="2">
         <div className="sc-stage" data-sc-stage>
           <div
-            className="absolute inset-0 flex items-center justify-center p-8 md:p-16"
+            className="absolute inset-0 grid place-items-center p-8 md:p-16"
             style={{ background: "var(--sand)" }}
             data-sc-scale
           >
-            <Image
-              src="/images/kinfolk/08-spa-dish.jpg"
-              alt="A terracotta dish with folded linen, a river stone and a beeswax candle, centred on sand-beige linen"
-              width={1000}
-              height={1000}
-              sizes="(min-width: 1024px) 44rem, 92vw"
-              className="h-full w-auto max-w-full object-contain"
-              loading="eager"
-            />
             <div className="peak-scrim" data-sc-scrim>
               <p className="offer-tag">{v.cornerSpa.status}</p>
               <h2 className="h-section mt-3">{v.cornerSpa.name}</h2>
@@ -204,6 +199,25 @@ export default async function VenturesPage({
         </div>
       </section>
 
+      {/* A dust trail leaves the scrim: ventures starting, motion
+          leaving. Silent, full-bleed, no text. */}
+      <div
+        className="divider divider--full overflow-hidden"
+        data-sc-act="flow"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.7">
+          <Image
+            src="/images/kinfolk/texture/33-dust-trail.jpg"
+            alt=""
+            width={1402}
+            height={1122}
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
       {/* What comes next: silent, small. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-12 md:grid-cols-2">
@@ -218,10 +232,8 @@ export default async function VenturesPage({
             </div>
           </div>
 
-          {/* Manifest v4 assigns no plate beyond the spa shots above.
-              TODO image (founder to commission, if wanted): a quiet
-              ventures divider in the site register — e.g. a chalk line
-              and folded ledger on walnut — to breathe before the close. */}
+          {/* The dust-trail divider above carries the breath before
+              the close. */}
           <div className="hair-t pt-14" data-sc-in>
             <h2 className="h-section max-w-[20ch]">
               {zh ? "有一个你认为 Oryx 该检验的行业？" : "A sector you think Oryx should test?"}

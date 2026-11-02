@@ -204,7 +204,7 @@ export const directoryCourses: Doc[] = [
     standfirst:
       "The written contract, the leave minimums, the overtime ceiling, and why Namibia is not an employment-at-will jurisdiction.",
     readMinutes: 10,
-    updated: "September 2026",
+    updated: "1 November 2026",
     sections: [
       {
         heading: "The contract, in writing, always",
@@ -224,15 +224,21 @@ export const directoryCourses: Doc[] = [
             t: "table",
             head: ["Leave type", "Minimum"],
             rows: [
-              ["Annual leave", "24 consecutive days per 12-month cycle (pro-rated to days worked per week)"],
-              ["Maternity leave", "12 weeks, paid at 80% via the Social Security Commission"],
+              [
+                "Annual leave",
+                "Four consecutive weeks per 12-month cycle, counted against the employee's ordinary working week: 20 working days on a 5-day week, 24 working days on a 6-day week",
+              ],
+              [
+                "Maternity leave",
+                "12 weeks. From 1 October 2026 the SSC benefit pays 100% of the eligible member's basic salary, capped at N$20,000 per month, through the Maternity, Sick and Death Benefit Fund",
+              ],
               ["Sick leave", "Accumulates based on length of employment"],
               ["Public holidays", "Paid, per the national calendar"],
             ],
           },
           {
             t: "p",
-            text: "Annual leave accrues through the first year but cannot be taken until that year completes. Unused leave generally must be used within four months of the cycle's end (extendable to six months by written agreement). An employer cannot let leave balances run indefinitely without a policy governing it.",
+            text: "Annual leave accrues through the first year but cannot be taken until that year completes. Unused leave generally must be used within four months of the cycle's end (extendable to six months by written agreement). An employer cannot let leave balances run indefinitely without a policy governing it. The working-days distinction matters in the contract too: a 5-day-week employee is owed 20 working days, not 24, and the contract template on this Directory is written to reflect that.",
           },
         ],
       },
@@ -242,7 +248,21 @@ export const directoryCourses: Doc[] = [
         blocks: [
           {
             t: "p",
-            text: "Statutory minimum wage sits at roughly N$1,564/month in commonly cited figures. Confirm current gazetted rates before relying on this for payroll, as minimum wage determinations are sector-specific and periodically revised. Overtime may not exceed 10 hours per week or 3 hours per day, and must be agreed, not unilaterally imposed by the employer. It is paid at 1.5 times the basic hourly rate, rising to 2 times for Sundays and public holidays.",
+            text: "Statutory minimum wages are set by sectoral determination, with phased increases applying per sector. The hourly minimums effective January 2026, per the Ministry of Labour:",
+          },
+          {
+            t: "table",
+            head: ["Worker category", "Minimum hourly rate (N$)"],
+            rows: [
+              ["General workers", "18"],
+              ["Domestic workers", "15"],
+              ["Agricultural workers", "14"],
+              ["Security workers", "16"],
+            ],
+          },
+          {
+            t: "p",
+            text: "Confirm current gazetted rates on the Ministry of Labour's own pages (mol.gov.na) before relying on this for payroll. Overtime may not exceed 10 hours per week or 3 hours per day, and must be agreed, not unilaterally imposed by the employer. It is paid at 1.5 times the basic hourly rate, rising to 2 times for Sundays and public holidays.",
           },
         ],
       },
@@ -533,7 +553,7 @@ export const directoryTemplates: Doc[] = [
             "Commencement and term: start date, indefinite or fixed-term with the end date or project named.",
             "Remuneration: basic salary per month or week and the payment cycle, with deductions stated (PAYE, the 0.9% Social Security Commission employee contribution, others).",
             "Working hours: per week up to the statutory maximum of 45. Overtime by agreement only, paid at 1.5 times the basic hourly rate (2 times on Sundays and public holidays), not exceeding 10 hours a week or 3 hours a day.",
-            "Leave: 24 consecutive days annual leave per 12-month cycle (statutory minimum, pro-rated to days worked per week); sick leave, maternity leave and public holidays per the Labour Act 11 of 2007.",
+            "Leave: four consecutive weeks of annual leave per 12-month cycle, counted against the employee's ordinary working week (20 working days on a 5-day week, 24 on a 6-day week); sick leave, maternity leave and public holidays per the Labour Act 11 of 2007.",
             "Termination: the notice period per length of service under the Act (1 day, 1 week, or 1 month). Termination requires a valid, fair reason and a fair procedure.",
             "Other terms: probation period, confidentiality, place of work, any additional benefits.",
           ] },
@@ -569,6 +589,34 @@ export const directoryTemplates: Doc[] = [
     sourceNote: "A working structure. Minutes record decisions and actions, not conversation.",
   },
 ];
+
+/**
+ * The editable downloads (CONTENT-CORRECTIONS §9): every template
+ * ships as a real file from /public/templates/, free and direct —
+ * no gate, consistent with the Directory's own register. The files
+ * carry the same content as the web versions, in the Oryx print
+ * treatment: wordmark top-left, Inter body, maroon hairline foot.
+ */
+export const templateDownloads: Record<string, { file: string; label: string }[]> = {
+  "letterhead-template": [{ file: "letterhead.pdf", label: "Letterhead (PDF, A4)" }],
+  "business-plan-template": [{ file: "business-plan.docx", label: "Business plan (DOCX)" }],
+  "financial-projections-template": [
+    { file: "financial-projections.xlsx", label: "Financial projections (XLSX)" },
+  ],
+  "invoice-quotation-template": [
+    { file: "invoice.docx", label: "Invoice (DOCX)" },
+    { file: "invoice.xlsx", label: "Invoice (XLSX)" },
+    { file: "quotation.docx", label: "Quotation (DOCX)" },
+    { file: "quotation.xlsx", label: "Quotation (XLSX)" },
+  ],
+  "nda-template": [{ file: "nda.docx", label: "Non-disclosure agreement (DOCX)" }],
+  "employment-contract-template": [
+    { file: "employment-contract.docx", label: "Employment contract (DOCX)" },
+  ],
+  "meeting-minutes-template": [
+    { file: "meeting-minutes.docx", label: "Meeting minutes (DOCX)" },
+  ],
+};
 
 /** All eleven documents, courses first. */
 export const directoryAll: Doc[] = [...directoryCourses, ...directoryTemplates];

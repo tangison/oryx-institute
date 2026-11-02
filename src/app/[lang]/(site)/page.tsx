@@ -5,6 +5,7 @@ import { site, offers, register, ventures, schemaIds } from "@/lib/site";
 import { siteZh, offersZh, registerZh, venturesZh } from "@/lib/site-zh";
 import { insights } from "@/lib/content";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
+import { safetyAnnouncement } from "@/lib/safety";
 import {
   GlyphResearch,
   GlyphPractice,
@@ -20,15 +21,17 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
 /**
  * The homepage, laid out as one scroll composition:
  *
- *   hero (scrub) · positioning (flow) · 03 silent divider (flow) ·
- *   the three kinds of work (PIN) · what runs today (flow) · practice
- *   peak (PIN) · research zigzag (flow) · ventures reverse-zigzag
- *   (flow) · 07 silent divider (flow) · the register (flow) · close
- *   (PIN) · footer.
+ *   hero (scrub, with the announcement pill) · positioning (flow) ·
+ *   03 silent divider (flow) · the three kinds of work (PIN) · what
+ *   runs today (flow) · practice peak (PIN) · research zigzag (flow) ·
+ *   ventures reverse-zigzag (flow) · 8b announcement pin (PIN) · 07
+ *   silent divider (flow) · the register (flow) · close (PIN) ·
+ *   footer.
  *
- * Three pins, two silent dividers, one pinned peak. No device twice in
- * a row. The core plates run in act order: 01, 02, 03, 05, 04, 08, 07,
- * 10 (Image Asset Manifest v4).
+ * Four pins, two silent dividers. The core plates run in act order:
+ * 01, 03, 05, 04, 08, 46+40 (announcement), 07, 10 (Image Bible v6:
+ * the stone is the /brand specimen only, so the positioning act
+ * carries no image).
  */
 const copy = {
   en: {
@@ -250,7 +253,7 @@ export default async function HomePage({
       <section className="hero" data-sc-act="scrub">
         <div className="hero-media" data-sc-parallax="0.45" aria-hidden="true">
           <Image
-            src="/images/kinfolk/01-hero-oryx.jpg"
+            src="/images/kinfolk/core/01-hero-oryx.jpg"
             alt=""
             width={1122}
             height={1402}
@@ -266,6 +269,17 @@ export default async function HomePage({
           </div>
           <div className="mt-6" data-sc-parallax="0.08">
             <p className="hero-sub max-w-[44ch]">{s.heroSub}</p>
+            {/* The announcement pill: one small door above the fold,
+                nothing more. No popups, no banners, no slide-ins. */}
+            <div className="mt-6">
+              <Link
+                href={zh ? "/zh/practice/safety-officer-course" : "/practice/safety-officer-course"}
+                className="hero-pill"
+              >
+                {safetyAnnouncement[lang].pill}{" "}
+                <span className="arr" aria-hidden="true">→</span>
+              </Link>
+            </div>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="#what-runs" className="btn btn--cream">
                 {t.seeWhatRuns}
@@ -281,9 +295,9 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Positioning: the sentence, with the stone beside it. The
-          about link gives the institute page a contextual inbound
-          route, not only the chrome. */}
+      {/* Positioning: the sentence, and the door into the about page.
+          No plate — the stone is the /brand specimen now, and the
+          homepage states itself in type (Image Bible v6, act 3). */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell positioning">
           <p className="lede measure text-ink">{t.positioning}</p>
@@ -298,17 +312,6 @@ export default async function HomePage({
               {chrome[lang].langNote}
             </Link>
           </p>
-          <figure className="positioning-plate" data-sc-in>
-            <Image
-              src="/images/kinfolk/02-stone.jpg"
-              alt="One weathered stone specimen, centred on cream paper"
-              width={1150}
-              height={1150}
-              sizes="(min-width: 1024px) 22rem, min(78vw, 26rem)"
-              className="h-auto w-full"
-              loading="eager"
-            />
-          </figure>
         </div>
       </section>
 
@@ -321,7 +324,7 @@ export default async function HomePage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/03-wood-rope-divider.jpg"
+            src="/images/kinfolk/core/03-wood-rope-divider.jpg"
             alt=""
             width={1122}
             height={1402}
@@ -412,7 +415,7 @@ export default async function HomePage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/05-hands-peak.jpg"
+              src="/images/kinfolk/core/05-hands-peak.jpg"
               alt="A pair of hands mid-task in a shaft of hard daylight"
               width={1250}
               height={1000}
@@ -433,7 +436,7 @@ export default async function HomePage({
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig" data-sc-in>
             <Image
-              src="/images/kinfolk/04-notebook.jpg"
+              src="/images/kinfolk/core/04-notebook.jpg"
               alt="A bound maroon notebook with ribbon, centred on cream paper"
               width={1250}
               height={1000}
@@ -444,12 +447,22 @@ export default async function HomePage({
           </figure>
           <div>
             <h2 className="h-section max-w-[20ch]">{t.researchTitle}</h2>
-            <p className="measure mt-6 text-soft">{latest.dek}</p>
+            {/* The Chinese page carries the panel in Chinese (the
+                Bulletin correction: no mixed-language excerpt on the
+                zh homepage); the essays themselves publish in
+                English, and the link says so. */}
+            <p className="measure mt-6 text-soft">
+              {zh ? latest.dekZh : latest.dek}
+            </p>
             <div className="panel mt-8 p-7 md:p-9" data-sc-in>
               <p className="eyebrow--ink eyebrow">{latest.no}</p>
-              <h3 className="h-sub mt-3">{latest.title}</h3>
+              <h3 className="h-sub mt-3">
+                {zh ? latest.titleZh : latest.title}
+              </h3>
               <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
-                {latest.body[0].slice(0, 220)}…
+                {zh
+                  ? `${latest.excerptZh}…`
+                  : `${latest.body[0].slice(0, 220)}…`}
               </p>
               <Link
                 href={zh ? "/zh/resources#bulletin" : "/resources#bulletin"}
@@ -470,7 +483,7 @@ export default async function HomePage({
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig md:order-2" data-sc-in>
             <Image
-              src="/images/kinfolk/08-spa-dish.jpg"
+              src="/images/kinfolk/core/08-spa-dish.jpg"
               alt="Folded linen, a stone and a ceramic bowl, centred on cream paper"
               width={1000}
               height={1000}
@@ -499,6 +512,75 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* Act 8b, the announcement pin: the horn at low opacity
+          behind a cream card, the helmet as the small focal plate.
+          Atmosphere, not a banner: one pinned breath, then it scrolls
+          away. (ANNOUNCEMENT.md, verbatim structure.) */}
+      <section
+        className="peak"
+        data-sc-act="pin"
+        data-sc-span="1.4"
+      >
+        <div className="sc-stage" data-sc-stage>
+          <div className="announce-bg" data-sc-scale aria-hidden="true">
+            <div className="absolute inset-[-8%]" data-sc-parallax="0.4">
+              <Image
+                src="/images/kinfolk/safety/46-announcement-horn.jpg"
+                alt=""
+                width={1254}
+                height={1254}
+                sizes="100vw"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="sc-stage-inner flex h-full items-center">
+            <div className="shell w-full">
+              <div className="announce-card" data-sc-scrim>
+                <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-14">
+                  <div>
+                    <p className="eyebrow eyebrow--ink">
+                      {safetyAnnouncement[lang].eyebrow}
+                    </p>
+                    <h2 className="h-section mt-4 max-w-[20ch]">
+                      {safetyAnnouncement[lang].title}
+                    </h2>
+                    <p className="measure mt-5 text-soft">
+                      {safetyAnnouncement[lang].body}
+                    </p>
+                    <div className="mt-8 flex flex-wrap items-center gap-5">
+                      <Link
+                        href={zh ? "/zh/practice/safety-officer-course" : "/practice/safety-officer-course"}
+                        className="btn"
+                      >
+                        {safetyAnnouncement[lang].seeCurriculum}
+                      </Link>
+                      <Link
+                        href={zh ? "/zh/apply?for=safety" : "/apply?for=safety"}
+                        className="btn--quiet"
+                      >
+                        {safetyAnnouncement[lang].registerInterest}{" "}
+                        <span className="arr" aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                  <figure className="announce-plate w-[min(13.75rem,55vw)]">
+                    <Image
+                      src="/images/kinfolk/safety/40-green-helmet.jpg"
+                      alt={safetyAnnouncement[lang].helmetAlt}
+                      width={220}
+                      height={220}
+                      sizes="(min-width: 768px) 220px, 55vw"
+                      className="h-auto w-full"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Second silent divider: Windhoek, a breath before the
           ledger. No text. */}
       <div
@@ -508,7 +590,7 @@ export default async function HomePage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/07-windhoek-divider.jpg"
+            src="/images/kinfolk/core/07-windhoek-divider.jpg"
             alt=""
             width={1250}
             height={1000}
@@ -567,7 +649,7 @@ export default async function HomePage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/10-wax-seal.jpg"
+              src="/images/kinfolk/core/10-wax-seal.jpg"
               alt="A maroon wax seal with ribbon, centred on cream paper"
               width={1150}
               height={1150}

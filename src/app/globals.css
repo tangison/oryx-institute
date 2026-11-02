@@ -1259,6 +1259,137 @@ body.menu-locked {
   line-height: 1.6;
 }
 
+/* The safety landing hero: the officer portrait full-bleed under
+   scrub, the proposition on a cream scrim block, bottom left — the
+   same treatment the founder takes on /about. */
+.safety-hero {
+  position: relative;
+  min-height: min(92vh, 52rem);
+  min-height: min(92svh, 52rem);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.safety-hero-media {
+  position: absolute;
+  inset: 0;
+}
+.safety-hero-scrim {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  margin-block: clamp(2.5rem, 7vh, 4.5rem);
+  width: fit-content;
+  max-width: min(34rem, calc(100vw - 2 * var(--gutter)));
+}
+
+/* A container-width silent divider (the concrete breath between the
+   safety levels), narrower than the full-bleed dividers. */
+.divider--narrow {
+  height: clamp(14rem, 38vh, 26rem);
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* A module's own plate inside its hairline row. */
+.module-plate {
+  margin-top: 1.75rem;
+  max-width: 16rem;
+}
+
+/* The homepage announcement pin: the horn plate at low opacity behind
+   a cream scrim card, the helmet as a small right plate. Atmosphere,
+   not focal. */
+.announce-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.announce-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: saturate(0.7);
+}
+.announce-card {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  width: fit-content;
+  max-width: min(46rem, calc(100vw - 2 * var(--gutter)));
+}
+
+/* The small cream pill under the homepage hero title. */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--paper);
+  color: var(--maroon);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--rule);
+}
+.hero-pill:hover {
+  border-color: var(--maroon);
+}
+
+/* Staff rows on /about and /about/staff: one person per hairline
+   row, portrait or placeholder left, name, role, bio right. */
+.staff-rows {
+  display: grid;
+}
+.staff-row {
+  display: grid;
+  gap: 1.75rem;
+  padding-block: 2.25rem;
+  border-top: 1px solid var(--rule);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 48rem) {
+  .staff-row {
+    grid-template-columns: minmax(0, 11rem) 1fr;
+    gap: 3rem;
+  }
+}
+.staff-row-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.staff-role {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+/* The safety row's NEW tag: the same eyebrow style as the offer tags,
+   in maroon, with a small green marker beside it. */
+.offer-tag--new {
+  color: var(--maroon);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.new-marker {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #2f6b3a;
+}
+
 /* Pull quotes: Radley italic, the brief's own scale. */
 .pull-quote {
   font-family: var(--font-display);

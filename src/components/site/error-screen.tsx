@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { OryxLogo } from "@/components/site/oryx-logo";
 
 /**
@@ -160,6 +161,20 @@ export function ErrorScreen({
 
       <main className="shell flex flex-1 flex-col items-start justify-center pb-24">
         <OryxLogo variant="emblem" tone="brand" className="h-[120px] w-auto" />
+        {/* The torn sheet, on the 404 only: the one error page that
+            deserves an image as the joke. (Image Audit: k28, 404-only.) */}
+        {status === 404 && (
+          <figure className="mt-8 max-w-[13rem]">
+            <Image
+              src="/images/kinfolk/inner/28-404-torn.jpg"
+              alt="A sheet of cream paper torn across, photographed on cream"
+              width={1254}
+              height={1254}
+              sizes="(min-width: 48rem) 13rem, 55vw"
+              className="h-auto w-full"
+            />
+          </figure>
+        )}
         <h1 className="h-display mt-10 max-w-[18ch]">{v.title}</h1>
         <p className="measure mt-5 text-soft">{v.body}</p>
         <div className="mt-10 flex flex-wrap items-center gap-7">

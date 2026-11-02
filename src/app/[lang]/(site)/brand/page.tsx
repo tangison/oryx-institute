@@ -233,56 +233,76 @@ function downloads(zh: boolean) {
  */
 const kitPieces = [
   {
-    src: "/images/kinfolk/print/01-certificate.jpg",
+    src: "/images/kinfolk/print/11-certificate.jpg",
     alt: "The certificate: cream sheet with a double-rule maroon border, on dark walnut",
-    w: 780,
-    h: 1040,
+    w: 1402,
+    h: 1122,
     overlay: {
       kind: "certificate" as const,
-      /** The sheet spans 18%..82% horizontally, 15%..88% vertically. */
-      sheet: { left: "18%", top: "15%", width: "64%", height: "73%" },
+      /** The sheet spans 19%..81% horizontally, 21%..79% vertically. */
+      sheet: { left: "19%", top: "21%", width: "62%", height: "58%" },
     },
   },
   {
-    src: "/images/kinfolk/print/02-letterhead.jpg",
+    src: "/images/kinfolk/print/12-letterhead-blank.jpg",
     alt: "The letterhead: cream sheet on dark walnut, the lockup set top left",
-    w: 780,
-    h: 1040,
+    w: 1402,
+    h: 1122,
     overlay: {
-      kind: "lockup" as const,
-      /** The lockup sits on the sheet, one clearspace in from the top
-          left; it covers the placeholder line the stock photo carries. */
-      box: { left: "26%", top: "25.5%", width: "30%" },
+      kind: "letterhead" as const,
+      /** The sheet spans 24.5%..74.5% horizontally, 14%..84.5%
+          vertically. The lockup sits one clearspace in from the
+          sheet's top left; the hairline rule and the office line sit
+          near the sheet's bottom edge (Audit A5). */
+      sheet: { left: "24.5%", top: "14%", width: "50%", height: "70.5%" },
     },
   },
   {
-    src: "/images/kinfolk/print/03-business-card.jpg",
+    src: "/images/kinfolk/print/13-card-blank.jpg",
     alt: "The business card reverse: maroon stock on cream, the shield centred",
-    w: 780,
-    h: 1040,
+    w: 1254,
+    h: 1254,
     overlay: {
       kind: "emblem-ivory" as const,
-      box: { left: "49.2%", top: "49.6%", height: "20.5%" },
+      /** The card spans 22.5%..78.5% x 34%..67.5%; the emblem holds
+          its centre at roughly 28% of the card's width. */
+      box: { left: "50.5%", top: "50.6%", height: "16%" },
     },
   },
   {
-    src: "/images/kinfolk/print/04-notecard.jpg",
+    src: "/images/kinfolk/print/14-notecard-blank.jpg",
     alt: "The folded notecard: cream stock on dark walnut, the shield centred high",
-    w: 780,
-    h: 1040,
+    w: 1122,
+    h: 1402,
     overlay: {
       kind: "emblem" as const,
-      box: { left: "51.2%", top: "38.8%", height: "14%" },
+      /** The card front spans 30%..70% x 20%..75%; the emblem sits
+          centred in the upper half of the front, small. */
+      box: { left: "50%", top: "39%", height: "12%" },
     },
   },
   {
-    src: "/images/kinfolk/print/05-folder.jpg",
+    src: "/images/kinfolk/print/15-folder-blank.jpg",
     alt: "The presentation folder: maroon stock on cream, the shield centred",
-    w: 780,
-    h: 1040,
+    w: 1402,
+    h: 1122,
     overlay: {
       kind: "emblem-ivory" as const,
-      box: { left: "50.6%", top: "42.4%", height: "23.5%" },
+      /** The folder spans 21.5%..81.5% x 12%..90.5%; the emblem
+          holds its centre at roughly 20% of the folder's width. */
+      box: { left: "51.5%", top: "50.3%", height: "15%" },
+    },
+  },
+  {
+    src: "/images/kinfolk/print/20-envelope-maroon.jpg",
+    alt: "The envelope: maroon stock on cream, the wordmark set at the return position",
+    w: 1254,
+    h: 1254,
+    overlay: {
+      kind: "wordmark-ivory" as const,
+      /** The envelope spans 22%..81% x 29%..72%; the ivory wordmark
+          sits small at the top-left return position (Audit A1). */
+      box: { left: "30%", top: "36.5%", width: "17%" },
     },
   },
 ];
@@ -292,32 +312,53 @@ const kitPieces = [
  *  not commissioned yet. */
 const specimens = [
   {
-    src: "/images/kinfolk/02-stone.jpg",
+    src: "/images/kinfolk/core/02-stone.jpg",
     alt: "One weathered stone specimen, centred on cream paper",
-    caption: { en: "stone", zh: "河石" },
-    w: 1150,
-    h: 1150,
+    caption: { en: "stone", zh: "\u6cb3\u77f3" },
+    w: 1254,
+    h: 1254,
   },
   {
-    src: "/images/kinfolk/09-horns.jpg",
+    src: "/images/kinfolk/core/09-horns.jpg",
     alt: "Two shed oryx horns lying parallel, centred on cream paper",
-    caption: { en: "horns", zh: "羚羊角" },
-    w: 1250,
-    h: 1000,
+    caption: { en: "horns", zh: "\u7f9f\u7f8a\u89d2" },
+    w: 1402,
+    h: 1122,
   },
   {
-    src: "/images/kinfolk/10-wax-seal.jpg",
+    src: "/images/kinfolk/core/10-wax-seal.jpg",
     alt: "A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper",
-    caption: { en: "wax seal", zh: "火漆封缄" },
-    w: 1150,
-    h: 1150,
+    caption: { en: "wax seal", zh: "\u706b\u6f06\u5c01\u7f04" },
+    w: 1254,
+    h: 1254,
   },
   {
-    src: "/images/kinfolk/04-notebook.jpg",
+    src: "/images/kinfolk/core/04-notebook.jpg",
     alt: "A bound maroon notebook with ribbon, centred on cream paper",
-    caption: { en: "notebook", zh: "笔记本" },
-    w: 1250,
-    h: 1000,
+    caption: { en: "notebook", zh: "\u7b14\u8bb0\u672c" },
+    w: 1402,
+    h: 1122,
+  },
+  {
+    src: "/images/kinfolk/core/06-game-board.jpg",
+    alt: "A carved wooden morabaraba board with scattered counters, centred on terracotta cloth",
+    caption: { en: "morabaraba board", zh: "morabaraba \u68cb\u76d8" },
+    w: 1402,
+    h: 1122,
+  },
+  {
+    src: "/images/kinfolk/inner/19-mineral.jpg",
+    alt: "A Namibian desert mineral specimen, centred on cream paper",
+    caption: { en: "desert mineral", zh: "\u8352\u6f20\u77ff\u7269" },
+    w: 1254,
+    h: 1254,
+  },
+  {
+    src: "/images/kinfolk/inner/18-cup.jpg",
+    alt: "An enamel office cup, centred on cream paper",
+    caption: { en: "cup", zh: "\u640a\u74f7\u676f" },
+    w: 1254,
+    h: 1254,
   },
 ];
 
@@ -447,18 +488,73 @@ function OverlayMark({ piece }: { piece: (typeof kitPieces)[number] }) {
       </div>
     );
   }
+  if (o.kind === "letterhead") {
+    /* The letterhead carries two marks: the lockup one clearspace in
+       from the sheet's top left, and a maroon hairline rule with the
+       office line near the sheet's bottom edge (Audit A5). */
+    return (
+      <div className="absolute" style={o.sheet} aria-hidden="true">
+        <span
+          className="absolute"
+          style={{ left: "9%", top: "9%", width: "46%" }}
+        >
+          <LogoPlate
+            src="/brand/oryx-lockup.svg"
+            w={440}
+            h={152}
+            alt=""
+            style={{ width: "100%", height: "auto" }}
+          />
+        </span>
+        <span
+          className="absolute border-t"
+          style={{
+            left: "9%",
+            right: "9%",
+            bottom: "9%",
+            borderColor: "var(--maroon)",
+          }}
+        />
+        <p
+          className="absolute text-[0.55rem] tracking-[0.14em]"
+          style={{ left: "9%", bottom: "5.5%", color: "#181713B3" }}
+        >
+          info@oryxinstitute.org · Windhoek · Namibia
+        </p>
+      </div>
+    );
+  }
+  if (o.kind === "wordmark-ivory") {
+    /* The envelope's return position: the ivory wordmark, small. */
+    return (
+      <span
+        className="absolute"
+        style={{ ...o.box }}
+        aria-hidden="true"
+      >
+        <LogoPlate
+          src="/brand/oryx-wordmark-ivory.svg"
+          w={465}
+          h={222}
+          alt=""
+          style={{ width: "100%", height: "auto" }}
+        />
+      </span>
+    );
+  }
   const src =
-    o.kind === "lockup"
-      ? "/brand/oryx-lockup.svg"
-      : o.kind === "emblem-ivory"
-        ? "/brand/oryx-emblem-ivory.svg"
-        : "/brand/oryx-emblem.svg";
-  const w = o.kind === "lockup" ? 440 : 106;
-  const h = o.kind === "lockup" ? 152 : 139;
-  const style: React.CSSProperties =
-    o.kind === "lockup"
-      ? { width: o.box.width, position: "absolute", left: o.box.left, top: o.box.top, transform: "translateY(-50%)" }
-      : { height: o.box.height, position: "absolute", left: o.box.left, top: o.box.top, transform: "translate(-50%, -50%)" };
+    o.kind === "emblem-ivory"
+      ? "/brand/oryx-emblem-ivory.svg"
+      : "/brand/oryx-emblem.svg";
+  const w = 106;
+  const h = 139;
+  const style: React.CSSProperties = {
+    height: o.box.height,
+    position: "absolute",
+    left: o.box.left,
+    top: o.box.top,
+    transform: "translate(-50%, -50%)",
+  };
   return (
     <span className="absolute" style={style} aria-hidden="true">
       <LogoPlate src={src} w={w} h={h} alt="" style={{ width: "100%", height: "auto" }} />
@@ -503,7 +599,7 @@ export default async function BrandPage({
           >
             <span data-sc-parallax="0.12" className="block w-[min(30rem,70%)]">
               <Image
-                src="/images/kinfolk/06-game-board.jpg"
+                src="/images/kinfolk/core/06-game-board.jpg"
                 alt="A carved morabaraba game board with one springbok coin in its centre ring, on terracotta"
                 width={1200}
                 height={960}

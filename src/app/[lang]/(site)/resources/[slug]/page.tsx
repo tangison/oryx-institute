@@ -8,6 +8,7 @@ import {
   directoryTemplates,
   directoryZhMeta,
   getDoc,
+  templateDownloads,
   COPYRIGHT_LINE,
   FREE_LINE,
   type Block,
@@ -202,11 +203,31 @@ export default async function DirectoryDocPage({
             : FREE_LINE}
         </p>
         {doc.kind === "template" ? (
-          <p className="mt-3 border-l-2 border-maroon pl-5 text-[0.9rem]">
-            {zh
-              ? "一套供填写的模板：方括号里的每个字段，比如[你的商号]，用前都是你来替换的。这里没有法律、税务或财务建议。"
-              : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
-          </p>
+          <>
+            <p className="mt-3 border-l-2 border-maroon pl-5 text-[0.9rem]">
+              {zh
+                ? "一套供填写的模板：方括号里的每个字段，比如[你的商号]，用前都是你来替换的。这里没有法律、税务或财务建议。"
+                : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
+            </p>
+            {/* The editable file, free and direct (CONTENT-CORRECTIONS
+                §9): no gate, no email capture — the Directory's own
+                register. */}
+            {(templateDownloads[doc.slug] ?? []).length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-4">
+                {templateDownloads[doc.slug].map((d) => (
+                  <a
+                    key={d.file}
+                    href={`/templates/${d.file}`}
+                    download
+                    className="btn--outline btn"
+                  >
+                    {zh ? "下载" : "Download"} · {d.label}{" "}
+                    <span className="arr" aria-hidden="true">↓</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </>
         ) : null}
         {zh ? (
           <p className="meta mt-4">
@@ -264,13 +285,27 @@ export default async function DirectoryDocPage({
               </div>
             ))}
 
-            {/* Provenance */}
+            {/* Provenance and the review cycle (CONTENT-CORRECTIONS
+                §11): author, review date, reviewer, and the error
+                door, on every document. */}
             <footer className="hair-t mt-4 pt-8">
               <p className="text-[0.88rem] leading-relaxed text-soft">
                 <span className="font-[500] text-ink">
                   {zh ? "出处注：" : "Source note: "}
                 </span>
                 {doc.sourceNote}
+              </p>
+              <p className="mt-4 text-[0.88rem] leading-relaxed text-soft">
+                {zh ? "维护：Tangi Iigonda，院长。" : "Maintained by Tangi Iigonda, Principal."}{" "}
+                {zh ? "最近复核：2026 年 11 月 1 日。" : "Last reviewed 1 November 2026."}{" "}
+                {zh ? "发现错误？" : "Spotted an error?"}{" "}
+                <a
+                  href={`mailto:corrections@oryxinstitute.org?subject=${encodeURIComponent(doc.title)}`}
+                  className="link-type"
+                >
+                  {zh ? "报告一处错误" : "Report an error"}
+                </a>
+                .
               </p>
               <p className="mt-4 text-[0.88rem] font-[500] text-ink">
                 {COPYRIGHT_LINE}
