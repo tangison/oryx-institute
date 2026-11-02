@@ -535,3 +535,27 @@ Work Log:
 Stage Summary:
 - tsc clean, eslint clean, 118 pages prerendered, every fix verified
   against the local production build. Push, warm, re-audit.
+
+---
+Task ID: 12
+Agent: Super Z (main agent)
+Task: Audit round 11 fixes. The third re-crawl scored 94 with SEO at
+100 and zero errors; the last six SEO warnings closed.
+
+Work Log:
+- The five shortest English offer descriptions extended into the
+  passing band (137-155 chars; the scanner's floor sits between 114
+  and 123).
+- schema/entity-conflicts: the staff Person nodes are language-scoped
+  now, one @id per language, so the English and Chinese names no
+  longer disagree on one entity.
+- Structural warnings documented rather than gamed: the single
+  critical request chain is the stylesheet every external-CSS site
+  carries (inlining 50 KB of CSS into 76 pages would break caching
+  for a warning); the CAPTCHA finding is a false positive on a
+  mailto composer that submits nowhere; token-weight reflects the
+  App Router hydration payload.
+
+Stage Summary:
+- tsc clean, eslint clean, 118 pages prerendered. Push, warm,
+  re-audit; report the honest number.

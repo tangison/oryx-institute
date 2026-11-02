@@ -75,7 +75,7 @@ export function applyOfferName(slug: ApplyOfferSlug, lang: "en" | "zh") {
 
 /** Title and description per offer and language, in the site's own
  * title register: statement first, brand last. Descriptions hold the
- * SERP band in both languages: 107-126 characters in English,
+ * SERP band in both languages: 137-155 characters in English,
  * 138-144 in Chinese. */
 export function applyOfferMeta(slug: ApplyOfferSlug, lang: "en" | "zh") {
   const name = OFFER_NAMES[slug];
@@ -90,7 +90,7 @@ export function applyOfferMeta(slug: ApplyOfferSlug, lang: "en" | "zh") {
   }
   return {
     title: `Apply: ${name.en} | Oryx Institute`,
-    description: `${name.en} at Oryx Institute, Windhoek. One message to the Principal's office starts the application.`,
+    description: `${name.en} at Oryx Institute, Windhoek. One message to the Principal's office starts the application; replies come within the week.`,
     ogTitle: `Apply: ${name.en} | Oryx Institute`,
     ogDescription:
       "One message to the Principal's office in Windhoek starts your application.",

@@ -113,9 +113,10 @@ export default async function StaffPage({
     },
     about: staff.map((p) => ({
       "@type": "Person",
-      /* One stable node per person across both languages, so the
-         entity resolves once instead of duplicating per page. */
-      "@id": `${site.url}/about/staff#${p.slug}`,
+      /* One node per person per language: the zh page states the same
+         row in Chinese, so the node is language-scoped rather than
+         shared with disagreeing name properties. */
+      "@id": `${site.url}${A("/about/staff")}#${p.slug}`,
       name: zh ? p.nameZh : p.name,
       jobTitle: zh ? p.roleZh : p.role,
     })),
