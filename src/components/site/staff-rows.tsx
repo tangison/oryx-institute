@@ -11,6 +11,7 @@ import type { Lang } from "@/lib/i18n";
  */
 
 type StaffEntry = {
+  slug: string;
   portrait: string;
   portraitAlt: string;
   portraitAltZh: string;
@@ -34,6 +35,7 @@ const PLACEHOLDER_ALT_ZH =
 
 export const staff: StaffEntry[] = [
   {
+    slug: "tangi-iigonda",
     portrait: "/images/kinfolk/people/30-founder-walking.jpg",
     portraitAlt: PRINCIPAL_PORTRAIT_ALT,
     portraitAltZh: PRINCIPAL_PORTRAIT_ALT_ZH,
@@ -50,6 +52,7 @@ export const staff: StaffEntry[] = [
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
     portraitAltZh: PLACEHOLDER_ALT_ZH,
+    slug: "lead-instructor-safety",
     name: "Lead instructor, safety programme",
     nameZh: "安全课程主任讲师",
     role: "Lead instructor · Safety programme",
@@ -62,6 +65,7 @@ export const staff: StaffEntry[] = [
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
     portraitAltZh: PLACEHOLDER_ALT_ZH,
+    slug: "research-associate",
     name: "Research associate",
     nameZh: "研究助理",
     role: "Research · Bulletin editor",
@@ -73,6 +77,7 @@ export const staff: StaffEntry[] = [
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
     portraitAltZh: PLACEHOLDER_ALT_ZH,
+    slug: "corner-spa-lead",
     name: "Corner Spa lead",
     nameZh: "Corner Spa 负责人",
     role: "Ventures · Corner Spa",

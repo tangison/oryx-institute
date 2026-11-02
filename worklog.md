@@ -514,3 +514,24 @@ Stage Summary:
 - Build green, 118 pages all prerendered; tsc clean; eslint clean;
   every fixed check verified against the local production build.
 - Next: push, warm the edge cache, re-audit.
+
+---
+Task ID: 11
+Agent: Super Z (main agent)
+Task: Audit round 10 fixes. The second re-crawl scored 92 with three
+new failed checks introduced by round 9 itself; every one fixed.
+
+Work Log:
+- schema/entity-identity: the staff Persons now carry one stable @id
+  each, shared across both languages.
+- a11y/label-content-name-mismatch: the outline links' aria-labels
+  now start with the visible text (Level N outline: <course>), the
+  label-in-name rule the unique visible text tripped.
+- The offer descriptions hit the SERP band: 107-126 chars in
+  English, 138-144 in Chinese, name included for uniqueness.
+- Two more "safety" trims on the hub (lede, instructor note).
+- The instructor placeholder plate flipped to eager.
+
+Stage Summary:
+- tsc clean, eslint clean, 118 pages prerendered, every fix verified
+  against the local production build. Push, warm, re-audit.

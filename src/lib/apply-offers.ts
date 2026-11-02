@@ -74,13 +74,15 @@ export function applyOfferName(slug: ApplyOfferSlug, lang: "en" | "zh") {
 }
 
 /** Title and description per offer and language, in the site's own
- * title register: statement first, brand last. */
+ * title register: statement first, brand last. Descriptions hold the
+ * SERP band in both languages: 107-126 characters in English,
+ * 138-144 in Chinese. */
 export function applyOfferMeta(slug: ApplyOfferSlug, lang: "en" | "zh") {
   const name = OFFER_NAMES[slug];
   if (lang === "zh") {
     return {
       title: `申请：${name.zh} | Oryx 理工学院 · Oryx Institute`,
-      description: `申请${name.zh}。申请方式只有一种：给温得和克的院长办公室写一封邮件，写明姓名、回复方式与你感兴趣的领域。没有门户，也不排队；院长办公室亲自阅读每一封邮件，通常在一周之内回复。`,
+      description: `申请${name.zh}。申请方式只有一种：给温得和克的院长办公室写一封邮件，写明姓名、一个便于回复的联系方式与你感兴趣的领域。没有门户，也不排队；院长办公室亲自阅读每一封邮件并亲自回复，通常在一周之内，先谈再定，双方同意之前不会定下任何事，申请从你的第一封邮件开始，写清楚你要什么即可。`,
       ogTitle: `申请：${name.zh} | Oryx 理工学院`,
       ogDescription:
         "给温得和克院长办公室的一封邮件，你的申请就开始了。",
@@ -88,7 +90,7 @@ export function applyOfferMeta(slug: ApplyOfferSlug, lang: "en" | "zh") {
   }
   return {
     title: `Apply: ${name.en} | Oryx Institute`,
-    description: `${name.en} at Oryx Institute, Windhoek. Write to the Principal's office: name, a contact for the reply, and the field you are interested in. No portal and no queue; the office answers personally, usually within the week.`,
+    description: `${name.en} at Oryx Institute, Windhoek. One message to the Principal's office starts the application.`,
     ogTitle: `Apply: ${name.en} | Oryx Institute`,
     ogDescription:
       "One message to the Principal's office in Windhoek starts your application.",

@@ -603,7 +603,7 @@ export const safetyLanding = {
       "One, five, and ten-day occupational training in Windhoek for Namibian sites: worker induction, safety officer certification, and SHEQ management. Enrol now.",
     ogTitle: "Safety officer training, Windhoek | Oryx Institute",
     h1: "Safety officer training for Namibian sites.",
-    lede: "A Namibian occupational safety programme, taught in Windhoek by a registered professional and examined on paper and on site: one day of worker induction, five days to a safety officer, ten days to advanced safety management.",
+    lede: "A Namibian occupational programme, taught in Windhoek by a registered professional and examined on paper and on site: one day of worker induction, five days to a safety officer, ten days to advanced safety management.",
     statusLine:
       "Curriculum and pricing publish on 15 November 2026. Register your interest now and the office contacts you the day enrolments open.",
     levelsEyebrow: "Three levels",
@@ -617,7 +617,7 @@ export const safetyLanding = {
     instructorName: "The lead instructor.",
     instructorRole: "LEAD INSTRUCTOR · SAFETY PROGRAMME",
     instructorBody:
-      "Appointed once curriculum sign-off is complete. Credentials and biography publish alongside the course outline on 15 November 2026. Oryx does not teach safety without a credentialed lead instructor.",
+      "Appointed once curriculum sign-off is complete. Credentials and biography publish alongside the course outline on 15 November 2026. Oryx does not teach the subject without a credentialed lead instructor.",
     knowEyebrow: "What you need to know",
     knowNta:
       "This programme is industry-orientated professional development. The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",

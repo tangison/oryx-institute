@@ -224,7 +224,10 @@ export default async function SafetyLandingPage({
                   <Link
                     href={A(`/practice/safety-officer-course/${l.slug}`)}
                     className="btn--quiet mt-5"
-                    aria-label={`${t.outlineLabel}: ${l[lang].h1}`}
+                    aria-label={`${(lang === "zh"
+                      ? ["一级大纲", "二级大纲", "三级大纲"]
+                      : ["Level 1 outline", "Level 2 outline", "Level 3 outline"]
+                    )[i]}: ${l[lang].h1}`}
                   >
                     {(lang === "zh"
                       ? ["一级大纲", "二级大纲", "三级大纲"]
@@ -286,7 +289,7 @@ export default async function SafetyLandingPage({
               height={1402}
               sizes="(min-width: 768px) 14rem, 60vw"
               className="h-auto w-full"
-              loading="lazy"
+              loading="eager"
             />
           </figure>
           <div data-sc-in>
