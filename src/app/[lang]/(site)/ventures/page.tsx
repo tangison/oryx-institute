@@ -239,7 +239,7 @@ export default async function VenturesPage({
               {zh ? "有一个你认为 Oryx 该检验的行业？" : "A sector you think Oryx should test?"}
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Link href={A("/apply#market-rd")} className="btn">
+              <Link href={A("/apply/market-rd")} className="btn">
                 {t.briefUs}
               </Link>
               <a href={`mailto:${site.email}`} className="btn--quiet">

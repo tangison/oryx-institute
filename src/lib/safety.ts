@@ -139,9 +139,9 @@ export const safetyLevels: SafetyLevel[] = [
     },
     zh: {
       navName: "一级 · 准入",
-      metaTitle: "员工安全准入培训（一天） · Oryx 理工学院",
+      metaTitle: "员工安全准入培训（一天），温得和克 · Oryx 理工学院 · Oryx Institute",
       metaDescription:
-        "一日制员工安全准入培训：危险源辨识、个人防护装备、应急程序、雇主与员工的法律义务，结业颁发结业证书。当天六个学时，二十道选择题考核，及格线八十分。首期班计划于 2027 年 1 月开课，现在登记意向。",
+        "一日制员工安全准入培训，在温得和克开课：危险源辨识、个人防护装备、应急程序、雇主与员工的法律义务，结业颁发结业证书。当天六个学时，二十道选择题考核，及格线八十分，考后五个工作日出结果。首期班计划于 2027 年 1 月开课，现在向 Oryx 登记意向，报名一开放，办公室当天与你联系。",
       h1: "员工安全准入培训。",
       lede: "一天，六个学时，一个结果：一名能看出危险、会穿对防护、知道怎么正确报警的员工。任何纳米比亚工地上的新员工，上第一个班之前都该听这一课。",
       audience: {
@@ -225,12 +225,12 @@ export const safetyLevels: SafetyLevel[] = [
       navName: "Level 2 · Officer",
       metaTitle: "Safety Officer course (5 days), Windhoek · Oryx Institute",
       metaDescription:
-        "Five-day Safety Officer course. HIRA, incident investigation, construction safety, first aid awareness, and a practical site assessment. Enrol with Oryx.",
+        "Five-day Safety Officer course. HIRA, incident investigation, construction hazards, first aid awareness, and a practical site assessment. Enrol with Oryx.",
       h1: "Safety Representative and Site Safety Officer.",
-      lede: "Five days that end in a working safety officer: the legal framework, the HIRA method, the incident file, the toolbox talk, and a practical walkthrough assessed on a live site. For the person the law expects to know why, not just what.",
+      lede: "Five days that end in an officer the site can use: the legal framework, the HIRA method, the incident file, the toolbox talk, and a practical walkthrough assessed on a live site. For the person the law expects to know why, not just what.",
       audience: {
         label: "Who sits this level",
-        body: "Designated workplace safety representatives, junior safety officers, and site supervisors who carry safety responsibility beside their own trade.",
+        body: "Designated workplace representatives, junior officers, and supervisors who carry the safety responsibility beside their own trade.",
       },
       outlineEyebrow: "The week, module by module",
       modules: [
@@ -271,17 +271,17 @@ export const safetyLevels: SafetyLevel[] = [
         },
         {
           no: "07",
-          name: "Construction-site safety",
+          name: "Construction-site hazards",
           line: "Scaffolds, working at heights, excavation and electrical awareness: the four that hurt most, taught as inspection points.",
         },
         {
           no: "08",
-          name: "Toolbox talks and safety meetings",
+          name: "Toolbox talks and crew briefings",
           line: "Running the ten minutes that keep a week safe: preparing, delivering and recording a talk that workers actually keep.",
         },
         {
           no: "09",
-          name: "Safety file management and site documentation",
+          name: "Safety file management and records",
           line: "The file an inspector asks for first: registers, permits, certificates, and how to keep them current without heroics.",
         },
         {
@@ -293,9 +293,9 @@ export const safetyLevels: SafetyLevel[] = [
       assessmentEyebrow: "Assessment",
       assessment: [
         "A 50-question written examination. Pass mark: 80 percent.",
-        "A practical risk-assessment exercise on the walkthrough site.",
+        "A practical risk-assessment exercise at the partner worksite.",
         "A ten-minute toolbox talk, delivered to the cohort.",
-        "A site-walkthrough observation, scored against the published rubric.",
+        "A walkthrough observation, scored against the published rubric.",
         "Results within five working days of the final exercise.",
       ],
       outcomesEyebrow: "Outcomes",
@@ -303,9 +303,9 @@ export const safetyLevels: SafetyLevel[] = [
         "Run a HIRA on a working site and write it up",
         "Investigate and document an incident to statutory standard",
         "Inspect, issue and manage PPE across a workforce",
-        "Deliver a recorded toolbox talk and chair a safety meeting",
-        "Keep a site safety file that stands up to inspection",
-        "Act as a designated safety representative on a Namibian site",
+        "Deliver a recorded toolbox talk and chair the weekly meeting",
+        "Keep a safety file that stands up to inspection",
+        "Act as the designated representative on a Namibian site",
       ],
       credentialEyebrow: "The document",
       credential: "Certificate of Completion, Safety Officer Level 2",
@@ -320,9 +320,9 @@ export const safetyLevels: SafetyLevel[] = [
     },
     zh: {
       navName: "二级 · 安全员",
-      metaTitle: "安全员课程（五天），温得和克 · Oryx 理工学院",
+      metaTitle: "安全员课程（五天），温得和克 · Oryx 理工学院 · Oryx Institute",
       metaDescription:
-        "五日制安全员课程：HIRA 风险评估方法、事故调查与报告、建筑工地安全、安全档案管理、急救意识与班前会，最终在伙伴工地完成实操巡查考核。五十道笔试、实操作业与班前会讲授，及格线八十分。现在向 Oryx 登记意向。",
+        "五日制安全员课程，在温得和克开课：HIRA 风险评估方法、事故调查与报告、建筑工地安全、安全档案管理、急救意识与班前会，最终在伙伴工地完成实操巡查考核。五十道笔试、实操作业与班前会讲授，及格线八十分，结果五个工作日内送达。现在向 Oryx 登记意向，报名一开放，办公室当天与你联系。",
       h1: "安全代表与现场安全员。",
       lede: "五天，结业时得到一名能用的安全员：法律框架、HIRA 方法、事故档案、班前会，以及在真实工地上接受考核的实操巡查。为法律期待的那个人准备——不仅要知其然，还要知其所以然。",
       audience: {
@@ -507,9 +507,9 @@ export const safetyLevels: SafetyLevel[] = [
     },
     zh: {
       navName: "三级 · 管理",
-      metaTitle: "高级安全管理课程 · Oryx 理工学院",
+      metaTitle: "高级安全管理课程（十天），温得和克 · Oryx 理工学院 · Oryx Institute",
       metaDescription:
-        "十日制模块化高级安全管理课程：SHEQ 管理体系、建筑与矿山条例深读、承包商管控、职业卫生监测、根因分析与审计技术，另有培训师培训模块。每个模块单独考核，模块可单修单计价。现在向 Oryx 登记意向。",
+        "十日制模块化高级安全管理课程，在温得和克开课：SHEQ 管理体系、建筑与矿山条例深读、承包商管控、职业卫生监测、根因分析与审计技术，另有培训师培训模块。由注册安全专家授课，每个模块单独考核，模块可单修单计价，全修拿证书。现在向 Oryx 登记意向，报名一开放即锁定席位。",
       h1: "高级安全管理。",
       lede: "十天，模块化：安全员之上的体系层。SHEQ 管理、条例深读、承包商管控、根因调查与审计。模块可以单修；证书要全修。",
       audience: {
@@ -600,10 +600,10 @@ export const safetyLanding = {
   en: {
     metaTitle: "Safety officer training, Windhoek · Oryx Institute",
     metaDescription:
-      "One, five, and ten-day occupational safety training in Windhoek for Namibian sites. Worker induction, safety officer certification, and SHEQ management. Enrol now.",
+      "One, five, and ten-day occupational training in Windhoek for Namibian sites: worker induction, safety officer certification, and SHEQ management. Enrol now.",
     ogTitle: "Safety officer training, Windhoek | Oryx Institute",
     h1: "Safety officer training for Namibian sites.",
-    lede: "A Namibian occupational safety programme, taught in Windhoek by a registered safety professional and examined on paper and on site: one day of worker induction, five days to a safety officer, ten days to advanced safety management.",
+    lede: "A Namibian occupational safety programme, taught in Windhoek by a registered professional and examined on paper and on site: one day of worker induction, five days to a safety officer, ten days to advanced safety management.",
     statusLine:
       "Curriculum and pricing publish on 15 November 2026. Register your interest now and the office contacts you the day enrolments open.",
     levelsEyebrow: "Three levels",
@@ -611,10 +611,10 @@ export const safetyLanding = {
     howEyebrow: "How we teach",
     howBody: [
       "Examinations are written on paper, not clicked through online. Practical assessments run against a rubric the learner sees in advance, and results arrive within five working days. Every learner receives the printed course manual, a clipboard and a pen on day one; Level 2 upwards adds the green hard hat.",
-      "Courses run at a hired training venue in Windhoek, disclosed as a hired venue. The practical walkthroughs happen at a real partner site. The lead instructor is a Namibian safety professional with recognised credentials, hired and named before Cohort 1 opens.",
+      "Courses run at a hired training venue in Windhoek, disclosed as a hired venue. The practical walkthroughs happen at a real partner site. The lead instructor is a Namibian professional with recognised credentials, hired and named before Cohort 1 opens.",
     ],
     instructorEyebrow: "The instructor",
-    instructorName: "Lead instructor, safety programme",
+    instructorName: "The lead instructor.",
     instructorRole: "LEAD INSTRUCTOR · SAFETY PROGRAMME",
     instructorBody:
       "Appointed once curriculum sign-off is complete. Credentials and biography publish alongside the course outline on 15 November 2026. Oryx does not teach safety without a credentialed lead instructor.",
@@ -622,16 +622,16 @@ export const safetyLanding = {
     knowNta:
       "This programme is industry-orientated professional development. The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
     knowCertificate:
-      "Certificates issued before accreditation are internal records of completion: the Certificate of Attendance for short courses, the Certificate of Completion for the safety officer levels. They are not NQF-credit-bearing qualifications and cannot be submitted to NQA as accredited prior learning. First Aid Level 1, where required, is certified by a registered Namibian first-aid training partner, not by Oryx.",
+      "Certificates issued before accreditation are internal records of completion: the Certificate of Attendance for short courses, the Certificate of Completion for the officer levels. They are not NQF-credit-bearing qualifications and cannot be submitted to NQA as accredited prior learning. First Aid Level 1, where required, is certified by a registered Namibian first-aid training partner, not by Oryx.",
     applyCta: "Register interest",
     seeCurriculum: "See the curriculum",
     outlineLabel: "Outline",
     durationLabel: "Duration",
   },
   zh: {
-    metaTitle: "安全员培训，温得和克 · Oryx 理工学院",
+    metaTitle: "安全员培训课程，温得和克 · Oryx 理工学院 · Oryx Institute",
     metaDescription:
-      "面向纳米比亚现场的职业安全培训，在温得和克开课：一天的安全准入培训、五天的安全员认证课程、十天的高级安全管理（SHEQ）。由注册安全专家授课，纸面笔试加现场实操考核。课程大纲已发布，现在登记意向，报名一开放即可锁定席位。",
+      "面向纳米比亚现场的职业安全培训，在温得和克开课：一天的安全准入培训、五天的安全员认证课程、十天的高级安全管理（SHEQ）。由注册安全专家授课，纸面笔试加现场实操考核，教材、写字板与文具第一天发放。课程大纲已发布，现在登记意向，报名一开放，办公室当天与你联系，锁定首期班的席位。",
     ogTitle: "安全员培训，温得和克 | Oryx 理工学院",
     h1: "为纳米比亚现场而来的安全员培训。",
     lede: "一套纳米比亚职业安全课程，在温得和克由注册安全专家授课，纸面笔试加现场考核：一天完成员工准入，五天成为安全员，十天进阶高级安全管理。",

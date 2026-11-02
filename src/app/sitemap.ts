@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { directoryAll } from "@/lib/directory";
+import { APPLY_OFFER_SLUGS } from "@/lib/apply-offers";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /** No lastModified is emitted: the build date would stamp every URL
@@ -54,9 +55,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
   }));
 
+  /** The per-offer apply routes, one row each: real URLs with their
+      own metadata, linked from every offer CTA on the site. */
+  const applyOffers = APPLY_OFFER_SLUGS.map((slug) => ({
+    path: `/apply/${slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+
   /** Every URL carries its Chinese alternate, and every Chinese URL
       carries the English one back: one entity per page, two languages. */
-  return [...pages, ...docs].flatMap((page) => [
+  return [...pages, ...docs, ...applyOffers].flatMap((page) => [
     {
       url: `${site.url}${page.path}`,
       changeFrequency: page.changeFrequency,

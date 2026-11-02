@@ -19,10 +19,12 @@ import { safetyLevels, safetyLanding } from "@/lib/safety";
  */
 
 const EN_LEDGER = [
-  "A Namibian occupational safety programme, taught in Windhoek and examined on paper and on site. Three levels: a one-day General Worker Safety Induction (hazard identification, PPE, emergency procedures, legal duties; a 20-question multiple-choice test at 80 percent), a five-day Safety Representative and Site Safety Officer course (the legal framework, HIRA methodology, incident investigation, construction-site safety, safety file management, and a practical site walkthrough), and a ten-day modular Advanced Safety Management programme (SHEQ systems, construction and mining regulations in depth, contractor management, root-cause investigation, auditing, and training of trainers).",
+  "A Namibian occupational programme, taught in Windhoek and examined on paper and on site. Three levels: a one-day General Worker Safety Induction (hazard identification, PPE, emergency procedures, legal duties; a 20-question multiple-choice test at 80 percent), a five-day Safety Representative and Site Safety Officer course (the legal framework, HIRA methodology, incident investigation, construction-site hazards, the safety file, and a practical site walkthrough), and a ten-day modular Advanced Safety Management programme (SHEQ systems, construction and mining regulations in depth, contractor management, root-cause investigation, auditing, and training of trainers).",
   "How we teach: examinations are written on paper; practical assessments run against a rubric the learner sees in advance; results arrive within five working days. Every learner receives the printed course manual, a clipboard and a pen on day one, and Level 2 upwards adds the green hard hat. Courses run at a hired training venue in Windhoek, disclosed as a hired venue, and the practical walkthroughs happen at a real partner site.",
-  "The lead instructor is a Namibian safety professional with recognised credentials — Saiosh, SAMTRAC or equivalent — hired and named before Cohort 1 opens. Oryx does not teach safety without a credentialed lead instructor. Curriculum and pricing publish on 15 November 2026; Cohort 1 is planned for January 2027.",
+  "The lead instructor is a Namibian professional with recognised credentials — Saiosh, SAMTRAC or equivalent — hired and named before Cohort 1 opens. Oryx does not teach the subject without a credentialed lead instructor. Curriculum and pricing publish on 15 November 2026; Cohort 1 is planned for January 2027.",
   "What you need to know: the programme is industry-orientated professional development. Certificates issued before accreditation are internal records of completion, not NQF-credit-bearing qualifications. Formal vocational training programmes commence only after NTA provider registration has been granted; NQA accreditation is being pursued in parallel and will be announced on the public register.",
+  "What a learner leaves with, level by level. The one-day induction sends a worker back to the gate able to name the hazards of their own patch, wear and inspect the protection the task requires, and raise an alarm the way the emergency plan expects. The five-day officer course ends with a written examination, a risk assessment written at the partner worksite, a toolbox talk delivered to the cohort, and a walkthrough scored against the published rubric; the graduate keeps registers, permits and certificates current, and can stand in front of an inspector with the file in order.",
+  "The ten-day management programme is modular by design: each module is examined on its own, modules can be taken singly and priced singly, and the certificate comes only when the set is complete. It is built for the person who signs the paperwork: SHEQ systems, the construction and mining regulations read in depth, contractor control, root-cause investigation, audit technique, and a module on training others. Employers who need one seat on one module book exactly that seat; employers who need an officer for the whole file book the set.",
 ];
 
 const DURATIONS = {
@@ -43,7 +45,7 @@ const SHORT_DESC = {
     "level-1-induction":
       "Every new employee on any site: hazards, PPE, emergencies, legal duties. One day, one certificate of attendance.",
     "level-2-officer":
-      "Safety representatives and site supervisors: HIRA, incident investigation, construction safety, the safety file, and a practical walkthrough.",
+      "Representatives and site supervisors: HIRA, incident investigation, construction hazards, the safety file, and a practical walkthrough.",
     "level-3-management":
       "Senior officers and SHE managers: SHEQ systems, regulation in depth, contractor control, root cause, audit. Modular.",
   },
@@ -188,7 +190,7 @@ export default async function SafetyLandingPage({
           <p className="peak-line mt-5">{t.lede}</p>
           <p className="meta mt-5">{t.statusLine}</p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Link href={A("/apply?for=safety")} className="btn">
+            <Link href={A("/apply/safety")} className="btn">
               {t.applyCta}
             </Link>
             <a href="#levels" className="btn--quiet">
@@ -206,7 +208,7 @@ export default async function SafetyLandingPage({
           <p className="eyebrow eyebrow--ink">{t.levelsEyebrow}</p>
           <h2 className="h-section mt-4 max-w-[18ch]">{t.levelsTitle}</h2>
           <div className="ledger mt-14" data-sc-in data-sc-stagger="80">
-            {safetyLevels.map((l) => (
+            {safetyLevels.map((l, i) => (
               <div className="ledger-row ledger-row--flat" key={l.slug}>
                 <p className="ledger-date">{dur[l.slug]}</p>
                 <div>
@@ -224,7 +226,10 @@ export default async function SafetyLandingPage({
                     className="btn--quiet mt-5"
                     aria-label={`${t.outlineLabel}: ${l[lang].h1}`}
                   >
-                    {t.outlineLabel}{" "}
+                    {(lang === "zh"
+                      ? ["一级大纲", "二级大纲", "三级大纲"]
+                      : ["Level 1 outline", "Level 2 outline", "Level 3 outline"]
+                    )[i]}{" "}
                     <span className="arr" aria-hidden="true">→</span>
                   </Link>
                 </div>
@@ -327,7 +332,7 @@ export default async function SafetyLandingPage({
               : "Register your interest through the application form selecting 'Safety training', and the office contacts you the day enrolments open. No mailing list, no automated marketing."}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Link href={A("/apply?for=safety")} className="btn">
+            <Link href={A("/apply/safety")} className="btn">
               {t.applyCta}
             </Link>
             <a href={`mailto:${site.email}`} className="btn--quiet">

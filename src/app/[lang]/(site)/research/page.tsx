@@ -201,7 +201,7 @@ export default async function ResearchPage({
             <h2 className="h-section max-w-[20ch]">{t.hireTitle}</h2>
             <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
             <div className="mt-8 flex flex-wrap gap-5">
-              <Link href={A("/apply#market-rd")} className="btn">
+              <Link href={A("/apply/market-rd")} className="btn">
                 {t.bring}
               </Link>
               <Link href={A("/practice")} className="btn--quiet">
@@ -234,7 +234,7 @@ export default async function ResearchPage({
               height={1254}
               sizes="(min-width: 1024px) 20rem, 88vw"
               className="h-auto w-full"
-              loading="lazy"
+              loading="eager"
             />
           </figure>
           <div>

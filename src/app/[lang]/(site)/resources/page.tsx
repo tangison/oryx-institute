@@ -188,7 +188,7 @@ export default async function ResourcesPage({
                 height={1254}
                 sizes="(min-width: 1024px) 16rem, 60vw"
                 className="h-auto w-full"
-                loading="lazy"
+                loading="eager"
               />
             </figure>
             <div className="ledger" data-sc-in data-sc-stagger="60">

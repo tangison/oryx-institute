@@ -109,7 +109,29 @@ export default async function SafetyLevelPage({
   const crumb = CRUMB[lang];
   const close = CLOSE[lang];
   const heroAlt = HERO_ALT[l.slug][lang];
-  const applyHref = `/apply?for=safety-${l.slug.replace("level-1-induction", "level-1").replace("level-2-officer", "level-2").replace("level-3-management", "level-3")}`;
+  /* The per-offer apply route: /apply/safety-level-N preselects the
+     field of interest in the composer without a query string. */
+  const applyHref =
+    l.slug === "level-1-induction"
+      ? "/apply/safety-level-1"
+      : l.slug === "level-2-officer"
+        ? "/apply/safety-level-2"
+        : "/apply/safety-level-3";
+
+  /* The English original, printed beneath the Chinese page: the same
+     fields the English route renders, assembled as ledger paragraphs
+     so the zh page carries its own full curriculum text. */
+  const enLedger = zh
+    ? [
+        l.en.lede,
+        l.en.audience.body,
+        ...l.en.modules.map((m) => `${m.no} — ${m.name}. ${m.line}`),
+        `Assessment: ${l.en.assessment.join(" ")}`,
+        `Outcomes: ${l.en.outcomes.join("; ")}.`,
+        `${l.en.credential}: ${l.en.credentialNote}`,
+        `Fee: ${l.en.fee} Dates: ${l.en.dates}`,
+      ]
+    : [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -219,7 +241,7 @@ export default async function SafetyLevelPage({
               <div className="ledger-row ledger-row--flat" key={m.no} id={`module-${m.no}`}>
                 <p className="ledger-date">{m.no}</p>
                 <div>
-                  <h3 className="h-sub">{m.name}</h3>
+                  <h2 className="h-sub">{m.name}</h2>
                   <p className="mt-3 max-w-[62ch] text-soft">{m.line}</p>
                   {m.plate && (
                     <figure className="plate-fig module-plate" data-sc-reveal>
@@ -230,7 +252,7 @@ export default async function SafetyLevelPage({
                         height={1402}
                         sizes="(min-width: 768px) 16rem, 60vw"
                         className="h-auto w-full"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </figure>
                   )}
@@ -296,6 +318,22 @@ export default async function SafetyLevelPage({
           />
         </div>
       </div>
+
+      {/* The English original, printed beneath the Chinese page. */}
+      {zh && (
+        <section className="section" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-14" data-sc-in>
+              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <div className="measure mt-5 space-y-5 text-soft" lang="en">
+                {enLedger.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* The close: the register-interest door for this level. */}
       <section className="section-lg" data-sc-act="flow">

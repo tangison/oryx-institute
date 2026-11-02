@@ -466,3 +466,51 @@ Stage Summary:
   programmes page reads horizontally with imagery in every slice.
 - Publishing roadmap at docs/publishing-roadmap.md is the working plan
   for the crash course waves and the three textbook volumes.
+
+---
+Task ID: 10
+Agent: Super Z (main agent)
+Task: Second-crawl cleanup. Every finding of the fresh live audit
+(91/100 A, 2 fails, 211 warnings) fixed at the root; target 95+.
+Autopilot.
+
+Work Log:
+- Fresh live crawl (squirrelscan full, 74 pages): 91/100 A, SEO 95
+  with 2 failed checks (schema/expected-type on the staff pages),
+  Performance 78, Agents 50. Score math verified as the weighted
+  mean of group scores, so SEO to 100 alone clears 95.
+- The apply deep links are real routes now: /apply/<offer> for the
+  six offers plus the four safety doors, statically generated, each
+  with its own title, description, canonical, hreflang set and
+  markdown mirror. The hash-anchor era had ten pages sharing two
+  titles; the query-string era before that was five slow-TTFB
+  errors. All internal CTAs repointed; the legacy ?for= form still
+  renders the hub and preselects client-side; the composer takes
+  the offer from the route segment at first render.
+- The staff page declares AboutPage structured data with the staff
+  as Person nodes (the two failed checks), reads h1 into h2 into the
+  rows, carries the appointment policy in full prose, and the zh
+  page prints a four-paragraph English original. Titles lengthened,
+  descriptions trimmed under 160.
+- The zh safety level pages carry the English original ledger
+  (rendered from the en curriculum fields), so 47-56 word pages
+  became 368-477. Module names promoted h3 to h2 (heading-order
+  fix on eight pages). Outline links now read Level 1/2/3 outline,
+  ending the identical-link-text warning.
+- Keyword density pass: safety on the hub and Level 2, site on
+  Level 2, corner/spa on the zh staff page, entry on the zh
+  register - every flagged word now under 1.7 percent.
+- zh titles carry the "· Oryx Institute" suffix the rest of the
+  site uses; six zh descriptions extended past 130 chars, three en
+  descriptions trimmed under 160.
+- Above-fold plates flipped to eager on home, about, practice,
+  research, resources and the safety pages; the two texture jpgs
+  recompressed under 190 KB.
+- Lint brought to zero: the new react-hooks set-state rule satisfied
+  in the search dialog and the apply composer, two stale eslint-
+  disable directives removed.
+
+Stage Summary:
+- Build green, 118 pages all prerendered; tsc clean; eslint clean;
+  every fixed check verified against the local production build.
+- Next: push, warm the edge cache, re-audit.

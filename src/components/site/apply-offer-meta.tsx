@@ -1,40 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { APPLY_OFFER_SLUGS, applyOfferName } from "@/lib/apply-offers";
 
 /**
- * Per-offer metadata for /apply, set after hydration.
+ * Legacy-variant metadata for /apply, set after hydration.
  *
- * The route is statically generated: every ?for= variant used to be a
- * separate server render, which cost a cold render per deep link and
- * showed up as five slow TTFB errors in the crawl. The deep links are
- * now hash anchors on one static page, and this component carries the
- * per-offer title and description the variants used to serve — read
- * from the URL hash first (the format every internal CTA now uses),
- * with the legacy ?for= parameter still honoured.
+ * The per-offer deep links are real routes now (/apply/<offer> carries
+ * its own server-rendered metadata), so this component only serves the
+ * variants that still arrive at the hub: a URL hash left over from the
+ * anchor era, or the legacy ?for= parameter. The route's own metadata
+ * is the canonical one; nothing here overrides it on the offer routes.
  */
-
-const OFFER_NAMES: Record<string, { en: string; zh: string }> = {
-  "owners-desk": { en: "the Owner's Desk", zh: "经营者案头" },
-  "business-administration": {
-    en: "Business Administration",
-    zh: "工商管理",
-  },
-  it: { en: "Information Technology", zh: "信息技术" },
-  "market-rd": { en: "Market Research & Development", zh: "市场调研" },
-  "rapid-response": { en: "Rapid Response Training", zh: "快速响应培训" },
-  safety: { en: "Safety Officer Training", zh: "安全员培训" },
-  "safety-level-1": { en: "Safety Training, Level 1 Induction", zh: "安全培训，一级准入" },
-  "safety-level-2": { en: "Safety Training, Level 2 Officer", zh: "安全培训，二级安全员" },
-  "safety-level-3": { en: "Safety Training, Level 3 Management", zh: "安全培训，三级管理" },
-};
-
-export function offerNameFromSlug(
-  slug: string | undefined
-): { en: string; zh: string } | undefined {
-  if (!slug) return undefined;
-  return OFFER_NAMES[slug];
-}
 
 export function readOfferSlug(): string | undefined {
   if (typeof window === "undefined") return undefined;
@@ -48,9 +25,9 @@ export function ApplyOfferMeta({ lang }: { lang: "en" | "zh" }) {
   useEffect(() => {
     const applyMeta = () => {
       const slug = readOfferSlug();
-      const offer = offerNameFromSlug(slug);
-      if (!offer) return;
-      const name = lang === "zh" ? offer.zh : offer.en;
+      if (!slug || !(APPLY_OFFER_SLUGS as readonly string[]).includes(slug))
+        return;
+      const name = applyOfferName(slug as (typeof APPLY_OFFER_SLUGS)[number], lang);
       const title =
         lang === "zh" ? `申请：${name} | Oryx 理工学院` : `Apply: ${name} | Oryx Institute`;
       const description =

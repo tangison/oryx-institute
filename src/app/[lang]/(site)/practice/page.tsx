@@ -19,7 +19,7 @@ const copy = {
     meta: {
       title: "The Practice: Work That Holds",
       description:
-        "The practice at Oryx Institute: Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training for Namibian sites, delivered to standard from Windhoek.",
+        "The practice at Oryx Institute: Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training for Namibian sites, from Windhoek.",
       ogTitle: "Practice | Oryx Institute",
       ogDescription:
         "Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training, delivered to standard.",
@@ -53,7 +53,7 @@ const copy = {
     meta: {
       title: "实务",
       description:
-        "Oryx 理工学院的实务：经营者案头的一对一经营咨询、按项目接单的市场调研、快速响应培训，以及面向纳米比亚现场的安全员培训，一切从温得和克按标准交付：立得住的活。",
+        "Oryx 理工学院的实务：经营者案头的一对一经营咨询、按项目接单的市场调研、快速响应培训，以及面向纳米比亚现场的安全员培训，由注册安全专家授课，纸面笔试加现场实操考核，教材与工具提前列明。一切从温得和克按标准交付：每件事都收尾，结果落在纸面，立得住。预约与委托，都从一封邮件开始。",
       ogTitle: "实务 | Oryx 理工学院",
       ogDescription: "经营者案头咨询、市场调研、快速响应培训与安全员培训，按标准交付。",
     },
@@ -226,7 +226,7 @@ export default async function PracticePage({
               height={1402}
               sizes="(min-width: 768px) 20rem, 88vw"
               className="h-auto w-full"
-              loading="lazy"
+              loading="eager"
             />
           </figure>
           <div className="md:order-1" data-sc-in>
@@ -264,7 +264,7 @@ export default async function PracticePage({
               height={1122}
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
-              loading="lazy"
+              loading="eager"
             />
           </figure>
         </div>

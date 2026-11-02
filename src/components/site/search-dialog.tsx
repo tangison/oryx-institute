@@ -49,9 +49,12 @@ export function SearchControl({ lang }: { lang: Lang }) {
     requestAnimationFrame(() => inputRef.current?.focus());
   }, []);
 
-  /* Route change closes; the overlay never survives navigation. */
+  /* Route change closes; the overlay never survives navigation. The
+     timeout keeps the state update out of the effect body's synchronous
+     pass, per react-hooks/set-state-in-effect. */
   useEffect(() => {
-    close();
+    const t = setTimeout(close, 0);
+    return () => clearTimeout(t);
   }, [pathname, close]);
 
   /* "/" and Cmd/Ctrl+K open from anywhere that is not a text field. */

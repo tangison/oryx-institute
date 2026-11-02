@@ -82,7 +82,7 @@ export function buildIndex(lang: Lang): SearchEntry[] {
     ? offersZh.map((o) => [o.name, o.line, o.id] as const)
     : offers.map((o) => [o.name, o.line, o.id] as const);
   for (const [name, line, id] of offersList) {
-    add(name, af ? "服务" : "Offers", line, P(`/apply#${id}`));
+    add(name, af ? "服务" : "Offers", line, P(`/apply/${id}`));
   }
 
   /* Directory: the works themselves carry their published titles. */

@@ -43,7 +43,7 @@ export const staff: StaffEntry[] = [
     roleZh: "院长 · 创始人",
     bio: "Founder and Principal of Oryx Institute. Before Oryx he founded Tangison Technologies, the Windhoek product studio behind the institute's identity, systems and build, and he directs it still. At Oryx he holds the research leadership, the applications to the NQA and the NTA, ventures oversight and the development of Corner Spa, and he reads every application personally. Based in Windhoek.",
     bioZh:
-      "Oryx Institute 的创始人与院长。创办 Oryx 之前，他创立了学院形象、系统与搭建背后的温得和克产品工作室 Tangison Technologies，并至今主持它。在学院，他主持研究工作、向 NQA 与 NTA 提交认证申请、统筹实业并推进 Corner Spa，并且亲自阅读每一份申请。常驻温得和克。",
+      "Oryx Institute 的创始人与院长。创办 Oryx 之前，他创立了学院形象、系统与搭建背后的温得和克产品工作室 Tangison Technologies，并至今主持它。在学院，他主持研究工作、向 NQA 与 NTA 提交认证申请、统筹各门实业，并且亲自阅读每一份申请。常驻温得和克。",
     email: site.email,
   },
   {
@@ -76,10 +76,10 @@ export const staff: StaffEntry[] = [
     name: "Corner Spa lead",
     nameZh: "Corner Spa 负责人",
     role: "Ventures · Corner Spa",
-    roleZh: "实业 · Corner Spa",
+    roleZh: "实业 · 水疗",
     bio: "Lead therapist and operations for Corner Spa — appointment to be announced once premises and licensing are confirmed.",
     bioZh:
-      "Corner Spa 的主理疗师与运营负责人——待场地与执照确认后公布任命。",
+      "这家水疗实业的主理疗师与运营负责人——待场地与执照确认后公布任命。",
   },
 ];
 
@@ -87,7 +87,7 @@ export function StaffRows({ lang }: { lang: Lang }) {
   const zh = lang === "zh";
   return (
     <div className="staff-rows" data-sc-in data-sc-stagger="90">
-      {staff.map((p, i) => (
+      {staff.map((p) => (
         <article className="staff-row" key={p.name}>
           <div className="staff-row-portrait">
             <Image
@@ -97,7 +97,7 @@ export function StaffRows({ lang }: { lang: Lang }) {
               height={700}
               sizes="(min-width: 48rem) 11rem, 60vw"
               className="absolute inset-0 h-full w-full object-cover"
-              loading={i === 0 ? "eager" : "lazy"}
+              loading="eager"
             />
           </div>
           <div>

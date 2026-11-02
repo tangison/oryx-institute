@@ -40,6 +40,51 @@ const PAGES: IndexRow[] = [
     note: "One email to the Principal's office starts it",
   },
   {
+    path: "/apply/owners-desk",
+    title: "Apply: the Owner's Desk",
+    note: "One-on-one business counselling; the outcome is written down",
+  },
+  {
+    path: "/apply/business-administration",
+    title: "Apply: Business Administration",
+    note: "Crash and short courses in records, filings and registers",
+  },
+  {
+    path: "/apply/it",
+    title: "Apply: IT & Related Fields",
+    note: "Crash and short courses in the systems work runs on",
+  },
+  {
+    path: "/apply/market-rd",
+    title: "Apply: Market R&D",
+    note: "Feasibility, sizing, competitor reads, route-to-market",
+  },
+  {
+    path: "/apply/rapid-response",
+    title: "Apply: Rapid Response Training",
+    note: "A team brought up to standard on something new",
+  },
+  {
+    path: "/apply/safety",
+    title: "Apply: Safety Officer Training",
+    note: "One, five, and ten days of occupational safety training",
+  },
+  {
+    path: "/apply/safety-level-1",
+    title: "Apply: Safety Training, Level 1 Induction",
+    note: "The one-day general worker induction",
+  },
+  {
+    path: "/apply/safety-level-2",
+    title: "Apply: Safety Training, Level 2 Officer",
+    note: "The five-day safety representative and site safety officer course",
+  },
+  {
+    path: "/apply/safety-level-3",
+    title: "Apply: Safety Training, Level 3 Management",
+    note: "The ten-day modular advanced safety management programme",
+  },
+  {
     path: "/brand",
     title: "The Brand Register",
     note: "The institute's marks, colours and rules of use",

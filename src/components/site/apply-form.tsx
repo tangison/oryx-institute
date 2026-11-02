@@ -105,36 +105,55 @@ const labels = {
  * client. No data is stored on this site; nothing is sent anywhere
  * until the visitor presses send in their own client.
  *
- * A ?for=<offer-id> query preselects the field of interest (e.g. the
- * CTAs on /programmes): read client-side so the page stays static.
+ * The field of interest is preselected by the `preselect` prop on the
+ * /apply/<offer> routes, or by the legacy ?for=<offer-id> query read
+ * client-side so the hub stays static.
  *
  * The business telephone line is deliberately not published while the
  * institute is being established; when one lands, a phone field and a
  * tel handoff are added back here.
  */
-export function ApplyForm({ lang }: { lang: Lang }) {
+export function ApplyForm({
+  lang,
+  preselect,
+}: {
+  lang: Lang;
+  preselect?: string;
+}) {
   const t = labels[lang];
   const offerList = lang === "zh" ? offersZh : offers;
   /* The safety programme takes its own option beside the six offers:
-     the CTAs on the course pages deep-link with ?for=safety (and
-     ?for=safety-level-N), which preselects it. */
+     the CTAs on the course pages deep-link to /apply/safety (and
+     /apply/safety-level-N), which preselects it. */
   const SAFETY_IDS = ["safety", "safety-level-1", "safety-level-2", "safety-level-3"];
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [discipline, setDiscipline] = useState<string>(offerList[0].name);
+  /* The field of interest resolves at first render when the route
+     carries it (/apply/<offer> passes preselect), so server and client
+     agree without an effect. The legacy ?for= form is read after mount,
+     in the effect below. */
+  const [discipline, setDiscipline] = useState<string>(() => {
+    if (!preselect) return offerList[0].name;
+    if (SAFETY_IDS.includes(preselect)) return t.safety;
+    const hit = offerList.find((o) => o.id === preselect);
+    return hit ? hit.name : offerList[0].name;
+  });
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
 
   useEffect(() => {
+    if (preselect) return;
     const wanted = new URLSearchParams(window.location.search).get("for");
     if (!wanted) return;
-    if (SAFETY_IDS.includes(wanted)) {
-      setDiscipline(t.safety);
-      return;
-    }
-    const hit = offerList.find((o) => o.id === wanted);
-    if (hit) setDiscipline(hit.name);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const t0 = setTimeout(() => {
+      if (SAFETY_IDS.includes(wanted)) {
+        setDiscipline(t.safety);
+        return;
+      }
+      const hit = offerList.find((o) => o.id === wanted);
+      if (hit) setDiscipline(hit.name);
+    }, 0);
+    return () => clearTimeout(t0);
   }, []);
 
   function validate(): Errors {

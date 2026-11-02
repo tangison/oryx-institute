@@ -300,7 +300,7 @@ export default async function AboutPage({
               height={1122}
               sizes="(min-width: 768px) 22rem, 88vw"
               className="h-auto w-full"
-              loading="lazy"
+              loading="eager"
             />
           </figure>
           <div className="md:order-1" data-sc-in>

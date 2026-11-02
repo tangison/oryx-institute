@@ -64,7 +64,6 @@ export function OryxLogo({
 }) {
   const [w, h] = BOX[variant];
   return (
-    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={SRC[variant][tone]}
       width={w}

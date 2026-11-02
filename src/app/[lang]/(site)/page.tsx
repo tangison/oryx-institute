@@ -489,6 +489,7 @@ export default async function HomePage({
               height={1000}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
+              loading="eager"
             />
           </figure>
           <div className="md:order-1">
@@ -556,7 +557,7 @@ export default async function HomePage({
                         {safetyAnnouncement[lang].seeCurriculum}
                       </Link>
                       <Link
-                        href={zh ? "/zh/apply?for=safety" : "/apply?for=safety"}
+                        href={zh ? "/zh/apply/safety" : "/apply/safety"}
                         className="btn--quiet"
                       >
                         {safetyAnnouncement[lang].registerInterest}{" "}
