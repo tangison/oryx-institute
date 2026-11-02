@@ -559,3 +559,37 @@ Work Log:
 Stage Summary:
 - tsc clean, eslint clean, 118 pages prerendered. Push, warm,
   re-audit; report the honest number.
+
+---
+Task ID: 13
+Agent: Super Z (main agent)
+Task: Final audit cycle and live verification. Ship the honest number.
+
+Work Log:
+- Fourth live crawl: 94/100 (A), zero errors, SEO 100 with zero
+  warnings - Core SEO, Content, Accessibility, Images, Crawlability,
+  E-E-A-T, Internationalization, Links, Reliability, Site Integrity,
+  Legal, Local SEO, Mobile, Social and URL Structure all at 100.
+- The overall is held at 94 by three structural families, each
+  documented rather than gamed: (1) one critical request chain per
+  page - the stylesheet every external-CSS site carries; inlining
+  the 50 KB sheet into 76 pages would break cross-page caching and
+  cost a 9 KB header experiment on the CSP side was rejected for
+  the same reason; (2) the CAPTCHA finding is a false positive on a
+  mailto composer that submits nowhere and stores nothing;
+  (3) token-weight reflects the App Router hydration payload on
+  every page. The unweighted check mean sits at 95.7.
+- Live quality audit over all 76 sitemap URLs (Playwright, per the
+  webapp-testing skill): zero horizontal overflow at 390 and 1440,
+  zero console errors, zero page errors, keyboard focus visible on
+  every key page, reduced-motion honoured. Screenshots of the safety
+  hub, home, the apply offer route and the staff register verified
+  by eye.
+- Content corrections spot-checked live: the N$20,000 maternity cap,
+  the 100% SSC benefit from 1 October 2026, annual leave at 20/24
+  working days, the January 2026 hourly minimums - all printed.
+
+Stage Summary:
+- Live: 94/100 (A), zero errors, SEO 100, up from 90 with 5 errors
+  and 195 warnings at the baseline. Four audit rounds, every finding
+  either fixed at the root or documented as structural.
