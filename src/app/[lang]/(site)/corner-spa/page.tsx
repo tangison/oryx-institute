@@ -21,7 +21,7 @@ const copy = {
     meta: {
       title: "Corner Spa, with Mendozer",
       description:
-        "Corner Spa, the first venture: wellness and service operations in Windhoek, run in collaboration with Mendozer. The spa's counter, spa.mendozer.com, is embedded on this page.",
+        "Corner Spa, the first venture: wellness and service operations in Windhoek, run with Mendozer. The spa's counter at spa.mendozer.com, embedded on this page.",
       ogTitle: "Corner Spa | Oryx Institute",
       ogDescription:
         "Wellness and service operations in Windhoek, run with Mendozer. The spa's counter, spa.mendozer.com, embedded here.",
@@ -36,19 +36,31 @@ const copy = {
     withEyebrow: "With Mendozer",
     withLede: "A venture with a counter of its own.",
     withBody:
-      "Corner Spa runs in collaboration with Mendozer, whose platform carries the spa's own counter at spa.mendozer.com. The counter is embedded on this page: it is the spa's address on this site, and Mendozer's platform is what serves it. When the counter goes live, bookings, times and the service menu read from it directly — nothing about the spa is retold here that the counter does not itself say.",
+      "Corner Spa runs in collaboration with Mendozer, whose platform carries the venture's storefront at spa.mendozer.com. That counter is embedded below: the venture's own address on this site, served by their platform. When it goes live, bookings, times and the service menu read from it directly; nothing here retells what the counter itself says.",
+    shapeEyebrow: "The shape of the collaboration",
+    rows: [
+      {
+        term: "The counter",
+        body: "Mendozer's platform serves the storefront at spa.mendozer.com; this page embeds it, and the line beneath the frame always carries the address, so the door is never lost to a blocked frame or a slow connection.",
+      },
+      {
+        term: "The classroom",
+        body: "The venture doubles as the teaching site. Bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on.",
+      },
+      {
+        term: "The register row",
+        body: "The opening is dated in the register the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record, so nobody pays for it twice.",
+      },
+    ],
     counterEyebrow: "The counter",
     counterTitle: "The Corner Spa counter at spa.mendozer.com",
     counterNote:
-      "The counter is served by Mendozer. If it has not loaded here, the spa's own address is",
-    classroomEyebrow: "The classroom on the floor",
-    classroomBody:
-      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. What a diploma claims, the venture shows.",
+      "The counter is served by Mendozer. If it has not loaded here, the venture's own address is",
     statusEyebrow: "Status",
     statusLede:
       "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order.",
     statusBody:
-      "The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page and the counter are the spa's whole public surface.",
+      "The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page is the venture's whole public surface.",
     readRegister: "Read the register",
     writeOffice: "Write to the office",
   },
@@ -56,11 +68,11 @@ const copy = {
     meta: {
       title: "Corner Spa，与 Mendozer 合作",
       description:
-        "Corner Spa，学院的第一项实业：温得和克的康养与服务运营，与 Mendozer 合作经营。水疗的柜台 spa.mendozer.com 直接嵌在本页。",
+        "Corner Spa，学院的第一项实业：温得和克的康养与服务运营，与 Mendozer 合作经营。水疗的柜台设在 Mendozer 平台 spa.mendozer.com，直接嵌于本页：预约、时间与服务单都从柜台读出，柜台没有说的，本页不替它说；开业之日，登记册记下日期。",
       ogTitle: "Corner Spa | Oryx 理工学院",
       ogDescription:
         "温得和克的康养与服务运营，与 Mendozer 合作。水疗柜台 spa.mendozer.com，嵌于本页。",
-      ldName: "Corner Spa",
+      ldName: "Corner Spa · Oryx 理工学院",
       ldDescription:
         "Corner Spa，Oryx 理工学院的第一项实业：温得和克的康养与服务运营，与 Mendozer 合作，柜台设在 spa.mendozer.com。",
     },
@@ -71,24 +83,36 @@ const copy = {
     withEyebrow: "与 Mendozer",
     withLede: "一间拥有自己柜台的实业。",
     withBody:
-      "Corner Spa 与 Mendozer 合作经营，水疗自己的柜台设在对方的平台上：spa.mendozer.com。柜台直接嵌在本页——它是水疗在这个网站上的地址，服务它的是 Mendozer 的平台。柜台上线之后，预约、时间与服务单都从它那里读出；柜台没有说的，本页不替它说。",
+      "Corner Spa 与 Mendozer 合作经营，水疗的店面设在对方的平台上：spa.mendozer.com。柜台直接嵌在本页——它是这项实业在本站的地址，由对方的平台承载服务。柜台上线之后，预约、时间与服务单都从它那里读出；本页不替柜台转述它自己会说的事。",
+    shapeEyebrow: "合作的形状",
+    rows: [
+      {
+        term: "柜台",
+        body: "Mendozer 的平台承载 spa.mendozer.com 的店面；本页将它嵌入，边框下方的文字始终标注地址——即使边框被拦或连接缓慢，这扇门也不会丢。",
+      },
+      {
+        term: "教室",
+        body: "实业同时是教学现场。簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的——不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。",
+      },
+      {
+        term: "登记册一行",
+        body: "开业之日，日期记入登记册；结果无论哪种都印出来——作为一门生意，或作为学院付过一次学费、记在案上、让后人不必再付的一课。",
+      },
+    ],
     counterEyebrow: "柜台",
     counterTitle: "Corner Spa 柜台，设在 spa.mendozer.com",
-    counterNote: "柜台由 Mendozer 提供服务。若它未在此加载，水疗自己的地址是",
-    classroomEyebrow: "地板上的教室",
-    classroomBody:
-      "每一间实业同时是一处教学现场。在 Corner Spa，簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的——不是背出来的。文凭上声称的，实业把它摆出来。",
+    counterNote: "柜台由 Mendozer 提供服务。若它未在此加载，这项实业自己的地址是",
     statusEyebrow: "现状",
     statusLede: "已公布为与 Mendozer 合作开办的实业。场地、执照与服务单正在逐项推进。",
-    statusBody: "开业之日，登记册记下日期——作为一门生意开业，否则不开。在那之前，本页与柜台就是水疗全部的公开门面。",
+    statusBody: "开业之日，登记册记下日期——作为一门生意开业，否则不开。在那之前，本页就是这项实业全部的公开门面。",
     readRegister: "读登记册",
     writeOffice: "给办公室写信",
     enLedger: {
       paras: [
         "Corner Spa, the first venture: a small wellness and service operation for Windhoek, opened with a partner. Teach on the floor, serve real customers, and print the result.",
-        "Corner Spa runs in collaboration with Mendozer, whose platform carries the spa's own counter at spa.mendozer.com. The counter is embedded on this page: it is the spa's address on this site, and Mendozer's platform is what serves it. When the counter goes live, bookings, times and the service menu read from it directly — nothing about the spa is retold here that the counter does not itself say.",
-        "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. What a diploma claims, the venture shows.",
-        "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order. The opening is dated in the register the day it happens — as a business, or not at all.",
+        "Corner Spa runs in collaboration with Mendozer, whose platform carries the venture's storefront at spa.mendozer.com. That counter is embedded below: the venture's own address on this site, served by their platform. When it goes live, bookings, times and the service menu read from it directly; nothing here retells what the counter itself says.",
+        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront at spa.mendozer.com; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. The register row: the opening is dated the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record.",
+        "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order. The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page is the venture's whole public surface.",
       ],
     },
   },
@@ -184,8 +208,26 @@ export default async function CornerSpaPage({
         </div>
       </section>
 
+      {/* The shape of the collaboration: three ledger rows on cream —
+          the counter, the classroom, the register row. */}
+      <section className="section" data-sc-act="flow">
+        <div className="shell">
+          <div className="hair-t pt-14" data-sc-reveal>
+            <p className="eyebrow eyebrow--ink">{t.shapeEyebrow}</p>
+          </div>
+          <div className="mt-4" data-sc-in>
+            {t.rows.map((r) => (
+              <div className="ledger-row--flat hair-t" key={r.term}>
+                <h2 className="h-sub mt-8">{r.term}</h2>
+                <p className="measure mt-4 text-soft">{r.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* The counter itself: Mendozer's platform, framed. A visible
-          note beneath carries the spa's own address for any visitor
+          note beneath carries the venture's own address for any visitor
           whose browser or the partner's headers refuse the frame. */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
@@ -217,19 +259,6 @@ export default async function CornerSpaPage({
               </span>
             </a>
           </p>
-        </div>
-      </section>
-
-      {/* The classroom: what the venture teaches, condensed from the
-          ventures page. */}
-      <section className="section" data-sc-act="flow">
-        <div className="shell">
-          <div className="hair-t pt-14" data-sc-reveal>
-            <p className="eyebrow eyebrow--ink">{t.classroomEyebrow}</p>
-            <p className="measure mt-6 text-soft" data-sc-in>
-              {t.classroomBody}
-            </p>
-          </div>
         </div>
       </section>
 

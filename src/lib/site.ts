@@ -262,7 +262,7 @@ export const ventures = {
     name: "Corner Spa",
     status: "In development · with Mendozer",
     line: "Wellness and service operations: the first live\u00A0lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, run in collaboration with Mendozer. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded at /corner-spa on this site. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is in\u00A0development.",
+    body: "Corner Spa is the institute's first venture: a small wellness and service operation, run in collaboration with Mendozer. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is in\u00A0development.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",
