@@ -41,7 +41,7 @@ const copy = {
     rows: [
       {
         term: "The counter",
-        body: "Mendozer's platform serves the storefront at spa.mendozer.com; this page embeds it, and the line beneath the frame always carries the address, so the door is never lost to a blocked frame or a slow connection.",
+        body: "Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address, so the door is never lost to a blocked frame or a slow connection.",
       },
       {
         term: "The classroom",
@@ -111,7 +111,7 @@ const copy = {
       paras: [
         "Corner Spa, the first venture: a small wellness and service operation for Windhoek, opened with a partner. Teach on the floor, serve real customers, and print the result.",
         "Corner Spa runs in collaboration with Mendozer, whose platform carries the venture's storefront at spa.mendozer.com. That counter is embedded below: the venture's own address on this site, served by their platform. When it goes live, bookings, times and the service menu read from it directly; nothing here retells what the counter itself says.",
-        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront at spa.mendozer.com; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. The register row: the opening is dated the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record.",
+        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. The register row: the opening is dated the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record.",
         "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order. The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page is the venture's whole public surface.",
       ],
     },
