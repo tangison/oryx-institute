@@ -241,6 +241,8 @@ export default async function CornerSpaPage({
             <iframe
               src={SPA_COUNTER}
               title={t.counterTitle}
+              width={1200}
+              height={800}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
             />

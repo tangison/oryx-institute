@@ -654,3 +654,31 @@ Stage Summary:
   SquirrelScan warnings stay as documented: token-weight is App Router
   flight duplication (the markdown shelf is the AEO answer), CSP
   inline is Next.js, form-captcha is the mailto composer.
+
+---
+Task ID: 10b (addendum — audit-driven copy pass on the new pages)
+Agent: main (Z.ai)
+Task: Clear the warnings the first audit raised against /corner-spa and
+/zh/corner-spa, then re-verify live.
+
+Work Log:
+- Meta descriptions into the SERP band (en 174→156 chars, zh 79→136);
+  Core SEO warnings 2→0.
+- Distinct zh entity name in the JSON-LD ("Corner Spa · Oryx 理工学院",
+  matching the site's zh naming precedent); the en/zh description/url
+  conflict cleared; Structured Data warnings 1→0.
+- The classroom section became the three-row ledger ("The shape of the
+  collaboration": the counter, the classroom, the register row) —
+  substance instead of repetition; both pages past the 300-word floor;
+  word-count warnings 2→0.
+- Keyword trims: the redundant counter URL dropped from body copy and
+  the ledger row; /zh/ventures cleared entirely; the partner's own
+  name remains (organic on its page).
+- iframe width/height attributes added (CLS hint cleared).
+- Verified live across three fresh crawls: 94/100 (A), 0 errors held;
+  one run caught 3 TTFB errors >1s on zh pages (Vercel edge cold
+  starts, gone on the next crawl — structural, documented); remaining
+  warnings are the documented structural set: token-weight (App Router
+  flight), CSP inline (Next.js), mailto form, TTFB variance, the
+  partner's name density, and spa.mendozer.com not resolving until
+  Mendozer's launch.
