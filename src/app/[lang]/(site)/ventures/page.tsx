@@ -29,6 +29,7 @@ const copy = {
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the ventures desk",
+    followSpa: "Follow Corner Spa",
     futureNote:
       "More labs are opened as sectors warrant them. What is not ready, says so.",
   },
@@ -55,6 +56,7 @@ const copy = {
     nextEyebrow: "下一项",
     readRegister: "读登记册",
     briefUs: "给实业案头写需求",
+    followSpa: "查看 Corner Spa",
     futureNote:
       "行业到了该检验的时候，就再开一间。没准备好的，直说。",
     enLedger: {
@@ -196,6 +198,11 @@ export default async function VenturesPage({
       <section className="section" data-sc-act="flow">
         <div className="shell" data-sc-in>
           <p className="measure text-soft">{v.cornerSpa.body}</p>
+          <div className="mt-8">
+            <Link href={A("/corner-spa")} className="btn--quiet">
+              {t.followSpa} <span className="arr" aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 

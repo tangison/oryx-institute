@@ -144,6 +144,11 @@ const PAGES: IndexRow[] = [
     title: "Small Companies, Real Customers",
     note: "Ventures the institute runs to teach from",
   },
+  {
+    path: "/corner-spa",
+    title: "Corner Spa, with Mendozer",
+    note: "The first venture: wellness and service operations, its counter at spa.mendozer.com embedded on the page",
+  },
 ];
 
 /** The whole shelf as index rows: pages first, then every document. */

@@ -89,6 +89,7 @@ export const chrome = {
     newsInEnglish: "Announcements are published in English.",
     readMore: "Read",
     backHome: "Back to the front page",
+    toTop: "Back to top",
     notFoundTitle: "Nothing stands at this address.",
     notFoundBody:
       "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
@@ -125,6 +126,7 @@ export const chrome = {
     newsInEnglish: "公告以英文发布。",
     readMore: "阅读",
     backHome: "回到首页",
+    toTop: "回到顶部",
     notFoundTitle: "这个地址什么也没有。",
     notFoundBody:
       "页面搬走了，或者从未印出。登记册、实务与办公室，各在一击之外。",

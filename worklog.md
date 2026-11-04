@@ -593,3 +593,64 @@ Stage Summary:
 - Live: 94/100 (A), zero errors, SEO 100, up from 90 with 5 errors
   and 195 warnings at the baseline. Four audit rounds, every finding
   either fixed at the root or documented as structural.
+
+---
+Task ID: 10
+Agent: main (Z.ai)
+Task: Client round: simple widgets that make the site lively (conditional
+scroll-to-top named explicitly, never appearing out of the blue), more
+SEO/AEO surface, and the Corner Spa venture with Mendozer — the spa's
+counter spa.mendozer.com embedded at oryxinstitute.org/corner-spa, with
+the integration instructions written down.
+
+Work Log:
+- Scroll chrome shipped: scroll-chrome.tsx (one client island, one
+  rAF-throttled listener) renders a reading-progress hairline under the
+  header bar (z 78, under the menu panel) and a conditional back-to-top
+  pill (z 60, ivory/hairline/maroon hover, 44px target, safe-area
+  aware). The button appears only past 640px of scroll and steps back
+  at the top; hidden state removes it from tab order and the
+  accessibility tree; reduced motion keeps the control, drops the
+  glide; print hides both; no-JS renders the fill at scaleX(0) and the
+  button unseen. Label from the chrome strings (Back to top / 回到顶部).
+- Engine race fixed at the root (sc-motion.tsx): the one-time build's
+  ScrollTrigger.refresh sweeps and restores the scroll position, which
+  parked visitors mid-glide (anchor jumps, CSS smooth scroll) at an
+  intermediate offset — reproduced locally (scrollTo 2200 landed at
+  23px). The build now waits for a 160ms scroll idle before it runs,
+  the restore is instant (not CSS-smooth-animated) and only fires when
+  the page actually has pins. Verified: the glide completes to its
+  target, the engine builds on idle, pins hold at viewport top through
+  their range.
+- Corner Spa page (/corner-spa, /zh/corner-spa): hero on the venture's
+  sand register, the Mendozer collaboration named, the counter
+  (https://spa.mendozer.com) framed in a hairline .spa-frame with a
+  visible fallback line carrying the spa's own address, the classroom
+  section, status ("In development · with Mendozer"), register and
+  office doors; WebPage JSON-LD; the English ledger printed under the
+  Chinese page. No invented dates, prices or services.
+- Wiring: CSP gained frame-src 'self' https://spa.mendozer.com
+  (vercel.json); sitemap row with zh alternate; md-shelf row
+  (/md/corner-spa serves markdown); llms.txt Ventures + Partners
+  updated; footerNav + navZh.footerNav gained Corner Spa; ventures
+  page gained "Follow Corner Spa"; search index entries both
+  languages; OG plate generated from the brand fonts on the sand
+  ground (scripts/make-og-corner-spa.mjs).
+- docs/corner-spa-integration.md: what is live, the one header that
+  can break the embed (X-Frame-Options / frame-ancestors on
+  spa.mendozer.com), cookies/deep-links/mobile-height notes, and the
+  exact change list for when the final details arrive.
+- Verified: tsc clean, eslint clean, build green (49 SSG paths),
+  scripts/smoke-round.mjs 28/28 (page 200s, meta, iframe src, zh lang,
+  widgets conditional both directions, click-to-top, footer, sitemap,
+  md shelf, 390px overflow 0, mobile button onscreen, zero console
+  errors); scroll-probe + pin-probe runs green; OG plate and the
+  corner-spa screenshots reviewed by eye.
+
+Stage Summary:
+- The site gained its two scroll widgets (conditional, in-register)
+  and the Corner Spa surface with Mendozer; a latent engine bug that
+  could yank a scrolling visitor was fixed at the root. The remaining
+  SquirrelScan warnings stay as documented: token-weight is App Router
+  flight duplication (the markdown shelf is the AEO answer), CSP
+  inline is Next.js, form-captcha is the mailto composer.

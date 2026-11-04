@@ -230,6 +230,8 @@ export function SCMotion() {
     let dead = false;
     let ctx: { revert: () => void } | null = null;
 
+    let cleanups: (() => void)[] = [];
+
     const start = async () => {
       if (dead) return;
       let engine: Engine;
@@ -240,34 +242,75 @@ export function SCMotion() {
       }
       if (dead) return;
       armed = true;
-      document.documentElement.classList.add("sc-ready");
-      /* Pinning inserts spacers, which can drag the viewport when the
-         engine builds after the visitor has already scrolled. Capture
-         the intent, build, then restore it — the restore's scroll
-         event drives every trigger to the right state at once. */
-      const savedScroll = window.scrollY;
-      ctx = build(document, engine);
-      engine.ScrollTrigger.refresh();
-      if (Math.abs(window.scrollY - savedScroll) > 2) {
-        window.scrollTo(0, savedScroll);
-      }
-      /* Pin spacers change the page's length, so an in-flight anchor
-         jump lands where the target USED to be. If the URL carries a
-         hash, re-issue the jump now that the layout is final. */
-      if (window.location.hash.length > 1) {
-        const target = document.getElementById(
-          decodeURIComponent(window.location.hash.slice(1))
-        );
-        if (target) {
-          const pad = parseFloat(
-            getComputedStyle(document.documentElement).scrollPaddingTop || "0"
-          );
+
+      /* Build only when the page is still. ScrollTrigger's refresh
+         sweeps the scroll position to measure pins and restores what
+         it saved; if that happens mid-glide (an anchor jump, the CSS
+         smooth scroll, a fast flick), the sweep captures an
+         intermediate position and parks the visitor there — the page
+         "yanks back" a few hundred pixels. Waiting for a short scroll
+         idle means the sweep measures a settled layout and its
+         save/restore round-trips to the same spot. Until the build,
+         nothing is hidden (the pre-hide is gated on html.sc-ready),
+         so the deferral costs nothing visually. */
+      let idleTimer = 0;
+      let settled = false;
+      const runBuild = () => {
+        if (dead || settled) return;
+        settled = true;
+        window.removeEventListener("scroll", onScrollDuringArm);
+        document.documentElement.classList.add("sc-ready");
+        /* Pinning inserts spacers, which can drag the viewport when
+           the engine builds after the visitor has already scrolled.
+           Capture the intent, build, then restore it — the restore's
+           scroll event drives every trigger to the right state at
+           once. The restore is forced instant (html carries CSS
+           scroll-behavior: smooth, so a plain scrollTo would animate)
+           and only runs when the page actually HAS pins: without them
+           the refresh cannot displace a settled viewport. */
+        const hasPins = document.querySelector('[data-sc-act="pin"]') !== null;
+        const savedScroll = hasPins ? window.scrollY : null;
+        ctx = build(document, engine);
+        engine.ScrollTrigger.refresh();
+        if (
+          savedScroll !== null &&
+          Math.abs(window.scrollY - savedScroll) > 2
+        ) {
           window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - pad,
+            top: savedScroll,
             behavior: "instant" as ScrollBehavior,
           });
         }
+        /* Pin spacers change the page's length, so an in-flight anchor
+           jump lands where the target USED to be. If the URL carries a
+           hash, re-issue the jump now that the layout is final. */
+        if (window.location.hash.length > 1) {
+          const target = document.getElementById(
+            decodeURIComponent(window.location.hash.slice(1))
+          );
+          if (target) {
+            const pad = parseFloat(
+              getComputedStyle(document.documentElement).scrollPaddingTop || "0"
+            );
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.scrollY - pad,
+              behavior: "instant" as ScrollBehavior,
+            });
+          }
+        }
+      };
+      function onScrollDuringArm() {
+        if (idleTimer) window.clearTimeout(idleTimer);
+        idleTimer = window.setTimeout(runBuild, 160);
       }
+      window.addEventListener("scroll", onScrollDuringArm, { passive: true });
+      idleTimer = window.setTimeout(runBuild, 160);
+      /* Route change during the idle wait: drop the timer, drop the
+         listener; the next mount builds its own engine state. */
+      cleanups.push(() => {
+        if (idleTimer) window.clearTimeout(idleTimer);
+        window.removeEventListener("scroll", onScrollDuringArm);
+      });
     };
 
     if (armed) {
@@ -300,6 +343,8 @@ export function SCMotion() {
 
     return () => {
       dead = true;
+      cleanups.forEach((fn) => fn());
+      cleanups = [];
       ctx?.revert();
     };
   }, [pathname]);

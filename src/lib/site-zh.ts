@@ -150,9 +150,9 @@ export const venturesZh = {
   body: "Oryx 想弄懂一个行业时，就在这个行业里开一家小公司。客户说了算，登记册公布结果。",
   cornerSpa: {
     name: "Corner Spa",
-    status: "概念",
+    status: "筹备中 · 与 Mendozer 合作",
     line: "康养与服务运营：第一个实作实验室。",
-    body: "Corner Spa 是学院的第一项实业：一门小型康养与服务生意，先以概念公布，再以企业开业。它有两个用途：在温得和克为真客户提供真服务，以及一间活的课堂：工商管理、服务标准、前台运营，就在生意现场教。概念正在推进：场地、执照与服务单，逐项落实。开业那天，开业一事会带着日期登上本站的登记册。在那之前，它是一个概念。",
+    body: "Corner Spa 是学院的第一项实业：一门小型康养与服务生意，与 Mendozer 合作经营。它有两个用途：在温得和克为真客户提供真服务，以及一间活的课堂：工商管理、服务标准、前台运营，就在生意现场教。水疗自己的柜台设在 Mendozer 的平台上：spa.mendozer.com，并嵌于本站 /corner-spa。场地、执照与服务单，逐项落实。开业那天，开业一事会带着日期登上本站的登记册。在那之前，它在筹备之中。",
   },
   futureLine: "下一项实业还没有名字。开业之时，开业一事会带着日期进入登记册。",
 } as const;
@@ -310,6 +310,7 @@ export const navZh = {
     { href: "/research", label: "研究" },
     { href: "/practice", label: "实务" },
     { href: "/ventures", label: "实业" },
+    { href: "/corner-spa", label: "Corner Spa" },
     { href: "/resources", label: "资源目录" },
     { href: "/resources#bulletin", label: "公报" },
     { href: "/register", label: "登记册" },

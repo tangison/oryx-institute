@@ -260,9 +260,9 @@ export const ventures = {
   body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the\u00A0result.",
   cornerSpa: {
     name: "Corner Spa",
-    status: "Concept",
+    status: "In development · with Mendozer",
     line: "Wellness and service operations: the first live\u00A0lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, announced as a concept and opened as a business. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The concept is in development: premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is a\u00A0concept.",
+    body: "Corner Spa is the institute's first venture: a small wellness and service operation, run in collaboration with Mendozer. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded at /corner-spa on this site. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is in\u00A0development.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",
@@ -374,6 +374,7 @@ export const footerNav = [
   { href: "/research", label: "Research" },
   { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
+  { href: "/corner-spa", label: "Corner Spa" },
   { href: "/resources", label: "The Directory" },
   { href: "/resources#bulletin", label: "Bulletin" },
   { href: "/register", label: "The Register" },
