@@ -21,7 +21,7 @@ import {
  * every variant share one title, which the second crawl read as
  * duplicate titles and descriptions across ten pages. A route per offer
  * is static, fast, and carries its own title, description and
- * canonical — and the markdown shelf mirrors each one for agents.
+ * canonical, and the markdown shelf mirrors each one for agents.
  */
 
 export function generateStaticParams(): { lang: string; offer: string }[] {

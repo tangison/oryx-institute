@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { OryxLogo } from "@/components/site/oryx-logo";
+import { site } from "@/lib/site";
 
 /**
  * The error screen, shared by every status the site can return.
@@ -21,6 +22,7 @@ const copy = {
   en: {
     home: "Back to the front page",
     office: "Write to the office",
+    phoneLabel: "Call or WhatsApp",
     again: "Try again",
     apply: "Apply now",
     back: "Back",
@@ -56,6 +58,7 @@ const copy = {
   zh: {
     home: "回到首页",
     office: "给办公室写信",
+    phoneLabel: "来电或 WhatsApp",
     again: "重试",
     apply: "申请",
     back: "返回",
@@ -191,6 +194,18 @@ export function ErrorScreen({
 
       <footer className="shell border-t border-[var(--rule)] py-5">
         <p className="meta">oryxinstitute.org</p>
+        {/* The one live route that never closes: the office line, on
+            every status page, exactly as the footer carries it. */}
+        <p className="meta mt-1">
+          {t.phoneLabel}{" "}
+          <a
+            href={site.phoneHref}
+            className="link-type whitespace-nowrap"
+            aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+          >
+            {site.phoneDisplay}
+          </a>
+        </p>
       </footer>
     </div>
   );

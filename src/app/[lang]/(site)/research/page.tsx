@@ -89,7 +89,7 @@ const copy = {
       "指名，且用他们自己的标记：研究的合作方，按伙伴自己印制的样子呈现。",
     enLedger: {
       paras: [
-        "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both — market research taken on per engagement, and the programme and product work the institute runs with named partners. The method is three steps: the question, written down as it stands before any method is discussed; the ground, evidence gathered on Namibian ground with sources named; and the document, written to be used — findings, options, and the decision they support, not shelved.",
+        "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both: market research taken on per engagement, and the programme and product work the institute runs with named partners. The method is three steps: the question, written down as it stands before any method is discussed; the ground, evidence gathered on Namibian ground with sources named; and the document, written to be used: findings, options, and the decision they support, not shelved.",
         "Three streams run from the desk. The Bulletin carries cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never; every figure carries its source, or it does not ship. Fieldwork notes open when fieldwork starts. Cited papers publish as the research programme produces them; none exist yet, and none are claimed.",
         "The programme side is public where the work is public. The AI training programme is built with Tangison Technologies and was announced on 18 October 2026; the curriculum is being written module by module, and a flagship product is under construction on it. Concept work with Mendozer is named on the partners' own marks.",
         "The research register at launch is one desk wide: the Principal reads every application personally, writes the Bulletin's register, and holds the desk the research runs from. It widens as researchers join, and each one is named here when they do.",
@@ -175,7 +175,7 @@ export default async function ResearchPage({
       </PageHead>
 
       {/* The hero plate: the game board, full measure, drifting at a
-          gentler rate than the page — the scrub act. (The notebook is
+          gentler rate than the page: the scrub act. (The notebook is
           the homepage zigzag and the /brand specimen now; the board
           is the research hero.) */}
       <section className="section-sm" data-sc-act="scrub">
@@ -277,7 +277,7 @@ export default async function ResearchPage({
       </div>
 
       {/* The peak: the Bulletin quote, pinned for two viewports on
-          the journal-detail plate — an open journal with a dip pen
+          the journal-detail plate: an open journal with a dip pen
           resting in the fold, the working document itself. */}
       <section
         className="peak"
@@ -355,7 +355,7 @@ export default async function ResearchPage({
             data-sc-stagger="80"
           >
             <div className="quiet-card">
-              {/* TODO founder: replace the shield placeholder with the
+              {/* Awaiting the founder: swap the shield emblem for the
                   Principal's portrait when the Windhoek photoshoot lands. */}
               <div className="grid place-items-center bg-white border-b border-rule p-14">
                 <OryxLogo
@@ -395,7 +395,7 @@ export default async function ResearchPage({
       </section>
 
       {/* Partners: named in text, carried as prose rows. The marks
-          are gone — the credit is a line, not a logo
+          are gone: the credit is a line, not a logo
           (CONTENT-CORRECTIONS §5). */}
       <section className="section" data-sc-act="flow">
         <div className="shell">

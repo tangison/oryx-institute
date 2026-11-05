@@ -21,7 +21,7 @@ const copy = {
     howEyebrow: "How ventures work",
     lessonEyebrow: "The classroom on the floor",
     lessonBody:
-      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
@@ -48,7 +48,7 @@ const copy = {
     howEyebrow: "实业怎么运作",
     lessonEyebrow: "地板上的教室",
     lessonBody:
-      "每一间实业同时是一处教学现场。在 Corner Spa，簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的——不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。文凭上声称的，实业把它摆出来。",
+      "每一间实业同时是一处教学现场。在 Corner Spa，簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的，不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。文凭上声称的，实业把它摆出来。",
     exitLede:
       "实业做不了假。它由两件不会说谎的事来评判：它能不能运转，以及有没有人愿意为它付钱。",
     exitBody:
@@ -61,10 +61,10 @@ const copy = {
       "行业到了该检验的时候，就再开一间。没准备好的，直说。",
     enLedger: {
       paras: [
-        "Ventures are small operating companies the institute opens to test sectors. A venture cannot be faked: it is judged by the two things that cannot lie — whether it works, and whether anyone pays for it. Every course the institute teaches ends in something that works and something that sells, and ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
-        "Every venture doubles as a teaching site. Corner Spa, the first, is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
-        "Corner Spa is announced as a concept: wellness and service operations in Windhoek. Premises, licensing and the service menu are in development, and the opening is dated in the register the day it happens — as a business, or not at all.",
-        "The venture ledger is short, and deliberately so: one concept, announced, with its opening dated the day it happens. It is the first because wellness and service operations teach the whole loop a business runs on \u2014 bookings, stock, standard, and the customer's own verdict \u2014 in one small room. The next venture is chosen the same way: a sector the institute needs to understand, a company small enough to run to standard, and a register row that prints the result either way.",
+        "Ventures are small operating companies the institute opens to test sectors. A venture cannot be faked: it is judged by the two things that cannot lie: whether it works, and whether anyone pays for it. Every course the institute teaches ends in something that works and something that sells, and ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
+        "Every venture doubles as a teaching site. Corner Spa, the first, is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+        "Corner Spa is announced as a concept: wellness and service operations in Windhoek. Premises, licensing and the service menu are in development, and the opening is dated in the register the day it happens, as a business or not at all.",
+        "The venture ledger is short, and deliberately so: one concept, announced, with its opening dated the day it happens. It is the first because wellness and service operations teach the whole loop a business runs on (bookings, stock, standard, and the customer's own verdict) in one small room. The next venture is chosen the same way: a sector the institute needs to understand, a company small enough to run to standard, and a register row that prints the result either way.",
         "More labs are opened as sectors warrant them. What is not ready, says so.",
       ],
     },
@@ -132,7 +132,7 @@ export default async function VenturesPage({
       {/* The hero, a reverse-zigzag under scrub: the proposition on the
           left, the spa's own treatment scene drifting at its own rate
           on the right. (The spa dish stays on the homepage; this is
-          the corner-spa towel — a real treatment scene, not an
+          the corner-spa towel: a real treatment scene, not an
           object.) */}
       <section className="section" data-sc-act="scrub">
         <div className="shell grid items-center gap-12 md:grid-cols-[1fr_minmax(0,26rem)] md:gap-16 lg:gap-24">
@@ -175,7 +175,7 @@ export default async function VenturesPage({
         </div>
       </section>
 
-      {/* The peak: Corner Spa, named on its own sand ground — the
+      {/* The peak: Corner Spa, named on its own sand ground: the
           venture's own palette, type and colour only, the treatment
           scene already seen above. Pinned for two viewports. */}
       <section className="peak" data-sc-act="pin" data-sc-span="2">

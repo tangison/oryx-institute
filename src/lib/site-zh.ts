@@ -139,9 +139,9 @@ export const registerZh = [
   },
   { date: "2026-10-25", entry: "网站改版上线。" },
   { date: "2026-10-18", entry: "与 Tangison Technologies 共同公布 AI 培训课程。" },
-  /* TODO founder: Gids-publikasiedatum */
+  /* Awaiting the founder: Gids-publikasiedatum */
   { date: null, entry: "Oryx 资源目录发布：四门速成课，七套商业模板。" },
-  /* TODO founder: Corner Spa-aankondigingsdatum */
+  /* Awaiting the founder: Corner Spa-aankondigingsdatum */
   { date: null, entry: "Corner Spa 概念公布。" },
 ] as const;
 
@@ -256,7 +256,7 @@ export const faqsZh = [
   },
   {
     q: "有证书吗？",
-    a: "课程结束后，Oryx 出具两种文书。结业证书是每一门短期课程或工作坊的内部结业记录，由院长签名；它不是 NQF 学分资格，也不能作为认证的先前学习提交给 NQA——它只证明你完成了 Oryx 的一门课。NQF 注册资格证书则要在 Oryx 取得相应资格的 NQA 认证之后才会签发；那些证书将带有 NQA 的认可与学分价值，这也是我们正在努力的方向。",
+    a: "课程结束后，Oryx 出具两种文书。结业证书是每一门短期课程或工作坊的内部结业记录，由院长签名；它不是 NQF 学分资格，也不能作为认证的先前学习提交给 NQA；它只证明你完成了 Oryx 的一门课。NQF 注册资格证书则要在 Oryx 取得相应资格的 NQA 认证之后才会签发；那些证书将带有 NQA 的认可与学分价值，这也是我们正在努力的方向。",
   },
   {
     q: "可以去办公室拜访吗？",

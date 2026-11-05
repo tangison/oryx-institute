@@ -247,7 +247,7 @@ export function SCMotion() {
          sweeps the scroll position to measure pins and restores what
          it saved; if that happens mid-glide (an anchor jump, the CSS
          smooth scroll, a fast flick), the sweep captures an
-         intermediate position and parks the visitor there — the page
+         intermediate position and parks the visitor there: the page
          "yanks back" a few hundred pixels. Waiting for a short scroll
          idle means the sweep measures a settled layout and its
          save/restore round-trips to the same spot. Until the build,
@@ -262,7 +262,7 @@ export function SCMotion() {
         document.documentElement.classList.add("sc-ready");
         /* Pinning inserts spacers, which can drag the viewport when
            the engine builds after the visitor has already scrolled.
-           Capture the intent, build, then restore it — the restore's
+           Capture the intent, build, then restore it; the restore's
            scroll event drives every trigger to the right state at
            once. The restore is forced instant (html carries CSS
            scroll-behavior: smooth, so a plain scrollTo would animate)

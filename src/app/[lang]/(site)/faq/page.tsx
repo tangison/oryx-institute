@@ -41,9 +41,9 @@ const copy = {
     enLedger: {
       paras: [
         "How to apply: there is no portal and no queue. One email to info@oryxinstitute.org starts the application; the Principal's office reads every message and answers personally, usually within the week. Nothing is committed until both sides agree.",
-        "What runs today: crash courses and short courses in business administration and IT and related fields — records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. Beside the teaching: the Owner's Desk for one-on-one business counselling, market research and development taken on per engagement, Rapid Response Training for teams that need a new standard fast, and the free Oryx Directory of Namibia-specific courses and templates.",
+        "What runs today: crash courses and short courses in business administration and IT and related fields: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. Beside the teaching: the Owner's Desk for one-on-one business counselling, market research and development taken on per engagement, Rapid Response Training for teams that need a new standard fast, and the free Oryx Directory of Namibia-specific courses and templates.",
         "What 理工 means: the two characters stand for science and engineering and hold the place Polytechnic occupies in the legal name, Oryx Polytechnic Institute. The wordmark sets them in maroon between the two serif words, and Bulletin No. 1 carries the institute's own published explanation of the word.",
-        "The certificate and the standing: the institute is prelaunch and says so; it is pursuing accreditation with the NQA and the NTA, and every step is dated on the public register. Ventures are small operating companies the institute opens to test sectors — Corner Spa is the first, announced as a concept. The office is in Windhoek; no public premises yet, so visits are arranged by appointment, and no telephone line is published until the business line lands.",
+        "The certificate and the standing: the institute is prelaunch and says so; it is pursuing accreditation with the NQA and the NTA, and every step is dated on the public register. Ventures are small operating companies the institute opens to test sectors; Corner Spa is the first, announced as a concept. The office is in Windhoek; no public premises yet, so visits are arranged by appointment, and no telephone line is published until the business line lands.",
       ],
     },
   },
@@ -104,7 +104,7 @@ export default async function FaqPage({
       </PageHead>
 
       {/* The pencil, small and right-aligned above the questions:
-          marking, answering, editing — the FAQ's own instrument.
+          marking, answering, editing: the FAQ's own instrument.
           (Image Bible v6: the regenerated plain graphite.) */}
       <section className="section-sm" data-sc-act="flow" data-sc-in>
         <div className="shell flex justify-end">

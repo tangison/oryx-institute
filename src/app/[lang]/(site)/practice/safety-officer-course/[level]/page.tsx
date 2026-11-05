@@ -125,7 +125,7 @@ export default async function SafetyLevelPage({
     ? [
         l.en.lede,
         l.en.audience.body,
-        ...l.en.modules.map((m) => `${m.no} — ${m.name}. ${m.line}`),
+        ...l.en.modules.map((m) => `${m.no}. ${m.name}. ${m.line}`),
         `Assessment: ${l.en.assessment.join(" ")}`,
         `Outcomes: ${l.en.outcomes.join("; ")}.`,
         `${l.en.credential}: ${l.en.credentialNote}`,

@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import { LANGS, langFromParams, type Lang } from "@/lib/i18n";
+import { LangSync } from "@/components/site/lang-sync";
 
 /**
  * The locale segment. It validates the language and renders nothing
  * itself: the chrome lives one level down in the (site) group, so the
  * error boundaries beside this file render without a MENU button, per
- * the brief — error pages carry the wordmark and one line of footer,
+ * the brief: error pages carry the wordmark and one line of footer,
  * nothing else.
  */
 export const dynamicParams = false;
@@ -23,5 +24,12 @@ export default async function LangLayout({
 }>) {
   const lang = langFromParams(await params);
   if (!LANGS.includes(lang as Lang)) notFound();
-  return <>{children}</>;
+  return (
+    <>
+      {/* The document language, kept honest on every locale route:
+          site pages, the Corner Spa frame and the error screens. */}
+      <LangSync lang={lang} />
+      {children}
+    </>
+  );
 }

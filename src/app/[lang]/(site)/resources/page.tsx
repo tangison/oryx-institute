@@ -143,8 +143,8 @@ export default async function ResourcesPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The opener: the journal detail — an open journal with a dip
-          pen resting in the fold — the library's own document, at
+      {/* The opener: the journal detail: an open journal with a dip
+          pen resting in the fold, the library's own document, at
           roughly 70vh under a gentle scrub. */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
@@ -209,7 +209,7 @@ export default async function ResourcesPage({
         </div>
       </section>
 
-      {/* Mid-page breath: the template ruler — measuring, marking,
+      {/* Mid-page breath: the template ruler: measuring, marking,
           the template's own instrument. No text, full viewport. */}
       <div className="divider divider--full overflow-hidden" data-sc-act="flow" aria-hidden="true">
         <div className="absolute inset-[-10%]" data-sc-parallax="0.8">
@@ -270,9 +270,9 @@ export default async function ResourcesPage({
         </div>
       </section>
 
-      {/* The peak: the Bulletin named over the reader — a person
+      {/* The peak: the Bulletin named over the reader: a person
           reading a pamphlet, the one human plate the Directory carries
-          — pinned for two viewports, the line arriving over the pin. */}
+          pinned for two viewports, the line arriving over the pin. */}
       <section className="peak" id="bulletin" data-sc-act="pin" data-sc-span="2">
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale aria-hidden="true">
@@ -299,7 +299,7 @@ export default async function ResourcesPage({
       </section>
 
       {/* The essays themselves. They publish in English. Each essay
-          ends on the red ground — a silent, full-bleed tail plate that
+          ends on the red ground: a silent, full-bleed tail plate that
           gives the reader a place to land before the next piece
           (Image Audit: one breath per essay, no text over it). */}
       {insights.map((a) => (

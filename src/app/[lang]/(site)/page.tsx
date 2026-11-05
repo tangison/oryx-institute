@@ -136,7 +136,7 @@ const copy = {
     enLedger: {
       paras: [
         "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA; every step is dated on the public register below. The institute divides its work into three kinds. Research publishes fieldwork, bulletin essays and cited papers on Namibia's working realities, free before anything is charged. Practice delivers crash courses, business counselling, market research and development, and rapid response training, measured and finished to standard, with every tool named. Ventures are small operating companies the institute opens to test sectors; each one is a live classroom and a live lab.",
-        "Six offers run today from the office in Windhoek. Two teaching departments — Business Administration, and IT and Related Fields — run crash courses and short courses only: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. The Owner's Desk runs one-on-one business counselling, and the outcome is written down. Market R&D takes feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. Rapid Response Training sources the industry expert a business needs, structures the programme, and delivers it. The Oryx Directory publishes the free, Namibia-specific courses and templates.",
+        "Six offers run today from the office in Windhoek. Two teaching departments (Business Administration, and IT and Related Fields) run crash courses and short courses only: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. The Owner's Desk runs one-on-one business counselling, and the outcome is written down. Market R&D takes feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. Rapid Response Training sources the industry expert a business needs, structures the programme, and delivers it. The Oryx Directory publishes the free, Namibia-specific courses and templates.",
         "Research runs from day one, because no buildings are needed for this work, so no buildings delay it. The Bulletin carries the institute's published essays, every figure carrying its source. The AI training programme is built with Tangison Technologies. Corner Spa, the first venture, is announced as a concept, and its opening is dated in the register the day it happens.",
         "Nothing is announced before it is certain. Applications, research enquiries, partnerships and press all begin with one email, and the reply comes from a person. Nothing is committed until both sides agree.",
       ],
@@ -305,7 +305,7 @@ export default async function HomePage({
       </section>
 
       {/* Positioning: the sentence, and the door into the about page.
-          No plate — the stone is the /brand specimen now, and the
+          No plate: the stone is the /brand specimen now, and the
           homepage states itself in type (Image Bible v6, act 3). */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell positioning">

@@ -10,7 +10,7 @@ import { StaffRows } from "@/components/site/staff-rows";
 /**
  * About: where you meet who built it. The founder opens the page
  * full-bleed under scrub, the proposition on a scrim bottom left; the
- * People section states the team in rows — the Principal's real
+ * People section states the team in rows: the Principal's real
  * portrait, and the honest placeholder card for every appointment
  * still pending; the horns hold the 理工 block; the desert plate
  * breathes before the standing; the colophon carries the Tangison
@@ -36,7 +36,7 @@ const copy = {
     peopleEyebrow: "People",
     peopleTitle: "Who is building it.",
     peopleBody:
-      "The register below is the honest state of the team: one Principal, and the appointments the register will date as they land. Placeholder portraits are placeholders on purpose — a real photograph replaces each one the day a real person takes the seat.",
+      "The register below is the honest state of the team: one Principal, and the appointments the register will date as they land. Placeholder portraits are placeholders on purpose: a real photograph replaces each one the day a real person takes the seat.",
     practiceEyebrow: "The practice",
     practiceBody:
       "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses.",
@@ -91,7 +91,7 @@ const copy = {
     peopleEyebrow: "人",
     peopleTitle: "是谁在建这所学院。",
     peopleBody:
-      "下面这份名册就是团队的真实现状：一位院长，加上若干有待落定的任命——每落定一项，登记册就记上一笔。占位肖像就是占位：哪天真的人坐进那个位置，哪天就换成真照片。",
+      "下面这份名册就是团队的真实现状：一位院长，加上若干有待落定的任命：每落定一项，登记册就记上一笔。占位肖像就是占位：哪天真的人坐进那个位置，哪天就换成真照片。",
     practiceEyebrow: "实务",
     practiceBody:
       "学院今天以咨询实务运转。经营者案头在院长办公室做经营咨询；市场调研按项目接单；快速响应培训把团队带到标准。各个学校随认证进展，依次而来。",
@@ -428,7 +428,7 @@ export default async function AboutPage({
       )}
 
       {/* The colophon: the Tangison relationship in prose, beside the
-          nib. Text only — no partner marks on this site. */}
+          nib. Text only, no partner marks on this site. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,13rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig" data-sc-reveal>
@@ -461,7 +461,7 @@ export default async function AboutPage({
             <div className="measure grid gap-5 text-[0.92rem] leading-relaxed text-soft">
               <p>
                 {t.legalBipa.pre}
-                {/* TODO founder: print the BIPA registration number when
+                {/* Awaiting the founder: print the BIPA registration number when
                     the certificate is in hand. */}
                 {t.legalBipa.post}
               </p>

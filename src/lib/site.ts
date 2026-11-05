@@ -1,5 +1,5 @@
 /**
- * Oryx Institute · content source of truth — rebuild-hbr.
+ * Oryx Institute · content source of truth, rebuild-hbr.
  *
  * Every fact is drawn from the approved master asset package and the
  * rebuild briefs: nothing here is invented. Names, contacts, status and
@@ -84,7 +84,7 @@ export const site = {
   ] as { label: string; href: string }[],
   /** The canonical serving domain. Vercel 308-redirects the apex to
    * www, so every canonical, hreflang, sitemap and OG URL names the
-   * www host — otherwise crawlers see a site whose own map points at
+   * www host; otherwise crawlers see a site whose own map points at
    * a domain that never serves a page. */
   url: "https://www.oryxinstitute.org",
   principal: {
@@ -175,7 +175,7 @@ export const status = {
 } as const;
 
 /**
- * What runs today — the six offers, per the homepage "WHAT RUNS TODAY"
+ * What runs today: the six offers, per the homepage "WHAT RUNS TODAY"
  * screen. Two teaching departments (crash and short courses only) beside
  * the practice and the free Directory. Nothing here promises a
  * credential; every line promises work.
@@ -250,15 +250,15 @@ export const register = [
   },
   { date: "2026-10-25", entry: "Website relaunched." },
   { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
-  /* TODO founder: Directory publication date */
+  /* Awaiting the founder: Directory publication date */
   { date: null, entry: "The Oryx Directory published: four crash courses, seven business templates." },
-  /* TODO founder: Corner Spa announcement date */
+  /* Awaiting the founder: Corner Spa announcement date */
   { date: null, entry: "Corner Spa concept announced." },
 ] as const;
 
 /**
  * Ventures. A venture is a small operating company the institute opens
- * to test a sector — a live classroom and a live lab. Only what is real
+ * to test a sector: a live classroom and a live lab. Only what is real
  * is listed; the concept stage is stated as a concept.
  */
 export const ventures = {
@@ -430,7 +430,7 @@ export const faqs = [
   },
   {
     q: "Is there a certificate?",
-    a: "Oryx issues two kinds of document after a course. The Certificate of Attendance is an internal record of completion for every short course or workshop, signed by the Principal; it is not an NQF-credit-bearing qualification and cannot be submitted to NQA as accredited prior learning — it is a record that you completed an Oryx course. The NQF-registered qualification certificate is issued only after Oryx receives NQA accreditation for the relevant qualification; those will carry NQA recognition and credit value, and that is what we are working toward.",
+    a: "Oryx issues two kinds of document after a course. The Certificate of Attendance is an internal record of completion for every short course or workshop, signed by the Principal; it is not an NQF-credit-bearing qualification and cannot be submitted to NQA as accredited prior learning; it is a record that you completed an Oryx course. The NQF-registered qualification certificate is issued only after Oryx receives NQA accreditation for the relevant qualification; those will carry NQA recognition and credit value, and that is what we are working toward.",
   },
   {
     q: "Can I visit the office?",

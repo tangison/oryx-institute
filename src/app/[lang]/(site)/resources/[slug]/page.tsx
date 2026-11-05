@@ -49,7 +49,7 @@ export async function generateMetadata({
   /* The zh listing used to reuse the English standfirst, so all eleven
      documents shared one description and read as duplicates to a
      crawler. directoryZhMeta gives each document its own zh title and
-     description — and says plainly that the body is in English. */
+     description, and says plainly that the body is in English. */
   const zhMeta = lang === "zh" ? directoryZhMeta[doc.slug] : undefined;
   const title = zhMeta ? zhMeta.title : docTitle;
   const description = zhMeta ? zhMeta.description : metaOf(doc);
@@ -210,7 +210,7 @@ export default async function DirectoryDocPage({
                 : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
             </p>
             {/* The editable file, free and direct (CONTENT-CORRECTIONS
-                §9): no gate, no email capture — the Directory's own
+                §9): no gate, no email capture; the Directory's own
                 register. */}
             {(templateDownloads[doc.slug] ?? []).length > 0 && (
               <div className="mt-5 flex flex-wrap gap-4">

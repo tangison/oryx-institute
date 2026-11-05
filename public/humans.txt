@@ -1,4 +1,4 @@
-/* TEAM human text — the humans behind the site, per humans.txt */
+/* TEAM human text: the humans behind the site, per humans.txt */
 
 /* TEAM */
   name: Oryx Institute

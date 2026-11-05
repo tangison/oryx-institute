@@ -128,10 +128,10 @@ const copy = {
     dont: "不可以",
     enLedger: {
       paras: [
-        "Everything the institute prints, from the flyer to the certificate, keeps one register, and this page documents it so the identity travels intact. The wordmark carries three scripts in one lockup: ORYX and INSTITUTE in a classic serif, ink #181713, and the two characters 理工 — science and engineering — standing where Polytechnic stands in the legal name, in maroon\u00A0#71111F. The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them; nothing is redrawn, restacked, or reset in another typeface.",
+        "Everything the institute prints, from the flyer to the certificate, keeps one register, and this page documents it so the identity travels intact. The wordmark carries three scripts in one lockup: ORYX and INSTITUTE in a classic serif, ink #181713, and the two characters 理工 (science and engineering) standing where Polytechnic stands in the legal name, in maroon\u00A0#71111F. The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them; nothing is redrawn, restacked, or reset in another typeface.",
         "The emblem is the shield with its horn-mark knocked through in white. It carries no text inside it, it does not tilt, and it appears in no colour but the maroon or the reverse ivory: on dark grounds it stays ivory, on light grounds white. Clearspace is one X cap-height around the lockup and the same margin around it; when in doubt, double it.",
         "Six colour codes are sampled from the logo artwork and the register. Tints between them are mixed from these anchors only, and terracotta never touches a button or the mark. The do-and-don't plates print each rule beside its deliberate error: no recolouring, no tilting or restacking, no drop shadow, no rebuilding in another typeface.",
-        "The print kit — letterhead, business card, folder, envelope, flyer, notecard and the certificate — is photographed in the house register, one piece per screen, with every mark rendered from the real vectors in code. The vector marks, the press kit and the transparent PNGs download from this page; embroidery files, signage vectors, co-signing templates and the editable specification are available on request from the office.",
+        "The print kit (letterhead, business card, folder, envelope, flyer, notecard and the certificate) is photographed in the house register, one piece per screen, with every mark rendered from the real vectors in code. The vector marks, the press kit and the transparent PNGs download from this page; embroidery files, signage vectors, co-signing templates and the editable specification are available on request from the office.",
       ],
     },
   },
@@ -307,7 +307,7 @@ const kitPieces = [
   },
 ];
 
-/** The specimen wall: one object per full plate — manifest v4 assigns
+/** The specimen wall: one object per full plate; manifest v4 assigns
  *  stone, horns, wax and notebook to this wall; the mineral plate is
  *  not commissioned yet. */
 const specimens = [
@@ -589,7 +589,7 @@ export default async function BrandPage({
       </PageHead>
 
       {/* The hero plate: the game board on its terracotta ground,
-          drifting gently — the page's scrub act. */}
+          drifting gently: the page's scrub act. */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
           <figure
@@ -836,9 +836,9 @@ export default async function BrandPage({
             <h2 className="h-sub">{t.specimensEyebrow}</h2>
             <p className="measure text-soft mt-4">{t.specimensBody}</p>
           </div>
-          {/* TODO image (founder to commission): inner/19 mineral — a
+          {/* Image to commission (founder portrait): inner/19 mineral, a
               Namibian mineral specimen, dead centre on cream, hard
-              upper-left light — as the wall's fifth plate. */}
+              upper-left light, as the wall's fifth plate. */}
         </div>
 
         {/* The shield, first: the register's own object */}

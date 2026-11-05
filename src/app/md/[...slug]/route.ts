@@ -1,7 +1,7 @@
 import { resolveSlug, shelfSlugs } from "@/lib/md-shelf";
 
 /**
- * /md/{slug} — one page or document as clean markdown. The route is a
+ * /md/{slug}: one page or document as clean markdown. The route is a
  * catch-all so nested paths (/md/about/staff, /md/practice/
  * safety-officer-course) resolve exactly as the alternates link
  * prints them.

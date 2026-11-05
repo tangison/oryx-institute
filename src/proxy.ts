@@ -60,9 +60,15 @@ export default function proxy(request: NextRequest) {
   const rewritten = new URL(target, request.nextUrl.origin);
   rewritten.search = request.nextUrl.search;
 
+  /* The locale hint rides the internal request headers: the
+     not-found boundary cannot read route params, so this is how a
+     Chinese 404 knows to render in Chinese. */
+  const reqHeaders = new Headers(request.headers);
+  reqHeaders.set("x-oryx-lang", wantsMarkdown ? "en" : needsRewrite ? "en" : first);
+
   const response = needsRewrite
-    ? NextResponse.rewrite(rewritten)
-    : NextResponse.next();
+    ? NextResponse.rewrite(rewritten, { request: { headers: reqHeaders } })
+    : NextResponse.next({ request: { headers: reqHeaders } });
 
   if (!isProduction) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");

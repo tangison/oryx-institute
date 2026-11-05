@@ -5,9 +5,9 @@ import type { Lang } from "@/lib/i18n";
 /**
  * The People section, shared by /about and /about/staff: one person
  * per hairline row, portrait or placeholder left, name, role and bio
- * right. Rows, never a card grid. Placeholders are honest — the
+ * right. Rows, never a card grid. Placeholders are honest: the
  * herb-sprig blank card, the exact "appointment to be announced"
- * wording — and no face on this site is generated. (STAFF-DIRECTORY.md)
+ * wording, and no face on this site is generated. (STAFF-DIRECTORY.md)
  */
 
 type StaffEntry = {
@@ -31,7 +31,7 @@ const PRINCIPAL_PORTRAIT_ALT_ZH =
 const PLACEHOLDER_ALT =
   "A blank cream card standing upright on dark walnut with a dried herb sprig across the corner, a deliberately visible placeholder";
 const PLACEHOLDER_ALT_ZH =
-  "一张立起的空白米色卡片放在深胡桃木上，角上斜放一枝干香草——一个刻意可见的占位";
+  "一张立起的空白米色卡片放在深胡桃木上，角上斜放一枝干香草，一个刻意可见的占位";
 
 export const staff: StaffEntry[] = [
   {
@@ -70,8 +70,8 @@ export const staff: StaffEntry[] = [
     nameZh: "研究助理",
     role: "Research · Bulletin editor",
     roleZh: "研究 · 公报编辑",
-    bio: "Bulletin editor and research associate — appointment to be announced.",
-    bioZh: "公报编辑与研究助理——任命待公布。",
+    bio: "Bulletin editor and research associate, appointment to be announced.",
+    bioZh: "公报编辑与研究助理，任命待公布。",
   },
   {
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
@@ -82,9 +82,9 @@ export const staff: StaffEntry[] = [
     nameZh: "Corner Spa 负责人",
     role: "Ventures · Corner Spa",
     roleZh: "实业 · 水疗",
-    bio: "Lead therapist and operations for Corner Spa — appointment to be announced once premises and licensing are confirmed.",
+    bio: "Lead therapist and operations for Corner Spa, appointment to be announced once premises and licensing are confirmed.",
     bioZh:
-      "这家水疗实业的主理疗师与运营负责人——待场地与执照确认后公布任命。",
+      "这家水疗实业的主理疗师与运营负责人，待场地与执照确认后公布任命。",
   },
 ];
 

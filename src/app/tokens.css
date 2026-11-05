@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Oryx Institute · design tokens — rebuild-hbr
+   Oryx Institute · design tokens, rebuild-hbr
    --------------------------------------------------------------------------
    The Kinfolk / Cereal / HBR register, final (brief: 02-KINFOLK-DELTA +
    assets/TOKENS.md). Six anchors, no others; tints mix from these only.
@@ -9,7 +9,7 @@
      cream      #F4EEE4  default page ground, paper, "white" space
      ivory      #FFF8EE  body text on dark grounds
      white      #FFFFFF  print-paper grounds only, used sparingly
-     terracotta #B5533A  image palette + colour-band dividers ONLY —
+     terracotta #B5533A  image palette + colour-band dividers ONLY:
                          never a UI button, never a replacement for maroon
      sand       #D8C6A8  the Corner Spa section palette
 
@@ -20,7 +20,7 @@
 
 :root {
   /* Grounds */
-  --paper: #F4EEE4;   /* cream — the default canvas */
+  --paper: #F4EEE4;   /* cream, the default canvas */
   --paper-2: #EDE5D6; /* one quiet step deeper, mixed cream→ink */
   --ink: #181713;
   --ivory: #FFF8EE;
@@ -34,7 +34,7 @@
 
   /* Text */
   --muted: #57524A;       /* ink quieted, 6.7:1 on cream */
-  /* "ink-60" labels: held at ≥6.3:1 on cream — the 60% blend axe
+  /* "ink-60" labels: held at ≥6.3:1 on cream; the 60% blend axe
      measured at 4.0:1 was a real failure, not a rounding note. */
   --ink-60: #57524A;
   --ink-40: rgba(24, 23, 19, 0.4);
@@ -58,7 +58,7 @@
   --font-body: var(--font-sans-loaded, "Inter"), "Helvetica Neue", Arial, sans-serif;
   --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
-  /* Spacing — 8pt grid. Outer padding 64 / 96 / 128 (mobile / tablet /
+  /* Spacing: 8pt grid. Outer padding 64 / 96 / 128 (mobile / tablet /
      desktop); major sections breathe ≥140px between them on desktop.
      Tight enough that the hairlines read as one system, loose enough
      that each section lands. */
@@ -66,7 +66,7 @@
   --section-y: clamp(3.5rem, 6vw, 5.5rem);    /* per edge; pairs give ≥140 */
   --section-y-lg: clamp(4.5rem, 8vw, 7rem);
 
-  /* Motion — nothing animates but transform + opacity, and only under
+  /* Motion: nothing animates but transform + opacity, and only under
      prefers-reduced-motion: no-preference. */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-short: 180ms;

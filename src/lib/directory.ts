@@ -592,7 +592,7 @@ export const directoryTemplates: Doc[] = [
 
 /**
  * The editable downloads (CONTENT-CORRECTIONS §9): every template
- * ships as a real file from /public/templates/, free and direct —
+ * ships as a real file from /public/templates/, free and direct:
  * no gate, consistent with the Directory's own register. The files
  * carry the same content as the web versions, in the Oryx print
  * treatment: wordmark top-left, Inter body, maroon hairline foot.

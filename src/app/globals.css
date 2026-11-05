@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Oryx Institute · globals — rebuild-hbr
+   Oryx Institute · globals, rebuild-hbr
    Kinfolk / Cereal / HBR register. Cream canvas, ink text, maroon accents,
    hairline rules, hard flat surfaces, no shadows (press-kit previews
    excepted), no rounded cards, motion = transform + opacity only.
@@ -204,7 +204,7 @@
   color: var(--ivory-60);
 }
 
-/* Meta lines: dates, read times, captions — Inter 11, tracked +0.08em */
+/* Meta lines: dates, read times, captions: Inter 11, tracked +0.08em */
 .meta {
   font-family: var(--font-body);
   font-size: 0.69rem;
@@ -394,7 +394,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Header — the floating bar: cream, hairline-framed, detached from the
+   Header: the floating bar: cream, hairline-framed, detached from the
    top edge, riding above the page. The menu trigger carries every
    screen size into the off-canvas sitemap.
    -------------------------------------------------------------------------- */
@@ -523,7 +523,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Off-canvas menu — a checkbox disclosure: the label lives in the
+   Off-canvas menu: a checkbox disclosure: the label lives in the
    floating bar, the full-screen ink panel is a sibling below it, so the
    bar (with its Close word) paints above the panel. Opens, navigates
    and closes with JavaScript off.
@@ -779,7 +779,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   Search — a client overlay over a static index. No fetch, no round
+   Search: a client overlay over a static index. No fetch, no round
    trip; the results render as the office's own ledger rows.
    -------------------------------------------------------------------------- */
 
@@ -893,7 +893,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   Footer — ink ground, cream type: the close of every page
+   Footer: ink ground, cream type: the close of every page
    -------------------------------------------------------------------------- */
 
 .site-footer {
@@ -980,7 +980,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   Hero — full-bleed photograph, type held in the open field
+   Hero: full-bleed photograph, type held in the open field
    -------------------------------------------------------------------------- */
 
 .hero {
@@ -1000,7 +1000,7 @@ body.menu-locked {
   width: 100%;
   padding-block: clamp(3rem, 6vh, 5rem) clamp(2.25rem, 4.5vh, 3.5rem);
   /* The legibility scrim lives on the content block itself, so the
-     wash sits exactly where the type sits — and contrast evaluators
+     wash sits exactly where the type sits, and contrast evaluators
      see the ground the type actually sits on. */
   background: linear-gradient(
     77deg,
@@ -1260,7 +1260,7 @@ body.menu-locked {
 }
 
 /* The safety landing hero: the officer portrait full-bleed under
-   scrub, the proposition on a cream scrim block, bottom left — the
+   scrub, the proposition on a cream scrim block, bottom left: the
    same treatment the founder takes on /about. */
 .safety-hero {
   position: relative;
@@ -1442,7 +1442,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   FAQ — native details, hairline rows
+   FAQ: native details, hairline rows
    -------------------------------------------------------------------------- */
 
 .faq-list {
@@ -1485,7 +1485,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   Forms — underline register, maroon focus
+   Forms: underline register, maroon focus
    -------------------------------------------------------------------------- */
 
 .field-label {
@@ -1543,7 +1543,7 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
-   /brand — downloads, swatches, clearspace, do/don't, specimens, print kit
+   /brand: downloads, swatches, clearspace, do/don't, specimens, print kit
    -------------------------------------------------------------------------- */
 
 .dl-grid {
@@ -1700,7 +1700,7 @@ body.menu-locked {
   justify-self: start;
 }
 
-/* Print kit gallery — the one place a (hard, daylight) shadow is allowed */
+/* Print kit gallery: the one place a (hard, daylight) shadow is allowed */
 .kit-grid {
   display: grid;
   gap: 2.5rem;
@@ -1828,7 +1828,7 @@ body.menu-locked {
 }
 
 /* Engine glyphs carry cream fills; on cream panels they read as knocked
-   through — acceptable on ink only. Provide an ink-stroke variant. */
+   through, acceptable on ink only. Provide an ink-stroke variant. */
 .glyph-ink {
   color: var(--ink);
 }

@@ -8,7 +8,7 @@ import { alternates, langFromParams } from "@/lib/i18n";
 /**
  * The register, in full: what the institute has made public, dated as
  * it was said, newest first. The same ledger the homepage carries, on
- * its own page — text only, per the Image Asset Manifest v4 (the
+ * its own page, text only, per the Image Asset Manifest v4 (the
  * register is a ledger, not a plate).
  */
 const copy = {
@@ -29,13 +29,13 @@ const copy = {
       "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
     readingEyebrow: "How to read this register",
     readingBody:
-      "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once — a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim — and no line asks the reader to take the institute's word where a document could speak instead.",
+      "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once (a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim), and no line asks the reader to take the institute's word where a document could speak instead.",
     ruleEyebrow: "The rules the register keeps",
     ruleBody:
-      "Three rules hold every record on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
+      "Three rules hold every record on this page. Nothing is announced before it is certain: an intention is not an event. Nothing is given a day before it has happened; the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
     sourceEyebrow: "Where the rows come from",
     sourceBody:
-      "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line — a journalist checking a fact, a partner confirming a detail — write to the office and the source is produced.",
+      "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line (a journalist checking a fact, a partner confirming a detail), write to the office and the source is produced.",
   },
   zh: {
     meta: {
@@ -53,20 +53,20 @@ const copy = {
       "随工作落定而更新。日期公开了就印出来；在那之前，这一行印\"日期待确认\"。",
     readingEyebrow: "怎么读这本登记册",
     readingBody:
-      "从头读到尾，学院的形状就出来了：哪一天注册了什么，哪些课程先发布，哪些伙伴同意被指名，哪些还在等一纸签署。这本册子同时为三种读者而写——想确认学院真实存在的学生、核对细节的伙伴、核实说法的记者——凡是文件能说话的地方，没有一行要求读者只凭学院的一面之词。",
+      "从头读到尾，学院的形状就出来了：哪一天注册了什么，哪些课程先发布，哪些伙伴同意被指名，哪些还在等一纸签署。这本册子同时为三种读者而写：想确认学院真实存在的学生、核对细节的伙伴、核实说法的记者。凡是文件能说话的地方，没有一行要求读者只凭学院的一面之词。",
     ruleEyebrow: "登记册守的规矩",
     ruleBody:
-      "三条规矩管着这里的每一行。没有定数的事不公布——意图不是事件。没有发生的事不写日期——登记册记录，不许诺。任何一行都不删除：日期变了、计划变了，就在原处更正，因为会悄悄忘事的登记册一文不值。",
+      "三条规矩管着这里的每一行。没有定数的事不公布，意图不是事件。没有发生的事不写日期，登记册记录，不许诺。任何一行都不删除：日期变了、计划变了，就在原处更正，因为会悄悄忘事的登记册一文不值。",
     sourceEyebrow: "每一行从哪里来",
     sourceBody:
-      "每一行都对应学院持有的一份文件：一件注册、一份备案、一份签署的协议、一门已发布的课程。凡提到伙伴之名，都是先有书面同意再写。如果你需要某一行背后的文件——记者核对日期、伙伴确认细节——给办公室写信，该行的出处会呈上。",
+      "每一行都对应学院持有的一份文件：一件注册、一份备案、一份签署的协议、一门已发布的课程。凡提到伙伴之名，都是先有书面同意再写。如果你需要某一行背后的文件（记者核对日期、伙伴确认细节），给办公室写信，该行的出处会呈上。",
     enLedger: {
       paras: [
         "What the institute has made public, dated as it was said. Nothing is announced before it is certain, and nothing here names a partner before that partner has agreed to be named. Rows without a date yet print \"Date to be confirmed\".",
-        "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once — a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim — and no line asks the reader to take the institute's word where a document could speak instead.",
-        "Three rules hold every record on this page. Nothing is announced before it is certain — an intention is not an event. Nothing is given a day before it has happened — the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
-        "The register on this page is the same ledger the homepage carries and the same one the English site prints; the lines are not translated summaries but the record itself, kept in both languages. When a date is public it is printed in both; until then the row says so. Corrections happen in place, and the source \u2014 a registration, a filing, a signed agreement, a published course \u2014 is produced on request to the office.",
-        "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line — a journalist checking a fact, a partner confirming a detail — write to the office and the source is produced. Updated as the work lands.",
+        "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once (a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim), and no line asks the reader to take the institute's word where a document could speak instead.",
+        "Three rules hold every record on this page. Nothing is announced before it is certain: an intention is not an event. Nothing is given a day before it has happened; the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
+        "The register on this page is the same ledger the homepage carries and the same one the English site prints; the lines are not translated summaries but the record itself, kept in both languages. When a date is public it is printed in both; until then the row says so. Corrections happen in place, and the source (a registration, a filing, a signed agreement, a published course) is produced on request to the office.",
+        "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line (a journalist checking a fact, a partner confirming a detail), write to the office and the source is produced. Updated as the work lands.",
       ],
     },
   },

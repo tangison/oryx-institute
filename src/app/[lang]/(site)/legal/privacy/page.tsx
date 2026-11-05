@@ -183,7 +183,7 @@ export default async function PrivacyPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The shared plate above the legalese: the brass scale — the
+      {/* The shared plate above the legalese: the brass scale: the
           law's own instrument, small and centred, so the pages do not
           open into a wall of text. (Image Audit: one shared plate for
           /legal/*.) */}

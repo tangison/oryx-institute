@@ -3,7 +3,7 @@
  *
  * Every offer CTA on the site used to point at /apply#<id> (and before
  * that /apply?for=<id>). Query strings forced a server render per deep
- * link — the five slow-TTFB errors of the first crawl — and hash
+ * link: the five slow-TTFB errors of the first crawl, and hash
  * anchors made every variant share one title, which the second crawl
  * read as duplicate titles and descriptions across ten pages.
  *

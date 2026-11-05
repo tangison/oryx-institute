@@ -1,6 +1,6 @@
 /**
  * Social channel marks, drawn as minimal line icons in the site's own
- * register (1.4px strokes, currentColor) — icon-only links get their
+ * register (1.4px strokes, currentColor); icon-only links get their
  * label from the wrapping anchor's aria-label. No brand scripts, no
  * embeds, no third-party requests.
  */
