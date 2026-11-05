@@ -127,6 +127,13 @@ export function SiteHeader({ lang }: { lang: Lang }) {
             <a href={`mailto:${site.email}`} className="menu-mail">
               {site.email}
             </a>
+            <a
+              href={site.phoneHref}
+              className="menu-mail whitespace-nowrap"
+              aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+            >
+              {site.phoneDisplay}
+            </a>
             <p className="menu-place">
               {site.city}, {zh ? siteZh.country : site.country}
             </p>

@@ -61,11 +61,17 @@ export const site = {
   /** The one mailbox. Everything runs through it while the institute
    * is young: applications, partnerships, the press. */
   email: "info@oryxinstitute.org",
-  /** The business telephone line is deliberately not printed. A
-   * dedicated business number lands before launch; when it does, it is
-   * added here once and the header, footer and FAQ follow. */
-  phoneDisplay: null,
-  phoneHref: null,
+  /** The institute's own line. Local format for Namibian readers,
+   * international format for structured data and machine readers. The
+   * \u00A0 no-break spaces keep the number on one line everywhere it
+   * renders. The tel and WhatsApp links use the E.164 form: the leading
+   * 0 drops when the +264 country code is added. Defined once; the
+   * footer, contact page, menu, FAQ and structured data read it. */
+  phoneDisplay: "083\u00A0676\u00A04338",
+  phoneInternational: "+264\u00A083\u00A0676\u00A04338",
+  phoneE164: "+264836764338",
+  phoneHref: "tel:+264836764338",
+  whatsappHref: "https://wa.me/264836764338",
   /** Social channels, icon-only links in the footer and on /contact.
    * Each opens in a new tab; nothing is embedded. */
   socials: [
@@ -416,7 +422,7 @@ export const faqs = [
   },
   {
     q: "Where is the institute?",
-    a: "The institute works from Windhoek, Namibia. It is being established and does not operate public premises yet, so no street address or post box is printed. The office answers every enquiry by email at info@oryxinstitute.org, and visits are arranged by appointment.",
+    a: "The institute works from Windhoek, Namibia. It is being established and does not operate public premises yet, so no street address or post box is printed. The office answers every enquiry by email at info@oryxinstitute.org, or by phone or WhatsApp on 083\u00A0676\u00A04338, and visits are arranged by appointment.",
   },
   {
     q: "Who leads the institute?",

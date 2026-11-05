@@ -8,7 +8,7 @@ import { alternates, langFromParams } from "@/lib/i18n";
  *
  * The venture runs in collaboration with Mendozer: the spa's own
  * counter lives on their platform at spa.mendozer.com and is embedded
- * here, exactly as the collaboration states it — the spa's address on
+ * here, exactly as the collaboration states it: the spa's address on
  * this site, and Mendozer's counter serving it. The copy keeps the
  * ventures register: state what exists, date the opening in the
  * register the day it happens, and invent nothing before then.
@@ -19,7 +19,7 @@ const SPA_COUNTER = "https://spa.mendozer.com";
 const copy = {
   en: {
     meta: {
-      title: "Corner Spa, with Mendozer",
+      title: "Corner Spa, the venture",
       description:
         "Corner Spa, the first venture: wellness and service operations in Windhoek, run with Mendozer. The spa's counter at spa.mendozer.com, embedded on this page.",
       ogTitle: "Corner Spa | Oryx Institute",
@@ -36,7 +36,7 @@ const copy = {
     withEyebrow: "With Mendozer",
     withLede: "A venture with a counter of its own.",
     withBody:
-      "Corner Spa runs in collaboration with Mendozer, whose platform carries the venture's storefront at spa.mendozer.com. That counter is embedded below: the venture's own address on this site, served by their platform. When it goes live, bookings, times and the service menu read from it directly; nothing here retells what the counter itself says.",
+      "Corner Spa runs in collaboration with Mendozer, whose platform serves the venture's own website at spa.mendozer.com. That counter is embedded below, and it also opens full screen at oryxinstitute.org/corner-spa. One website serves the spa, so prices and booking details are always the same wherever it is opened; nothing here retells what the counter itself says.",
     shapeEyebrow: "The shape of the collaboration",
     rows: [
       {
@@ -45,11 +45,11 @@ const copy = {
       },
       {
         term: "The classroom",
-        body: "The venture doubles as the teaching site. Bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on.",
+        body: "The venture doubles as the teaching site. Bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited: not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on.",
       },
       {
         term: "The register row",
-        body: "The opening is dated in the register the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record, so nobody pays for it twice.",
+        body: "The opening is dated in the register the day it happens, and the result prints either way: as a business, or as a lesson the institute paid for once, on the record, so nobody pays for it twice.",
       },
     ],
     counterEyebrow: "The counter",
@@ -57,10 +57,11 @@ const copy = {
     counterNote:
       "The counter is served by Mendozer. If it has not loaded here, the venture's own address is",
     statusEyebrow: "Status",
+    liveNote: "The spa\u2019s own site, spa.mendozer.com, carries the menu and the prices; bookings run on WhatsApp. The full note with the price list is on the blog.",
     statusLede:
-      "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order.",
+      "Live. Corner Spa serves massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264\u00A081\u00A0623\u00A04788.",
     statusBody:
-      "The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page is the venture's whole public surface.",
+      "The opening is dated in the register the day it happens: as a business, or not at all. Until then, this page is the venture's whole public surface.",
     readRegister: "Read the register",
     writeOffice: "Write to the office",
   },
@@ -83,7 +84,7 @@ const copy = {
     withEyebrow: "与 Mendozer",
     withLede: "一间拥有自己柜台的实业。",
     withBody:
-      "Corner Spa 与 Mendozer 合作经营，水疗的店面设在对方的平台上：spa.mendozer.com。柜台直接嵌在本页——它是这项实业在本站的地址，由对方的平台承载服务。柜台上线之后，预约、时间与服务单都从它那里读出；本页不替柜台转述它自己会说的事。",
+      "Corner Spa 与 Mendozer 合作经营，水疗自己的网站设在对方的平台上：spa.mendozer.com。柜台直接嵌在本页，也可以在 oryxinstitute.org/corner-spa 全屏打开。一个网站承载这门生意，无论从哪里打开，价格与预约信息始终一致；本页不替柜台转述它自己会说的事。",
     shapeEyebrow: "合作的形状",
     rows: [
       {
@@ -99,20 +100,21 @@ const copy = {
         body: "开业之日，日期记入登记册；结果无论哪种都印出来——作为一门生意，或作为学院付过一次学费、记在案上、让后人不必再付的一课。",
       },
     ],
+    liveNote: "菜单与价格在水疗自己的网站 spa.mendozer.com 上；预约通过 WhatsApp 进行。完整价目与预约方式见博客文章。",
     counterEyebrow: "柜台",
     counterTitle: "Corner Spa 柜台，设在 spa.mendozer.com",
     counterNote: "柜台由 Mendozer 提供服务。若它未在此加载，这项实业自己的地址是",
     statusEyebrow: "现状",
-    statusLede: "已公布为与 Mendozer 合作开办的实业。场地、执照与服务单正在逐项推进。",
-    statusBody: "开业之日，登记册记下日期——作为一门生意开业，否则不开。在那之前，本页就是这项实业全部的公开门面。",
+    statusLede: "已开业。Corner Spa 在温得和克提供按摩、热石、美甲与脱毛服务，通过 WhatsApp 预约：+264\u00A081\u00A0623\u00A04788。",
+    statusBody: "Oryx Institute 是运营主导方，Mendozer Investments 是融资伙伴。一个网站承载水疗馆，价格与预约信息在任何入口都一致。菜单与价格在 spa.mendozer.com 上；完整价目与预约方式见博客文章。",
     readRegister: "读登记册",
     writeOffice: "给办公室写信",
     enLedger: {
       paras: [
         "Corner Spa, the first venture: a small wellness and service operation for Windhoek, opened with a partner. Teach on the floor, serve real customers, and print the result.",
-        "Corner Spa runs in collaboration with Mendozer, whose platform carries the venture's storefront at spa.mendozer.com. That counter is embedded below: the venture's own address on this site, served by their platform. When it goes live, bookings, times and the service menu read from it directly; nothing here retells what the counter itself says.",
-        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited — not recited. The register row: the opening is dated the day it happens, and the result prints either way — as a business, or as a lesson the institute paid for once, on the record.",
-        "Announced as a venture in collaboration with Mendozer. Premises, licensing and the service menu are being worked through in order. The opening is dated in the register the day it happens — as a business, or not at all. Until then, this page is the venture's whole public surface.",
+        "Corner Spa runs in collaboration with Mendozer, whose platform serves the venture's own website at spa.mendozer.com. The counter is embedded on this page and also opens full screen at oryxinstitute.org/corner-spa. One website serves the spa, so prices and booking details are always the same wherever it is opened; nothing here retells what the counter itself says.",
+        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited: not recited. The register row: the opening is dated the day it happens, and the result prints either way: as a business, or as a lesson the institute paid for once, on the record.",
+        "Live. Corner Spa serves massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788. Oryx Institute is the operations lead; Mendozer Investments is the financing partner. One website serves the spa, so prices and booking details are the same wherever it is opened. The full note with the price list is on the blog.",
       ],
     },
   },
@@ -128,11 +130,11 @@ export async function generateMetadata({
   return {
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/corner-spa", site.url),
+    alternates: alternates(lang, "/ventures/corner-spa", site.url),
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/corner-spa`,
+      url: `${site.url}${lang === "zh" ? "/zh" : ""}/ventures/corner-spa`,
       images: [
         {
           url: "/brand/og/corner-spa.png",
@@ -175,7 +177,7 @@ export default async function CornerSpaPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* The hero: the venture's own sand, type only — the treatment
+      {/* The hero: the venture's own sand, type only: the treatment
           photographs stay on /ventures, and the counter below is this
           page's image. */}
       <section className="section" data-sc-act="scrub">
@@ -208,7 +210,7 @@ export default async function CornerSpaPage({
         </div>
       </section>
 
-      {/* The shape of the collaboration: three ledger rows on cream —
+      {/* The shape of the collaboration: three ledger rows on cream,
           the counter, the classroom, the register row. */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
@@ -271,9 +273,15 @@ export default async function CornerSpaPage({
             <p className="eyebrow eyebrow--ink">{t.statusEyebrow}</p>
             <p className="lede measure mt-6">{t.statusLede}</p>
             <p className="measure mt-6 text-soft">{t.statusBody}</p>
-            <div className="mt-8">
-              <Link href={A("/register")} className="btn--quiet">
-                {t.readRegister} <span className="arr" aria-hidden="true">→</span>
+            <p className="measure mt-4 text-soft">{t.liveNote}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <Link href={A("/corner-spa")} className="btn">
+                {zh ? "全屏打开" : "Open full screen"}{" "}
+                <span className="arr" aria-hidden="true">→</span>
+              </Link>
+              <Link href={A("/blog/corner-spa")} className="btn--quiet">
+                {zh ? "阅读博客文章" : "Read the blog note"}{" "}
+                <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

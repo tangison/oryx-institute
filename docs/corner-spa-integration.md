@@ -1,82 +1,52 @@
 # Corner Spa × Mendozer — integration instructions
 
-Status of this document: written when the page shipped (November 2026).
-It covers what is already built on oryxinstitute.org, what Mendozer's
-side must allow for the embed to work, and exactly what changes when
-the final details arrive.
+Status of this document: updated 5 November 2026, when the embed moved
+to full bleed, the telephone line shipped and the blog note published.
+It covers what is built on oryxinstitute.org, what Mendozer's side
+must allow for the embed to work, and how to change things safely.
 
 ## 1. What is live on oryxinstitute.org
 
 | Piece | Where | Notes |
 |---|---|---|
-| The Corner Spa page | `/corner-spa` (English), `/zh/corner-spa` (Chinese) | Static page, in the sitemap, on the markdown shelf (`/md/corner-spa`), in the search index, in the footer navigation, and linked from `/ventures`. |
-| The embedded counter | `https://spa.mendozer.com` inside an `<iframe>` on `/corner-spa` | Loads lazily, `referrerPolicy: strict-origin-when-cross-origin`. A visible line under the frame always gives the spa's own address, spa.mendozer.com, as the fallback. |
-| Content-Security-Policy | `vercel.json` | `frame-src 'self' https://spa.mendozer.com;` was added so the browser allows the embed. If the counter URL changes, this directive must change with it. |
-| Copy and data | page content + `src/lib/site.ts` (`ventures.cornerSpa`) | Status reads "In development · with Mendozer". No opening date, prices or service list are printed anywhere, per the institute's rule: the opening is dated in the register the day it happens. |
+| The full-screen embed | `/corner-spa` (English), `/zh/corner-spa` (Chinese) | spa.mendozer.com fills the whole viewport: fixed, inset 0, no site header or footer, so the visit reads as one continuous site. A loading screen holds at least 1.4 seconds (Oryx lockup, running oryx, respects reduced motion), fades when the frame fires load, and a plain fallback link takes over after ten seconds. The page touches no history: one press of Back returns to the previous Oryx page. |
+| The collaboration page | `/ventures/corner-spa` + `/zh/ventures/corner-spa` | The content page: the roles (operations lead Oryx Institute, financing partner Mendozer Investments), the classroom, and the counter framed in-page. Linked from the embed's sibling routes and the ventures page. |
+| Entry redirects | next.config.ts | 308s: `/spa`, `/cornerspa`, `/corner-spa/` and the `/zh/` mirrors all land on the full-screen embed. |
+| The telephone line | src/lib/site.ts | The institute's own line, 083 676 4338 (+264 83 676 4338): footer, contact page (primary route, with call and WhatsApp buttons), menu, FAQ, JSON-LD telephone and contactPoint, llms.txt, AGENTS.md, the markdown shelf and the search index. The spa keeps its own number, +264 81 623 4788; the two never cross. |
+| The blog note | `/blog/corner-spa` + `/zh/blog/corner-spa` | The approved copy: what the spa offers, the full price list in Namibian dollars, how booking runs on WhatsApp, one website two addresses. Article JSON-LD, in the sitemap, on the markdown shelf, in the search index. |
+| Content-Security-Policy | vercel.json | `frame-src 'self' https://spa.mendozer.com;` allows the embed. If the counter URL changes, this directive changes with it. |
+| Media | public/corner-spa/ | The spa's photographs carried from spa.mendozer.com at original dimensions (WebP), so no Oryx page depends on another host. The OG plate for the embed stays /brand/og/corner-spa.png. |
 
 ## 2. What Mendozer's side must allow (the one thing that can break it)
 
-The embed only works if `spa.mendozer.com` does not refuse to be
-framed. When the platform goes live, check the response headers of
-`https://spa.mendozer.com`:
+The embed only works if spa.mendozer.com does not refuse to be framed.
+Verified live on 5 November 2026:
 
-- `X-Frame-Options` must **not** be `DENY` or `SAMEORIGIN`. Either omit
-  the header or, if the framework insists on setting one, use
-  `ALLOW-FROM`, which is deprecated — the correct modern control is CSP.
-- `Content-Security-Policy` must either omit `frame-ancestors` or carry
-  `frame-ancestors 'self' https://www.oryxinstitute.org;` (and
-  `https://oryxinstitute.org` if the apex domain is ever served).
+- `X-Frame-Options`: not set. Correct.
+- `Content-Security-Policy: frame-ancestors 'self' https://oryxinstitute.org https://www.oryxinstitute.org`. Exactly right, and the apex form is covered too.
 
-If either header blocks framing, the frame area on /corner-spa stays
-empty in the visitor's browser (the visible fallback line with the
-spa.mendozer.com link is exactly for that case, and no booking is
-lost — but the embed is the point).
+If either header ever changes to block framing, the full-screen embed
+shows its fallback: the spa's own address as a plain link, plus the
+blog note. No booking is lost, but the embed is the point.
 
-Also worth confirming on Mendozer's side when the counter is real:
+Also worth confirming on Mendozer's side:
 
-1. **Deep links.** If the counter has routes (e.g. a booking step), tell
-   Oryx the exact entry URL — the iframe `src` is one line to change in
-   `src/app/[lang]/(site)/corner-spa/page.tsx` (`SPA_COUNTER`), plus the
-   same URL in `vercel.json`'s `frame-src` if the host changes.
-2. **Cookies / sessions inside the frame.** If the counter sets login
-   or cart cookies, they must be `Secure; SameSite=None;` to work
-   inside a cross-site iframe, or the counter must work without them.
-3. **Mobile height.** The frame is `clamp(24rem, 72vh, 46rem)` tall and
-   scrolls internally. If the counter needs more, the height is one CSS
-   rule (`.spa-frame` in `src/app/globals.css`).
-4. **Ping-back.** Optional but recommended: a test page or `/health`
-   path on spa.mendozer.com so both sides can verify the embed after
-   every deploy of either site.
+1. **Deep links.** If the counter grows routes (a booking step), tell
+   Oryx the exact entry URL: the iframe `src` is one constant
+   (`SPA_URL`) in `src/components/site/corner-spa-embed.tsx`, plus the
+   same host in vercel.json's `frame-src`.
+2. **Cookies / sessions inside the frame.** Any login or cart cookies
+   must be `Secure; SameSite=None;` to work inside a cross-site
+   iframe.
+3. **Ping-back.** Optional but recommended: a `/health` path on
+   spa.mendozer.com so both sides can verify the embed after every
+   deploy of either site.
 
-## 3. What changes when the client sends the final details
+## 3. Verification checklist (both sides)
 
-The brief: the venture starts in collaboration with Mendozer.com, the
-spa's online home is spa.mendozer.com, and oryxinstitute.org/corner-spa
-frames it here. Details are to follow. When they land:
-
-1. Swap `SPA_COUNTER` in `src/app/[lang]/(site)/corner-spa/page.tsx` if
-   the embed URL differs from the bare domain (e.g. `/booking`,
-   `?embed=oryx`, a locale path).
-2. Update `frame-src` in `vercel.json` to match, deploy.
-3. If a real opening date exists, add it to the register (`/register`)
-   and update the status line from "In development · with Mendozer"
-   (`src/lib/site.ts` and `src/lib/site-zh.ts`) — the register rule is
-   that the date enters the register the day it happens, never before.
-4. If service-menu facts arrive (treatments, hours, prices), they belong
-   on Mendozer's counter, not duplicated here; this page only carries
-   the collaboration, the classroom and the embed.
-5. Re-run the site audit (`npm run build`, then the SquirrelScan pass)
-   and check `/corner-spa` and `/zh/corner-spa` answer 200 with the
-   frame present.
-
-## 4. Verification checklist (both sides)
-
-- [ ] `curl -sI https://spa.mendozer.com | grep -i -E "x-frame-options|content-security-policy"` — no frame-blocking header, or `frame-ancestors` naming oryxinstitute.org.
-- [ ] `curl -sI https://www.oryxinstitute.org/corner-spa | grep -i content-security-policy` — contains `frame-src ... spa.mendozer.com`.
-- [ ] The frame renders in Chrome, Firefox and Safari (Safari is the
-      strictest about third-party frames).
-- [ ] The fallback line under the frame still reads correctly when the
-      counter is offline (devtools: block spa.mendozer.com and reload).
-- [ ] `/md/corner-spa`, the sitemap entry and the search index all name
-      the page (they are generated at build; no manual step, but check
-      after the details land).
+- [x] `curl -sI https://spa.mendozer.com` sends CSP frame-ancestors naming oryxinstitute.org and www, and no X-Frame-Options (verified live 5 Nov 2026).
+- [x] `curl -sI https://www.oryxinstitute.org/corner-spa` carries `frame-src ... spa.mendozer.com`.
+- [x] The embed answers 200 on both locales, in the sitemap, on the markdown shelf and in the search index.
+- [ ] The frame renders in Chrome, Firefox and Safari on the live domain (Safari is the strictest about third-party frames; verified headless Chromium so far).
+- [x] The fallback path: block spa.mendozer.com in devtools and reload; the plain link appears.
+- [x] The redirects: /spa, /cornerspa, /corner-spa/ and the /zh mirrors answer 308 to the embed.

@@ -57,6 +57,23 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             <a href={`mailto:${site.email}`} className="foot-mail link-type">
               {site.email}
             </a>
+            <p className="foot-phone">
+              <a
+                href={site.phoneHref}
+                className="link-type whitespace-nowrap"
+                aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+              >
+                {site.phoneDisplay}
+              </a>
+              <a
+                href={site.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-3 link-type"
+              >
+                {zh ? "WhatsApp" : "WhatsApp"}
+              </a>
+            </p>
             <ul className="foot-social" aria-label={zh ? "社交频道" : "Social channels"}>
               {site.socials.map((s) => (
                 <li key={s.href}>

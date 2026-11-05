@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
  * The markdown shelf: the whole site as clean markdown for any client
  * that negotiates text/markdown. Served from /md by the proxy when an
  * Accept header asks for it; the HTML page stays the canonical form.
- * English only — the documents are published in English, and the zh
+ * English only: the documents are published in English, and the zh
  * pages note it in their listing metadata.
  */
 
@@ -92,7 +92,7 @@ const PAGES: IndexRow[] = [
   {
     path: "/contact",
     title: "Contact the Office",
-    note: "One mailbox answers everything",
+    note: "Call or WhatsApp +264 83 676 4338, or write to info@oryxinstitute.org",
   },
   {
     path: "/faq",
@@ -146,8 +146,23 @@ const PAGES: IndexRow[] = [
   },
   {
     path: "/corner-spa",
-    title: "Corner Spa, with Mendozer",
-    note: "The first venture: wellness and service operations, its counter at spa.mendozer.com embedded on the page",
+    title: "Corner Spa, the first project of Oryx Institute",
+    note: "The spa's own site, spa.mendozer.com, shown full screen; massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788",
+  },
+  {
+    path: "/ventures/corner-spa",
+    title: "Corner Spa, the venture",
+    note: "The collaboration page: operations lead Oryx Institute, financing partner Mendozer Investments, the classroom, and the embedded counter",
+  },
+  {
+    path: "/blog",
+    title: "Blog",
+    note: "Notes from the practice, dated as published",
+  },
+  {
+    path: "/blog/corner-spa",
+    title: "Corner Spa, the first project of Oryx Institute",
+    note: "The full note: what the spa offers, the price list in Namibian dollars, booking on WhatsApp, one website two addresses",
   },
 ];
 
@@ -229,7 +244,7 @@ export function pageIndexMd(): string {
   const rows = buildIndex();
   const docs = rows.slice(PAGES.length);
   const out: string[] = [];
-  out.push("# Oryx Polytechnic Institute — markdown index");
+  out.push("# Oryx Polytechnic Institute: markdown index");
   out.push("");
   out.push(
     "Every public page and document of the institute, listed once. Append any path below to this shelf (for example /md/resources/business-plan-template) to read it as markdown."
@@ -238,13 +253,13 @@ export function pageIndexMd(): string {
   out.push("## Pages");
   out.push("");
   for (const r of PAGES) {
-    out.push(`- [${r.title}](${site.url}/md${r.path === "/" ? "" : r.path}) — ${r.note}`);
+    out.push(`- [${r.title}](${site.url}/md${r.path === "/" ? "" : r.path}): ${r.note}`);
   }
   out.push("");
   out.push("## The Oryx Directory (documents)");
   out.push("");
   for (const r of docs) {
-    out.push(`- [${r.title}](${site.url}/md${r.path}) — ${r.note}`);
+    out.push(`- [${r.title}](${site.url}/md${r.path}): ${r.note}`);
   }
   out.push("");
   out.push(FREE_LINE);

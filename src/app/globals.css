@@ -2068,3 +2068,272 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   border: 0;
   background: var(--paper-2);
 }
+
+/* -------------------------------------------------------------- */
+/* Corner Spa, full bleed: the frame is the page. The loader is an */
+/* ink screen with the lockup and the running oryx; the fallback   */
+/* link appears only if nothing loads inside ten seconds.          */
+/* -------------------------------------------------------------- */
+.corner-spa-frame {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: var(--paper);
+}
+
+@supports (height: 100dvh) {
+  .corner-spa-frame {
+    height: 100dvh;
+  }
+}
+
+.corner-spa-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background: var(--ink);
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.corner-spa-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.corner-spa-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.corner-spa-lockup-latin {
+  font-family: var(--font-sans-loaded), Inter, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+.corner-spa-lockup-cjk {
+  font-family: var(--font-cjk-loaded), serif;
+  font-size: 1.05rem;
+  color: #71111F;
+}
+
+.corner-spa-track {
+  width: min(240px, 60vw);
+  height: auto;
+  overflow: visible;
+}
+
+.embed-limb,
+.embed-neck,
+.embed-horn,
+.embed-tail {
+  stroke: var(--ivory);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.embed-limb {
+  stroke-width: 3.6;
+}
+
+.embed-body {
+  fill: var(--ivory);
+}
+
+.embed-ground {
+  stroke: var(--terracotta);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+  animation: embed-run 1s linear infinite;
+}
+
+.embed-oryx {
+  animation: embed-bob 0.5s ease-in-out infinite alternate;
+}
+
+.embed-leg {
+  animation: embed-swing 0.5s ease-in-out infinite alternate;
+}
+
+.embed-leg-f1 { transform-origin: 72px 40px; }
+.embed-leg-f2 { transform-origin: 72px 40px; animation-delay: -0.25s; }
+.embed-leg-r1 { transform-origin: 38px 40px; animation-delay: -0.12s; }
+.embed-leg-r2 { transform-origin: 38px 40px; animation-delay: -0.37s; }
+
+.corner-spa-note {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ivory-60);
+}
+
+.corner-spa-fail {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--paper);
+  text-align: center;
+  padding: 24px;
+}
+
+.corner-spa-fail-line {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.corner-spa-fail-link {
+  color: var(--terracotta);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.corner-spa-fail-link--quiet {
+  font-weight: 400;
+}
+
+.corner-spa-fail-note {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-60);
+}
+
+@keyframes embed-swing {
+  from { transform: rotate(-38deg); }
+  to { transform: rotate(38deg); }
+}
+
+@keyframes embed-bob {
+  from { transform: translateY(0); }
+  to { transform: translateY(-3px); }
+}
+
+@keyframes embed-run {
+  to { stroke-dashoffset: -32; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .embed-ground,
+  .embed-oryx,
+  .embed-leg {
+    animation: none;
+  }
+  .embed-leg {
+    transform: rotate(12deg);
+  }
+}
+
+/* -------------------------------------------------------------- */
+/* Blog prose: notes set in the site's own register. Images carry */
+/* measured width/height, so nothing shifts while they load.      */
+/* -------------------------------------------------------------- */
+.prose-oryx {
+  max-width: 68ch;
+}
+
+.prose-oryx > p:first-child {
+  margin-top: 0;
+}
+
+.prose-oryx p {
+  margin: 1.15em 0 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink-60);
+}
+
+.prose-oryx strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose-oryx h2 {
+  margin: 2.5em 0 0;
+  font-family: var(--font-serif-loaded), Georgia, serif;
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.prose-oryx img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 2.2em 0 0;
+  border: 1px solid var(--rule, rgba(24, 23, 19, 0.16));
+  background: var(--paper-2);
+}
+
+.prose-oryx a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.prose-oryx table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.6em;
+  font-size: 0.94rem;
+}
+
+.prose-oryx th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.6em 1em 0.6em 0;
+  white-space: nowrap;
+}
+
+.prose-oryx td {
+  padding: 0.55em 1em 0.55em 0;
+  border-bottom: 1px solid var(--rule, rgba(24, 23, 19, 0.16));
+  color: var(--ink-60);
+  vertical-align: top;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose-oryx tr > td:last-child,
+.prose-oryx tr > th:last-child {
+  padding-right: 0;
+}
+
+.prose-oryx ul {
+  margin: 1em 0 0;
+  padding-left: 1.35em;
+}
+
+.prose-oryx li {
+  margin-top: 0.4em;
+  line-height: 1.7;
+  color: var(--ink-60);
+}
+
+.foot-phone {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--ivory-80);
+}

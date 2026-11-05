@@ -37,6 +37,15 @@ const nextConfig: NextConfig = {
     { source: "/disclaimer", destination: "/about", permanent: true },
     { source: "/thank-you", destination: "/apply", permanent: true },
     /* The Bulletin's clean URL lands on its home in Resources. */
+    /* Corner Spa entry points: permanent (308), mirrored under /zh/.
+       The trailing-slash variant keeps the embed address canonical. */
+    { source: "/spa", destination: "/corner-spa", permanent: true },
+    { source: "/cornerspa", destination: "/corner-spa", permanent: true },
+    { source: "/corner-spa/", destination: "/corner-spa", permanent: true },
+    { source: "/zh/spa", destination: "/zh/corner-spa", permanent: true },
+    { source: "/zh/cornerspa", destination: "/zh/corner-spa", permanent: true },
+    { source: "/zh/corner-spa/", destination: "/zh/corner-spa", permanent: true },
+    /* The Bulletin's clean URL lands on its home in Resources. */
     { source: "/bulletin", destination: "/resources#bulletin", permanent: true },
     { source: "/zh/bulletin", destination: "/zh/resources#bulletin", permanent: true },
     /* Legal pages live under /legal; the launch URLs still resolve. */

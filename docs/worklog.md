@@ -77,3 +77,36 @@
   rhythm confirmed continuous with both dividers sitting correctly;
   programmes/schools/tools read composed in type alone; brand gallery grid
   tidy (3-over-2) and specimen wall sequence correct.
+
+
+---
+
+## 2026-11-05 · Telephone line, full-bleed Corner Spa embed, blog note
+
+- Telephone: the institute's line (083 676 4338, +264 83 676 4338) is
+  defined once in site.ts and now reads everywhere: footer call and
+  WhatsApp line, contact page as the primary route with call and
+  WhatsApp buttons (the mailbox stays secondary), one quiet link in the
+  menu, the FAQ answer, Organization JSON-LD telephone plus a customer
+  service contactPoint, llms.txt, AGENTS.md, the markdown shelf and the
+  search index, in both languages. NBSP between groups; the number
+  never splits across lines.
+- Corner Spa embed: /corner-spa and /zh/corner-spa are now the
+  full-bleed frame (bare [lang] route, no chrome, Oryx ink loader with
+  the running oryx, 1.4 s minimum beat, ten-second fallback link, no
+  history writes). The former content page moved to
+  /ventures/corner-spa (+ zh) with its status copy brought to the live
+  facts. 308 redirects: /spa, /cornerspa, /corner-spa/ and the /zh
+  mirrors. Mendozer's live headers verified: frame-ancestors names both
+  Oryx hosts, no X-Frame-Options.
+- Blog: /blog and /blog/corner-spa (+ zh) carry the approved copy as
+  written, with the spa's photographs served from public/corner-spa/ at
+  original dimensions, Article JSON-LD, and the price table rendered
+  from the note itself. Wired into the footer nav, the ventures page,
+  the home ventures block, the sitemap, the search index, llms.txt and
+  the markdown shelf.
+- Fixed on the way: md-shelf.ts blockToMd had a syntax error in the
+  committed HEAD (return ead, ...); the repo could not build until it
+  was repaired.
+- Em dashes swept from every file this change set touches; Chinese
+  double-dash punctuation in zh copy is kept as written.

@@ -12,27 +12,30 @@ const copy = {
     meta: {
       title: "Contact the Office",
       description:
-        "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office.",
+        "Call or WhatsApp Oryx Institute on 083 676 4338, or write to info@oryxinstitute.org. Applications, partnerships and the press, read in the Principal's office.",
       ogTitle: "Contact | Oryx Institute",
       ogDescription:
-        "One mailbox answers everything: info@oryxinstitute.org. The office reads every message, Windhoek, Namibia.",
+        "Call or WhatsApp 083 676 4338, or write to info@oryxinstitute.org. The office reads every message, Windhoek, Namibia.",
       ldName: "Contact the Office",
     },
     head: {
       eyebrow: "Contact",
       title: "Contact the office.",
-      lede: "One mailbox answers everything: applications, partnerships, the press. It is read in the Principal's office, and every message gets a reply from a person.",
+      lede: "Call, message on WhatsApp, or write: applications, partnerships, the press. Every message gets a reply from a person.",
     },
-    addressEyebrow: "The address that works",
+    addressEyebrow: "Call or WhatsApp, first",
     addressBody:
       "Say in your first message what the message is: an application, a business problem, a partnership, or a press question. The office replies personally, usually within the week, and the first reply names what the institute can and cannot do for you.",
+    callNow: "Call the office",
+    whatsapp: "WhatsApp the office",
+    preferWrite: "Prefer to write? The mailbox stays the secondary route, and it suits applications and anything that should arrive as a document.",
     writeOffice: "Write to the office",
     applyInstead: "Apply instead",
     channelsEyebrow: "The channels",
     statedEyebrow: "Stated as it is",
     messageEyebrow: "What to put in the message",
     messageBody:
-      "Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six doors you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
+      "Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six doors you are writing about. If the matter is a business problem, say what the business does and where it is stuck: one paragraph is enough, and the office will ask for what is missing.",
     methodEyebrow: "How the office works",
     methodBody:
       "Every message is read by a person, usually within the week. Replies are written, not templated: what you get back names what the institute can do, what it cannot, and what the next step would cost you in time. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
@@ -46,7 +49,7 @@ const copy = {
     },
     phone: {
       dt: "Telephone",
-      dd: "None published. A dedicated business line lands before launch, and it appears here and in the footer the day it exists.",
+      dd: ". Call, or message on WhatsApp. The same line and the same office.",
     },
     social: {
       dt: "Social",
@@ -58,20 +61,23 @@ const copy = {
     meta: {
       title: "联系办公室",
       description:
-        "Oryx 理工学院的一个邮箱回答一切：info@oryxinstitute.org。申请、合作与媒体，由院长办公室阅处，每封信都由一个人回复。学院在温得和克开展工作，暂无公开场所，不设公开电话；到访请预约，时间与地点由双方商定。写明来意，办公室通常在一周之内回复。",
+        "来电或 WhatsApp：083 676 4338（+264 83 676 4338），或致函 info@oryxinstitute.org。申请、合作与媒体，由院长办公室阅处，每封信都由一个人回复。学院在温得和克开展工作，暂无公开场所；到访请预约，时间与地点由双方商定。",
       ogTitle: "联系 | Oryx 理工学院",
       ogDescription:
-        "一个邮箱回答一切：info@oryxinstitute.org。办公室阅读每封来信。温得和克，纳米比亚。",
+        "来电或 WhatsApp：083 676 4338。办公室阅读每封来信。温得和克，纳米比亚。",
       ldName: "联系办公室",
     },
     head: {
       eyebrow: "联系",
       title: "联系办公室。",
-      lede: "一个邮箱回答一切：申请、合作、媒体。它在院长办公室被阅读，每封信都由一个人回复。",
+      lede: "来电、WhatsApp 留言，或写信：申请、合作、媒体。每封信都由一个人回复。",
     },
-    addressEyebrow: "管用的地址",
+    addressEyebrow: "先来电或 WhatsApp",
     addressBody:
-      "在第一封邮件里说明来意：申请、生意上的问题、合作，或者媒体提问。办公室亲自回复，通常在一周之内，第一封回信会讲明学院能做什么、不能做什么。",
+      "第一句话就说明来意：申请、生意上的问题、合作，或者媒体提问。办公室亲自回复，通常在一周之内，第一封回信会讲明学院能做什么、不能做什么。",
+    callNow: "致电办公室",
+    whatsapp: "WhatsApp 留言",
+    preferWrite: "更喜欢写信？邮箱仍是第二通道，适合申请和需要作为文件送达的事情。",
     writeOffice: "给办公室写信",
     applyInstead: "去申请",
     channelsEyebrow: "渠道",
@@ -92,7 +98,7 @@ const copy = {
     },
     phone: {
       dt: "电话",
-      dd: "暂不公布。专属业务电话会在开办前到位，到位当天就出现在这里和页脚。",
+      dd: "。来电，或在 WhatsApp 上留言。同一条线，同一个办公室。",
     },
     social: {
       dt: "社交",
@@ -102,10 +108,10 @@ const copy = {
     enLedger: {
       paras: [
         "One mailbox answers everything at Oryx Institute: info@oryxinstitute.org. Applications, partnerships and the press arrive in the same place, and every message is read in the Principal's office by a person, usually within the week. The first reply names what the institute can and cannot do for you, and what the next step would cost you in time.",
-        "Say in your first message what the message is. Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six offers you are writing about. If the matter is a business problem, say what the business does and where it is stuck — one paragraph is enough, and the office will ask for what is missing.",
+        "Say in your first message what the message is. Three things, in any order: who you are, what the message is about, and what a reply should decide. A message that names its subject in the first line gets read first; formality is not needed, the facts are. If the matter is an application, say which of the six offers you are writing about. If the matter is a business problem, say what the business does and where it is stuck: one paragraph is enough, and the office will ask for what is missing.",
         "Every reply is written, not templated. Nothing is stored on this site and nothing is shared; the conversation lives in your mailbox and the office's, like correspondence always has.",
         "The office keeps Windhoek time. Messages land in one mailbox and are answered in the order they arrive, and the correspondence stays between the two mailboxes from the first line to the last. There is no form submission, no ticket number and no tracking pixel behind the reply; the whole exchange is ordinary email, which is why a person can answer it and why it can be trusted.",
-        "The institute works from Windhoek, Namibia, and states its standing as it is: no public premises yet, so no street address is printed, and no telephone line published yet — a dedicated business line lands before launch, and it appears here and in the footer the day it exists. Visits are arranged by appointment: say in your first message that you would like to meet, and the office confirms a time and place in Windhoek that suits both sides. Instagram, Facebook and LinkedIn are linked as icons; nothing is embedded, and the site runs no third-party scripts.",
+        "The institute works from Windhoek, Namibia, and states its standing as it is: no public premises yet, so no street address is printed, and no telephone line published yet: a dedicated business line lands before launch, and it appears here and in the footer the day it exists. Visits are arranged by appointment: say in your first message that you would like to meet, and the office confirms a time and place in Windhoek that suits both sides. Instagram, Facebook and LinkedIn are linked as icons; nothing is embedded, and the site runs no third-party scripts.",
       ],
     },
   },
@@ -154,6 +160,15 @@ export default async function ContactPage({
       "@id": `${site.url}/#organization`,
       name: site.legalName,
       email: site.email,
+      telephone: site.phoneE164,
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: site.phoneE164,
+          contactType: "customer service",
+          email: site.email,
+        },
+      ],
       areaServed: zh ? siteZh.areaServed : site.areaServed,
       address: {
         "@type": "PostalAddress",
@@ -174,7 +189,7 @@ export default async function ContactPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The opener plate: the library wall — a shelf of books and a
+      {/* The opener plate: the library wall: a shelf of books and a
           glass of water, the office's own register. Full measure,
           drifting at a gentler rate than the page. */}
       <section className="section-sm" data-sc-act="scrub">
@@ -196,20 +211,39 @@ export default async function ContactPage({
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div className="hair-t pt-14" data-sc-in data-sc-stagger="70">
-            <h2 className="h-section max-w-[24ch]">
-              <a href={`mailto:${site.email}`} className="link-type">
-                {site.email}
+            <p className="eyebrow eyebrow--ink">{t.addressEyebrow}</p>
+            <h2 className="h-section mt-4 max-w-[24ch]">
+              <a
+                href={site.phoneHref}
+                className="link-type whitespace-nowrap tnum"
+                aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+              >
+                {site.phoneDisplay}
               </a>
             </h2>
             <p className="measure mt-6 text-soft">{t.addressBody}</p>
             <div className="mt-8 flex flex-wrap gap-5">
-              <a href={`mailto:${site.email}`} className="btn">
-                {t.writeOffice}
+              <a href={site.phoneHref} className="btn tnum">
+                {t.callNow}
               </a>
-              <Link href={A("/apply")} className="btn--quiet">
-                {t.applyInstead} <span className="arr" aria-hidden="true">→</span>
-              </Link>
+              <a
+                href={site.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+              >
+                {t.whatsapp}
+                <span className="arr ml-1" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
             </div>
+            <p className="measure mt-6 text-soft">
+              {t.preferWrite}{" "}
+              <a href={`mailto:${site.email}`} className="link-type">
+                {site.email}
+              </a>
+            </p>
 
             <div className="mt-12">
               <ul className="flex flex-wrap gap-3">
@@ -246,7 +280,16 @@ export default async function ContactPage({
               </div>
               <div>
                 <dt className="font-[500]">{t.phone.dt}</dt>
-                <dd className="mt-1 text-soft">{t.phone.dd}</dd>
+                <dd className="mt-1 text-soft">
+                  <a
+                    href={site.phoneHref}
+                    className="link-type whitespace-nowrap tnum"
+                  >
+                    {site.phoneDisplay}
+                  </a>
+                  <span className="tnum"> ({site.phoneInternational} international)</span>
+                  {t.phone.dd}
+                </dd>
               </div>
               <div>
                 <dt className="font-[500]">{t.social.dt}</dt>
@@ -289,8 +332,8 @@ export default async function ContactPage({
         </section>
       )}
 
-      {/* The place, held still: the Windhoek gate — arriving, a
-          threshold — as the page's one silent divider, no text over
+      {/* The place, held still: the Windhoek gate: arriving, a
+          threshold: as the page's one silent divider, no text over
           it. (The acacia stays on the homepage; the gate is the
           contact's own.) */}
       <div

@@ -217,6 +217,15 @@ export default async function HomePage({
         alternateName: zh ? siteZh.tradingName : site.tradingName,
         url: site.url,
         email: site.email,
+        telephone: site.phoneE164,
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: site.phoneE164,
+            contactType: "customer service",
+            email: site.email,
+          },
+        ],
         foundingDate: "2026",
         address: {
           "@type": "PostalAddress",
@@ -501,13 +510,21 @@ export default async function HomePage({
               <p className="mt-3 max-w-[44ch] text-soft">
                 {s.ventures.cornerSpa.line}
               </p>
-              <Link
-                href={zh ? "/zh/ventures" : "/ventures"}
-                className="btn--quiet mt-5"
-              >
-                {zh ? "阅读 Corner Spa" : "Read about Corner Spa"}{" "}
-                <span className="arr" aria-hidden="true">→</span>
-              </Link>
+              <div className="mt-5 flex flex-wrap items-center gap-5">
+                <Link
+                  href={zh ? "/zh/ventures" : "/ventures"}
+                  className="btn--quiet"
+                >
+                  {zh ? "阅读 Corner Spa" : "Read about Corner Spa"}{" "}
+                  <span className="arr" aria-hidden="true">→</span>
+                </Link>
+                <Link
+                  href={zh ? "/zh/blog/corner-spa" : "/blog/corner-spa"}
+                  className="link-type"
+                >
+                  {zh ? "阅读博客文章" : "Read the blog note"}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
