@@ -216,7 +216,8 @@ export default async function ContactPage({
               <a
                 href={site.phoneHref}
                 className="link-type whitespace-nowrap tnum"
-                aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+                /* Label in Name (WCAG 2.5.3): reuse the visible string. */
+                aria-label={`Call ${site.tradingName} on ${site.phoneDisplay}`}
               >
                 {site.phoneDisplay}
               </a>

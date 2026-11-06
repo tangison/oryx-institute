@@ -682,3 +682,45 @@ Work Log:
   flight), CSP inline (Next.js), mailto form, TTFB variance, the
   partner's name density, and spa.mendozer.com not resolving until
   Mendozer's launch.
+
+---
+
+## Round: post-publish audit (taste-skill pass), 7 November 2026
+
+Agent: main (Z.ai)
+Task: Run the taste-skill anti-slop audit and a fresh SquirrelScan
+against production; fix everything the crawl proved broken; push.
+
+Work Log:
+- SquirrelScan full (offline, 100 pages): 81/100 B, 83 errors. Two
+  error rules traced to the telephone round:
+  - a11y/label-content-name-mismatch on 82 pages: the new tel links
+    carried aria-label "Call ... on +264 83 676 4338" while the visible
+    string is 083 676 4338 (Label in Name, WCAG 2.5.3). All four call
+    sites (footer, menu, contact, error screens) now reuse phoneDisplay
+    in the label, so accessible name contains the visible string.
+  - schema/entity-identity on the blog post: the Article author was an
+    inline Organization node with no @id. It now references the one
+    org node (EducationalOrganization @ .../#organization), same as
+    publisher.
+- Meta bands on the new pages: /blog and /zh/blog retitled into the
+  30-60 band ("Notes from the practice | Oryx Institute"; zh absolute
+  per the site's zh brand pattern), descriptions of /zh, /blog, /zh/blog,
+  /zh/blog/corner-spa and /zh/corner-spa moved into 120-160; blog post
+  titles made absolute (they already carry the brand; the template
+  printed it twice past 60 chars).
+- /ventures/corner-spa orphan fixed: the ventures index now carries a
+  contextual link ("The venture page" / "实业专页") beside the embed CTA.
+- The bare /corner-spa route now ships favicon links (icons metadata
+  moved to the root layout) and a <main> landmark.
+- Loader fail-safe without JS: React 19 drops <noscript> from the RSC
+  stream, so the hide-on-no-JS rule is done in CSS instead: the loader
+  carries an animation deadline at 12s (the JS path always ends it by
+  10s + 0.7s fade, so the deadline only fires when scripts never ran).
+- taste-skill sweep: zero em/en dashes repo-wide (two stragglers in a
+  code comment and AGENTS.md fixed), no scroll cues, no section-number
+  eyebrows, no decorative dots, no h-screen, no pure black, reduced
+  motion covered, middle dots rationed to metadata strips.
+- Verified locally across 12 routes: titles/descriptions in band, both
+  phone numbers intact and in the right places only, no Oryx chrome in
+  the embed's visible DOM.

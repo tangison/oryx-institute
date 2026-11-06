@@ -2101,6 +2101,19 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   gap: 30px;
   background: var(--ink);
   transition: opacity 0.7s ease, visibility 0.7s ease;
+  /* Fail-safe, independent of JS: the JS path always ends the loader
+     inside ten seconds (frame load, or the fallback panel), so a 12s
+     CSS deadline only ever fires when scripts never ran or died. The
+     frame behind it speaks for itself, per the embed blueprint. */
+  animation: embed-loader-deadline 0.7s ease 12s forwards;
+}
+
+@keyframes embed-loader-deadline {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .corner-spa-loader.is-done {

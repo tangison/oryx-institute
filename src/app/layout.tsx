@@ -47,6 +47,17 @@ export const metadata: Metadata = {
     default: "Oryx Institute | A New Polytechnic for Namibia",
     template: "%s | Oryx Institute",
   },
+  /* Icons sit at the root so every route carries them, including the
+     bare Corner Spa frame route, which renders outside the (site)
+     chrome and would otherwise ship no favicon at all. */
+  icons: {
+    icon: [
+      { url: "/brand/favicon.ico", sizes: "any" },
+      { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport: Viewport = {

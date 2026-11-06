@@ -8,10 +8,10 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Blog",
+      title: "Notes from the practice",
       description:
-        "Notes from Oryx Institute: the practice, the ventures and the work in development, written to be used.",
-      ogTitle: "Blog | Oryx Institute",
+        "Notes from Oryx Institute: the practice running today, the ventures opened with partners, the work in development. Written to be used, dated as published.",
+      ogTitle: "Notes from the practice | Oryx Institute",
     },
     head: {
       eyebrow: "Blog",
@@ -24,9 +24,11 @@ const copy = {
   },
   zh: {
     meta: {
-      title: "博客",
+      /* Absolute in generateMetadata: the title carries the locale
+         brand itself, in the site's documented zh pattern. */
+      title: "博客 · Oryx 理工学院 · Oryx Institute",
       description:
-        "来自 Oryx Institute 的笔记：实务、实业与在建的工作，写成能直接用的东西。",
+        "来自 Oryx Institute 的笔记，写在温得和克：学院当天在运转的实务（速成课、经营咨询、市场调研），与伙伴一起开设的实业，以及还在研究的工作。每篇都写成能直接用的东西，完整价目、预约方式与事实出处都写在文中，按发表日期记录，不写没把握的事。",
       ogTitle: "博客 | Oryx 理工学院",
     },
     head: {
@@ -48,7 +50,8 @@ export async function generateMetadata({
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
   return {
-    title: m.title,
+    /* zh prints absolute: its title already carries the locale brand. */
+    title: lang === "zh" ? { absolute: m.title } : m.title,
     description: m.description,
     alternates: alternates(lang, "/blog", site.url),
     openGraph: {

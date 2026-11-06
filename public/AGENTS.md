@@ -30,7 +30,7 @@ A curated summary for answer engines and agents lives at [/llms.txt](/llms.txt).
 
 - Content source of truth: `src/lib/site.ts` (offers, register, ventures, partners, FAQs), `src/lib/site-zh.ts` (the Chinese mirror of the same facts), `src/lib/content.ts` (the Bulletin essays) and `src/lib/directory.ts` (the eleven Directory documents). Every public claim must trace to the approved master asset package.
 - Locales: English lives at the root, Chinese under `/zh/`. Locale logic (paths, hreflang alternates, interface chrome) is in `src/lib/i18n.ts`; page copy sits beside each page in `copy` objects with `en` and `zh` blocks.
-- Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English, `%s | Oryx 理工学院 · Oryx Institute` in Chinese). Meta descriptions run 120–160 characters in both languages.
+- Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English, `%s | Oryx 理工学院 · Oryx Institute` in Chinese). Meta descriptions run 120-160 characters in both languages.
 - Motion: GSAP ScrollTrigger driven by `src/components/site/sc-motion.tsx`, with the `data-sc-*` attribute grammar (scrub, pin, reveal, parallax, rows). Reduced-motion visitors get the same content, static. No autoplaying media.
 - Brand asset exports live in `public/brand/`; the logo renders from those SVG files (see `src/components/site/oryx-logo.tsx`). Never recolour or redraw the artwork, and never inline the path data into components.
 - The telephone number is defined once in `src/lib/site.ts` (`phoneDisplay`, `phoneInternational`, `phoneE164`, `phoneHref`, `whatsappHref`) and read everywhere else; never hardcode it in a component. Display strings use \u00A0 no-break spaces so the number never splits across lines.

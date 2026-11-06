@@ -61,7 +61,10 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               <a
                 href={site.phoneHref}
                 className="link-type whitespace-nowrap"
-                aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+                /* Label in Name (WCAG 2.5.3): the accessible name must
+                   contain the visible string, so it reuses phoneDisplay
+                   exactly, no-break spaces and all. */
+                aria-label={`Call ${site.tradingName} on ${site.phoneDisplay}`}
               >
                 {site.phoneDisplay}
               </a>

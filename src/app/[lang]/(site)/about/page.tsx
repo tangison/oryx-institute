@@ -15,7 +15,7 @@ import { StaffRows } from "@/components/site/staff-rows";
  * still pending; the horns hold the 理工 block; the desert plate
  * breathes before the standing; the colophon carries the Tangison
  * disclosure in prose beside the nib. (Image Bible v6, STAFF-DIRECTORY,
- * CONTENT-CORRECTIONS §5–§6.)
+ * CONTENT-CORRECTIONS §5-§6.)
  */
 const copy = {
   en: {

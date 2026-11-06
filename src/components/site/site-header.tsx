@@ -130,7 +130,8 @@ export function SiteHeader({ lang }: { lang: Lang }) {
             <a
               href={site.phoneHref}
               className="menu-mail whitespace-nowrap"
-              aria-label={`Call ${site.tradingName} on ${site.phoneInternational}`}
+              /* Label in Name (WCAG 2.5.3): reuse the visible string. */
+              aria-label={`Call ${site.tradingName} on ${site.phoneDisplay}`}
             >
               {site.phoneDisplay}
             </a>

@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Corner Spa in Windhoek is the first project of Oryx Institute, with Mendozer Investments as financing partner. See treatments, prices and how to book.",
     descriptionZh:
-      "Corner Spa 位于温得和克，是 Oryx Institute 的第一个项目，Mendozer Investments 为融资伙伴。查看项目、价格与预约方式。",
+      "Corner Spa 位于温得和克，是 Oryx Institute 的第一个项目，Mendozer Investments 为融资伙伴。本文列出按摩、热石、美甲与脱毛的完整价目（纳米比亚元），说明如何通过 WhatsApp 预约，以及两个角色如何分工。",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
     dateHumanZh: "2026年11月5日",

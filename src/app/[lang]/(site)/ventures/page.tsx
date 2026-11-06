@@ -30,6 +30,7 @@ const copy = {
     readRegister: "Read the register",
     briefUs: "Brief the ventures desk",
     followSpa: "Follow Corner Spa",
+    venturePage: "The venture page",
     futureNote:
       "More labs are opened as sectors warrant them. What is not ready, says so.",
   },
@@ -57,6 +58,7 @@ const copy = {
     readRegister: "读登记册",
     briefUs: "给实业案头写需求",
     followSpa: "查看 Corner Spa",
+    venturePage: "实业专页",
     futureNote:
       "行业到了该检验的时候，就再开一间。没准备好的，直说。",
     enLedger: {
@@ -198,9 +200,15 @@ export default async function VenturesPage({
       <section className="section" data-sc-act="flow">
         <div className="shell" data-sc-in>
           <p className="measure text-soft">{v.cornerSpa.body}</p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap items-center gap-5">
             <Link href={A("/corner-spa")} className="btn--quiet">
               {t.followSpa} <span className="arr" aria-hidden="true">→</span>
+            </Link>
+            {/* Contextual link to the venture's own page, so the detail
+                route is never an orphan: the spa's counter, the classroom
+                rows and the register row live there. */}
+            <Link href={A("/ventures/corner-spa")} className="link-type">
+              {t.venturePage} <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

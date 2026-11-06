@@ -21,7 +21,10 @@ export async function generateMetadata({
   if (!post) return {};
   const L = lang === "zh" ? "/zh" : "";
   return {
-    title: lang === "zh" ? post.titleZh : post.title,
+    /* Absolute: both headline strings already carry the brand ("Oryx
+       Institute"), so the root template would print it a second time
+       and push the title past 60 characters. */
+    title: { absolute: lang === "zh" ? post.titleZh : post.title },
     description: lang === "zh" ? post.descriptionZh : post.description,
     alternates: alternates(lang, `/blog/${post.slug}`, site.url),
     openGraph: {
@@ -86,7 +89,8 @@ export default async function BlogPostPage({
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     author: {
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
+      "@id": schemaIds.org,
       name: site.tradingName,
       url: site.url,
     },
