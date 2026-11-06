@@ -724,3 +724,7 @@ Work Log:
 - Verified locally across 12 routes: titles/descriptions in band, both
   phone numbers intact and in the right places only, no Oryx chrome in
   the embed's visible DOM.
+- Follow-up: the blog Article's author/publisher nodes now reference
+  the org @id bare (no name override), clearing the
+  schema/entity-conflicts warning (2 pages named the shared node
+  "Oryx Institute" against the canonical legalName on 28 pages).

@@ -88,16 +88,16 @@ export default async function BlogPostPage({
     image: [`${site.url}${post.ogImage}`],
     datePublished: post.dateISO,
     dateModified: post.dateISO,
+    /* Both roles point at the ONE org node by @id alone: the name,
+       url and type details live on the canonical node (home, about),
+       so no field is overridden here and no conflict can arise. */
     author: {
       "@type": "EducationalOrganization",
       "@id": schemaIds.org,
-      name: site.tradingName,
-      url: site.url,
     },
     publisher: {
       "@type": "EducationalOrganization",
       "@id": schemaIds.org,
-      name: site.legalName,
     },
     mainEntityOfPage: `${site.url}${A(`/blog/${post.slug}`)}`,
   };
