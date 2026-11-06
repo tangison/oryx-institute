@@ -728,3 +728,7 @@ Work Log:
   the org @id bare (no name override), clearing the
   schema/entity-conflicts warning (2 pages named the shared node
   "Oryx Institute" against the canonical legalName on 28 pages).
+- Re-fix: the Article validator requires author.name/publisher.name,
+  so the blog org nodes carry the @id AND the canonical legalName
+  (identical to the node itself): entity-identity, json-ld-valid and
+  entity-conflicts all satisfied at once.

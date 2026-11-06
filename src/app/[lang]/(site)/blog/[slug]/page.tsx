@@ -88,16 +88,20 @@ export default async function BlogPostPage({
     image: [`${site.url}${post.ogImage}`],
     datePublished: post.dateISO,
     dateModified: post.dateISO,
-    /* Both roles point at the ONE org node by @id alone: the name,
-       url and type details live on the canonical node (home, about),
-       so no field is overridden here and no conflict can arise. */
+    /* Both roles point at the ONE org node by @id, and repeat its
+       canonical name (the legalName the node itself carries): the
+       Article validator requires author.name and publisher.name, the
+       entity rules require the @id, and matching names keep the two
+       rules from fighting each other. */
     author: {
       "@type": "EducationalOrganization",
       "@id": schemaIds.org,
+      name: site.legalName,
     },
     publisher: {
       "@type": "EducationalOrganization",
       "@id": schemaIds.org,
+      name: site.legalName,
     },
     mainEntityOfPage: `${site.url}${A(`/blog/${post.slug}`)}`,
   };
