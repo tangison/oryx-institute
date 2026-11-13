@@ -45,7 +45,7 @@ const copy = {
     closeBody:
       "The Bulletin follows the institute's publishing rule: every figure carries its source, nothing is invented to fill a gap, and when a fact changes, the Bulletin changes with it.",
     applyNow: "Apply now",
-    whatRuns: "What runs today",
+    whatRuns: "See the Practice",
   },
   zh: {
     meta: {
@@ -82,7 +82,7 @@ const copy = {
     closeBody:
       "公报遵守学院的发布规矩：每个数字注明出处，不为填空而编造，事实变了，公报跟着变。",
     applyNow: "现在申请",
-    whatRuns: "今天在运转的",
+    whatRuns: "看实务",
   },
 } as const;
 
@@ -349,6 +349,7 @@ export default async function ResourcesPage({
                 alt=""
                 width={1254}
                 height={1254}
+                quality={62}
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
               />

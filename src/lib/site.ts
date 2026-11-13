@@ -186,7 +186,7 @@ export const offers = [
     name: "Owner's Desk",
     tag: "Practice",
     line: "One-on-one business counselling. The outcome is written down.",
-    cta: { label: "Book", href: "/apply/owners-desk" },
+    cta: { label: "Book the Owner's Desk", href: "/apply/owners-desk" },
     body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens\u00A0next.",
   },
   {
@@ -194,7 +194,7 @@ export const offers = [
     name: "Business Administration",
     tag: "Teaching",
     line: "Crash & short courses in records, filings,\u00A0registers.",
-    cta: { label: "Enquire about the diploma", href: "/apply/business-administration" },
+    cta: { label: "Enquire about Business Administration", href: "/apply/business-administration" },
     body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and\u00A0finished.",
   },
   {
@@ -202,7 +202,7 @@ export const offers = [
     name: "IT & Related Fields",
     tag: "Teaching",
     line: "Crash & short courses in the systems work runs on. Every tool named.",
-    cta: { label: "Enquire about IT", href: "/apply/it" },
+    cta: { label: "Enquire about Information Technology", href: "/apply/it" },
     body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
   },
   {
@@ -210,7 +210,7 @@ export const offers = [
     name: "Market R&D",
     tag: "Research",
     line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
-    cta: { label: "Engage", href: "/apply/market-rd" },
+    cta: { label: "Engage Market Research & Development", href: "/apply/market-rd" },
     body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
   },
   {
@@ -218,7 +218,7 @@ export const offers = [
     name: "Rapid Response Training",
     tag: "Practice",
     line: "Sourced experts, structured programmes, delivered to standard.",
-    cta: { label: "Brief us", href: "/apply/rapid-response" },
+    cta: { label: "Brief us on Rapid Response Training", href: "/apply/rapid-response" },
     body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know\u00A0next.",
   },
   {
@@ -226,7 +226,7 @@ export const offers = [
     name: "The Oryx Directory",
     tag: "Free",
     line: "Free Namibia-specific crash courses and business templates.",
-    cta: { label: "Take it", href: "/resources" },
+    cta: { label: "Open the Oryx Directory", href: "/resources" },
     body: "Namibia-specific crash courses and business templates, copyrighted to the institute and free to access. Published proof of how the institute writes, sources and teaches, available before any fee is discussed.",
   },
 ] as const;

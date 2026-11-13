@@ -348,7 +348,7 @@ export default async function SafetyLevelPage({
               href={A("/practice/safety-officer-course")}
               className="btn--quiet"
             >
-              {zh ? "看全部课程" : "See the programme"}{" "}
+              {zh ? "看安全员培训全部课程" : "See the Safety Officer Training programme"}{" "}
               <span className="arr" aria-hidden="true">→</span>
             </Link>
             <Link href={A("/register")} className="btn--quiet">

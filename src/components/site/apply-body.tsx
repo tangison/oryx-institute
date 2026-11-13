@@ -5,7 +5,7 @@ import { ApplyOfferMeta } from "@/components/site/apply-offer-meta";
 import { site, offers } from "@/lib/site";
 import { siteZh, offersZh } from "@/lib/site-zh";
 import type { Lang } from "@/lib/i18n";
-import type { ApplyOfferSlug } from "@/lib/apply-offers";
+import { applyOfferIntro, type ApplyOfferSlug } from "@/lib/apply-offers";
 
 /**
  * The application page body, shared by /apply and every /apply/<offer>
@@ -107,6 +107,7 @@ export function ApplyBody({
 }) {
   const zh = lang === "zh";
   const t = copy[lang];
+  const offerIntro = preselect ? applyOfferIntro(preselect, lang) : null;
 
   return (
     <>
@@ -136,6 +137,21 @@ export function ApplyBody({
           </figure>
         </div>
       </section>
+
+      {/* Each deep-link route names the offer before showing the shared
+          message composer. The distinct proposition keeps the route
+          useful on its own for people and search engines alike. */}
+      {offerIntro && (
+        <section className="section-sm" data-sc-act="flow">
+          <div className="shell">
+            <div className="hair-t pt-12" data-sc-in>
+              <p className="eyebrow eyebrow--ink">{offerIntro.eyebrow}</p>
+              <h2 className="h-section mt-4 max-w-[20ch]">{offerIntro.title}</h2>
+              <p className="measure mt-6 text-soft">{offerIntro.body}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* How the application runs, hairline ledger. The titles carry the
           sequence; the rows carry no numbers. */}

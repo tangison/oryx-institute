@@ -135,7 +135,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "Dates",
       dates:
         "Cohort 1 is planned for January 2027. Intake dates publish on this page and in the register on 15 November 2026.",
-      applyCta: "Register interest",
+      applyCta: "Register interest in Level 1 Safety Training",
     },
     zh: {
       navName: "一级 · 准入",
@@ -209,7 +209,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "日期",
       dates:
         "首期班计划于 2027 年 1 月开课。开班日期将于 2026 年 11 月 15 日公布在本页与登记册。",
-      applyCta: "登记意向",
+      applyCta: "登记一级安全培训意向",
     },
   },
   {
@@ -316,7 +316,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "Dates",
       dates:
         "Cohort 1 is planned for January 2027. Intake dates publish on this page and in the register on 15 November 2026.",
-      applyCta: "Register interest",
+      applyCta: "Register interest in Level 2 Safety Training",
     },
     zh: {
       navName: "二级 · 安全员",
@@ -413,7 +413,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "日期",
       dates:
         "首期班计划于 2027 年 1 月开课。开班日期将于 2026 年 11 月 15 日公布在本页与登记册。",
-      applyCta: "登记意向",
+      applyCta: "登记二级安全培训意向",
     },
   },
   {
@@ -503,7 +503,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "Dates",
       dates:
         "Cohort 1 is planned for January 2027. Intake dates publish on this page and in the register on 15 November 2026.",
-      applyCta: "Register interest",
+      applyCta: "Register interest in Level 3 Safety Training",
     },
     zh: {
       navName: "三级 · 管理",
@@ -583,7 +583,7 @@ export const safetyLevels: SafetyLevel[] = [
       datesEyebrow: "日期",
       dates:
         "首期班计划于 2027 年 1 月开课。开班日期将于 2026 年 11 月 15 日公布在本页与登记册。",
-      applyCta: "登记意向",
+      applyCta: "登记三级安全培训意向",
     },
   },
 ];
@@ -623,8 +623,8 @@ export const safetyLanding = {
       "This programme is industry-orientated professional development. The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
     knowCertificate:
       "Certificates issued before accreditation are internal records of completion: the Certificate of Attendance for short courses, the Certificate of Completion for the officer levels. They are not NQF-credit-bearing qualifications and cannot be submitted to NQA as accredited prior learning. First Aid Level 1, where required, is certified by a registered Namibian first-aid training partner, not by Oryx.",
-    applyCta: "Register interest",
-    seeCurriculum: "See the curriculum",
+    applyCta: "Register interest in Safety Officer Training",
+    seeCurriculum: "See the Safety Officer Training curriculum",
     outlineLabel: "Outline",
     durationLabel: "Duration",
   },
@@ -654,8 +654,8 @@ export const safetyLanding = {
       "本课程属于面向行业的专业进修。实务引擎目前以商业服务协议提供收费的企业咨询、市场调研与公司快速响应培训。正式的职业教育课程，包括工商管理国家职业标准，将在获得 NTA 培训机构注册之后才会开始。注册资格的 NQA 认证正在同步申请中，结果将在公开登记册上公布。",
     knowCertificate:
       "认证取得之前签发的证书均为内部结业记录：短期课程为结业证书，安全员级别为结业证书（安全员）。它们不是 NQF 学分资格，不能作为认证的先前学习提交给 NQA。如有需要，一级急救由注册的纳米比亚急救培训伙伴认证，而非 Oryx。",
-    applyCta: "登记意向",
-    seeCurriculum: "看课程大纲",
+    applyCta: "登记安全员培训意向",
+    seeCurriculum: "看安全员培训课程大纲",
     outlineLabel: "大纲",
     durationLabel: "时长",
   },
@@ -667,8 +667,8 @@ export const safetyAnnouncement = {
     eyebrow: "Announcement · 01 Nov 2026",
     title: "Safety officer training, starting soon.",
     body: "Oryx Institute is opening enrolments for a Namibian occupational safety programme: one-day worker induction, five-day safety officer certification, and a ten-day advanced safety management course. Taught by a registered safety professional, examined on paper and on site. Cohort 1 intake dates and fees are published on the Practice page.",
-    seeCurriculum: "See the curriculum",
-    registerInterest: "Register interest",
+    seeCurriculum: "See the Safety Officer Training curriculum",
+    registerInterest: "Register interest in Safety Officer Training",
     pill: "New · Safety officer training",
     helmetAlt:
       "A matte forest-green hard hat seen from underneath, the X-strap suspension centred on cream",
@@ -679,8 +679,8 @@ export const safetyAnnouncement = {
     eyebrow: "公告 · 2026 年 11 月 1 日",
     title: "安全员培训，即将开课。",
     body: "Oryx Institute 即将开放纳米比亚职业安全课程的报名：一日制的员工安全准入培训、五日制的安全员认证，以及十日制的高级安全管理课程。由注册安全专家授课，纸面笔试加现场实操考核。首期班的日期与费用将在实务页面公布。",
-    seeCurriculum: "看课程大纲",
-    registerInterest: "登记意向",
+    seeCurriculum: "看安全员培训课程大纲",
+    registerInterest: "登记安全员培训意向",
     pill: "新 · 安全员培训",
     helmetAlt: "一顶哑光森林绿安全帽的仰视图，X 形帽带悬吊系统居中于米色纸上",
     hornAlt: "一只铜制号角静置于米色纸上，作为一件安静的公告之物拍摄",

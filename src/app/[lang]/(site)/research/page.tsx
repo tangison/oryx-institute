@@ -24,8 +24,8 @@ const copy = {
       lede: "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both, market research taken on per engagement, and the programme and product work the institute runs with named partners.",
     },
     hireTitle: "The market side of the desk.",
-    bring: "Bring a problem",
-    whatRuns: "What runs today",
+    bring: "Bring a Market R&D problem",
+    whatRuns: "See the Practice",
     how: [
       { k: "1 · The question.", v: "Written down as it stands, before any method is discussed." },
       { k: "2 · The ground.", v: "Evidence gathered on Namibian ground, sources named." },
@@ -63,8 +63,8 @@ const copy = {
       lede: "先有证据，钱再动：对客户如此，对学院自己的建造也如此。同一张桌子做两件事：按项目接单的市场调研，以及与指名伙伴一起推进的课程与产品。",
     },
     hireTitle: "桌子的市场那一侧。",
-    bring: "带来一个问题",
-    whatRuns: "今天在运转的",
+    bring: "带来一个市场调研问题",
+    whatRuns: "看实务",
     how: [
       { k: "一 · 问题。", v: "原样写下，先于任何方法讨论。" },
       { k: "二 · 土地。", v: "证据取自纳米比亚的土地，出处指名道姓。" },

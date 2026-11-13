@@ -71,8 +71,7 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "zh" }) {
     if ((window as unknown as { __spaFrameLoaded?: boolean }).__spaFrameLoaded) {
       reveal();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    }, []);
 
   const onFrameLoad = reveal;
 

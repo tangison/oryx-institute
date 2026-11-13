@@ -276,7 +276,7 @@ export default async function CornerSpaPage({
             <p className="measure mt-4 text-soft">{t.liveNote}</p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/corner-spa")} className="btn">
-                {zh ? "全屏打开" : "Open full screen"}{" "}
+                {zh ? "全屏打开 Corner Spa" : "Open Corner Spa full screen"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
               <Link href={A("/blog/corner-spa")} className="btn--quiet">

@@ -81,7 +81,7 @@ export const offersZh = [
     name: "经营者案头",
     tag: "实务",
     line: "一对一经营咨询。结果落在纸面。",
-    cta: { label: "预约", href: "/apply/owners-desk" },
+    cta: { label: "预约经营者案头", href: "/apply/owners-desk" },
     body: "为纳米比亚的经营者提供一对一咨询，专挑代价最高的时刻：开张、注册、雇人、定价、转向，或者体面地收尾。面谈在院长办公室进行，也可邮件往来，结果落在纸面：定了什么，接下来做什么。",
   },
   {
@@ -105,7 +105,7 @@ export const offersZh = [
     name: "市场调研",
     tag: "研究",
     line: "可行性、市场规模、对手研判、入市路径，都在纳米比亚的土地上取材。",
-    cta: { label: "委托", href: "/apply/market-rd" },
+    cta: { label: "委托市场调研", href: "/apply/market-rd" },
     body: "可行性研究、市场规模测算、对手研判与入市路径规划，都在纳米比亚的土地上取材，写成能直接用的东西。学院自己的申报文件练出了这套方法；同样的严谨，现在对外接单。",
   },
   {
@@ -113,7 +113,7 @@ export const offersZh = [
     name: "快速响应培训",
     tag: "实务",
     line: "约请行家，搭好课程，按标准交付。",
-    cta: { label: "说明需求", href: "/apply/rapid-response" },
+    cta: { label: "说明快速响应培训需求", href: "/apply/rapid-response" },
     body: "当一家企业需要团队学会新东西，Oryx 去约请行家，围绕这个需求搭课程，然后交付。它为这段差距而设：团队已经会的，与下一步必须会的之间。",
   },
   {
@@ -121,7 +121,7 @@ export const offersZh = [
     name: "Oryx 资源目录",
     tag: "免费",
     line: "免费的纳米比亚专题速成课与商业模板。",
-    cta: { label: "自取", href: "/resources" },
+    cta: { label: "打开 Oryx 资源目录", href: "/resources" },
     body: "纳米比亚专题的速成课与商业模板，版权归学院，免费取用。它先于任何报价，证明这个学院怎么写作、怎么取材、怎么教学。",
   },
 ] as const;

@@ -28,8 +28,8 @@ const copy = {
       "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
-    briefUs: "Brief the ventures desk",
-    followSpa: "Follow Corner Spa",
+    briefUs: "Brief the Market R&D desk",
+    followSpa: "Explore Corner Spa",
     venturePage: "The venture page",
     futureNote:
       "More labs are opened as sectors warrant them. What is not ready, says so.",
@@ -56,7 +56,7 @@ const copy = {
       "学院教的每门课都结束于做得成、卖得掉的东西。实业就是学院对自己守这条规矩的方式：小公司，按标准经营，开业之日记入公开的登记册。",
     nextEyebrow: "下一项",
     readRegister: "读登记册",
-    briefUs: "给实业案头写需求",
+    briefUs: "说明市场调研需求",
     followSpa: "查看 Corner Spa",
     venturePage: "实业专页",
     futureNote:

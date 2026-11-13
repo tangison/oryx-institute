@@ -30,7 +30,7 @@ const copy = {
     safetyName: "Safety Officer Training",
     safetyLine:
       "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
-    safetyCta: "See the curriculum",
+    safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
     holdsBody: [
@@ -45,7 +45,7 @@ const copy = {
       "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
     apprenticeship:
       "The apprenticeship bench is not open yet. What is not ready, says so.",
-    enquire: "Enquire about the next intake",
+    enquire: "Enquire about courses and the Practice",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
   },
@@ -63,7 +63,7 @@ const copy = {
     safetyName: "安全员培训",
     safetyLine:
       "面向纳米比亚现场的职业安全培训，一天、五天与十天：由注册安全专家授课，纸面笔试加现场实操考核。",
-    safetyCta: "看课程大纲",
+    safetyCta: "看安全员培训课程大纲",
     safetyTag: "新",
     holdsTitle: "结果落在纸面。",
     holdsBody: [
@@ -77,7 +77,7 @@ const copy = {
     standsBody:
       "实务引擎目前以商业服务协议提供收费的企业咨询、市场调研与公司快速响应培训。正式的职业教育课程，包括工商管理国家职业标准，将在获得 NTA 培训机构注册之后才会开始。注册资格的 NQA 认证正在同步申请中，结果将在公开登记册上公布。",
     apprenticeship: "学徒台还没有开放。没准备好的，直说。",
-    enquire: "垂询下一期",
+    enquire: "垂询课程与实务",
     writeOffice: "给办公室写信",
     readFaq: "读常见问题",
     enLedger: {
