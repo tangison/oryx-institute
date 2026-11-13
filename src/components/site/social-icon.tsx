@@ -5,13 +5,21 @@
  * embeds, no third-party requests.
  */
 
-export type SocialName = "Instagram" | "Facebook" | "LinkedIn";
+export type SocialName = "Instagram" | "Facebook" | "LinkedIn" | "X";
 
-export function SocialIcon({ name }: { name: SocialName }) {
+export function SocialIcon({
+  name,
+  className,
+}: {
+  name: SocialName;
+  /** Lets a prominent, accessible social link size its mark responsively. */
+  className?: string;
+}) {
   const common = {
     width: 20,
     height: 20,
     viewBox: "0 0 24 24",
+    className,
     fill: "none" as const,
     "aria-hidden": true,
     focusable: false as const,
@@ -38,10 +46,21 @@ export function SocialIcon({ name }: { name: SocialName }) {
     );
   }
 
+  if (name === "LinkedIn") {
+    return (
+      <svg {...common}>
+        <path
+          d="M5.1 3.6a2.4 2.4 0 1 1-.05 4.8 2.4 2.4 0 0 1 .05-4.8zM3.1 9.4h4v11.2h-4V9.4zm6.1 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.66h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.92 1.3-1.92 2.65v5.11h-4V9.4z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg {...common}>
       <path
-        d="M5.1 3.6a2.4 2.4 0 1 1-.05 4.8 2.4 2.4 0 0 1 .05-4.8zM3.1 9.4h4v11.2h-4V9.4zm6.1 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.66h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.92 1.3-1.92 2.65v5.11h-4V9.4z"
+        d="M18.9 2.8h3.7l-8.1 9.3 9.5 9.1h-7.4l-5.8-5.6-4.9 5.6H2.2l8.6-9.8-9.1-8.6h7.6l5.3 5.1 4.3-5.1Zm-1.3 16.7h2L8.2 4.4H6.1l11.5 15.1Z"
         fill="currentColor"
       />
     </svg>

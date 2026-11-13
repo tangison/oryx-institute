@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { site } from "@/lib/site";
 import type { Lang } from "@/lib/i18n";
+import { SocialIcon } from "@/components/site/social-icon";
 
 /** Shared people rows for /about and /about/staff. */
 type StaffEntry = {
@@ -15,7 +16,18 @@ type StaffEntry = {
   bio: string;
   bioAf: string;
   email?: string;
+  social?: {
+    href: string;
+    label: string;
+    handle: string;
+  };
 };
+
+const xChannel = site.socials.find((channel) => channel.label === "X");
+
+if (!xChannel) {
+  throw new Error("The official Oryx X channel must be configured in site.socials.");
+}
 
 const PRINCIPAL_PORTRAIT_ALT =
   "The founder walking away through dry golden grass toward a hazy treeline, hard light from the left";
@@ -39,6 +51,11 @@ export const staff: StaffEntry[] = [
     bio: "Founder and Principal of Oryx Institute. Before Oryx he founded Tangison Technologies, the Windhoek product studio behind the institute's identity, systems and build, and he directs it still. At Oryx he holds the research leadership, the applications to the NQA and the NTA, ventures oversight and the development of Corner Spa, and he reads every application personally. Based in Windhoek.",
     bioAf: "Stigter en Prinsipaal van Oryx Instituut. Voor Oryx het hy Tangison Technologies gestig, die Windhoek-produkstudio agter die instituut se identiteit, stelsels en bouwerk. By Oryx lei hy navorsing, die NQA- en NTA-aansoeke, ondernemings en die ontwikkeling van Corner Spa; hy lees elke aansoek persoonlik.",
     email: site.email,
+    social: {
+      href: xChannel.href,
+      label: "Follow Oryx on X",
+      handle: "@oryx_institute",
+    },
   },
   {
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
@@ -102,6 +119,23 @@ export function StaffRows({ lang }: { lang: Lang }) {
             {p.email && (
               <a href={`mailto:${p.email}`} className="link-type meta mt-4 inline-block">
                 {p.email}
+              </a>
+            )}
+            {p.social && (
+              <a
+                href={p.social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex w-fit items-center gap-4 border-y border-rule py-3 text-left transition-colors hover:border-ink"
+                aria-label={`${p.social.label}: ${p.social.handle}`}
+              >
+                <SocialIcon name="X" className="h-20 w-20 md:h-5 md:w-5" />
+                <span>
+                  <span className="block text-[0.72rem] uppercase tracking-[0.16em] text-soft">
+                    {p.social.label}
+                  </span>
+                  <span className="mt-1 block text-[0.9rem]">{p.social.handle}</span>
+                </span>
               </a>
             )}
           </div>
