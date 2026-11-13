@@ -25,7 +25,7 @@ const copy = {
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, with the work stated plainly in public.",
+      "Ventures are how the institute holds itself to a practical standard: small companies, run to standard, with the work stated plainly in public.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the Market R&D desk",
@@ -53,7 +53,7 @@ const copy = {
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Elke kursus wat die instituut aanbied, eindig in iets wat werk en iets wat verkoop. Ondernemings hou die instituut by dié reël: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
+      "Ondernemings hou die instituut by 'n praktiese standaard: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the Market R&D desk",
