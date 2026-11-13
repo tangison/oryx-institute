@@ -34,17 +34,17 @@ check("iframe src is spa.mendozer.com", (await frame.getAttribute("src")) === "h
 const html = await page.content();
 check("meta description", html.includes('name="description" content="Corner Spa, the first venture'));
 check("canonical /corner-spa", html.includes('rel="canonical" href="' + base.replace(/:\d+$/, "") ) === false || html.includes("/corner-spa\""));
-check("hreflang zh alternate", html.includes('/zh/corner-spa'));
+check("hreflang af alternate", html.includes('/af/corner-spa'));
 check("markdown alternate", html.includes("/md/corner-spa"));
 check("WebPage JSON-LD", html.includes('"@type":"WebPage"') && html.includes("Corner Spa"));
 check("fallback link to counter", html.includes('href="https://spa.mendozer.com"'));
 
-/* --- 2. Corner Spa (zh) --- */
-const resZh = await page.goto(`${base}/zh/corner-spa`, { waitUntil: "domcontentloaded" });
-check("GET /zh/corner-spa -> 200", resZh.status() === 200, `status ${resZh.status()}`);
-const zhHtml = await page.content();
-check("zh copy present", zhHtml.includes("与 Mendozer 合作"));
-check("zh html lang set", await page.evaluate(() => document.documentElement.lang === "zh-CN"));
+/* --- 2. Corner Spa (af) --- */
+const resAf = await page.goto(`${base}/af/corner-spa`, { waitUntil: "domcontentloaded" });
+check("GET /af/corner-spa -> 200", resAf.status() === 200, `status ${resAf.status()}`);
+const afHtml = await page.content();
+check("Afrikaans copy present", afHtml.includes("die eerste projek van Oryx Instituut"));
+check("Afrikaans html lang set", await page.evaluate(() => document.documentElement.lang === "af-NA"));
 
 /* --- 3. The scroll chrome, on the home page --- */
 await page.goto(`${base}/`, { waitUntil: "domcontentloaded" });

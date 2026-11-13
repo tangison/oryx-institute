@@ -28,7 +28,6 @@
 
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
-  --font-cjk: var(--font-cjk);
 }
 
 /* --------------------------------------------------------------------------
@@ -221,10 +220,6 @@
 
 .tnum {
   font-variant-numeric: tabular-nums;
-}
-
-.cjk {
-  font-family: var(--font-cjk);
 }
 
 /* --------------------------------------------------------------------------
@@ -1081,18 +1076,18 @@ body.menu-locked {
   max-width: 100%;
 }
 
-/* The 理工 paragraph with the horns beside it. */
-.ligong-grid {
+/* The polytechnic paragraph with the horns beside it. */
+.polytechnic-grid {
   display: grid;
   gap: clamp(2rem, 3.5vw, 3.5rem);
   align-items: center;
 }
 @media (min-width: 64rem) {
-  .ligong-grid {
+  .polytechnic-grid {
     grid-template-columns: 1fr minmax(0, 14rem);
   }
 }
-.ligong-plate img {
+.polytechnic-plate img {
   margin-inline: auto;
   max-height: clamp(14rem, 30vh, 20rem);
   width: auto;
@@ -1822,9 +1817,9 @@ body.menu-locked {
   flex-direction: column;
 }
 
-.wordmark-cjk {
-  font-family: var(--font-cjk);
+.wordmark-middle {
   color: var(--maroon);
+  letter-spacing: 0.12em;
 }
 
 /* Engine glyphs carry cream fills; on cream panels they read as knocked
@@ -2136,9 +2131,10 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   color: var(--ivory);
 }
 
-.corner-spa-lockup-cjk {
-  font-family: var(--font-cjk-loaded), serif;
-  font-size: 1.05rem;
+.corner-spa-lockup-middle {
+  font-family: var(--font-sans-loaded), Inter, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   color: #71111F;
 }
 

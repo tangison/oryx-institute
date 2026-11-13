@@ -2,7 +2,7 @@
 
 > Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It works through three parts: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields: the teaching offer, and all of it: beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. One mailbox answers everything: info@oryxinstitute.org.
 
-Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises and no street address while none exist. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Chinese (the Chinese site lives under /zh).
+Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises and no street address while none exist. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Afrikaans (the Afrikaans site lives under /af).
 
 ## What runs today (six offers)
 
@@ -37,7 +37,7 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 
 ## Blog
 
-- [Corner Spa, the first project of Oryx Institute](https://www.oryxinstitute.org/blog/corner-spa): what the spa offers, its full price list in Namibian dollars, how booking works on WhatsApp, and the two addresses that serve the one site. Published 2026-11-05. Also in Chinese: [/zh/blog/corner-spa](https://www.oryxinstitute.org/zh/blog/corner-spa).
+- [Corner Spa, the first project of Oryx Institute](https://www.oryxinstitute.org/blog/corner-spa): what the spa offers, its full price list in Namibian dollars, how booking works on WhatsApp, and the two addresses that serve the one site. Published 2026-11-05. Also in Afrikaans: [/af/blog/corner-spa](https://www.oryxinstitute.org/af/blog/corner-spa).
 - [Blog index](https://www.oryxinstitute.org/blog): notes from the practice, dated as published.
 
 ## The Oryx Directory (free, no account)
@@ -52,7 +52,7 @@ Templates: [Letterhead](https://www.oryxinstitute.org/resources/letterhead-templ
 
 ## Reference pages
 
-- [About](https://www.oryxinstitute.org/about): the institute, the name, 理工, the Principal and the legal standing.
+- [About](https://www.oryxinstitute.org/about): the institute, its polytechnic purpose, the Principal and the legal standing.
 - [Practice](https://www.oryxinstitute.org/practice): how the office works, and how the teaching runs.
 - [FAQ](https://www.oryxinstitute.org/faq): applying, programmes, ventures, partners, where to find the office.
 - [Brand](https://www.oryxinstitute.org/brand): the wordmark, the emblem, the codes, the voice: and the asset downloads.
@@ -60,7 +60,7 @@ Templates: [Letterhead](https://www.oryxinstitute.org/resources/letterhead-templ
 
 ## Markdown mirrors
 
-Every page on this site is also served as clean markdown at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/resources](https://www.oryxinstitute.org/md/resources), and so on for every route. Any page requested with an `Accept: text/markdown` header returns its markdown form directly; the HTML page stays canonical. Agents and answer engines are welcome to read either form.
+Every page on this site is also served through an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/resources](https://www.oryxinstitute.org/md/resources), and so on for every route. Any page requested with an `Accept: text/markdown` header returns its matching shelf document directly; an `/af/...` request resolves to the same English shelf path. The HTML page stays canonical. Agents and answer engines are welcome to read either form.
 
 ## Contact
 

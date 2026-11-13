@@ -19,18 +19,18 @@ export async function generateMetadata({
   const lang = langFromParams({ lang: langRaw });
   const post = getPost(slug);
   if (!post) return {};
-  const L = lang === "zh" ? "/zh" : "";
+  const L = lang === "af" ? "/af" : "";
   return {
     /* Absolute: both headline strings already carry the brand ("Oryx
        Institute"), so the root template would print it a second time
        and push the title past 60 characters. */
-    title: { absolute: lang === "zh" ? post.titleZh : post.title },
-    description: lang === "zh" ? post.descriptionZh : post.description,
+    title: { absolute: lang === "af" ? post.titleAf : post.title },
+    description: lang === "af" ? post.descriptionAf : post.description,
     alternates: alternates(lang, `/blog/${post.slug}`, site.url),
     openGraph: {
       type: "article",
-      title: lang === "zh" ? post.titleZh : post.title,
-      description: lang === "zh" ? post.descriptionZh : post.description,
+      title: lang === "af" ? post.titleAf : post.title,
+      description: lang === "af" ? post.descriptionAf : post.description,
       url: `${site.url}${L}/blog/${post.slug}`,
       publishedTime: post.dateISO,
       images: [
@@ -53,12 +53,12 @@ const labels = {
     spaSite: "spa.mendozer.com",
     all: "All notes",
   },
-  zh: {
-    kicker: "博客",
-    next: "接下来",
-    openSpa: "打开 Corner Spa",
+  af: {
+    kicker: "Blog",
+    next: "Waarheen volgende",
+    openSpa: "Open Corner Spa",
     spaSite: "spa.mendozer.com",
-    all: "全部笔记",
+    all: "Alle notas",
   },
 } as const;
 
@@ -73,18 +73,18 @@ export default async function BlogPostPage({
 }) {
   const { lang: langRaw, slug } = await params;
   const lang = langFromParams({ lang: langRaw });
-  const zh = lang === "zh";
+  const af = lang === "af";
   const post = getPost(slug);
   if (!post) notFound();
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
   const t = labels[lang];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: zh ? post.titleZh : post.title,
-    description: zh ? post.descriptionZh : post.description,
-    ...(zh ? { inLanguage: "zh-CN" } : {}),
+    headline: af ? post.titleAf : post.title,
+    description: af ? post.descriptionAf : post.description,
+    ...(af ? { inLanguage: "af-NA" } : {}),
     image: [`${site.url}${post.ogImage}`],
     datePublished: post.dateISO,
     dateModified: post.dateISO,
@@ -117,19 +117,19 @@ export default async function BlogPostPage({
         <div className="shell">
           <header className="hair-t pt-14" data-sc-in>
             <p className="eyebrow eyebrow--ink tnum">
-              {t.kicker} · {zh ? post.dateHumanZh : post.dateHuman}
+              {t.kicker} · {af ? post.dateHumanAf : post.dateHuman}
             </p>
             <h1 className="h-display mt-5 max-w-[24ch]">
-              {zh ? post.titleZh : post.title}
+              {af ? post.titleAf : post.title}
             </h1>
             <p className="lede measure mt-6">
-              {zh ? post.descriptionZh : post.description}
+              {af ? post.descriptionAf : post.description}
             </p>
           </header>
 
           <div className="hair-t pt-12" data-sc-in>
             <BlogPostBody
-              body={zh ? post.bodyZh : post.bodyEn}
+              body={af ? post.bodyAf : post.bodyEn}
               images={post.images}
             />
           </div>

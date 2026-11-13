@@ -30,11 +30,11 @@ export const site = {
    * to day copy. */
   tradingName: "Oryx Institute",
   shortName: "Oryx Institute",
-  /** The wordmark, exactly as the logo renders it: three scripts. */
+  /** The wordmark is intentionally English-only: ORYX INSTITUTE. */
   wordmark: {
     top: "ORYX",
-    chinese: "理工",
-    chineseMeaning: "science and engineering",
+    middle: "POLYTECHNIC",
+    middleMeaning: "science and engineering",
     bottom: "INSTITUTE",
   },
   /** The homepage hero, per the rebuild brief: the institute states
@@ -278,21 +278,21 @@ export const ventures = {
 } as const;
 
 /**
- * The four disciplines of a 理工 (science and engineering) education,
- * framed from the institute's own approved language. No programme
- * names, dates or fees are invented: each card routes to enquiry.
+ * The four disciplines of a polytechnic education, framed from the
+ * institute's approved language. No programme names, dates or fees are
+ * invented: each card routes to enquiry.
  */
 export const disciplines = [
   {
     id: "science",
-    glyph: "理",
+    glyph: "SCI",
     name: "Science",
     summary:
-      "The reasoning core of a 理工 education: observation, evidence and disciplined thought.",
+      "The reasoning core of a polytechnic education: observation, evidence and disciplined thought.",
   },
   {
     id: "engineering",
-    glyph: "工",
+    glyph: "ENG",
     name: "Engineering",
     summary:
       "The making core: work that holds, measured and finished to standard.",
@@ -420,8 +420,8 @@ export const faqs = [
     a: "Yes, and it is the institute's live practice. The Owner's Desk runs one-on-one counselling from the Principal's office, and market research and development work (feasibility, sizing, route-to-market) is taken on per engagement. Write to the office with the problem as it stands; the first reply names what the institute can and cannot do for you.",
   },
   {
-    q: "What does 理工 mean?",
-    a: "Li gong: the Chinese characters for science and engineering. In the wordmark they stand exactly where the word Polytechnic sits in the institute's full legal name, set in maroon beside ORYX.",
+    q: "What does Polytechnic mean?",
+    a: "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, and the technology that runs it. At Oryx, applied problem-solving is the shared standard.",
   },
   {
     q: "Where is the institute?",

@@ -17,12 +17,12 @@ import { getSafetyLevel, safetyLevels } from "@/lib/safety";
 
 const DURATION_LABEL = {
   en: { "level-1-induction": "1 day", "level-2-officer": "5 days", "level-3-management": "10 days, modular" },
-  zh: { "level-1-induction": "一天", "level-2-officer": "五天", "level-3-management": "十天，模块化" },
+  af: { "level-1-induction": "1 dag", "level-2-officer": "5 dae", "level-3-management": "10 dae, modulêr" },
 } as const;
 
 const CRUMB = {
   en: { practice: "Practice", course: "Safety officer course" },
-  zh: { practice: "实务", course: "安全员课程" },
+  af: { practice: "Praktyk", course: "Veiligheidsbeampte-kursus" },
 } as const;
 
 const CLOSE = {
@@ -30,31 +30,31 @@ const CLOSE = {
     title: "One message holds your place.",
     body: "Register your interest through the application form selecting 'Safety training'. The office replies within three working days, and you hear the intake dates the moment they are set.",
   },
-  zh: {
-    title: "一封邮件，占住你的位置。",
-    body: "在申请表中选择“安全培训”登记意向。办公室三个工作日内回复，开班日期一定，你第一时间知道。",
+  af: {
+    title: "Een boodskap hou jou plek.",
+    body: "Registreer jou belangstelling deur Veiligheidsopleiding op die aansoekvorm te kies. Die kantoor antwoord binne drie werksdae.",
   },
 } as const;
 
 const HERO_ALT = {
   "level-1-induction": {
     en: "A matte forest-green hard hat seen from underneath, the X-strap suspension centred on cream paper",
-    zh: "一顶哑光森林绿安全帽的仰视图，X 形帽带悬吊系统居中于米色纸上",
+    af: "'n Mat woudgroen veiligheidshoed van onder gesien, met die X-bandvering op roompapier gesentreer",
   },
   "level-2-officer": {
     en: "A green hard hat resting on a brown leather steel-toe boot on red gravel, under a hazy industrial sky",
-    zh: "一顶绿色安全帽搁在棕色皮革钢头靴上，红砾石地面，远处是朦胧的工业天际",
+    af: "'n Groen veiligheidshoed op 'n bruin leer-staalpuntstewel op rooi gruis onder 'n wasige industriële lug",
   },
   "level-3-management": {
     en: "A steel clipboard with a blank cream sheet and a graphite pencil, centred on cream paper",
-    zh: "一块带空白米色纸与石墨铅笔的钢制写字板，居中于米色纸上",
+    af: "'n Staal-skryfblok met 'n leë roomvel en grafietpotlood, op roompapier gesentreer",
   },
 } as const;
 
 export function generateStaticParams() {
   return safetyLevels.flatMap((l) => [
     { lang: "en", level: l.slug },
-    { lang: "zh", level: l.slug },
+    { lang: "af", level: l.slug },
   ]);
 }
 
@@ -81,7 +81,7 @@ export async function generateMetadata({
     openGraph: {
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/practice/safety-officer-course/${l.slug}`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/practice/safety-officer-course/${l.slug}`,
       images: [
         {
           url: `/brand/og/safety-${l.slug}.jpg`,
@@ -101,11 +101,11 @@ export default async function SafetyLevelPage({
 }) {
   const { lang: rawLang, level } = await params;
   const lang = langFromParams({ lang: rawLang });
-  const zh = lang === "zh";
+  const af = lang === "af";
   const l = getSafetyLevel(level);
   if (!l) notFound();
   const t = l[lang];
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
   const crumb = CRUMB[lang];
   const close = CLOSE[lang];
   const heroAlt = HERO_ALT[l.slug][lang];
@@ -118,10 +118,10 @@ export default async function SafetyLevelPage({
         ? "/apply/safety-level-2"
         : "/apply/safety-level-3";
 
-  /* The English original, printed beneath the Chinese page: the same
+  /* The English original, printed beneath the Afrikaans page: the same
      fields the English route renders, assembled as ledger paragraphs
-     so the zh page carries its own full curriculum text. */
-  const enLedger = zh
+     so the af page carries its own full curriculum text. */
+  const enLedger = af
     ? [
         l.en.lede,
         l.en.audience.body,
@@ -247,7 +247,7 @@ export default async function SafetyLevelPage({
                     <figure className="plate-fig module-plate" data-sc-reveal>
                       <Image
                         src={m.plate.src}
-                        alt={zh ? m.plate.altZh : m.plate.alt}
+                        alt={af ? m.plate.altAf : m.plate.alt}
                         width={1122}
                         height={1402}
                         sizes="(min-width: 768px) 16rem, 60vw"
@@ -319,12 +319,12 @@ export default async function SafetyLevelPage({
         </div>
       </div>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
                 {enLedger.map((p, i) => (
                   <p key={i}>{p}</p>
@@ -348,11 +348,11 @@ export default async function SafetyLevelPage({
               href={A("/practice/safety-officer-course")}
               className="btn--quiet"
             >
-              {zh ? "看安全员培训全部课程" : "See the Safety Officer Training programme"}{" "}
+              {af ? "See the Safety Officer Training programme" : "See the Safety Officer Training programme"}{" "}
               <span className="arr" aria-hidden="true">→</span>
             </Link>
             <Link href={A("/register")} className="btn--quiet">
-              {zh ? "读公开登记册" : "Read the register"}{" "}
+              {af ? "Read the register" : "Read the register"}{" "}
               <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>

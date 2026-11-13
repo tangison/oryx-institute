@@ -198,20 +198,19 @@ Work Log:
   Images + Artifact Carousel, GSAP Image Scale-Fade + Scrubbing Text
   Reveals.
 - Extracted every fact by reading the print kit with VLM: wordmark
-  ORYX + 理工 (maroon) + INSTITUTE with maroon shield; Principal Tangi
+  ORYX + POLYTECHNIC (maroon) + INSTITUTE with maroon shield; Principal Tangi
   Iigonda; P.O. Box 1662 Windhoek; +264 81 341 1522;
   tangi@oryxinstitute.org; oryxinstitute.org; approved lines "Looks
   harmless. Isn't." and "graduates solve problems quietly and finish
   them decisively."; certificate language "excellence in innovation
   and applied problem-solving".
-- Decoded the logo SVG into its four paths (ORYX, INSTITUTE, 理工,
+- Decoded the logo SVG into its four paths (ORYX, POLYTECHNIC, INSTITUTE,
   shield) and built the pipeline (scripts/oryx-assets.mjs): React
   path-data component, SVG lockup files, knockout favicons (512, 180,
   maskable 192, multi-size favicon.ico), wolf and ocean photo crops,
   print-kit imagery, OG cards.
 - Typography: Tinos (Times-metric serif, the wordmark's own register)
-  for display, Geist variable for UI and body, a two-glyph Noto Serif
-  SC subset (980 bytes) so 理工 renders as live text.
+  for display and Geist variable for UI and body.
 - Rebuilt the full site: home (editorial-split hero, gapless bento,
   GSAP scrub statement, scale-fade ocean, artifact carousel, night
   CTA band), programmes (horizontal accordion), about, apply
@@ -364,7 +363,7 @@ Work Log:
   favicons (512/180/maskable) and OG cards from the official geometry.
 - Fonts: Radley Regular + Italic and Inter Regular/Medium/SemiBold/Bold
   subset to latin woff2 (26-30 KB each), self-hosted; Tinos, Geist and the
-  standalone build steps retired; the self-referencing --font-cjk token in
+  standalone build steps retired; the self-referencing legacy font token in
   globals.css fixed; tokens.css stacks and headers updated.
 - Imagery: the master package images turned out to be preview-resolution
   (343x248 landscapes, 263x370 artifacts). Built an AI-upscale pipeline
@@ -489,19 +488,19 @@ Work Log:
   the offer from the route segment at first render.
 - The staff page declares AboutPage structured data with the staff
   as Person nodes (the two failed checks), reads h1 into h2 into the
-  rows, carries the appointment policy in full prose, and the zh
+  rows, carries the appointment policy in full prose, and the af
   page prints a four-paragraph English original. Titles lengthened,
   descriptions trimmed under 160.
-- The zh safety level pages carry the English original ledger
+- The af safety level pages carry the English original ledger
   (rendered from the en curriculum fields), so 47-56 word pages
   became 368-477. Module names promoted h3 to h2 (heading-order
   fix on eight pages). Outline links now read Level 1/2/3 outline,
   ending the identical-link-text warning.
 - Keyword density pass: safety on the hub and Level 2, site on
-  Level 2, corner/spa on the zh staff page, entry on the zh
+  Level 2, corner/spa on the af staff page, entry on the af
   register - every flagged word now under 1.7 percent.
-- zh titles carry the "· Oryx Institute" suffix the rest of the
-  site uses; six zh descriptions extended past 130 chars, three en
+- af titles carry the "· Oryx Institute" suffix the rest of the
+  site uses; six af descriptions extended past 130 chars, three en
   descriptions trimmed under 160.
 - Above-fold plates flipped to eager on home, about, practice,
   research, resources and the safety pages; the two texture jpgs
@@ -528,7 +527,7 @@ Work Log:
   now start with the visible text (Level N outline: <course>), the
   label-in-name rule the unique visible text tripped.
 - The offer descriptions hit the SERP band: 107-126 chars in
-  English, 138-144 in Chinese, name included for uniqueness.
+  English, 138-144 in Afrikaans, name included for uniqueness.
 - Two more "safety" trims on the hub (lede, instructor note).
 - The instructor placeholder plate flipped to eager.
 
@@ -547,7 +546,7 @@ Work Log:
   passing band (137-155 chars; the scanner's floor sits between 114
   and 123).
 - schema/entity-conflicts: the staff Person nodes are language-scoped
-  now, one @id per language, so the English and Chinese names no
+  now, one @id per language, so the English and Afrikaans names no
   longer disagree on one entity.
 - Structural warnings documented rather than gamed: the single
   critical request chain is the stylesheet every external-CSS site
@@ -612,7 +611,7 @@ Work Log:
   at the top; hidden state removes it from tab order and the
   accessibility tree; reduced motion keeps the control, drops the
   glide; print hides both; no-JS renders the fill at scaleX(0) and the
-  button unseen. Label from the chrome strings (Back to top / 回到顶部).
+  button unseen. Label from the chrome strings (Back to top / Terug na bo).
 - Engine race fixed at the root (sc-motion.tsx): the one-time build's
   ScrollTrigger.refresh sweeps and restores the scroll position, which
   parked visitors mid-glide (anchor jumps, CSS smooth scroll) at an
@@ -622,15 +621,15 @@ Work Log:
   the page actually has pins. Verified: the glide completes to its
   target, the engine builds on idle, pins hold at viewport top through
   their range.
-- Corner Spa page (/corner-spa, /zh/corner-spa): hero on the venture's
+- Corner Spa page (/corner-spa, /af/corner-spa): hero on the venture's
   sand register, the Mendozer collaboration named, the counter
   (https://spa.mendozer.com) framed in a hairline .spa-frame with a
   visible fallback line carrying the spa's own address, the classroom
   section, status ("In development · with Mendozer"), register and
   office doors; WebPage JSON-LD; the English ledger printed under the
-  Chinese page. No invented dates, prices or services.
+  Afrikaans page. No invented dates, prices or services.
 - Wiring: CSP gained frame-src 'self' https://spa.mendozer.com
-  (vercel.json); sitemap row with zh alternate; md-shelf row
+  (vercel.json); sitemap row with af alternate; md-shelf row
   (/md/corner-spa serves markdown); llms.txt Ventures + Partners
   updated; footerNav + navZh.footerNav gained Corner Spa; ventures
   page gained "Follow Corner Spa"; search index entries both
@@ -641,7 +640,7 @@ Work Log:
   spa.mendozer.com), cookies/deep-links/mobile-height notes, and the
   exact change list for when the final details arrive.
 - Verified: tsc clean, eslint clean, build green (49 SSG paths),
-  scripts/smoke-round.mjs 28/28 (page 200s, meta, iframe src, zh lang,
+  scripts/smoke-round.mjs 28/28 (page 200s, meta, iframe src, af lang,
   widgets conditional both directions, click-to-top, footer, sitemap,
   md shelf, 390px overflow 0, mobile button onscreen, zero console
   errors); scroll-probe + pin-probe runs green; OG plate and the
@@ -659,24 +658,24 @@ Stage Summary:
 Task ID: 10b (addendum — audit-driven copy pass on the new pages)
 Agent: main (Z.ai)
 Task: Clear the warnings the first audit raised against /corner-spa and
-/zh/corner-spa, then re-verify live.
+/af/corner-spa, then re-verify live.
 
 Work Log:
-- Meta descriptions into the SERP band (en 174→156 chars, zh 79→136);
+- Meta descriptions into the SERP band (en 174→156 chars, af 79→136);
   Core SEO warnings 2→0.
-- Distinct zh entity name in the JSON-LD ("Corner Spa · Oryx 理工学院",
-  matching the site's zh naming precedent); the en/zh description/url
+- Distinct af entity name in the JSON-LD ("Corner Spa · Oryx Instituut",
+  matching the site's af naming precedent); the en/af description/url
   conflict cleared; Structured Data warnings 1→0.
 - The classroom section became the three-row ledger ("The shape of the
   collaboration": the counter, the classroom, the register row) —
   substance instead of repetition; both pages past the 300-word floor;
   word-count warnings 2→0.
 - Keyword trims: the redundant counter URL dropped from body copy and
-  the ledger row; /zh/ventures cleared entirely; the partner's own
+  the ledger row; /af/ventures cleared entirely; the partner's own
   name remains (organic on its page).
 - iframe width/height attributes added (CLS hint cleared).
 - Verified live across three fresh crawls: 94/100 (A), 0 errors held;
-  one run caught 3 TTFB errors >1s on zh pages (Vercel edge cold
+  one run caught 3 TTFB errors >1s on af pages (Vercel edge cold
   starts, gone on the next crawl — structural, documented); remaining
   warnings are the documented structural set: token-weight (App Router
   flight), CSP inline (Next.js), mailto form, TTFB variance, the
@@ -703,14 +702,14 @@ Work Log:
     inline Organization node with no @id. It now references the one
     org node (EducationalOrganization @ .../#organization), same as
     publisher.
-- Meta bands on the new pages: /blog and /zh/blog retitled into the
-  30-60 band ("Notes from the practice | Oryx Institute"; zh absolute
-  per the site's zh brand pattern), descriptions of /zh, /blog, /zh/blog,
-  /zh/blog/corner-spa and /zh/corner-spa moved into 120-160; blog post
+- Meta bands on the new pages: /blog and /af/blog retitled into the
+  30-60 band ("Notes from the practice | Oryx Institute"; af absolute
+  per the site's af brand pattern), descriptions of /af, /blog, /af/blog,
+  /af/blog/corner-spa and /af/corner-spa moved into 120-160; blog post
   titles made absolute (they already carry the brand; the template
   printed it twice past 60 chars).
 - /ventures/corner-spa orphan fixed: the ventures index now carries a
-  contextual link ("The venture page" / "实业专页") beside the embed CTA.
+  contextual link ("The venture page" / "Die ondernemingsblad") beside the embed CTA.
 - The bare /corner-spa route now ships favicon links (icons metadata
   moved to the root layout) and a <main> landmark.
 - Loader fail-safe without JS: React 19 drops <noscript> from the RSC

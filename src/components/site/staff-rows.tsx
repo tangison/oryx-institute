@@ -2,94 +2,84 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 import type { Lang } from "@/lib/i18n";
 
-/**
- * The People section, shared by /about and /about/staff: one person
- * per hairline row, portrait or placeholder left, name, role and bio
- * right. Rows, never a card grid. Placeholders are honest: the
- * herb-sprig blank card, the exact "appointment to be announced"
- * wording, and no face on this site is generated. (STAFF-DIRECTORY.md)
- */
-
+/** Shared people rows for /about and /about/staff. */
 type StaffEntry = {
   slug: string;
   portrait: string;
   portraitAlt: string;
-  portraitAltZh: string;
+  portraitAltAf: string;
   name: string;
-  nameZh: string;
+  nameAf: string;
   role: string;
-  roleZh: string;
+  roleAf: string;
   bio: string;
-  bioZh: string;
+  bioAf: string;
   email?: string;
 };
 
 const PRINCIPAL_PORTRAIT_ALT =
   "The founder walking away through dry golden grass toward a hazy treeline, hard light from the left";
-const PRINCIPAL_PORTRAIT_ALT_ZH =
-  "创始人背向镜头走过干燥的金色草野，走向朦胧的树线，硬光从左侧打来";
+const PRINCIPAL_PORTRAIT_ALT_AF =
+  "Die stigter stap weg deur droë goue gras na 'n wasige boomlyn, met harde lig van links";
 const PLACEHOLDER_ALT =
   "A blank cream card standing upright on dark walnut with a dried herb sprig across the corner, a deliberately visible placeholder";
-const PLACEHOLDER_ALT_ZH =
-  "一张立起的空白米色卡片放在深胡桃木上，角上斜放一枝干香草，一个刻意可见的占位";
+const PLACEHOLDER_ALT_AF =
+  "'n Leë roomkaart wat regop op donker okkerneuthout staan, met 'n gedroogde kruietakkie oor die hoek";
 
 export const staff: StaffEntry[] = [
   {
     slug: "tangi-iigonda",
     portrait: "/images/kinfolk/people/30-founder-walking.jpg",
     portraitAlt: PRINCIPAL_PORTRAIT_ALT,
-    portraitAltZh: PRINCIPAL_PORTRAIT_ALT_ZH,
+    portraitAltAf: PRINCIPAL_PORTRAIT_ALT_AF,
     name: site.principal.name,
-    nameZh: site.principal.name,
+    nameAf: site.principal.name,
     role: "Principal · Founder",
-    roleZh: "院长 · 创始人",
+    roleAf: "Prinsipaal · Stigter",
     bio: "Founder and Principal of Oryx Institute. Before Oryx he founded Tangison Technologies, the Windhoek product studio behind the institute's identity, systems and build, and he directs it still. At Oryx he holds the research leadership, the applications to the NQA and the NTA, ventures oversight and the development of Corner Spa, and he reads every application personally. Based in Windhoek.",
-    bioZh:
-      "Oryx Institute 的创始人与院长。创办 Oryx 之前，他创立了学院形象、系统与搭建背后的温得和克产品工作室 Tangison Technologies，并至今主持它。在学院，他主持研究工作、向 NQA 与 NTA 提交认证申请、统筹各门实业，并且亲自阅读每一份申请。常驻温得和克。",
+    bioAf: "Stigter en Prinsipaal van Oryx Instituut. Voor Oryx het hy Tangison Technologies gestig, die Windhoek-produkstudio agter die instituut se identiteit, stelsels en bouwerk. By Oryx lei hy navorsing, die NQA- en NTA-aansoeke, ondernemings en die ontwikkeling van Corner Spa; hy lees elke aansoek persoonlik.",
     email: site.email,
   },
   {
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
-    portraitAltZh: PLACEHOLDER_ALT_ZH,
+    portraitAltAf: PLACEHOLDER_ALT_AF,
     slug: "lead-instructor-safety",
     name: "Lead instructor, safety programme",
-    nameZh: "安全课程主任讲师",
+    nameAf: "Hoofinstrukteur, veiligheidsprogram",
     role: "Lead instructor · Safety programme",
-    roleZh: "主任讲师 · 安全课程",
+    roleAf: "Hoofinstrukteur · Veiligheidsprogram",
     bio: "Appointed once curriculum sign-off is complete. Credentials and biography will be published alongside the course outline on 15 November 2026.",
-    bioZh:
-      "课程大纲定稿后完成聘用。资历与简介将于 2026 年 11 月 15 日随课程大纲一并公布。",
+    bioAf: "Aangestel wanneer die kurrikulum goedgekeur is. Geloofsbriewe en 'n biografie word saam met die kursusoorsig op 15 November 2026 gepubliseer.",
   },
   {
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
-    portraitAltZh: PLACEHOLDER_ALT_ZH,
+    portraitAltAf: PLACEHOLDER_ALT_AF,
     slug: "research-associate",
     name: "Research associate",
-    nameZh: "研究助理",
+    nameAf: "Navorsingsassistent",
     role: "Research · Bulletin editor",
-    roleZh: "研究 · 公报编辑",
+    roleAf: "Navorsing · Bulletin-redakteur",
     bio: "Bulletin editor and research associate, appointment to be announced.",
-    bioZh: "公报编辑与研究助理，任命待公布。",
+    bioAf: "Bulletin-redakteur en navorsingsassistent; aanstelling moet nog aangekondig word.",
   },
   {
     portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
     portraitAlt: PLACEHOLDER_ALT,
-    portraitAltZh: PLACEHOLDER_ALT_ZH,
+    portraitAltAf: PLACEHOLDER_ALT_AF,
     slug: "corner-spa-lead",
     name: "Corner Spa lead",
-    nameZh: "Corner Spa 负责人",
+    nameAf: "Corner Spa-leier",
     role: "Ventures · Corner Spa",
-    roleZh: "实业 · 水疗",
+    roleAf: "Ondernemings · Corner Spa",
     bio: "Lead therapist and operations for Corner Spa, appointment to be announced once premises and licensing are confirmed.",
-    bioZh:
-      "这家水疗实业的主理疗师与运营负责人，待场地与执照确认后公布任命。",
+    bioAf: "Hoofterapeut en bedryfsleier vir Corner Spa; die aanstelling word aangekondig wanneer perseel en lisensiëring bevestig is.",
   },
 ];
 
 export function StaffRows({ lang }: { lang: Lang }) {
-  const zh = lang === "zh";
+  const af = lang === "af";
   return (
     <div className="staff-rows" data-sc-in data-sc-stagger="90">
       {staff.map((p) => (
@@ -97,7 +87,7 @@ export function StaffRows({ lang }: { lang: Lang }) {
           <div className="staff-row-portrait">
             <Image
               src={p.portrait}
-              alt={zh ? p.portraitAltZh : p.portraitAlt}
+              alt={af ? p.portraitAltAf : p.portraitAlt}
               width={560}
               height={700}
               sizes="(min-width: 48rem) 11rem, 60vw"
@@ -106,14 +96,11 @@ export function StaffRows({ lang }: { lang: Lang }) {
             />
           </div>
           <div>
-            <h3 className="h-sub">{zh ? p.nameZh : p.name}</h3>
-            <p className="staff-role mt-2">{zh ? p.roleZh : p.role}</p>
-            <p className="measure mt-4 text-soft">{zh ? p.bioZh : p.bio}</p>
+            <h3 className="h-sub">{af ? p.nameAf : p.name}</h3>
+            <p className="staff-role mt-2">{af ? p.roleAf : p.role}</p>
+            <p className="measure mt-4 text-soft">{af ? p.bioAf : p.bio}</p>
             {p.email && (
-              <a
-                href={`mailto:${p.email}`}
-                className="link-type meta mt-4 inline-block"
-              >
+              <a href={`mailto:${p.email}`} className="link-type meta mt-4 inline-block">
                 {p.email}
               </a>
             )}

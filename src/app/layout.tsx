@@ -3,14 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 /**
- * The approved master-package type system, self-hosted, latin subsets:
- * - Radley (Regular + Italic), the brand serif, carries display type.
- * - Inter (Regular, Medium, SemiBold), the body face, carries UI and
- *   body text.
- * - A two-glyph Noto Serif SC subset carries 理工 set as live text (the
- *   wordmark itself is drawn as vector paths, no font involved).
- * The two critical families are preloaded; the CJK subset loads on
- * demand (it renders on a handful of pages).
+ * The self-hosted type system uses Radley for display text and Inter for
+ * body and interface text. Both published languages use the same Latin
+ * families, which keeps the English-first wordmark consistent.
  */
 const serif = localFont({
   variable: "--font-serif-loaded",
@@ -32,15 +27,6 @@ const sans = localFont({
   preload: true,
 });
 
-const cjk = localFont({
-  variable: "--font-cjk-loaded",
-  src: [{ path: "../fonts/noto-serif-sc-li-gong.woff2", weight: "400" }],
-  display: "swap",
-  /* A two-glyph subset under 1KB: preloading costs nothing and keeps
-     the 理工 characters from flashing in their fallback serif. */
-  preload: true,
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oryxinstitute.org"),
   title: {
@@ -52,7 +38,6 @@ export const metadata: Metadata = {
      chrome and would otherwise ship no favicon at all. */
   icons: {
     icon: [
-      { url: "/brand/favicon.ico", sizes: "any" },
       { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
@@ -75,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${serif.variable} ${sans.variable} ${cjk.variable}`}
+      className={`${serif.variable} ${sans.variable}`}
     >
       <body className="antialiased bg-paper text-ink min-h-screen flex flex-col">
         {children}

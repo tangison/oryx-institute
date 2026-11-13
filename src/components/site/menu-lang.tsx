@@ -4,27 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { swapLang, type Lang } from "@/lib/i18n";
 
-/**
- * The language switch lives in the menu, not the bar. The current
- * language holds still; the other one is one large serif link that
- * carries this exact page across. It is a plain anchor, so it works
- * with JavaScript off, exactly like the rest of the panel.
- */
+/** The menu's language switch carries the current page across. */
 export function MenuLang({ lang }: { lang: Lang }) {
-  const tSwap = lang === "en" ? "中文" : "English";
-  const eyebrow = lang === "en" ? "Language" : "语言";
-  const note = lang === "en" ? "Every page, in both languages." : "每个页面，两种语言。";
+  const tSwap = lang === "en" ? "Afrikaans" : "English";
+  const eyebrow = lang === "en" ? "Language" : "Taal";
+  const note =
+    lang === "en"
+      ? "Every page, in both languages."
+      : "Elke bladsy, in albei tale.";
   const pathname = usePathname();
-  /* The middleware serves /practice as /en/practice internally, so
-     strip a leading locale segment before swapping. */
-  const bare = pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
+  /* English routes are rewritten internally to /en. Strip either
+     internal locale before calculating the public counterpart. */
+  const bare = pathname.replace(/^\/(en|af)(?=\/|$)/, "") || "/";
 
   return (
     <div className="menu-lang">
       <p className="eyebrow eyebrow--ivory">{eyebrow}</p>
       <Link
         href={swapLang(lang, bare)}
-        hrefLang={lang === "en" ? "zh" : "en"}
+        hrefLang={lang === "en" ? "af" : "en"}
         className="menu-lang-link"
       >
         {tSwap}

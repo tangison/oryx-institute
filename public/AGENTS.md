@@ -28,13 +28,13 @@ A curated summary for answer engines and agents lives at [/llms.txt](/llms.txt).
 
 ## For coding agents working on this repository
 
-- Content source of truth: `src/lib/site.ts` (offers, register, ventures, partners, FAQs), `src/lib/site-zh.ts` (the Chinese mirror of the same facts), `src/lib/content.ts` (the Bulletin essays), `src/lib/directory.ts` (the fourteen Directory documents), and `docs/directory-source-ledger.md` (Directory legal and regulatory research). Every public claim must trace to an approved source or be labelled as an assumption.
-- Locales: English lives at the root, Chinese under `/zh/`. Locale logic (paths, hreflang alternates, interface chrome) is in `src/lib/i18n.ts`; page copy sits beside each page in `copy` objects with `en` and `zh` blocks.
-- Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English, `%s | Oryx 理工学院 · Oryx Institute` in Chinese). Meta descriptions run 120-160 characters in both languages.
+- Content source of truth: `src/lib/site.ts` (offers, register, ventures, partners, FAQs), `src/lib/site-af.ts` (the Afrikaans mirror of the same facts), `src/lib/content.ts` (the Bulletin essays), `src/lib/directory.ts` (the fourteen Directory documents), and `docs/directory-source-ledger.md` (Directory legal and regulatory research). Every public claim must trace to an approved source or be labelled as an assumption.
+- Locales: English lives at the root, Afrikaans under `/af/`. Locale logic (paths, hreflang alternates, interface chrome) is in `src/lib/i18n.ts`; page copy sits beside each page in `copy` objects with `en` and `af` blocks.
+- Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English and `%s | Oryx Instituut` in Afrikaans). Meta descriptions should remain concise in both languages.
 - Motion: GSAP ScrollTrigger driven by `src/components/site/sc-motion.tsx`, with the `data-sc-*` attribute grammar (scrub, pin, reveal, parallax, rows). Reduced-motion visitors get the same content, static. No autoplaying media.
 - Brand asset exports live in `public/brand/`; the logo renders from those SVG files (see `src/components/site/oryx-logo.tsx`). Never recolour or redraw the artwork, and never inline the path data into components.
 - The telephone number is defined once in `src/lib/site.ts` (`phoneDisplay`, `phoneInternational`, `phoneE164`, `phoneHref`, `whatsappHref`) and read everywhere else; never hardcode it in a component. Display strings use \u00A0 no-break spaces so the number never splits across lines.
 - Corner Spa media in `public/corner-spa/` is carried from spa.mendozer.com at original dimensions; the embed integration is documented in `docs/corner-spa-integration.md`.
-- Markdown mirrors: every shelf page answers at `/md/<path>` (see `src/lib/md-shelf.ts`); a new page must be added to the `PAGES` rows there.
+- Markdown mirrors: every shelf page answers at `/md/<path>` (see `src/lib/md-shelf.ts`); it is an English-first document corpus, so an Afrikaans HTML URL negotiated as markdown resolves to its matching English shelf document. Add every new page to the `PAGES` rows there.
 - Imagery: the plates under `public/images/kinfolk/` are the commissioned core ten plus the print-kit shots; one use each, no AI-generated substitutes, no stock added without a manifest entry.
 - The voice bar is in `src/lib/site.ts` (`voice`): declarative, exact, unhurried. No captions under images. Status stated as it is.

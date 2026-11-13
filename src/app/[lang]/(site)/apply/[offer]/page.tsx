@@ -27,7 +27,7 @@ import {
 export function generateStaticParams(): { lang: string; offer: string }[] {
   return APPLY_OFFER_SLUGS.flatMap((offer) => [
     { lang: "en", offer },
-    { lang: "zh", offer },
+    { lang: "af", offer },
   ]);
 }
 
@@ -53,7 +53,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}${path}`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}${path}`,
       images: [
         { url: "/brand/og/apply.png", width: 1200, height: 630, alt: m.ogTitle },
       ],

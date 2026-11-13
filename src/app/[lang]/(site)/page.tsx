@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site, offers, register, ventures, schemaIds } from "@/lib/site";
-import { siteZh, offersZh, registerZh, venturesZh } from "@/lib/site-zh";
+import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
 import { safetyAnnouncement } from "@/lib/safety";
@@ -84,63 +84,56 @@ const copy = {
     read: "Read",
     dateTbc: "Date to be confirmed",
   },
-  zh: {
+  af: {
     meta: {
-      title: "纳米比亚的一所新理工学校，温得和克",
-      description: siteZh.description,
+      title: "'n Nuwe Politegniese Instituut vir Namibië",
+      description: siteAf.description,
     },
     positioning:
-      "纳米比亚的一所新理工学校，在温得和克开展工作。开办之前，正在向 NQA 与 NTA 申请认证。每一步都带日期，记在下面的登记册里。",
-    aboutLink: "关于学院",
+      "'n Nuwe politegniese instituut vir Namibië, werksaam vanuit Windhoek. Voor bekendstelling en besig om akkreditasie by die NQA en NTA na te streef. Elke stap word in die register gedateer.",
+    aboutLink: "Oor die instituut",
     kinds: [
       {
         key: "research" as const,
-        name: "研究",
-        body: "田野调查、公报文章，以及注明出处的论文，写纳米比亚真实的营商现实。在收取任何费用之前，先免费公开。",
-        link: "阅读研究",
+        name: "Navorsing",
+        body: "Veldwerk, Bulletin-opstelle en bronne oor Namibië se werkswerklikhede. Gratis voordat enigiets gehef word.",
+        link: "Lees die navorsing",
       },
       {
         key: "practice" as const,
-        name: "实务",
-        body: "速成课、经营咨询、市场调研、快速响应培训，按纳米比亚的标准交付。",
-        link: "看实务",
+        name: "Praktyk",
+        body: "Blitskursusse, besigheidsadvies, marknavorsing en vinnige-reaksie-opleiding. Volgens Namibiese standaarde gelewer.",
+        link: "Sien die praktyk",
       },
       {
         key: "ventures" as const,
-        name: "实业",
-        body: "学院为了检验一个行业而开设的小型运营公司。每一项都是一间活的课堂，一个实作实验室。",
-        link: "看实业",
+        name: "Ondernemings",
+        body: "Klein bedryfsmaatskappye wat die instituut open om sektore te toets. Elkeen is 'n lewende klaskamer en laboratorium.",
+        link: "Sien die ondernemings",
       },
     ],
-    kindsTitle: "这个学院怎么做事。",
-    runsTitle: "今天在运转的。",
+    kindsTitle: "Hoe die instituut werk.",
+    runsTitle: "Wat vandag werk.",
     runsBody:
-      "六项服务，从温得和克的办公室直接开工。两个教学系只开速成课与短期课程；实务与免费的资源目录在旁运转。它们承诺的是活儿，因为资质要等认证之后。",
-    researchTitle: "研究从第一天就开始。",
+      "Ses aanbiedinge werk vandag vanuit die kantoor in Windhoek. Twee onderrigafdelings bied slegs blits- en kortkursusse aan; die praktyk en gratis Directory werk saam daarmee. Geloofsbriewe volg eers ná akkreditasie.",
+    researchTitle: "Navorsing begin op dag een.",
     researchLine:
-      "这件事不需要房子，房子也就耽误不了它。",
-    practiceTitle: "实务。",
+      "Geen geboue is vir dié werk nodig nie; geen geboue vertraag dit nie.",
+    practiceTitle: "Praktyk.",
     practiceBody:
-      "做出来、立得住的活，有度量，按标准收尾，每一件工具都有名字。",
-    venturesTitle: "小公司，真客户。",
-    registerMeta: "工作落定之日，即是入册之时，人人可读。",
-    closeTitle: "一封邮件，事情就开始。",
+      "Werk wat gemeet en volgens standaard voltooi is, met elke hulpmiddel benoem.",
+    venturesTitle: "Klein maatskappye, werklike kliënte.",
+    registerMeta: "Gedateer wanneer die werk land, en vir almal leesbaar.",
+    closeTitle: "Een e-pos begin dit.",
     closeBody:
-      "申请、调研委托、合作与媒体，都从一封邮件开始，回信的是人。双方同意之前，不会定下任何事。",
-    writeOffice: "给办公室写信",
-    readFaq: "读常见问题",
-    seeWhatRuns: "看今天在运转的",
-    apply: "申请",
-    read: "阅读",
-    dateTbc: "日期待确认",
-    enLedger: {
-      paras: [
-        "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA; every step is dated on the public register below. The institute divides its work into three kinds. Research publishes fieldwork, bulletin essays and cited papers on Namibia's working realities, free before anything is charged. Practice delivers crash courses, business counselling, market research and development, and rapid response training, measured and finished to standard, with every tool named. Ventures are small operating companies the institute opens to test sectors; each one is a live classroom and a live lab.",
-        "Six offers run today from the office in Windhoek. Two teaching departments (Business Administration, and IT and Related Fields) run crash courses and short courses only: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. The Owner's Desk runs one-on-one business counselling, and the outcome is written down. Market R&D takes feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. Rapid Response Training sources the industry expert a business needs, structures the programme, and delivers it. The Oryx Directory publishes the free, Namibia-specific courses and templates.",
-        "Research runs from day one, because no buildings are needed for this work, so no buildings delay it. The Bulletin carries the institute's published essays, every figure carrying its source. The AI training programme is built with Tangison Technologies. Corner Spa, the first venture, is announced as a concept, and its opening is dated in the register the day it happens.",
-        "Nothing is announced before it is certain. Applications, research enquiries, partnerships and press all begin with one email, and the reply comes from a person. Nothing is committed until both sides agree.",
-      ],
-    },
+      "Aansoeke, navorsingsnavrae, vennootskappe en media begin met een boodskap; 'n mens antwoord. Niks word vasgelê voordat albei kante saamstem nie.",
+    writeOffice: "Skryf aan die kantoor",
+    readFaq: "Lees die vrae",
+    seeWhatRuns: "Sien wat nou werk",
+    apply: "Doen aansoek",
+    read: "Lees",
+    dateTbc: "Datum moet bevestig word",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -151,13 +144,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   return {
-    title: copy[lang].meta.title,
+    /* The root layout also defines an English title template. Make the
+       homepage title absolute so the Afrikaans brand form is preserved. */
+    title: {
+      absolute:
+        lang === "af"
+          ? `${copy[lang].meta.title} | Oryx Instituut`
+          : `${copy[lang].meta.title} | Oryx Institute`,
+    },
     description: copy[lang].meta.description,
     alternates: alternates(lang, "/", site.url),
     openGraph: {
       title: copy[lang].meta.title,
       description: copy[lang].meta.description,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -176,15 +176,15 @@ export default async function HomePage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const s = zh
+  const s = af
     ? {
-        headline: siteZh.headline,
-        heroSub: siteZh.heroSub,
-        offers: offersZh,
-        register: registerZh,
-        ventures: venturesZh,
+        headline: siteAf.headline,
+        heroSub: siteAf.heroSub,
+        offers: offersAf,
+        register: registerAf,
+        ventures: venturesAf,
       }
     : {
         headline: site.headline,
@@ -195,12 +195,12 @@ export default async function HomePage({
       };
   const latest = insights[insights.length - 1];
   const kindHref: Record<string, string> = {
-    research: zh ? "/zh/research" : "/research",
-    practice: zh ? "/zh/practice" : "/practice",
-    ventures: zh ? "/zh/ventures" : "/ventures",
+    research: af ? "/af/research" : "/research",
+    practice: af ? "/af/practice" : "/practice",
+    ventures: af ? "/af/ventures" : "/ventures",
   };
 
-  const dateFmt = new Intl.DateTimeFormat(zh ? "zh-CN" : "en-GB", {
+  const dateFmt = new Intl.DateTimeFormat(af ? "af-NA" : "en-GB", {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -214,7 +214,7 @@ export default async function HomePage({
         "@type": "EducationalOrganization",
         "@id": schemaIds.org,
         name: site.legalName,
-        alternateName: zh ? siteZh.tradingName : site.tradingName,
+        alternateName: af ? siteAf.tradingName : site.tradingName,
         url: site.url,
         email: site.email,
         telephone: site.phoneE164,
@@ -242,7 +242,7 @@ export default async function HomePage({
            the localized name rides as alternateName so the graph does
            not disagree with itself. */
         name: site.tradingName,
-        alternateName: siteZh.tradingName,
+        alternateName: siteAf.tradingName,
         publisher: { "@id": schemaIds.org },
         inLanguage: lang,
       },
@@ -282,7 +282,7 @@ export default async function HomePage({
                 nothing more. No popups, no banners, no slide-ins. */}
             <div className="mt-6">
               <Link
-                href={zh ? "/zh/practice/safety-officer-course" : "/practice/safety-officer-course"}
+                href={af ? "/af/practice/safety-officer-course" : "/practice/safety-officer-course"}
                 className="hero-pill"
               >
                 {safetyAnnouncement[lang].pill}{" "}
@@ -294,7 +294,7 @@ export default async function HomePage({
                 {t.seeWhatRuns}
               </a>
               <Link
-                href={zh ? "/zh/apply" : "/apply"}
+                href={af ? "/af/apply" : "/apply"}
                 className="btn btn--cream"
               >
                 {t.apply}
@@ -311,13 +311,13 @@ export default async function HomePage({
         <div className="shell positioning">
           <p className="lede measure text-ink">{t.positioning}</p>
           <Link
-            href={zh ? "/zh/about" : "/about"}
+            href={af ? "/af/about" : "/about"}
             className="link-type mt-6 inline-block"
           >
             {t.aboutLink} <span className="arr" aria-hidden="true">→</span>
           </Link>
           <p className="meta mt-10">
-            <Link href={zh ? "/" : "/zh"} className="link-type">
+            <Link href={af ? "/" : "/af"} className="link-type">
               {chrome[lang].langNote}
             </Link>
           </p>
@@ -369,7 +369,7 @@ export default async function HomePage({
                     <Link
                       href={kindHref[e.key]}
                       className="btn--quiet btn--quiet--ivory mt-7"
-                      aria-label={zh ? `${e.link}${e.name}` : `${e.link} ${e.name}`}
+                      aria-label={af ? `${e.link}${e.name}` : `${e.link} ${e.name}`}
                     >
                       {e.link}{" "}
                       <span className="arr" aria-hidden="true">
@@ -400,11 +400,11 @@ export default async function HomePage({
                     <Link
                       href={
                         o.cta.href.startsWith("/")
-                          ? `${zh ? "/zh" : ""}${o.cta.href}`
+                          ? `${af ? "/af" : ""}${o.cta.href}`
                           : o.cta.href
                       }
                       className="offer-cta"
-                      aria-label={zh ? `${o.name}，${o.cta.label}` : `${o.cta.label} ${o.name}`}
+                      aria-label={af ? `${o.name}，${o.cta.label}` : `${o.cta.label} ${o.name}`}
                     >
                       {o.cta.label}{" "}
                       <span className="arr" aria-hidden="true">→</span>
@@ -456,28 +456,28 @@ export default async function HomePage({
           </figure>
           <div>
             <h2 className="h-section max-w-[20ch]">{t.researchTitle}</h2>
-            {/* The Chinese page carries the panel in Chinese (the
+            {/* The Afrikaans page carries the panel in Afrikaans (the
                 Bulletin correction: no mixed-language excerpt on the
-                zh homepage); the essays themselves publish in
+                af homepage); the essays themselves publish in
                 English, and the link says so. */}
             <p className="measure mt-6 text-soft">
-              {zh ? latest.dekZh : latest.dek}
+              {af ? latest.dekAf : latest.dek}
             </p>
             <div className="panel mt-8 p-7 md:p-9" data-sc-in>
               <p className="eyebrow--ink eyebrow">{latest.no}</p>
               <h3 className="h-sub mt-3">
-                {zh ? latest.titleZh : latest.title}
+                {af ? latest.titleAf : latest.title}
               </h3>
               <p className="mt-4 text-[0.98rem] leading-relaxed text-soft">
-                {zh
-                  ? `${latest.excerptZh}…`
+                {af
+                  ? `${latest.excerptAf}…`
                   : `${latest.body[0].slice(0, 220)}…`}
               </p>
               <Link
-                href={zh ? "/zh/resources#bulletin" : "/resources#bulletin"}
+                href={af ? "/af/resources#bulletin" : "/resources#bulletin"}
                 className="btn--quiet mt-6"
               >
-                {zh ? "阅读公报" : "Read the Bulletin"}{" "}
+                {af ? "Read the Bulletin" : "Read the Bulletin"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -512,17 +512,17 @@ export default async function HomePage({
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-5">
                 <Link
-                  href={zh ? "/zh/ventures" : "/ventures"}
+                  href={af ? "/af/ventures" : "/ventures"}
                   className="btn--quiet"
                 >
-                  {zh ? "阅读 Corner Spa" : "Read about Corner Spa"}{" "}
+                  {af ? "Read about Corner Spa" : "Read about Corner Spa"}{" "}
                   <span className="arr" aria-hidden="true">→</span>
                 </Link>
                 <Link
-                  href={zh ? "/zh/blog/corner-spa" : "/blog/corner-spa"}
+                  href={af ? "/af/blog/corner-spa" : "/blog/corner-spa"}
                   className="link-type"
                 >
-                  {zh ? "阅读博客文章" : "Read the blog note"}
+                  {af ? "Read the blog note" : "Read the blog note"}
                 </Link>
               </div>
             </div>
@@ -568,13 +568,13 @@ export default async function HomePage({
                     </p>
                     <div className="mt-8 flex flex-wrap items-center gap-5">
                       <Link
-                        href={zh ? "/zh/practice/safety-officer-course" : "/practice/safety-officer-course"}
+                        href={af ? "/af/practice/safety-officer-course" : "/practice/safety-officer-course"}
                         className="btn"
                       >
                         {safetyAnnouncement[lang].seeCurriculum}
                       </Link>
                       <Link
-                        href={zh ? "/zh/apply/safety" : "/apply/safety"}
+                        href={af ? "/af/apply/safety" : "/apply/safety"}
                         className="btn--quiet"
                       >
                         {safetyAnnouncement[lang].registerInterest}{" "}
@@ -624,7 +624,7 @@ export default async function HomePage({
         <div className="shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="h-section">
-              {zh ? "登记册。" : "The register."}
+              {af ? "The register." : "The register."}
             </h2>
             <p className="meta">{t.registerMeta}</p>
           </div>
@@ -643,16 +643,16 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page: the
+      {/* The English original, printed beneath the Afrikaans page: the
           institute is bilingual by declaration, and this is the text
           the rest of the site quotes. */}
-      {zh && (
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

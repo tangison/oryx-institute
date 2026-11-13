@@ -2,7 +2,7 @@ import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { footerNav, site } from "@/lib/site";
-import { navZh, siteZh } from "@/lib/site-zh";
+import { navAf, siteAf } from "@/lib/site-af";
 
 /**
  * The ink footer: the close of every page. Wordmark, the inline
@@ -13,8 +13,8 @@ import { navZh, siteZh } from "@/lib/site-zh";
  */
 export function SiteFooter({ lang }: { lang: Lang }) {
   const t = chrome[lang];
-  const zh = lang === "zh";
-  const links = zh ? navZh.footerNav : footerNav;
+  const af = lang === "af";
+  const links = af ? navAf.footerNav : footerNav;
 
   return (
     <footer className="site-footer">
@@ -34,7 +34,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               />
             </Link>
             <p className="foot-place mt-6">
-              {zh ? "温得和克 · 2026 年创立" : "WINDHOEK · EST. 2026"}
+              {af ? "WINDHOEK · EST. 2026" : "WINDHOEK · EST. 2026"}
             </p>
           </div>
 
@@ -74,10 +74,10 @@ export function SiteFooter({ lang }: { lang: Lang }) {
                 rel="noopener noreferrer"
                 className="ml-3 link-type"
               >
-                {zh ? "WhatsApp" : "WhatsApp"}
+                {af ? "WhatsApp" : "WhatsApp"}
               </a>
             </p>
-            <ul className="foot-social" aria-label={zh ? "社交频道" : "Social channels"}>
+            <ul className="foot-social" aria-label={af ? "Social channels" : "Social channels"}>
               {site.socials.map((s) => (
                 <li key={s.href}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer">
@@ -93,7 +93,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. {t.rights}
           </p>
-          <p className="foot-credit">{zh ? "形象与搭建：Tangison · 温得和克" : "Identity and build by Tangison · Windhoek"}</p>
+          <p className="foot-credit">{af ? "Identity and build by Tangison · Windhoek" : "Identity and build by Tangison · Windhoek"}</p>
         </div>
       </div>
     </footer>

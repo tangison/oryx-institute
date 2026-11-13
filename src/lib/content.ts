@@ -13,14 +13,14 @@ export const insights = [
     id: "what-a-polytechnic-is",
     no: "Bulletin No. 1",
     title: "What a polytechnic is, and what ours is\u00A0for",
-    titleZh: "什么是理工学院，我们的学院为了什么",
+    titleAf: "Wat 'n politegniese instituut is, en waarvoor ons s'n daar is",
     date: "2026",
     dek: "The word is old, the characters are older, and the idea is exactly right for\u00A0Windhoek.",
-    dekZh: "这个词老了，这两个字更老，而这个想法恰好属于温得和克。",
-    excerptZh:
-      "理工学院教的是人造世界：解释它的科学，建造它的工程，运转它的技术。这个词带着希腊词根，poli 是多，techne 是技艺。多种技艺，一门纪律。在 Oryx 的字标里，这个想法以中文呈现：理工，科学与工程，以栗色印在它本来的位置上。",
+    dekAf: "Die woord is oud, en die idee pas presies by Windhoek.",
+    excerptAf:
+      "'n Politegniese instituut onderrig die gemaakte wêreld: die wetenskappe wat dit verklaar, die ingenieurswese wat dit bou en die tegnologie wat dit laat werk. Baie ambagte, een dissipline.",
     body: [
-      "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, the technology that runs it. The word carries a Greek root, poli meaning many, techne meaning craft. Many crafts, one discipline. In the Oryx wordmark the idea stands in Chinese, 理工, li gong, science and engineering, set in maroon exactly where the word\u00A0belongs.",
+      "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, and the technology that runs it. The word carries a Greek root: poli means many and techne means craft. Many crafts, one discipline.",
       "The institute's version is built on four disciplines: science, engineering, technology, and applied problem-solving. The last one is the standard itself: it is named on every certificate the institute issues, and it is the reason the institute is small on purpose. A student who can take a problem apart, decide what is actually wrong, and finish a working answer is worth more to Namibia than a corridor of unapplied theory.",
       "What ours is for, then: the graduate the flyer promises. Solves problems quietly, finishes them decisively. The institute is new, and it holds itself to what the certificate prints.",
     ],
@@ -29,12 +29,12 @@ export const insights = [
     id: "the-seats-question",
     no: "Bulletin No. 2",
     title: "38 percent, and the seats that could change it",
-    titleZh: "百分之三十八，与能改变它的学位",
+    titleAf: "38 persent, en die plekke wat dit kan verander",
     date: "2026",
     dek: "The labour figures are published. The training gap is measurable.",
-    dekZh: "劳工数字已经公布。培训缺口可以度量。",
-    excerptZh:
-      "先看在册的事实。纳米比亚的青年失业率在 2025 年为 38.05%，出自 Statista 与圣路易斯联储转载的 ILO 估计。纳米比亚统计局 2025 年 1 月的劳工调查统计了 1,018,529 名 15 至 34 岁的纳米比亚人，其中 563,499 人完全在劳动力市场之外，202,144 人在找并不存在的工作。",
+    dekAf: "Die arbeidsyfers is gepubliseer. Die opleidingsgaping is meetbaar.",
+    excerptAf:
+      "Begin met die aangetekende feite. Namibië se jeugwerkloosheidsyfer was in 2025 38,05 persent volgens die IAO-skatting wat deur Statista en die St. Louis Fed aangehaal is.",
     body: [
       "Start with the facts on the record. Namibia's youth unemployment rate stood at 38.05 percent in 2025, on the ILO estimate carried by Statista and the St. Louis Fed. The Namibia Statistics Agency's labour survey of January 2025 counted 1,018,529 Namibians aged 15 to 34. Of those, 563,499 were outside the labour force entirely, and 202,144 were looking for work that was not there.",
       "Now the training side. The Namibia Training Authority's own strategic plan set a target of 45,000 vocational enrolments, recorded in the World Bank's skills policy note for Namibia. The most recent reported intake the NTA publicised was 13,500 new trainees. Those two numbers are the whole argument: the country planned for a river and is running on a\u00A0stream.",
@@ -45,12 +45,12 @@ export const insights = [
     id: "the-levy-plainly",
     no: "Bulletin No. 3",
     title: "The levy, plainly: what employers are already paying",
-    titleZh: "培训税，说得明白：雇主们已经在付什么",
+    titleAf: "Die heffing, eenvoudig: waarvoor werkgewers reeds betaal",
     date: "2026",
     dek: "Namibian employers have funded vocational training since 2014. Here is why that matters to this institute.",
-    dekZh: "自 2014 年起，纳米比亚的雇主们一直在为职业培训出资。这为什么与这所学院有关，且听道来。",
-    excerptZh:
-      "自 2014 年起，纳米比亚 2008 年的《职业教育与培训法》就开始对雇主征收培训税，联合国教科文组织的 TVET 国别档案有载。这笔税的目的很直白：需要巧手的行业，为培养巧手的体系出钱。",
+    dekAf: "Namibiese werkgewers finansier beroepsopleiding sedert 2014. Dit raak hierdie instituut.",
+    excerptAf:
+      "Sedert 2014 dra Namibië se Wet op Beroepsonderwys en -opleiding van 2008 'n opleidingsheffing vir werkgewers. Die doel is eenvoudig: bedrywe wat vaardige hande nodig het, betaal vir die stelsel wat hulle oplei.",
     body: [
       "Since 2014, Namibia's Vocational Education and Training Act of 2008 has carried a training levy on employers, recorded by UNESCO's TVET country profile. The levy's purpose is plain: the firms that need skilled hands pay toward the system that produces them.",
       "The institute's interest in this is practical. An employer who sponsors seats at Oryx is not spending new money; it is directing money the Act already collects toward hands it actually needs. The institute will map the exact NTA grant and rebate rules before its first employer conversation, and will publish what it finds. If a rule turns out to be different from what everyone assumes, the institute will publish that here\u00A0first.",
@@ -61,12 +61,12 @@ export const insights = [
     id: "why-every-course-ends-in-a-venture",
     no: "Bulletin No. 4",
     title: "Why every course here ends in a venture",
-    titleZh: "为什么这里的每一门课，都以一门实业收尾",
+    titleAf: "Waarom elke kursus hier by 'n onderneming eindig",
     date: "2026",
     dek: "Entrepreneurship is the exit exam here, and every course ends in one.",
-    dekZh: "在这里，创业是毕业考试，每一门课都以一门实业收尾。",
-    excerptZh:
-      "多数学校把创业课钉在课表上，当作可选的点缀。关于纳米比亚的研究一再发现同一个缺口：创业教育纸面上存在，实践中却越来越薄；研究一再建议把它放到核心位置，而不是当作装饰。学院把这条建议当了真。",
+    dekAf: "Entrepreneurskap is hier die eindeksamen, en elke kursus eindig daarmee.",
+    excerptAf:
+      "Baie skole voeg entrepreneurskap as 'n opsionele ekstra by. Navorsing oor Namibië wys telkens dieselfde gaping: dit bestaan op papier en verdun in die praktyk. Oryx maak dit sentraal.",
     body: [
       "Most schools bolt entrepreneurship onto the timetable as an optional extra. The research on Namibia keeps finding the same gap: entrepreneurship education exists on paper and thins out in practice, and the studies keep recommending it be made central rather than decorative. The institute took the recommendation\u00A0literally.",
       "The rule at Oryx is that every programme ends with something that works and something that sells. A working radio repaired to standard, a drafting set delivered to spec, a small service running for real customers. The venture is the exit exam: its customers decide whether it works and whether it is worth paying\u00A0for.",

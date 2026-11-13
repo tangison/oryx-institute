@@ -21,16 +21,14 @@ const copy = {
     ogTitle: "Corner Spa | Oryx Institute",
     h1: "Corner Spa, the first project of Oryx Institute",
   },
-  zh: {
-    /* The zh title prints absolute (see generateMetadata): it carries
-       the locale brand itself, so the template would print "Oryx
-       Institute" a second time, and the two locales must not share
-       one title string. */
-    title: "Corner Spa，第一项实业 · Oryx 理工学院 · Oryx Institute",
+  af: {
+    /* An absolute title below preserves the Afrikaans brand form. */
+    title: "Corner Spa, die eerste onderneming | Oryx Instituut",
     description:
-      "Corner Spa 是 Oryx Institute 的第一个项目，Mendozer Investments 为融资伙伴。温得和克的按摩、热石、美甲与脱毛，价目清晰，通过 WhatsApp 预约；水疗自己的网站 spa.mendozer.com 直接嵌入本页，也可全屏打开。",
-    ogTitle: "Corner Spa | Oryx 理工学院",
-    h1: "Corner Spa：Oryx Institute 的第一个项目",
+      "Corner Spa, die eerste projek van Oryx Instituut. Massering, warmklipbehandelings, naels en waks in Windhoek. Bespreek op WhatsApp.",
+    ogTitle: "Corner Spa | Oryx Instituut",
+    h1: "Corner Spa, die eerste projek van Oryx Instituut",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -42,14 +40,14 @@ export async function generateMetadata({
   const lang = langFromParams(await params);
   const m = copy[lang];
   return {
-    /* zh prints absolute: its title already carries the locale brand. */
-    title: lang === "zh" ? { absolute: m.title } : m.title,
+    /* af prints absolute: its title already carries the locale brand. */
+    title: lang === "af" ? { absolute: m.title } : m.title,
     description: m.description,
     alternates: alternates(lang, "/corner-spa", site.url),
     openGraph: {
       title: m.ogTitle,
       description: m.description,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/corner-spa`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/corner-spa`,
       images: [
         {
           url: "/brand/og/corner-spa.png",

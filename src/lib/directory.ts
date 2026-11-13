@@ -1240,62 +1240,18 @@ export function getDoc(slug: string): Doc | undefined {
   return directoryAll.find((d) => d.slug === slug);
 }
 
-/** Chinese search metadata. Directory documents publish in English. */
-export const directoryZhMeta: Record<string, { title: string; description: string }> = {
-  "registering-a-business-in-namibia": {
-    title: "在纳米比亚注册企业 | Oryx 理工学院",
-    description: "免费速成课：从业务本身开始，理解 BIPA 的登记角色、公司与 CC 的法律框架，并整理提交前要核实的问题。内容以英文发布，不构成法律或税务意见。",
-  },
-  "nqa-nta-accreditation-explained": {
-    title: "NQA 与 NTA 认证解读 | Oryx 理工学院",
-    description: "免费速成课：先读 NQA 与 NTA 的法定职责，再为培训项目建立证据地图。内容以英文发布，不构成认证决定或资金承诺。",
-  },
-  "namibian-labour-law-basics": {
-    title: "纳米比亚劳动法基础 | Oryx 理工学院",
-    description: "免费速成课：工时、休假、通知、解雇与遣散费的法定底线，依据《劳动法》整理。内容以英文发布，不构成法律意见。",
-  },
-  "insurance-in-namibia": {
-    title: "纳米比亚保险入门 | Oryx 理工学院",
-    description: "免费速成课：读懂保单、确认受监管角色，并识别保险建议与销售的边界。内容以英文发布，不构成保险、金融或法律意见。",
-  },
-  "start-a-one-person-business-in-namibia": {
-    title: "在纳米比亚开始一人企业 | Oryx 理工学院",
-    description: "免费速成课：把一项技能变成一套小型运营系统，包括报价、记录、现金习惯和登记问题清单。内容以英文发布，不构成法律、税务或财务意见。",
-  },
-  "bookkeeping-without-fear": {
-    title: "不再害怕记账 | Oryx 理工学院",
-    description: "免费速成课：从现金簿到月度经营概览，整理销售、支出、应收应付与证据。内容以英文发布，不构成会计或税务意见。",
-  },
-  "write-a-bid-that-can-win": {
-    title: "写一份能竞争的投标书 | Oryx 理工学院",
-    description: "免费速成课：公共采购投标识读、合规矩阵、技术响应、报价和提交记录。内容以英文发布，不保证中标，也不构成采购意见。",
-  },
-  "letterhead-template": {
-    title: "信笺模板 | Oryx 理工学院",
-    description: "可填写的信笺模板：清楚列出名称、联系信息和经过核实的企业信息。内容以英文发布。",
-  },
-  "business-plan-template": {
-    title: "商业计划模板 | Oryx 理工学院",
-    description: "可填写的十部分商业计划模板，让假设、证据、运营与风险清楚可见。内容以英文发布，不构成财务或投资意见。",
-  },
-  "financial-projections-template": {
-    title: "财务预测模板 | Oryx 理工学院",
-    description: "可填写的十二个月预测模板，分开记录假设、实际现金与税务问题。内容以英文发布，不构成会计或税务意见。",
-  },
-  "invoice-quotation-template": {
-    title: "报价单与发票模板 | Oryx 理工学院",
-    description: "可填写的报价单与发票模板，让范围、价格、付款时间与证据记录清晰可查。内容以英文发布。",
-  },
-  "nda-template": {
-    title: "保密协议模板 | Oryx 理工学院",
-    description: "可填写的保密协议结构，用于明确的商务讨论，并标出签署前应复核的限制。内容以英文发布，不构成法律意见。",
-  },
-  "employment-contract-template": {
-    title: "雇佣合同模板 | Oryx 理工学院",
-    description: "可填写的雇佣合同记录角色、薪酬、工时与休假，并须结合纳米比亚劳动法审核。内容以英文发布，不构成法律或薪酬意见。",
-  },
-  "meeting-minutes-template": {
-    title: "会议纪要模板 | Oryx 理工学院",
-    description: "可填写的会议纪要模板，记录决定、负责人、期限与下一步。内容以英文发布。",
-  },
-};
+/**
+ * Directory documents themselves are published in English. Their Afrikaans
+ * routes carry Afrikaans surrounding chrome while preserving the reviewed,
+ * source-disciplined document title and standfirst.
+ */
+export const directoryAfMeta: Record<string, { title: string; description: string }> =
+  Object.fromEntries(
+    directoryAll.map((doc) => [
+      doc.slug,
+      {
+        title: `${doc.title} | Oryx Instituut`,
+        description: doc.standfirst,
+      },
+    ])
+  );

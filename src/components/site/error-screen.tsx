@@ -55,41 +55,42 @@ const copy = {
       },
     },
   },
-  zh: {
-    home: "回到首页",
-    office: "给办公室写信",
-    phoneLabel: "来电或 WhatsApp",
-    again: "重试",
-    apply: "申请",
-    back: "返回",
-    footerAria: "Oryx 理工学院，首页",
+  af: {
+    home: "Back to the front page",
+    office: "Write to the office",
+    phoneLabel: "Call or WhatsApp",
+    again: "Try again",
+    apply: "Apply now",
+    back: "Back",
+    footerAria: "Oryx Institute, home",
     variants: {
       404: {
-        title: "这个地址什么也没有。",
-        body: "页面搬走了，或者从未印出。登记册、实务与办公室，各在一击之外。",
+        title: "Nothing stands at this address.",
+        body: "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
         links: ["home", "apply"] as const,
       },
       500: {
-        title: "印厂那边出了故障。",
-        body: "服务器返回了一个错误。稍等一分钟再试，或者给办公室写信。",
+        title: "Something broke at the printer.",
+        body: "The server returned an error. Try again in a minute, or write to the office if it keeps happening.",
         links: ["home", "office"] as const,
       },
       403: {
-        title: "不对公众开放。",
-        body: "这个地址存在，但没有开放。如果你本想在这里找到什么，给办公室写信。",
+        title: "Not for public reading.",
+        body: "This address exists but it is not open. If you expected to reach something here, write to the office.",
         links: ["home", "office"] as const,
       },
       408: {
-        title: "线路正忙。",
-        body: "服务器没能及时应答。稍候片刻，再试一次。",
+        title: "The line is busy.",
+        body: "The server could not answer in time. Wait a moment and try again.",
         links: ["back"] as const,
       },
       429: {
-        title: "一次一件。",
-        body: "请求来得太快太多。慢下来，一分钟后重试。",
+        title: "One at a time.",
+        body: "Too many requests too quickly. Slow down and try again in a minute.",
         links: ["back"] as const,
       },
     },
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -119,17 +120,17 @@ export function ErrorScreen({
   onReset,
 }: {
   status: ErrorStatus;
-  lang?: "en" | "zh";
+  lang?: "en" | "af";
   onReset?: () => void;
 }) {
   const t = copy[lang];
   const v = t.variants[status];
-  const p = lang === "zh" ? "/zh" : "";
+  const p = lang === "af" ? "/af" : "";
   const linkFor = (kind: (typeof v.links)[number]) => {
     switch (kind) {
       case "home":
         return (
-          <Link href={p === "/zh" ? "/zh" : "/"} className="btn--outline btn">
+          <Link href={p === "/af" ? "/af" : "/"} className="btn--outline btn">
             {t.home}
           </Link>
         );
@@ -147,7 +148,7 @@ export function ErrorScreen({
         );
       case "back":
         return (
-          <Link href={p === "/zh" ? "/zh" : "/"} className="btn--outline btn">
+          <Link href={p === "/af" ? "/af" : "/"} className="btn--outline btn">
             {t.back}
           </Link>
         );
@@ -157,7 +158,7 @@ export function ErrorScreen({
   return (
     <div className="flex min-h-screen flex-col bg-[var(--paper)] text-[var(--ink)]">
       <header className="shell flex items-center py-6">
-        <Link href={p === "/zh" ? "/zh" : "/"} aria-label={t.footerAria} className="flex items-center">
+        <Link href={p === "/af" ? "/af" : "/"} aria-label={t.footerAria} className="flex items-center">
           <OryxLogo variant="lockup" tone="brand" className="h-8 w-auto" />
         </Link>
       </header>

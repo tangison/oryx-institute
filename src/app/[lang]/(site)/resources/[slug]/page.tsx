@@ -6,7 +6,7 @@ import {
   directoryAll,
   directoryCourses,
   directoryTemplates,
-  directoryZhMeta,
+  directoryAfMeta,
   getDoc,
   templateDownloads,
   COPYRIGHT_LINE,
@@ -37,7 +37,7 @@ export async function generateMetadata({
   const doc = getDoc(slug);
   if (!doc) return {};
   const lang = langFromParams({ lang: rawLang });
-  const shelf = lang === "zh" ? "Oryx 资源目录" : "The Oryx Directory";
+  const shelf = lang === "af" ? "Die Oryx Directory" : "The Oryx Directory";
   /* The title stays a plain string so the locale template adds the
      brand: every title on the site ends the same way, and the shelf
      stays visible in the share card. Templates name their kind, so a
@@ -46,21 +46,21 @@ export async function generateMetadata({
     doc.kind === "template" && lang === "en"
       ? `${doc.title} Template`
       : doc.title;
-  /* The zh listing used to reuse the English standfirst, so all eleven
+  /* The af listing used to reuse the English standfirst, so all eleven
      documents shared one description and read as duplicates to a
-     crawler. directoryZhMeta gives each document its own zh title and
+     crawler. directoryAfMeta gives each document its own af title and
      description, and says plainly that the body is in English. */
-  const zhMeta = lang === "zh" ? directoryZhMeta[doc.slug] : undefined;
-  const title = zhMeta ? zhMeta.title : docTitle;
-  const description = zhMeta ? zhMeta.description : metaOf(doc);
+  const afMeta = lang === "af" ? directoryAfMeta[doc.slug] : undefined;
+  const title = afMeta ? afMeta.title : docTitle;
+  const description = afMeta ? afMeta.description : metaOf(doc);
   return {
     title,
     description,
     alternates: alternates(lang, `/resources/${doc.slug}`, site.url),
     openGraph: {
-      title: zhMeta ? zhMeta.title : `${doc.title} | ${shelf}`,
+      title: afMeta ? afMeta.title : `${doc.title} | ${shelf}`,
       description,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/resources/${doc.slug}`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/resources/${doc.slug}`,
       images: [
         {
           url: "/brand/og/resources.png",
@@ -131,10 +131,10 @@ export default async function DirectoryDocPage({
 }) {
   const { lang: rawLang, slug } = await params;
   const lang = langFromParams({ lang: rawLang });
-  const zh = lang === "zh";
+  const af = lang === "af";
   const doc = getDoc(slug);
   if (!doc) notFound();
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   const siblings = doc.kind === "course" ? directoryCourses : directoryTemplates;
   const others = siblings.filter((d) => d.slug !== doc.slug);
@@ -189,8 +189,8 @@ export default async function DirectoryDocPage({
         };
 
   const eyebrow = `${doc.no} · ${doc.readMinutes} ${
-    zh ? "分钟读完" : "minute read"
-  } · ${zh ? "更新于" : "Updated"} ${doc.updated}`;
+    af ? "minute read" : "minute read"
+  } · ${af ? "Updated" : "Updated"} ${doc.updated}`;
 
   return (
     <>
@@ -202,16 +202,14 @@ export default async function DirectoryDocPage({
       <PageHead title={doc.title}>
         <p>{doc.standfirst}</p>
         <p className="mt-4 italic">
-          {zh
-            ? "免费取用，版权归 Oryx Polytechnic Institute。不是开源：可以用，可以学，别当成自己的发布。"
+          {af
+            ? "Gratis beskikbaar en onder kopiereg van Oryx Polytechnic Institute. Dit is nie oopbron nie: gebruik en leer daaruit, maar publiseer dit nie as jou eie nie."
             : FREE_LINE}
         </p>
         {doc.kind === "template" ? (
           <>
             <p className="mt-3 border-l-2 border-maroon pl-5 text-[0.9rem]">
-              {zh
-                ? "一套供填写的模板：方括号里的每个字段，比如[你的商号]，用前都是你来替换的。这里没有法律、税务或财务建议。"
-                : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
+              {af ? "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice." : "A fill-in template: every field in brackets is yours to replace before use. Nothing here is legal, tax or financial advice."}
             </p>
             {/* The editable file, free and direct (CONTENT-CORRECTIONS
                 §9): no gate, no email capture; the Directory's own
@@ -225,7 +223,7 @@ export default async function DirectoryDocPage({
                     download
                     className="btn--outline btn"
                   >
-                    {zh ? "下载" : "Download"} · {d.label}{" "}
+                    {af ? "Download" : "Download"} · {d.label}{" "}
                     <span className="arr" aria-hidden="true">↓</span>
                   </a>
                 ))}
@@ -233,9 +231,9 @@ export default async function DirectoryDocPage({
             )}
           </>
         ) : null}
-        {zh ? (
+        {af ? (
           <p className="meta mt-4">
-            文档本身以英文发布。
+            Die dokument self word in Engels gepubliseer.
           </p>
         ) : null}
       </PageHead>
@@ -243,8 +241,8 @@ export default async function DirectoryDocPage({
       <section className="section-lg">
         <div className="shell grid gap-16 lg:grid-cols-[auto_1fr] lg:gap-20">
           {/* Document index rail */}
-          <nav aria-label={zh ? "目录" : "Contents"} className="lg:w-56" data-sc-in>
-            <p className="meta">{zh ? "目录" : "Contents"}</p>
+          <nav aria-label={af ? "Contents" : "Contents"} className="lg:w-56" data-sc-in>
+            <p className="meta">{af ? "Contents" : "Contents"}</p>
             <ol className="mt-4 grid gap-2 text-[0.88rem]">
               {doc.sections.map((s, i) => (
                 <li key={i}>
@@ -256,7 +254,7 @@ export default async function DirectoryDocPage({
             </ol>
             <div className="hair-t mt-8 pt-6">
               <Link href={A("/resources")} className="btn--quiet">
-                {zh ? "Oryx 资源目录" : "The Oryx Directory"}{" "}
+                {af ? "The Oryx Directory" : "The Oryx Directory"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -277,7 +275,7 @@ export default async function DirectoryDocPage({
                 <h2 className="h-sub">{s.heading}</h2>
                 {s.walkaway ? (
                   <p className="mt-3 border-l-2 border-maroon pl-4 text-[0.95rem] italic leading-relaxed text-soft">
-                    {zh ? "读完你会带走：" : "You'll walk away knowing: "}
+                    {af ? "You'll walk away knowing: " : "You'll walk away knowing: "}
                     {s.walkaway}
                   </p>
                 ) : null}
@@ -295,13 +293,13 @@ export default async function DirectoryDocPage({
             <footer className="hair-t mt-4 pt-8">
               <p className="text-[0.88rem] leading-relaxed text-soft">
                 <span className="font-[500] text-ink">
-                  {zh ? "出处注：" : "Source note: "}
+                  {af ? "Source note: " : "Source note: "}
                 </span>
                 {doc.sourceNote}
               </p>
               {doc.sources?.length ? (
                 <div className="mt-5 border-l-2 border-maroon pl-5">
-                  <p className="meta">{zh ? "可核查的来源" : "Checkable sources"}</p>
+                  <p className="meta">{af ? "Checkable sources" : "Checkable sources"}</p>
                   <ol className="mt-3 grid gap-3 text-[0.88rem] leading-relaxed text-soft">
                     {doc.sources.map((source) => (
                       <li key={source.id}>
@@ -321,14 +319,14 @@ export default async function DirectoryDocPage({
                 </div>
               ) : null}
               <p className="mt-4 text-[0.88rem] leading-relaxed text-soft">
-                {zh ? "维护：Tangi Iigonda，院长。" : "Maintained by Tangi Iigonda, Principal."}{" "}
-                {zh ? `最近复核：${doc.updated}。` : `Last reviewed ${doc.updated}.`}{" "}
-                {zh ? "发现错误？" : "Spotted an error?"}{" "}
+                {af ? "Maintained by Tangi Iigonda, Principal." : "Maintained by Tangi Iigonda, Principal."}{" "}
+                {af ? `Laas hersien: ${doc.updated}.` : `Last reviewed ${doc.updated}.`}{" "}
+                {af ? "Spotted an error?" : "Spotted an error?"}{" "}
                 <a
                   href={`mailto:corrections@oryxinstitute.org?subject=${encodeURIComponent(doc.title)}`}
                   className="link-type"
                 >
-                  {zh ? "报告一处错误" : "Report an error"}
+                  {af ? "Report an error" : "Report an error"}
                 </a>
                 .
               </p>
@@ -338,8 +336,8 @@ export default async function DirectoryDocPage({
             </footer>
 
             {doc.related?.length ? (
-              <aside className="hair-t mt-12 pt-8" aria-label={zh ? "延伸资源" : "Related resources"}>
-                <p className="meta">{zh ? "继续做下去" : "Keep working"}</p>
+              <aside className="hair-t mt-12 pt-8" aria-label={af ? "Related resources" : "Related resources"}>
+                <p className="meta">{af ? "Keep working" : "Keep working"}</p>
                 <div className="mt-5 grid gap-3">
                   {doc.related.map((related) => (
                     <Link
@@ -350,7 +348,7 @@ export default async function DirectoryDocPage({
                       <h2 className="font-[500] text-ink group-hover:text-maroon">{related.title}</h2>
                       <p className="mt-1 text-[0.9rem] leading-relaxed text-soft">{related.body}</p>
                       <p className="meta mt-2">
-                        {zh ? "打开资源" : "Open resource"} <span className="arr" aria-hidden="true">→</span>
+                        {af ? "Open resource" : "Open resource"} <span className="arr" aria-hidden="true">→</span>
                       </p>
                     </Link>
                   ))}
@@ -366,10 +364,10 @@ export default async function DirectoryDocPage({
         <div className="shell">
           <div className="hair-t pt-14">
             <h2 className="h-section max-w-[24ch]">
-              {zh
+              {af
                 ? doc.kind === "course"
-                  ? "更多课程。"
-                  : "更多模板。"
+                  ? "Meer kursusse."
+                  : "Meer sjablone."
                 : doc.kind === "course"
                   ? "More in the courses."
                   : "More in the templates."}
@@ -386,21 +384,21 @@ export default async function DirectoryDocPage({
                     <h3 className="news-title">{d.title}</h3>
                     <p className="mt-2 max-w-[62ch] text-soft">{d.standfirst}</p>
                     <p className="meta mt-3">
-                      {d.readMinutes} {zh ? "分钟读完" : "minute read"}
+                      {d.readMinutes} {af ? "minute read" : "minute read"}
                     </p>
                   </div>
                 </Link>
               ))}
               <Link href={A("/resources#directory")} className="ledger-row group">
-                <p className="ledger-date">{zh ? "目录" : "Directory"}</p>
+                <p className="ledger-date">{af ? "Directory" : "Directory"}</p>
                 <div>
                   <h3 className="news-title">
-                    {zh
-                      ? `全部 ${directoryAll.length} 份文档、课程与模板`
+                    {af
+                      ? `Al ${directoryAll.length} dokumente, kursusse en sjablone`
                       : `All ${directoryAll.length} documents, courses and templates`}
                   </h3>
                   <p className="meta mt-3">
-                    {zh ? "打开目录" : "Open the Directory"}
+                    {af ? "Open the Directory" : "Open the Directory"}
                   </p>
                 </div>
               </Link>

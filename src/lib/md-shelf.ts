@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
  * The markdown shelf: the whole site as clean markdown for any client
  * that negotiates text/markdown. Served from /md by the proxy when an
  * Accept header asks for it; the HTML page stays the canonical form.
- * English only: the documents are published in English, and the zh
+ * English only: the documents are published in English, and the af
  * pages note it in their listing metadata.
  */
 

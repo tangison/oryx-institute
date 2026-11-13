@@ -4,53 +4,8 @@ import { PageHead } from "@/components/site/page-head";
 import { site } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 
-function sections(zh: boolean) {
-  return zh
-    ? [
-        {
-          h: "本站是什么",
-          body: [
-            `本网站介绍 ${site.legalName}，并通过垂询接受申请。运营地在${site.country}${site.city}。它不收款、不开账户、不存储留言：申请拟稿器在你自己的邮件客户端里准备一封邮件，对话在那里继续。`,
-          ],
-        },
-        {
-          h: "垂询意味着什么",
-          body: [
-            "发送申请邮件，是请院长办公室阅读并回复。它不创造名额，不承诺名额，也不在任何一方产生义务。录取、课程安排与修读安排，只以学院的书面回复为准。",
-          ],
-        },
-        {
-          h: "本页内容",
-          body: [
-            "本站按学院自己的发布呈现其学科、品牌与印刷品。学科描述的是一个方向，不是课程价目表：课程细节在申请时确认，证书在结业时颁发。",
-          ],
-        },
-        {
-          h: "知识产权",
-          body: [
-            "字标、盾徽、印刷套件图像与本站文字归学院所有。你可以注明出处引用，也可以链接到本站；不得冒名重发，不得用它暗示与学院存在任何关联。",
-          ],
-        },
-        {
-          h: "外部渠道",
-          body: [
-            "本站把申请交给你自己的邮件客户端。你的留言一旦离开本站，就按你所选服务的条款传输，不受本条款约束。",
-          ],
-        },
-        {
-          h: "责任",
-          body: [
-            "本站按现状呈现。对于仅凭本站作出的决定，学院不承担责任：任何要紧事的权威渠道，是院长办公室的书面回复。",
-          ],
-        },
-        {
-          h: "变更",
-          body: [
-            "本条款随学院成长而更新。当前版本始终是本页发布的这一版。",
-          ],
-        },
-      ]
-    : [
+function sections() {
+  return [
         {
           h: "What this website is",
           body: [
@@ -111,19 +66,20 @@ const copy = {
       lede: "Short terms, because the website does little: it shows the institute and carries one message at a time.",
     },
   },
-  zh: {
+  af: {
     meta: {
-      title: "服务条款",
+      title: "Terms of Service",
       description:
-        "本网站依此条款提供，条款写得短，因为本站做得少：本站展示学院并逐封转交垂询，不设账户，不做交易；垂询不构成录取，报价不构成合同；证书声明的是创新与实用解题上的表现，不是学历资格；学院尚在开办，未获 NQA 或 NTA 认证，页面不承诺学院拿不出的事物。",
-      ogTitle: "服务条款 | Oryx Polytechnic Institute",
-      ogDescription: "本站做什么、申请意味着什么，以及它不承诺什么。",
+        "The terms on which this website is offered: what the website does, what an enquiry means, what the certificates claim, and what the institute does not promise.",
+      ogTitle: "Terms of Service | Oryx Polytechnic Institute",
+      ogDescription: "What the website does, what an application means, and what it does not promise.",
     },
     head: {
-      eyebrow: "法务",
-      title: "服务条款。",
-      lede: "条款很短，因为本站做的事很少：呈现学院，一次传递一封邮件。",
+      eyebrow: "Legal",
+      title: "Terms of service.",
+      lede: "Short terms, because the website does little: it shows the institute and carries one message at a time.",
     },
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -141,7 +97,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/legal/terms`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/legal/terms`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -160,7 +116,7 @@ export default async function TermsPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
 
   return (
@@ -192,7 +148,7 @@ export default async function TermsPage({
       <section className="section-lg">
         <div className="shell">
           <div className="article max-w-3xl" data-sc-in data-sc-stagger="50">
-            {sections(zh).map((s) => (
+            {sections().map((s) => (
               <div key={s.h} className="mt-12 first:mt-0">
                 <h2 className="h-sub">{s.h}</h2>
                 {s.body.map((p, i) => (
@@ -201,14 +157,14 @@ export default async function TermsPage({
               </div>
             ))}
             {/* The authoritative English text, printed beneath the
-                Chinese rendering: on legal pages the English original
+                Afrikaans rendering: on legal pages the English original
                 is the text that governs, and the page says so. */}
-            {zh && (
+            {false && (
               <div className="hair-t mt-16 pt-12" lang="en">
                 <p className="eyebrow eyebrow--ink">
-                  英文原文 · The authoritative English text
+                  Engelse oorspronklike · The authoritative English text
                 </p>
-                {sections(false).map((s) => (
+                {sections().map((s) => (
                   <div key={s.h} className="mt-12 first:mt-0">
                     <h2 className="h-sub">{s.h}</h2>
                     {s.body.map((p, i) => (
@@ -219,7 +175,7 @@ export default async function TermsPage({
               </div>
             )}
             <p className="meta mt-16">
-              {site.legalName} · {site.city}, {zh ? "纳米比亚" : site.country}
+              {site.legalName} · {site.city}, {site.country}
             </p>
           </div>
         </div>

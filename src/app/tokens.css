@@ -5,7 +5,7 @@
    assets/TOKENS.md). Six anchors, no others; tints mix from these only.
 
      ink        #181713  body text, dark grounds, ink bands
-     maroon     #71111F  shield, 理工, CTAs, seals, accent rules
+     maroon     #71111F  shield, CTAs, seals, accent rules
      cream      #F4EEE4  default page ground, paper, "white" space
      ivory      #FFF8EE  body text on dark grounds
      white      #FFFFFF  print-paper grounds only, used sparingly
@@ -56,7 +56,6 @@
   /* Type families (next/font variables, self-hosted latin subsets) */
   --font-display: var(--font-serif-loaded, "Radley"), Georgia, "Times New Roman", serif;
   --font-body: var(--font-sans-loaded, "Inter"), "Helvetica Neue", Arial, sans-serif;
-  --font-cjk: var(--font-cjk-loaded, "Times New Roman"), serif;
 
   /* Spacing: 8pt grid. Outer padding 64 / 96 / 128 (mobile / tablet /
      desktop); major sections breathe ≥140px between them on desktop.
@@ -74,19 +73,4 @@
 
   /* Header height, for anchor scroll padding */
   --header-h: 4.5rem;
-}
-
-/* --------------------------------------------------------------------------
-   Chinese locale. The Latin faces keep the wordmark, the numbers and
-   the interface words; hanzi fall through to the platform's own CJK
-   faces. No CJK webfont is shipped: a full subset weighs megabytes,
-   and every OS already carries these.
-   -------------------------------------------------------------------------- */
-
-html[lang="zh-CN"] {
-  --font-display: var(--font-serif-loaded, "Radley"), "Songti SC", "Noto Serif CJK SC",
-    "Source Han Serif SC", "SimSun", Georgia, serif;
-  --font-body: var(--font-sans-loaded, "Inter"), "PingFang SC", "Hiragino Sans GB",
-    "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial,
-    sans-serif;
 }
