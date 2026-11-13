@@ -27,7 +27,7 @@ const PAGES: IndexRow[] = [
   {
     path: "/about",
     title: "About the Institute",
-    note: "Who runs it, how it is funded, what it is for",
+    note: "Who runs it, how it is funded, what it is for; the planned Ongwediva training centre is not open yet",
   },
   {
     path: "/about/staff",
@@ -146,13 +146,13 @@ const PAGES: IndexRow[] = [
   },
   {
     path: "/corner-spa",
-    title: "Corner Spa, the first project of Oryx Institute",
-    note: "The spa's own site, spa.mendozer.com, shown full screen; massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788",
+    title: "Corner Spa, Oryx's first operating venture",
+    note: "Run with Mendozer Investments: a live setting for practical business and service work. Booking and service details stay on the spa's own site, spa.mendozer.com",
   },
   {
     path: "/ventures/corner-spa",
-    title: "Corner Spa, the venture",
-    note: "The collaboration page: operations lead Oryx Institute, financing partner Mendozer Investments, the classroom, and the embedded counter",
+    title: "Corner Spa, the operating venture",
+    note: "Oryx's first operating venture, run with Mendozer Investments: practical business and service work, with the spa's own counter embedded",
   },
   {
     path: "/blog",

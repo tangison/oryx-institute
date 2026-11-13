@@ -52,12 +52,14 @@ export const site = {
    * characters) and led by what the institute is. */
   description:
     "Oryx Institute, Windhoek: a new polytechnic for Namibia. Crash and short courses, counselling, market R&D, and the ventures that prove the work.",
-  /** Where the institute works from. There is no public premises yet:
-   * no street address, no post box and no campus are claimed. When a
-   * location exists, it is added here once and every page follows. */
+  /** The office remains in Windhoek. The first dedicated training centre
+   * has a secured future site, but it is not open and has no public
+   * street address on this site. */
   city: "Windhoek",
   country: "Namibia",
   areaServed: "Windhoek, Namibia",
+  plannedCentre:
+    "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.",
   /** The one mailbox. Everything runs through it while the institute
    * is young: applications, partnerships, the press. */
   email: "info@oryxinstitute.org",
@@ -255,23 +257,21 @@ export const register = [
     entry:
       "The Oryx Directory source review and Wave 1 published: seven Namibia-specific crash courses and seven business templates, with checkable source links on legal and regulatory pages.",
   },
-  /* Awaiting the founder: Corner Spa announcement date */
-  { date: null, entry: "Corner Spa concept announced." },
 ] as const;
 
-/**
+  /**
  * Ventures. A venture is a small operating company the institute opens
  * to test a sector: a live classroom and a live lab. Only what is real
- * is listed; the concept stage is stated as a concept.
+ * is listed, with its current operating status stated plainly.
  */
 export const ventures = {
   lead: "Small companies, real customers.",
   body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the\u00A0result.",
   cornerSpa: {
     name: "Corner Spa",
-    status: "In development · with Mendozer",
+    status: "Operating · with Mendozer",
     line: "Wellness and service operations: the first live\u00A0lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, run in collaboration with Mendozer. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is in\u00A0development.",
+    body: "Corner Spa is Oryx's first operating venture, run in collaboration with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Its booking and service details are kept on the spa's own site.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",
@@ -457,15 +457,15 @@ export const faqs = [
   },
   {
     q: "Does Oryx work with partners?",
-    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and concept work runs with Mendozer. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
+    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and Corner Spa is run with Mendozer Investments. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
   },
   {
     q: "What is a venture?",
-    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: students learn on its floor, and its customers decide whether it works. Ventures are announced as concepts and entered in the register when they\u00A0open.",
+    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: practical business and service work happens on its floor, and its customers decide whether it works. Each venture is stated plainly as a concept or operating work, as it is.",
   },
   {
     q: "What is Corner Spa?",
-    a: "The institute's first venture, announced as a concept: a small wellness and service operation in Windhoek, built to teach business administration, service standards and front-of-house operations on a real floor. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register, dated.",
+    a: "Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. Booking and service details stay on the spa's own site.",
   },
   {
     q: "Can I read the research?",

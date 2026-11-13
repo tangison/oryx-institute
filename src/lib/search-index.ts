@@ -47,9 +47,10 @@ export function buildIndex(lang: Lang): SearchEntry[] {
   const pages: [string, string, string, string][] = af
     ? [
         ["Navorsing", "Bladsye", "Die praktyk, die Bulletin en wat in ontwikkeling is.", "/research"],
+        ["Opleidingsentrum", "Bladsye", "Oryx het sy eerste toegewyde opleidingsentrumterrein by Untag Guest House in Ongwediva verseker. Die sentrum word beplan en is nog nie oop nie.", "/about"],
         ["Praktyk", "Bladsye", "Besigheidsadvies, marknavorsing en vinnige-reaksie-opleiding, volgens standaard gelewer.", "/practice"],
         ["Ondernemings", "Bladsye", "Klein maatskappye wat die instituut open om 'n sektor te verstaan. Corner Spa is die eerste.", "/ventures"],
-        ["Corner Spa", "Bladsye", "Die eerste onderneming: massering, warmklip-behandelings, naels en waks in Windhoek, per WhatsApp bespreek.", "/corner-spa"],
+        ["Corner Spa", "Bladsye", "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk.", "/corner-spa"],
         ["Blog", "Bladsye", "Notas uit die praktyk, volgens publikasiedatum aangeteken.", "/blog"],
         ["Kontak", "Bladsye", "Bel of WhatsApp 083 676 4338, of skryf aan info@oryxinstitute.org.", "/contact"],
         ["Die register", "Bladsye", "Elke openbare stap wat die instituut geneem het, gedateer.", "/register"],
@@ -63,9 +64,10 @@ export function buildIndex(lang: Lang): SearchEntry[] {
       ]
     : [
         ["Research", "Pages", "The practice, the Bulletin, and what is in development.", "/research"],
+        ["Training centre", "Pages", "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.", "/about"],
         ["Practice", "Pages", "Counselling, market R&D and rapid response training, delivered to standard.", "/practice"],
         ["Ventures", "Pages", "Small companies the institute opens to understand a sector. Corner Spa is the first.", "/ventures"],
-        ["Corner Spa", "Pages", "The first venture, now live: massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788. Full-screen entry; the counter is spa.mendozer.com.", "/corner-spa"],
+        ["Corner Spa", "Pages", "Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work. Booking and service details stay on the spa's own site.", "/corner-spa"],
         ["Blog", "Pages", "Notes from the practice, dated as published.", "/blog"],
         ["Contact", "Pages", "Call or WhatsApp 083 676 4338 (+264 83 676 4338 international), or write to info@oryxinstitute.org.", "/contact"],
         ["The register", "Pages", "Every public step the institute has taken, dated as it was said.", "/register"],

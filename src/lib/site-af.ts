@@ -18,6 +18,8 @@ export const siteAf = {
     "Oryx Instituut, Windhoek: 'n nuwe politegniese instituut vir Namibië. Blits- en kortkursusse, besigheidsadvies, marknavorsing en die ondernemings wat die werk bewys. Die instituut stel sy stand eerlik: akkreditasie by NQA en NTA word nagestreef en daar is nog geen openbare perseel nie. Bel of WhatsApp 083 676 4338, of skryf aan info@oryxinstitute.org.",
   country: "Namibië",
   areaServed: "Windhoek, Namibië",
+  plannedCentre:
+    "Oryx het sy eerste toegewyde opleidingsentrumterrein by Untag Guest House in Ongwediva verseker. Die sentrum word beplan en is nog nie oop nie.",
 } as const;
 
 export const statusAf = {
@@ -142,7 +144,6 @@ export const registerAf = [
     entry:
       "Die Oryx Directory se bronhersiening en eerste golf gepubliseer: sewe Namibië-spesifieke blitskursusse en sewe besigheidsjablone, met naspeurbare bronverwysings op wetlike en regulatoriese bladsye.",
   },
-  { date: null, entry: "Corner Spa-konsep aangekondig." },
 ] as const;
 
 export const venturesAf = {
@@ -150,9 +151,9 @@ export const venturesAf = {
   body: "Wanneer Oryx 'n sektor wil verstaan, begin dit 'n klein onderneming daarin. Kliënte besluit of dit werk, en die register publiseer die uitkoms.",
   cornerSpa: {
     name: "Corner Spa",
-    status: "In ontwikkeling · saam met Mendozer",
+    status: "In bedryf · saam met Mendozer",
     line: "Welstand- en diensbedrywighede: die eerste lewende laboratorium.",
-    body: "Corner Spa is die instituut se eerste onderneming: 'n klein welstand- en diensbedryf wat saam met Mendozer ontwikkel word. Dit doen twee dinge: lewer 'n werklike diens aan werklike kliënte in Windhoek, en dien as 'n lewende klaskamer waar besigheidsadministrasie, diensstandaarde en ontvangsbedrywighede op die vloer geleer word. Die spa se eie toonbank is op Mendozer se platform en word op hierdie webwerf ingebed. Perseel, lisensiëring en die dienslys word in die regte volgorde afgehandel. Wanneer dit open, gaan die opening gedateerd in die register in. Tot dan is dit in ontwikkeling.",
+    body: "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se eie toonbank is op Mendozer se platform by spa.mendozer.com en word op hierdie webwerf ingebed. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
   },
   futureLine:
     "Die volgende onderneming het nog nie 'n naam nie. Wanneer een open, word die opening met 'n datum in die register aangeteken.",
@@ -275,15 +276,15 @@ export const faqsAf = [
   },
   {
     q: "Werk Oryx met vennote?",
-    a: "Openlik, en by naam. Die KI-opleidingsprogram loop met Tangison Technologies en konseptuele werk met Mendozer. Buiten die genoemde samewerkings is die instituut oop vir vennootskappe met organisasies wat soortgelyke doelwitte nastreef. Skryf aan die kantoor en sê wat jy in gedagte het.",
+    a: "Openlik, en by naam. Die KI-opleidingsprogram loop met Tangison Technologies en Corner Spa word saam met Mendozer Investments bedryf. Buiten die genoemde samewerkings is die instituut oop vir vennootskappe met organisasies wat soortgelyke doelwitte nastreef. Skryf aan die kantoor en sê wat jy in gedagte het.",
   },
   {
     q: "Wat is 'n onderneming?",
-    a: "'n Klein bedryfsmaatskappy wat die instituut begin in 'n sektor wat dit wil verstaan. Die onderneming verdubbel as 'n lewende klaskamer: studente leer op die vloer en kliënte besluit of dit werk. Ondernemings word as konsepte aangekondig en gaan met 'n datum in die register in wanneer hulle open.",
+    a: "'n Klein bedryfsmaatskappy wat die instituut begin in 'n sektor wat dit wil verstaan. Die onderneming verdubbel as 'n lewende klaskamer: praktiese besigheids- en dienswerk gebeur op die vloer en kliënte besluit of dit werk. Elke onderneming word eerlik as 'n konsep of bedrywige werk gestel, soos dit is.",
   },
   {
     q: "Wat is Corner Spa?",
-    a: "Die instituut se eerste onderneming, as konsep aangekondig: 'n klein welstand- en diensbedryf in Windhoek, gebou om besigheidsadministrasie, diensstandaarde en ontvangsbedrywighede op 'n werklike vloer te leer. Perseel, lisensiëring en die dienslys word in die regte volgorde afgehandel. Wanneer dit open, gaan die opening gedateerd in die register in.",
+    a: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
   },
   {
     q: "Kan ek die navorsing lees?",
