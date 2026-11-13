@@ -161,7 +161,7 @@ const PAGES: IndexRow[] = [
   },
   {
     path: "/blog/corner-spa",
-    title: "Corner Spa, the first project of Oryx Institute",
+    title: "Corner Spa, Oryx's first operating venture",
     note: "The full note: what the spa offers, the price list in Namibian dollars, booking on WhatsApp, one website two addresses",
   },
 ];

@@ -79,12 +79,12 @@ export const cornerSpaImages: Record<string, BlogImageMeta> = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "corner-spa",
-    title: "Corner Spa, the first project of Oryx Institute",
-    titleAf: "Corner Spa, die eerste onderneming van Oryx Instituut",
+    title: "Corner Spa, Oryx's first operating venture",
+    titleAf: "Corner Spa, Oryx se eerste bedrywige onderneming",
     description:
-      "Corner Spa in Windhoek is the first project of Oryx Institute, with Mendozer Investments as financing partner. See treatments, prices and how to book.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work. See treatments, prices and how to book.",
     descriptionAf:
-      "Corner Spa in Windhoek is die eerste onderneming van Oryx Instituut, met Mendozer Investments as finansieringsvennoot. Sien behandelings, pryse en hoe om te bespreek.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk. Sien behandelings, pryse en hoe om te bespreek.",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
     dateHumanAf: "5 November 2026",
@@ -92,11 +92,11 @@ export const blogPosts: BlogPost[] = [
     ogImageAlt: "Smooth wet stones and soft light at Corner Spa",
     images: cornerSpaImages,
     bodyEn: `
-# Corner Spa, the first project of Oryx Institute
+# Corner Spa, Oryx's first operating venture
 
 ![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is a quiet place in Windhoek for massage, hot stone treatments, nails and waxing. It is the first project of Oryx Institute, and it is a concept by Mendozer Investments. This post explains what it offers, how to book, and where to find it online.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. This post explains what it offers, how to book, and where to find it online.
 
 ## What you can book
 
@@ -136,7 +136,7 @@ You can also call or message on **+264 81 623 4788**.
 
 ## Who is behind it
 
-Oryx Institute is the operations lead. Mendozer Investments is the financing partner. Corner Spa is the first project to come out of this work, and it is meant to be a small, well run business that others can learn from.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.
 
 ## One site, two addresses
 
@@ -156,11 +156,11 @@ For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04
 - Book on WhatsApp: [wa.me/264816234788](https://wa.me/264816234788)
 `,
     bodyAf: `
-# Corner Spa, the first project of Oryx Institute
+# Corner Spa, Oryx se eerste bedrywige onderneming
 
 ![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is a quiet place in Windhoek for massage, hot stone treatments, nails and waxing. It is the first project of Oryx Institute, and it is a concept by Mendozer Investments. This post explains what it offers, how to book, and where to find it online.
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik wat dit bied, hoe om te bespreek en waar om dit aanlyn te vind.
 
 ## What you can book
 
@@ -200,7 +200,7 @@ You can also call or message on **+264 81 623 4788**.
 
 ## Who is behind it
 
-Oryx Institute is the operations lead. Mendozer Investments is the financing partner. Corner Spa is the first project to come out of this work, and it is meant to be a small, well run business that others can learn from.
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk.
 
 ## One site, two addresses
 

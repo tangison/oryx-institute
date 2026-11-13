@@ -14,20 +14,20 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     /* The title renders through the root template: "Corner Spa, the
-       first venture | Oryx Institute". Kept in the 30-60 band. */
-    title: "Corner Spa, the first venture",
+       first operating venture | Oryx Institute". Kept in the 30-60 band. */
+    title: "Corner Spa, the first operating venture",
     description:
-      "Corner Spa, the first project of Oryx Institute. Massage, hot stone treatments, nails and waxing in Windhoek. Book on WhatsApp.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work in Windhoek. Booking and service details stay on the spa's own site.",
     ogTitle: "Corner Spa | Oryx Institute",
-    h1: "Corner Spa, the first project of Oryx Institute",
+    h1: "Corner Spa, Oryx's first operating venture",
   },
   af: {
     /* An absolute title below preserves the Afrikaans brand form. */
-    title: "Corner Spa, die eerste onderneming | Oryx Instituut",
+    title: "Corner Spa, die eerste bedrywige onderneming | Oryx Instituut",
     description:
-      "Corner Spa, die eerste projek van Oryx Instituut. Massering, warmklipbehandelings, naels en waks in Windhoek. Bespreek op WhatsApp.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     ogTitle: "Corner Spa | Oryx Instituut",
-    h1: "Corner Spa, die eerste projek van Oryx Instituut",
+    h1: "Corner Spa, Oryx se eerste bedrywige onderneming",
     enLedger: { paras: [] as string[] },
   },
 } as const;

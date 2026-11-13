@@ -5,6 +5,9 @@
   site: https://oryxinstitute.org
   location: Windhoek, Namibia
   contact: info@oryxinstitute.org
+  office: Windhoek, Namibia; no public street address is published
+  planned_training_centre: Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.
+  venture: Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.
 
   name: Tangi Iigonda
   role: Principal

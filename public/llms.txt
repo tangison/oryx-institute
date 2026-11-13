@@ -2,7 +2,7 @@
 
 > Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It works through three parts: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields: the teaching offer, and all of it: beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. One mailbox answers everything: info@oryxinstitute.org.
 
-Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises and no street address while none exist. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Afrikaans (the Afrikaans site lives under /af).
+Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises and no street address while none exist. Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Afrikaans (the Afrikaans site lives under /af).
 
 ## What runs today (six offers)
 
@@ -24,7 +24,7 @@ Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest.
 ## Ventures
 
 - [Ventures](https://www.oryxinstitute.org/ventures): small operating companies the institute opens to test sectors. Each one is a live classroom and a live lab.
-- [Corner Spa](https://www.oryxinstitute.org/corner-spa): the first project of Oryx Institute, and a concept by Mendozer Investments. Oryx Institute is the operations lead; Mendozer Investments is the financing partner. The spa is live: massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp.
+- [Corner Spa](https://www.oryxinstitute.org/corner-spa): Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work. Booking and service details stay on the spa's own site.
 - The spa's own site: [spa.mendozer.com](https://spa.mendozer.com). One website, two addresses: /corner-spa on this site shows the same site full screen (a loading screen holds a beat, a fallback link appears if the frame cannot load). It is one website, not two copies, so prices and booking details are the same wherever it is opened.
 - Corner Spa booking and enquiries: +264 81 623 4788 (the spa's own number), https://wa.me/264816234788. Opening hours and street address for the spa: not published anywhere, so none are printed.
 - The collaboration page: [/ventures/corner-spa](https://www.oryxinstitute.org/ventures/corner-spa): the roles, the classroom, and the counter framed in-page.

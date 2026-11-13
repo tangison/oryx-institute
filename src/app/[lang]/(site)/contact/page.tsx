@@ -139,6 +139,8 @@ export default async function ContactPage({
   const lang = langFromParams(await params);
   const af = lang === "af";
   const t = copy[lang];
+  const plannedCentre = af ? siteAf.plannedCentre : site.plannedCentre;
+  const plannedCentreLabel = af ? "Beplande opleidingsentrum" : "Planned training centre";
   const A = (path: string) => (af ? `/af${path}` : path);
 
   const jsonLd = {
@@ -270,6 +272,10 @@ export default async function ContactPage({
               <div>
                 <dt className="font-[500]">{t.visits.dt}</dt>
                 <dd className="mt-1 text-soft">{t.visits.dd}</dd>
+              </div>
+              <div>
+                <dt className="font-[500]">{plannedCentreLabel}</dt>
+                <dd className="mt-1 text-soft">{plannedCentre}</dd>
               </div>
               <div>
                 <dt className="font-[500]">{t.phone.dt}</dt>

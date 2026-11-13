@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { faqs, site } from "@/lib/site";
-import { faqsAf } from "@/lib/site-af";
+import { faqsAf, siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 const copy = {
@@ -72,7 +72,13 @@ export default async function FaqPage({
   const lang = langFromParams(await params);
   const af = lang === "af";
   const t = copy[lang];
-  const list = af ? faqsAf : faqs;
+  const plannedCentreFaq = {
+    q: af
+      ? "Waar sal die eerste toegewyde opleidingsentrum wees?"
+      : "Where will the first dedicated training centre be?",
+    a: af ? siteAf.plannedCentre : site.plannedCentre,
+  };
+  const list = [...(af ? faqsAf : faqs), plannedCentreFaq];
   const A = (path: string) => (af ? `/af${path}` : path);
 
   const faqJsonLd = {

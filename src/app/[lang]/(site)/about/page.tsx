@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site, status, schemaIds } from "@/lib/site";
-import { statusAf } from "@/lib/site-af";
+import { siteAf, statusAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { StaffRows } from "@/components/site/staff-rows";
@@ -48,6 +48,7 @@ const copy = {
       pre: "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed. Reach the office by email at ",
       post: ".",
     },
+    plannedCentreEyebrow: "The planned training centre",
     standsEyebrow: "Where the institute stands",
     standsTitle: "Prelaunch, and honest about it.",
     standsBody: {
@@ -103,6 +104,7 @@ const copy = {
       pre: "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed. Reach the office by email at ",
       post: ".",
     },
+    plannedCentreEyebrow: "Die beplande opleidingsentrum",
     standsEyebrow: "Where the institute stands",
     standsTitle: "Prelaunch, and honest about it.",
     standsBody: {
@@ -166,6 +168,7 @@ export default async function AboutPage({
   const af = lang === "af";
   const t = copy[lang];
   const st = af ? statusAf : status;
+  const plannedCentre = af ? siteAf.plannedCentre : site.plannedCentre;
   const A = (path: string) => (af ? `/af${path}` : path);
 
   /* Truthful structured data: this is the about page of one
@@ -247,6 +250,10 @@ export default async function AboutPage({
               </a>
               {t.officeBody.post}
             </p>
+          </div>
+          <div>
+            <p className="eyebrow eyebrow--ink">{t.plannedCentreEyebrow}</p>
+            <p className="measure mt-4 text-soft">{plannedCentre}</p>
           </div>
         </div>
       </section>

@@ -21,11 +21,11 @@ const copy = {
     howEyebrow: "How ventures work",
     lessonEyebrow: "The classroom on the floor",
     lessonBody:
-      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work. Booking and service details stay on the spa's own site.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
+      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, with the work stated plainly in public.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the Market R&D desk",
@@ -49,11 +49,11 @@ const copy = {
     howEyebrow: "How ventures work",
     lessonEyebrow: "The classroom on the floor",
     lessonBody:
-      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
+      "Elke kursus wat die instituut aanbied, eindig in iets wat werk en iets wat verkoop. Ondernemings hou die instituut by dié reël: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the Market R&D desk",
