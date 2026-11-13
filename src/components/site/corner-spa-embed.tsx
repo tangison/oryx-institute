@@ -168,12 +168,13 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "af" }) {
   );
 }
 
-/** The wordmark lockup, drawn inline on the ink ground: the same English wordmark as the artwork, at loader scale. */
+/** The approved Oryx lockup, drawn at loader scale. 理工 is the supplied
+ * visual mark for the Polytechnic position, not a language switch. */
 function OryxMark() {
   return (
     <div className="corner-spa-lockup">
       <span className="corner-spa-lockup-latin">ORYX</span>
-      <span className="corner-spa-lockup-latin corner-spa-lockup-middle">POLYTECHNIC</span>
+      <span className="corner-spa-lockup-cjk">理工</span>
       <span className="corner-spa-lockup-latin">INSTITUTE</span>
     </div>
   );

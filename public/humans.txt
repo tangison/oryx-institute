@@ -20,4 +20,4 @@
 /* SITE */
   standards: HTML, CSS, TypeScript, Next.js (App Router)
   components: GSAP ScrollTrigger (reduced-motion aware), zero third-party scripts
-  fonts: Radley, Inter (self-hosted Latin subsets)
+  fonts: Radley, Inter, Noto Serif SC 理工 mark subset (self-hosted)

@@ -12,7 +12,7 @@ import { StaffRows } from "@/components/site/staff-rows";
  * full-bleed under scrub, the proposition on a scrim bottom left; the
  * People section states the team in rows: the Principal's real
  * portrait, and the honest placeholder card for every appointment
- * still pending; the horns hold the polytechnic block; the desert plate
+ * still pending; the horns hold the approved 理工 mark; the desert plate
  * breathes before the standing; the colophon carries the Tangison
  * disclosure in prose beside the nib. (Image Bible v6, STAFF-DIRECTORY,
  * CONTENT-CORRECTIONS §5-§6.)
@@ -22,10 +22,10 @@ const copy = {
     meta: {
       title: "About the Institute",
       description:
-        "Oryx Institute: the oryx, the word Polytechnic, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
+        "Oryx Institute: the oryx, the visual mark 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
       ogTitle: "About the Institute | Oryx Institute",
       ogDescription:
-        "The oryx, the word Polytechnic, the Principal's office in Windhoek, and the temper the institute teaches by.",
+        "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
     headTitle: "Built for hard ground.",
     headLede: {
@@ -78,10 +78,10 @@ const copy = {
     meta: {
       title: "About the Institute",
       description:
-        "Oryx Institute: the oryx, the word Polytechnic, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
+        "Oryx Institute: the oryx, the visual mark 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
       ogTitle: "About the Institute | Oryx Institute",
       ogDescription:
-        "The oryx, the word Polytechnic, the Principal's office in Windhoek, and the temper the institute teaches by.",
+        "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
     headTitle: "Built for hard ground.",
     headLede: {
@@ -155,8 +155,9 @@ export async function generateMetadata({
   };
 }
 
-/** The Polytechnic paragraph, drawn verbatim from Bulletin No. 1, the
-    institute's own published explanation of the word. */
+/** The 理工 explanation, drawn verbatim from Bulletin No. 1, the
+    institute's own published explanation of the institute's science-and-
+    engineering purpose. */
 const polytechnicEssay = insights[0].body[0];
 
 export default async function AboutPage({
@@ -223,7 +224,7 @@ export default async function AboutPage({
           <h1 className="h-section max-w-[18ch]">{t.headTitle}</h1>
           <p className="peak-line mt-5">
             {t.headLede.pre}
-            <span className="font-[500] text-maroon">POLYTECHNIC</span>
+            <span className="wordmark-cjk">理工</span>
             {t.headLede.post}
           </p>
         </div>
@@ -258,23 +259,23 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* The Polytechnic plate wipes in left to right on its own cream plate,
+      {/* The approved 理工 mark wipes in left to right on its own cream plate,
           the published explanation beside it, the horns holding the
           right of the block. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center">
           <div
-            className="polytechnic-plate grid place-items-center border-y border-rule py-16 md:py-24"
+            className="ligong-plate grid place-items-center border-y border-rule py-16 md:py-24"
             data-sc-reveal
             aria-hidden="true"
           >
-            <p className="text-center text-[clamp(2rem,6vw,5rem)] tracking-[0.14em] leading-none text-maroon">
-              POLYTECHNIC
+            <p className="wordmark-cjk text-center text-[clamp(5rem,14vw,11rem)] leading-none">
+              理工
             </p>
           </div>
           <div data-sc-in>
             <p className="eyebrow eyebrow--ink">
-              {af ? "What Polytechnic stands for" : "What Polytechnic stands for"}
+              {af ? "Wat 理工 beteken" : "What 理工 stands for"}
             </p>
             <p className="measure body-lg mt-5">{polytechnicEssay}</p>
             <Link
@@ -303,11 +304,11 @@ export default async function AboutPage({
           </figure>
           <div className="md:order-1" data-sc-in>
             <p className="measure text-soft">
-              Oryx Institute. In the wordmark the middle word is
-              <span className="font-[500] text-maroon"> POLYTECHNIC</span>,
-              naming the institute's science-and-engineering purpose. The seal
-              above it is the maroon shield, and the whole lockup sets in a
-              classic serif, as printed on the institute&apos;s letterhead.
+              Oryx Institute. In the wordmark the middle mark is
+              <span className="wordmark-cjk"> 理工</span> (li gong), the characters
+              for science and engineering. The seal above it is the maroon
+              shield, and the whole lockup sets in a classic serif, as printed
+              on the institute&apos;s letterhead.
             </p>
           </div>
         </div>

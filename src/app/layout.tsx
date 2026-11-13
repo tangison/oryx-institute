@@ -4,8 +4,8 @@ import "./globals.css";
 
 /**
  * The self-hosted type system uses Radley for display text and Inter for
- * body and interface text. Both published languages use the same Latin
- * families, which keeps the English-first wordmark consistent.
+ * body and interface text. A two-glyph Noto Serif SC subset supports the
+ * approved 理工 visual mark; it does not add a Chinese-language route.
  */
 const serif = localFont({
   variable: "--font-serif-loaded",
@@ -27,6 +27,13 @@ const sans = localFont({
   preload: true,
 });
 
+const cjkMark = localFont({
+  variable: "--font-cjk-loaded",
+  src: [{ path: "../fonts/noto-serif-sc-li-gong.woff2", weight: "400", style: "normal" }],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oryxinstitute.org"),
   title: {
@@ -38,6 +45,7 @@ export const metadata: Metadata = {
      chrome and would otherwise ship no favicon at all. */
   icons: {
     icon: [
+      { url: "/brand/favicon.ico", sizes: "any" },
       { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
@@ -60,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${serif.variable} ${sans.variable}`}
+      className={`${serif.variable} ${sans.variable} ${cjkMark.variable}`}
     >
       <body className="antialiased bg-paper text-ink min-h-screen flex flex-col">
         {children}

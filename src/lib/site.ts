@@ -30,10 +30,12 @@ export const site = {
    * to day copy. */
   tradingName: "Oryx Institute",
   shortName: "Oryx Institute",
-  /** The wordmark is intentionally English-only: ORYX INSTITUTE. */
+  /** The supplied, immutable lockup places the 理工 visual mark between
+   * ORYX and INSTITUTE. It represents science and engineering; it does
+   * not add a Chinese-language public surface. */
   wordmark: {
     top: "ORYX",
-    middle: "POLYTECHNIC",
+    middle: "理工",
     middleMeaning: "science and engineering",
     bottom: "INSTITUTE",
   },

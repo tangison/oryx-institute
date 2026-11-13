@@ -10,7 +10,7 @@ const copy = {
     meta: {
       title: "The Brand Register",
       description:
-        "The Oryx Institute brand: the English-only wordmark, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
+        "The Oryx Institute brand: the ORYX · 理工 · INSTITUTE lockup, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
       ogTitle: "The Brand Register | Oryx Institute",
       ogDescription:
         "The wordmark, the emblem, the codes, the voice: documented, with the asset downloads.",
@@ -31,9 +31,9 @@ const copy = {
     },
     wordmarkEyebrow: "The wordmark",
     wordmarkA:
-      "One English lockup. ORYX, POLYTECHNIC and INSTITUTE set in a classic serif, ink #181713, with POLYTECHNIC in maroon #71111F.",
+      "Three-part lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where Polytechnic sits in the legal name, in maroon #71111F.",
     wordmarkB:
-      "POLYTECHNIC aligns to the ORYX baseline in the supplied artwork. The wordmark is never redrawn, never restacked and never set in another typeface: the site renders it from the artwork's vector paths.",
+      "理工 aligns to the ORYX baseline in the supplied artwork. The wordmark is immutable: never redraw, restack, substitute, or set it in another typeface. The site renders the supplied vector paths exactly.",
     emblemEyebrow: "The emblem",
     emblemA:
       "The maroon shield, with its horn-mark knocked through in white. On the business card's reverse the shield stands alone; on the notecard it centres on white; on the envelope it sits at the right of the lockup.",
@@ -72,7 +72,7 @@ const copy = {
     meta: {
       title: "The Brand Register",
       description:
-        "The Oryx Institute brand: the English-only wordmark, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
+        "The Oryx Institute brand: the ORYX · 理工 · INSTITUTE lockup, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
       ogTitle: "The Brand Register | Oryx Institute",
       ogDescription:
         "The wordmark, the emblem, the codes, the voice: documented, with the asset downloads.",
@@ -93,9 +93,9 @@ const copy = {
     },
     wordmarkEyebrow: "The wordmark",
     wordmarkA:
-      "One English lockup. ORYX, POLYTECHNIC and INSTITUTE set in a classic serif, ink #181713, with POLYTECHNIC in maroon #71111F.",
+      "Three-part lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where Polytechnic sits in the legal name, in maroon #71111F.",
     wordmarkB:
-      "POLYTECHNIC aligns to the ORYX baseline in the supplied artwork. The wordmark is never redrawn, never restacked and never set in another typeface: the site renders it from the artwork's vector paths.",
+      "理工 aligns to the ORYX baseline in the supplied artwork. The wordmark is immutable: never redraw, restack, substitute, or set it in another typeface. The site renders the supplied vector paths exactly.",
     emblemEyebrow: "The emblem",
     emblemA:
       "The maroon shield, with its horn-mark knocked through in white. On the business card's reverse the shield stands alone; on the notecard it centres on white; on the envelope it sits at the right of the lockup.",
@@ -166,7 +166,7 @@ function downloads(af: boolean) {
   return [
     {
       name: af ? "Wordmark (SVG)" : "Wordmark (SVG)",
-      note: af ? "ORYX · POLYTECHNIC · INSTITUTE, ink letters with POLYTECHNIC in maroon. Transparent, vector, print-ready." : "ORYX · POLYTECHNIC · INSTITUTE, ink letters with POLYTECHNIC in maroon. Transparent, vector, print-ready.",
+      note: "ORYX · 理工 · INSTITUTE, ink letters with 理工 in maroon. Transparent, vector, print-ready.",
       href: "/brand/oryx-wordmark.svg",
       format: "SVG · vector",
       preview: { src: "/brand/oryx-wordmark.svg", w: 300, h: 144, dark: false, wide: true },
@@ -350,16 +350,16 @@ function swatches(af: boolean) {
       bg: "#181713",
       fg: "#FFF8EE",
       /* Ink carries the Latin specimen: it is the colour the wordmark's
-         letters are set in. The POLYTECHNIC specimen belongs to Maroon. */
+         letters are set in. The 理工 specimen belongs to Maroon. */
       mark: "Aa",
     },
     {
       name: af ? "Maroon" : "Maroon",
       hex: "#71111F",
-      usage: af ? "The shield, POLYTECHNIC, accents, fills, CTAs" : "The shield, POLYTECHNIC, accents, fills, CTAs",
+      usage: "The shield, 理工, accents, fills, CTAs",
       bg: "#71111F",
       fg: "#FFF8EE",
-      mark: "PT",
+      mark: "理工",
     },
     {
       name: af ? "Cream" : "Cream",
@@ -631,7 +631,7 @@ export default async function BrandPage({
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
           <div className="panel grid place-items-center bg-white p-12 md:p-16" data-sc-in>
-            <LogoPlate src="/brand/oryx-lockup.svg" w={440} h={152} alt="The Oryx Institute lockup: ORYX, POLYTECHNIC, INSTITUTE, with the shield" />
+            <LogoPlate src="/brand/oryx-lockup.svg" w={440} h={152} alt="The Oryx Institute lockup: ORYX, 理工, INSTITUTE, with the shield" />
           </div>
           <div className="grid gap-5" data-sc-in data-sc-stagger="70">
             <h2 className="h-sub">{t.wordmarkEyebrow}</h2>
@@ -673,7 +673,7 @@ export default async function BrandPage({
                   className="swatch-chip"
                   style={{ background: c.bg, color: c.fg }}
                 >
-                  <span className={c.mark === "PT" ? "wordmark-middle" : ""} style={c.mark === "PT" ? { color: c.fg } : undefined}>
+                  <span className={c.mark === "理工" ? "wordmark-cjk" : ""} style={c.mark === "理工" ? { color: c.fg } : undefined}>
                     {c.mark}
                   </span>
                 </div>
@@ -765,7 +765,7 @@ export default async function BrandPage({
               <span className="dd-plate">
                 <span className="text-center" style={{ fontFamily: "var(--font-display)" }}>
                   <span className="block text-[1.5rem] tracking-[0.35em]">ORYX</span>
-                  <span className="my-1 block text-[0.78rem] tracking-[0.16em]">POLYTECHNIC</span>
+                  <span className="wordmark-cjk my-1 block text-[1.1rem]">理工</span>
                   <span className="block text-[1.1rem] tracking-[0.3em]">INSTITUTE</span>
                 </span>
               </span>

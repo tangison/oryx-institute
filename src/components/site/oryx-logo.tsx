@@ -7,12 +7,12 @@
  * files removes it from the document entirely.
  *
  * Variants:
- * - "lockup"  ORYX POLYTECHNIC INSTITUTE with the shield
- * - "wordmark" ORYX POLYTECHNIC INSTITUTE without the shield
+ * - "lockup"  ORYX 理工 INSTITUTE with the shield
+ * - "wordmark" ORYX 理工 INSTITUTE without the shield
  * - "emblem"   the shield alone
  *
  * Tones:
- * - "brand"   ink letters, maroon POLYTECHNIC and shield (for light grounds)
+ * - "brand"   ink letters, maroon 理工 and shield (for light grounds)
  * - "reverse" all ivory (for ink and maroon grounds)
  * - "mono"    everything one colour; no route uses it, so it serves
  *             the brand files
