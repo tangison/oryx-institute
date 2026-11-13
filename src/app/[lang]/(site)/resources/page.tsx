@@ -26,7 +26,7 @@ const copy = {
     },
     dirEyebrow: "The Oryx Directory",
     dirBody:
-      "Free, Namibia-specific, and copyrighted to Oryx Polytechnic Institute: not open-source, but free to access. It is real value on day one, before accreditation, and proof of the rigor everything the institute charges for is held to. Every figure is sourced or labelled as an assumption. None of it is legal, tax, or financial advice.",
+      "Free, Namibia-specific, and copyrighted to Oryx Polytechnic Institute: not open-source, but free to access. It is real value on day one, before accreditation, and proof of the rigor everything the institute charges for is held to. Every legal or regulatory page links its checkable source; every worked number is sourced or labelled as an assumption. None of it is legal, tax, or financial advice.",
     coursesTitle: "Crash courses, Namibia first.",
     templatesTitle: "Business templates, ready to fill.",
     minuteRead: "minute read",
@@ -51,7 +51,7 @@ const copy = {
     meta: {
       title: "Oryx 资源目录与公报",
       description:
-        "Oryx 资源目录，全部免费，无需账户：四门纳米比亚专题的速成课（在纳米比亚注册公司、NQA 与 NTA 认证解读、纳米比亚劳动法基础、纳米比亚保险），七份可填写的商业模板（信笺、商业计划、财务预测、报价单、保密协议、雇佣合同、会议纪要），另有 Oryx 公报：注明出处的文章，写纳米比亚真实的技能与工具。",
+        "Oryx 资源目录，全部免费，无需账户：纳米比亚专题的速成课与可填写的商业模板，另有 Oryx 公报：注明出处的文章，写纳米比亚真实的技能与工具。每一页法律或监管内容均链接可核查来源。",
       ogTitle: "Oryx 资源目录与公报 | Oryx 理工学院",
       ogDescription:
         "Oryx 资源目录：免费速成课与商业模板，附公报的注明出处的文章。",
@@ -63,7 +63,7 @@ const copy = {
     },
     dirEyebrow: "Oryx 资源目录",
     dirBody:
-      "免费、纳米比亚专题、版权归 Oryx Polytechnic Institute：不是开源，但免费取用。它在第一天就有真价值，先于认证，也是学院收费之物所守严谨的证明。每个数字注明出处，或标明为假设。这里没有法律、税务或财务建议。",
+      "免费、纳米比亚专题、版权归 Oryx Polytechnic Institute：不是开源，但免费取用。它在第一天就有真价值，先于认证，也是学院收费之物所守严谨的证明。每一页法律或监管内容都链接可核查来源；每个数字注明出处，或标明为假设。这里没有法律、税务或财务建议。",
     coursesTitle: "速成课，纳米比亚优先。",
     templatesTitle: "商业模板，拿来就填。",
     minuteRead: "分钟读完",

@@ -139,8 +139,11 @@ export const registerZh = [
   },
   { date: "2026-10-25", entry: "网站改版上线。" },
   { date: "2026-10-18", entry: "与 Tangison Technologies 共同公布 AI 培训课程。" },
-  /* Awaiting the founder: Gids-publikasiedatum */
-  { date: null, entry: "Oryx 资源目录发布：四门速成课，七套商业模板。" },
+  {
+    date: "2026-11-13",
+    entry:
+      "Oryx 资源目录完成来源复核并发布第一波：七门纳米比亚专题速成课与七套商业模板；法律与监管页面均链接可核查来源。",
+  },
   /* Awaiting the founder: Corner Spa-aankondigingsdatum */
   { date: null, entry: "Corner Spa 概念公布。" },
 ] as const;
@@ -272,7 +275,7 @@ export const faqsZh = [
   },
   {
     q: "什么是 Oryx 资源目录？",
-    a: "学院的免费资源库：纳米比亚专题的速成课与商业模板，版权归 Oryx Polytechnic Institute，免费取用。它先于任何报价，证明学院的做事标准。可以从四门速成课开始，或者直接取用七套模板。",
+    a: "学院的免费资源库：纳米比亚专题的速成课与商业模板，版权归 Oryx Polytechnic Institute，免费取用。它先于任何报价，证明学院的做事标准。可以从七门速成课开始，或者直接取用七套模板；法律与监管页面均链接可核查来源。",
   },
   {
     q: "调研业务覆盖什么？",

@@ -250,8 +250,11 @@ export const register = [
   },
   { date: "2026-10-25", entry: "Website relaunched." },
   { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
-  /* Awaiting the founder: Directory publication date */
-  { date: null, entry: "The Oryx Directory published: four crash courses, seven business templates." },
+  {
+    date: "2026-11-13",
+    entry:
+      "The Oryx Directory source review and Wave 1 published: seven Namibia-specific crash courses and seven business templates, with checkable source links on legal and regulatory pages.",
+  },
   /* Awaiting the founder: Corner Spa announcement date */
   { date: null, entry: "Corner Spa concept announced." },
 ] as const;
@@ -446,7 +449,7 @@ export const faqs = [
   },
   {
     q: "What is the Oryx Directory?",
-    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the four crash courses or help yourself to the seven templates.",
+    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the seven crash courses or help yourself to the seven templates; legal and regulatory pages link to their checkable sources.",
   },
   {
     q: "What does the research and development practice cover?",

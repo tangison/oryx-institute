@@ -214,6 +214,22 @@ export function docToMd(d: Doc): string {
   out.push("");
   out.push(d.sourceNote);
   out.push("");
+  if (d.sources?.length) {
+    out.push("## Checkable sources");
+    out.push("");
+    for (const source of d.sources) {
+      out.push(`- [${source.title}](${source.url}): ${source.scope}`);
+    }
+    out.push("");
+  }
+  if (d.related?.length) {
+    out.push("## Keep working");
+    out.push("");
+    for (const related of d.related) {
+      out.push(`- [${related.title}](${site.url}${related.href}): ${related.body}`);
+    }
+    out.push("");
+  }
   out.push(FREE_LINE);
   out.push("");
   out.push(COPYRIGHT_LINE);

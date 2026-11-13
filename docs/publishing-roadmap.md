@@ -1,8 +1,9 @@
 # Oryx Institute · Publishing Roadmap: Crash Courses and Textbooks
 
-Status: planning document. Owner: the Principal's office. Written for the
-institute as it stands today: pre-accreditation, Directory live with four
-crash courses and seven templates, Rapid Response Training live.
+Status: active roadmap. Owner: the Principal's office. Updated 13 November
+2026 after the Directory source review and Wave 1 publication: the Directory
+now carries seven crash courses and seven templates. Rapid Response Training
+remains live; the institute remains pre-accreditation.
 
 ---
 
@@ -55,13 +56,18 @@ innovation and applied problem-solving.
 
 ## 4. The crash course expansion (planned)
 
-The Directory grows from four courses to twelve, in three waves. Every
-course carries the existing structure and the copyright line.
+The Directory grows from the original four courses to twelve, in three waves.
+Every course carries the existing structure and the copyright line.
 
-**Wave 1 (next publish):**
-5. Start a One-Person Business in Namibia (with the templates wired in)
-6. Bookkeeping Without Fear (cash book to financial statement)
+**Wave 1 (published 13 November 2026):**
+5. Start a One-Person Business in Namibia (with templates wired in)
+6. Bookkeeping Without Fear (cash book to monthly operating view)
 7. Write a Bid That Can Win (tender literacy, public sources cited)
+
+The Wave 1 release removed or narrowed unsupported and time-sensitive claims
+from the original four courses, added checkable public-source links to every
+legal or regulatory document, and recorded the research decision in
+`docs/directory-source-ledger.md`.
 
 **Wave 2:**
 8. Sell Something Real in Thirty Days (the venture drill, from Bulletin 4)
@@ -139,7 +145,7 @@ working documents, not promises.
 
 | When | What |
 |------|------|
-| Next publish | Wave 1 courses (5-7) with the pipeline above |
+| 13 November 2026 | Wave 1 courses (5-7) published after the source, fact, teach and register passes; source ledger added |
 | Following quarter | Textbook 1 drafted, chapters published incrementally in the Directory as they pass the gates |
 | Ongoing | One Bulletin essay per wave, citing the numbers that motivated it |
 | Accreditation window | All three volumes in visible draft; assessment banks for volume 1 complete |

@@ -1,9 +1,8 @@
 /**
  * The Oryx Directory · the institute's free resource library.
- * Four Namibia-specific crash courses and seven business templates,
- * transcribed from the approved master package (05_Directory) with the
- * site's punctuation register applied. Every figure keeps its source
- * note. Nothing here is advice; every page says so.
+ *
+ * Each legal or regulatory statement is tied to a source in the public
+ * source ledger. The pages are practical learning material, not advice.
  */
 
 export type Block =
@@ -17,6 +16,20 @@ export type Section = {
   blocks: Block[];
 };
 
+export type DirectorySource = {
+  id: string;
+  title: string;
+  authority: string;
+  url: string;
+  scope: string;
+};
+
+export type RelatedResource = {
+  title: string;
+  body: string;
+  href: string;
+};
+
 export type Doc = {
   slug: string;
   kind: "course" | "template";
@@ -25,14 +38,95 @@ export type Doc = {
   standfirst: string;
   readMinutes: number;
   updated: string;
+  reviewedIso: string;
   sections: Section[];
   sourceNote: string;
+  sources?: DirectorySource[];
+  related?: RelatedResource[];
 };
 
 export const COPYRIGHT_LINE =
-  "\u00A9 Oryx Polytechnic Institute. All rights reserved.";
+  "© Oryx Polytechnic Institute. All rights reserved.";
 export const FREE_LINE =
   "Free to access, copyrighted to Oryx Polytechnic Institute. Not open-source: use it, learn from it, do not republish it as your own.";
+
+/**
+ * Public legal sources used in this release. The canonical consolidated
+ * documents are hosted by the Legal Assistance Centre and identify the
+ * underlying Government Gazette. The research ledger records the scope,
+ * retrieval date and verification decision for each source.
+ */
+export const directorySources: Record<string, DirectorySource> = {
+  bipa: {
+    id: "bipa",
+    title: "Business and Intellectual Property Authority Act 8 of 2016",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Business%20and%20Intellectual%20Property%20Authority%20Act%208%20of%202016.docx",
+    scope: "BIPA's Registration Office and functions for business registration.",
+  },
+  closeCorporations: {
+    id: "close-corporations",
+    title: "Close Corporations Act 26 of 1988",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Close%20Corporations%20Act%2026%20of%201988.docx",
+    scope: "Close-corporation formation, registration and administration.",
+  },
+  companies: {
+    id: "companies",
+    title: "Companies Act 28 of 2004",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Companies%20Act%2028%20of%202004.docx",
+    scope: "Companies, incorporation and administration.",
+  },
+  nqa: {
+    id: "nqa",
+    title: "Namibia Qualifications Authority Act 29 of 1996",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Namibia%20Qualifications%20Authority%20Act%2029%20of%201996.docx",
+    scope: "NQA's qualifications-framework, standards and accreditation objects.",
+  },
+  vet: {
+    id: "vet",
+    title: "Vocational Education and Training Act 1 of 2008",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Vocational%20Education%20and%20Training%20Act%201%20of%202008.docx",
+    scope: "NTA's vocational-training powers, funding powers and levy framework.",
+  },
+  labour: {
+    id: "labour",
+    title: "Labour Act 11 of 2007",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Labour%20Act%2011%20of%202007.docx",
+    scope: "Basic conditions, working time, leave, termination and severance.",
+  },
+  fima: {
+    id: "fima",
+    title: "Financial Institutions and Markets Act 2 of 2021",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Financial%20Institutions%20and%20Markets%20Act%202%20of%202021.docx",
+    scope: "Insurance, insurers, agents and brokers. The consolidated text records commencement on 1 May 2026, subject to listed exceptions.",
+  },
+  vat: {
+    id: "vat",
+    title: "Value-Added Tax Act 10 of 2000",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Value-Added%20Tax%20Act%2010%20of%202000.docx",
+    scope: "VAT registration and record-keeping obligations.",
+  },
+  procurement: {
+    id: "procurement",
+    title: "Public Procurement Act 15 of 2015",
+    authority: "Government Gazette of the Republic of Namibia, consolidated by the Legal Assistance Centre",
+    url: "https://www.lac.org.na/laws/annoSTAT/Public%20Procurement%20Act%2015%20of%202015.docx",
+    scope: "Public-procurement bid documents, submission, compliance documents and evaluation.",
+  },
+};
+
+const withSources = (...ids: (keyof typeof directorySources)[]) =>
+  ids.map((id) => directorySources[id]);
+
+const reviewed = "13 November 2026";
+const reviewedIso = "2026-11-13";
 
 export const directoryCourses: Doc[] = [
   {
@@ -41,88 +135,113 @@ export const directoryCourses: Doc[] = [
     no: "Course 01",
     title: "Registering a Business in Namibia",
     standfirst:
-      "Which legal form fits your business, how the BIPA name reservation really works, and the registrations that come after the certificate.",
+      "A careful map of the legal forms, the BIPA registration role, and the questions to settle before a filing is started.",
     readMinutes: 9,
-    updated: "September 2026",
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "Choosing a structure",
+        heading: "Start with the work, not the form",
         walkaway:
-          "Which legal form fits a business your size, before you file anything.",
+          "A one-page description of the business you are actually building before you choose a registration path.",
         blocks: [
           {
             t: "p",
-            text: "Namibia's common structures: a Sole Proprietorship (no separate legal entity, owner personally liable, simplest and cheapest to start), a Close Corporation or CC (separate legal entity, up to 10 members, simpler governance than a company, the long-standing default for small Namibian businesses), and a Private Company or Pty Ltd (separate legal entity, shareholders and directors, more formal governance, usually preferred once external investment or larger operations are involved).",
+            text: "Write down the work first: what you sell, who pays, who owns the work, where money will be received, and whether you will employ anyone. A registration is a legal and administrative step, not a substitute for that operating decision. If ownership, liability, tax residence or investment is material, take tailored legal and tax advice before filing.",
+          },
+          {
+            t: "list",
+            items: [
+              "The offer: one sentence describing the product or service and the customer.",
+              "The people: owner, any co-owner, and who is allowed to bind the business.",
+              "The money: expected first sale, expected costs, and the account or record system that will keep personal and business money distinguishable.",
+              "The permissions: sector licences, professional rules, tax and employer obligations that may apply to the specific activity.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Know the legal lanes",
+        walkaway:
+          "A plain distinction between doing business personally and choosing an entity governed by company or close-corporation law.",
+        blocks: [
+          {
+            t: "p",
+            text: "The Companies Act and the Close Corporations Act are separate legal frameworks. A close corporation and a company each have their own formation and administration rules. Working in your own name does not create that entity boundary. The right choice depends on the people involved, the risk of the work, money coming in, and the advice you receive. Do not treat a table like this as a legal recommendation.",
           },
           {
             t: "table",
-            head: ["Structure", "Liability", "Best for"],
+            head: ["Route to investigate", "What it means for this course", "Question to settle before filing"],
             rows: [
-              ["Sole Proprietorship", "Personal, unlimited", "Solo consultants, very early testing"],
-              ["Close Corporation (CC)", "Limited to the entity", "Small-to-mid businesses, the Namibian default"],
-              ["Private Company (Pty Ltd)", "Limited to the entity", "Businesses planning investment or larger scale"],
+              ["Business in your own name", "The owner and the work are not being presented here as a separate statutory entity.", "Can you document the money, contracts and risk clearly enough for this work?"],
+              ["Close corporation", "A form governed by the Close Corporations Act and handled through the registration system.", "Who will be members, and what ongoing records and decisions will they keep?"],
+              ["Company", "A form governed by the Companies Act and handled through the registration system.", "Who will own, direct and fund it, and what governance will the business need?"],
             ],
           },
         ],
       },
       {
-        heading: "Reserving your name",
-        walkaway: "The exact form and the two ways it can go.",
+        heading: "Use the right door",
+        walkaway:
+          "Why BIPA is the place to verify a current business-registration filing, while the governing Act tells you the legal frame.",
         blocks: [
           {
             t: "p",
-            text: "Name reservation is filed with the Business and Intellectual Property Authority (BIPA). The form requires: applicant details, the proposed name(s) in order of preference, the principal business activity, and a signature. Office use sections record whether the name is approved, and a reservation is valid for sixty days once approved. The entity must be registered within that window or the reservation lapses.",
-          },
-          {
-            t: "p",
-            text: "Worked example, from a real Oryx filing: the principal business activity was described plainly, \"Education and Training. Research and Development Advisory Services, Capacity Development, Support and Related Services\", broad enough to cover training delivery, consulting, and programme development under one registration, rather than needing separate entities for each.",
-          },
-        ],
-      },
-      {
-        heading: "Registering the entity",
-        walkaway: "What happens after the name is approved.",
-        blocks: [
-          {
-            t: "p",
-            text: "Once a name is reserved, the entity itself is registered with BIPA against that name. A CC or Pty Ltd requires founding documents (for a CC, a founding statement; for a Pty Ltd, a memorandum of incorporation), details of members or directors, and the registered address. Only after this step does the business legally exist as a separate entity, distinct from the applicant personally.",
-          },
-        ],
-      },
-      {
-        heading: "What comes after registration",
-        walkaway: "The registrations that follow, not just the one everyone remembers.",
-        blocks: [
-          {
-            t: "p",
-            text: "Registration with BIPA is the start, not the finish. Depending on the business:",
+            text: "The BIPA Act establishes BIPA and a Registration Office for business and industrial property. It names BIPA as the focal point for business registration and gives it functions including receiving, examining and keeping documents required under applicable legislation. Current forms, fees, online steps and processing arrangements are operational details. Check them directly with BIPA immediately before submitting anything; this course deliberately does not freeze them into a page that can go stale.",
           },
           {
             t: "list",
             items: [
-              "NamRA: income tax and, if turnover will exceed N$1,000,000, VAT.",
-              "Social Security Commission: mandatory once you have employees.",
-              "Sector regulators: NQA/NTA for training providers, NAMFISA for financial services, and others depending on industry.",
+              "Identify the entity route and read the current BIPA requirements for that route.",
+              "Prepare the ownership, address and founding information that the current process asks for.",
+              "Keep the submitted forms, confirmation, registration evidence and changes log together from day one.",
+              "Do not assume a name, sector approval or tax position is settled until the responsible authority confirms it.",
             ],
           },
         ],
       },
       {
-        heading: "Common mistakes",
+        heading: "Build the operating folder",
+        walkaway:
+          "A practical output: a small folder that makes the first month of trading legible.",
         blocks: [
+          {
+            t: "p",
+            text: "Create one folder, paper or digital, with five sections: identity, sales, spending, people and permissions. Put every current registration record in identity; every quote and invoice in sales; receipts and supplier records in spending; contracts and onboarding documents in people; and authority correspondence in permissions. The folder is not a compliance guarantee. It is the evidence you need in order to ask a bookkeeper, adviser or regulator a clear question.",
+          },
           {
             t: "list",
             items: [
-              "Filing a name reservation without checking the sixty-day clock, then losing it to a lapse.",
-              "Registering as a sole proprietorship for a business that will clearly need investment or limited liability later: cheaper now, expensive to unwind later.",
-              "Treating BIPA registration as the finish line rather than the first of several registrations a real operating business needs.",
+              "Identity: current registration evidence and the people authorised to act.",
+              "Sales: a sequential quote and invoice record, with a copy of the work agreed.",
+              "Spending: receipts, supplier invoices and a note of what each cost was for.",
+              "People: signed terms and a simple start-date record when you hire.",
+              "Permissions: licences, registrations, renewal dates and the source that told you they apply.",
             ],
           },
         ],
       },
     ],
     sourceNote:
-      "Based on BIPA's standard Name Reservation application form and general BIPA registration procedure. For a specific filing, confirm current forms and fees directly with BIPA, as procedures are periodically updated.",
+      "Legal orientation only, checked against the BIPA Act, Companies Act and Close Corporations Act. It does not prescribe a structure or state current forms, fees, tax thresholds or processing times. Confirm the current BIPA process and obtain tailored advice where a decision has legal, tax or investment consequences.",
+    sources: withSources("bipa", "companies", "closeCorporations"),
+    related: [
+      {
+        title: "Business Plan template",
+        body: "Turn the one-page operating description into a short plan without inventing a market size or a forecast.",
+        href: "/resources/business-plan-template",
+      },
+      {
+        title: "Invoice / Quotation template",
+        body: "Start a numbered sales record from the first quote, then keep the matching invoice.",
+        href: "/resources/invoice-quotation-template",
+      },
+      {
+        title: "Bookkeeping Without Fear",
+        body: "Set up the cash record that lets you see what came in, what went out and what is still owed.",
+        href: "/resources/bookkeeping-without-fear",
+      },
+    ],
   },
   {
     slug: "nqa-nta-accreditation-explained",
@@ -130,71 +249,80 @@ export const directoryCourses: Doc[] = [
     no: "Course 02",
     title: "NQA & NTA Accreditation, Explained",
     standfirst:
-      "Two bodies, two different jobs: which authority governs which kind of training, what actually gets checked, and why the NTA route is funded, not just recognized.",
+      "Read the statutory roles first, then build an evidence map before you ask either authority about a training offer.",
     readMinutes: 9,
-    updated: "September 2026",
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "Two bodies, two different jobs",
+        heading: "Two authorities, connected work",
         walkaway:
-          "Which authority governs which kind of training, so you stop applying to the wrong one.",
+          "A more accurate starting point than treating NQA and NTA as interchangeable application counters.",
         blocks: [
           {
             t: "p",
-            text: "Namibia runs two separate accreditation systems, and confusing them wastes months. The Namibia Qualifications Authority (NQA) registers qualifications and quality-assures education and training broadly: the general system a new institution or curriculum typically works through. The Namibia Training Authority (NTA), established under the Vocational Education and Training Act of 2008, regulates vocational and skills-based training specifically, including short, employer-focused Skills Programmes, apprenticeships, and learnerships.",
+            text: "The Namibia Qualifications Authority Act gives NQA objects that include administering a national qualifications framework, setting occupational and curriculum standards, and accrediting persons, institutions and organisations that provide education, instruction or training and meet the Act's requirements. The Vocational Education and Training Act establishes NTA. It allows NTA, in respect of vocational education and training and subject to policies and procedures determined by NQA, to develop standards and qualifications, accredit providers and programmes, register assessors, conduct assessments and quality audits, and issue awards and certificates.",
           },
+          {
+            t: "p",
+            text: "That statutory wording matters. The question is not simply which body is easier. It is what you intend to offer, whether it is vocational education and training, which standards or qualifications are in play, and which current procedure the relevant authority tells you to use.",
+          },
+        ],
+      },
+      {
+        heading: "Build an evidence map before an application",
+        walkaway:
+          "A reusable inventory of proof, rather than a last-minute collection of attachments.",
+        blocks: [
           {
             t: "table",
-            head: ["Body", "Governs", "Typical fit"],
+            head: ["Evidence area", "Write down", "Keep as proof"],
             rows: [
-              ["NQA", "Qualifications broadly, quality assurance", "New institutions, formal multi-year qualifications"],
-              ["NTA", "Vocational and skills training", "Short courses, trade skills, employer-driven programmes"],
+              ["Offer", "Title, learner, outcome, duration and delivery mode.", "Current outline, lesson sequence and assessment plan."],
+              ["Standards", "The occupational, curriculum or qualification reference you are working from.", "Source link, version and notes from the authority."],
+              ["People", "Who teaches, assesses, moderates and manages quality.", "CVs, appointment terms and role descriptions."],
+              ["Place and tools", "Every space, device, material and safety control required for the stated outcome.", "Inventory, access arrangements, maintenance and safety records."],
+              ["Learner journey", "Admission, support, assessment, records, results, complaints and appeals.", "Policies, forms and an example record flow."],
             ],
           },
-        ],
-      },
-      {
-        heading: "What the NQA evaluates",
-        walkaway: "What actually gets checked before a provider is registered.",
-        blocks: [
           {
             t: "p",
-            text: "NQA accreditation assesses a provider's staffing, facilities, and equipment against what the specific course requires. A lab- or workshop-based course (engineering, sciences) carries a materially higher accreditation bar than a laptop-based digital course, because the facilities and equipment evidence required is heavier. Processing, once an application is filed by a properly registered entity, typically runs three to six months. Accreditation is granted per course, not blanket for an institution, and is generally valid for a fixed period before renewal (commonly cited around three years).",
+            text: "Do not call the map an accreditation application. It is a working file that exposes what is missing before you make a formal claim or submit a formal document.",
           },
         ],
       },
       {
-        heading: "The NTA route: funded, not just recognized",
-        walkaway: "Why this route matters even more than the credential itself.",
+        heading: "Funding is a possibility, not a promise",
+        walkaway:
+          "What the Act permits, without turning it into a funding commitment.",
         blocks: [
           {
             t: "p",
-            text: "The NTA does not only recognize training. It funds it, through a National Training Fund built from a VET levy Namibian employers already pay. Registered NTA providers can access funded training slots, meaning revenue is not only tuition from individual students; it can come from the levy pool itself. The NTA's National Vocational Certificate categories already include ICT (Foundation, Computer Systems Support, Web Development and Networking) and Preventative Health (Occupational Health and Safety), both directly relevant to programme lines already under consideration.",
+            text: "The VET Act establishes the National Training Fund. It permits NTA to provide financial and technical assistance and to fund vocational education and training programmes and projects in the circumstances described in the Act. It also provides a framework under which a levy may be imposed by Gazette notice. Those provisions do not mean that a provider is automatically funded, that a particular levy rate applies, or that a training place has been approved. Verify the live programme, notice, criteria and funding terms with NTA before budgeting against them.",
           },
         ],
       },
       {
-        heading: "Registering as a provider",
-        walkaway: "The sequencing that avoids wasted paperwork.",
+        heading: "Your output: a route brief",
+        walkaway:
+          "One concise document you can take to an authority, partner or adviser without overstating what is approved.",
         blocks: [
           {
-            t: "p",
-            text: "The general order: legal entity registration (BIPA) first, since both the NQA and the NTA require a properly registered entity before an application is considered. Then the accreditation application itself, scoped to the specific courses being offered, with evidence of staffing, facilities and equipment, and curriculum design submitted for review.",
-          },
-        ],
-      },
-      {
-        heading: "The practical takeaway",
-        blocks: [
-          {
-            t: "p",
-            text: "A digital-first course line (web development, digital marketing, computer literacy) is accreditation-light on the facilities and equipment criterion compared to a lab-based one. That is exactly why sequencing digital courses first, while a physical training center is still in planning, is the lower-risk path rather than a compromise.",
+            t: "list",
+            items: [
+              "State the proposed training outcome in plain language and name the intended learner.",
+              "List the standards or qualification references you have found, with links and dates checked.",
+              "Attach the evidence map and mark each item ready, missing or needing confirmation.",
+              "Write three questions for the current authority process: route, documents and applicable deadlines or fees.",
+              "Keep all replies with the route brief. A phone answer is useful, but a written confirmation is easier to work from.",
+            ],
           },
         ],
       },
     ],
     sourceNote:
-      "Based on NQA and NTA's publicly described mandates and accreditation criteria. Processing times and validity periods should be reconfirmed directly with NQA/NTA at the time of filing, as these are subject to change.",
+      "This is a statutory orientation, not an accreditation decision or a promise of funding. It deliberately removes unsourced processing-time, validity-period, programme-category and funding claims. Confirm the current route, evidence requirements and any funding criteria directly with NQA and NTA before acting.",
+    sources: withSources("nqa", "vet"),
   },
   {
     slug: "namibian-labour-law-basics",
@@ -202,105 +330,117 @@ export const directoryCourses: Doc[] = [
     no: "Course 03",
     title: "Namibian Labour Law Basics",
     standfirst:
-      "The written contract, the leave minimums, the overtime ceiling, and why Namibia is not an employment-at-will jurisdiction.",
-    readMinutes: 10,
-    updated: "1 November 2026",
+      "The statutory floor on hours, leave, notice, dismissal and severance, read from the Labour Act without invented payroll rules.",
+    readMinutes: 11,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The contract, in writing, always",
-        walkaway: "What a valid Namibian employment contract must contain.",
+        heading: "Put the terms on paper, then test the floor",
+        walkaway:
+          "Why a clear written agreement is good practice, and what the Act says about basic conditions.",
         blocks: [
           {
             t: "p",
-            text: "The Labour Act 11 of 2007 requires a written contract for every employee. This is not optional. At minimum it must state job title and duties, salary and payment cycle, working hours (statutory maximum 45 hours per week), leave entitlements, and termination terms. Contracts are either indefinite (no end date, the standard form) or fixed-term (a specific period or project). Repeated fixed-term contracts for the same ongoing work can be deemed indefinite by the Labour Court, so fixed-term status is not a loophole around permanent-employee rights.",
+            text: "A written employment agreement is a sensible working record: role, pay, hours, place of work, start date, leave, notice and who signs for the employer. The Labour Act's basic conditions form terms of a contract of employment unless the Act permits otherwise or a contract or collective agreement is more favourable to the employee. The Act text reviewed for this course does not say that every employment contract must itself be written. Do not turn a good practice into a false statutory quote.",
+          },
+          {
+            t: "list",
+            items: [
+              "Write the actual ordinary days and hours, not only a weekly total.",
+              "State remuneration and its payment cycle plainly.",
+              "Record the agreed role, reporting line and place of work.",
+              "Use a signed copy for each party, then keep a change log when terms are varied.",
+              "Get professional advice for senior, unusual, cross-border, collective-agreement or dispute-sensitive arrangements.",
+            ],
           },
         ],
       },
       {
-        heading: "Leave, in full",
-        walkaway: "The minimums that apply regardless of what a contract says.",
+        heading: "Hours and overtime",
+        walkaway:
+          "The normal ceiling, the stated exceptions, and why overtime needs an agreement.",
         blocks: [
           {
             t: "table",
-            head: ["Leave type", "Minimum"],
+            head: ["Labour Act rule", "Statutory position"],
             rows: [
-              [
-                "Annual leave",
-                "Four consecutive weeks per 12-month cycle, counted against the employee's ordinary working week: 20 working days on a 5-day week, 24 working days on a 6-day week",
-              ],
-              [
-                "Maternity leave",
-                "12 weeks. From 1 October 2026 the SSC benefit pays 100% of the eligible member's basic salary, capped at N$20,000 per month, through the Maternity, Sick and Death Benefit Fund",
-              ],
-              ["Sick leave", "Accumulates based on length of employment"],
-              ["Public holidays", "Paid, per the national calendar"],
+              ["Ordinary hours for most employees", "No more than 45 hours a week; no more than 9 hours a day for a five-day-or-fewer week, or 8 hours a day where more than five days are worked."],
+              ["Security officers and emergency health-care employees", "The Act sets a different ceiling of 60 hours a week, with stated daily limits. A minister may also designate a class of employee for this rule."],
+              ["Overtime", "It must be in accordance with an agreement. The agreement may not require more than 10 overtime hours a week or more than 3 a day, subject to the Act's provisions."],
+              ["Overtime pay", "At least one and a half times the hourly basic wage; at least double in the stated Sunday or public-holiday circumstance."],
             ],
           },
           {
             t: "p",
-            text: "Annual leave accrues through the first year but cannot be taken until that year completes. Unused leave generally must be used within four months of the cycle's end (extendable to six months by written agreement). An employer cannot let leave balances run indefinitely without a policy governing it. The working-days distinction matters in the contract too: a 5-day-week employee is owed 20 working days, not 24, and the contract template on this Directory is written to reflect that.",
+            text: "The Act provides routes for particular variations and exemptions. A generic template cannot decide whether one applies. Keep the agreement and any official approval with the roster records.",
           },
         ],
       },
       {
-        heading: "Pay and overtime",
-        walkaway: "Where the legal floor actually sits.",
+        heading: "Leave is more specific than a headline",
+        walkaway:
+          "The statutory calculation points that belong in a leave record.",
         blocks: [
           {
-            t: "p",
-            text: "Statutory minimum wages are set by sectoral determination, with phased increases applying per sector. The hourly minimums effective January 2026, per the Ministry of Labour:",
-          },
-          {
             t: "table",
-            head: ["Worker category", "Minimum hourly rate (N$)"],
+            head: ["Leave", "What the Act states"],
             rows: [
-              ["General workers", "18"],
-              ["Domestic workers", "15"],
-              ["Agricultural workers", "14"],
-              ["Security workers", "16"],
+              ["Annual leave", "At least four consecutive weeks with full remuneration per annual leave cycle. The Act's table gives 20 working days for a five-day ordinary work week and 24 for a six-day week."],
+              ["Sick leave", "For a five-day ordinary work week, not less than 30 working days in a sick-leave cycle; for a six-day week, not less than 36. During the first year the entitlement is one day for every 26 days worked."],
+              ["Compassionate leave", "Five working days with full remuneration during each period of 12 months of continuous employment, in the circumstances defined by the Act."],
+              ["Maternity leave", "After six months' continuous service, not less than 12 weeks, calculated as the Act provides. The Act preserves contract terms and specifies the employer's non-basic-wage obligation during the leave; Social Security payment is governed separately."],
             ],
           },
           {
             t: "p",
-            text: "Confirm current gazetted rates on the Ministry of Labour's own pages (mol.gov.na) before relying on this for payroll. Overtime may not exceed 10 hours per week or 3 hours per day, and must be agreed, not unilaterally imposed by the employer. It is paid at 1.5 times the basic hourly rate, rising to 2 times for Sundays and public holidays.",
+            text: "The annual-leave section also sets when leave is to be taken and restricts payment instead of leave except on termination. Keep a leave ledger with the ordinary work week, cycle start, leave taken, public holidays inside leave and any written extension. Do not rely on a generic annual balance alone.",
           },
         ],
       },
       {
-        heading: "Termination: notice and severance",
-        walkaway: "Why Namibia is not an employment-at-will jurisdiction.",
+        heading: "Notice, fairness and severance",
+        walkaway:
+          "The baseline is not an employment-at-will rule.",
         blocks: [
           {
             t: "p",
-            text: "Termination requires a valid, fair reason and a fair procedure. Dismissal without both can be ruled unfair regardless of notice given. Minimum notice periods scale with service:",
+            text: "Where a contract may be terminated on notice, the minimum notice is one day for employment of four weeks or less, one week for more than four weeks up to one year, and one month for more than one year. An employer's notice must be in writing and state the reason for termination. The Act also says an employer must not dismiss without a valid and fair reason and the applicable procedure.",
           },
           {
-            t: "table",
-            head: ["Length of service", "Minimum notice"],
-            rows: [
-              ["Under 4 weeks", "1 day"],
-              ["4 weeks to 1 year", "1 week"],
-              ["Over 1 year", "1 month"],
+            t: "p",
+            text: "After 12 months of continuous service, the Act generally requires severance pay on dismissal, death while employed, or resignation or retirement on reaching 65. It lists exceptions, including a fair dismissal for misconduct or poor work performance. The minimum amount is one week's remuneration for each year of continuous service. This is a high-stakes area: obtain timely, fact-specific labour advice rather than applying a summary to a live dispute.",
+          },
+        ],
+      },
+      {
+        heading: "Your output: a terms-and-records check",
+        walkaway:
+          "A one-page check you can use before the first shift, not a substitute for employer registration or payroll advice.",
+        blocks: [
+          {
+            t: "list",
+            items: [
+              "Record role, pay, ordinary days and hours, start date and payment cycle.",
+              "Keep signed overtime agreements and a roster showing actual hours.",
+              "Maintain annual, sick, compassionate and maternity leave records separately.",
+              "Before ending employment, pause: identify the reason, notice route, procedure, final payments and whether specialist advice is needed.",
+              "Check current wage orders, Social Security, tax, work-permit and sector requirements directly with the competent authority. They are not calculated by this course.",
             ],
-          },
-          {
-            t: "p",
-            text: "Severance pay is generally calculated at one week's pay per year of service, and is not payable where dismissal was for a valid reason properly conducted. It applies to termination generally, not as a penalty exclusive to unfair dismissal.",
-          },
-        ],
-      },
-      {
-        heading: "Registration obligations as an employer",
-        blocks: [
-          {
-            t: "p",
-            text: "Before hiring, an employer must register with the Ministry of Labour, the Social Security Commission (SSC: 0.9% employee and 0.9% employer contribution in commonly cited figures), and NamRA for PAYE. Non-Namibian hires require a work permit through the Ministry of Home Affairs, arranged well in advance.",
           },
         ],
       },
     ],
     sourceNote:
-      "Based on the Labour Act 11 of 2007 and commonly published employer guidance. This is not legal advice. For a specific dismissal, contract dispute, or sector-specific requirement, consult a qualified Namibian labour lawyer.",
+      "Based on the Labour Act 11 of 2007, including sections 16, 17, 23 to 26, 30, 33 and 35. This is general legal information, not legal advice. Current wage orders, payroll contributions, employer registrations, permits and sector rules need a separate check with the responsible authority or a qualified Namibian labour professional.",
+    sources: withSources("labour"),
+    related: [
+      {
+        title: "Employment Contract template",
+        body: "A fill-in record of agreed terms, designed to be reviewed and adapted before use.",
+        href: "/resources/employment-contract-template",
+      },
+    ],
   },
   {
     slug: "insurance-in-namibia",
@@ -308,72 +448,460 @@ export const directoryCourses: Doc[] = [
     no: "Course 04",
     title: "Insurance in Namibia",
     standfirst:
-      "Who regulates the industry, why there are two separate regimes, and the rule that surprises most people: commission only, no exceptions.",
-    readMinutes: 10,
-    updated: "September 2026",
+      "A buyer's boundary map: read the cover, identify the regulated role, and know what a policy question cannot answer.",
+    readMinutes: 9,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "Who regulates insurance here",
-        walkaway: "The one name that matters before you trust anyone selling cover.",
+        heading: "Know which question you are asking",
+        walkaway:
+          "The difference between buying cover, giving advice, arranging cover and carrying on insurance business.",
         blocks: [
           {
             t: "p",
-            text: "The Namibia Financial Institutions Supervisory Authority (NAMFISA), established under Act No. 3 of 2001, regulates and supervises all financial institutions and services in Namibia, insurance included. As of 1 May 2026, insurers also operate under a new prudential framework set by the Financial Institutions and Markets Act (FIMA): a significant, recent shift in how capital adequacy and governance are assessed, not a legacy rulebook.",
+            text: "For a buyer, the immediate question is usually practical: what loss would stop the business, what is excluded, what evidence is needed for a claim, and what can you afford to retain? For a seller, adviser, agent or broker, the regulatory question is different. The Financial Institutions and Markets Act regulates insurance, insurers, agents and brokers. Do not use a consumer checklist as permission to give or sell regulated insurance advice.",
+          },
+          {
+            t: "list",
+            items: [
+              "Property and equipment: what is insured, where it is insured and what evidence of value is required?",
+              "Liability: whose claim could arise from the work, and what activity is actually described in the policy?",
+              "Vehicle or mobile work: who drives, where the work happens and what conditions apply?",
+              "People and continuity: what happens if a named person cannot work, and what is not covered?",
+            ],
           },
         ],
       },
       {
-        heading: "Two separate regimes",
-        walkaway: "Why insurance is not one licence.",
+        heading: "The legal boundary is real",
+        walkaway:
+          "Why registration and scope should be checked before someone markets insurance services.",
         blocks: [
           {
             t: "p",
-            text: "Namibia separates Long-Term Insurance (life, funeral, retirement-linked products) from Short-Term Insurance (motor, property, liability and similar), each governed by its own Act (the Long-Term Insurance Act and the Short-Term Insurance Act, both 1998, now operating alongside FIMA). A broker or agent typically registers against the specific category they operate in, not a single blanket licence.",
+            text: "FIMA section 5 says a person may not carry on insurance or reinsurance business in Namibia unless registered or deemed registered and acting within the class shown on its registration. Its Part 7 defines an insurance agent and an insurance broker, then says a person may not, for compensation, commission or another thing of value, carry on the activities of an agent or broker unless registered or deemed registered to do so. Contravention can be an offence. The Act's exact scope and exceptions matter, so do not infer a licence from a job title, a social-media profile or a business card.",
+          },
+          {
+            t: "p",
+            text: "Section 54 also restricts what an agent or broker may charge or receive for a service: other than the commission determined in standards. That is more precise than the old shorthand that every person connected to insurance must be paid 'commission only'. Employment terms, standards and a person's actual role need competent, current advice.",
           },
         ],
       },
       {
-        heading: "Only registered intermediaries may operate. No exceptions.",
-        walkaway: "Why this is a criminal matter, not just a compliance nicety.",
+        heading: "Read the policy as a working document",
+        walkaway:
+          "A short evidence-first method for a policy or quote before you pay.",
         blocks: [
           {
-            t: "p",
-            text: "Nobody may act as an insurance agent, broker, or reinsurance broker in Namibia unless registered with NAMFISA. This applies to anyone performing the duties, including clerks and salespeople, regardless of whether selling is their core role or an occasional task. Transacting through an unregistered agent or broker is a criminal offence, with convictions carrying fines of up to N$150,000, up to 10 years' imprisonment, or both. The public can and should request proof of registration before transacting.",
+            t: "table",
+            head: ["Read this", "Ask this", "Keep this"],
+            rows: [
+              ["Insured party and activity", "Does the name, legal form, address and described activity match the real business?", "Quote, proposal, schedule and any correction request."],
+              ["Cover and exclusions", "What event triggers cover, what is expressly excluded, and what limit or excess applies?", "The full wording, schedule and endorsements, not only a summary."],
+              ["Duties and evidence", "What must be disclosed, maintained, reported or documented?", "Photos, valuations, service records, inventory and correspondence."],
+              ["Claims route", "Who must be told, how quickly, and what should not be repaired or disposed of before instruction?", "Claim number, dated notice and every document sent."],
+            ],
           },
         ],
       },
       {
-        heading: "How agents and brokers are paid",
-        walkaway: "The one rule that surprises most people outside the industry.",
+        heading: "Your output: a cover brief",
+        walkaway:
+          "A one-page request that lets an authorised provider answer a defined business need.",
         blocks: [
           {
-            t: "p",
-            text: "Registered agents and brokers must be remunerated exclusively by commission, in monetary form. Salary-based compensation for this role is not permitted, and neither are non-monetary perks (overseas trips, expensive gifts) on top of commission. This has applied since the 2014 directives and remains a live compliance point NAMFISA actively enforces.",
-          },
-        ],
-      },
-      {
-        heading: "Registering as a broker",
-        walkaway: "The actual sequence, not just \"apply to NAMFISA\".",
-        blocks: [
-          {
-            t: "p",
-            text: "The process runs through NAMFISA's Online Electronic Regulatory System (ERS): create a profile, reserve the proposed entity name, then complete and submit the Application for Registration Form online, accompanied by the required supporting documents and the application fee. A submitted application shows as \"pending approval\" until processed. This is not instant.",
-          },
-        ],
-      },
-      {
-        heading: "Why this matters beyond the industry itself",
-        blocks: [
-          {
-            t: "p",
-            text: "For Oryx specifically: any future Oryx product involving insurance-linked advice or distribution would fall under this exact regime. This course is not only for people entering the sector as a career; it is a boundary map for what any business can and cannot say about insurance without a NAMFISA registration.",
+            t: "list",
+            items: [
+              "Describe the business activity in ordinary language, including where it happens.",
+              "List the assets, people and third-party risks you want to understand, without guessing a policy class.",
+              "State your evidence: inventory, invoices, photos, vehicle details and existing policy documents.",
+              "Ask the provider to identify the proposed cover, material exclusions, excesses, conditions and cancellation route in writing.",
+              "Verify the provider's current authority and seek independent professional advice where the decision is material.",
+            ],
           },
         ],
       },
     ],
     sourceNote:
-      "Based on NAMFISA's published regulatory guidance, the Long-Term and Short-Term Insurance Acts, and FIMA (2021), in force from 1 May 2026. This is a plain-language reference, not financial or legal advice. Confirm current requirements directly with NAMFISA before acting.",
+      "Based on the Financial Institutions and Markets Act 2 of 2021, whose consolidated text records commencement on 1 May 2026 subject to listed exceptions. This is not insurance, financial or legal advice, and it does not identify a provider or recommend a policy. Confirm current registration, standards and policy terms directly with NAMFISA and the authorised provider.",
+    sources: withSources("fima"),
+  },
+  {
+    slug: "start-a-one-person-business-in-namibia",
+    kind: "course",
+    no: "Course 05",
+    title: "Start a One-Person Business in Namibia",
+    standfirst:
+      "Turn one useful skill into a small operating system: an offer, a proof trail, a cash habit and a legal question list you can act on.",
+    readMinutes: 12,
+    updated: reviewed,
+    reviewedIso,
+    sections: [
+      {
+        heading: "Choose one buyer and one useful result",
+        walkaway:
+          "A sellable first sentence, not a broad description of everything you could do.",
+        blocks: [
+          {
+            t: "p",
+            text: "A one-person business begins with an observable result for a specific buyer. Write: 'I help [person or organisation] get [result] by [method], for [price or price basis].' This is a draft, not a slogan. It gives you something a real customer can correct. Keep the first offer narrow enough that you can deliver it personally and record what happened.",
+          },
+          {
+            t: "list",
+            items: [
+              "Name one buyer with a real setting: a household, local shop, contractor, school or office.",
+              "Name the result in the buyer's language: repaired, delivered, cleaned, recorded, trained, installed or designed.",
+              "Set a clear boundary: what is included, what is not, when the work starts and what proof of completion looks like.",
+              "Ask three potential buyers what they currently do instead, what it costs and what would make them switch.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Run a small, visible test",
+        walkaway:
+          "A worked Namibian-dollar example that is labelled as an assumption, not market data.",
+        blocks: [
+          {
+            t: "p",
+            text: "Worked example, illustrative only: a sole operator offers a two-hour basic digital filing clean-up to a neighbourhood business. They quote N$600 for the session. Their transport and printing budget is N$120. The gross cash left before any other cost is N$480. Those figures are assumptions for a test, not a price recommendation, wage claim, tax calculation or a statement about the local market. The useful question is whether the customer will accept the scope, pay on the agreed terms and ask for the result again.",
+          },
+          {
+            t: "table",
+            head: ["Before the test", "During the test", "After the test"],
+            rows: [
+              ["Write the scope, price basis, date and what the customer must provide.", "Record time, materials, travel, customer changes and proof of work completed.", "Issue the invoice, record payment, total the direct costs and ask what the customer would change."],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Keep business money legible",
+        walkaway:
+          "A first-day habit that makes a later registration, tax or funding question easier to answer.",
+        blocks: [
+          {
+            t: "p",
+            text: "Use a sequential quote number, sequential invoice number and one cash record. Keep the customer agreement, invoice, payment evidence and receipt for every job together. If you take money out for yourself, label it rather than hiding it inside a supplier cost. The habit is useful before and after any entity registration. It does not decide your tax status, and it is not a substitute for professional bookkeeping or tax advice.",
+          },
+          {
+            t: "list",
+            items: [
+              "Money in: date, customer, invoice number, amount received and payment method.",
+              "Money out: date, supplier, reason, amount and receipt location.",
+              "Money still owed: invoice number, due date, reminder date and outcome.",
+              "Owner movement: a distinct note for money introduced or taken out by the owner.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Treat registration as a decision gate",
+        walkaway:
+          "A question list for BIPA, NamRA, an employer or a sector regulator, without pretending one checklist fits every activity.",
+        blocks: [
+          {
+            t: "p",
+            text: "Business registration, tax, employment and sector permissions have different purposes. BIPA's legislation makes it the focal point for business registration; company and close-corporation law govern those statutory forms. Other obligations depend on the activity and facts. Make a question list, take the actual offer and ownership facts to the competent authority or adviser, and keep the reply. A training provider, food business, transport operator, financial-services business and home-based service will not necessarily have the same path.",
+          },
+          {
+            t: "list",
+            items: [
+              "Which legal form, if any, matches the ownership and risk of this specific work?",
+              "Which current BIPA forms, fees and registration requirements apply to that route?",
+              "What tax registration, record-keeping or invoicing position applies before I quote tax or add a tax line?",
+              "Do I need an employer, municipal, professional or sector permission before I start?",
+              "What event changes the answer: turnover, hiring, a new premises, a regulated service or a new owner?",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Your output: the first-business pack",
+        walkaway:
+          "Four pages that are useful even if you decide not to register or launch yet.",
+        blocks: [
+          {
+            t: "list",
+            items: [
+              "A one-page offer and scope.",
+              "A completed quotation and invoice draft, with no tax claimed unless your position is confirmed.",
+              "A one-page cash book for the test job.",
+              "A dated registration-and-permissions question list with the source of every answer.",
+            ],
+          },
+        ],
+      },
+    ],
+    sourceNote:
+      "Practical business-learning material, not legal, tax, financial or investment advice. The worked Namibian-dollar example is explicitly illustrative. The legal orientation is limited to BIPA's role and the existence of company and close-corporation frameworks; verify current procedures and any activity-specific obligation with the responsible authority or a qualified adviser.",
+    sources: withSources("bipa", "companies", "closeCorporations"),
+    related: [
+      {
+        title: "Business Plan template",
+        body: "Use it to turn the test into a written operating plan. Label every number as an assumption until it is an actual.",
+        href: "/resources/business-plan-template",
+      },
+      {
+        title: "Invoice / Quotation template",
+        body: "Create the first customer-facing record without adding a tax line you have not confirmed.",
+        href: "/resources/invoice-quotation-template",
+      },
+      {
+        title: "Financial Projections template",
+        body: "Move from one test job to a cautious twelve-month cash view.",
+        href: "/resources/financial-projections-template",
+      },
+      {
+        title: "Meeting Minutes template",
+        body: "Use it for an owner check-in, supplier meeting or partnership conversation so decisions do not disappear.",
+        href: "/resources/meeting-minutes-template",
+      },
+    ],
+  },
+  {
+    slug: "bookkeeping-without-fear",
+    kind: "course",
+    no: "Course 06",
+    title: "Bookkeeping Without Fear",
+    standfirst:
+      "From one cash record to a monthly view of sales, spending, money owed and the question your accountant needs answered.",
+    readMinutes: 12,
+    updated: reviewed,
+    reviewedIso,
+    sections: [
+      {
+        heading: "Bookkeeping is a trail, not a performance",
+        walkaway:
+          "The minimum records that let you reconstruct a month without trusting your memory.",
+        blocks: [
+          {
+            t: "p",
+            text: "Bookkeeping answers four basic questions: what came in, what went out, what is still owed, and what evidence supports each number. Start with a cash book, invoice list and receipt folder. Use the same reference number across the quote, invoice, payment record and customer conversation. A spreadsheet is acceptable if it is complete, backed up and reconciled to what actually happened.",
+          },
+          {
+            t: "table",
+            head: ["Record", "Minimum columns", "Evidence"],
+            rows: [
+              ["Cash book", "Date, reference, description, money in, money out, running balance.", "Bank, mobile-money or cash evidence."],
+              ["Sales list", "Invoice number, customer, date, amount, due date, paid date.", "Quote, invoice and acceptance or delivery evidence."],
+              ["Spend list", "Receipt number, supplier, category, date, amount, paid status.", "Supplier invoice, receipt and payment evidence."],
+              ["Money owed", "Who owes whom, amount, due date, next action.", "Invoice or supplier statement and correspondence."],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Work one transaction through",
+        walkaway:
+          "A small example that shows the method, with every amount clearly labelled as an assumption.",
+        blocks: [
+          {
+            t: "p",
+            text: "Illustrative example only: on 3 June, a one-person service business invoices a client N$1,200 for completed work. On 5 June, N$1,200 arrives by transfer. On 6 June, it pays N$180 for travel and N$90 for printing. The cash book records N$1,200 in, N$270 out and N$930 net cash movement for those three transactions. That is not profit: it ignores the operator's time and any other costs. It is also not a tax calculation. It is simply a trail from invoice to payment to receipt.",
+          },
+          {
+            t: "table",
+            head: ["Date", "Reference", "Description", "In (N$)", "Out (N$)", "Evidence"],
+            rows: [
+              ["3 June", "INV-001", "Service invoiced", "", "", "Copy of invoice"],
+              ["5 June", "RCV-001", "Customer payment", "1,200", "", "Bank or mobile-money record"],
+              ["6 June", "EXP-001", "Travel", "", "180", "Receipt"],
+              ["6 June", "EXP-002", "Printing", "", "90", "Receipt"],
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Close the month",
+        walkaway:
+          "A repeatable 30-minute routine that produces a usable management snapshot.",
+        blocks: [
+          {
+            t: "list",
+            items: [
+              "Enter every payment and receipt, then sort unfiled evidence by reference number.",
+              "Compare the cash-book balance to the bank, mobile-money or cash evidence. Write down every difference rather than forcing the numbers to agree.",
+              "List unpaid customer invoices and unpaid supplier bills separately from money already received or paid.",
+              "Group spending into a small number of honest categories such as materials, travel, tools, rent, communications and owner movement.",
+              "Write one sentence on the next month's cash pressure: a large bill, a late customer, a seasonal gap or an uncertain quote.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "VAT records need more care, not less",
+        walkaway:
+          "The statutory record rule without guessing your registration status or rate.",
+        blocks: [
+          {
+            t: "p",
+            text: "The VAT Act requires a registered person, and a person liable for tax under the Act, to maintain specified records in English at the business place in Namibia, including originals of received tax invoices, copies of issued tax invoices and accounting records. It says records required under that section must be retained for at least five years after the relevant tax period. That does not mean every startup is VAT-registered or may add VAT to an invoice. Confirm registration, rate, invoicing and return requirements directly with NamRA or a qualified tax professional before you label a document as a tax invoice or claim input tax.",
+          },
+        ],
+      },
+      {
+        heading: "Your output: a one-page monthly view",
+        walkaway:
+          "A page you can use to make the next decision, then take to a bookkeeper when the work becomes more complex.",
+        blocks: [
+          {
+            t: "list",
+            items: [
+              "Cash received this month, with the evidence reconciled.",
+              "Cash paid this month, grouped by an honest category.",
+              "Customer money still due, with a next action and date.",
+              "Supplier bills still due, with a payment date or question.",
+              "A short note on the balance: available cash is not automatically profit, and it is not automatically money free to take out.",
+            ],
+          },
+        ],
+      },
+    ],
+    sourceNote:
+      "Education on record-keeping, not accounting, audit or tax advice. The monetary example is an assumption-based teaching example, not a pricing or tax illustration. VAT requirements are limited here to the record-keeping rule in section 48 of the Value-Added Tax Act; confirm your current NamRA position before charging, describing or recovering VAT.",
+    sources: withSources("vat"),
+    related: [
+      {
+        title: "Financial Projections template",
+        body: "Use real monthly records to replace early assumptions in the forward view.",
+        href: "/resources/financial-projections-template",
+      },
+      {
+        title: "Invoice / Quotation template",
+        body: "Keep the customer-facing documents aligned with the references in the cash book.",
+        href: "/resources/invoice-quotation-template",
+      },
+    ],
+  },
+  {
+    slug: "write-a-bid-that-can-win",
+    kind: "course",
+    no: "Course 07",
+    title: "Write a Bid That Can Win",
+    standfirst:
+      "Tender literacy for public opportunities: read the document, meet every stated requirement, price the scope and submit a complete record.",
+    readMinutes: 13,
+    updated: reviewed,
+    reviewedIso,
+    sections: [
+      {
+        heading: "A bid is a response to a stated test",
+        walkaway:
+          "Why persuasive prose cannot repair a missing compulsory document, signature or deadline.",
+        blocks: [
+          {
+            t: "p",
+            text: "The Public Procurement Act requires a bidding document to state clear process instructions, a clear statement of requirements, the evaluation methodology and criteria, and the proposed contract form or conditions. It also requires bids to be evaluated according to the stated criteria and methodology. Your first task is therefore not to write an impressive introduction. It is to turn the document into a complete compliance list and answer only what it asks.",
+          },
+          {
+            t: "list",
+            items: [
+              "Create a line for every mandatory form, certificate, signature, price schedule, technical response and deadline.",
+              "Copy the exact requirement and page reference before deciding who will provide it.",
+              "Mark each item mandatory, scored, explanatory or not applicable only where the document permits that conclusion.",
+              "Use the stated clarification route and date. Do not rely on informal assurances.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Build a compliance matrix",
+        walkaway:
+          "A working document that keeps the bid team from discovering a gap on submission day.",
+        blocks: [
+          {
+            t: "table",
+            head: ["Requirement", "Evidence or answer", "Owner", "Status"],
+            rows: [
+              ["Legal and eligibility documents", "Current document named in the bidding document, checked for expiry and entity name.", "Owner or administrator", "Ready / question / missing"],
+              ["Technical response", "Method, schedule, people, equipment and proof mapped to the stated requirement.", "Technical lead", "Ready / question / missing"],
+              ["Price schedule", "Every line priced or completed exactly as instructed; arithmetic independently checked.", "Commercial lead", "Ready / question / missing"],
+              ["Declarations and signatures", "Correct version, authorised signatory and date.", "Authorised signatory", "Ready / question / missing"],
+              ["Submission", "Method, address or platform, file naming, copies, deadline and receipt evidence.", "Submission owner", "Ready / question / missing"],
+            ],
+          },
+          {
+            t: "p",
+            text: "The Act identifies documents that a bidder or supplier must submit in the public-procurement setting described in section 50, including specified tax, Social Security, affirmative-action, labour-undertaking and business-registration evidence, with a distinct rule for sole proprietors. The invitation and current law control. Do not copy an old tender's document pack into a new bid without checking the new document and current authority requirements.",
+          },
+        ],
+      },
+      {
+        heading: "Write to the evaluation, not around it",
+        walkaway:
+          "A method statement that is easy to match against the buyer's stated criteria.",
+        blocks: [
+          {
+            t: "p",
+            text: "For every technical criterion, use the same order: requirement, method, person responsible, timing, proof and risk control. If a criterion asks for experience, show the relevant work, your role, dates and evidence. If it asks for a schedule, state the sequence, dependencies and who owns each handover. Do not claim capacity you cannot demonstrate. An honest limitation with a workable mitigation is safer than an unsupported promise.",
+          },
+          {
+            t: "list",
+            items: [
+              "Requirement: restate the buyer's need in a short heading.",
+              "Method: state the steps you will take and the output the buyer receives.",
+              "People and tools: name only resources that are actually available or properly committed.",
+              "Proof: attach or cite the document that supports the claim.",
+              "Risk: identify the practical risk and the action that reduces it, without inventing a guarantee.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Price the scope before you price the competition",
+        walkaway:
+          "A defensible price basis, not a race to the lowest number.",
+        blocks: [
+          {
+            t: "p",
+            text: "Public-procurement evaluation under the Act looks for the lowest evaluated substantially responsive bid that meets the qualification criteria, using the criteria and methodology in the bidding documents. That is not the same as 'write the lowest price you can imagine'. Build the price from labour, materials, travel, equipment, administration, contingencies allowed by the document and the contract conditions. Have a second person check quantities, extensions, totals and words against figures. If the tender specifies a price schedule, use it exactly.",
+          },
+        ],
+      },
+      {
+        heading: "Submit, preserve, learn",
+        walkaway:
+          "The final proof trail and a repeatable improvement loop.",
+        blocks: [
+          {
+            t: "p",
+            text: "The Act sets a written, signed and sealed-envelope default at the specified address, while allowing other methods where the bidding documents authorise them. Late sealed-envelope bids must be returned unopened. Follow the actual invitation's method and deadline, not this sentence. Save the final PDF or paper copy, all attachments, the submission receipt or screenshot, clarification record and a short after-action note. A failed bid can still improve the next one if you can see exactly what was submitted.",
+          },
+          {
+            t: "list",
+            items: [
+              "Finish the compliance matrix before formatting polish.",
+              "Run a red-team check: someone not involved reads only against the invitation.",
+              "Submit early enough to correct a technical failure, where the process permits it.",
+              "Archive the exact submission and proof of delivery.",
+              "After the outcome, record what was reusable, what was missing and what must be renewed before the next opportunity.",
+            ],
+          },
+        ],
+      },
+    ],
+    sourceNote:
+      "Tender-literacy material, not procurement, legal, tax or commercial advice and not a promise of an award. Legal statements are limited to the Public Procurement Act's public-procurement provisions. Each invitation, current regulations, standard document, authority instruction and contract controls; verify them before bidding.",
+    sources: withSources("procurement"),
+    related: [
+      {
+        title: "Business Plan template",
+        body: "Use the operations and risk sections to gather the evidence a bid asks you to demonstrate.",
+        href: "/resources/business-plan-template",
+      },
+      {
+        title: "Financial Projections template",
+        body: "Use the assumptions sheet to test whether a proposed price can support the work you promise.",
+        href: "/resources/financial-projections-template",
+      },
+      {
+        title: "Meeting Minutes template",
+        body: "Record bid/no-bid decisions, owners, clarification questions and the final submission review.",
+        href: "/resources/meeting-minutes-template",
+      },
+    ],
   },
 ];
 
@@ -384,19 +912,32 @@ export const directoryTemplates: Doc[] = [
     no: "Template 01",
     title: "Letterhead",
     standfirst:
-      "The correspondence register: who you are, where you write from and how to reach you, set one idea per paragraph, with the institute's own letterhead as the worked example.",
-    readMinutes: 2,
-    updated: "September 2026",
+      "A clean correspondence header and a short check before you put a business claim into print.",
+    readMinutes: 3,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The template",
+        heading: "What belongs on the page",
         blocks: [
-          { t: "p", text: "Replace the bracketed fields as you go: [Business name] takes your registered name, with a tagline or registered activity on one line, and your contact line: P.O. Box, town, Namibia, phone, email, website. Nothing in brackets should survive into the printed letterhead." },
-          { t: "p", text: "Then the letter itself: date, recipient name and title, address, and \"Dear [Recipient]\". The body carries one idea per paragraph, plain language, no filler. It closes \"Yours sincerely\" over a signature, name and title." },
+          {
+            t: "list",
+            items: [
+              "[Business name] exactly as you use it in the relevant records.",
+              "A single contact line: address or postal address, town, phone, email and website where applicable.",
+              "Optional one-line activity description that says what you do without claiming a licence, accreditation or registration you have not confirmed.",
+              "Date, recipient, subject and a clear sign-off for the letter itself.",
+            ],
+          },
+          {
+            t: "p",
+            text: "Remove every bracket before sending. Keep the printed and digital versions consistent, and keep a copy of any version used for a formal quotation, contract or authority correspondence.",
+          },
         ],
       },
     ],
-    sourceNote: "A structure, not a legal document. Fill every bracket before use.",
+    sourceNote:
+      "A correspondence structure, not a legal document. Confirm any registration number, legal form, address or status claim before placing it on letterhead.",
   },
   {
     slug: "business-plan-template",
@@ -404,29 +945,45 @@ export const directoryTemplates: Doc[] = [
     no: "Template 02",
     title: "Business Plan",
     standfirst:
-      "Ten sections, written in the order that keeps you honest: the executive summary comes last, every figure is marked as an assumption until it is an actual, and Namibian funders' expectations are built in.",
-    readMinutes: 6,
-    updated: "September 2026",
+      "A practical ten-section plan that makes assumptions visible and turns a business idea into questions you can test.",
+    readMinutes: 7,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The ten sections",
+        heading: "Write it in the order that keeps you honest",
         blocks: [
-          { t: "list", items: [
-            "Executive summary, written last: what the business does in one sentence, the problem and for whom in two, the solution and why it is different in two, the market opportunity in one sentence with a number, and what you are asking for.",
-            "Company overview: legal name and structure, stage (idea, pre-revenue, early revenue, growing), mission statement, location and operating model, founding date.",
-            "Problem and solution: who feels the problem, how often, what it costs them, with evidence; the before and after; what changed that makes this the right time.",
-            "Market analysis: market size with sources, the top three trends, primary customer segments, target segment size and reachability.",
-            "Competitive landscape: a table of competitor, strength, and where you win; your wedge, the table stakes you must match, the gaps you fill.",
-            "Business and revenue model: channels, sales flow, revenue streams and pricing, a bottom-up year one projection with the math shown, unit economics.",
-            "Operations plan: delivery, technology stack, key recurring processes, automation plan, the outsourcing trigger.",
-            "Marketing and sales plan: positioning statement, the first two to three channels and why, content strategy, sales approach, acquisition targets and CAC budget.",
-            "Financial projections: monthly for year one, quarterly for years two and three, every projection labelled conservative or optimistic, never a bare number with no math shown. Break-even, runway, cash flow timing risks.",
-            "Risk assessment: a table of risk, likelihood, impact, mitigation.",
-          ] },
+          {
+            t: "list",
+            items: [
+              "Company overview: name, operating stage, ownership question, location and how work is delivered.",
+              "Customer problem: who has it, what they do now, and what evidence you have beyond your own opinion.",
+              "Offer: the result, scope, price basis, delivery time and what is excluded.",
+              "Market and competition: named alternatives, their strengths, your evidence and what you still do not know.",
+              "Operations: people, tools, suppliers, repeatable process and the first point at which capacity breaks.",
+              "Sales: first customer route, quote process, proof of delivery and follow-up method.",
+              "Numbers: unit price, direct cost, recurring cost, cash timing and every assumption labelled.",
+              "Risk: risk, early warning, mitigation and the owner of the next action.",
+              "Ask: what support, money, partner, permission or decision you are requesting and what it will be used for.",
+              "Executive summary: write last, after the evidence is on the page.",
+            ],
+          },
+          {
+            t: "p",
+            text: "The downloadable template has space for each section. An empty evidence field is more useful than a fabricated number. Label estimates as assumptions and replace them as sales and records arrive.",
+          },
         ],
       },
     ],
-    sourceNote: "A working structure, the same one the institute used for its own plan. Assumptions are labelled; none of it is financial advice.",
+    sourceNote:
+      "A planning structure, not financial, investment, legal or tax advice. It does not certify a business, guarantee funding or replace a sector-specific feasibility study.",
+    related: [
+      {
+        title: "Start a One-Person Business in Namibia",
+        body: "Use the course's first-business pack to give the plan a real customer test and a source trail.",
+        href: "/resources/start-a-one-person-business-in-namibia",
+      },
+    ],
   },
   {
     slug: "financial-projections-template",
@@ -434,54 +991,59 @@ export const directoryTemplates: Doc[] = [
     no: "Template 03",
     title: "Financial Projections",
     standfirst:
-      "Monthly figures for year one, quarterly for years two and three, with every assumption labelled until it becomes an actual, and a VAT line that matches Namibian registration thresholds.",
-    readMinutes: 4,
-    updated: "September 2026",
+      "A twelve-month view that keeps assumptions, actual cash and tax questions separate instead of blending them into a hopeful total.",
+    readMinutes: 5,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
         heading: "Assumptions first",
         blocks: [
-          { t: "list", items: [
-            "Price per unit or customer: N$[amount]",
-            "Customers acquired per month, year one: [number]",
-            "Monthly growth rate assumption: [percent]",
-            "Cost of delivery per customer: N$[amount]",
-          ] },
+          {
+            t: "list",
+            items: [
+              "Price per job, unit or customer: N$[amount], marked as assumption or actual.",
+              "Expected customer count by month, with the evidence behind the first few months.",
+              "Direct delivery cost per sale and the receipt or supplier quote that supports it.",
+              "Recurring costs: tools, data, rent, transport, contractor or staff cost, and when each is paid.",
+              "Cash timing: deposit, invoice date, due date and likely date money reaches the account.",
+            ],
+          },
+          {
+            t: "p",
+            text: "Keep any tax line separate and blank until you have confirmed the relevant position. A projection is not a return, invoice or tax calculation.",
+          },
         ],
       },
       {
-        heading: "Year one, monthly",
+        heading: "Read the sheet three ways",
         blocks: [
-          { t: "table",
-            head: ["Month", "Customers", "Revenue", "Cost of delivery", "Marketing", "Tools/Infra", "Contractors", "Gross profit", "Net profit/loss"],
+          {
+            t: "table",
+            head: ["View", "Question"],
             rows: [
-              ["1 to 12", "", "", "", "", "", "", "", ""],
-            ] },
-          { t: "p", text: "One row per month, January to December. Every cell either carries a number you can point to or stays empty. An empty cell is honest; a guessed number is not." },
-        ],
-      },
-      {
-        heading: "Years two and three, quarterly",
-        blocks: [
-          { t: "table",
-            head: ["Quarter", "Revenue", "Total costs", "Gross profit", "Net profit/loss"],
-            rows: [
-              ["Y2 Q1", "", "", "", ""],
-              ["Y2 Q2", "", "", "", ""],
-              ["Y2 Q3", "", "", "", ""],
-              ["Y2 Q4", "", "", "", ""],
-              ["Y3 Q1 to Q4", "", "", "", ""],
-            ] },
-        ],
-      },
-      {
-        heading: "Scenarios and thresholds",
-        blocks: [
-          { t: "p", text: "A conservative scenario whose assumptions should still be a viable business, and an optimistic one, each with its assumptions written out. Then the three thresholds: break-even revenue, runway at current burn, and the known cash flow spikes (launch, seasonal)." },
+              ["Sales", "How many real customers or units does this month assume, and what makes that plausible?"],
+              ["Cash", "When does the money arrive and when do unavoidable costs leave?"],
+              ["Runway", "If the conservative case happens, how many months can the business keep delivering?"],
+            ],
+          },
+          {
+            t: "p",
+            text: "The download supplies a monthly first-year structure and a later scenario view. Update it with actuals at month end. Never overwrite the original assumption without noting what changed and why.",
+          },
         ],
       },
     ],
-    sourceNote: "A working structure. None of it is financial advice; label every figure as an assumption unless it is an actual.",
+    sourceNote:
+      "A planning tool, not accounting, tax, credit or investment advice. All N$ fields are placeholders. Confirm VAT registration, rate, invoice wording and record-keeping with NamRA or a qualified tax professional before using a VAT amount.",
+    sources: withSources("vat"),
+    related: [
+      {
+        title: "Bookkeeping Without Fear",
+        body: "Use actual monthly records to revise the forecast rather than defending an old assumption.",
+        href: "/resources/bookkeeping-without-fear",
+      },
+    ],
   },
   {
     slug: "invoice-quotation-template",
@@ -489,24 +1051,54 @@ export const directoryTemplates: Doc[] = [
     no: "Template 04",
     title: "Invoice / Quotation",
     standfirst:
-      "One page, two documents: what you bill and what you promise, both with the VAT line handled correctly at 15 percent, payment terms written plainly and a fill-in example to copy.",
-    readMinutes: 3,
-    updated: "September 2026",
+      "Two fill-in documents that make scope, price, payment timing and the evidence trail visible without making an unverified tax claim.",
+    readMinutes: 4,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The invoice",
+        heading: "Quotation: make the promise inspectable",
         blocks: [
-          { t: "p", text: "Replace the bracketed fields as you fill it in: [Business name] and your contact line at the top, then invoice number, date, and due date. \"Bill to\" carries the client name and address. A table of description, quantity, unit price and total follows, then subtotal, VAT at 15% if you are registered, and the total due. Payment details close it: bank or mobile money." },
+          {
+            t: "list",
+            items: [
+              "Quote number, issue date and a validity date or period.",
+              "Customer name and contact, your business contact and the work location where relevant.",
+              "Line-by-line description, quantity, unit price, total, assumptions and exclusions.",
+              "Timing, acceptance method, payment terms and the point at which a scope change needs a new quote.",
+            ],
+          },
         ],
       },
       {
-        heading: "The quotation",
+        heading: "Invoice: show what is now due",
         blocks: [
-          { t: "p", text: "Quote number, date, and a validity date. \"Prepared for\" carries the client name. The same table of description, quantity, unit price and total, then subtotal, VAT at 15% if registered, and the total. One line closes it: this quotation is valid for [number] days from the date above." },
+          {
+            t: "p",
+            text: "Use a different sequential invoice number, reference the accepted quote where useful, state the issue date and due date, and list the delivered goods or services. Keep a copy with the evidence of delivery and payment. Do not call a document a tax invoice, add a VAT registration number or add a VAT amount unless you have confirmed that your current registration and invoicing position permits it.",
+          },
+        ],
+      },
+      {
+        heading: "The record behind the document",
+        blocks: [
+          {
+            t: "p",
+            text: "The VAT Act requires specified invoices and accounting records from a registered person, and from a person liable for tax under the Act, in the circumstances it sets out. The practical habit is useful for every small business: keep the quotation, invoice, receipt, payment evidence and customer correspondence together under the same reference. It makes a later tax or debt question answerable without guessing.",
+          },
         ],
       },
     ],
-    sourceNote: "VAT is 15% for VAT-registered businesses. If you are not registered, you do not charge VAT. Confirm your registration status with NamRA.",
+    sourceNote:
+      "A document structure, not tax, legal or debt-collection advice. The VAT Act source supports the record-keeping orientation only. Confirm current registration, VAT rate, tax-invoice content and recovery position with NamRA or a qualified professional before making a tax representation.",
+    sources: withSources("vat"),
+    related: [
+      {
+        title: "Bookkeeping Without Fear",
+        body: "Match every quote and invoice to the cash book so a payment cannot disappear into memory.",
+        href: "/resources/bookkeeping-without-fear",
+      },
+    ],
   },
   {
     slug: "nda-template",
@@ -514,26 +1106,33 @@ export const directoryTemplates: Doc[] = [
     no: "Template 05",
     title: "Non-Disclosure Agreement",
     standfirst:
-      "Purpose, obligations, exclusions and term: the four clauses a working non-disclosure agreement needs, written for Namibian law and plain enough to read before signing.",
-    readMinutes: 3,
-    updated: "September 2026",
+      "A short fill-in structure for a defined conversation, with the limits and review points made explicit before anyone signs.",
+    readMinutes: 4,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The clauses",
+        heading: "Use it only after defining the conversation",
         blocks: [
-          { t: "list", items: [
-            "Purpose: what the parties wish to discuss (a potential partnership, engagement, or project), during which confidential information may be shared.",
-            "Confidential information: business, technical, financial or strategic information disclosed in connection with the purpose, written, verbal or observed, marked confidential or reasonably understood to be so.",
-            "Obligations: use the information solely for the purpose, do not disclose it to third parties without written consent, protect it with at least the same care used for the receiver's own confidential information.",
-            "Exclusions: information that is or becomes public through no fault of the receiving party, was already known before disclosure, or is independently developed without reference to the disclosed information.",
-            "Term: the agreement remains in effect for a set number of years from the date, or until superseded by a further written agreement.",
-            "Governing law: the laws of the Republic of Namibia.",
-          ] },
-          { t: "p", text: "Signature blocks for the disclosing and receiving parties close the agreement, each with a date." },
+          {
+            t: "list",
+            items: [
+              "Name the disclosing and receiving parties accurately, including the person authorised to sign.",
+              "State the specific purpose: for example, discussing a proposed project, engagement or partnership.",
+              "Define confidential information and the exclusions that should not be treated as confidential.",
+              "Set permitted use, handling, permitted recipients, return or destruction expectations and the term.",
+              "Record the governing-law and dispute clause only after a qualified reviewer has considered the actual deal.",
+            ],
+          },
+          {
+            t: "p",
+            text: "An NDA is not a substitute for a contract that defines payment, deliverables, intellectual property, warranty, liability or a business relationship. Do not use a one-page template to hide a complicated arrangement.",
+          },
         ],
       },
     ],
-    sourceNote: "Template for reference only. Have a qualified attorney review before use in a specific matter.",
+    sourceNote:
+      "Template for reference only, not legal advice. Have a qualified Namibian legal practitioner adapt and review it for a specific transaction, especially where personal data, intellectual property, employment, funding or cross-border parties are involved.",
   },
   {
     slug: "employment-contract-template",
@@ -541,27 +1140,41 @@ export const directoryTemplates: Doc[] = [
     no: "Template 06",
     title: "Employment Contract",
     standfirst:
-      "A one-page contract with the statutory minimums built in: ordinary hours, overtime, annual leave and notice periods, written to match the Labour Act 11 of 2007 as it stands.",
-    readMinutes: 4,
-    updated: "September 2026",
+      "A fill-in record of role, pay, hours and leave, designed to sit beside the Labour Act rather than pretend to replace it.",
+    readMinutes: 5,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The clauses",
+        heading: "What the template records",
         blocks: [
-          { t: "list", items: [
-            "Position: job title and duties.",
-            "Commencement and term: start date, indefinite or fixed-term with the end date or project named.",
-            "Remuneration: basic salary per month or week and the payment cycle, with deductions stated (PAYE, the 0.9% Social Security Commission employee contribution, others).",
-            "Working hours: per week up to the statutory maximum of 45. Overtime by agreement only, paid at 1.5 times the basic hourly rate (2 times on Sundays and public holidays), not exceeding 10 hours a week or 3 hours a day.",
-            "Leave: four consecutive weeks of annual leave per 12-month cycle, counted against the employee's ordinary working week (20 working days on a 5-day week, 24 on a 6-day week); sick leave, maternity leave and public holidays per the Labour Act 11 of 2007.",
-            "Termination: the notice period per length of service under the Act (1 day, 1 week, or 1 month). Termination requires a valid, fair reason and a fair procedure.",
-            "Other terms: probation period, confidentiality, place of work, any additional benefits.",
-          ] },
-          { t: "p", text: "Signature and date blocks for employer and employee close the contract." },
+          {
+            t: "list",
+            items: [
+              "Employer and employee identity, role, start date, place of work and reporting arrangement.",
+              "Remuneration, payment cycle and only those deductions that have been properly confirmed.",
+              "Ordinary days and hours, with a separate written overtime arrangement where applicable.",
+              "Leave record basis, notice terms, probation if used, confidentiality and any benefits.",
+              "Signatures, dates and a copy for each party.",
+            ],
+          },
+          {
+            t: "p",
+            text: "The Labour Act sets basic conditions that form terms of a contract unless the Act permits otherwise or a term is more favourable to the employee. It also sets particular rules on normal hours, overtime, leave, notice, dismissal and severance. This short document cannot decide an exception, wage order, Social Security position, tax withholding, permit issue or fair procedure for your facts.",
+          },
         ],
       },
     ],
-    sourceNote: "Template for reference only, reflecting general requirements under the Labour Act 11 of 2007. Not legal advice: have a qualified Namibian labour lawyer review before use, especially for senior or non-standard roles.",
+    sourceNote:
+      "Template for reference only, informed by the Labour Act 11 of 2007. It is not legal, payroll, immigration or tax advice. Have a qualified Namibian labour professional review it before use, particularly for a fixed term, senior role, non-standard hours, dismissal, collective agreement or cross-border work.",
+    sources: withSources("labour"),
+    related: [
+      {
+        title: "Namibian Labour Law Basics",
+        body: "Read the statutory floor and the areas that need a current professional check before relying on the template.",
+        href: "/resources/namibian-labour-law-basics",
+      },
+    ],
   },
   {
     slug: "meeting-minutes-template",
@@ -569,33 +1182,39 @@ export const directoryTemplates: Doc[] = [
     no: "Template 07",
     title: "Meeting Minutes",
     standfirst:
-      "Who met, what was decided, who owns the action and when it is due: a one-page format that records decisions without turning a meeting into an essay. Nothing else survives the week.",
-    readMinutes: 2,
-    updated: "September 2026",
+      "A one-page decision record: who met, what was decided, who owns the action and when the next check happens.",
+    readMinutes: 3,
+    updated: reviewed,
+    reviewedIso,
     sections: [
       {
-        heading: "The structure",
+        heading: "Minutes are a tool for the next action",
         blocks: [
-          { t: "list", items: [
-            "Header: meeting title, date, time, location or platform, attendees, apologies.",
-            "Agenda: numbered items.",
-            "Discussion and decisions: a table of item, discussion summary, decision, owner, and due date.",
-            "Action items: each action with its owner and due date, ticked off as done.",
-            "Next meeting: date.",
-          ] },
+          {
+            t: "list",
+            items: [
+              "Header: meeting title, date, time, location or platform, attendees and apologies.",
+              "Agenda: numbered items in the order considered.",
+              "Decision record: one sentence on the decision, the rationale where useful, owner and due date.",
+              "Action register: action, owner, due date, status and the evidence that closes it.",
+              "Next meeting: date, purpose and what must be ready before it.",
+            ],
+          },
+          {
+            t: "p",
+            text: "Record decisions and actions, not a transcript. Circulate the draft promptly, correct factual errors, then save the approved version with any documents it refers to. Formal company, board, procurement or employment records may have additional requirements; obtain appropriate advice rather than relying on this general template.",
+          },
         ],
       },
     ],
-    sourceNote: "A working structure. Minutes record decisions and actions, not conversation.",
+    sourceNote:
+      "A working record structure, not legal, company-secretarial or procurement advice. Check any statutory, constitutional, contract or tender-specific minute requirement that applies to your meeting.",
   },
 ];
 
 /**
- * The editable downloads (CONTENT-CORRECTIONS §9): every template
- * ships as a real file from /public/templates/, free and direct:
- * no gate, consistent with the Directory's own register. The files
- * carry the same content as the web versions, in the Oryx print
- * treatment: wordmark top-left, Inter body, maroon hairline foot.
+ * Editable downloads are direct and ungated. The linked files are the
+ * current printable companion formats for each template.
  */
 export const templateDownloads: Record<string, { file: string; label: string }[]> = {
   "letterhead-template": [{ file: "letterhead.pdf", label: "Letterhead (PDF, A4)" }],
@@ -610,86 +1229,73 @@ export const templateDownloads: Record<string, { file: string; label: string }[]
     { file: "quotation.xlsx", label: "Quotation (XLSX)" },
   ],
   "nda-template": [{ file: "nda.docx", label: "Non-disclosure agreement (DOCX)" }],
-  "employment-contract-template": [
-    { file: "employment-contract.docx", label: "Employment contract (DOCX)" },
-  ],
-  "meeting-minutes-template": [
-    { file: "meeting-minutes.docx", label: "Meeting minutes (DOCX)" },
-  ],
+  "employment-contract-template": [{ file: "employment-contract.docx", label: "Employment contract (DOCX)" }],
+  "meeting-minutes-template": [{ file: "meeting-minutes.docx", label: "Meeting minutes (DOCX)" }],
 };
 
-/** All eleven documents, courses first. */
+/** All Directory documents, courses first. */
 export const directoryAll: Doc[] = [...directoryCourses, ...directoryTemplates];
 
 export function getDoc(slug: string): Doc | undefined {
   return directoryAll.find((d) => d.slug === slug);
 }
 
-
-/**
- * Chinese listing metadata for the eleven Directory documents. The
- * directory's zh pages used to share one generic description, which
- * read as duplicate content to a crawler; each document now carries
- * its own title and description, sized for search results, and each
- * states plainly that the document body is published in English.
- */
-export const directoryZhMeta: Record<
-  string,
-  { title: string; description: string }
-> = {
+/** Chinese search metadata. Directory documents publish in English. */
+export const directoryZhMeta: Record<string, { title: string; description: string }> = {
   "registering-a-business-in-namibia": {
-    title: "在纳米比亚注册公司（免费速成课） | Oryx 理工学院",
-    description:
-      "免费速成课：独资、CC 与私人公司三种法律形式怎么选，BIPA 名称保留的实际流程，注册证书之后还要办哪些登记。逐项注明出处，不构成法律意见；文末附核对清单，可按步骤逐项打勾使用；名称保留被拒时该改什么，文中单独说明。文档以英文发布，条目说明为中文。",
+    title: "在纳米比亚注册企业 | Oryx 理工学院",
+    description: "免费速成课：从业务本身开始，理解 BIPA 的登记角色、公司与 CC 的法律框架，并整理提交前要核实的问题。内容以英文发布，不构成法律或税务意见。",
   },
   "nqa-nta-accreditation-explained": {
-    title: "NQA 与 NTA 认证解读（免费速成课） | Oryx 理工学院",
-    description:
-      "免费速成课：纳米比亚资格局（NQA）与培训局（NTA）各管什么，一家培训机构从注册到认证要经过哪些门，常见的误读与真实的次序。认证不是一次考试，而是一套持续维持的制度，文中写明维持的成本与复查的节奏。逐项注明出处。文档以英文发布，条目说明为中文。",
+    title: "NQA 与 NTA 认证解读 | Oryx 理工学院",
+    description: "免费速成课：先读 NQA 与 NTA 的法定职责，再为培训项目建立证据地图。内容以英文发布，不构成认证决定或资金承诺。",
   },
   "namibian-labour-law-basics": {
-    title: "纳米比亚劳动法基础（免费速成课） | Oryx 理工学院",
-    description:
-      "免费速成课：雇佣合同的最低要件，试用期与解雇通知，加班与工时的法定上限，社保与劳动专员的角色。逐项注明出处，不构成法律意见；涉及具体争议，请咨询执业律师；社保登记的时限也一并列出。文档以英文发布，书面合同必须在受雇开始前签署，这一条文中单独标出。条目说明为中文。",
+    title: "纳米比亚劳动法基础 | Oryx 理工学院",
+    description: "免费速成课：工时、休假、通知、解雇与遣散费的法定底线，依据《劳动法》整理。内容以英文发布，不构成法律意见。",
   },
   "insurance-in-namibia": {
-    title: "纳米比亚保险入门（免费速成课） | Oryx 理工学院",
-    description:
-      "免费速成课：纳米比亚的保险监管格局，小企业最常接触的险种及其真实作用，免赔额与除外责任的读法，如何核对一家保险人的持牌状态，以及被拒赔时第一步该做什么。逐项注明出处，不构成购买建议；引用以 2026 年 5 月施行的规则为准。文档以英文发布，条目说明为中文。",
+    title: "纳米比亚保险入门 | Oryx 理工学院",
+    description: "免费速成课：读懂保单、确认受监管角色，并识别保险建议与销售的边界。内容以英文发布，不构成保险、金融或法律意见。",
+  },
+  "start-a-one-person-business-in-namibia": {
+    title: "在纳米比亚开始一人企业 | Oryx 理工学院",
+    description: "免费速成课：把一项技能变成一套小型运营系统，包括报价、记录、现金习惯和登记问题清单。内容以英文发布，不构成法律、税务或财务意见。",
+  },
+  "bookkeeping-without-fear": {
+    title: "不再害怕记账 | Oryx 理工学院",
+    description: "免费速成课：从现金簿到月度经营概览，整理销售、支出、应收应付与证据。内容以英文发布，不构成会计或税务意见。",
+  },
+  "write-a-bid-that-can-win": {
+    title: "写一份能竞争的投标书 | Oryx 理工学院",
+    description: "免费速成课：公共采购投标识读、合规矩阵、技术响应、报价和提交记录。内容以英文发布，不保证中标，也不构成采购意见。",
   },
   "letterhead-template": {
-    title: "信笺模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的信笺模板：页眉要放什么、不放什么，法定信息的位置，打印与电子两个版本的区别，另附一页打印尺寸与边距说明，交印厂时一并给出，电子版另配浅色页脚。括号内每个字段都由你替换。文档以英文发布，页脚的注册号与地址是多数人漏掉的一项。条目说明为中文。",
+    title: "信笺模板 | Oryx 理工学院",
+    description: "可填写的信笺模板：清楚列出名称、联系信息和经过核实的企业信息。内容以英文发布。",
   },
   "business-plan-template": {
-    title: "商业计划模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的商业计划模板：十一节，从问题到资金用途，每一节都有引导问题与纳米比亚本地的示例，写完即可拿去见银行或投资人；示例全部取自纳米比亚本地行业，末尾附一页提交前的自查清单。括号内每个字段都由你替换。文档以英文发布，每节末尾附一行为空的自查问题。条目说明为中文。",
+    title: "商业计划模板 | Oryx 理工学院",
+    description: "可填写的十部分商业计划模板，让假设、证据、运营与风险清楚可见。内容以英文发布，不构成财务或投资意见。",
   },
   "financial-projections-template": {
-    title: "财务预测模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的财务预测模板：十二个月的现金流、损益与 assumptions 表，每个数字注明来源或标注为假设，表与表之间互相对得上，页脚注明每列的口径。括号内每个字段都由你替换。文档以英文发布，预测只做十二个月，超过一年的数字标为情景。条目说明为中文。",
+    title: "财务预测模板 | Oryx 理工学院",
+    description: "可填写的十二个月预测模板，分开记录假设、实际现金与税务问题。内容以英文发布，不构成会计或税务意见。",
   },
   "invoice-quotation-template": {
-    title: "报价单与发票模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的报价单与发票模板：法定必填项、编号规则、付款条款的写法，以及报价转发票的衔接，以及逾期未付时的下一步；定金条款的两种写法也一并给出，编号规则前后一致，便于对账。括号内每个字段都由你替换。文档以英文发布，两份模板共用一套编号，免得对不上账。条目说明为中文。",
+    title: "报价单与发票模板 | Oryx 理工学院",
+    description: "可填写的报价单与发票模板，让范围、价格、付款时间与证据记录清晰可查。内容以英文发布。",
   },
   "nda-template": {
-    title: "保密协议模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的保密协议模板：单向与双向两种结构，保密范围、期限与例外，签署前的核对清单，以及哪些情形下协议可以终止；双向版本只需增补一节。括号内每个字段都由你替换，不构成法律意见。文档以英文发布，期限届满后的返还义务同样写入正文。条目说明为中文。",
+    title: "保密协议模板 | Oryx 理工学院",
+    description: "可填写的保密协议结构，用于明确的商务讨论，并标出签署前应复核的限制。内容以英文发布，不构成法律意见。",
   },
   "employment-contract-template": {
-    title: "雇佣合同模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的雇佣合同模板：法定最低要件、试用期条款、通知期与离职程序，与纳米比亚劳动法逐条对表，缺一项即无效的条款单独标出，并附入职核对清单。括号内每个字段都由你替换，不构成法律意见。文档以英文发布，每一份都附带一份入职核对清单。条目说明为中文。",
+    title: "雇佣合同模板 | Oryx 理工学院",
+    description: "可填写的雇佣合同记录角色、薪酬、工时与休假，并须结合纳米比亚劳动法审核。内容以英文发布，不构成法律或薪酬意见。",
   },
   "meeting-minutes-template": {
-    title: "会议纪要模板（可填写） | Oryx 理工学院",
-    description:
-      "可填写的会议纪要模板：出席与法定人数、决议与行动项的记法，以及让纪要在九十天后仍可用的归档习惯；行动项必须带人与期限，散会前当场宣读一遍；缺席者补签另行登记。括号内每个字段都由你替换。文档以英文发布，纪要由主持人签字，与决议同档保存。条目说明为中文。",
+    title: "会议纪要模板 | Oryx 理工学院",
+    description: "可填写的会议纪要模板，记录决定、负责人、期限与下一步。内容以英文发布。",
   },
 };

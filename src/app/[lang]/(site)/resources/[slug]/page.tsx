@@ -164,6 +164,8 @@ export default async function DirectoryDocPage({
           educationalLevel: "Crash course",
           inLanguage: "en",
           teaches: doc.standfirst,
+          dateModified: doc.reviewedIso,
+          citation: doc.sources?.map((source) => source.url),
         }
       : {
           "@context": "https://schema.org",
@@ -181,7 +183,9 @@ export default async function DirectoryDocPage({
             "@id": schemaIds.org,
           },
           copyrightYear: "2026",
+          dateModified: doc.reviewedIso,
           isAccessibleForFree: true,
+          citation: doc.sources?.map((source) => source.url),
         };
 
   const eyebrow = `${doc.no} · ${doc.readMinutes} ${
@@ -295,9 +299,30 @@ export default async function DirectoryDocPage({
                 </span>
                 {doc.sourceNote}
               </p>
+              {doc.sources?.length ? (
+                <div className="mt-5 border-l-2 border-maroon pl-5">
+                  <p className="meta">{zh ? "可核查的来源" : "Checkable sources"}</p>
+                  <ol className="mt-3 grid gap-3 text-[0.88rem] leading-relaxed text-soft">
+                    {doc.sources.map((source) => (
+                      <li key={source.id}>
+                        <a
+                          href={source.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="link-type font-[500] text-ink"
+                        >
+                          {source.title}
+                        </a>
+                        <span> · {source.scope}</span>
+                        <span className="block mt-1 text-[0.8rem]">{source.authority}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
               <p className="mt-4 text-[0.88rem] leading-relaxed text-soft">
                 {zh ? "维护：Tangi Iigonda，院长。" : "Maintained by Tangi Iigonda, Principal."}{" "}
-                {zh ? "最近复核：2026 年 11 月 1 日。" : "Last reviewed 1 November 2026."}{" "}
+                {zh ? `最近复核：${doc.updated}。` : `Last reviewed ${doc.updated}.`}{" "}
                 {zh ? "发现错误？" : "Spotted an error?"}{" "}
                 <a
                   href={`mailto:corrections@oryxinstitute.org?subject=${encodeURIComponent(doc.title)}`}
@@ -311,6 +336,27 @@ export default async function DirectoryDocPage({
                 {COPYRIGHT_LINE}
               </p>
             </footer>
+
+            {doc.related?.length ? (
+              <aside className="hair-t mt-12 pt-8" aria-label={zh ? "延伸资源" : "Related resources"}>
+                <p className="meta">{zh ? "继续做下去" : "Keep working"}</p>
+                <div className="mt-5 grid gap-3">
+                  {doc.related.map((related) => (
+                    <Link
+                      href={A(related.href)}
+                      key={related.href}
+                      className="group border-b border-rule pb-4"
+                    >
+                      <h2 className="font-[500] text-ink group-hover:text-maroon">{related.title}</h2>
+                      <p className="mt-1 text-[0.9rem] leading-relaxed text-soft">{related.body}</p>
+                      <p className="meta mt-2">
+                        {zh ? "打开资源" : "Open resource"} <span className="arr" aria-hidden="true">→</span>
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </aside>
+            ) : null}
           </article>
         </div>
       </section>
