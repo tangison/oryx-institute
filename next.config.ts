@@ -5,7 +5,7 @@ import type { NextConfig } from "next";
  * Oryx Institute · rebuild-hbr (Kinfolk / HBR register).
  *
  * - MDX compiles the /news feed (content/news/*.mdx); nothing else.
- * - Images: AVIF + WebP variants at quality 62 or 75, chosen per visual role.
+ * - Images: AVIF + WebP variants at quality 62, 75 or 80, chosen per visual role.
  * - Redirects keep every URL printed since the first site stable:
  *   /announcements moved into /news, /compare folded into /programmes,
  *   /people and the imagery disclaimer folded into /about, and the old
@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048],
-    qualities: [62, 75],
+    qualities: [62, 75, 80],
   },
   redirects: () => [
     /* Afrikaans is live at /af. Legacy /zh links move permanently

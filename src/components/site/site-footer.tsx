@@ -19,7 +19,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   return (
     <footer className="site-footer">
       <div className="shell py-16 md:py-20">
-        <div className="foot-grid">
+        <div className="foot-grid" data-sc-in>
           <div className="foot-brand">
             <Link
               href={langPath(lang, "/")}
@@ -89,7 +89,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="foot-legal mt-14 flex flex-col gap-4 pt-6 text-[0.82rem] md:flex-row md:items-center md:justify-between">
+        <div className="foot-legal mt-14 flex flex-col gap-4 pt-6 text-[0.82rem] md:flex-row md:items-center md:justify-between" data-sc-in>
           <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. {t.rights}
           </p>
