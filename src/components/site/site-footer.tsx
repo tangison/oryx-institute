@@ -23,14 +23,14 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <div className="foot-brand">
             <Link
               href={langPath(lang, "/")}
-              className="flex items-center"
+              className="foot-brand-link"
               aria-label={t.home}
             >
               <OryxLogo
                 variant="lockup"
                 tone="reverse"
                 loading="lazy"
-                className="h-[2rem] w-auto"
+                className="h-auto w-full max-w-none"
               />
             </Link>
             <p className="foot-place mt-6">
