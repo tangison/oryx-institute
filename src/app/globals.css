@@ -903,10 +903,25 @@ body.menu-locked {
 }
 @media (min-width: 64rem) {
   .foot-grid {
-    grid-template-columns: 1fr 1.4fr 1fr;
+    /* Reserve the full 24rem signature width rather than letting the
+       navigation column shrink the footer mark below its approved scale. */
+    grid-template-columns: 24rem minmax(0, 1fr) minmax(13rem, 18rem);
     gap: 4rem;
     align-items: start;
   }
+}
+
+/* The footer mark is a full signature, not a header-sized repeat. Its
+   24rem desktop cap is over four times the former 2rem-high lockup width;
+   phones use the available line without creating horizontal overflow. */
+.foot-brand-link {
+  display: block;
+  width: min(24rem, 100%);
+}
+.foot-brand-link img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .foot-place {
@@ -1572,9 +1587,36 @@ body.menu-locked {
   height: 7.5rem;
   display: grid;
   place-items: center;
+  overflow: hidden;
   background: var(--white);
   border: 1px solid var(--rule);
   padding: 1rem;
+}
+/* The supplied SVGs retain their natural viewBoxes. A bounded wrapper—not
+   the artwork—sets their presentation size so neither a tall shield nor a
+   wide lockup can escape a download card on a narrow phone. */
+.dl-preview-mark {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  place-items: center;
+}
+.dl-preview-mark--wide {
+  width: 72%;
+  height: 72%;
+}
+.dl-preview-mark--tall {
+  height: 72%;
+}
+.dl-preview-mark > img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 .dl-preview--ink {
   background: var(--ink);

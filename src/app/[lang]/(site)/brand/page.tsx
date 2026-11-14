@@ -600,13 +600,16 @@ export default async function BrandPage({
             {downloads(af).map((d) => (
               <a key={d.href} href={d.href} download className="dl-card">
                 <span className={`dl-preview ${d.preview.dark ? "dl-preview--ink" : ""}`}>
-                  <LogoPlate
-                    src={d.preview.src}
-                    w={d.preview.w}
-                    h={d.preview.h}
-                    alt=""
-                    style={d.preview.wide ? { width: "72%" } : { height: "72%" }}
-                  />
+                  <span
+                    className={`dl-preview-mark ${d.preview.wide ? "dl-preview-mark--wide" : "dl-preview-mark--tall"}`}
+                  >
+                    <LogoPlate
+                      src={d.preview.src}
+                      w={d.preview.w}
+                      h={d.preview.h}
+                      alt=""
+                    />
+                  </span>
                 </span>
                 <span className="dl-name">{d.name}</span>
                 <span className="dl-note">{d.note}</span>
