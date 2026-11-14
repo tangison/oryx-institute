@@ -53,7 +53,7 @@ const copy = {
     },
     social: {
       dt: "Social",
-      dd: "Instagram, Facebook, LinkedIn and X, linked as icons in the footer and above. Nothing is embedded; the site runs no third-party scripts.",
+      dd: "Instagram, Facebook, LinkedIn, X and Threads, linked as icons in the footer and above. Nothing is embedded; the site runs no third-party scripts.",
     },
     close: "One email starts it.",
   },
@@ -102,7 +102,7 @@ const copy = {
     },
     social: {
       dt: "Social",
-      dd: "Instagram, Facebook, LinkedIn and X, linked as icons in the footer and above. Nothing is embedded; the site runs no third-party scripts.",
+      dd: "Instagram, Facebook, LinkedIn, X and Threads, linked as icons in the footer and above. Nothing is embedded; the site runs no third-party scripts.",
     },
     close: "One email starts it.",
     enLedger: { paras: [] as string[] },
@@ -251,7 +251,7 @@ export default async function ContactPage({
                       className="social-row-item inline-flex items-center gap-3 border border-rule px-4 py-3 text-[0.85rem] transition-colors hover:border-ink"
                     >
                       <SocialIcon
-                        name={s.label as "Instagram" | "Facebook" | "LinkedIn" | "X"}
+                        name={s.label as "Instagram" | "Facebook" | "LinkedIn" | "X" | "Threads"}
                         className={s.label === "X" ? "h-20 w-20 md:h-5 md:w-5" : undefined}
                       />
                       {s.label}

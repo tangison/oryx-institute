@@ -11,6 +11,7 @@ import {
   GlyphPractice,
   GlyphVentures,
 } from "@/components/site/glyphs";
+import { PathwayNotes } from "@/components/site/pathway-notes";
 
 function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
   if (name === "research") return <GlyphResearch className="h-full w-full" />;
@@ -23,9 +24,10 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
  *
  *   hero (scrub, with the announcement pill) · positioning (flow) ·
  *   03 silent divider (flow) · the three kinds of work (PIN) · what
- *   runs today (flow) · practice peak (PIN) · research zigzag (flow) ·
- *   ventures reverse-zigzag (flow) · 8b announcement pin (PIN) · 07
- *   silent divider (flow) · the register (flow) · close (PIN) ·
+ *   runs today (flow) · practice peak (PIN) · field notes (flow) ·
+ *   research zigzag (flow) · ventures reverse-zigzag (flow) · 8b
+ *   announcement pin (PIN) · 07 silent divider (flow) · the register
+ *   (flow) · close (PIN) ·
  *   footer.
  *
  * Four pins, two silent dividers. The core plates run in act order:
@@ -272,6 +274,7 @@ export default async function HomePage({
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
+        <div className="hero-scrim" aria-hidden="true" />
         <div className="hero-content shell">
           <div data-sc-parallax="-0.06">
             <h1 className="hero-title max-w-[13ch]">{s.headline}</h1>
@@ -439,6 +442,10 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {/* The bespoke field-notes trace: an optional, local choice that
+          holds one real pathway for the rest of the visit. */}
+      <PathwayNotes lang={lang} />
 
       {/* Research pull: the notebook plate, the latest Bulletin. */}
       <section className="section-lg" data-sc-act="flow">

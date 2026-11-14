@@ -86,6 +86,10 @@ export const site = {
       href: "https://www.linkedin.com/company/oryx-polytechnic-institute/",
     },
     { label: "X", href: "https://x.com/oryx_institute?s=11" },
+    {
+      label: "Threads",
+      href: "https://www.threads.com/@oryx_institute?igshid=NTc4MTIwNjQ2YQ==",
+    },
   ] as { label: string; href: string }[],
   /** The canonical serving domain. Vercel 308-redirects the apex to
    * www, so every canonical, hreflang, sitemap and OG URL names the
