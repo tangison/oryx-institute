@@ -28,9 +28,7 @@ changes only grammar and world will fail it.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
-
-*(empty: your first build has nothing to clear, so build whatever the interview
-points at. From the second onwards, this table is the constraint.)*
+| oryx-institute-2026 | Grounded field ledger | Fixed accessible masthead plus contextual pathway note | Existing three-plane field observation | Observation → method → proof peak → choice → evidence → office | Resolved office/application line | Field notes trace | Existing Oryx paper, field and practical-work imagery | Next.js / Vercel preview |
 
 ---
 
@@ -41,7 +39,7 @@ reusing: a grammar, a nav treatment, a close pattern, a signature move, an
 act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
-Nothing is taken yet.
+- `oryx-institute-2026` claims the Grounded field ledger grammar, contextual pathway note, layered field observation, resolved office close and Field notes trace. Later builds must clear the four-of-six fingerprint gate against this row.
 
 ---
 
