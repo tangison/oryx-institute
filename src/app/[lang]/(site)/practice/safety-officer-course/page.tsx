@@ -251,42 +251,23 @@ export default async function SafetyLandingPage({
         </div>
       </section>
 
-      {/* A small silent divider: concrete, container-width, no text. */}
+      {/* A small colour-field pause: individual levels retain their own
+          concrete detail, so the landing does not repeat that image. */}
       <div
-        className="divider divider--narrow overflow-hidden"
+        className="divider divider--narrow divider--paper-ink"
         data-sc-act="flow"
         aria-hidden="true"
-      >
-        <div className="absolute inset-[-10%]" data-sc-parallax="0.5">
-          <Image
-            src="/images/kinfolk/texture/47-concrete.jpg"
-            alt=""
-            width={1254}
-            height={1254}
-            sizes="(min-width: 768px) 70ch, 92vw"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-      </div>
+      />
 
       {/* The instructor, honestly a placeholder until the appointment
-          lands: the herb-sprig card, the exact promise, no invented
-          name and no AI face. */}
+          lands: a text-only appointment card, the exact promise, no invented name and no AI face. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,14rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate-fig" data-sc-reveal>
-            <Image
-              src="/images/kinfolk/people/45-staff-placeholder.jpg"
-              alt={
-                af ? "A blank cream card standing on dark walnut with a dried herb sprig across the corner, the honest placeholder for the instructor portrait" : "A blank cream card standing on dark walnut with a dried herb sprig across the corner, the honest placeholder for the instructor portrait"
-              }
-              width={1122}
-              height={1402}
-              sizes="(min-width: 768px) 14rem, 60vw"
-              className="h-auto w-full"
-              loading="eager"
-            />
-          </figure>
+          <div className="appointment-card appointment-card--large" data-sc-reveal aria-label={af ? "Aanstelling hangende" : "Appointment pending"}>
+            <p>{af ? "Aanstelling" : "Appointment"}</p>
+            <strong>{af ? "Hangende" : "Pending"}</strong>
+            <span aria-hidden="true">—</span>
+          </div>
           <div data-sc-in>
             <p className="eyebrow eyebrow--ink">{t.instructorEyebrow}</p>
             <h2 className="h-sub mt-4">{t.instructorName}</h2>

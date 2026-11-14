@@ -147,7 +147,7 @@ export default async function PracticePage({
       {/* The head, on cream: the proposition in type. The hands-peak
           plate is the homepage's peak now, so this page opens the
           way it works: plainly. */}
-      <section className="section-lg" data-sc-act="flow">
+      <section className="section-lg screen-intro" data-sc-act="flow">
         <div className="shell">
           <h1 className="h-display max-w-[14ch]">{t.heroLine}</h1>
           <p className="lede measure mt-6 text-soft">{t.heroSub}</p>

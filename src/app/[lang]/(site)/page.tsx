@@ -447,15 +447,15 @@ export default async function HomePage({
           holds one real pathway for the rest of the visit. */}
       <PathwayNotes lang={lang} />
 
-      {/* Research pull: the notebook plate, the latest Bulletin. */}
+      {/* Research pull: its own field folio plate, then the latest Bulletin. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig" data-sc-in>
             <Image
-              src="/images/kinfolk/core/04-notebook.jpg"
-              alt="A bound maroon notebook with ribbon, centred on cream paper"
-              width={1250}
-              height={1000}
+              src="/images/editorial/home-research-bulletin.jpg"
+              alt="A closed maroon research folio with a pencil and stone sample on a cream table"
+              width={1264}
+              height={848}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
               loading="eager"
@@ -589,16 +589,7 @@ export default async function HomePage({
                       </Link>
                     </div>
                   </div>
-                  <figure className="announce-plate w-[min(13.75rem,55vw)]">
-                    <Image
-                      src="/images/kinfolk/safety/40-green-helmet.jpg"
-                      alt={safetyAnnouncement[lang].helmetAlt}
-                      width={220}
-                      height={220}
-                      sizes="(min-width: 768px) 220px, 55vw"
-                      className="h-auto w-full"
-                    />
-                  </figure>
+
                 </div>
               </div>
             </div>
@@ -668,16 +659,16 @@ export default async function HomePage({
         </section>
       )}
 
-      {/* Close: the wax seal, pinned for two viewports. One email
-          starts it, on a small cream block, maroon button. */}
+      {/* Close: a distinct correspondence plate, pinned for two viewports.
+          One email starts it, on a small cream block, maroon button. */}
       <section className="peak" data-sc-act="pin" data-sc-span="2">
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/core/10-wax-seal.jpg"
-              alt="A maroon wax seal with ribbon, centred on cream paper"
-              width={1150}
-              height={1150}
+              src="/images/editorial/home-correspondence.jpg"
+              alt="A sealed blank cream envelope and brass paper clip on a terracotta surface"
+              width={1264}
+              height={848}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
             />

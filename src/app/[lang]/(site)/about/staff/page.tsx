@@ -104,7 +104,7 @@ export default async function StaffPage({
       "@id": schemaIds.org,
       name: site.legalName,
     },
-    about: staff.map((p) => ({
+    about: staff.filter((p) => !p.appointmentPending).map((p) => ({
       "@type": "Person",
       /* One node per person per language: the af page states the same
          row in Afrikaans, so the node is language-scoped rather than
@@ -123,7 +123,7 @@ export default async function StaffPage({
       />
 
       {/* The head, on cream. */}
-      <section className="section-lg" data-sc-act="flow">
+      <section className="section-lg screen-intro" data-sc-act="flow">
         <div className="shell">
           <h1 className="h-display max-w-[16ch]">{t.headTitle}</h1>
           <p className="lede measure mt-6 text-soft">{t.headLede}</p>

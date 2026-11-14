@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
+import { OryxLogo } from "@/components/site/oryx-logo";
 import { approvedLines, voice, site } from "@/lib/site";
 import { approvedLinesAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
@@ -564,8 +565,8 @@ export default async function BrandPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The hero plate: the game board on its terracotta ground,
-          drifting gently: the page's scrub act. */}
+      {/* The opening is the supplied mark itself. Brand content starts
+          with the identity it documents, not another decorative specimen. */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
           <figure
@@ -573,15 +574,11 @@ export default async function BrandPage({
             style={{ background: "var(--terracotta)" }}
           >
             <span data-sc-parallax="0.12" className="block w-[min(30rem,70%)]">
-              <Image
-                src="/images/kinfolk/core/06-game-board.jpg"
-                alt="A carved morabaraba game board with one springbok coin in its centre ring, on terracotta"
-                width={1200}
-                height={960}
-                sizes="(min-width: 1024px) 30rem, 70vw"
+              <OryxLogo
+                variant="lockup"
+                tone="reverse"
                 className="h-auto w-full"
-                priority
-                quality={62}
+                title="The Oryx Institute lockup"
               />
             </span>
           </figure>
