@@ -14,6 +14,7 @@
 | Area | Observation | Change made |
 | --- | --- | --- |
 | Canonical site access | Vercel currently lists only `oryx-institute-olive.vercel.app` for the project, while site canonicals name `www.oryxinstitute.org`. | Documented as an external blocker. The code continues to protect previews from indexing rather than creating a competing Vercel-host index. |
+| Preview index control | `vercel.json` set an unconditional `X-Robots-Tag: index, follow`, which could conflict with the host-aware preview guard. | Removed the global index instruction. The proxy is now the single authority: custom production hosts are indexable and Vercel aliases are `noindex`. |
 | Markdown for answer engines | Direct `/md` URLs were not consistently marked `noindex` on the production host. The earlier `Accept: text/markdown` rewrite also depended on cache variance. | Kept `/md` as an explicit typed alternate, removed same-URL content negotiation, and send `X-Robots-Tag: noindex, follow` on the shelf. |
 | Corner Spa duplication | `/corner-spa` is an iframe-focused route while `/ventures/corner-spa` is the complete editorial explanation. Both were eligible for sitemap discovery. | Made `/corner-spa` `noindex, follow`, canonicalized it to `/ventures/corner-spa`, removed it from the sitemap, and corrected the editorial page's JSON-LD URL. |
 | Sitemap freshness | Blog post URLs were hard-coded and Directory review dates were absent. | Generate blog rows from `blogPosts`; emit only real `lastmod` dates for posts and reviewed Directory documents. |
