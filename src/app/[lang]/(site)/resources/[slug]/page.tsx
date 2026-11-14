@@ -135,6 +135,10 @@ export default async function DirectoryDocPage({
   const doc = getDoc(slug);
   if (!doc) notFound();
   const A = (path: string) => (af ? `/af${path}` : path);
+  /* Structured-data URLs must agree with this locale's canonical URL.
+     The source document remains in English on the Afrikaans route, but
+     that does not make its schema point at a different HTML page. */
+  const canonicalUrl = `${site.url}${A(`/resources/${doc.slug}`)}`;
 
   const siblings = doc.kind === "course" ? directoryCourses : directoryTemplates;
   const others = siblings.filter((d) => d.slug !== doc.slug);
@@ -149,10 +153,10 @@ export default async function DirectoryDocPage({
       ? {
           "@context": "https://schema.org",
           "@type": "Course",
-          "@id": `${site.url}/resources/${doc.slug}#course`,
+          "@id": `${canonicalUrl}#course`,
           name: doc.title,
           description: metaOf(doc),
-          url: `${site.url}/resources/${doc.slug}`,
+          url: canonicalUrl,
           provider: {
             "@type": "EducationalOrganization",
             "@id": schemaIds.org,
@@ -170,10 +174,10 @@ export default async function DirectoryDocPage({
       : {
           "@context": "https://schema.org",
           "@type": "CreativeWork",
-          "@id": `${site.url}/resources/${doc.slug}#work`,
+          "@id": `${canonicalUrl}#work`,
           headline: doc.title,
           description: metaOf(doc),
-          url: `${site.url}/resources/${doc.slug}`,
+          url: canonicalUrl,
           /* One organization, referenced by id: the same node every
              other page points at, not a second inline copy. */
           author: { "@type": "EducationalOrganization", "@id": schemaIds.org },

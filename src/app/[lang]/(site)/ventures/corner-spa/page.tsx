@@ -157,7 +157,7 @@ export default async function CornerSpaPage({
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: t.meta.ldName,
-    url: `${site.url}${A("/corner-spa")}`,
+    url: `${site.url}${A("/ventures/corner-spa")}`,
     description: t.meta.ldDescription,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
     about: {

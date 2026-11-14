@@ -21,7 +21,7 @@ const copy = {
     meta: {
       title: "Staff and appointments · Oryx Institute",
       description:
-        "The people building Oryx Institute in Windhoek: the Principal, and every appointment as it is confirmed. Placeholder portraits are placeholders on purpose.",
+        "The people building Oryx Institute in Windhoek: the Principal and every appointment as it is confirmed. Open roles are stated plainly until a name is published.",
     },
     headTitle: "The people.",
     headLede:
@@ -40,7 +40,7 @@ const copy = {
     meta: {
       title: "Staff and appointments · Oryx Institute",
       description:
-        "The people building Oryx Institute in Windhoek: the Principal, and every appointment as it is confirmed. Placeholder portraits are placeholders on purpose.",
+        "The people building Oryx Institute in Windhoek: the Principal and every appointment as it is confirmed. Open roles are stated plainly until a name is published.",
     },
     headTitle: "The people.",
     headLede:

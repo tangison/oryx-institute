@@ -102,6 +102,7 @@ export default async function SafetyLandingPage({
   const dur = DURATIONS[lang];
   const desc = SHORT_DESC[lang];
   const crumb = CRUMB[lang];
+  const homeUrl = `${site.url}${af ? "/af" : ""}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -123,8 +124,9 @@ export default async function SafetyLandingPage({
           "@id": `${site.url}${A("/practice/safety-officer-course")}/${l.slug}#course`,
           name: l[lang].h1,
           description: l[lang].metaDescription,
+          url: `${site.url}${A(`/practice/safety-officer-course/${l.slug}`)}`,
           courseCode: l.code,
-          inLanguage: "en-NA",
+          inLanguage: af ? "af-NA" : "en-NA",
           provider: { "@id": schemaIds.org },
           hasCourseInstance: {
             "@type": "CourseInstance",
@@ -139,7 +141,7 @@ export default async function SafetyLandingPage({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
           {
             "@type": "ListItem",
             position: 2,

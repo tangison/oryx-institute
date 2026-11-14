@@ -2,8 +2,8 @@ import { pageIndexMd } from "@/lib/md-shelf";
 
 /**
  * /md: the shelf root: the whole site as one markdown index.
- * Statically rendered; the proxy rewrites markdown-negotiated
- * requests for / here. Kept out of the index by the proxy's
+ * Statically rendered and linked as the typed markdown alternative
+ * from indexable HTML pages. Kept out of the index by the proxy's
  * X-Robots-Tag so the canonical HTML stays the one that ranks.
  */
 

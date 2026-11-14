@@ -109,6 +109,8 @@ export default async function SafetyLevelPage({
   const crumb = CRUMB[lang];
   const close = CLOSE[lang];
   const heroAlt = HERO_ALT[l.slug][lang];
+  const homeUrl = `${site.url}${af ? "/af" : ""}`;
+  const canonicalUrl = `${site.url}${A(`/practice/safety-officer-course/${l.slug}`)}`;
   /* The per-offer apply route: /apply/safety-level-N preselects the
      field of interest in the composer without a query string. */
   const applyHref =
@@ -138,11 +140,12 @@ export default async function SafetyLevelPage({
     "@graph": [
       {
         "@type": "Course",
-        "@id": `${site.url}${A(`/practice/safety-officer-course/${l.slug}`)}#course`,
+        "@id": `${canonicalUrl}#course`,
         name: t.h1.replace(".", ""),
         description: t.metaDescription,
+        url: canonicalUrl,
         courseCode: l.code,
-        inLanguage: "en-NA",
+        inLanguage: af ? "af-NA" : "en-NA",
         educationalCredentialAwarded: t.credential,
         provider: {
           "@type": "EducationalOrganization",
@@ -166,7 +169,7 @@ export default async function SafetyLevelPage({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
           {
             "@type": "ListItem",
             position: 2,

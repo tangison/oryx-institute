@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CornerSpaEmbed } from "@/components/site/corner-spa-embed";
 import { site } from "@/lib/site";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
 
 /**
  * Corner Spa, full bleed. The chrome lives one level down in the
@@ -43,7 +43,14 @@ export async function generateMetadata({
     /* af prints absolute: its title already carries the locale brand. */
     title: lang === "af" ? { absolute: m.title } : m.title,
     description: m.description,
-    alternates: alternates(lang, "/corner-spa", site.url),
+    /* This is the distraction-free iframe entry point. The complete,
+       indexable explanation of the venture lives at /ventures/corner-spa;
+       keeping the bare embed out of search avoids two Oryx URLs competing
+       for the same Corner Spa intent. */
+    alternates: {
+      canonical: `${site.url}${lang === "af" ? "/af" : ""}/ventures/corner-spa`,
+    },
+    robots: { index: false, follow: true },
     openGraph: {
       title: m.ogTitle,
       description: m.description,

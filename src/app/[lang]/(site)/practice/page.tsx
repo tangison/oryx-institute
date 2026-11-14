@@ -29,7 +29,7 @@ const copy = {
     runsTitle: "What the practice runs.",
     safetyName: "Safety Officer Training",
     safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
+      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
     safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
@@ -63,7 +63,7 @@ const copy = {
     runsTitle: "What the practice runs.",
     safetyName: "Safety Officer Training",
     safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
+      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
     safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
