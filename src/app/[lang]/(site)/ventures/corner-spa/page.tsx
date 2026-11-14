@@ -157,7 +157,7 @@ export default async function CornerSpaPage({
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: t.meta.ldName,
-    url: `${site.url}${A("/corner-spa")}`,
+    url: `${site.url}${A("/ventures/corner-spa")}`,
     description: t.meta.ldDescription,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
     about: {
@@ -176,7 +176,7 @@ export default async function CornerSpaPage({
       {/* The hero: the venture's own sand, type only: the treatment
           photographs stay on /ventures, and the counter below is this
           page's image. */}
-      <section className="section" data-sc-act="scrub">
+      <section className="section screen-intro" data-sc-act="scrub">
         <div className="shell">
           <div data-sc-in>
             <p className="eyebrow eyebrow--ink">{t.eyebrow}</p>

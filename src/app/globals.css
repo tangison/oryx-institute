@@ -2526,3 +2526,105 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   font-size: 0.92rem;
   color: var(--ivory-80);
 }
+
+/* --------------------------------------------------------------------------
+   Full-screen editorial entries and appointment records
+   -------------------------------------------------------------------------- */
+
+.page-head--screen,
+.screen-intro {
+  min-height: min(88vh, 54rem);
+  min-height: min(88svh, 54rem);
+  display: grid;
+  align-items: end;
+}
+
+.page-head--screen {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: calc(var(--header-h) + clamp(4rem, 11vh, 8rem))
+    clamp(3rem, 9vh, 6rem);
+  background:
+    linear-gradient(116deg, transparent 0 68%, rgba(181, 83, 58, 0.09) 68% 68.12%, transparent 68.12%),
+    var(--paper);
+}
+.page-head--screen::before {
+  content: "";
+  position: absolute;
+  right: max(var(--gutter), calc((100vw - 82.5rem) / 2 + var(--gutter)));
+  bottom: clamp(2.5rem, 6vh, 4.5rem);
+  width: clamp(4rem, 10vw, 9rem);
+  height: 1px;
+  background: var(--maroon);
+  opacity: 0.72;
+}
+.page-head--screen .page-head__inner {
+  width: 100%;
+}
+
+.screen-intro {
+  align-items: end;
+  padding-top: calc(var(--header-h) + clamp(4rem, 9vh, 7rem));
+  padding-bottom: clamp(3rem, 8vh, 6rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.appointment-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  gap: 0.45rem;
+  padding: 1.25rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+}
+.appointment-card p {
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+.appointment-card strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.appointment-card span {
+  margin-top: 0.5rem;
+  color: var(--ink-40);
+  font-size: 1.4rem;
+}
+.appointment-card--large {
+  position: relative;
+  inset: auto;
+  min-height: clamp(14rem, 28vw, 21rem);
+  max-width: 14rem;
+}
+
+.divider--paper-red {
+  height: clamp(8rem, 18vh, 14rem);
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(255, 248, 238, 0.24) 8% 8.12%, transparent 8.12%),
+    var(--terracotta);
+}
+
+@media (max-width: 47.99rem) {
+  .page-head--screen,
+  .screen-intro {
+    min-height: min(78svh, 44rem);
+  }
+  .page-head--screen {
+    padding-top: calc(var(--header-h) + 3.5rem);
+  }
+}
+
+.divider--paper-ink {
+  background:
+    linear-gradient(125deg, transparent 0 72%, rgba(255, 248, 238, 0.14) 72% 72.12%, transparent 72.12%),
+    var(--ink);
+}
