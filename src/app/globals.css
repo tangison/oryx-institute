@@ -28,7 +28,6 @@
 
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
-  --font-cjk: var(--font-cjk);
 }
 
 /* --------------------------------------------------------------------------
@@ -221,10 +220,6 @@
 
 .tnum {
   font-variant-numeric: tabular-nums;
-}
-
-.cjk {
-  font-family: var(--font-cjk);
 }
 
 /* --------------------------------------------------------------------------
@@ -1081,7 +1076,7 @@ body.menu-locked {
   max-width: 100%;
 }
 
-/* The 理工 paragraph with the horns beside it. */
+/* The approved 理工 mark with the horns beside it. */
 .ligong-grid {
   display: grid;
   gap: clamp(2rem, 3.5vw, 3.5rem);
@@ -1823,7 +1818,7 @@ body.menu-locked {
 }
 
 .wordmark-cjk {
-  font-family: var(--font-cjk);
+  font-family: var(--font-cjk-loaded), serif;
   color: var(--maroon);
 }
 

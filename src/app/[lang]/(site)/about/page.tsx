@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site, status, schemaIds } from "@/lib/site";
-import { statusZh } from "@/lib/site-zh";
+import { siteAf, statusAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { StaffRows } from "@/components/site/staff-rows";
@@ -12,7 +12,7 @@ import { StaffRows } from "@/components/site/staff-rows";
  * full-bleed under scrub, the proposition on a scrim bottom left; the
  * People section states the team in rows: the Principal's real
  * portrait, and the honest placeholder card for every appointment
- * still pending; the horns hold the 理工 block; the desert plate
+ * still pending; the horns hold the approved 理工 mark; the desert plate
  * breathes before the standing; the colophon carries the Tangison
  * disclosure in prose beside the nib. (Image Bible v6, STAFF-DIRECTORY,
  * CONTENT-CORRECTIONS §5-§6.)
@@ -22,10 +22,10 @@ const copy = {
     meta: {
       title: "About the Institute",
       description:
-        "Oryx Institute: the oryx, the characters 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
+        "Oryx Institute: the oryx, the visual mark 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
       ogTitle: "About the Institute | Oryx Institute",
       ogDescription:
-        "The oryx, the characters 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
+        "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
     headTitle: "Built for hard ground.",
     headLede: {
@@ -48,6 +48,7 @@ const copy = {
       pre: "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed. Reach the office by email at ",
       post: ".",
     },
+    plannedCentreEyebrow: "The planned training centre",
     standsEyebrow: "Where the institute stands",
     standsTitle: "Prelaunch, and honest about it.",
     standsBody: {
@@ -73,70 +74,62 @@ const copy = {
     terms: "Terms",
     staffLink: "The people, on one page",
   },
-  zh: {
+  af: {
     meta: {
-      title: "关于学院",
+      title: "About the Institute",
       description:
-        "Oryx 理工学院：羚羊、理工二字、温得和克的院长办公室、在营的咨询实务，以及学院教书育人的脾气。理工，科学和工程二字，站在全名里理工学院的位置；字标三体并立，校长是 Tangi Iigonda，学院尚在开办，正向 NQA 与 NTA 申请认证，一切如实陈述。",
-      ogTitle: "关于学院 | Oryx 理工学院",
+        "Oryx Institute: the oryx, the visual mark 理工, the Principal's office in Windhoek, the consulting practice, and the temper the institute teaches by.",
+      ogTitle: "About the Institute | Oryx Institute",
       ogDescription:
-        "羚羊、理工二字、温得和克的院长办公室，以及学院教书育人的脾气。",
+        "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
-    headTitle: "为硬地而生。",
+    headTitle: "Built for hard ground.",
     headLede: {
-      pre: "学院以羚羊为名：那是纳米比亚自己的羚羊，直角、不慌不忙，旱地里饿不倒。字标又加上",
-      post: "二字，即科学与工程，印在标志里它们本来的位置上。",
+      pre: "The institute is named for the oryx: Namibia's own antelope, straight-horned, unhurried and impossible to starve out of dry country. The wordmark adds ",
+      post: ", science and engineering, set in the logo exactly where the two belong.",
     },
-    readBulletin: "读公报第一号",
-    peopleEyebrow: "人",
-    peopleTitle: "是谁在建这所学院。",
+    readBulletin: "Read Bulletin No. 1",
+    peopleEyebrow: "People",
+    peopleTitle: "Who is building it.",
     peopleBody:
-      "下面这份名册就是团队的真实现状：一位院长，加上若干有待落定的任命：每落定一项，登记册就记上一笔。占位肖像就是占位：哪天真的人坐进那个位置，哪天就换成真照片。",
-    practiceEyebrow: "实务",
+      "The register below is the honest state of the team: one Principal, and the appointments the register will date as they land. Placeholder portraits are placeholders on purpose: a real photograph replaces each one the day a real person takes the seat.",
+    practiceEyebrow: "The practice",
     practiceBody:
-      "学院今天以咨询实务运转。经营者案头在院长办公室做经营咨询；市场调研按项目接单；快速响应培训把团队带到标准。各个学校随认证进展，依次而来。",
-    temperEyebrow: "脾气",
+      "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses.",
+    temperEyebrow: "The temper",
     temperBody:
-      "学院自己的传单用三个字说完：看着无害，并不是。毕业生按证书的尺子量：创新与实用解题。安静的活，利落的尾。",
-    officeEyebrow: "办公室",
+      "The institute's own flyer says it in three words: looks harmless, isn't. Graduates are measured the same way the certificate measures them, on innovation and applied problem-solving. Quiet work, decisive finishes.",
+    officeEyebrow: "The office",
     officeBody: {
-      pre: "学院在纳米比亚温得和克开展工作，暂无对外场地，所以不印街道地址。给办公室写信：",
-      post: "。",
+      pre: "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed. Reach the office by email at ",
+      post: ".",
     },
-    standsEyebrow: "学院站在哪里",
-    standsTitle: "开办之前，并且如实说。",
+    plannedCentreEyebrow: "Die beplande opleidingsentrum",
+    standsEyebrow: "Where the institute stands",
+    standsTitle: "Prelaunch, and honest about it.",
     standsBody: {
-      pre: " 法定名称：Oryx Polytechnic Institute。学院正在温得和克筹建；今天在运转的，就是今天有用的。",
+      pre: " Legal name: Oryx Polytechnic Institute. The institute is being established in Windhoek; what runs today is what works today.",
     },
-    liveNow: "在营",
-    inDevelopment: "在建",
-    partnershipsEyebrow: "合作",
-    partnershipsPost: "，讲讲你的想法。",
-    colophonEyebrow: "形象、系统与搭建",
+    liveNow: "Live now",
+    inDevelopment: "In development",
+    partnershipsEyebrow: "Partnerships",
+    partnershipsPost: " and say what you have in mind.",
+    colophonEyebrow: "Identity, system, and build",
     colophonBody:
-      "Oryx Institute 的形象、网站与学习平台，由温得和克的产品工作室 Tangison Technologies 构建并维护。Oryx Institute 的院长同时也是 Tangison Technologies 的创始人。Tangison 依服务协议向 Oryx 提供设计、工程与托管服务；提交给 Oryx 的学生数据归 Oryx Institute 所有；Tangison 不出售、不共享申请者数据。Tangison 同时也是 Oryx 即将推出的 AI 培训课程的交付伙伴。AI 课程知识产权依转让协议归 Oryx Institute 持有。",
-    colophonLine: "形象与搭建：Tangison · 温得和克",
-    legalEyebrow: "法务",
+      "The Oryx Institute identity, website, and learning platform are built and maintained by Tangison Technologies, a Windhoek-based product studio. The Principal of Oryx Institute is also the founder of Tangison Technologies. Tangison provides design, engineering, and hosting services to Oryx under a service agreement; student data submitted to Oryx remains the property of Oryx Institute; Tangison does not sell or share applicant data. Tangison is also Oryx's delivery partner for the upcoming AI training programme. AI curriculum IP is held by Oryx Institute under an assignment agreement.",
+    colophonLine: "Identity and build by Tangison · Windhoek",
+    legalEyebrow: "Legal",
     legalBipa: {
-      pre: "Oryx Polytechnic Institute 已在纳米比亚商业与知识产权管理局（BIPA）注册。",
-      post: " 注册编号与注册证书将在从 BIPA 领取之日起十四天内公布。",
+      pre: "Oryx Polytechnic Institute is registered with the Business and Intellectual Property Authority (BIPA), Namibia. ",
+      post: " Registration number and certificate will be published within 14 days of collection from BIPA.",
     },
     legalImagery:
-      "本站图像为示意，按学院自己的语域拍摄，并将随实拍推进换为温得和克的真实照片。它们不是校园写照：学院还没有可拍的房子，也不借别人的。图像不带说明，也不作声明。",
-    closeLine: "没准备好的，直说。",
-    privacy: "隐私",
-    terms: "条款",
-    staffLink: "名册，单独一页",
-    enLedger: {
-      paras: [
-        "The institute is named for the oryx: Namibia's own antelope, straight-horned, unhurried and impossible to starve out of dry country. In the wordmark the middle word stands in Chinese: 理工 (li gong), the characters for science and engineering, set exactly where Polytechnic stands in the legal name. The seal above them is the maroon shield, and the whole lockup sets in a classic serif, the way it is printed on the institute's letterhead.",
-        "The people building it, stated as it stands: Tangi Iigonda, Principal and founder, holds the research leadership, the applications to the NQA and the NTA, ventures oversight and the development of Corner Spa, and reads every application personally. Before Oryx he founded Tangison Technologies, the Windhoek product studio behind the institute's identity, systems and build. The lead instructor for the safety officer programme is appointed once curriculum sign-off is complete, with credentials and biography published on 15 November 2026. A research associate and Bulletin editor, and the Corner Spa lead, are appointments to be announced. Placeholder portraits are placeholders on purpose; a real photograph replaces each one the day a real person takes the seat.",
-        "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses. The institute's own flyer says the temper in three words: looks harmless, isn't. Graduates are measured the way the certificate measures them, on innovation and applied problem-solving. Quiet work, decisive finishes.",
-        "The institute works from Windhoek, Namibia, and does not operate public premises yet, so no street address is printed; visits are arranged by appointment. The legal name is Oryx Polytechnic Institute, and the standing is stated as it is: prelaunch, pursuing accreditation with the NQA and the NTA, and honest about what runs and what does not. The institute is registered with the Business and Intellectual Property Authority (BIPA), Namibia; the registration number and certificate will be published within 14 days of collection from BIPA.",
-        "Identity, system, and build: the Oryx Institute identity, website, and learning platform are built and maintained by Tangison Technologies, a Windhoek-based product studio. The Principal of Oryx Institute is also the founder of Tangison Technologies. Tangison provides design, engineering, and hosting services to Oryx under a service agreement; student data submitted to Oryx remains the property of Oryx Institute; Tangison does not sell or share applicant data. Tangison is also Oryx's delivery partner for the upcoming AI training programme. AI curriculum IP is held by Oryx Institute under an assignment agreement.",
-        "The imagery on this site is illustrative, set in the institute's own register, and will be replaced by real photography from Windhoek as it is shot. It is not a depiction of a campus: the institute has no premises to photograph yet, and it does not borrow one.",
-      ],
-    },
+      "The imagery on this site is illustrative, set in the institute's own register, and will be replaced by real photography from Windhoek as it is shot. It is not a depiction of a campus: the institute has no premises to photograph yet, and it does not borrow one. Images carry no captions and make no claims of their own.",
+    closeLine: "What is not ready, says so.",
+    privacy: "Privacy",
+    terms: "Terms",
+    staffLink: "The people, on one page",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -154,7 +147,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/about`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/about`,
       images: [
         { url: "/brand/og/about.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -162,9 +155,10 @@ export async function generateMetadata({
   };
 }
 
-/** The 理工 paragraph, drawn verbatim from Bulletin No. 1, the
-    institute's own published explanation of the word. */
-const liGongEssay = insights[0].body[0];
+/** The 理工 explanation, drawn verbatim from Bulletin No. 1, the
+    institute's own published explanation of the institute's science-and-
+    engineering purpose. */
+const polytechnicEssay = insights[0].body[0];
 
 export default async function AboutPage({
   params,
@@ -172,10 +166,11 @@ export default async function AboutPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const st = zh ? statusZh : status;
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const st = af ? statusAf : status;
+  const plannedCentre = af ? siteAf.plannedCentre : site.plannedCentre;
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   /* Truthful structured data: this is the about page of one
      organization, referenced by the same id every other page uses. */
@@ -257,10 +252,14 @@ export default async function AboutPage({
               {t.officeBody.post}
             </p>
           </div>
+          <div>
+            <p className="eyebrow eyebrow--ink">{t.plannedCentreEyebrow}</p>
+            <p className="measure mt-4 text-soft">{plannedCentre}</p>
+          </div>
         </div>
       </section>
 
-      {/* The peak: 理工 wipes in left to right on its own cream plate,
+      {/* The approved 理工 mark wipes in left to right on its own cream plate,
           the published explanation beside it, the horns holding the
           right of the block. */}
       <section className="section" data-sc-act="flow">
@@ -270,15 +269,15 @@ export default async function AboutPage({
             data-sc-reveal
             aria-hidden="true"
           >
-            <p className="wordmark-cjk text-[clamp(5rem,14vw,11rem)] leading-none">
+            <p className="wordmark-cjk text-center text-[clamp(5rem,14vw,11rem)] leading-none">
               理工
             </p>
           </div>
           <div data-sc-in>
             <p className="eyebrow eyebrow--ink">
-              {zh ? "理工代表什么" : "What 理工 stands for"}
+              {af ? "Wat 理工 beteken" : "What 理工 stands for"}
             </p>
-            <p className="measure body-lg mt-5">{liGongEssay}</p>
+            <p className="measure body-lg mt-5">{polytechnicEssay}</p>
             <Link
               href={A("/resources#bulletin-what-a-polytechnic-is")}
               className="btn--quiet mt-6"
@@ -305,22 +304,11 @@ export default async function AboutPage({
           </figure>
           <div className="md:order-1" data-sc-in>
             <p className="measure text-soft">
-              {zh ? (
-                <>
-                  Oryx 理工学院。字标中间一词是中文：
-                  <span className="wordmark-cjk">理工</span>
-                  （li gong），科学与工程。上方的印章是栗色盾徽，整组字标以古典衬线体排印，一如学院信笺上的印法。
-                </>
-              ) : (
-                <>
-                  Oryx Institute. In the wordmark the middle word stands in
-                  Chinese: <span className="wordmark-cjk">理工</span> (li gong),
-                  the characters for science and engineering. The seal above
-                  them is the maroon shield, and the whole lockup sets in a
-                  classic serif, the way it is printed on the institute&apos;s
-                  letterhead.
-                </>
-              )}
+              Oryx Institute. In the wordmark the middle mark is
+              <span className="wordmark-cjk"> 理工</span> (li gong), the characters
+              for science and engineering. The seal above it is the maroon
+              shield, and the whole lockup sets in a classic serif, as printed
+              on the institute&apos;s letterhead.
             </p>
           </div>
         </div>
@@ -400,7 +388,7 @@ export default async function AboutPage({
             <div className="panel mt-12 p-8 md:p-10" data-sc-in>
               <p className="measure text-[1.0rem] leading-relaxed">
                 {st.partnerships}{" "}
-                {zh ? "给办公室写信：" : "Write to the office at "}
+                {af ? "Write to the office at " : "Write to the office at "}
                 <a href={`mailto:${site.email}`} className="link-type">
                   {site.email}
                 </a>
@@ -411,14 +399,14 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
@@ -435,9 +423,7 @@ export default async function AboutPage({
             <Image
               src="/images/kinfolk/texture/34-partner-nib.jpg"
               alt={
-                zh
-                  ? "一支黄铜蘸水笔笔尖，居中放在米色纸上"
-                  : "A brass dip-pen nib, centred on cream paper"
+                af ? "A brass dip-pen nib, centred on cream paper" : "A brass dip-pen nib, centred on cream paper"
               }
               width={1254}
               height={1254}

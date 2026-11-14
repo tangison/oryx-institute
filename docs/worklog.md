@@ -41,7 +41,7 @@
   divider (added). Removed from /ventures, where the manifest never placed it.
 - 07 windhoek → home second silent divider, /contact divider.
 - 08 spa dish → home ventures reverse-zigzag, /ventures hero.
-- 09 horns → /about (理工), /brand wall, /faq plate.
+- 09 horns → /about, /brand wall, /faq plate.
 - 10 wax seal → home close pin, /apply plate.
 - print 01–05 → /brand print-kit gallery (one use each).
 
@@ -91,15 +91,15 @@
   service contactPoint, llms.txt, AGENTS.md, the markdown shelf and the
   search index, in both languages. NBSP between groups; the number
   never splits across lines.
-- Corner Spa embed: /corner-spa and /zh/corner-spa are now the
+- Corner Spa embed: /corner-spa and /af/corner-spa are now the
   full-bleed frame (bare [lang] route, no chrome, Oryx ink loader with
   the running oryx, 1.4 s minimum beat, ten-second fallback link, no
   history writes). The former content page moved to
-  /ventures/corner-spa (+ zh) with its status copy brought to the live
-  facts. 308 redirects: /spa, /cornerspa, /corner-spa/ and the /zh
+  /ventures/corner-spa (+ af) with its status copy brought to the live
+  facts. 308 redirects: /spa, /cornerspa, /corner-spa/ and the /af
   mirrors. Mendozer's live headers verified: frame-ancestors names both
   Oryx hosts, no X-Frame-Options.
-- Blog: /blog and /blog/corner-spa (+ zh) carry the approved copy as
+- Blog: /blog and /blog/corner-spa (+ af) carry the approved copy as
   written, with the spa's photographs served from public/corner-spa/ at
   original dimensions, Article JSON-LD, and the price table rendered
   from the note itself. Wired into the footer nav, the ventures page,
@@ -108,5 +108,5 @@
 - Fixed on the way: md-shelf.ts blockToMd had a syntax error in the
   committed HEAD (return ead, ...); the repo could not build until it
   was repaired.
-- Em dashes swept from every file this change set touches; Chinese
-  double-dash punctuation in zh copy is kept as written.
+- Em dashes swept from every file this change set touches; Afrikaans
+  double-dash punctuation in af copy is kept as written.

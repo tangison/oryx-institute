@@ -8,8 +8,7 @@ this map invents programme names, dates, fees or accreditation claims.
 
 ## 1. What Oryx is (the one-paragraph version)
 
-Oryx Politechnical Institute (理工, "science and engineering") is a startup
-polytechnic for Windhoek, Namibia. It teaches science, engineering, technology
+Oryx Politechnical Institute is a startup polytechnic for Windhoek, Namibia. It teaches science, engineering, technology
 and applied problem-solving, and it is AI-native from day one: the tools are
 not a lab at the back of the campus, they are the campus. The institute's
 model takes the Stanford recipe, a world-class teaching core, an

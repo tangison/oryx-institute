@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site, schemaIds } from "@/lib/site";
-import { siteZh } from "@/lib/site-zh";
+import { siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { safetyLevels, safetyLanding } from "@/lib/safety";
 
@@ -33,10 +33,10 @@ const DURATIONS = {
     "level-2-officer": "5 days",
     "level-3-management": "10 days, modular",
   },
-  zh: {
-    "level-1-induction": "一天",
-    "level-2-officer": "五天",
-    "level-3-management": "十天，模块化",
+  af: {
+    "level-1-induction": "1 dag",
+    "level-2-officer": "5 dae",
+    "level-3-management": "10 dae, modulêr",
   },
 } as const;
 
@@ -49,19 +49,16 @@ const SHORT_DESC = {
     "level-3-management":
       "Senior officers and SHE managers: SHEQ systems, regulation in depth, contractor control, root cause, audit. Modular.",
   },
-  zh: {
-    "level-1-induction":
-      "任何工地上的每一位新员工：危险源、防护装备、应急程序、法律义务。一天，一份结业证书。",
-    "level-2-officer":
-      "安全代表与现场主管：HIRA、事故调查、施工安全、安全档案，加一次实操巡查。",
-    "level-3-management":
-      "高级安全员与 SHE 经理：SHEQ 体系、条例深读、承包商管控、根因分析、审计。模块化。",
+  af: {
+    "level-1-induction": "Elke nuwe werknemer op enige terrein: gevare, PPE, noodgevalle en wetlike pligte. Een dag, een bywoningsertifikaat.",
+    "level-2-officer": "Verteenwoordigers en terreinopsighouers: HIRA, voorvalondersoek, konstruksiegevare, die veiligheidslêer en 'n praktiese rondgang.",
+    "level-3-management": "Senior beamptes en SHE-bestuurders: SHEQ-stelsels, regulasies in diepte, kontrakteurbeheer, grondoorsaak en oudit. Modulêr.",
   },
 } as const;
 
 const CRUMB = {
   en: { practice: "Practice", course: "Safety officer course" },
-  zh: { practice: "实务", course: "安全员课程" },
+  af: { practice: "Praktyk", course: "Veiligheidsbeampte-kursus" },
 } as const;
 
 export async function generateMetadata({
@@ -80,7 +77,7 @@ export async function generateMetadata({
     openGraph: {
       title: t.ogTitle,
       description: t.metaDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/practice/safety-officer-course`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/practice/safety-officer-course`,
       images: [
         {
           url: "/brand/og/safety-officer-course.jpg",
@@ -99,9 +96,9 @@ export default async function SafetyLandingPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = safetyLanding[lang];
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
   const dur = DURATIONS[lang];
   const desc = SHORT_DESC[lang];
   const crumb = CRUMB[lang];
@@ -113,7 +110,7 @@ export default async function SafetyLandingPage({
         "@type": "EducationalOrganization",
         "@id": schemaIds.org,
         name: site.legalName,
-        alternateName: zh ? siteZh.tradingName : site.tradingName,
+        alternateName: af ? siteAf.tradingName : site.tradingName,
         url: site.url,
         email: site.email,
         address: {
@@ -224,13 +221,13 @@ export default async function SafetyLandingPage({
                   <Link
                     href={A(`/practice/safety-officer-course/${l.slug}`)}
                     className="btn--quiet mt-5"
-                    aria-label={`${(lang === "zh"
-                      ? ["一级大纲", "二级大纲", "三级大纲"]
+                    aria-label={`${(lang === "af"
+                      ? ["Vlak 1-oorsig", "Vlak 2-oorsig", "Vlak 3-oorsig"]
                       : ["Level 1 outline", "Level 2 outline", "Level 3 outline"]
                     )[i]}: ${l[lang].h1}`}
                   >
-                    {(lang === "zh"
-                      ? ["一级大纲", "二级大纲", "三级大纲"]
+                    {(lang === "af"
+                      ? ["Vlak 1-oorsig", "Vlak 2-oorsig", "Vlak 3-oorsig"]
                       : ["Level 1 outline", "Level 2 outline", "Level 3 outline"]
                     )[i]}{" "}
                     <span className="arr" aria-hidden="true">→</span>
@@ -281,9 +278,7 @@ export default async function SafetyLandingPage({
             <Image
               src="/images/kinfolk/people/45-staff-placeholder.jpg"
               alt={
-                zh
-                  ? "一张立起的空白米色卡片放在深胡桃木上，角上斜放一枝干香草，讲师肖像的诚实占位"
-                  : "A blank cream card standing on dark walnut with a dried herb sprig across the corner, the honest placeholder for the instructor portrait"
+                af ? "A blank cream card standing on dark walnut with a dried herb sprig across the corner, the honest placeholder for the instructor portrait" : "A blank cream card standing on dark walnut with a dried herb sprig across the corner, the honest placeholder for the instructor portrait"
               }
               width={1122}
               height={1402}
@@ -311,11 +306,11 @@ export default async function SafetyLandingPage({
             <p className="measure mt-5 text-soft">{t.knowCertificate}</p>
             <div className="mt-8 flex flex-wrap gap-5">
               <Link href={A("/register")} className="btn--quiet">
-                {zh ? "读公开登记册" : "Read the public register"}{" "}
+                {af ? "Read the public register" : "Read the public register"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
               <Link href={A("/faq")} className="btn--quiet">
-                {zh ? "读常见问题" : "Read the FAQ"}{" "}
+                {af ? "Read the FAQ" : "Read the FAQ"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -327,31 +322,29 @@ export default async function SafetyLandingPage({
       <section className="section-lg" data-sc-act="flow">
         <div className="shell hair-t pt-14" data-sc-in>
           <h2 className="h-section max-w-[20ch]">
-            {zh ? "开班那天，第一时间知道。" : "First to know, the day enrolments open."}
+            {af ? "First to know, the day enrolments open." : "First to know, the day enrolments open."}
           </h2>
           <p className="measure mt-6 text-soft">
-            {zh
-              ? "在申请表中选择“安全培训”登记意向，报名一开放，办公室当天与你联系。没有邮件列表，没有自动营销。"
-              : "Register your interest through the application form selecting 'Safety training', and the office contacts you the day enrolments open. No mailing list, no automated marketing."}
+            {af ? "Register your interest through the application form selecting 'Safety training', and the office contacts you the day enrolments open. No mailing list, no automated marketing." : "Register your interest through the application form selecting 'Safety training', and the office contacts you the day enrolments open. No mailing list, no automated marketing."}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <Link href={A("/apply/safety")} className="btn">
               {t.applyCta}
             </Link>
             <a href={`mailto:${site.email}`} className="btn--quiet">
-              {zh ? "给办公室写信" : "Write to the office"}{" "}
+              {af ? "Write to the office" : "Write to the office"}{" "}
               <span className="arr" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {af && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
                 {EN_LEDGER.map((p, i) => (
                   <p key={i}>{p}</p>

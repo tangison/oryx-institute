@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { offers, site } from "@/lib/site";
-import { offersZh, siteZh } from "@/lib/site-zh";
+import { offersAf, siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 /**
@@ -30,7 +30,7 @@ const copy = {
     safetyName: "Safety Officer Training",
     safetyLine:
       "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
-    safetyCta: "See the curriculum",
+    safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
     holdsBody: [
@@ -45,51 +45,44 @@ const copy = {
       "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
     apprenticeship:
       "The apprenticeship bench is not open yet. What is not ready, says so.",
-    enquire: "Enquire about the next intake",
+    enquire: "Enquire about courses and the Practice",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
   },
-  zh: {
+  af: {
     meta: {
-      title: "实务",
+      title: "The Practice: Work That Holds",
       description:
-        "Oryx 理工学院的实务：经营者案头的一对一经营咨询、按项目接单的市场调研、快速响应培训，以及面向纳米比亚现场的安全员培训，由注册安全专家授课，纸面笔试加现场实操考核，教材与工具提前列明。一切从温得和克按标准交付：每件事都收尾，结果落在纸面，立得住。预约与委托，都从一封邮件开始。",
-      ogTitle: "实务 | Oryx 理工学院",
-      ogDescription: "经营者案头咨询、市场调研、快速响应培训与安全员培训，按标准交付。",
+        "The practice at Oryx Institute: Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training for Namibian sites, from Windhoek.",
+      ogTitle: "Practice | Oryx Institute",
+      ogDescription:
+        "Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training, delivered to standard.",
     },
-    heroLine: "立得住的活。",
-    heroSub: "有度量，按标准收尾。每一件工具都有名字，不玩虚的。",
-    runsTitle: "实务今天在运转的。",
-    safetyName: "安全员培训",
+    heroLine: "Work that holds.",
+    heroSub: "Measured and finished to standard. Every tool named, not magic.",
+    runsTitle: "What the practice runs.",
+    safetyName: "Safety Officer Training",
     safetyLine:
-      "面向纳米比亚现场的职业安全培训，一天、五天与十天：由注册安全专家授课，纸面笔试加现场实操考核。",
-    safetyCta: "看课程大纲",
-    safetyTag: "新",
-    holdsTitle: "结果落在纸面。",
+      "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
+    safetyCta: "See the Safety Officer Training curriculum",
+    safetyTag: "New",
+    holdsTitle: "The outcome is written down.",
     holdsBody: [
-      "每一段委托都以同一种方式收尾：纸上。咨询面谈收尾时写下定了什么、接下来做什么。调研委托收尾时交出发现、选项与它们支撑的决策，取材自纳米比亚的土地，出处指名道姓。培训委托收尾时交付一份围绕需求搭好的课程，由需求所指的行家来讲。",
-      "这里不承诺任何资质；承诺的是活本身。费用在垂询时由院长办公室确认，第一封回信会讲明学院能做什么、不能做什么。",
+      "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named. Training engagements close with a programme structured around the need that asked for it, delivered by the industry expert the need calls for.",
+      "Nothing here promises a credential; the promise is the work itself. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
     ],
-    kitEyebrow: "家伙什",
+    kitEyebrow: "The working kit",
     kitBody:
-      "实务靠叫得出名字的普通工具运转：一把米尺、一张工作台、公开的办公家什，以及用学院自己的手写法记的笔记本。屋里没有装饰品；叫不出名字的东西，就不用。每门课在报名前把工具列出来，明说，绝不暗示。",
-    standsEyebrow: "实务的资质现状",
+      "The practice runs on named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
+    standsEyebrow: "Where the practice stands",
     standsBody:
-      "实务引擎目前以商业服务协议提供收费的企业咨询、市场调研与公司快速响应培训。正式的职业教育课程，包括工商管理国家职业标准，将在获得 NTA 培训机构注册之后才会开始。注册资格的 NQA 认证正在同步申请中，结果将在公开登记册上公布。",
-    apprenticeship: "学徒台还没有开放。没准备好的，直说。",
-    enquire: "垂询下一期",
-    writeOffice: "给办公室写信",
-    readFaq: "读常见问题",
-    enLedger: {
-      paras: [
-        "The practice delivers work measured and finished to standard, with every tool named. Three lines run from the desk in Windhoek. The Owner's Desk is one-on-one business counselling for an owner at a decision: the outcome is written down, what was decided and what happens next. Market research and development is taken on per engagement: feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground with sources named, written to be used and not shelved.",
-        "Rapid Response Training exists for the moment a business needs a team trained on something new: Oryx sources the industry expert the need calls for, structures the programme around it, and delivers it. Training engagements close with a programme structured around the need that asked for it, not around a catalogue.",
-        "Beside the three, a fourth line is announced: safety officer training for Namibian sites. One, five, and ten days of occupational safety training (worker induction, safety officer certification, and advanced safety management), taught by a registered safety professional and examined on paper and on site. The curriculum is published; enrolments open with Cohort 1.",
-        "The working kit is named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
-        "Three engagements, one standard. A counselling engagement at the Owner's Desk closes on paper with what was decided and what happens next. A research engagement closes with findings, options and the decision they support, gathered on Namibian ground with sources named. A training engagement closes with a programme structured around the need that asked for it, delivered by the industry expert the need calls for. Enquiries name the field, the office replies with what is possible, and fees are confirmed before any work is booked, never after.",
-        "Nothing here promises a credential; the promise is the work itself. The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register. The apprenticeship bench is not open yet, and the page says so.",
-      ],
-    },
+      "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
+    apprenticeship:
+      "The apprenticeship bench is not open yet. What is not ready, says so.",
+    enquire: "Enquire about courses and the Practice",
+    writeOffice: "Write to the office",
+    readFaq: "Read the FAQ",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -110,7 +103,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/practice`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/practice`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -129,11 +122,11 @@ export default async function PracticePage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const all = zh ? offersZh : offers;
+  const all = af ? offersAf : offers;
   const rows = PRACTICE_IDS.map((id) => all.find((o) => o.id === id)!);
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -218,9 +211,7 @@ export default async function PracticePage({
             <Image
               src="/images/kinfolk/people/31-hands-working.jpg"
               alt={
-                zh
-                  ? "一双手在硬光下操作一台手动工具，正在干活的中景"
-                  : "A pair of hands working a hand tool in hard daylight, mid-task"
+                af ? "A pair of hands working a hand tool in hard daylight, mid-task" : "A pair of hands working a hand tool in hard daylight, mid-task"
               }
               width={1122}
               height={1402}
@@ -256,9 +247,7 @@ export default async function PracticePage({
             <Image
               src="/images/kinfolk/inner/23-practice-wrench.jpg"
               alt={
-                zh
-                  ? "一把干净的单头扳手，居中放在米色纸上"
-                  : "A clean single-end wrench, centred on cream paper"
+                af ? "A clean single-end wrench, centred on cream paper" : "A clean single-end wrench, centred on cream paper"
               }
               width={1402}
               height={1122}
@@ -304,14 +293,14 @@ export default async function PracticePage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

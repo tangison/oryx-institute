@@ -12,6 +12,6 @@ export default async function LangNotFound() {
   /* not-found boundaries receive no route params, so the locale comes
      from the hint the edge proxy stamps on every request. */
   const h = await headers();
-  const lang = h.get("x-oryx-lang") === "zh" ? "zh" : "en";
+  const lang = h.get("x-oryx-lang") === "af" ? "af" : "en";
   return <ErrorScreen status={404} lang={lang} />;
 }

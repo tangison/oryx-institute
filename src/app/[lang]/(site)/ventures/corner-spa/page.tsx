@@ -10,8 +10,8 @@ import { alternates, langFromParams } from "@/lib/i18n";
  * counter lives on their platform at spa.mendozer.com and is embedded
  * here, exactly as the collaboration states it: the spa's address on
  * this site, and Mendozer's counter serving it. The copy keeps the
- * ventures register: state what exists, date the opening in the
- * register the day it happens, and invent nothing before then.
+ * ventures register: state what is operating, preserve the spa's own
+ * booking boundary, and invent nothing beyond the approved facts.
  */
 
 const SPA_COUNTER = "https://spa.mendozer.com";
@@ -21,23 +21,23 @@ const copy = {
     meta: {
       title: "Corner Spa, the venture",
       description:
-        "Corner Spa, the first venture: wellness and service operations in Windhoek, run with Mendozer. The spa's counter at spa.mendozer.com, embedded on this page.",
+        "Corner Spa, Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work in Windhoek. The spa's counter at spa.mendozer.com is embedded on this page.",
       ogTitle: "Corner Spa | Oryx Institute",
       ogDescription:
-        "Wellness and service operations in Windhoek, run with Mendozer. The spa's counter, spa.mendozer.com, embedded here.",
+        "Oryx's first operating venture, run with Mendozer Investments: practical business and service work in Windhoek. The spa's counter, spa.mendozer.com, is embedded here.",
       ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa, the first venture of Oryx Institute: wellness and service operations in Windhoek, run in collaboration with Mendozer at spa.mendozer.com.",
+        "Corner Spa, Oryx Institute's first operating venture, run with Mendozer Investments: a live setting for practical business and service work in Windhoek.",
     },
-    eyebrow: "Ventures · the first",
-    partnerTag: "In collaboration with Mendozer",
+    eyebrow: "Ventures · operating",
+    partnerTag: "Operating with Mendozer",
     h1: "Corner Spa",
-    lede: "The first venture: a small wellness and service operation for Windhoek, opened with a partner. Teach on the floor, serve real customers, and print the result.",
+    lede: "Oryx's first operating venture, run with Mendozer Investments. A live setting for practical business and service work in Windhoek.",
     withEyebrow: "With Mendozer",
-    withLede: "A venture with a counter of its own.",
+    withLede: "An operating venture with a counter of its own.",
     withBody:
-      "Corner Spa runs in collaboration with Mendozer, whose platform serves the venture's own website at spa.mendozer.com. That counter is embedded below, and it also opens full screen at oryxinstitute.org/corner-spa. One website serves the spa, so prices and booking details are always the same wherever it is opened; nothing here retells what the counter itself says.",
-    shapeEyebrow: "The shape of the collaboration",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. Mendozer's platform serves the spa's own website at spa.mendozer.com. That counter is embedded below, and it also opens full screen at oryxinstitute.org/corner-spa. Booking and service details stay on the spa's own site.",
+    shapeEyebrow: "The operating collaboration",
     rows: [
       {
         term: "The counter",
@@ -45,78 +45,74 @@ const copy = {
       },
       {
         term: "The classroom",
-        body: "The venture doubles as the teaching site. Bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited: not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on.",
+        body: "Corner Spa is a live setting for practical business and service work. The spa's own customer-facing booking and service details remain on its own site.",
       },
       {
-        term: "The register row",
-        body: "The opening is dated in the register the day it happens, and the result prints either way: as a business, or as a lesson the institute paid for once, on the record, so nobody pays for it twice.",
+        term: "The public record",
+        body: "Oryx states its ventures plainly as they are. Corner Spa is operating; no opening date or public street address is claimed here.",
       },
     ],
     counterEyebrow: "The counter",
     counterTitle: "The Corner Spa counter at spa.mendozer.com",
     counterNote:
-      "The counter is served by Mendozer. If it has not loaded here, the venture's own address is",
+      "The counter is served by Mendozer. If it has not loaded here, the spa's own address is",
     statusEyebrow: "Status",
     liveNote: "The spa\u2019s own site, spa.mendozer.com, carries the menu and the prices; bookings run on WhatsApp. The full note with the price list is on the blog.",
     statusLede:
-      "Live. Corner Spa serves massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264\u00A081\u00A0623\u00A04788.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.",
     statusBody:
-      "The opening is dated in the register the day it happens: as a business, or not at all. Until then, this page is the venture's whole public surface.",
+      "Booking and service details stay on the spa's own site. Oryx does not publish a public street address or an opening date for the spa.",
     readRegister: "Read the register",
     writeOffice: "Write to the office",
   },
-  zh: {
+  af: {
     meta: {
-      title: "Corner Spa，与 Mendozer 合作",
+      title: "Corner Spa, die onderneming",
       description:
-        "Corner Spa，学院的第一项实业：温得和克的康养与服务运营，与 Mendozer 合作经营。水疗的柜台设在 Mendozer 平台 spa.mendozer.com，直接嵌于本页：预约、时间与服务单都从柜台读出，柜台没有说的，本页不替它说；开业之日，登记册记下日期。",
-      ogTitle: "Corner Spa | Oryx 理工学院",
+        "Corner Spa, Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank by spa.mendozer.com is op hierdie blad ingebed.",
+      ogTitle: "Corner Spa | Oryx Instituut",
       ogDescription:
-        "温得和克的康养与服务运营，与 Mendozer 合作。水疗柜台 spa.mendozer.com，嵌于本页。",
-      ldName: "Corner Spa · Oryx 理工学院",
+        "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank, spa.mendozer.com, is hier ingebed.",
+      ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa，Oryx 理工学院的第一项实业：温得和克的康养与服务运营，与 Mendozer 合作，柜台设在 spa.mendozer.com。",
+        "Corner Spa, Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
     },
-    eyebrow: "实业 · 第一项",
-    partnerTag: "与 Mendozer 合作",
+    eyebrow: "Ondernemings · in bedryf",
+    partnerTag: "In bedryf saam met Mendozer",
     h1: "Corner Spa",
-    lede: "第一项实业：为温得和克开的一间小康养与服务公司，与伙伴一起开业。在地板上教学，服务真实的顾客，把结果印出来。",
-    withEyebrow: "与 Mendozer",
-    withLede: "一间拥有自己柜台的实业。",
+    lede: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. 'n Lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
+    withEyebrow: "Saam met Mendozer",
+    withLede: "'n Bedrywige onderneming met sy eie toonbank.",
     withBody:
-      "Corner Spa 与 Mendozer 合作经营，水疗自己的网站设在对方的平台上：spa.mendozer.com。柜台直接嵌在本页，也可以在 oryxinstitute.org/corner-spa 全屏打开。一个网站承载这门生意，无论从哪里打开，价格与预约信息始终一致；本页不替柜台转述它自己会说的事。",
-    shapeEyebrow: "合作的形状",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Mendozer se platform bedien die spa se eie webwerf by spa.mendozer.com. Daardie toonbank is hieronder ingebed en maak ook volskerm by oryxinstitute.org/corner-spa oop. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
+    shapeEyebrow: "Die bedrywige samewerking",
     rows: [
       {
-        term: "柜台",
-        body: "Mendozer 的平台承载 spa.mendozer.com 的店面；本页将它嵌入，边框下方的文字始终标注地址：即使边框被拦或连接缓慢，这扇门也不会丢。",
+        term: "Die toonbank",
+        body: "Mendozer se platform bedien die winkelvenster; hierdie blad bed dit in, en die lyn onder die raam dra altyd die adres sodat die toegang nie by 'n geblokkeerde raam of stadige verbinding verlore gaan nie.",
       },
       {
-        term: "教室",
-        body: "实业同时是教学现场。簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的，不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。",
+        term: "Die klaskamer",
+        body: "Corner Spa is 'n lewende omgewing vir praktiese besigheids- en dienswerk. Die spa se eie kliëntgerigte besprekings- en diensbesonderhede bly op sy eie webwerf.",
       },
       {
-        term: "登记册一行",
-        body: "开业之日，日期记入登记册；结果无论哪种都印出来：作为一门生意，或作为学院付过一次学费、记在案上、让后人不必再付的一课。",
+        term: "Die openbare rekord",
+        body: "Oryx stel sy ondernemings eerlik soos dit is. Corner Spa is in bedryf; geen openingsdatum of openbare straatadres word hier beweer nie.",
       },
     ],
-    liveNote: "菜单与价格在水疗自己的网站 spa.mendozer.com 上；预约通过 WhatsApp 进行。完整价目与预约方式见博客文章。",
-    counterEyebrow: "柜台",
-    counterTitle: "Corner Spa 柜台，设在 spa.mendozer.com",
-    counterNote: "柜台由 Mendozer 提供服务。若它未在此加载，这项实业自己的地址是",
-    statusEyebrow: "现状",
-    statusLede: "已开业。Corner Spa 在温得和克提供按摩、热石、美甲与脱毛服务，通过 WhatsApp 预约：+264\u00A081\u00A0623\u00A04788。",
-    statusBody: "Oryx Institute 是运营主导方，Mendozer Investments 是融资伙伴。一个网站承载水疗馆，价格与预约信息在任何入口都一致。菜单与价格在 spa.mendozer.com 上；完整价目与预约方式见博客文章。",
-    readRegister: "读登记册",
-    writeOffice: "给办公室写信",
-    enLedger: {
-      paras: [
-        "Corner Spa, the first venture: a small wellness and service operation for Windhoek, opened with a partner. Teach on the floor, serve real customers, and print the result.",
-        "Corner Spa runs in collaboration with Mendozer, whose platform serves the venture's own website at spa.mendozer.com. The counter is embedded on this page and also opens full screen at oryxinstitute.org/corner-spa. One website serves the spa, so prices and booking details are always the same wherever it is opened; nothing here retells what the counter itself says.",
-        "The shape of the collaboration, in three rows. The counter: Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address. The classroom: the venture doubles as the teaching site, where bookkeeping is practised on real invoices, scheduling on real appointments, and a service standard is written, followed and audited: not recited. The register row: the opening is dated the day it happens, and the result prints either way: as a business, or as a lesson the institute paid for once, on the record.",
-        "Live. Corner Spa serves massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788. Oryx Institute is the operations lead; Mendozer Investments is the financing partner. One website serves the spa, so prices and booking details are the same wherever it is opened. The full note with the price list is on the blog.",
-      ],
-    },
+    counterEyebrow: "Die toonbank",
+    counterTitle: "Die Corner Spa-toonbank by spa.mendozer.com",
+    counterNote:
+      "Die toonbank word deur Mendozer bedien. Indien dit nie hier gelaai het nie, is die spa se eie adres",
+    statusEyebrow: "Status",
+    liveNote: "Die spa se eie webwerf, spa.mendozer.com, bevat die spyskaart en pryse; besprekings loop op WhatsApp. Die volledige nota met die pryslys is op die blog.",
+    statusLede:
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk.",
+    statusBody:
+      "Besprekings- en diensbesonderhede bly op die spa se eie webwerf. Oryx publiseer nie 'n openbare straatadres of 'n openingsdatum vir die spa nie.",
+    readRegister: "Lees die register",
+    writeOffice: "Skryf aan die kantoor",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -134,7 +130,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/ventures/corner-spa`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/ventures/corner-spa`,
       images: [
         {
           url: "/brand/og/corner-spa.png",
@@ -153,9 +149,9 @@ export default async function CornerSpaPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -276,25 +272,25 @@ export default async function CornerSpaPage({
             <p className="measure mt-4 text-soft">{t.liveNote}</p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/corner-spa")} className="btn">
-                {zh ? "全屏打开" : "Open full screen"}{" "}
+                {af ? "Open Corner Spa full screen" : "Open Corner Spa full screen"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
               <Link href={A("/blog/corner-spa")} className="btn--quiet">
-                {zh ? "阅读博客文章" : "Read the blog note"}{" "}
+                {af ? "Read the blog note" : "Read the blog note"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
           <div className="hair-t pt-14" data-sc-in>
             <h2 className="h-section max-w-[20ch]">
-              {zh ? "想先知道开业的那一天？" : "Waiting for the opening date?"}
+              {af ? "Benodig jy Corner Spa se besprekingsbesonderhede?" : "Need Corner Spa's booking details?"}
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/contact")} className="btn">
                 {t.writeOffice}
               </Link>
               <Link href={A("/ventures")} className="btn--quiet">
-                {zh ? "回到实业" : "Back to ventures"}{" "}
+                {af ? "Back to ventures" : "Back to ventures"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -302,14 +298,14 @@ export default async function CornerSpaPage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

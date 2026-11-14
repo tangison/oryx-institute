@@ -67,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
   }));
 
-  /** Every URL carries its Chinese alternate, and every Chinese URL
+  /** Every URL carries its Afrikaans alternate, and every Afrikaans URL
       carries the English one back: one entity per page, two languages. */
   return [...pages, ...docs, ...applyOffers].flatMap((page) => [
     {
@@ -77,19 +77,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: {
         languages: {
           en: `${site.url}${page.path}`,
-          zh: `${site.url}/zh${page.path === "/" ? "" : page.path}`,
+          af: `${site.url}/af${page.path === "/" ? "" : page.path}`,
           "x-default": `${site.url}${page.path}`,
         },
       },
     },
     {
-      url: `${site.url}/zh${page.path === "/" ? "" : page.path}`,
+      url: `${site.url}/af${page.path === "/" ? "" : page.path}`,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
         languages: {
           en: `${site.url}${page.path}`,
-          zh: `${site.url}/zh${page.path === "/" ? "" : page.path}`,
+          af: `${site.url}/af${page.path === "/" ? "" : page.path}`,
           "x-default": `${site.url}${page.path}`,
         },
       },

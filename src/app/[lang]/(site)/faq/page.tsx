@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { faqs, site } from "@/lib/site";
-import { faqsZh } from "@/lib/site-zh";
+import { faqsAf, siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 const copy = {
@@ -11,7 +11,7 @@ const copy = {
     meta: {
       title: "Questions & Answers",
       description:
-        "Applying to Oryx Institute, the programmes, the meaning of 理工, ventures, the certificate and where to find the office in Windhoek.",
+        "Applying to Oryx Institute, the programmes, the meaning of a polytechnic, ventures, the certificate and where to find the office in Windhoek.",
       ogTitle: "FAQ | Oryx Institute",
       ogDescription: "Applying, programmes, ventures, the certificate and the office, answered.",
       ldName: "Frequently asked questions, Oryx Institute",
@@ -23,29 +23,22 @@ const copy = {
     applyNow: "Apply now",
     contactLink: "Contact the office",
   },
-  zh: {
+  af: {
     meta: {
-      title: "问题与回答",
+      title: "Questions & Answers",
       description:
-        "常见问题，逐一回答：如何向 Oryx 理工学院申请（写一封邮件给院长办公室）、学院开设什么课程（工商管理与信息技术及相关领域的速成课和短期课程）、理工二字是什么意思、学院是否承接企业咨询、证书是什么、到哪里找到温得和克的办公室，以及学院是否已获认证。答案照实写，不夸口。",
-      ogTitle: "常见问题 | Oryx 理工学院",
-      ogDescription: "申请、课程、实业、证书与办公室，一一作答。",
-      ldName: "Oryx 理工学院常见问题",
+        "Applying to Oryx Institute, the programmes, the meaning of a polytechnic, ventures, the certificate and where to find the office in Windhoek.",
+      ogTitle: "FAQ | Oryx Institute",
+      ogDescription: "Applying, programmes, ventures, the certificate and the office, answered.",
+      ldName: "Frequently asked questions, Oryx Institute",
     },
-    headTitle: "问题，都有回答。",
+    headTitle: "Questions, answered.",
     headLede:
-      "申请者动笔之前问的东西。别的，写进申请邮件里就好：院长办公室直接回复。",
-    writeOffice: "给办公室写信",
-    applyNow: "现在申请",
-    contactLink: "联系办公室",
-    enLedger: {
-      paras: [
-        "How to apply: there is no portal and no queue. One email to info@oryxinstitute.org starts the application; the Principal's office reads every message and answers personally, usually within the week. Nothing is committed until both sides agree.",
-        "What runs today: crash courses and short courses in business administration and IT and related fields: records, filings and registers on one side; the systems and software work runs on, from first principles to confident use, on the other. Beside the teaching: the Owner's Desk for one-on-one business counselling, market research and development taken on per engagement, Rapid Response Training for teams that need a new standard fast, and the free Oryx Directory of Namibia-specific courses and templates.",
-        "What 理工 means: the two characters stand for science and engineering and hold the place Polytechnic occupies in the legal name, Oryx Polytechnic Institute. The wordmark sets them in maroon between the two serif words, and Bulletin No. 1 carries the institute's own published explanation of the word.",
-        "The certificate and the standing: the institute is prelaunch and says so; it is pursuing accreditation with the NQA and the NTA, and every step is dated on the public register. Ventures are small operating companies the institute opens to test sectors; Corner Spa is the first, announced as a concept. The office is in Windhoek; no public premises yet, so visits are arranged by appointment, and no telephone line is published until the business line lands.",
-      ],
-    },
+      "What applicants ask before they write. Anything else, put it in the application message itself: the Principal's office answers directly.",
+    writeOffice: "Write to the office",
+    applyNow: "Apply now",
+    contactLink: "Contact the office",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -63,7 +56,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/faq`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/faq`,
       images: [
         { url: "/brand/og/faq.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -77,10 +70,16 @@ export default async function FaqPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const list = zh ? faqsZh : faqs;
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const plannedCentreFaq = {
+    q: af
+      ? "Waar sal die eerste toegewyde opleidingsentrum wees?"
+      : "Where will the first dedicated training centre be?",
+    a: af ? siteAf.plannedCentre : site.plannedCentre,
+  };
+  const list = [...(af ? faqsAf : faqs), plannedCentreFaq];
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -137,9 +136,7 @@ export default async function FaqPage({
           </div>
 
           <p className="measure mt-14 text-soft" data-sc-in>
-            {zh
-              ? "这里没有你要的答案？给办公室写信。"
-              : "If your question isn't answered here, write to the\u00A0office."}
+            {af ? "If your question isn't answered here, write to the\u00A0office." : "If your question isn't answered here, write to the\u00A0office."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6" data-sc-in>
             <a href={`mailto:${site.email}`} className="btn">
@@ -157,14 +154,14 @@ export default async function FaqPage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

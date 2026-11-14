@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ventures, site, schemaIds } from "@/lib/site";
-import { venturesZh } from "@/lib/site-zh";
+import { venturesAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 const copy = {
@@ -21,55 +21,47 @@ const copy = {
     howEyebrow: "How ventures work",
     lessonEyebrow: "The classroom on the floor",
     lessonBody:
-      "Every venture doubles as a teaching site. Corner Spa is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work. Booking and service details stay on the spa's own site.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "Every course the institute teaches ends in something that works and something that sells. Ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
+      "Ventures are how the institute holds itself to a practical standard: small companies, run to standard, with the work stated plainly in public.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
-    briefUs: "Brief the ventures desk",
-    followSpa: "Follow Corner Spa",
+    briefUs: "Brief the Market R&D desk",
+    followSpa: "Explore Corner Spa",
     venturePage: "The venture page",
     futureNote:
       "More labs are opened as sectors warrant them. What is not ready, says so.",
   },
-  zh: {
+  af: {
     meta: {
-      title: "实业",
+      title: "Small Companies, Real Customers",
       description:
-        "Oryx 理工学院的实业：学院想弄懂一个行业，就在其中开一家小公司，让真实的顾客决定它行不行。每一家实业同时是一间活的教室：学生在它的地板上学习。第一项是 Corner Spa，康养与服务运营，现以概念公布：场地、执照与服务单正在逐项推进；开业之日，登记册记下日期。",
-      ogTitle: "实业 | Oryx 理工学院",
+        "Small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first.",
+      ogTitle: "Ventures | Oryx Institute",
       ogDescription:
-        "学院为弄懂一个行业而开设的小公司。Corner Spa 是第一项。",
-      ldName: "实业",
+        "Small operating companies the institute opens to test sectors. Corner Spa is the first.",
+      ldName: "Ventures",
       ldDescription:
-        "Oryx 理工学院的实业：为检验行业而开的小型运营公司，从 Corner Spa 开始。",
+        "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
     },
-    howEyebrow: "实业怎么运作",
-    lessonEyebrow: "地板上的教室",
+    howEyebrow: "How ventures work",
+    lessonEyebrow: "The classroom on the floor",
     lessonBody:
-      "每一间实业同时是一处教学现场。在 Corner Spa，簿记在真实发票上练习，排程在真实预约上练习，服务标准是写下来、执行下去、再接受审校的，不是背出来的。学生像历代学徒一样轮班上 floor：在督导下动手做事，把做过的事写下来，再把笔记交给下一个人。文凭上声称的，实业把它摆出来。",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     exitLede:
-      "实业做不了假。它由两件不会说谎的事来评判：它能不能运转，以及有没有人愿意为它付钱。",
+      "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
-      "学院教的每门课都结束于做得成、卖得掉的东西。实业就是学院对自己守这条规矩的方式：小公司，按标准经营，开业之日记入公开的登记册。",
-    nextEyebrow: "下一项",
-    readRegister: "读登记册",
-    briefUs: "给实业案头写需求",
-    followSpa: "查看 Corner Spa",
-    venturePage: "实业专页",
+      "Ondernemings hou die instituut by 'n praktiese standaard: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
+    nextEyebrow: "Next",
+    readRegister: "Read the register",
+    briefUs: "Brief the Market R&D desk",
+    followSpa: "Explore Corner Spa",
+    venturePage: "The venture page",
     futureNote:
-      "行业到了该检验的时候，就再开一间。没准备好的，直说。",
-    enLedger: {
-      paras: [
-        "Ventures are small operating companies the institute opens to test sectors. A venture cannot be faked: it is judged by the two things that cannot lie: whether it works, and whether anyone pays for it. Every course the institute teaches ends in something that works and something that sells, and ventures are how the institute holds itself to that rule: small companies, run to standard, their openings dated in the public register.",
-        "Every venture doubles as a teaching site. Corner Spa, the first, is where bookkeeping is practised on real invoices, where scheduling is practised on real appointments, and where a service standard is written, followed and audited, not recited. Students rotate through the floor the way apprentices always have: they do the work under supervision, they write down what they did, and they hand the notes on. What a diploma claims, the venture shows.",
-        "Corner Spa is announced as a concept: wellness and service operations in Windhoek. Premises, licensing and the service menu are in development, and the opening is dated in the register the day it happens, as a business or not at all.",
-        "The venture ledger is short, and deliberately so: one concept, announced, with its opening dated the day it happens. It is the first because wellness and service operations teach the whole loop a business runs on (bookings, stock, standard, and the customer's own verdict) in one small room. The next venture is chosen the same way: a sector the institute needs to understand, a company small enough to run to standard, and a register row that prints the result either way.",
-        "More labs are opened as sectors warrant them. What is not ready, says so.",
-      ],
-    },
+      "More labs are opened as sectors warrant them. What is not ready, says so.",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -87,7 +79,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/ventures`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/ventures`,
       images: [
         {
           url: "/brand/og/ventures.png",
@@ -106,10 +98,10 @@ export default async function VenturesPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const v = zh ? venturesZh : ventures;
-  const A = (path: string) => (zh ? `/zh${path}` : path);
+  const v = af ? venturesAf : ventures;
+  const A = (path: string) => (af ? `/af${path}` : path);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -251,14 +243,14 @@ export default async function VenturesPage({
               the close. */}
           <div className="hair-t pt-14" data-sc-in>
             <h2 className="h-section max-w-[20ch]">
-              {zh ? "有一个你认为 Oryx 该检验的行业？" : "A sector you think Oryx should test?"}
+              {af ? "A sector you think Oryx should test?" : "A sector you think Oryx should test?"}
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/apply/market-rd")} className="btn">
                 {t.briefUs}
               </Link>
               <a href={`mailto:${site.email}`} className="btn--quiet">
-                {zh ? "给办公室写信" : "Write to the office"}{" "}
+                {af ? "Write to the office" : "Write to the office"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </a>
             </div>
@@ -266,14 +258,14 @@ export default async function VenturesPage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

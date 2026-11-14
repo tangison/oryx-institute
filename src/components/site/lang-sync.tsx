@@ -13,9 +13,9 @@ import { usePathname } from "next/navigation";
 export function LangSync({ lang }: { lang: string }) {
   const pathname = usePathname();
   useEffect(() => {
-    /* zh carries its region subtag: the CJK font stacks and hyphenation
-       both key on the full BCP-47 tag, not the bare language. */
-    document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+    /* Afrikaans carries Namibia's regional subtag so assistive tools
+       and translation services receive the most specific published tag. */
+    document.documentElement.lang = lang === "af" ? "af-NA" : lang;
   }, [lang, pathname]);
   return null;
 }

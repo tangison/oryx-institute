@@ -1,47 +1,42 @@
 /**
- * Locale core + the interface chrome in both languages.
+ * Locale core + the shared interface chrome.
  *
- * English keeps the clean URLs it launched with; Chinese lives at
- * /zh/. The middleware rewrites, this module only computes paths,
- * hreflang alternates and the chrome strings both languages share.
- * Content copy lives beside the pages that render it; interface copy
- * lives here, once, in both languages.
+ * English keeps the clean URLs it launched with; Afrikaans lives at
+ * /af/. This module computes paths, hreflang alternates and the chrome
+ * strings both languages share. Content copy lives beside each page.
  */
 
-export const LANGS = ["en", "zh"] as const;
+export const LANGS = ["en", "af"] as const;
 export type Lang = (typeof LANGS)[number];
 
 export function isLang(x: string | undefined | null): x is Lang {
-  return x === "en" || x === "zh";
+  return x === "en" || x === "af";
 }
 
 export function langFromParams(params: { lang?: string } | undefined | null): Lang {
   return isLang(params?.lang) ? params.lang : "en";
 }
 
-/** The path for a locale. English stays unprefixed, so every URL the
- * site shipped with keeps working byte for byte. */
+/** English stays unprefixed so every launched English URL remains stable. */
 export function langPath(lang: Lang, path: string): string {
   const p = path.startsWith("/") ? path : `/${path}`;
   if (lang === "en") return p === "" ? "/" : p;
-  return `/zh${p === "/" ? "" : p}`;
+  return `/af${p === "/" ? "" : p}`;
 }
 
-/** The same page in the other language, for the header toggle. */
+/** The same page in the other published language. */
 export function swapLang(lang: Lang, path: string): string {
-  return langPath(lang === "en" ? "zh" : "en", path);
+  return langPath(lang === "en" ? "af" : "en", path);
 }
 
-/** Canonical + hreflang alternates for one page. The markdown mirror
- * rides along as a link alternate: every page is also served as clean
- * markdown from /md for any client that asks for it. */
+/** Canonical, hreflang and markdown alternates for one page. */
 export function alternates(lang: Lang, path: string, origin: string) {
   const p = path === "/" ? "/" : `/${path.replace(/^\//, "")}`;
   return {
     canonical: `${origin}${langPath(lang, p)}`,
     languages: {
       en: `${origin}${langPath("en", p)}`,
-      zh: `${origin}${langPath("zh", p)}`,
+      af: `${origin}${langPath("af", p)}`,
       "x-default": `${origin}${langPath("en", p)}`,
     },
     types: {
@@ -50,11 +45,7 @@ export function alternates(lang: Lang, path: string, origin: string) {
   };
 }
 
-/**
- * Interface chrome. Every button, label and line the frame carries.
- * The register in both languages is the institute's own: state the
- * thing, then stop.
- */
+/** Shared interface language. */
 export const chrome = {
   en: {
     skip: "Skip to content",
@@ -69,9 +60,9 @@ export const chrome = {
     searchLabelOffers: "Offers",
     searchLabelReading: "Reading",
     searchHint: "Enter opens · Esc closes",
-    langToggle: "中文",
-    langShort: "中文",
-    langAria: "中文：阅读本页中文版",
+    langToggle: "Afrikaans",
+    langShort: "AF",
+    langAria: "Afrikaans: read this page in Afrikaans",
     langEyebrow: "Language",
     langNote: "Every page, in both languages.",
     clockNote: "The office keeps Windhoek time.",
@@ -94,42 +85,43 @@ export const chrome = {
     notFoundBody:
       "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
   },
-  zh: {
-    skip: "跳到正文",
-    home: "Oryx 理工学院，首页",
-    menu: "菜单",
-    close: "关闭",
-    search: "搜索",
-    searchOpen: "打开搜索",
-    searchPlaceholder: "搜索本站",
-    searchEmpty: "索引里没有匹配。换个更短的词试试。",
-    searchLabelPages: "页面",
-    searchLabelOffers: "服务",
-    searchLabelReading: "阅读",
-    searchHint: "回车打开 · Esc 关闭",
+  af: {
+    skip: "Spring na inhoud",
+    home: "Oryx Institute, tuisblad",
+    menu: "Kieslys",
+    close: "Sluit",
+    search: "Soek",
+    searchOpen: "Open soek",
+    searchPlaceholder: "Deursoek die instituut",
+    searchEmpty: "Niks in die indeks pas nie. Probeer 'n korter woord.",
+    searchLabelPages: "Bladsye",
+    searchLabelOffers: "Aanbiedinge",
+    searchLabelReading: "Leesstof",
+    searchHint: "Enter open · Esc sluit",
     langToggle: "English",
     langShort: "EN",
-    langAria: "EN: read this page in English",
-    langEyebrow: "语言",
-    langNote: "每个页面，两种语言。",
-    clockNote: "办公室按温得和克时间作息。",
-    primaryNav: "主导航",
-    footerNav: "页脚导航",
-    siteMenu: "站点菜单",
-    contactOffice: "联系办公室",
-    madeBy: "出品",
-    rights: "版权所有。",
-    dateToCome: "日期待确认",
-    anchorNote: "日期待确认",
-    bulletinInEnglish: "公报文章以英文发表。",
-    directoryInEnglish: "课程与模板本身以英文发布。",
-    newsInEnglish: "公告以英文发布。",
-    readMore: "阅读",
-    backHome: "回到首页",
-    toTop: "回到顶部",
-    notFoundTitle: "这个地址什么也没有。",
+    langAria: "English: read this page in English",
+    langEyebrow: "Taal",
+    langNote: "Elke bladsy, in albei tale.",
+    clockNote: "Die kantoor hou Windhoek-tyd.",
+    primaryNav: "Primêr",
+    footerNav: "Voetstuk",
+    siteMenu: "Webwerf-kieslys",
+    contactOffice: "Kontak die kantoor",
+    madeBy: "Gemaak deur",
+    rights: "Alle regte voorbehou.",
+    dateToCome: "Ongedateer",
+    anchorNote: "datum moet bevestig word",
+    bulletinInEnglish: "Die Bulletin-opstelle word in Engels gepubliseer.",
+    directoryInEnglish:
+      "Die kursusse en sjablone self word in Engels gepubliseer.",
+    newsInEnglish: "Aankondigings word in Engels gepubliseer.",
+    readMore: "Lees",
+    backHome: "Terug na die voorblad",
+    toTop: "Terug na bo",
+    notFoundTitle: "Niks staan by hierdie adres nie.",
     notFoundBody:
-      "页面搬走了，或者从未印出。登记册、实务与办公室，各在一击之外。",
+      "Die bladsy het geskuif, of dit is nooit gepubliseer nie. Die register, die praktyk en die kantoor is een klik weg.",
   },
 } as const;
 

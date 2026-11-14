@@ -33,16 +33,17 @@ const copy = {
     note: "Press Back once to return to the Oryx website.",
     read: "Read the note on Corner Spa",
   },
-  zh: {
-    opening: "正在打开 Corner Spa",
-    failed: "Corner Spa 未能加载。",
-    open: "打开 spa.mendozer.com",
-    note: "按一次返回键即可回到 Oryx 网站。",
-    read: "阅读 Corner Spa 的博客文章",
+  af: {
+    opening: "Opening Corner Spa",
+    failed: "Corner Spa did not load.",
+    open: "Open spa.mendozer.com",
+    note: "Press Back once to return to the Oryx website.",
+    read: "Read the note on Corner Spa",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
-export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "zh" }) {
+export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "af" }) {
   /** loading: the loader is up. ready: the frame fired load and the
    * loader has faded. failed: nothing loaded inside ten seconds. */
   const [phase, setPhase] = useState<"loading" | "ready" | "failed">("loading");
@@ -71,8 +72,7 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "zh" }) {
     if ((window as unknown as { __spaFrameLoaded?: boolean }).__spaFrameLoaded) {
       reveal();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    }, []);
 
   const onFrameLoad = reveal;
 
@@ -156,7 +156,7 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "zh" }) {
             {t.open}
           </a>
           <a
-            href={lang === "zh" ? "/zh/blog/corner-spa" : "/blog/corner-spa"}
+            href={lang === "af" ? "/af/blog/corner-spa" : "/blog/corner-spa"}
             className="corner-spa-fail-link corner-spa-fail-link--quiet"
           >
             {t.read}
@@ -168,8 +168,8 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
-/** The wordmark lockup, drawn inline on the ink ground: the same three
- * scripts as the artwork, at loader scale. */
+/** The approved Oryx lockup, drawn at loader scale. 理工 is the supplied
+ * visual mark for the Polytechnic position, not a language switch. */
 function OryxMark() {
   return (
     <div className="corner-spa-lockup">

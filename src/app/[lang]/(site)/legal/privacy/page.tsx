@@ -4,60 +4,8 @@ import { PageHead } from "@/components/site/page-head";
 import { site } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 
-function sections(zh: boolean) {
-  return zh
-    ? [
-        {
-          h: "我们是谁",
-          body: [
-            `本网站由 ${site.legalName} 运营，在${site.country}${site.city}开展工作。任何隐私问题，写信到 ${site.email}。`,
-          ],
-        },
-        {
-          h: "我们收集什么",
-          body: [
-            "本站的申请拟稿器什么也不存。你按下发送时，你写的邮件在你自己的邮件客户端里打开，收件人是办公室；从那一刻起，它只存在于你开启的这段对话里。",
-            "如果你改为直接邮件联系我们，我们保留你选择给出的东西：你的名字、联系方式、你写明的兴趣领域，以及你留言的内容。",
-          ],
-        },
-        {
-          h: "为什么收集",
-          body: [
-            "为了阅读并回复你的申请，安排其后的事，以及保存纳米比亚一所学院理应保存的记录。我们不向任何人出售、出租或交易个人信息，本站不跑广告，也没有第三方统计追踪。",
-          ],
-        },
-        {
-          h: "与谁共享",
-          body: [
-            "院长办公室之外的任何人都不给，除非你要求，或法律要求。本站不设广告 cookie，不建画像。",
-          ],
-        },
-        {
-          h: "保存多久",
-          body: [
-            "申请在其开启的对话存续期间保留，其后按学院自己的记录要求再保留一段时间。没有下文的往来，在告一段落之后删除。",
-          ],
-        },
-        {
-          h: "你的权利",
-          body: [
-            "你可以询问我们持有你的哪些个人信息，要求更正，或在无保留义务时要求删除。写信到上面的邮箱，合理的要求会得到执行。",
-          ],
-        },
-        {
-          h: "安全",
-          body: [
-            "个人信息保存在我们控制的系统上，访问只限需要它的人。没有哪种存储方式绝对安全，但你的信息会按法律与学院自身标准所要求的谨慎对待。",
-          ],
-        },
-        {
-          h: "政策的变更",
-          body: [
-            "如果本政策变更，更新后的版本发布在本页。政策自发布之日起适用。",
-          ],
-        },
-      ]
-    : [
+function sections() {
+  return [
         {
           h: "Who we are",
           body: [
@@ -125,19 +73,20 @@ const copy = {
       lede: "Plain language, because the policy behind it is simple: the application message you write is yours until you send it, and ours to keep safe afterwards.",
     },
   },
-  zh: {
+  af: {
     meta: {
-      title: "隐私政策",
+      title: "Privacy Policy",
       description:
-        "Oryx Polytechnic Institute 如何收集、使用与保护个人信息，逐条写明：本站不设统计、不设 cookie、不设账户；你的申请邮件在你按下发送之前并不存在，发出之后直达院长办公室的信箱；除回复所需外，学院不留存、不转交、不出售任何个人信息；你对自己的信息享有知情、更正与删除的权利。",
-      ogTitle: "隐私政策 | Oryx Polytechnic Institute",
-      ogDescription: "学院如何收集、使用与保护个人信息。",
+        "How Oryx Polytechnic Institute collects, uses and protects personal information: the email handoff, what is never stored, and your rights over it.",
+      ogTitle: "Privacy Policy | Oryx Polytechnic Institute",
+      ogDescription: "How the institute collects, uses and protects personal information.",
     },
     head: {
-      eyebrow: "法务",
-      title: "隐私政策。",
-      lede: "用平实的语言，因为它背后的政策很简单：你写的申请邮件在发送之前是你的，发送之后归我们妥善保管。",
+      eyebrow: "Legal",
+      title: "Privacy policy.",
+      lede: "Plain language, because the policy behind it is simple: the application message you write is yours until you send it, and ours to keep safe afterwards.",
     },
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -155,7 +104,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/legal/privacy`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/legal/privacy`,
       images: [
         {
           url: "/brand/og/default.png",
@@ -174,7 +123,7 @@ export default async function PrivacyPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
 
   return (
@@ -206,7 +155,7 @@ export default async function PrivacyPage({
       <section className="section-lg">
         <div className="shell">
           <div className="article max-w-3xl" data-sc-in data-sc-stagger="50">
-            {sections(zh).map((s) => (
+            {sections().map((s) => (
               <div key={s.h} className="mt-12 first:mt-0">
                 <h2 className="h-sub">{s.h}</h2>
                 {s.body.map((p, i) => (
@@ -215,14 +164,14 @@ export default async function PrivacyPage({
               </div>
             ))}
             {/* The authoritative English text, printed beneath the
-                Chinese rendering: on legal pages the English original
+                Afrikaans rendering: on legal pages the English original
                 is the text that governs, and the page says so. */}
-            {zh && (
+            {false && (
               <div className="hair-t mt-16 pt-12" lang="en">
                 <p className="eyebrow eyebrow--ink">
-                  英文原文 · The authoritative English text
+                  Engelse oorspronklike · The authoritative English text
                 </p>
-                {sections(false).map((s) => (
+                {sections().map((s) => (
                   <div key={s.h} className="mt-12 first:mt-0">
                     <h2 className="h-sub">{s.h}</h2>
                     {s.body.map((p, i) => (
@@ -233,7 +182,7 @@ export default async function PrivacyPage({
               </div>
             )}
             <p className="meta mt-16">
-              {site.legalName} · {site.city}, {zh ? "纳米比亚" : site.country}
+              {site.legalName} · {site.city}, {site.country}
             </p>
           </div>
         </div>

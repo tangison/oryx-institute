@@ -20,18 +20,18 @@ export type BlogImageMeta = {
 export type BlogPost = {
   slug: string;
   title: string;
-  titleZh: string;
+  titleAf: string;
   description: string;
-  descriptionZh: string;
+  descriptionAf: string;
   dateISO: string;
   dateHuman: string;
-  dateHumanZh: string;
+  dateHumanAf: string;
   ogImage: string;
   ogImageAlt: string;
   /** Rendered images, with the dimensions measured from the files. */
   images: Record<string, BlogImageMeta>;
   bodyEn: string;
-  bodyZh: string;
+  bodyAf: string;
 };
 
 const imageDims = {
@@ -79,24 +79,24 @@ export const cornerSpaImages: Record<string, BlogImageMeta> = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "corner-spa",
-    title: "Corner Spa, the first project of Oryx Institute",
-    titleZh: "Corner Spa：Oryx Institute 的第一个项目",
+    title: "Corner Spa, Oryx's first operating venture",
+    titleAf: "Corner Spa, Oryx se eerste bedrywige onderneming",
     description:
-      "Corner Spa in Windhoek is the first project of Oryx Institute, with Mendozer Investments as financing partner. See treatments, prices and how to book.",
-    descriptionZh:
-      "Corner Spa 位于温得和克，是 Oryx Institute 的第一个项目，Mendozer Investments 为融资伙伴。本文列出按摩、热石、美甲与脱毛的完整价目（纳米比亚元），说明如何通过 WhatsApp 预约，以及两个角色如何分工。",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work. See treatments, prices and how to book.",
+    descriptionAf:
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk. Sien behandelings, pryse en hoe om te bespreek.",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
-    dateHumanZh: "2026年11月5日",
+    dateHumanAf: "5 November 2026",
     ogImage: "/corner-spa/hero-wide.jpg",
     ogImageAlt: "Smooth wet stones and soft light at Corner Spa",
     images: cornerSpaImages,
     bodyEn: `
-# Corner Spa, the first project of Oryx Institute
+# Corner Spa, Oryx's first operating venture
 
 ![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is a quiet place in Windhoek for massage, hot stone treatments, nails and waxing. It is the first project of Oryx Institute, and it is a concept by Mendozer Investments. This post explains what it offers, how to book, and where to find it online.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. This post explains what it offers, how to book, and where to find it online.
 
 ## What you can book
 
@@ -136,7 +136,7 @@ You can also call or message on **+264 81 623 4788**.
 
 ## Who is behind it
 
-Oryx Institute is the operations lead. Mendozer Investments is the financing partner. Corner Spa is the first project to come out of this work, and it is meant to be a small, well run business that others can learn from.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.
 
 ## One site, two addresses
 
@@ -155,69 +155,69 @@ For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04
 - Mendozer Investments: [mendozer.com](https://mendozer.com)
 - Book on WhatsApp: [wa.me/264816234788](https://wa.me/264816234788)
 `,
-    bodyZh: `
-# Corner Spa：Oryx Institute 的第一个项目
+    bodyAf: `
+# Corner Spa, Oryx se eerste bedrywige onderneming
 
-![Corner Spa 的湿滑暖石与柔和光线](/corner-spa/hero-wide.webp)
+![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa 是温得和克一处安静的按摩、热石护理、美甲与脱毛小店。它是 Oryx Institute 的第一个项目，也是 Mendozer Investments 的概念作品。这篇文章介绍它的服务、预约方式，以及在哪里可以找到它。
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik wat dit bied, hoe om te bespreek en waar om dit aanlyn te vind.
 
-## 可以预约什么
+## What you can book
 
-![治疗师把光滑的深色热石沿背部摆放](/corner-spa/hot-stones-back.webp)
+![Warm hands placing smooth dark stones along a back](/corner-spa/hot-stones-back.webp)
 
-菜单刻意保持简短：四种按摩、两种美甲护理和六项脱毛服务，每一项都有明确的价格。面部护理同样提供，价格请直接询问。
+The menu is short on purpose. Four massages, two nail treatments and six waxing services, each with a clear price. Facials are also available, and you can ask us for prices.
 
-按摩项目从 30 分钟的热石肩颈头皮护理，到放松的柠檬草全身按摩。美甲包括凝胶加固和带指托的全覆盖凝胶。脱毛覆盖面部、腿部和腋下。
+The massages range from a 30 minute back, neck and scalp session with hot stones to the relaxing lemon grass full body massage. Nails cover gel overlays and full cover gel with tips. Waxing covers the face, legs and underarms.
 
-## 价格
+## Prices
 
-所有价格以纳米比亚元计。
+All prices are in Namibian dollars.
 
-| 项目 | 价格 |
+| Treatment | Price |
 |---|---|
-| 全身按摩，含背部与颈部（60 分钟） | N$ 500 |
-| 全身按摩，背部加热石（60 分钟） | N$ 450 |
-| 柠檬草放松全身按摩 | N$ 700 |
-| 肩颈头皮按摩加热石（30 分钟） | N$ 250 |
-| 凝胶加固（手部与足部） | N$ 400 |
-| 带指托全覆盖凝胶（素色） | N$ 350 |
-| 脱毛组合（Hollywood 与腋下） | N$ 400 |
-| 上唇 | N$ 70 |
-| 下巴 | N$ 70 |
-| 半腿 | N$ 250 |
-| 全腿 | N$ 400 |
-| 腋下 | N$ 100 |
-| 面部护理 | 请询问价格 |
+| Full body massage with back and neck (60 min) | N$ 500 |
+| Full body massage with hot stones on the back (60 min) | N$ 450 |
+| Relaxing lemon grass full body massage | N$ 700 |
+| Back, neck and scalp massage with hot stones (30 min) | N$ 250 |
+| Gel overlay (hands and feet) | N$ 400 |
+| Full cover gel with tips (plain) | N$ 350 |
+| Waxing combo (Hollywood and underarm) | N$ 400 |
+| Upper lip | N$ 70 |
+| Chin | N$ 70 |
+| Half legs | N$ 250 |
+| Full legs | N$ 400 |
+| Underarms | N$ 100 |
+| Facials | Ask us for prices |
 
-## 如何预约
+## How to book
 
-![一位女士在铺有纹理毛巾的暖石旁休息](/corner-spa/people-stones-rest.webp)
+![A woman resting beside smooth dark stones on a textured towel](/corner-spa/people-stones-rest.webp)
 
-预约通过 WhatsApp 进行：在价目表上点按任意项目，会打开一条已填好该项目的消息，你只需按下发送。也可以使用预约页面，它通过一个简短的表单生成同样的消息。你输入的内容不会储存在网站上。
+Booking happens on WhatsApp. Tap any treatment on the price list and a message opens with that treatment already filled in. You only press send. You can also use the booking page, which builds the same message from a short form. Nothing you type is stored on the site.
 
-也可以致电或发送消息到 **+264 81 623 4788**。
+You can also call or message on **+264 81 623 4788**.
 
-## 背后的团队
+## Who is behind it
 
-Oryx Institute 是运营主导方，Mendozer Investments 是融资伙伴。Corner Spa 是这项工作产出的第一个项目，它要做的，是一门可以让别人借鉴的小而扎实的好生意。
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk.
 
-## 一个网站，两个地址
+## One site, two addresses
 
-![治疗师的双手放在涂抹了按摩油的背部](/corner-spa/people-back-hands.webp)
+![A therapist's hands resting on an oiled back during a massage](/corner-spa/people-back-hands.webp)
 
-Corner Spa 的网站在 **spa.mendozer.com**。你也可以从 **oryxinstitute.org/corner-spa** 访问它：在 Oryx 网站里，同一个网站会全屏展示。这是一个网站，不是两个副本，所以无论从哪里打开，价格与预约信息始终一致。按一次返回键，就回到 Oryx 网站。
+The Corner Spa website lives at **spa.mendozer.com**. You can also visit it from **oryxinstitute.org/corner-spa**, where the same site is shown full screen inside the Oryx website. It is one website, not two copies, so prices and booking details are always the same wherever you open it. Press Back once and you return to the Oryx website.
 
-## 联系 Oryx Institute
+## Contact Oryx Institute
 
-关于 Oryx Institute 本身的问题，请致电或发送消息到 **083\u00A0676\u00A04338**（+264\u00A083\u00A0676\u00A04338）。Corner Spa 的预约，请使用上面的 Corner Spa 号码。
+For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04338** (+264\u00A083\u00A0676\u00A04338). For bookings at Corner Spa, use the Corner Spa number above.
 
-## 链接
+## Links
 
-- Corner Spa：[spa.mendozer.com](https://spa.mendozer.com)
-- Oryx 站内页面：[oryxinstitute.org/corner-spa](https://oryxinstitute.org/corner-spa)
-- Mendozer Investments：[mendozer.com](https://mendozer.com)
-- WhatsApp 预约：[wa.me/264816234788](https://wa.me/264816234788)
+- Corner Spa: [spa.mendozer.com](https://spa.mendozer.com)
+- On the Oryx site: [oryxinstitute.org/corner-spa](https://oryxinstitute.org/corner-spa)
+- Mendozer Investments: [mendozer.com](https://mendozer.com)
+- Book on WhatsApp: [wa.me/264816234788](https://wa.me/264816234788)
 `,
   },
 ];

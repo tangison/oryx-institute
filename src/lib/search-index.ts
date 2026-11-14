@@ -1,9 +1,9 @@
 import type { Lang } from "./i18n";
 import { langPath } from "./i18n";
 import { offers, faqs, footerNav, navLinks } from "./site";
-import { offersZh, faqsZh, navZh } from "./site-zh";
+import { offersAf, faqsAf, navAf } from "./site-af";
 import { insights } from "./content";
-import { resourcesZh } from "./content-zh";
+import { resourcesAf } from "./content-af";
 import { resources } from "./content";
 import { directoryAll } from "./directory";
 
@@ -25,7 +25,7 @@ const trim = (s: string, n = 110) =>
  * the Bulletin and the office answers.
  */
 export function buildIndex(lang: Lang): SearchEntry[] {
-  const af = lang === "zh";
+  const af = lang === "af";
   const P = (path: string) => langPath(lang, path);
   const out: SearchEntry[] = [];
   const add = (
@@ -46,27 +46,28 @@ export function buildIndex(lang: Lang): SearchEntry[] {
   /* Pages */
   const pages: [string, string, string, string][] = af
     ? [
-        ["研究", "页面", "实务、公报，以及在建的东西。", "/research"],
-        ["实务", "页面", "经营咨询、市场调研与快速响应培训，按标准交付。", "/practice"],
-        ["实业", "页面", "学院为弄懂一个行业开设的小公司。Corner Spa 是第一项。", "/ventures"],
-        ["Corner Spa 水疗", "页面", "第一项实业，已开业：按摩、热石、美甲与脱毛，温得和克，WhatsApp 预约 +264 81 623 4788。全屏入口，柜台 spa.mendozer.com。", "/corner-spa"],
-        ["博客", "页面", "来自实务的笔记，按发表日期记录。", "/blog"],
-        ["联系", "页面", "来电或 WhatsApp：083 676 4338（+264 83 676 4338），或致函 info@oryxinstitute.org。", "/contact"],
-        ["登记册", "页面", "学院走过的每一步公开的路，说了就记下日期。", "/register"],
-        ["资源目录", "页面", "Oryx 资源目录：免费的速成课与商业模板，另有公报。", "/resources"],
-        ["申请", "页面", "给办公室的一封邮件，申请就开始了。", "/apply"],
-        
-        ["关于", "页面", "学院是什么、谁在主持、它站在哪里。", "/about"],
-        ["名册", "页面", "在建这所学院的人：院长、讲师与实业负责人。", "/about/staff"],
-        ["安全员课程", "页面", "一天、五天与十天的职业安全培训，为纳米比亚现场而来。", "/practice/safety-officer-course"],
-        ["品牌", "页面", "字标、徽记、色码与文风。", "/brand"],
-        ["常见问题", "页面", "办公室对那些每次都会被问到的问题的回答。", "/faq"],
+        ["Navorsing", "Bladsye", "Die praktyk, die Bulletin en wat in ontwikkeling is.", "/research"],
+        ["Opleidingsentrum", "Bladsye", "Oryx het sy eerste toegewyde opleidingsentrumterrein by Untag Guest House in Ongwediva verseker. Die sentrum word beplan en is nog nie oop nie.", "/about"],
+        ["Praktyk", "Bladsye", "Besigheidsadvies, marknavorsing en vinnige-reaksie-opleiding, volgens standaard gelewer.", "/practice"],
+        ["Ondernemings", "Bladsye", "Klein maatskappye wat die instituut open om 'n sektor te verstaan. Corner Spa is die eerste.", "/ventures"],
+        ["Corner Spa", "Bladsye", "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk.", "/corner-spa"],
+        ["Blog", "Bladsye", "Notas uit die praktyk, volgens publikasiedatum aangeteken.", "/blog"],
+        ["Kontak", "Bladsye", "Bel of WhatsApp 083 676 4338, of skryf aan info@oryxinstitute.org.", "/contact"],
+        ["Die register", "Bladsye", "Elke openbare stap wat die instituut geneem het, gedateer.", "/register"],
+        ["Die Directory", "Bladsye", "Die Oryx Directory: gratis blitskursusse, besigheidsjablone en die Bulletin.", "/resources"],
+        ["Doen aansoek", "Bladsye", "Een e-pos aan die kantoor begin die aansoek.", "/apply"],
+        ["Oor", "Bladsye", "Wat die instituut is, wie dit lei en waar dit staan.", "/about"],
+        ["Mense", "Bladsye", "Die mense wat die instituut bou: die Prinsipaal, instrukteurs en ondernemingsleiers.", "/about/staff"],
+        ["Veiligheidsbeampte-kursus", "Bladsye", "Een, vyf en tien dae se beroepsveiligheidsopleiding vir Namibiese terreine.", "/practice/safety-officer-course"],
+        ["Handelsmerk", "Bladsye", "Die woordmerk, embleem, kodes en stem.", "/brand"],
+        ["Vrae", "Bladsye", "Die kantoor se antwoorde op vrae wat telkens opduik.", "/faq"],
       ]
     : [
         ["Research", "Pages", "The practice, the Bulletin, and what is in development.", "/research"],
+        ["Training centre", "Pages", "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.", "/about"],
         ["Practice", "Pages", "Counselling, market R&D and rapid response training, delivered to standard.", "/practice"],
         ["Ventures", "Pages", "Small companies the institute opens to understand a sector. Corner Spa is the first.", "/ventures"],
-        ["Corner Spa", "Pages", "The first venture, now live: massage, hot stone treatments, nails and waxing in Windhoek, booked on WhatsApp at +264 81 623 4788. Full-screen entry; the counter is spa.mendozer.com.", "/corner-spa"],
+        ["Corner Spa", "Pages", "Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work. Booking and service details stay on the spa's own site.", "/corner-spa"],
         ["Blog", "Pages", "Notes from the practice, dated as published.", "/blog"],
         ["Contact", "Pages", "Call or WhatsApp 083 676 4338 (+264 83 676 4338 international), or write to info@oryxinstitute.org.", "/contact"],
         ["The register", "Pages", "Every public step the institute has taken, dated as it was said.", "/register"],
@@ -85,17 +86,17 @@ export function buildIndex(lang: Lang): SearchEntry[] {
 
   /* Offers */
   const offersList = af
-    ? offersZh.map((o) => [o.name, o.line, o.id] as const)
+    ? offersAf.map((o) => [o.name, o.line, o.id] as const)
     : offers.map((o) => [o.name, o.line, o.id] as const);
   for (const [name, line, id] of offersList) {
-    add(name, af ? "服务" : "Offers", line, P(`/apply/${id}`));
+    add(name, af ? "Aanbiedinge" : "Offers", line, P(`/apply/${id}`));
   }
 
   /* Directory: the works themselves carry their published titles. */
   for (const d of directoryAll) {
     const kind = d.kind === "course"
-      ? af ? "课程" : "Course"
-      : af ? "模板" : "Template";
+      ? af ? "Kursus" : "Course"
+      : af ? "Sjabloon" : "Template";
     add(
       d.title,
       kind,
@@ -117,24 +118,24 @@ export function buildIndex(lang: Lang): SearchEntry[] {
   }
 
   /* Office answers */
-  const faqList = af ? faqsZh : faqs;
+  const faqList = af ? faqsAf : faqs;
   for (const f of faqList) {
-    add(f.q, af ? "回答" : "Answers", f.a, P("/faq"));
+    add(f.q, af ? "Antwoorde" : "Answers", f.a, P("/faq"));
   }
 
   /* Free resources list */
-  const resList = af ? resourcesZh : resources;
+  const resList = af ? resourcesAf : resources;
   for (const r of resList) {
-    add(r.name, af ? "资源" : "Resources", r.what, P(r.action.href));
+    add(r.name, af ? "Hulpbronne" : "Resources", r.what, P(r.action.href));
   }
 
   /* Sitemap labels, so a half-remembered nav word lands. */
-  const navList = af ? navZh.footerNav : footerNav;
+  const navList = af ? navAf.footerNav : footerNav;
   const seen = new Set(out.map((o) => o.href));
-  for (const l of [...(af ? navZh.navLinks : navLinks), ...navList]) {
+  for (const l of [...(af ? navAf.navLinks : navLinks), ...navList]) {
     const href = P(l.href);
     if (seen.has(href)) continue;
-    add(l.label, af ? "页面" : "Pages", "", href);
+    add(l.label, af ? "Bladsye" : "Pages", "", href);
   }
 
   return out;

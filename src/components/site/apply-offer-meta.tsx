@@ -21,7 +21,7 @@ export function readOfferSlug(): string | undefined {
   return param ?? undefined;
 }
 
-export function ApplyOfferMeta({ lang }: { lang: "en" | "zh" }) {
+export function ApplyOfferMeta({ lang }: { lang: "en" | "af" }) {
   useEffect(() => {
     const applyMeta = () => {
       const slug = readOfferSlug();
@@ -29,10 +29,10 @@ export function ApplyOfferMeta({ lang }: { lang: "en" | "zh" }) {
         return;
       const name = applyOfferName(slug as (typeof APPLY_OFFER_SLUGS)[number], lang);
       const title =
-        lang === "zh" ? `申请：${name} | Oryx 理工学院` : `Apply: ${name} | Oryx Institute`;
+        lang === "af" ? `Aansoek: ${name} | Oryx Instituut` : `Apply: ${name} | Oryx Institute`;
       const description =
-        lang === "zh"
-          ? `申请${name}。申请方式只有一种：给温得和克的院长办公室写一封邮件，写明姓名、回复方式与你感兴趣的领域。`
+        lang === "af"
+          ? `Doen aansoek vir ${name}. Skryf aan die kantoor van die Prinsipaal in Windhoek met jou naam, 'n kontakbesonderheid en jou belangstellingsveld.`
           : `${name} at Oryx Institute. Write to the Principal's office in Windhoek; the application starts with your first message.`;
       document.title = title;
       const setMeta = (selector: string, attr: string, value: string) => {

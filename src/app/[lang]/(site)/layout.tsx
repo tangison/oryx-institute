@@ -6,7 +6,7 @@ import { SCMotion } from "@/components/site/sc-motion";
 import { ScrollChrome } from "@/components/site/scroll-chrome";
 import { LANGS, chrome, langFromParams, type Lang } from "@/lib/i18n";
 import { site } from "@/lib/site";
-import { siteZh } from "@/lib/site-zh";
+import { siteAf } from "@/lib/site-af";
 import "../../globals.css";
 
 export const dynamicParams = false;
@@ -21,22 +21,19 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
-  const name = zh ? siteZh.tradingName : site.tradingName;
-  const description = zh ? siteZh.description : site.description;
+  const af = lang === "af";
+  const name = af ? siteAf.tradingName : site.tradingName;
+  const description = af ? siteAf.description : site.description;
 
   return {
     metadataBase: new URL(site.url),
     title: {
-      default: zh
-        ? "Oryx 理工学院 | 纳米比亚的一所新理工学校"
+      default: af
+        ? "Oryx Instituut | 'n Nuwe Politegniese Instituut vir Namibië"
         : "Oryx Institute | A New Polytechnic for Namibia",
-      /* Chinese titles carry the Latin brand after the localized one:
-         the wordmark itself is trilingual, and one name per title keeps
-         the whole site on a single title pattern. */
-      template: zh
-        ? `%s | ${name} · Oryx Institute`
-        : "%s | Oryx Institute",
+      /* Each locale uses one clear title pattern and the English-only
+         wordmark remains consistent across both language routes. */
+      template: af ? `%s | ${name}` : "%s | Oryx Institute",
     },
     description,
     applicationName: site.tradingName,
@@ -52,7 +49,6 @@ export async function generateMetadata({
     ],
     icons: {
       icon: [
-        { url: "/brand/favicon.ico", sizes: "any" },
         { url: "/brand/icon-192.png", sizes: "192x192", type: "image/png" },
         { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
       ],
@@ -61,10 +57,10 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: name,
-      locale: zh ? "zh_CN" : "en_NA",
+      locale: af ? "af_NA" : "en_NA",
       /* og:url names THIS page, not the homepage: it must match the
          canonical the page declares. */
-      url: `${site.url}${zh ? "/zh" : ""}`,
+      url: `${site.url}${af ? "/af" : ""}`,
       title: name,
       description,
       images: [
@@ -72,9 +68,7 @@ export async function generateMetadata({
           url: "/brand/og/default.png",
           width: 1200,
           height: 630,
-          alt: zh
-            ? "Oryx 理工学院：纳米比亚的一所新理工学校"
-            : "Oryx Institute: a new polytechnic for Namibia",
+          alt: af ? "Oryx Institute: a new polytechnic for Namibia" : "Oryx Institute: a new polytechnic for Namibia",
         },
       ],
     },
@@ -85,7 +79,7 @@ export async function generateMetadata({
       images: ["/brand/og/default.png"],
     },
     alternates: {
-      canonical: lang === "zh" ? "/zh" : "/",
+      canonical: lang === "af" ? "/af" : "/",
     },
   };
 }
@@ -103,11 +97,11 @@ export default async function SiteLayout({
 
   return (
     <>
-      {/* The root layout carries lang="en" statically; ZH routes set the
-          real language before first paint with this two-byte script. */}
-      {lang === "zh" ? (
+      {/* The root layout carries lang="en" statically; Afrikaans routes
+          set the real language before first paint. */}
+      {lang === "af" ? (
         <script
-          dangerouslySetInnerHTML={{ __html: `document.documentElement.lang="zh-CN"` }}
+          dangerouslySetInnerHTML={{ __html: `document.documentElement.lang="af-NA"` }}
         />
       ) : null}
       <SCMotion />

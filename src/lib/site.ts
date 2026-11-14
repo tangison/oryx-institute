@@ -30,11 +30,13 @@ export const site = {
    * to day copy. */
   tradingName: "Oryx Institute",
   shortName: "Oryx Institute",
-  /** The wordmark, exactly as the logo renders it: three scripts. */
+  /** The supplied, immutable lockup places the 理工 visual mark between
+   * ORYX and INSTITUTE. It represents science and engineering; it does
+   * not add a Chinese-language public surface. */
   wordmark: {
     top: "ORYX",
-    chinese: "理工",
-    chineseMeaning: "science and engineering",
+    middle: "理工",
+    middleMeaning: "science and engineering",
     bottom: "INSTITUTE",
   },
   /** The homepage hero, per the rebuild brief: the institute states
@@ -52,12 +54,14 @@ export const site = {
    * characters) and led by what the institute is. */
   description:
     "Oryx Institute, Windhoek: a new polytechnic for Namibia. Crash and short courses, counselling, market R&D, and the ventures that prove the work.",
-  /** Where the institute works from. There is no public premises yet:
-   * no street address, no post box and no campus are claimed. When a
-   * location exists, it is added here once and every page follows. */
+  /** The office remains in Windhoek. The first dedicated training centre
+   * has a secured future site, but it is not open and has no public
+   * street address on this site. */
   city: "Windhoek",
   country: "Namibia",
   areaServed: "Windhoek, Namibia",
+  plannedCentre:
+    "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.",
   /** The one mailbox. Everything runs through it while the institute
    * is young: applications, partnerships, the press. */
   email: "info@oryxinstitute.org",
@@ -81,6 +85,7 @@ export const site = {
       label: "LinkedIn",
       href: "https://www.linkedin.com/company/oryx-polytechnic-institute/",
     },
+    { label: "X", href: "https://x.com/oryx_institute?s=11" },
   ] as { label: string; href: string }[],
   /** The canonical serving domain. Vercel 308-redirects the apex to
    * www, so every canonical, hreflang, sitemap and OG URL names the
@@ -186,7 +191,7 @@ export const offers = [
     name: "Owner's Desk",
     tag: "Practice",
     line: "One-on-one business counselling. The outcome is written down.",
-    cta: { label: "Book", href: "/apply/owners-desk" },
+    cta: { label: "Book the Owner's Desk", href: "/apply/owners-desk" },
     body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens\u00A0next.",
   },
   {
@@ -194,7 +199,7 @@ export const offers = [
     name: "Business Administration",
     tag: "Teaching",
     line: "Crash & short courses in records, filings,\u00A0registers.",
-    cta: { label: "Enquire about the diploma", href: "/apply/business-administration" },
+    cta: { label: "Enquire about Business Administration", href: "/apply/business-administration" },
     body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and\u00A0finished.",
   },
   {
@@ -202,7 +207,7 @@ export const offers = [
     name: "IT & Related Fields",
     tag: "Teaching",
     line: "Crash & short courses in the systems work runs on. Every tool named.",
-    cta: { label: "Enquire about IT", href: "/apply/it" },
+    cta: { label: "Enquire about Information Technology", href: "/apply/it" },
     body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
   },
   {
@@ -210,7 +215,7 @@ export const offers = [
     name: "Market R&D",
     tag: "Research",
     line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
-    cta: { label: "Engage", href: "/apply/market-rd" },
+    cta: { label: "Engage Market Research & Development", href: "/apply/market-rd" },
     body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
   },
   {
@@ -218,7 +223,7 @@ export const offers = [
     name: "Rapid Response Training",
     tag: "Practice",
     line: "Sourced experts, structured programmes, delivered to standard.",
-    cta: { label: "Brief us", href: "/apply/rapid-response" },
+    cta: { label: "Brief us on Rapid Response Training", href: "/apply/rapid-response" },
     body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know\u00A0next.",
   },
   {
@@ -226,7 +231,7 @@ export const offers = [
     name: "The Oryx Directory",
     tag: "Free",
     line: "Free Namibia-specific crash courses and business templates.",
-    cta: { label: "Take it", href: "/resources" },
+    cta: { label: "Open the Oryx Directory", href: "/resources" },
     body: "Namibia-specific crash courses and business templates, copyrighted to the institute and free to access. Published proof of how the institute writes, sources and teaches, available before any fee is discussed.",
   },
 ] as const;
@@ -250,46 +255,47 @@ export const register = [
   },
   { date: "2026-10-25", entry: "Website relaunched." },
   { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
-  /* Awaiting the founder: Directory publication date */
-  { date: null, entry: "The Oryx Directory published: four crash courses, seven business templates." },
-  /* Awaiting the founder: Corner Spa announcement date */
-  { date: null, entry: "Corner Spa concept announced." },
+  {
+    date: "2026-11-13",
+    entry:
+      "The Oryx Directory source review and Wave 1 published: seven Namibia-specific crash courses and seven business templates, with checkable source links on legal and regulatory pages.",
+  },
 ] as const;
 
-/**
+  /**
  * Ventures. A venture is a small operating company the institute opens
  * to test a sector: a live classroom and a live lab. Only what is real
- * is listed; the concept stage is stated as a concept.
+ * is listed, with its current operating status stated plainly.
  */
 export const ventures = {
   lead: "Small companies, real customers.",
   body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the\u00A0result.",
   cornerSpa: {
     name: "Corner Spa",
-    status: "In development · with Mendozer",
+    status: "Operating · with Mendozer",
     line: "Wellness and service operations: the first live\u00A0lab.",
-    body: "Corner Spa is the institute's first venture: a small wellness and service operation, run in collaboration with Mendozer. Its purpose is twofold: a real service running for real customers in Windhoek, and a live classroom where business administration, service standards and front-of-house operations are taught on the floor of the business itself. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register on this site, dated. Until then, it is in\u00A0development.",
+    body: "Corner Spa is Oryx's first operating venture, run in collaboration with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Its booking and service details are kept on the spa's own site.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",
 } as const;
 
 /**
- * The four disciplines of a 理工 (science and engineering) education,
- * framed from the institute's own approved language. No programme
- * names, dates or fees are invented: each card routes to enquiry.
+ * The four disciplines of a polytechnic education, framed from the
+ * institute's approved language. No programme names, dates or fees are
+ * invented: each card routes to enquiry.
  */
 export const disciplines = [
   {
     id: "science",
-    glyph: "理",
+    glyph: "SCI",
     name: "Science",
     summary:
-      "The reasoning core of a 理工 education: observation, evidence and disciplined thought.",
+      "The reasoning core of a polytechnic education: observation, evidence and disciplined thought.",
   },
   {
     id: "engineering",
-    glyph: "工",
+    glyph: "ENG",
     name: "Engineering",
     summary:
       "The making core: work that holds, measured and finished to standard.",
@@ -417,8 +423,8 @@ export const faqs = [
     a: "Yes, and it is the institute's live practice. The Owner's Desk runs one-on-one counselling from the Principal's office, and market research and development work (feasibility, sizing, route-to-market) is taken on per engagement. Write to the office with the problem as it stands; the first reply names what the institute can and cannot do for you.",
   },
   {
-    q: "What does 理工 mean?",
-    a: "Li gong: the Chinese characters for science and engineering. In the wordmark they stand exactly where the word Polytechnic sits in the institute's full legal name, set in maroon beside ORYX.",
+    q: "What does Polytechnic mean?",
+    a: "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, and the technology that runs it. At Oryx, applied problem-solving is the shared standard.",
   },
   {
     q: "Where is the institute?",
@@ -446,7 +452,7 @@ export const faqs = [
   },
   {
     q: "What is the Oryx Directory?",
-    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the four crash courses or help yourself to the seven templates.",
+    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the seven crash courses or help yourself to the seven templates; legal and regulatory pages link to their checkable sources.",
   },
   {
     q: "What does the research and development practice cover?",
@@ -454,15 +460,15 @@ export const faqs = [
   },
   {
     q: "Does Oryx work with partners?",
-    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and concept work runs with Mendozer. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
+    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and Corner Spa is run with Mendozer Investments. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
   },
   {
     q: "What is a venture?",
-    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: students learn on its floor, and its customers decide whether it works. Ventures are announced as concepts and entered in the register when they\u00A0open.",
+    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: practical business and service work happens on its floor, and its customers decide whether it works. Each venture is stated plainly as a concept or operating work, as it is.",
   },
   {
     q: "What is Corner Spa?",
-    a: "The institute's first venture, announced as a concept: a small wellness and service operation in Windhoek, built to teach business administration, service standards and front-of-house operations on a real floor. Premises, licensing and the service menu are being worked through in order. When it opens, the opening enters the register, dated.",
+    a: "Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. Booking and service details stay on the spa's own site.",
   },
   {
     q: "Can I read the research?",

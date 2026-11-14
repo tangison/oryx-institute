@@ -22,23 +22,22 @@ const copy = {
     contactLine: "Questions about anything written here go to the office:",
     callOr: "or call or WhatsApp",
   },
-  zh: {
+  af: {
     meta: {
-      /* Absolute in generateMetadata: the title carries the locale
-         brand itself, in the site's documented zh pattern. */
-      title: "博客 · Oryx 理工学院 · Oryx Institute",
+      title: "Notes from the practice",
       description:
-        "来自 Oryx Institute 的笔记，写在温得和克：学院当天在运转的实务（速成课、经营咨询、市场调研），与伙伴一起开设的实业，以及还在研究的工作。每篇都写成能直接用的东西，完整价目、预约方式与事实出处都写在文中，按发表日期记录，不写没把握的事。",
-      ogTitle: "博客 | Oryx 理工学院",
+        "Notes from Oryx Institute: the practice running today, the ventures opened with partners, the work in development. Written to be used, dated as published.",
+      ogTitle: "Notes from the practice | Oryx Institute",
     },
     head: {
-      eyebrow: "博客",
-      title: "来自实务的笔记。",
-      lede: "关于工作的长笔记：学院在做什么、与伙伴在建什么，以及第一项实业在地面上的样子。按发表日期记录。",
+      eyebrow: "Blog",
+      title: "Notes from the practice.",
+      lede: "Longer notes on the work: what the institute runs, what it builds with its partners, and what the first ventures look like on the ground. Dated as published.",
     },
-    read: "阅读文章",
-    contactLine: "对文中内容的问题，请写给办公室：",
-    callOr: "，或来电、WhatsApp",
+    read: "Read the note",
+    contactLine: "Questions about anything written here go to the office:",
+    callOr: "or call or WhatsApp",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -50,14 +49,14 @@ export async function generateMetadata({
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
   return {
-    /* zh prints absolute: its title already carries the locale brand. */
-    title: lang === "zh" ? { absolute: m.title } : m.title,
+    /* af prints absolute: its title already carries the locale brand. */
+    title: lang === "af" ? { absolute: m.title } : m.title,
     description: m.description,
     alternates: alternates(lang, "/blog", site.url),
     openGraph: {
       title: m.ogTitle,
       description: m.description,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/blog`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/blog`,
       images: [
         { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -73,7 +72,7 @@ export default async function BlogIndexPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
 
   return (
@@ -88,17 +87,17 @@ export default async function BlogIndexPage({
             {blogPosts.map((post) => (
               <div className="ledger-row--flat hair-t" key={post.slug}>
                 <Link
-                  href={zh ? `/zh/blog/${post.slug}` : `/blog/${post.slug}`}
+                  href={af ? `/af/blog/${post.slug}` : `/blog/${post.slug}`}
                   className="link-type block"
                 >
                   <p className="eyebrow eyebrow--ink mt-8 tnum">
-                    {zh ? post.dateHumanZh : post.dateHuman} · 博客 Blog
+                    {af ? post.dateHumanAf : post.dateHuman} · Blog
                   </p>
                   <h2 className="h-sub mt-3 max-w-[30ch]">
-                    {zh ? post.titleZh : post.title}
+                    {af ? post.titleAf : post.title}
                   </h2>
                   <p className="measure mt-3 text-soft">
-                    {zh ? post.descriptionZh : post.description}
+                    {af ? post.descriptionAf : post.description}
                   </p>
                   <p className="mt-4 inline-flex items-center gap-2 text-[0.9rem] font-medium text-ink">
                     {t.read} <span className="arr" aria-hidden="true">→</span>

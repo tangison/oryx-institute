@@ -6,7 +6,7 @@ import { MenuLang } from "@/components/site/menu-lang";
 import { MenuClock } from "@/components/site/menu-clock";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { navLinks, footerNav, site } from "@/lib/site";
-import { navZh, siteZh } from "@/lib/site-zh";
+import { navAf, siteAf } from "@/lib/site-af";
 
 /**
  * The floating header: a cream bar flush with the top edge, hairline
@@ -22,9 +22,9 @@ import { navZh, siteZh } from "@/lib/site-zh";
  */
 export function SiteHeader({ lang }: { lang: Lang }) {
   const t = chrome[lang];
-  const zh = lang === "zh";
-  const links = zh ? navZh.navLinks : navLinks;
-  const sitemap = zh ? navZh.footerNav : footerNav;
+  const af = lang === "af";
+  const links = af ? navAf.navLinks : navLinks;
+  const sitemap = af ? navAf.footerNav : footerNav;
   const secondary = sitemap.filter(
     (l) => !links.some((n) => n.href === l.href)
   );
@@ -136,9 +136,9 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               {site.phoneDisplay}
             </a>
             <p className="menu-place">
-              {site.city}, {zh ? siteZh.country : site.country}
+              {site.city}, {af ? siteAf.country : site.country}
             </p>
-            <ul className="menu-social" aria-label={zh ? "社交频道" : "Social channels"}>
+            <ul className="menu-social" aria-label={af ? "Social channels" : "Social channels"}>
               {site.socials.map((s) => (
                 <li key={s.href}>
                   <a

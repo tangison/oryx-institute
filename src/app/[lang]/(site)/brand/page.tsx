@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { approvedLines, voice, site } from "@/lib/site";
-import { approvedLinesZh } from "@/lib/site-zh";
+import { approvedLinesAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 const copy = {
@@ -10,7 +10,7 @@ const copy = {
     meta: {
       title: "The Brand Register",
       description:
-        "The Oryx Institute brand: the three-script wordmark, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
+        "The Oryx Institute brand: the ORYX · 理工 · INSTITUTE lockup, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
       ogTitle: "The Brand Register | Oryx Institute",
       ogDescription:
         "The wordmark, the emblem, the codes, the voice: documented, with the asset downloads.",
@@ -31,9 +31,9 @@ const copy = {
     },
     wordmarkEyebrow: "The wordmark",
     wordmarkA:
-      "Three scripts, one lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where the word Polytechnic sits in the full legal name, in maroon\u00A0#71111F.",
+      "Three-part lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where Polytechnic sits in the legal name, in maroon #71111F.",
     wordmarkB:
-      "The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them. The wordmark is never redrawn, never restacked and never set in another typeface: the site renders it from the artwork's own vector paths.",
+      "理工 aligns to the ORYX baseline in the supplied artwork. The wordmark is immutable: never redraw, restack, substitute, or set it in another typeface. The site renders the supplied vector paths exactly.",
     emblemEyebrow: "The emblem",
     emblemA:
       "The maroon shield, with its horn-mark knocked through in white. On the business card's reverse the shield stands alone; on the notecard it centres on white; on the envelope it sits at the right of the lockup.",
@@ -68,72 +68,68 @@ const copy = {
     do: "Do",
     dont: "Don't",
   },
-  zh: {
+  af: {
     meta: {
-      title: "品牌登记册",
+      title: "The Brand Register",
       description:
-        "Oryx 理工学院的品牌登记册：三体字标、栗色盾徽、精确色码、印刷套件与文风成文，一切可下载、可交印厂。字标中间一词是中文：理工，立在法定全名中 Polytechnic 的位置。色码逐项列明，墨色、栗色、奶油色各有其处；文风一节写明本站如何说话。",
-      ogTitle: "品牌登记册 | Oryx 理工学院",
-      ogDescription: "字标、徽记、色码、文风：全部成文，附资产下载。",
+        "The Oryx Institute brand: the ORYX · 理工 · INSTITUTE lockup, the maroon shield, the exact colour codes, the print kit, the voice, and the downloads.",
+      ogTitle: "The Brand Register | Oryx Institute",
+      ogDescription:
+        "The wordmark, the emblem, the codes, the voice: documented, with the asset downloads.",
     },
     head: {
-      eyebrow: "登记册",
-      title: "品牌登记册。",
-      lede: "学院印的每一样东西，从传单到证书，守同一种语域。本页把它写成文档，让身份完整地行走：标记、色码、文风，以及备好可下载的文件。",
+      eyebrow: "The register",
+      title: "The brand register.",
+      lede: "Everything the institute prints, from the flyer to the certificate, keeps one register. This page documents it so the identity travels intact: the marks, the codes, the voice, and the files, ready to download.",
     },
-    dlEyebrow: "资产与下载",
-    dlBody: "矢量标记、给印厂的印刷套件、给屏幕的透明 PNG。拿去；保持原样。",
-    download: "下载",
+    dlEyebrow: "Assets & downloads",
+    dlBody:
+      "The marks as vector files, the press kit for printers, and the transparent PNGs for screens. Take them; keep them intact.",
+    download: "Download",
     onRequest: {
-      pre: "刺绣文件、招牌矢量、合署模板与可编辑的规范文档，按需提供：",
-      link: "给办公室写信",
-      post: "。",
+      pre: "Embroidery files, signage vectors, co-branding templates and the editable guidelines document are issued on request: ",
+      link: "write to the office",
+      post: ".",
     },
-    wordmarkEyebrow: "字标",
+    wordmarkEyebrow: "The wordmark",
     wordmarkA:
-      "三种文字，一组锁定。ORYX 与 INSTITUTE 用古典衬线体，墨色 #181713；理工二字（科学与工程）立在法定全名中 Polytechnic 一词的位置，栗色 #71111F。",
+      "Three-part lockup. ORYX and INSTITUTE set in a classic serif, ink #181713; 理工, the characters for science and engineering, stands where Polytechnic sits in the legal name, in maroon #71111F.",
     wordmarkB:
-      "两个字符对齐 ORYX 基线，高度与 X 的大写字高一致，与来稿图样分毫不差。字标绝不重绘、绝不重排、绝不用别的字体：本站用图样自己的矢量路径渲染它。",
-    emblemEyebrow: "徽记",
+      "理工 aligns to the ORYX baseline in the supplied artwork. The wordmark is immutable: never redraw, restack, substitute, or set it in another typeface. The site renders the supplied vector paths exactly.",
+    emblemEyebrow: "The emblem",
     emblemA:
-      "栗色盾徽，角形记号以白色镂空。名片背面，盾徽独立；便签上，居中于白；信封上，位于锁定组右侧。",
+      "The maroon shield, with its horn-mark knocked through in white. On the business card's reverse the shield stands alone; on the notecard it centres on white; on the envelope it sits at the right of the lockup.",
     emblemB:
-      "徽记内部永不载字，永不倾斜，除栗色与反转象牙色外不做任何颜色。栗色底上，徽记用象牙色；浅底上，用白。",
-    colourEyebrow: "色彩",
+      "The emblem never carries text inside it, never tilts, and never appears in any colour but the maroon or the reverse ivory. On maroon grounds the mark stays ivory; on light grounds it stays\u00A0white.",
+    colourEyebrow: "Colour",
     colourBody:
-      "六个色码，取自标志图样与登记册。中间色调只从这些锚点调和；陶红永不触碰按钮或标记。",
-    clearspaceEyebrow: "净空",
+      "Six codes, sampled from the logo artwork and the register. Tints between them are mixed from these anchors only, and terracotta never touches a button or the mark.",
+    clearspaceEyebrow: "Clearspace",
     clearspaceA:
-      "字标四周各留一个 X 大写字高的边距，由虚线框标出。任何东西不得入框：字、线、别的元素的边缘都不行。",
-    clearspaceB: "徽记同样守这条边距。拿不准就加倍；标记从不拥挤。",
-    ddEyebrow: "可以 / 不可以",
-    ddBody: "六块版，各三块。错的那些是故意画错的。",
-    do1: "锁定组在纸上，墨色与栗色，安放。",
-    do2: "反转锁定组，象牙色印在栗色底上。",
-    dont1: "绝不给标记改色。陶红属于色带与图像，不属于标志。",
-    dont2: "绝不倾斜或旋转锁定组。",
-    dont3: "绝不加投影。标记永远平印。",
-    dont4: "绝不重排锁定组，或用别的字体重搭。",
-    kitEyebrow: "印刷套件",
+      "The wordmark keeps a margin of one X cap-height on every side, marked by the dashed frame. Nothing enters the frame: no type, no rules, no edges of other elements.",
+    clearspaceB:
+      "The same margin governs the emblem. When in doubt, double it; the mark is never crowded.",
+    ddEyebrow: "Do / don't",
+    ddBody: "Six plates, three of each. The wrong ones are drawn wrong on purpose.",
+    do1: "The lockup on paper, ink and maroon, at rest.",
+    do2: "The reverse lockup, ivory on the maroon\u00A0ground.",
+    dont1: "Never recolour the mark. Terracotta is for bands and imagery, not the logo.",
+    dont2: "Never skew or rotate the lockup.",
+    dont3: "Never add a drop shadow. The mark prints flat,\u00A0always.",
+    dont4: "Never restack the lockup or rebuild it in another\u00A0typeface.",
+    kitEyebrow: "The print kit",
     kitBody:
-      "学院筹建期间印发的物件，按本站语域拍摄，一屏一件。你看到的每个标记都是真矢量，以代码叠在照片上。",
-    specimensEyebrow: "标本",
+      "The pieces the institute publishes while it is being established, photographed in the house register, one piece per screen. Every mark you see is the real vector, set in code over the\u00A0photograph.",
+    specimensEyebrow: "Specimens",
     specimensBody:
-      "身份所从出的物件，一板一件，奶油与陶红底。随实物在温得和克收齐而逐件替换。",
-    shieldCaption: "标本 · 盾徽",
-    specimenWord: "标本",
-    voiceEyebrow: "文风，带一道横杆",
-    approvedEyebrow: "已核准的句子",
-    do: "可以",
-    dont: "不可以",
-    enLedger: {
-      paras: [
-        "Everything the institute prints, from the flyer to the certificate, keeps one register, and this page documents it so the identity travels intact. The wordmark carries three scripts in one lockup: ORYX and INSTITUTE in a classic serif, ink #181713, and the two characters 理工 (science and engineering) standing where Polytechnic stands in the legal name, in maroon\u00A0#71111F. The characters align to the ORYX baseline and scale to the cap height of the X, exactly as the supplied artwork draws them; nothing is redrawn, restacked, or reset in another typeface.",
-        "The emblem is the shield with its horn-mark knocked through in white. It carries no text inside it, it does not tilt, and it appears in no colour but the maroon or the reverse ivory: on dark grounds it stays ivory, on light grounds white. Clearspace is one X cap-height around the lockup and the same margin around it; when in doubt, double it.",
-        "Six colour codes are sampled from the logo artwork and the register. Tints between them are mixed from these anchors only, and terracotta never touches a button or the mark. The do-and-don't plates print each rule beside its deliberate error: no recolouring, no tilting or restacking, no drop shadow, no rebuilding in another typeface.",
-        "The print kit (letterhead, business card, folder, envelope, flyer, notecard and the certificate) is photographed in the house register, one piece per screen, with every mark rendered from the real vectors in code. The vector marks, the press kit and the transparent PNGs download from this page; embroidery files, signage vectors, co-signing templates and the editable specification are available on request from the office.",
-      ],
-    },
+      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Windhoek objects as they are collected.",
+    shieldCaption: "Specimen · the shield",
+    specimenWord: "Specimen",
+    voiceEyebrow: "The voice, with a bar",
+    approvedEyebrow: "Approved lines",
+    do: "Do",
+    dont: "Don't",
+    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -151,7 +147,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.ogDescription,
-      url: `${site.url}${lang === "zh" ? "/zh" : ""}/brand`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/brand`,
       images: [
         { url: "/brand/og/brand.png", width: 1200, height: 630, alt: m.ogTitle },
       ],
@@ -166,56 +162,39 @@ export async function generateMetadata({
  */
 
 /** The download cards, per language. */
-function downloads(zh: boolean) {
+function downloads(af: boolean) {
   return [
     {
-      name: zh ? "字标（SVG）" : "Wordmark (SVG)",
-      note: zh
-        ? "ORYX · 理工 · INSTITUTE，墨色字母，栗色字符。透明、矢量、可印。"
-        : "ORYX · 理工 · INSTITUTE, ink letters with the characters in maroon. Transparent, vector, print-ready.",
+      name: af ? "Wordmark (SVG)" : "Wordmark (SVG)",
+      note: "ORYX · 理工 · INSTITUTE, ink letters with 理工 in maroon. Transparent, vector, print-ready.",
       href: "/brand/oryx-wordmark.svg",
       format: "SVG · vector",
       preview: { src: "/brand/oryx-wordmark.svg", w: 300, h: 144, dark: false, wide: true },
     },
     {
-      name: zh ? "字标，反转（SVG）" : "Wordmark, reverse (SVG)",
-      note: zh
-        ? "全部元素用象牙色，用于深底。几何完全一致，别无改动。"
-        : "All elements in ivory, for dark grounds. Same geometry, no other change.",
+      name: af ? "Wordmark, reverse (SVG)" : "Wordmark, reverse (SVG)",
+      note: af ? "All elements in ivory, for dark grounds. Same geometry, no other change." : "All elements in ivory, for dark grounds. Same geometry, no other change.",
       href: "/brand/oryx-wordmark-ivory.svg",
       format: "SVG · vector",
       preview: { src: "/brand/oryx-wordmark-ivory.svg", w: 300, h: 144, dark: true, wide: true },
     },
     {
-      name: zh ? "徽记 / 盾徽（SVG）" : "Emblem / Shield (SVG)",
-      note: zh
-        ? "栗色盾徽独立。内部永不载字；不倾斜，不改色。"
-        : "The maroon shield alone. No text inside it, ever; no tilt, no recolour.",
+      name: af ? "Emblem / Shield (SVG)" : "Emblem / Shield (SVG)",
+      note: af ? "The maroon shield alone. No text inside it, ever; no tilt, no recolour." : "The maroon shield alone. No text inside it, ever; no tilt, no recolour.",
       href: "/brand/oryx-emblem.svg",
       format: "SVG · vector",
       preview: { src: "/brand/oryx-emblem.svg", w: 106, h: 139, dark: false, wide: false },
     },
     {
-      name: zh ? "徽记，反转（SVG）" : "Emblem, reverse (SVG)",
-      note: zh ? "象牙色盾徽，用于墨色与栗色底。" : "The shield in ivory, for ink and maroon grounds.",
+      name: af ? "Emblem, reverse (SVG)" : "Emblem, reverse (SVG)",
+      note: af ? "The shield in ivory, for ink and maroon grounds." : "The shield in ivory, for ink and maroon grounds.",
       href: "/brand/oryx-emblem-ivory.svg",
       format: "SVG · vector",
       preview: { src: "/brand/oryx-emblem-ivory.svg", w: 106, h: 139, dark: true, wide: false },
     },
     {
-      name: zh ? "印刷套件（PDF）" : "Print press kit (PDF)",
-      note: zh
-        ? "一页一资产：字标、反转、徽记、色码，纸底带出血线，直接交印厂。"
-        : "One asset per page: wordmark, reverse, emblem, colour tokens, on paper grounds with crop marks, ready for the printer.",
-      href: "/brand/oryx-press-kit.pdf",
-      format: "PDF · A4",
-      preview: { src: "/brand/oryx-wordmark.svg", w: 240, h: 115, dark: false, wide: true },
-    },
-    {
-      name: zh ? "PNG 套装（ZIP）" : "PNG pack (ZIP)",
-      note: zh
-        ? "字标与徽记，透明底，256、512、1024 与 2048 px。"
-        : "Wordmark and emblem, transparent backgrounds, at 256, 512, 1024 and 2048 px.",
+      name: af ? "PNG pack (ZIP)" : "PNG pack (ZIP)",
+      note: af ? "Wordmark and emblem, transparent backgrounds, at 256, 512, 1024 and 2048 px." : "Wordmark and emblem, transparent backgrounds, at 256, 512, 1024 and 2048 px.",
       href: "/brand/oryx-png-pack.zip",
       format: "ZIP · PNG",
       preview: { src: "/brand/oryx-emblem.svg", w: 106, h: 139, dark: false, wide: false },
@@ -314,105 +293,102 @@ const specimens = [
   {
     src: "/images/kinfolk/core/02-stone.jpg",
     alt: "One weathered stone specimen, centred on cream paper",
-    caption: { en: "stone", zh: "\u6cb3\u77f3" },
+    caption: { en: "stone", af: "klip" },
     w: 1254,
     h: 1254,
   },
   {
     src: "/images/kinfolk/core/09-horns.jpg",
     alt: "Two shed oryx horns lying parallel, centred on cream paper",
-    caption: { en: "horns", zh: "\u7f9f\u7f8a\u89d2" },
+    caption: { en: "horns", af: "horings" },
     w: 1402,
     h: 1122,
   },
   {
     src: "/images/kinfolk/core/10-wax-seal.jpg",
     alt: "A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper",
-    caption: { en: "wax seal", zh: "\u706b\u6f06\u5c01\u7f04" },
+    caption: { en: "wax seal", af: "was-seël" },
     w: 1254,
     h: 1254,
   },
   {
     src: "/images/kinfolk/core/04-notebook.jpg",
     alt: "A bound maroon notebook with ribbon, centred on cream paper",
-    caption: { en: "notebook", zh: "\u7b14\u8bb0\u672c" },
+    caption: { en: "notebook", af: "notaboek" },
     w: 1402,
     h: 1122,
   },
   {
     src: "/images/kinfolk/core/06-game-board.jpg",
     alt: "A carved wooden morabaraba board with scattered counters, centred on terracotta cloth",
-    caption: { en: "morabaraba board", zh: "morabaraba \u68cb\u76d8" },
+    caption: { en: "morabaraba board", af: "morabaraba-bord" },
     w: 1402,
     h: 1122,
   },
   {
     src: "/images/kinfolk/inner/19-mineral.jpg",
     alt: "A Namibian desert mineral specimen, centred on cream paper",
-    caption: { en: "desert mineral", zh: "\u8352\u6f20\u77ff\u7269" },
+    caption: { en: "desert mineral", af: "woestynmineraal" },
     w: 1254,
     h: 1254,
   },
   {
     src: "/images/kinfolk/inner/18-cup.jpg",
     alt: "An enamel office cup, centred on cream paper",
-    caption: { en: "cup", zh: "\u640a\u74f7\u676f" },
+    caption: { en: "cup", af: "beker" },
     w: 1254,
     h: 1254,
   },
 ];
 
-function swatches(zh: boolean) {
+function swatches(af: boolean) {
   return [
     {
-      name: zh ? "墨色" : "Ink",
+      name: af ? "Ink" : "Ink",
       hex: "#181713",
-      usage: zh ? "字标字母、正文、深底" : "Wordmark letters, body text, dark grounds",
+      usage: af ? "Wordmark letters, body text, dark grounds" : "Wordmark letters, body text, dark grounds",
       bg: "#181713",
       fg: "#FFF8EE",
       /* Ink carries the Latin specimen: it is the colour the wordmark's
-         letters are set in. The CJK specimen belongs to Maroon, the
-         colour 理工 is set in. */
+         letters are set in. The 理工 specimen belongs to Maroon. */
       mark: "Aa",
     },
     {
-      name: zh ? "栗色" : "Maroon",
+      name: af ? "Maroon" : "Maroon",
       hex: "#71111F",
-      usage: zh ? "盾徽、理工、强调、填充、按钮" : "The shield, 理工, accents, fills, CTAs",
+      usage: "The shield, 理工, accents, fills, CTAs",
       bg: "#71111F",
       fg: "#FFF8EE",
       mark: "理工",
     },
     {
-      name: zh ? "奶油" : "Cream",
+      name: af ? "Cream" : "Cream",
       hex: "#F4EEE4",
-      usage: zh ? "默认页底，纸" : "The default page ground, paper",
+      usage: af ? "The default page ground, paper" : "The default page ground, paper",
       bg: "#F4EEE4",
       fg: "#181713",
       mark: "Aa",
     },
     {
-      name: zh ? "象牙" : "Ivory",
+      name: af ? "Ivory" : "Ivory",
       hex: "#FFF8EE",
-      usage: zh ? "墨色与栗色底上的文字，反转标志" : "Text on ink and maroon, the reverse logo",
+      usage: af ? "Text on ink and maroon, the reverse logo" : "Text on ink and maroon, the reverse logo",
       bg: "#FFF8EE",
       fg: "#181713",
       mark: "Aa",
     },
     {
-      name: zh ? "陶红" : "Terracotta",
+      name: af ? "Terracotta" : "Terracotta",
       hex: "#B5533A",
-      usage: zh
-        ? "只用于图像色板与色带：绝不用于界面，绝不用于标志"
-        : "Image palette and colour bands only: never UI, never the\u00A0logo",
+      usage: af ? "Image palette and colour bands only: never UI, never the\u00A0logo" : "Image palette and colour bands only: never UI, never the\u00A0logo",
       bg: "#B5533A",
       fg: "#FFF8EE",
       mark: "Aa",
     },
     {
-      name: zh ? "沙色" : "Sand",
+      name: af ? "Sand" : "Sand",
       hex: "#D8C6A8",
-      usage: zh ? "Corner Spa 版块的专属色" : "The Corner Spa section palette",
+      usage: af ? "The Corner Spa section palette" : "The Corner Spa section palette",
       bg: "#D8C6A8",
       fg: "#181713",
       mark: "Aa",
@@ -567,17 +543,17 @@ export default async function BrandPage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = langFromParams(await params);
-  const zh = lang === "zh";
+  const af = lang === "af";
   const t = copy[lang];
-  const lines = zh ? approvedLinesZh : approvedLines;
-  const voiceText = zh
+  const lines = af ? approvedLinesAf : approvedLines;
+  const voiceText = af
     ? {
-        register: "陈述式，精确，不慌不忙。说出事实；注明出处；停。",
+        register: "Stellig, presies en onbehaas. Sê die feit; noem die bron; stop.",
         rules: [
-          "已核准的句子逐字使用：看着无害，并不是。/ 毕业生安静地解决问题，决断地收尾。/ 以创新与实用解题见长。",
-          "事实要么内联注明出处，要么不发。",
-          "没有俏皮话，没有自我注解，图像下面没有说明。",
-          "状态照实说：开办前，认证前，诚实。",
+          "Gebruik goedgekeurde sinne woord vir woord.",
+          "Feite kry 'n bron in die sin, of word nie gepubliseer nie.",
+          "Geen grappies, selfkommentaar of byskrifte onder beelde nie.",
+          "Stel die status soos dit is: voor bekendstelling, voor akkreditasie, eerlik.",
         ],
       }
     : voice;
@@ -621,7 +597,7 @@ export default async function BrandPage({
           </div>
 
           <div className="dl-grid mt-12" data-sc-in data-sc-stagger="60">
-            {downloads(zh).map((d) => (
+            {downloads(af).map((d) => (
               <a key={d.href} href={d.href} download className="dl-card">
                 <span className={`dl-preview ${d.preview.dark ? "dl-preview--ink" : ""}`}>
                   <LogoPlate
@@ -691,7 +667,7 @@ export default async function BrandPage({
             data-sc-in
             data-sc-stagger="90"
           >
-            {swatches(zh).map((c) => (
+            {swatches(af).map((c) => (
               <div className="swatch" key={c.hex}>
                 <div
                   className="swatch-chip"
@@ -859,7 +835,7 @@ export default async function BrandPage({
               quality={62}
             />
             <p className="caption">
-              {t.specimenWord} · {zh ? s.caption.zh : s.caption.en}
+              {t.specimenWord} · {af ? s.caption.af : s.caption.en}
             </p>
           </div>
         ))}
@@ -900,14 +876,14 @@ export default async function BrandPage({
         </div>
       </section>
 
-      {/* The English original, printed beneath the Chinese page. */}
-      {zh && (
+      {/* The English original, printed beneath the Afrikaans page. */}
+      {false && (
         <section className="section" data-sc-act="flow">
           <div className="shell">
             <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">英文原文 · The English original</p>
+              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
               <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.zh.enLedger.paras.map((p, i) => (
+                {copy.af.enLedger.paras.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>

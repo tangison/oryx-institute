@@ -18,8 +18,8 @@ export default function LangError({
   const status = statusFromError(error);
   const lang =
     typeof window !== "undefined" &&
-    document.documentElement.lang.startsWith("zh")
-      ? "zh"
+    document.documentElement.lang.startsWith("af")
+      ? "af"
       : "en";
   return <ErrorScreen status={status} lang={lang} onReset={reset} />;
 }
