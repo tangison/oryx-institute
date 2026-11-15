@@ -1,27 +1,21 @@
 import Image from "next/image";
-import { PageHead } from "@/components/site/page-head";
 import { ApplyForm } from "@/components/site/apply-form";
-import { ApplyOfferMeta } from "@/components/site/apply-offer-meta";
 import { site, offers } from "@/lib/site";
-import { siteAf, offersAf } from "@/lib/site-af";
+import { offersAf } from "@/lib/site-af";
 import type { Lang } from "@/lib/i18n";
-import { applyOfferIntro, type ApplyOfferSlug } from "@/lib/apply-offers";
 
 /**
- * The application page body, shared by /apply and every /apply/<offer>
- * deep link. The hub renders it bare; the offer routes pass preselect,
- * which drives the composer's field of interest from the route segment
- * instead of the legacy query string. The per-offer metadata is set by
- * each route's own generateMetadata, so the client-side title switch
- * only runs where a variant arrives without its own route.
+ * The enquiry page keeps one direct public route to the Oryx office.
+ * It describes current commercial work without presenting a learning
+ * catalogue, intake or qualification.
  */
 
 const copy = {
   en: {
     head: {
-      eyebrow: "Apply",
-      title: "Apply now.",
-      lede: "There is no portal and no queue. Write to the Principal's office directly, and the application starts with your first message. The teaching is crash courses and short courses in business administration and IT and related fields. The practice books through the same desk: the Owner's Desk, market research and development, Rapid Response\u00A0Training.",
+      eyebrow: "Enquire",
+      title: "Start with a conversation.",
+      lede: "There is no portal and no queue. Write to the Oryx office directly. Current work includes business counselling and market research. Future learning pathways are not accredited qualifications and will be announced only when formally confirmed.",
     },
     steps: [
       {
@@ -29,84 +23,72 @@ const copy = {
         b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares\u00A0it.",
       },
       {
-        t: "The office replies",
-        b: "The Principal's office reads every message and answers personally, usually within the\u00A0week.",
+        t: "The office responds",
+        b: "The Oryx office replies through the published public contact channel.",
       },
       {
-        t: "Talk, then decide",
-        b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides\u00A0agree.",
+        t: "Confirm what is available",
+        b: "The reply states what Oryx can and cannot offer at the time of your enquiry.",
       },
     ],
-    composerTitle: "The application message",
-    offersEyebrow: "What you can apply for",
-    offersTitle: "Six doors, one desk.",
+    composerTitle: "Your enquiry",
+    offersEyebrow: "Current work",
+    offersTitle: "One public office.",
     offersNote:
-      "Everything the institute runs today, listed as it runs. Name the one you are writing about; the office reads every application against its own\u00A0offer.",
+      "Current work is listed below. For future learning, write to the office and the reply will state the current position without promising an intake or qualification.",
     composerBody: (email: string) => ({
       pre: "Fill it in and it opens as an email addressed to ",
       post: ". Nothing is stored on this site; nothing is sent until you press send in your own mail\u00A0client.",
     }),
     dataEyebrow: "Zero data collection",
     dataBody:
-      "The site runs no analytics, no cookies and no accounts. The application exists the moment your email client opens it; before that, it does not exist at all.",
-    readerEyebrow: "Who reads it",
-    readerBody: `${site.principal.name}, ${site.principal.role}, reads every application personally. The office answers every enquiry by email, and visits are arranged by\u00A0appointment.`,
+      "The site runs no analytics, no cookies and no accounts. The enquiry exists the moment your email client opens it; before that, it does not exist at all.",
+    readerEyebrow: "Where it goes",
+    readerBody: "The Oryx office receives enquiries through the approved public mailbox. No physical address or visiting instructions are published.",
   },
   af: {
     head: {
-      eyebrow: "Apply",
-      title: "Apply now.",
-      lede: "There is no portal and no queue. Write to the Principal's office directly, and the application starts with your first message. The teaching is crash courses and short courses in business administration and IT and related fields. The practice books through the same desk: the Owner's Desk, market research and development, Rapid Response\u00A0Training.",
+      eyebrow: "Doen navraag",
+      title: "Begin met 'n gesprek.",
+      lede: "Daar is geen portaal of wagtyd nie. Skryf direk aan die Oryx-kantoor. Huidige werk sluit besigheidsadvies en marknavorsing in. Toekomstige leerpaaie is nie geakkrediteerde kwalifikasies nie en word slegs aangekondig wanneer dit formeel bevestig is.",
     },
     steps: [
       {
-        t: "Write one message",
-        b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares\u00A0it.",
+        t: "Skryf een boodskap",
+        b: "Noem jou naam, 'n kontakbesonderheid vir die antwoord en die area waarin jy belangstel. Die samesteller hieronder berei dit voor.",
       },
       {
-        t: "The office replies",
-        b: "The Principal's office reads every message and answers personally, usually within the\u00A0week.",
+        t: "Die kantoor antwoord",
+        b: "Die Oryx-kantoor antwoord deur die gepubliseerde openbare kontakroete.",
       },
       {
-        t: "Talk, then decide",
-        b: "A conversation by email or an appointment in Windhoek. Nothing is committed until both sides\u00A0agree.",
+        t: "Bevestig wat beskikbaar is",
+        b: "Die antwoord stel wat Oryx op die tyd van jou navraag kan en nie kan aanbied nie.",
       },
     ],
-    composerTitle: "The application message",
-    offersEyebrow: "What you can apply for",
-    offersTitle: "Six doors, one desk.",
+    composerTitle: "Jou navraag",
+    offersEyebrow: "Huidige werk",
+    offersTitle: "Een openbare kantoor.",
     offersNote:
-      "Everything the institute runs today, listed as it runs. Name the one you are writing about; the office reads every application against its own\u00A0offer.",
+      "Huidige werk word hieronder gelys. Skryf aan die kantoor oor toekomstige leer en die antwoord sal die huidige posisie stel sonder 'n inname of kwalifikasiebelofte.",
     composerBody: (email: string) => ({
-      pre: "Fill it in and it opens as an email addressed to ",
-      post: ". Nothing is stored on this site; nothing is sent until you press send in your own mail\u00A0client.",
+      pre: "Vul dit in en dit open as 'n e-pos aan ",
+      post: ". Niks word op hierdie webwerf gestoor nie; niks word gestuur voordat jy in jou eie e-posprogram stuur nie.",
     }),
-    dataEyebrow: "Zero data collection",
+    dataEyebrow: "Geen dataversameling",
     dataBody:
-      "The site runs no analytics, no cookies and no accounts. The application exists the moment your email client opens it; before that, it does not exist at all.",
-    readerEyebrow: "Who reads it",
-    readerBody: `${site.principal.name}, ${site.principal.role}, reads every application personally. The office answers every enquiry by email, and visits are arranged by\u00A0appointment.`,
+      "Die webwerf gebruik geen ontleding, koekies of rekeninge nie. Die navraag bestaan eers wanneer jou e-posprogram open.",
+    readerEyebrow: "Waarheen dit gaan",
+    readerBody: "Die Oryx-kantoor ontvang navrae deur die goedgekeurde openbare posbus. Geen fisiese adres of besoekinligting word gepubliseer nie.",
     enLedger: { paras: [] as string[] },
   },
 } as const;
 
-export function ApplyBody({
-  lang,
-  preselect,
-}: {
-  lang: Lang;
-  preselect?: ApplyOfferSlug;
-}) {
-  const af = lang === "af";
+export function ApplyBody({ lang }: { lang: Lang }) {
   const t = copy[lang];
-  const offerIntro = preselect ? applyOfferIntro(preselect, lang) : null;
 
   return (
     <>
-      {/* Per-offer client metadata only on the hub: the offer routes
-          carry their own server-rendered metadata. */}
-      {!preselect && <ApplyOfferMeta lang={lang} />}
-
       {/* The opener, under scrub: the proposition on the left, a quiet
           correspondence plate drifting at its own rate on the right. */}
       <section className="section screen-intro" data-sc-act="scrub">
@@ -130,22 +112,7 @@ export function ApplyBody({
         </div>
       </section>
 
-      {/* Each deep-link route names the offer before showing the shared
-          message composer. The distinct proposition keeps the route
-          useful on its own for people and search engines alike. */}
-      {offerIntro && (
-        <section className="section-sm" data-sc-act="flow">
-          <div className="shell">
-            <div className="hair-t pt-12" data-sc-in>
-              <p className="eyebrow eyebrow--ink">{offerIntro.eyebrow}</p>
-              <h2 className="h-section mt-4 max-w-[20ch]">{offerIntro.title}</h2>
-              <p className="measure mt-6 text-soft">{offerIntro.body}</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* How the application runs, hairline ledger. The titles carry the
+      {/* How the enquiry runs, hairline ledger. The titles carry the
           sequence; the rows carry no numbers. */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
@@ -162,9 +129,8 @@ export function ApplyBody({
         </div>
       </section>
 
-      {/* The six offers, in full: the same ledger the homepage
-          carries, so every deep link lands on the whole list and no
-          variant of this page reads thin. */}
+      {/* Current work, in full. Future learning is not presented as a
+          course catalogue before the relevant registration exists. */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
           <p className="eyebrow eyebrow--ink">{t.offersEyebrow}</p>
@@ -201,7 +167,7 @@ export function ApplyBody({
               {t.composerBody(site.email).post}
             </p>
             <div className="mt-8">
-              <ApplyForm lang={lang} preselect={preselect} />
+              <ApplyForm lang={lang} />
             </div>
           </div>
 
@@ -212,7 +178,7 @@ export function ApplyBody({
             <figure className="apply-plate" data-sc-reveal>
               <Image
                 src="/images/kinfolk/people/32-applicant-writing.jpg"
-                alt="A hand writing an application letter with a pen on paper in hard window light"
+                alt="A hand writing an enquiry letter with a pen on paper in hard window light"
                 width={1402}
                 height={1122}
                 sizes="(min-width: 1024px) 15rem, 60vw"

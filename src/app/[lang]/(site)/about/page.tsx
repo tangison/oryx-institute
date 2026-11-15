@@ -14,9 +14,9 @@ const copy = {
   en: {
     meta: {
       title: "About Oryx Institute",
-      description: "Oryx Institute is a new Namibian polytechnic in formation: research, practical learning and ventures that let the work prove itself.",
+      description: "Oryx Institute is a new Namibian polytechnic in formation: research, current practice and ventures that let the work prove itself.",
       ogTitle: "About Oryx Institute",
-      ogDescription: "A new Namibian polytechnic in formation. Research, practical learning and ventures that prove the work.",
+      ogDescription: "A new Namibian polytechnic in formation. Research, current practice and ventures that prove the work.",
     },
     hero: {
       eyebrow: "Oryx Institute · Namibia",
@@ -28,16 +28,16 @@ const copy = {
     beginning: {
       eyebrow: "A beginning, not a border",
       title: "More than one place.\nOne standard.",
-      body: "The institute begins where it can be useful, then grows outward with care. Windhoek is where the first venture works with real customers. The Directory is published online. Future learning environments are planned on their own timelines, and only become public when there is something real to say.",
+      body: "The institute begins where it can be useful, then grows outward with care. Windhoek is where the first venture works with real customers. Future learning environments are planned on their own timelines, and only become public when there is something real to say.",
       caption: "A person walking across open ground.",
     },
     work: {
       eyebrow: "The work, joined",
       title: "Research asks. Practice tests. Ventures answer.",
-      body: "None of these stand alone. Evidence should change what is taught. What is taught should survive contact with real work. A venture should return a better question.",
+      body: "None of these stand alone. Evidence should change the work. A venture should return a better question. Future learning remains separate from current practice until formally approved.",
       items: [
         { name: "Research", line: "Questions with evidence behind them. Feasibility, market reads and practical development work." },
-        { name: "Practice", line: "Useful learning for people and teams: short courses, direct counsel and training shaped around the work at hand." },
+        { name: "Practice", line: "Current business counselling and market research engagements, scoped through the Oryx office." },
         { name: "Ventures", line: "Small operating companies where service, systems and decisions can meet the customer before they become theory." },
       ],
     },
@@ -47,20 +47,12 @@ const copy = {
       now: "Working now",
       next: "In development",
       noSite: "Oryx does not present a planned centre as an open campus. The work earns its space before the sign goes up.",
-      directory: "The Oryx Directory is free, Namibia-specific, and available online now.",
       cornerSpa: "Corner Spa is the first operating venture, working with Mendozer in Windhoek.",
       imageCaption: "The animal named in the institute’s mark, held in its own ground.",
     },
-    people: {
-      eyebrow: "People and proof",
-      title: "Names arrive with the work.",
-      body: "One Principal is named today. Other roles stay openly vacant until a person, a responsibility and the record that supports both can be published together.",
-      action: "Meet the people",
-      imageAlt: "Hands trimming a sheet of paper at a workbench",
-    },
     disclosures: {
       status: "What the institute can and cannot claim",
-      statusBody: "Oryx is pursuing accreditation and does not claim accredited programmes before that process is complete. Course, enrolment and credential details are confirmed in writing by the office.",
+      statusBody: "Oryx is working toward NTA training-provider registration. It is not registered or accredited and does not claim accredited programmes, NQF credits or a public campus.",
       relationships: "How the work is built",
       relationshipsBody: "Oryx works with named collaborators where that work is public. Tangison provides the institute’s identity, technology and learning-platform services under agreement. Corner Spa operates with Mendozer. Each relationship is stated for what it is, not enlarged into a promise.",
       image: "Why the oryx",
@@ -76,9 +68,9 @@ const copy = {
   af: {
     meta: {
       title: "Oor Oryx Instituut",
-      description: "Oryx Instituut is ’n nuwe Namibiese politegniese instituut in wording: navorsing, praktiese leer en ondernemings wat die werk laat bewys word.",
+      description: "Oryx Instituut is ’n nuwe Namibiese politegniese instituut in wording: navorsing, huidige praktyk en ondernemings wat die werk laat bewys word.",
       ogTitle: "Oor Oryx Instituut",
-      ogDescription: "’n Nuwe Namibiese politegniese instituut in wording. Navorsing, praktiese leer en ondernemings wat die werk bewys.",
+      ogDescription: "’n Nuwe Namibiese politegniese instituut in wording. Navorsing, huidige praktyk en ondernemings wat die werk bewys.",
     },
     hero: {
       eyebrow: "Oryx Instituut · Namibië",
@@ -90,16 +82,16 @@ const copy = {
     beginning: {
       eyebrow: "’n Begin, nie ’n grens nie",
       title: "Meer as een plek.\nEen standaard.",
-      body: "Die instituut begin waar dit nuttig kan wees en groei dan versigtig na buite. Windhoek is waar die eerste onderneming met werklike kliënte werk. Die Directory word aanlyn gepubliseer. Toekomstige leeromgewings word op hul eie tydlyne beplan en word eers openbaar wanneer daar iets werkliks is om te sê.",
+      body: "Die instituut begin waar dit nuttig kan wees en groei dan versigtig na buite. Windhoek is waar die eerste onderneming met werklike kliënte werk. Toekomstige leeromgewings word op hul eie tydlyne beplan en word eers openbaar wanneer daar iets werkliks is om te sê.",
       caption: "’n Persoon wat oor oop grond loop.",
     },
     work: {
       eyebrow: "Die werk, verbind",
       title: "Navorsing vra. Praktyk toets. Ondernemings antwoord.",
-      body: "Nie een staan alleen nie. Bewyse moet verander wat geleer word. Wat geleer word, moet werklike werk oorleef. ’n Onderneming moet ’n beter vraag teruggee.",
+      body: "Nie een staan alleen nie. Bewyse moet die werk verander. ’n Onderneming moet ’n beter vraag teruggee. Toekomstige leer bly apart van huidige praktyk totdat dit formeel goedgekeur is.",
       items: [
         { name: "Navorsing", line: "Vrae met bewyse daaragter. Uitvoerbaarheid, marklesings en praktiese ontwikkelingswerk." },
-        { name: "Praktyk", line: "Bruikbare leer vir mense en spanne: kortkursusse, direkte advies en opleiding rondom die werk wat voorlê." },
+        { name: "Praktyk", line: "Huidige besigheidsadvies- en marknavorsingsopdragte, met omvang deur die Oryx-kantoor bevestig." },
         { name: "Ondernemings", line: "Klein bedrywighede waar diens, stelsels en besluite die kliënt ontmoet voordat dit teorie word." },
       ],
     },
@@ -109,20 +101,12 @@ const copy = {
       now: "Werk nou",
       next: "In ontwikkeling",
       noSite: "Oryx stel nie ’n beplande sentrum voor as ’n oop kampus nie. Die werk verdien sy ruimte voordat die bord opgaan.",
-      directory: "Die Oryx Directory is gratis, Namibië-spesifiek en nou aanlyn beskikbaar.",
       cornerSpa: "Corner Spa is die eerste bedrywige onderneming, saam met Mendozer in Windhoek.",
       imageCaption: "Die dier in die instituut se merk, op eie grond.",
     },
-    people: {
-      eyebrow: "Mense en bewys",
-      title: "Name kom saam met die werk.",
-      body: "Een Prinsipaal word vandag genoem. Ander rolle bly openlik vakant totdat ’n persoon, ’n verantwoordelikheid en die rekord wat albei dra, saam gepubliseer kan word.",
-      action: "Ontmoet die mense",
-      imageAlt: "Hande wat ’n vel papier by ’n werkbank sny",
-    },
     disclosures: {
       status: "Wat die instituut kan en nie kan beweer nie",
-      statusBody: "Oryx streef akkreditasie na en beweer nie geakkrediteerde programme voordat dié proses voltooi is nie. Kursus-, inskrywings- en sertifikaatbesonderhede word deur die kantoor skriftelik bevestig.",
+      statusBody: "Oryx werk aan NTA-opleidingsverskafferregistrasie. Dit is nie geregistreer of geakkrediteer nie en beweer nie geakkrediteerde programme, NQF-krediete of 'n openbare kampus nie.",
       relationships: "Hoe die werk gebou word",
       relationshipsBody: "Oryx werk met genoemde medewerkers waar daardie werk openbaar is. Tangison verskaf die instituut se identiteit, tegnologie en leerplatform ingevolge ooreenkoms. Corner Spa werk saam met Mendozer. Elke verhouding word gestel vir wat dit is, nie vergroot tot ’n belofte nie.",
       image: "Waarom die oriks",
@@ -168,7 +152,6 @@ export default async function AboutPage({
   const st = af ? statusAf : status;
   const plannedCentre = af ? siteAf.plannedCentre : site.plannedCentre;
   const A = (path: string) => (af ? `/af${path}` : path);
-  const skillsCamp = st.inDevelopment.find((item) => item.name.toLowerCase().includes("skills camp"));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -192,7 +175,7 @@ export default async function AboutPage({
         <div className="about-hero__media" aria-hidden="true">
           <div className="absolute inset-[-7%]" data-sc-parallax="0.26">
             <Image
-              src="/images/kinfolk/people/30-founder-walking.jpg"
+              src="/images/kinfolk/inner/25-about-desert.jpg"
               alt=""
               width={1402}
               height={1682}
@@ -209,7 +192,7 @@ export default async function AboutPage({
           <p className="about-hero__lede">{t.hero.lede}</p>
           <div className="mt-9 flex flex-wrap gap-5">
             <Link href={A("/apply")} className="btn--cream btn">{t.apply}</Link>
-            <Link href={A("/resources")} className="btn--quiet btn--quiet--ivory">
+            <Link href={A("/research")} className="btn--quiet btn--quiet--ivory">
               {t.readWork} <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
@@ -273,7 +256,6 @@ export default async function AboutPage({
                   </div>
                 ))}
               </div>
-              <p className="about-status__note">{t.nowNext.directory}</p>
             </div>
             <div className="about-status__list" data-sc-in>
               <p className="meta">{t.nowNext.next}</p>
@@ -282,41 +264,9 @@ export default async function AboutPage({
                   <h3 className="h-sub">Ongwediva</h3>
                   <p className="text-soft">{plannedCentre}</p>
                 </div>
-                {skillsCamp ? (
-                  <div className="ledger-row">
-                    <h3 className="h-sub">{skillsCamp.name}</h3>
-                    <p className="text-soft">{skillsCamp.line}</p>
-                  </div>
-                ) : null}
               </div>
               <p className="about-status__note">{t.nowNext.noSite}</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="about-people section-lg" data-sc-act="flow">
-        <div className="shell about-people__grid">
-          <figure className="about-people__image" data-sc-reveal>
-            <Image
-              src="/images/kinfolk/people/31-hands-working.jpg"
-              alt={t.people.imageAlt}
-              width={1122}
-              height={1402}
-              sizes="(min-width: 70rem) 38vw, 100vw"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </figure>
-          <div className="about-people__copy" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.people.eyebrow}</p>
-            <h2 className="h-section mt-5 max-w-[15ch]">{t.people.title}</h2>
-            <p className="measure mt-6 text-soft">{t.people.body}</p>
-            <p className="h-sub mt-10">{site.principal.name}</p>
-            <p className="meta mt-2">{site.principal.role}</p>
-            <Link href={A("/about/staff")} className="btn--quiet mt-8">
-              {t.people.action} <span className="arr" aria-hidden="true">→</span>
-            </Link>
           </div>
         </div>
       </section>

@@ -2,9 +2,8 @@
  * Oryx Institute · content source of truth, rebuild-hbr.
  *
  * Every fact is drawn from the approved master asset package and the
- * rebuild briefs: nothing here is invented. Names, contacts, status and
- * the founder's approved lines match the approved material exactly; the
- * structural copy (eyebrows, CTAs, captions) follows COPYWRITING-RULES.
+ * rebuild briefs: nothing here is invented. Names, contacts and status
+ * match approved material; structural copy follows COPYWRITING-RULES.
  */
 
 /**
@@ -14,7 +13,7 @@
 export const voice = {
   register: "Declarative, exact, unhurried. State the fact; cite the source; stop.",
   rules: [
-    "Approved lines run verbatim: Looks harmless. Isn't. / graduates solve problems quietly and finish them decisively. / excellence in innovation and applied problem-solving.",
+    "Approved public lines must stay factual, concise and current.",
     "Facts carry their source inline or they do not ship.",
     "No wisecracks, no self-annotation, no captions under images.",
     "Status is stated as it is: prelaunch, pre-accreditation, honest.",
@@ -23,7 +22,7 @@ export const voice = {
 
 export const site = {
   /** The legal name, spelled per the master package documents. It is
-   * used on certificates, contracts and the footer only. */
+   * used in legal notices, contracts and the footer only. */
   legalName: "Oryx Polytechnic Institute",
   /** The public-facing brand name, kept short per the business plan's
    * own recommendation. It carries the header, the titles and the day
@@ -44,19 +43,16 @@ export const site = {
   headline: "Oryx Institute.",
   heroSub:
     "A new polytechnic for Namibia. Research, practice, and companies that prove the\u00A0work.",
-  /** Approved flyer line on graduates. */
   closingLine:
-    "Oryx Institute graduates solve problems quietly and finish them decisively.",
-  /** Approved certificate language. */
+    "Good work begins with evidence and is finished with care.",
   credentialLine:
-    "Excellence in innovation and applied problem-solving.",
+    "Research, practice and companies that prove the work.",
   /** Meta description, sized for search results (kept under 160
    * characters) and led by what the institute is. */
   description:
-    "Oryx Institute: a new polytechnic for Namibia. Research, practical learning, useful tools and ventures that let the work prove itself.",
-  /** The office remains in Windhoek. The first dedicated training centre
-   * has a secured future site, but it is not open and has no public
-   * street address on this site. */
+    "A new polytechnic for Namibia. Research, practice, and companies that prove the work.",
+  /** Oryx publishes a postal address only. Future learning sites are not
+   * presented as open campuses or public visiting locations. */
   city: "Windhoek",
   country: "Namibia",
   areaServed: "Namibia",
@@ -72,8 +68,8 @@ export const site = {
   webAddress: "oryxinstitute.org",
   linksUrl: "https://www.oryxinstitute.org/links",
   plannedCentre:
-    "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.",
-  /** The one public mailbox. Applications, partnerships and press
+    "Ongwediva is a future initiative. It is planned, not open, and is not presented as a public campus.",
+  /** The one public mailbox. Enquiries, partnerships and press
      * correspondence start here unless a dedicated public channel is
      * published later. */
   email: "info@oryxinstitute.org",
@@ -88,6 +84,12 @@ export const site = {
   phoneE164: "+264836764338",
   phoneHref: "tel:+264836764338",
   whatsappHref: "https://wa.me/264836764338",
+  /** Official regulatory information routes. These are information
+   * sources only. They do not imply registration, accreditation,
+   * endorsement or a partnership. */
+  ntaRegistrationUrl: "https://www.nta.com.na/registration-tp/",
+  nqaAccreditationUrl: "https://namqa.org/",
+  tangisonUrl: "https://tangison.com/",
   /** A temporary Google Maps search route. It is deliberately not added
    * to sameAs while the new Business Profile is still absent from public
    * Maps results. Replace this with the verified profile Share link once
@@ -114,10 +116,6 @@ export const site = {
    * www host; otherwise crawlers see a site whose own map points at
    * a domain that never serves a page. */
   url: "https://www.oryxinstitute.org",
-  principal: {
-    name: "Tangi Iigonda",
-    role: "Principal",
-  },
   /** Exact brand codes from the logo artwork, plus the register's two
    * supporting anchors (terracotta belongs to imagery and colour bands
    * only; sand belongs to the Corner Spa section). */
@@ -174,16 +172,8 @@ export const linkHub = {
     { id: "whatsapp", href: site.whatsappHref, external: true },
     { id: "email", href: `mailto:${site.email}` },
   ],
-  enquiries: [
-    { id: "apply", href: "/apply" },
-    { id: "owners-desk", href: "/apply/owners-desk" },
-    { id: "safety", href: "/practice/safety-officer-course" },
-  ],
-  reading: [
-    { id: "directory", href: "/resources" },
-    { id: "research", href: "/research" },
-    { id: "bulletin", href: "/resources#bulletin" },
-  ],
+  enquiries: [{ id: "apply", href: "/apply" }],
+  reading: [{ id: "research", href: "/research" }],
   institute: [
     { id: "practice", href: "/practice" },
     { id: "ventures", href: "/ventures" },
@@ -193,6 +183,7 @@ export const linkHub = {
   googleMaps: [{ id: "google-maps", href: site.googleMapsSearchUrl, external: true }],
   utility: [
     { id: "about", href: "/about" },
+    { id: "status", href: "/status" },
     { id: "contact", href: "/contact" },
     { id: "faq", href: "/faq" },
     { id: "privacy", href: "/legal/privacy" },
@@ -208,64 +199,26 @@ export const linkHub = {
 export const status = {
   stage: "Prelaunch",
   accreditation:
-    "Oryx is pursuing accreditation with the NQA and the NTA. It is not accredited yet.",
+    "Oryx is working toward NTA training-provider registration. It is not registered or accredited, and it does not offer accredited qualifications, NQF credits or a public campus.",
   liveNow: [
     {
       name: "Owner's Desk",
       line: "One-on-one business counselling. The outcome is written down.",
     },
     {
-      name: "Business Administration",
-      line: "Crash & short courses in records, filings,\u00A0registers.",
-    },
-    {
-      name: "IT & Related Fields",
-      line: "Crash & short courses in the systems work runs on. Every tool named.",
-    },
-    {
       name: "Market R&D",
-      line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
-    },
-    {
-      name: "Rapid Response Training",
-      line: "Sourced experts, structured programmes, delivered to standard.",
-    },
-    {
-      name: "The Oryx Directory",
-      line: "Free Namibia-specific crash courses and business templates.",
+      line: "Feasibility, sizing, competitor reads and route-to-market work, gathered on Namibian ground.",
     },
   ],
-  inDevelopment: [
-    {
-      name: "The AI training programme",
-      line: "Built with Tangison Technologies, announced 18 October 2026. In development now; the curriculum is being written and a flagship product is under\u00A0construction.",
-    },
-    {
-      name: "Skills Camp (Karibib VTC)",
-      line: "The physical vocational training centre is in research and development, on its own\u00A0roadmap.",
-    },
-    {
-      name: "The foundational course spine",
-      line: "AI, business, financial literacy, leadership and empathy as the mandatory spine: real once accreditation lands.",
-    },
-  ],
-  /** Strategy decision 9: the partnership stance is stated openly,
-   * never left implicit. */
+  inDevelopment: [],
   partnerships:
-    "Oryx is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses.",
-  /** Strategy decision 7: what the institute calls its teaching staff. */
-  instructors: {
-    title: "Smiths",
-    formalTitle: "Masters",
-    note: "The staff are called Smiths, formally Masters, after the founder's rule: we forge our own tools.",
-  },
+    "Oryx names working relationships only where the work is public. A named relationship is not accreditation, regulatory endorsement or a partnership with the NTA or NQA.",
 } as const;
 
 /**
- * What runs today: the six offers, per the homepage "WHAT RUNS TODAY"
- * screen. Two teaching departments (crash and short courses only) beside
- * the practice and the free Directory. Nothing here promises a
- * credential; every line promises work.
+ * What runs today: current commercial practice. It sits apart from future learning
+ * pathways. Nothing here promises a credential; every line promises
+ * only work that is available now.
  */
 export const offers = [
   {
@@ -273,48 +226,16 @@ export const offers = [
     name: "Owner's Desk",
     tag: "Practice",
     line: "One-on-one business counselling. The outcome is written down.",
-    cta: { label: "Book the Owner's Desk", href: "/apply/owners-desk" },
-    body: "Owner-level counselling for Namibian businesses at the moments that cost the most: starting, registering, hiring, pricing, pivoting or closing cleanly. Sessions run from the Principal's office or by email, and the outcome is written down: what was decided, and what happens\u00A0next.",
-  },
-  {
-    id: "business-administration",
-    name: "Business Administration",
-    tag: "Teaching",
-    line: "Crash & short courses in records, filings,\u00A0registers.",
-    cta: { label: "Enquire about Business Administration", href: "/apply/business-administration" },
-    body: "The department teaches the running of a business: records, filings, registers and the everyday processes behind it. Crash and short courses only, each course narrow, practical, and\u00A0finished.",
-  },
-  {
-    id: "it",
-    name: "IT & Related Fields",
-    tag: "Teaching",
-    line: "Crash & short courses in the systems work runs on. Every tool named.",
-    cta: { label: "Enquire about Information Technology", href: "/apply/it" },
-    body: "The department teaches the systems and software a business runs on, from first principles to confident use. Crash and short courses only, and every tool is named.",
+    cta: { label: "Enquire with the Oryx office", href: "/apply" },
+    body: "Business counselling for Namibian owners at moments that need a clear decision: starting, registering, hiring, pricing, pivoting or closing cleanly. Scope is agreed through the Oryx office, and the outcome is written down.",
   },
   {
     id: "market-rd",
     name: "Market R&D",
     tag: "Research",
-    line: "Feasibility, sizing, competitor reads, route-to-market, gathered on Namibian\u00A0ground.",
-    cta: { label: "Engage Market Research & Development", href: "/apply/market-rd" },
-    body: "Feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground and written to be used. The institute's own filings taught the method; the same rigor is for hire.",
-  },
-  {
-    id: "rapid-response",
-    name: "Rapid Response Training",
-    tag: "Practice",
-    line: "Sourced experts, structured programmes, delivered to standard.",
-    cta: { label: "Brief us on Rapid Response Training", href: "/apply/rapid-response" },
-    body: "When a business needs a team trained on something new, Oryx sources the industry expert, structures the programme around that need, and delivers it. Built for the gap between what a team knows and what it needs to know\u00A0next.",
-  },
-  {
-    id: "directory",
-    name: "The Oryx Directory",
-    tag: "Free",
-    line: "Free Namibia-specific crash courses and business templates.",
-    cta: { label: "Open the Oryx Directory", href: "/resources" },
-    body: "Namibia-specific crash courses and business templates, copyrighted to the institute and free to access. Published proof of how the institute writes, sources and teaches, available before any fee is discussed.",
+    line: "Feasibility, sizing, competitor reads and route-to-market work, gathered on Namibian ground.",
+    cta: { label: "Enquire with the Oryx office", href: "/apply" },
+    body: "Feasibility studies, market sizing, competitor reads and route-to-market work, gathered on Namibian ground and written to be used. Scope is confirmed for each engagement.",
   },
 ] as const;
 
@@ -326,22 +247,16 @@ export const offers = [
  */
 export const register = [
   {
-    date: "2026-11-01",
+    date: "2026-11-13",
     entry:
-      "Safety officer training programme announced. Curriculum published; lead instructor and first cohort dates to be confirmed before enrolments open.",
+      "Public status updated: Oryx is working toward NTA training-provider registration. It is not registered or accredited.",
   },
   {
     date: "2026-10-25",
     entry:
-      "BIPA registration confirmed, Oryx Polytechnic Institute. Registration number and certificate will be published within 14 days of collection from BIPA.",
+      "Legal identity published: Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517.",
   },
   { date: "2026-10-25", entry: "Website relaunched." },
-  { date: "2026-10-18", entry: "AI training programme announced with Tangison\u00A0Technologies." },
-  {
-    date: "2026-11-13",
-    entry:
-      "The Oryx Directory source review and Wave 1 published: seven Namibia-specific crash courses and seven business templates, with checkable source links on legal and regulatory pages.",
-  },
 ] as const;
 
   /**
@@ -394,7 +309,7 @@ export const disciplines = [
     glyph: "SOLVE",
     name: "Applied problem-solving",
     summary:
-      "The institute's own standard, named on every certificate: innovation in practice.",
+      "The institute's working standard: innovation in practice.",
   },
 ] as const;
 
@@ -403,20 +318,19 @@ export const disciplines = [
 export const approvedLines = [
   { line: "Looks harmless. Isn't.", source: "Recruitment\u00A0flyer" },
   {
-    line:
-      "Oryx Institute graduates solve problems quietly and finish them decisively.",
-    source: "Recruitment\u00A0flyer",
+    line: "Good work begins with evidence and is finished with care.",
+    source: "Oryx Institute",
   },
   {
-    line: "Excellence in innovation and applied problem-solving.",
-    source: "Certificate\u00A0of\u00A0Attendance",
+    line: "Research, practice and companies that prove the work.",
+    source: "Oryx Institute",
   },
   { line: "Quiet work, decisive finishes.", source: "Strategy\u00A0notes" },
   { line: "Decisions, not decks.", source: "The practice" },
   { line: "Evidence before money moves.", source: "Market R&D" },
   {
     line: "Every figure carries its source, or it does not ship.",
-    source: "The Bulletin",
+    source: "Research notes",
   },
   { line: "What is not ready, says so.", source: "The\u00A0register" },
   { line: "Say the thing. Stop.", source: "The\u00A0voice" },
@@ -437,28 +351,28 @@ export const partners = [
   {
     id: "tangison",
     name: "Tangison Technologies",
-    note: "The AI training programme and the flagship product, built together.",
+    note: "Identity, technology and learning-platform services under agreement.",
   },
   {
     id: "mendozer",
     name: "Mendozer",
-    note: "Building Corner Spa and the ventures beyond it, together.",
+    note: "Corner Spa operating relationship.",
   },
 ] as const;
 
 /** Primary navigation: top bar and mobile list. The wordmark carries
- * Home; Apply is the last item and takes the maroon button on
+ * Home; Enquire is the last item and takes the maroon button on
  * desktop. Every href must resolve; nothing dead ships in the nav,
  * anywhere. */
-/* The brief's four links, plus the Apply door. The register, the
-   Bulletin, About and Brand stay in the menu slideover and the footer:
-   the bar carries the four pillars, not the whole sitemap. */
+/* The brief's four links, plus the Enquire door. The register, the
+   About and Brand stay in the menu slideover and the footer: the bar
+   carries the four pillars, not the whole sitemap. */
 export const navLinks = [
   { href: "/research", label: "Research" },
   { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
-  { href: "/resources", label: "The Directory" },
-  { href: "/apply", label: "Apply" },
+  { href: "/status", label: "Status" },
+  { href: "/apply", label: "Enquire" },
 ] as const;
 
 /** Footer navigation: the same links, plain text on ink ground, plus
@@ -469,12 +383,11 @@ export const footerNav = [
   { href: "/practice", label: "Practice" },
   { href: "/ventures", label: "Ventures" },
   { href: "/corner-spa", label: "Corner Spa" },
-  { href: "/resources", label: "The Directory" },
-  { href: "/resources#bulletin", label: "Bulletin" },
   { href: "/register", label: "The Register" },
   { href: "/about", label: "About" },
+  { href: "/status", label: "Status" },
   { href: "/brand", label: "Brand" },
-  { href: "/apply", label: "Apply" },
+  { href: "/apply", label: "Enquire" },
   { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
@@ -486,75 +399,47 @@ export const footerNav = [
  * contacts and print kit. Nothing promises what is not printed. */
 export const faqs = [
   {
-    q: "When does the safety officer course start?",
-    a: "Curriculum and pricing will be published on 15 November 2026. Cohort 1 is planned for January 2027. Register your interest via the application form selecting 'Safety training' and we will contact you the moment enrolments open.",
+    q: "What work is available now?",
+    a: "Oryx currently takes on business counselling through the Owner's Desk and market research and development engagements. Scope and fees are confirmed by the Oryx office for each enquiry.",
   },
   {
-    q: "When will accredited programmes start?",
-    a: "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
+    q: "When will accredited learning begin?",
+    a: "Oryx is working toward NTA training-provider registration. It is not registered or accredited, and it does not offer accredited qualifications or NQF credits. Future learning pathways will be published only after the relevant approvals are formally confirmed.",
   },
   {
-    q: "How do I apply?",
-    a: "Write to the office. Send one email to info@oryxinstitute.org with your name, a contact for the reply, and your field of interest. The application starts with that message.",
-  },
-  {
-    q: "What programmes does the institute offer?",
-    a: "Crash courses and short courses, in two departments: business administration, and IT and related fields. That is the teaching offer today, and all of it: no long programmes are offered. Beside the teaching, the practice runs: the Owner's Desk for one-on-one counselling, market research and development, and Rapid Response Training. The schools phase in as accreditation progresses. Courses are confirmed by the Principal's office at the point of application, so the honest answer to anything more specific is: ask, in the application\u00A0message.",
-  },
-  {
-    q: "Does Oryx consult for businesses?",
-    a: "Yes, and it is the institute's live practice. The Owner's Desk runs one-on-one counselling from the Principal's office, and market research and development work (feasibility, sizing, route-to-market) is taken on per engagement. Write to the office with the problem as it stands; the first reply names what the institute can and cannot do for you.",
+    q: "How do I enquire?",
+    a: "Write to info@oryxinstitute.org with your name, a contact for the reply and the work or future learning area you want to discuss. The Oryx office will state what is currently available.",
   },
   {
     q: "What does Polytechnic mean?",
-    a: "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, and the technology that runs it. At Oryx, applied problem-solving is the shared standard.",
+    a: "A polytechnic institute connects science, engineering and technology with applied problem-solving. Oryx is building toward that institutional model, while stating its current status plainly.",
   },
   {
     q: "Where is the institute?",
-    a: "The institute is based in Namibia and publishes a postal address only: P.O. Box 1662, Windhoek, Namibia. No physical address or public visiting instructions are published. The office answers at info@oryxinstitute.org, or by phone or WhatsApp on 083\u00A0676\u00A04338.",
-  },
-  {
-    q: "Who leads the institute?",
-    a: "Tangi Iigonda is the Principal. Applications are read in the Principal's office.",
-  },
-  {
-    q: "Is there a certificate?",
-    a: "Oryx issues two kinds of document after a course. The Certificate of Attendance is an internal record of completion for every short course or workshop, signed by the Principal; it is not an NQF-credit-bearing qualification and cannot be submitted to NQA as accredited prior learning; it is a record that you completed an Oryx course. The NQF-registered qualification certificate is issued only after Oryx receives NQA accreditation for the relevant qualification; those will carry NQA recognition and credit value, and that is what we are working toward.",
-  },
-  {
-    q: "Can I visit the office?",
-    a: "No public visiting address or visiting instructions are published. Write to the office if your enquiry requires a meeting; the reply will state whether and how the institute can help.",
+    a: "Oryx is based in Namibia and publishes a postal address only: P.O. Box 1662, Windhoek, Namibia. No physical address, public visiting instructions or opening hours are published.",
   },
   {
     q: "Is Oryx accredited?",
-    a: "Not yet. Oryx is pursuing accreditation with the NQA and the NTA. What runs today (the crash and short courses, Rapid Response Training and the Oryx Directory) works before accreditation matters. Nothing on this site claims a credential the institute does not hold.",
+    a: "No. Oryx is working toward NTA training-provider registration. It is not registered with the NTA and it is not accredited by the NQA. It does not claim accredited programmes, NQF credits or a public campus.",
   },
   {
-    q: "What is Rapid Response Training?",
-    a: "A business needs a team trained on something new. Oryx sources the industry expert, structures the programme around that need, and delivers it. It is built for the gap between what a team knows and what it needs to know next. Enquire through the office.",
-  },
-  {
-    q: "What is the Oryx Directory?",
-    a: "The institute's free resource library: Namibia-specific crash courses and business templates, copyrighted to Oryx Polytechnic Institute and free to access. It is published proof of the institute's standard, available before any fee is discussed. Start with the seven crash courses or help yourself to the seven templates; legal and regulatory pages link to their checkable sources.",
-  },
-  {
-    q: "What does the research and development practice cover?",
-    a: "Two sides of the same desk. For clients: feasibility studies, market sizing, competitor reads and route-to-market plans, gathered on Namibian ground. For the institute itself: the AI training programme now being built with Tangison Technologies, the flagship product under construction on it, and the Skills Camp concept. The research page names what is live and what is in development.",
-  },
-  {
-    q: "Does Oryx work with partners?",
-    a: "Openly, and by name. The AI training programme runs with Tangison Technologies, and Corner Spa is run with Mendozer Investments. Beyond the named collaborations, the institute is open to partnerships with organizations pursuing similar goals: training bodies, accreditation partners, corporate sponsors, and complementary businesses. Write to the office and say what you have in mind.",
-  },
-  {
-    q: "What is a venture?",
-    a: "A small operating company the institute opens inside a sector it wants to understand. The venture doubles as a live classroom: practical business and service work happens on its floor, and its customers decide whether it works. Each venture is stated plainly as a concept or operating work, as it is.",
-  },
-  {
-    q: "What is Corner Spa?",
-    a: "Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. Booking and service details stay on the spa's own site.",
+    q: "Can I visit the office?",
+    a: "No public visiting address or visiting instructions are published. Use the approved public contact routes for an enquiry.",
   },
   {
     q: "Can I read the research?",
-    a: "Yes, and it is free. The Oryx Bulletin, the institute's essay series on Namibia's working realities with every figure carrying its source, is published in full on this site, no fee and no account. The Oryx Directory carries the free crash courses and templates beside it.",
+    a: "Yes. Oryx publishes research notes on this site. Each note belongs with the research programme and is available without an account.",
+  },
+  {
+    q: "Does Oryx work with partners?",
+    a: "Oryx names working relationships only where the work is public. Tangison Technologies provides identity, technology and learning-platform services. Corner Spa operates with Mendozer Investments. Neither relationship is an accreditation or regulatory endorsement.",
+  },
+  {
+    q: "What is a venture?",
+    a: "A venture is an operating company Oryx uses to understand a sector through real service and real customers. Each venture is stated plainly as a concept or operating work, as it is.",
+  },
+  {
+    q: "What is Corner Spa?",
+    a: "Corner Spa is Oryx's first operating venture, run with Mendozer Investments in Windhoek. Booking and service details remain on the spa's own site.",
   },
 ] as const;

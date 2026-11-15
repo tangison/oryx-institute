@@ -6,88 +6,73 @@ import { offersAf, siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
 /**
- * The practice, on its own page. The hands-peak belongs to the
- * homepage now (Image Bible v6), so this page opens on cream: the
- * proposition in type, and the working hands arrive as the mid-detail
- * reveal beside the working-kit note; the wrench carries the close;
- * the safety officer course runs as the fourth hairline row, tagged
- * NEW with its marker; and the page states its NTA standing exactly
- * as the content corrections demand.
+ * The practice states current commercial work plainly. Learning pathways
+ * remain future-facing until formal approvals are confirmed.
  */
 const copy = {
   en: {
     meta: {
       title: "The Practice: Work That Holds",
       description:
-        "The practice at Oryx Institute: Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training for Namibian sites, from Windhoek.",
+        "The practice at Oryx Institute: business counselling and market research, with future learning pathways stated separately from current work.",
       ogTitle: "Practice | Oryx Institute",
       ogDescription:
-        "Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training, delivered to standard.",
+        "Business counselling and market research, with future learning pathways stated honestly.",
     },
     heroLine: "Work that holds.",
     heroSub: "Measured and finished to standard. Every tool named, not magic.",
     runsTitle: "What the practice runs.",
-    safetyName: "Safety Officer Training",
-    safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
-    safetyCta: "See the Safety Officer Training curriculum",
-    safetyTag: "New",
     holdsTitle: "The outcome is written down.",
     holdsBody: [
-      "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named. Training engagements close with a programme structured around the need that asked for it, delivered by the industry expert the need calls for.",
-      "Nothing here promises a credential; the promise is the work itself. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
+      "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named.",
+      "Nothing here promises a credential. Fees and scope are confirmed by the Oryx office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
     ],
     kitEyebrow: "The working kit",
     kitBody:
-      "The practice runs on named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
+      "The practice runs on named, ordinary tools: a metre rule, a bench, a published office stack, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used.",
     standsEyebrow: "Where the practice stands",
     standsBody:
-      "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
+      "The current practice is fee-for-service business counselling and market research. Oryx is working toward NTA training-provider registration. Formal vocational learning and any accredited qualifications will be published only after the relevant approvals are confirmed.",
     apprenticeship:
-      "The apprenticeship bench is not open yet. What is not ready, says so.",
-    enquire: "Enquire about courses and the Practice",
+      "Future learning is not open. What is not ready, says so.",
+    enquire: "Enquire about the Practice",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
   },
   af: {
     meta: {
-      title: "The Practice: Work That Holds",
+      title: "Die praktyk: werk wat hou",
       description:
-        "The practice at Oryx Institute: Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training for Namibian sites, from Windhoek.",
-      ogTitle: "Practice | Oryx Institute",
+        "Die praktyk by Oryx Instituut: besigheidsadvies en marknavorsing, met toekomstige leerpaaie apart van huidige werk gestel.",
+      ogTitle: "Praktyk | Oryx Instituut",
       ogDescription:
-        "Owner's Desk counselling, market R&D, Rapid Response Training, and safety officer training, delivered to standard.",
+        "Besigheidsadvies en marknavorsing, met toekomstige leerpaaie eerlik gestel.",
     },
-    heroLine: "Work that holds.",
-    heroSub: "Measured and finished to standard. Every tool named, not magic.",
-    runsTitle: "What the practice runs.",
-    safetyName: "Safety Officer Training",
-    safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
-    safetyCta: "See the Safety Officer Training curriculum",
-    safetyTag: "New",
-    holdsTitle: "The outcome is written down.",
+    heroLine: "Werk wat hou.",
+    heroSub: "Gemeet en volgens standaard voltooi. Elke hulpmiddel benoem, geen towerkuns nie.",
+    runsTitle: "Wat die praktyk doen.",
+    holdsTitle: "Die uitkoms word neergeskryf.",
     holdsBody: [
-      "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named. Training engagements close with a programme structured around the need that asked for it, delivered by the industry expert the need calls for.",
-      "Nothing here promises a credential; the promise is the work itself. Fees are confirmed by the Principal's office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
+      "Elke opdrag eindig op dieselfde manier: op papier. Adviesgesprekke sluit met wat besluit is en wat volgende gebeur, neergeskryf. Navorsingsopdragte sluit met bevindings, opsies en die besluit wat dit ondersteun, op Namibiese grond met genoemde bronne versamel.",
+      "Niks hier beloof 'n kwalifikasie nie. Fooie en omvang word deur die Oryx-kantoor by navraag bevestig, en die eerste antwoord noem wat die instituut vir jou kan en nie kan doen nie.",
     ],
-    kitEyebrow: "The working kit",
+    kitEyebrow: "Die werksgereedskap",
     kitBody:
-      "The practice runs on named, ordinary tools: a metre rule, a bench, the office stack published in the open, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used. Courses list their tools before enrolment, out loud, never by\u00A0implication.",
-    standsEyebrow: "Where the practice stands",
+      "Die praktyk werk met benoemde, gewone gereedskap: 'n meterliniaal, 'n bank, 'n gepubliseerde kantoorstapel en notaboeke wat in die instituut se eie hand gehou word. Niks in die kamer is dekoratief nie; as 'n ding nie benoem kan word nie, word dit nie gebruik nie.",
+    standsEyebrow: "Waar die praktyk staan",
     standsBody:
-      "The Practice engine currently offers fee-for-service business counselling, market research, and corporate Rapid Response Training under commercial services agreements. Formal vocational training programmes, including the National Occupational Standards in Business Administration, will commence only after NTA provider registration has been granted. NQA accreditation for registered qualifications is being pursued in parallel and will be announced on the public register.",
+      "Die huidige praktyk is besigheidsadvies en marknavorsing teen vergoeding. Oryx werk aan NTA-opleidingsverskafferregistrasie. Formele beroepsleer en enige geakkrediteerde kwalifikasies word eers gepubliseer nadat die toepaslike goedkeurings bevestig is.",
     apprenticeship:
-      "The apprenticeship bench is not open yet. What is not ready, says so.",
-    enquire: "Enquire about courses and the Practice",
-    writeOffice: "Write to the office",
-    readFaq: "Read the FAQ",
+      "Toekomstige leer is nie oop nie. Wat nie gereed is nie, sê so.",
+    enquire: "Doen navraag oor die praktyk",
+    writeOffice: "Skryf aan die kantoor",
+    readFaq: "Lees die vrae",
     enLedger: { paras: [] as string[] },
   },
 } as const;
 
-/** The three practice-facing offers, by id. */
-const PRACTICE_IDS = ["owners-desk", "market-rd", "rapid-response"] as const;
+/** The current practice offers, by id. */
+const PRACTICE_IDS = ["owners-desk", "market-rd"] as const;
 
 export async function generateMetadata({
   params,
@@ -154,9 +139,7 @@ export default async function PracticePage({
         </div>
       </section>
 
-      {/* The practice offers: hairline rows, no images, and the new
-          fourth row: safety officer training, tagged NEW with its
-          marker, linking to the course landing. */}
+      {/* Current practice offers, in factual hairline rows. */}
       <section className="section" data-sc-act="flow">
         <div className="shell">
           <h2 className="h-section max-w-[18ch]">{t.runsTitle}</h2>
@@ -167,8 +150,8 @@ export default async function PracticePage({
                   <h3 className="offer-name">{o.name}</h3>
                   <p className="offer-line">
                     {o.line}{" "}
-                    <Link href={A(o.cta.href)} className="offer-cta">
-                      {o.cta.label}{" "}
+                    <Link href={A("/apply")} className="offer-cta">
+                      {t.enquire}{" "}
                       <span className="arr" aria-hidden="true">→</span>
                     </Link>
                   </p>
@@ -177,25 +160,6 @@ export default async function PracticePage({
                 <p className="offer-tag">{o.tag}</p>
               </div>
             ))}
-            <div className="offer" id="safety-officer-training">
-              <div className="offer-main">
-                <h3 className="offer-name">{t.safetyName}</h3>
-                <p className="offer-line">
-                  {t.safetyLine}{" "}
-                  <Link
-                    href={A("/practice/safety-officer-course")}
-                    className="offer-cta"
-                  >
-                    {t.safetyCta}{" "}
-                    <span className="arr" aria-hidden="true">→</span>
-                  </Link>
-                </p>
-              </div>
-              <p className="offer-tag offer-tag--new">
-                <span className="new-marker" aria-hidden="true" />
-                {t.safetyTag}
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -276,7 +240,7 @@ export default async function PracticePage({
         </div>
       </section>
 
-      {/* The close: one door, the intake. */}
+      {/* The close: one public enquiry route. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell hair-t pt-14" data-sc-in>
           <div className="flex flex-wrap items-center gap-5">

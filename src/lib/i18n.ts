@@ -74,10 +74,7 @@ export const chrome = {
     rights: "All rights reserved.",
     dateToCome: "Undated",
     anchorNote: "date to be confirmed",
-    bulletinInEnglish: "The Bulletin essays are published in English.",
-    directoryInEnglish:
-      "The courses and templates themselves are published in English.",
-    newsInEnglish: "Announcements are published in English.",
+    researchNotesInEnglish: "Research notes are published in English.",
     readMore: "Read",
     backHome: "Back to the front page",
     toTop: "Back to top",
@@ -112,10 +109,7 @@ export const chrome = {
     rights: "Alle regte voorbehou.",
     dateToCome: "Ongedateer",
     anchorNote: "datum moet bevestig word",
-    bulletinInEnglish: "Die Bulletin-opstelle word in Engels gepubliseer.",
-    directoryInEnglish:
-      "Die kursusse en sjablone self word in Engels gepubliseer.",
-    newsInEnglish: "Aankondigings word in Engels gepubliseer.",
+    researchNotesInEnglish: "Navorsingsnotas word in Engels gepubliseer.",
     readMore: "Lees",
     backHome: "Terug na die voorblad",
     toTop: "Terug na bo",

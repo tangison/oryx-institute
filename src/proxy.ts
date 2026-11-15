@@ -34,6 +34,20 @@ export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const first = pathname.split("/")[1];
 
+  /* The resource library was discontinued. Keep old public document
+     URLs decisively gone rather than redirecting visitors into unrelated
+     material or preserving a public archive. */
+  const retiredSurface = /^\/(?:af\/)?(?:resources(?:\/|$)|about\/staff(?:\/|$)|practice\/safety-officer-course(?:\/|$)|apply\/[^/]+(?:\/|$))/.test(pathname);
+  if (retiredSurface) {
+    return new NextResponse(null, {
+      status: 410,
+      headers: {
+        "Content-Language": first === "af" ? "af-NA" : "en",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
+  }
+
   /* Chinese is no longer a published language surface. Preserve legacy
      inbound links by redirecting them to their English equivalents. */
   if (first === "zh") {

@@ -9,7 +9,7 @@ import type { NextConfig } from "next";
  * - Redirects keep every URL printed since the first site stable:
  *   /announcements moved into /news, /compare folded into /programmes,
  *   /people and the imagery disclaimer folded into /about, and the old
- *   form thank-you folded into /apply (the composer is mailto now).
+ *   form thank-you folded into /apply (the enquiry composer is mailto now).
  */
 
 const nextConfig: NextConfig = {
@@ -24,19 +24,21 @@ const nextConfig: NextConfig = {
        to their equivalent English URLs. */
     { source: "/zh", destination: "/", permanent: true },
     { source: "/zh/:path*", destination: "/:path*", permanent: true },
-    /* Retired sections land on the page that now carries the work:
-       the teaching offer lives on /practice, announcements live in
-       the register, the free library lives in the Directory. */
+    /* Retired sections land only where their public work remains.
+       The discontinued resource library itself is handled as 410 Gone
+       in the edge proxy. */
     { source: "/programmes", destination: "/practice", permanent: true },
     { source: "/compare", destination: "/practice", permanent: true },
     { source: "/schools", destination: "/practice", permanent: true },
-    { source: "/news", destination: "/register", permanent: true },
-    { source: "/announcements", destination: "/register", permanent: true },
-    { source: "/tools", destination: "/resources", permanent: true },
+    { source: "/news", destination: "/status", permanent: true },
+    { source: "/announcements", destination: "/status", permanent: true },
+    { source: "/tools", destination: "/research", permanent: true },
+    { source: "/af/news", destination: "/af/status", permanent: true },
+    { source: "/af/announcements", destination: "/af/status", permanent: true },
+    { source: "/af/tools", destination: "/af/research", permanent: true },
     { source: "/people", destination: "/about", permanent: true },
     { source: "/disclaimer", destination: "/about", permanent: true },
     { source: "/thank-you", destination: "/apply", permanent: true },
-    /* The Bulletin's clean URL lands on its home in Resources. */
     /* Corner Spa entry points: permanent (308), mirrored under /af/.
        The trailing-slash variant keeps the embed address canonical. */
     { source: "/spa", destination: "/corner-spa", permanent: true },
@@ -45,9 +47,9 @@ const nextConfig: NextConfig = {
     { source: "/af/spa", destination: "/af/corner-spa", permanent: true },
     { source: "/af/cornerspa", destination: "/af/corner-spa", permanent: true },
     { source: "/af/corner-spa/", destination: "/af/corner-spa", permanent: true },
-    /* The Bulletin's clean URL lands on its home in Resources. */
-    { source: "/bulletin", destination: "/resources#bulletin", permanent: true },
-    { source: "/af/bulletin", destination: "/af/resources#bulletin", permanent: true },
+    /* Retained published essays now live with Research Notes. */
+    { source: "/bulletin", destination: "/research#notes", permanent: true },
+    { source: "/af/bulletin", destination: "/af/research#notes", permanent: true },
     /* Legal pages live under /legal; the launch URLs still resolve. */
     { source: "/privacy", destination: "/legal/privacy", permanent: true },
     { source: "/terms", destination: "/legal/terms", permanent: true },

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
-import { OryxLogo } from "@/components/site/oryx-logo";
-import { offers, partners, site, status, schemaIds } from "@/lib/site";
-import { offersAf, partnersAf, siteAf, statusAf } from "@/lib/site-af";
+import { offers, partners, site, schemaIds } from "@/lib/site";
+import { offersAf, partnersAf, siteAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { chrome } from "@/lib/i18n";
@@ -14,14 +13,14 @@ const copy = {
     meta: {
       title: "Research & Development",
       description:
-        "Research and development at Oryx Institute: market R&D for hire, the AI training programme built with Tangison Technologies, and concept work with Mendozer.",
+        "Research and development at Oryx Institute: market research engagements, published research notes and factual relationship disclosures.",
       ogTitle: "Research & Development | Oryx Institute",
       ogDescription:
-        "Market R&D for hire, the AI training programme with Tangison Technologies, and concept work with Mendozer.",
+        "Market research engagements, published research notes and factual relationship disclosures.",
     },
     head: {
       title: "Research runs from day one.",
-      lede: "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both, market research taken on per engagement, and the programme and product work the institute runs with named partners.",
+      lede: "Evidence before money moves: for clients and for the institute's own decisions. Market research is taken on per engagement, and published notes state their sources.",
     },
     hireTitle: "The market side of the desk.",
     bring: "Bring a Market R&D problem",
@@ -32,61 +31,57 @@ const copy = {
       { k: "3 · The document.", v: "Written to be used: findings, options, and the decision they support. Not shelved." },
     ],
     streamsEyebrow: "Three streams",
-    bulletinBody:
-      "Cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never. Every figure carries its source, or it does not\u00A0ship.",
+    notesBody:
+      "Published research notes on the numbers, the method and the tools. Every figure carries its source, or it does not ship.",
     read: "Read",
-    readBulletin: "Read the Bulletin",
+    readNotes: "Read the research notes",
     fieldLede:
-      "Fieldwork notes open when fieldwork starts. The Bulletin carries the writing until then.",
+      "Fieldwork notes open when fieldwork starts. The published research notes carry the writing until then.",
     papersLede:
       "Cited papers publish as the research programme produces them. None exist yet; none are claimed.",
-    quote: "Entrepreneurship is not a subject at Oryx. It is the exit\u00A0exam.",
-    quoteMeta: "Bulletin No. 4 · Why every course here ends in a venture",
+    quote: "Evidence is useful only when it changes the next decision.",
+    quoteMeta: "Oryx research principle",
     researchersBody:
-      "The research register at launch is one desk wide. It widens as researchers join, and each one is named here when they do.",
-    principalBody:
-      "Principal of the institute. Reads every application personally, writes the Bulletin's register, and holds the desk the research runs from.",
+      "Research is published in an Oryx office voice. Named contributors will appear only with their work and their permission.",
     partnersBody:
-      "Named, and by their own marks: the collaborations the research runs with, carried as the partners print them.",
+      "Named technical and venture collaborations, stated for the work they support and not enlarged into accreditation or endorsement.",
   },
   af: {
     meta: {
-      title: "Research & Development",
+      title: "Navorsing en ontwikkeling",
       description:
-        "Research and development at Oryx Institute: market R&D for hire, the AI training programme built with Tangison Technologies, and concept work with Mendozer.",
-      ogTitle: "Research & Development | Oryx Institute",
+        "Navorsing en ontwikkeling by Oryx Instituut: marknavorsingsopdragte, gepubliseerde navorsingsnotas en feitelike verhoudingverklarings.",
+      ogTitle: "Navorsing en ontwikkeling | Oryx Instituut",
       ogDescription:
-        "Market R&D for hire, the AI training programme with Tangison Technologies, and concept work with Mendozer.",
+        "Marknavorsingsopdragte, gepubliseerde navorsingsnotas en feitelike verhoudingverklarings.",
     },
     head: {
-      title: "Research runs from day one.",
-      lede: "Evidence before money moves: for clients, and for the institute's own builds. The same desk does both, market research taken on per engagement, and the programme and product work the institute runs with named partners.",
+      title: "Navorsing begin op dag een.",
+      lede: "Bewyse voordat geld beweeg: vir kliënte en vir die instituut se eie besluite. Marknavorsing word per opdrag aangepak en gepubliseerde notas noem hul bronne.",
     },
-    hireTitle: "The market side of the desk.",
-    bring: "Bring a Market R&D problem",
-    whatRuns: "See the Practice",
+    hireTitle: "Die markkant van die lessenaar.",
+    bring: "Bring 'n marknavorsingsvraag",
+    whatRuns: "Sien die praktyk",
     how: [
-      { k: "1 · The question.", v: "Written down as it stands, before any method is discussed." },
-      { k: "2 · The ground.", v: "Evidence gathered on Namibian ground, sources named." },
-      { k: "3 · The document.", v: "Written to be used: findings, options, and the decision they support. Not shelved." },
+      { k: "1 · Die vraag.", v: "Neergeskryf soos dit staan, voordat enige metode bespreek word." },
+      { k: "2 · Die grond.", v: "Bewyse op Namibiese grond versamel, met genoemde bronne." },
+      { k: "3 · Die dokument.", v: "Vir gebruik geskryf: bevindings, opsies en die besluit wat dit ondersteun." },
     ],
-    streamsEyebrow: "Three streams",
-    bulletinBody:
-      "Cited essays on the numbers, the method and the tools, written the way the institute teaches: evidence first, decoration never. Every figure carries its source, or it does not\u00A0ship.",
-    read: "Read",
-    readBulletin: "Read the Bulletin",
+    streamsEyebrow: "Drie strome",
+    notesBody:
+      "Gepubliseerde navorsingsnotas oor die syfers, metode en gereedskap. Elke syfer dra sy bron, of dit verskyn nie.",
+    read: "Lees",
+    readNotes: "Lees die navorsingsnotas",
     fieldLede:
-      "Fieldwork notes open when fieldwork starts. The Bulletin carries the writing until then.",
+      "Veldwerknotas open wanneer veldwerk begin. Die gepubliseerde navorsingsnotas dra die skryfwerk tot dan.",
     papersLede:
-      "Cited papers publish as the research programme produces them. None exist yet; none are claimed.",
-    quote: "Entrepreneurship is not a subject at Oryx. It is the exit\u00A0exam.",
-    quoteMeta: "Bulletin No. 4 · Why every course here ends in a venture",
+      "Aangehaalde studies verskyn namate die navorsingsprogram dit lewer. Geen bestaan nog nie en geen word beweer nie.",
+    quote: "Bewyse is slegs nuttig wanneer dit die volgende besluit verander.",
+    quoteMeta: "Oryx-navorsingsbeginsel",
     researchersBody:
-      "The research register at launch is one desk wide. It widens as researchers join, and each one is named here when they do.",
-    principalBody:
-      "Principal of the institute. Reads every application personally, writes the Bulletin's register, and holds the desk the research runs from.",
+      "Navorsing word in 'n Oryx-kantoorstem gepubliseer. Genoemde bydraers verskyn slegs saam met hul werk en toestemming.",
     partnersBody:
-      "Named, and by their own marks: the collaborations the research runs with, carried as the partners print them.",
+      "Genoemde tegniese en ondernemingverhoudings word gestel vir die werk wat dit ondersteun en nie vergroot tot akkreditasie of onderskrywing nie.",
     enLedger: { paras: [] as string[] },
   },
 } as const;
@@ -125,14 +120,8 @@ export default async function ResearchPage({
 }) {
   const lang = langFromParams(await params);
   const af = lang === "af";
-  /* The quote pin points at Bulletin No. 4; the accessible name of its
-     read link names the essay it opens. */
-  const quoteEssay =
-    insights.find((i) => i.id === "why-every-course-ends-in-a-venture")
-      ?.title ?? "";
   const t = copy[lang];
   const marketRnD = (af ? offersAf : offers).find((o) => o.id === "market-rd");
-  const devList = af ? statusAf.inDevelopment : status.inDevelopment;
   const partnerNote = (id: string) =>
     af ? partnersAf.find((p) => p.id === id)?.note : partners.find((p) => p.id === id)?.note;
   const A = (path: string) => (af ? `/af${path}` : path);
@@ -193,7 +182,7 @@ export default async function ResearchPage({
             <h2 className="h-section max-w-[20ch]">{t.hireTitle}</h2>
             <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
             <div className="mt-8 flex flex-wrap gap-5">
-              <Link href={A("/apply/market-rd")} className="btn">
+              <Link href={A("/apply")} className="btn">
                 {t.bring}
               </Link>
               <Link href={A("/practice")} className="btn--quiet">
@@ -233,8 +222,8 @@ export default async function ResearchPage({
             <p className="eyebrow eyebrow--ink">{t.streamsEyebrow}</p>
             <div className="ledger mt-8" data-sc-in data-sc-stagger="80">
               <div className="ledger-row">
-                <p className="ledger-date">Bulletin</p>
-                <p className="max-w-[62ch] text-soft">{t.bulletinBody}</p>
+                <p className="ledger-date">{af ? "Notas" : "Notes"}</p>
+                <p className="max-w-[62ch] text-soft">{t.notesBody}</p>
               </div>
               <div className="ledger-row">
                 <p className="ledger-date">{af ? "Fieldwork" : "Fieldwork"}</p>
@@ -267,8 +256,7 @@ export default async function ResearchPage({
         </div>
       </div>
 
-      {/* The peak: the Bulletin quote, pinned for two viewports on
-          a dedicated closed field-ledger plate: the working record held back until the evidence is ready. */}
+      {/* The peak: a research principle, held over a field-ledger plate. */}
       <section
         className="peak"
         data-sc-act="pin"
@@ -292,10 +280,10 @@ export default async function ResearchPage({
               </blockquote>
               <figcaption className="meta mt-8">{t.quoteMeta}</figcaption>
               <Link
-                href={A("/resources#bulletin-why-every-course-ends-in-a-venture")}
+                href={A("/research#notes")}
                 className="btn--quiet mt-8"
               >
-                {af ? "Read the essay" : "Read the essay"}{" "}
+                {t.readNotes}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </figure>
@@ -303,83 +291,45 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The Bulletin, the published writing. The essays are the works
-          themselves: they publish in English, and the AF page says so. */}
-      <section className="section" data-sc-act="flow">
+      {/* Published research notes live with the research programme, not
+          inside a separate resource library. They remain English-first,
+          with the Afrikaans page making that visible. */}
+      <section className="section" id="notes" data-sc-act="flow">
         <div className="shell">
           <div className="hair-t pt-14">
             <p className="measure text-soft">
-              {af ? `${chrome.af.bulletinInEnglish} ${t.bulletinBody}` : t.bulletinBody}
+              {af ? `${chrome.af.researchNotesInEnglish} ${t.notesBody}` : t.notesBody}
             </p>
           </div>
-          <div className="ledger mt-12" data-sc-in data-sc-stagger="60">
+          <div className="mt-12 grid gap-16">
             {insights.map((a) => (
-              <div className="ledger-row" key={a.id}>
-                <p className="ledger-date">{a.no}</p>
+              <article
+                id={`note-${a.id}`}
+                key={a.id}
+                className="hair-t grid gap-8 pt-10 scroll-mt-28 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16"
+                data-sc-in
+              >
                 <div>
-                  {/* The title is the link: one row, one door, the register
-                      the Directory pages keep. */}
-                  <h3 className="news-title">
-                    <Link href={A(`/resources#bulletin-${a.id}`)}>{a.title}</Link>
-                  </h3>
-                  <p className="mt-2 max-w-[62ch] text-soft">{a.dek}</p>
+                  <p className="eyebrow">{a.no}</p>
+                  <p className="meta mt-3">{a.date}</p>
+                  <a
+                    href="mailto:info@oryxinstitute.org?subject=Research%20note%20correction"
+                    className="link-type meta mt-6 inline-block"
+                  >
+                    {af ? "Rapporteer 'n fout" : "Report an error"}
+                  </a>
                 </div>
-              </div>
+                <div className="min-w-0">
+                  <h2 className="h-section max-w-[26ch]">{a.title}</h2>
+                  <p className="lede measure mt-5 text-soft">{a.dek}</p>
+                  <div className="article mt-8">
+                    {a.body.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Research-context divider: the game plays out to an outcome.
-          No text, no overlay. */}
-
-      {/* Researchers, the Principal, at launch */}
-      <section className="section" data-sc-act="flow">
-        <div className="shell">
-          <div className="hair-t pt-14">
-            <p className="measure text-soft">{t.researchersBody}</p>
-          </div>
-          <div
-            className="mt-12 grid gap-px border border-rule bg-rule md:grid-cols-2"
-            data-sc-in
-            data-sc-stagger="80"
-          >
-            <div className="quiet-card">
-              {/* Awaiting the founder: swap the shield emblem for the
-                  Principal's portrait when the Windhoek photoshoot lands. */}
-              <div className="grid place-items-center bg-white border-b border-rule p-14">
-                <OryxLogo
-                  variant="emblem"
-                  tone="brand"
-                  loading="lazy"
-                  className="h-44 w-auto"
-                  title=""
-                />
-              </div>
-              <div className="p-8 md:p-10">
-                <h3 className="h-sub">
-                  {site.principal.name}
-                  <span className="ml-3 align-middle text-[0.72rem] font-[500] tracking-[0.14em] uppercase text-soft">
-                    {af ? "Prinsipaal" : site.principal.role}
-                  </span>
-                </h3>
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-soft">
-                  {t.principalBody}
-                </p>
-              </div>
-            </div>
-            <div className="quiet-card p-8 md:p-10">
-              <ul className="grid gap-6">
-                {devList.map((item) => (
-                  <li key={item.name} className="hair-b hair-b--ink pb-6 last:border-0 last:pb-0">
-                    <p className="font-[500]">{item.name}</p>
-                    <p className="mt-2 text-[0.92rem] leading-relaxed text-soft">
-                      {item.line}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -395,7 +345,7 @@ export default async function ResearchPage({
           <div className="ledger mt-12" data-sc-in data-sc-stagger="80">
             {partners.map((p) => (
               <div className="ledger-row" key={p.id}>
-                <p className="ledger-date">{af ? "Partner" : "Partner"}</p>
+                <p className="ledger-date">{af ? "Verhouding" : "Relationship"}</p>
                 <div>
                   <h3 className="h-sub">{p.name}</h3>
                   <p className="mt-2 max-w-[60ch] text-soft">{partnerNote(p.id)}</p>
@@ -404,8 +354,8 @@ export default async function ResearchPage({
             ))}
           </div>
           <div className="hair-t mt-16 pt-10" data-sc-in>
-            <Link href={A("/resources#bulletin")} className="btn--quiet">
-              {t.readBulletin} <span className="arr" aria-hidden="true">→</span>
+            <Link href={A("/research#notes")} className="btn--quiet">
+              {t.readNotes} <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

@@ -1,25 +1,20 @@
-/* TEAM human text: the humans behind the site, per humans.txt */
+/* TEAM human text: the people and systems behind the site */
 
-/* TEAM */
+/* ORGANIZATION */
   name: Oryx Institute
   legal: Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517
-  site: https://oryxinstitute.org
-  links: https://oryxinstitute.org/links
+  site: https://www.oryxinstitute.org
+  links: https://www.oryxinstitute.org/links
   postal: P.O. Box 1662, Windhoek, Namibia
   contact: info@oryxinstitute.org
   telephone: +264 83 676 4338
-  office: no physical address or public visiting instructions are published
-  planned_training_centre: Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.
-  venture: Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.
-
-  name: Tangi Iigonda
-  role: Principal
-
-  name: Tangison Studio
-  role: Design and build
-  site: https://studio.tangison.com
+  whatsapp: https://wa.me/264836764338
+  office: no physical address, public visiting instructions or opening hours are published
+  status: working toward NTA training-provider registration; not registered or accredited
+  venture: Corner Spa is an operating venture in Windhoek with Mendozer Investments
+  relationship: Tangison Technologies provides identity, technology and learning-platform services under agreement
 
 /* SITE */
   standards: HTML, CSS, TypeScript, Next.js (App Router)
-  components: GSAP ScrollTrigger (reduced-motion aware), zero third-party scripts
+  components: GSAP ScrollTrigger (reduced-motion aware), no third-party trackers
   fonts: Radley, Inter, Noto Serif SC 理工 mark subset (self-hosted)

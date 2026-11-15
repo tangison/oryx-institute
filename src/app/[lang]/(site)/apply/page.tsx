@@ -6,32 +6,27 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Apply: Courses and the Practice",
+      title: "Enquire",
       description:
-        "Apply for crash and short courses in business administration and IT, or book the practice: the Owner's Desk, market research, Rapid Response Training.",
-      ogTitle: "Apply | Oryx Institute",
+        "Write to the Oryx office about current business counselling and market research, or ask for the current position on future learning pathways.",
+      ogTitle: "Enquire | Oryx Institute",
       ogDescription:
-        "One message to the Principal's office in Windhoek starts your application.",
+        "One message to the Oryx office starts a factual conversation.",
     },
   },
   af: {
     meta: {
-      title: "Apply: Courses and the Practice",
+      title: "Enquire",
       description:
-        "Apply for crash and short courses in business administration and IT, or book the practice: the Owner's Desk, market research, Rapid Response Training.",
-      ogTitle: "Apply | Oryx Institute",
+        "Write to the Oryx office about current business counselling and market research, or ask for the current position on future learning pathways.",
+      ogTitle: "Enquire | Oryx Institute",
       ogDescription:
-        "One message to the Principal's office in Windhoek starts your application.",
+        "One message to the Oryx office starts a factual conversation.",
     },
     enLedger: { paras: [] as string[] },
   },
 } as const;
 
-/* The route stays statically generated. Per-offer deep links are real
-   routes now: /apply/<offer> carries its own metadata at build time
-   (see ../[offer]/page.tsx), so the legacy ?for= form renders the hub
-   and the client-side ApplyOfferMeta still honours it. The clean URLs
-   stay canonical. */
 export async function generateMetadata({
   params,
 }: {

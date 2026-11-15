@@ -37,15 +37,15 @@ export async function generateMetadata({
     },
     description,
     applicationName: site.tradingName,
-    authors: [{ name: site.principal.name }],
+    authors: [{ name: site.legalName }],
     keywords: [
       "Oryx Institute",
       "Oryx Polytechnic Institute",
       "polytechnic Namibia",
-      "Windhoek crash courses",
-      "business administration Windhoek",
-      "IT courses Windhoek",
+      "business counselling Namibia",
       "market research Namibia",
+      "NTA training provider registration",
+      "research notes Namibia",
     ],
     icons: {
       icon: [

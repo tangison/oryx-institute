@@ -2,13 +2,11 @@ import { resolveSlug, shelfSlugs } from "@/lib/md-shelf";
 
 /**
  * /md/{slug}: one page or document as clean markdown. The route is a
- * catch-all so nested paths (/md/about/staff, /md/practice/
- * safety-officer-course) resolve exactly as the alternates link
- * prints them.
+ * catch-all so nested current paths resolve exactly as the alternates
+ * link prints them.
  *
- * generateStaticParams covers the whole shelf (the index alias, every
- * site page and every Directory document), so the route is fully
- * static and a request never pays a cold render. Anything outside the
+ * generateStaticParams covers the whole current shelf, so the route is
+ * fully static and a request never pays a cold render. Anything outside the
  * shelf answers 404 as plain text: no HTML error page, no redirect.
  */
 
