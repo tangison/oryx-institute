@@ -9,16 +9,16 @@ Every image earns a distinct job. It must establish place, show a method, or cre
 - **About — ground:** a quiet Namibia landscape establishes the institute’s place and point of view. It is illustrative and must never imply a campus or office location.
 - **Research — evidence:** tools, terrain and field materials support the research promise without pretending that unverified notes are evidence.
 - **Practice — work:** tools and working detail support the “work that holds” proposition.
-- **Directory — access:** a clear workbench and blank templates signal open, usable resources.
+- **Current work — access:** a clear workbench and practical tools may support factual business counselling and market-research content. They must not imply a public course, qualification or resource library.
 - **Ventures — operation:** Corner Spa imagery stays only in its own venture context.
-- **People — honesty:** use one confirmed person’s approved image only where the staff register needs it. Unfilled roles receive typographic appointment cards, never repeated placeholders or fabricated portraits.
+- **People — honesty:** do not use leadership or staff portraits. Institutional pages speak in the Oryx office voice; never use fabricated people or placeholders.
 
 ## Content hierarchy
 
 1. **First screen:** one clear proposition and one visual atmosphere.
 2. **Proof:** a short, factual explanation of what is live and how it works.
-3. **Record:** dated register, courses, resources or service details.
-4. **Action:** one contextual route to apply, enquire, read, or open a venture.
+3. **Record:** dated register, institutional status, research notes or confirmed current-work details.
+4. **Action:** one contextual route to enquire, read, or open a venture.
 
 ## Full-screen update
 

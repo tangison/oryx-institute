@@ -10,7 +10,6 @@ import {
   GlyphPractice,
   GlyphVentures,
 } from "@/components/site/glyphs";
-import { PathwayNotes } from "@/components/site/pathway-notes";
 
 function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
   if (name === "research") return <GlyphResearch className="h-full w-full" />;
@@ -414,10 +413,6 @@ export default async function HomePage({
           </div>
         </div>
       </section>
-
-      {/* The bespoke field-notes trace: an optional, local choice that
-          holds one real pathway for the rest of the visit. */}
-      <PathwayNotes lang={lang} />
 
       {/* Research pull: its own field folio plate, then the latest published note. */}
       <section className="section-lg" data-sc-act="flow">

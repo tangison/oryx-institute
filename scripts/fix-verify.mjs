@@ -54,9 +54,10 @@ for (const path of retired) {
   );
 }
 
-const [links, status, sitemap] = await Promise.all([
+const [links, status, contact, sitemap] = await Promise.all([
   fetch(`${BASE}/links`).then((response) => response.text()),
   fetch(`${BASE}/status`).then((response) => response.text()),
+  fetch(`${BASE}/contact`).then((response) => response.text()),
   fetch(`${BASE}/sitemap.xml`).then((response) => response.text()),
 ]);
 
@@ -66,8 +67,29 @@ for (const value of [
   "P.O. Box 1662, Windhoek, Namibia",
   "oryx-links-qr.svg",
   "https://www.threads.com/@oryx_institute?igshid=NTc4MTIwNjQ2YQ==",
+  "Official Oryx channel",
+  "No official Business Profile is claimed.",
 ]) {
   check(`Link Hub includes ${value}`, links.includes(value));
+}
+check(
+  "Link Hub does not claim a Maps profile is indexing",
+  !links.includes("Temporary map search while the new profile is indexed")
+);
+check(
+  "Contact states the approved NTA-registration status",
+  contact.includes("working toward NTA training-provider registration") &&
+    contact.includes("not registered or accredited")
+);
+check(
+  "Contact does not conflate NTA registration and NQA accreditation",
+  !contact.includes("Pursuing accreditation with the NQA and the NTA")
+);
+for (const value of [
+  "Status as at",
+  "2026-11-13",
+]) {
+  check(`Status includes ${value}`, status.includes(value));
 }
 for (const value of [
   "https://www.nta.com.na/registration-tp/",

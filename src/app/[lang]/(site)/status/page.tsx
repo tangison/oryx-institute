@@ -17,6 +17,7 @@ const copy = {
       lede:
         "Oryx is building the evidence and systems required for training-provider registration. The work is public where it can be verified, and future where it cannot.",
     },
+    asAt: "Status as at",
     current: "Current position",
     currentBody:
       "Oryx is working toward registration with the Namibia Training Authority. It is not registered with the NTA and it is not accredited by the Namibia Qualifications Authority.",
@@ -56,6 +57,7 @@ const copy = {
       lede:
         "Oryx bou die bewyse en stelsels wat vir opleidingsverskafferregistrasie vereis word. Die werk is openbaar waar dit nagegaan kan word en toekomstig waar dit nog nie kan nie.",
     },
+    asAt: "Status op",
     current: "Huidige posisie",
     currentBody:
       "Oryx werk aan registrasie by die Namibia Training Authority. Dit is nie by die NTA geregistreer nie en is nie deur die Namibia Qualifications Authority geakkrediteer nie.",
@@ -115,6 +117,12 @@ export default async function StatusPage({
   const af = lang === "af";
   const t = copy[lang];
   const A = (href: string) => (af ? `/af${href}` : href);
+  const statusDate = new Intl.DateTimeFormat(af ? "af-NA" : "en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${site.statusAsOf}T00:00:00Z`));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -135,6 +143,9 @@ export default async function StatusPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
+        <p className="mt-5 text-[0.78rem] font-[600] uppercase tracking-[0.12em] text-ink">
+          {t.asAt}: <time dateTime={site.statusAsOf}>{statusDate}</time>
+        </p>
       </PageHead>
 
       <section className="section" data-sc-act="flow">

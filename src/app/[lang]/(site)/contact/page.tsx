@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
+import { RouteArrowIcon } from "@/components/site/glyphs";
 import { SocialIcon } from "@/components/site/social-icon";
 import { organizationContactSchema, schemaIds, site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
@@ -120,17 +121,17 @@ export default async function ContactPage({
               <a href={site.phoneHref} className="contact-desk__action">
                 <span>{t.call}</span>
                 <strong className="tnum">{site.phoneDisplay}</strong>
-                <span aria-hidden="true">↗</span>
+                <RouteArrowIcon className="contact-desk__arrow" />
               </a>
               <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="contact-desk__action">
                 <span>{t.whatsapp}</span>
                 <strong className="tnum">{site.phoneDisplay}</strong>
-                <span aria-hidden="true">↗</span>
+                <RouteArrowIcon className="contact-desk__arrow" />
               </a>
               <a href={`mailto:${site.email}`} className="contact-desk__action">
                 <span>{t.email}</span>
                 <strong>{site.email}</strong>
-                <span aria-hidden="true">↗</span>
+                <RouteArrowIcon className="contact-desk__arrow" />
               </a>
             </div>
           </div>
@@ -148,7 +149,7 @@ export default async function ContactPage({
               </div>
               <div>
                 <dt>Status</dt>
-                <dd>{af ? "Voorbekendstelling. Akkreditasie by NQA en NTA word nagestreef." : "Prelaunch. Pursuing accreditation with the NQA and the NTA."}</dd>
+                <dd>{af ? "Voorbekendstelling. Oryx werk aan NTA-opleidingsverskafferregistrasie en is nie geregistreer of geakkrediteer nie." : "Prelaunch. Oryx is working toward NTA training-provider registration and is not registered or accredited."}</dd>
               </div>
             </dl>
             <p className="contact-desk__note">{t.noPhysical}</p>
@@ -181,7 +182,7 @@ export default async function ContactPage({
                 <a href={channel.href} target="_blank" rel="noopener noreferrer">
                   <SocialIcon name={channel.label as "Instagram" | "Facebook" | "LinkedIn" | "X" | "Threads"} />
                   <span>{channel.label}</span>
-                  <span aria-hidden="true">↗</span>
+                  <RouteArrowIcon className="contact-socials__arrow" />
                 </a>
               </li>
             ))}

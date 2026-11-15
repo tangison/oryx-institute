@@ -1,192 +1,52 @@
-# Oryx Institute · Publishing Roadmap: Crash Courses and Textbooks
+# Oryx Institute publishing roadmap
 
-Status: active roadmap. Owner: the Principal's office. Updated 13 November
-2026 after the Directory source review and Wave 1 publication: the Directory
-now carries seven crash courses and seven templates. Rapid Response Training
-remains live; the institute remains pre-accreditation.
+**Current position:** Oryx is working toward NTA training-provider registration. It is not registered or accredited. This document guides editorial publishing only; it does not announce a programme, qualification, intake, fee, campus or approval.
 
----
+## Purpose
 
-## 1. Where this sits in the strategy
+Oryx publishes only work that can be checked now. The public site is led by research, current practice, ventures where they are genuinely operating, and a dated institutional record.
 
-The Oryx Directory is the institute's published proof of standard: free,
-Namibia-specific, copyrighted to Oryx Polytechnic Institute. Every crash
-course and textbook added to it does three jobs at once. It serves the
-learner directly, it demonstrates the teaching register before any fee is
-discussed, and it builds the accreditation evidence base: the NQA and NTA
-reviewers want to see structured, assessed, quality-managed material. A
-publisher that has shipped twelve rigorous documents is a different
-accreditation applicant from one that has shipped a brochure.
+The Institutional Status page is the authority for the current regulatory disclosure. The Register is the dated history of confirmed public facts.
 
-The rule from the strategy map holds here: publishing guardrails come
-before the accreditation critical path. Nothing in the Directory claims a
-credential, nothing claims a campus, every figure carries its source.
+## What can publish
 
-## 2. The two product lines, defined
+1. **Research Notes**
+   - Evidence-led notes with named sources and a clear publication date.
+   - Fieldwork, market-research methods and practical observations when the source basis is available.
 
-**Crash courses.** Short, standalone, immediately usable. 2,500 to 4,000
-words each, structured as: what you will be able to do, the minimum
-theory, a worked Namibian example, a checklist, and a walkaway. The four
-existing courses set the pattern; the expansion keeps it. A crash course
-is read in one sitting and used the same day.
+2. **Current work**
+   - Business counselling and market-research work described only at the level currently available.
+   - Scope, terms and availability are confirmed by the Oryx office for each enquiry.
 
-**Textbooks.** Long-form, sequential, cohort-ready. Each textbook is a
-bound volume of 12 to 20 chapters built from a school's spine, with
-exercises, glossaries, and per-chapter assessments. Textbooks are the
-backbone of the future Skills Camp curriculum and the printable evidence
-of the institute's academic standard. A textbook is not a bundle of crash
-courses; it is the course, and the crash courses are its recruiting
-posters.
+3. **Ventures**
+   - A venture is named only when it is operating or otherwise publicly confirmable.
+   - Corner Spa is active in Windhoek. Ongwediva and Karibib remain future initiatives and are not presented as open sites.
 
-## 3. The textbook series (planned)
+4. **Institutional record**
+   - Confirmed legal facts, public status updates and corrections are dated in the Register.
+   - Regulatory status is stated as at its review date on the Institutional Status page.
 
-Three volumes, one per school, in the order the schools open. Titles are
-working titles; the register stays declarative.
+## What remains on hold
 
-| # | Volume | Spine | Chapters (indicative) | Feeds |
-|---|--------|-------|----------------------|-------|
-| 1 | *Working with Machines That Think* | School of Technology | 14: from "what a model is" through prompting, evaluation, data hygiene, offline practice packs, to building a small working service | First cohort curriculum; two existing crash courses fold in as chapters 2 and 5 |
-| 2 | *Measure, Make, Hold* | School of Engineering | 16: measurement and tolerances, materials, joining, circuits, safety, maintenance, the workshop notebook | Skills Camp workshop track |
-| 3 | *Evidence* | School of Science | 15: observation, recording, units and error, the bench notebook, experiments that fit Namibian classrooms | Laboratory track, post-accreditation |
+- The discontinued Oryx Directory, including its former guides, templates, resource posts and promotion.
+- Programme, qualification, NQF-credit, intake, price, campus and completion claims.
+- NTA or NQA marks, or wording that suggests registration, accreditation, partnership or endorsement.
+- Posts that state or imply NQA accreditation is in progress.
+- Any public claim without a source record and named approval.
 
-The applied problem-solving spine runs through all three: every chapter
-ends with a task that produces something that works, and every volume
-carries the certificate language on its title page: excellence in
-innovation and applied problem-solving.
+## Editorial release check
 
-## 4. The crash course expansion (planned)
+Before any page, post or graphic is published, confirm:
 
-The Directory grows from the original four courses to twelve, in three waves.
-Every course carries the existing structure and the copyright line.
+1. The facts have a current source and an owner who can approve them.
+2. Status language says: “working toward NTA training-provider registration; not registered or accredited” where it is relevant.
+3. The item neither revives the Directory nor implies an approved course, campus or regulated status.
+4. Contact details, legal line and social destinations match `src/lib/site.ts`.
+5. The item links to the Institutional Status page when a current regulatory question could arise.
 
-**Wave 1 (published 13 November 2026):**
-5. Start a One-Person Business in Namibia (with templates wired in)
-6. Bookkeeping Without Fear (cash book to monthly operating view)
-7. Write a Bid That Can Win (tender literacy, public sources cited)
+## Review cadence
 
-The Wave 1 release removed or narrowed unsupported and time-sensitive claims
-from the original four courses, added checkable public-source links to every
-legal or regulatory document, and recorded the research decision in
-`docs/directory-source-ledger.md`.
-
-**Wave 2:**
-8. Sell Something Real in Thirty Days (the venture drill, from Bulletin 4)
-9. The Phone-First Office (free tools stack, offline-first habits)
-10. Read a Contract Before You Sign It (plain-language contract literacy)
-
-**Wave 3:**
-11. Introduction to Practical Electricity (safety-first, workshop-paired)
-12. Water, Power, Waste: Systems in a Namibian Building
-
-Waves are sequenced so every wave contains one business course and one
-technical course: the institute teaches both hands, never one.
-
-## 5. The production pipeline (AI-native, human-checked)
-
-The institute runs the same stack it publishes on the Tools List. The
-pipeline per document:
-
-1. **Brief.** The Principal's office fixes the outcome: what the reader
-   can do afterwards, the Namibian context, the sources allowed.
-2. **Draft.** The AI stack produces the first draft against the brief,
-   in the site's registered voice: declarative, exact, unhurried.
-3. **Fact pass.** Every figure is checked against its named source;
-   unsourced claims are cut or labelled as assumptions.
-4. **Teach pass.** A practitioner (a Smith, per the staff plan) marks
-   the draft the way they would mark a student: where does it lose the
-   room, where does it assume knowledge the reader does not have.
-5. **Register pass.** One editor enforces the voice bar and the
-   formatting rules: no em dashes, no slop constructions, no captions.
-6. **Build.** The document is transcribed into the Directory's block
-   model, rendered as a static page, and added to the sitemap.
-7. **Review cycle.** Every document carries its updated date and is
-   re-verified on a twelve-month cycle; when a fact changes, the
-   document changes with it.
-
-Quiz banks accompany each textbook chapter (the quiz-generator skill
-produces drafts; the Smiths approve final sets), which becomes the
-assessment layer for cohort use.
-
-## 6. Quality gates (non-negotiable)
-
-- No figure without a source, inline.
-- No claim of accreditation, campus, or dates that are not confirmed.
-- No em dashes anywhere.
-- Every document readable by a smart sixteen-year-old; a second reader
-  signs this, not the author.
-- The venture rule: every course ends in something the reader has made,
-  fixed, or sold.
-- Copyright line: © Oryx Polytechnic Institute, free to access, not
-  open-source; redistribution by permission.
-
-## 7. How publishing meets the accreditation path
-
-The NQA/NTA application wants evidence of: structured curricula,
-assessment methodology, quality management, and institutional capacity.
-Each shipped textbook supplies the first two directly; the pipeline
-documented in section 5 supplies the third; the staff plan (Core Smiths
-and Practitioner Smiths) supplies the fourth. The publishing calendar is
-therefore set to produce all three textbook volumes in draft by the time
-the accreditation file is submitted, so the volumes can be shown as
-working documents, not promises.
-
-## 8. Distribution
-
-- The Directory (this site) is the canonical home, free to access.
-- Printed short runs of each textbook for cohort and partner use,
-  print-on-demand; the print kit's register carries over to the covers.
-- Rapid Response Training clients receive the relevant textbook as the
-  cohort workbook: publishing feeds the paid line.
-- Partner organizations (per the partnership stance) may co-brand
-  distributions of specific courses where the goals align, copyright
-  retained.
-
-## 9. Sequence and commitments
-
-| When | What |
-|------|------|
-| 13 November 2026 | Wave 1 courses (5-7) published after the source, fact, teach and register passes; source ledger added |
-| Following quarter | Textbook 1 drafted, chapters published incrementally in the Directory as they pass the gates |
-| Ongoing | One Bulletin essay per wave, citing the numbers that motivated it |
-| Accreditation window | All three volumes in visible draft; assessment banks for volume 1 complete |
-
-The bar for adding anything to this roadmap is the same bar for the
-site: state the fact, cite the source, and ship only what is finished.
-
----
-
-## 10. The AI training programme (announced 18 October 2026)
-
-The announcement is live on the site: Oryx will run an AI training
-programme, developed in collaboration with a technology company. The
-partnership is confirmed; the schedule, syllabus and enrolment route are
-not final, so the site prints none of them. This section is where the
-publishing work for the programme is planned, so the announcement's
-"details follow as they land" has a real pipeline behind it.
-
-**Positioning.** The programme sits on the consulting side of the house,
-not the schools: it is corporate and team training first, built on the
-same rule as everything else the institute publishes, tools are named,
-not magic. It is the productization of what the AI stack page already
-documents, and it feeds the Technology school's curriculum later.
-
-**Publishing commitments tied to the programme:**
-
-| Milestone | What ships | Gate |
-|-----------|------------|------|
-| Syllabus locked | Course outline published as an Announcement update, same URL, corrected date | Partner sign-off on the outline |
-| Second announcement | Schedule, format, fees, enrolment route | Contract signed with the partner |
-| Courseware | Learner workbook drafted through the six-pass pipeline, published as a Directory crash course on AI for Namibian teams | Quality gates, then free release as proof of standard |
-| Evidence | Facilitation record, assessment bank, review log filed for NQA/NTA | First cohort completed |
-
-**Writing rule for the programme material:** every capability claim in
-the syllabus must name the exercise that proves it. Where a tool is
-taught, the tool is named and the version pinned. No invented
-statistics, no vendor marketing language, partner named only as the
-partner agreed to be named.
-
-**Sequencing with the waves:** the programme's courseware runs ahead of
-Wave 2 (courses 8-9, the AI modules) so the free Directory release and
-the paid programme draw on the same material and the same evidence base.
-Wave 1 is unaffected.
-
+- Review the Institutional Status page whenever a verifiable regulatory fact changes.
+- Add a Register entry only when a public fact is confirmed.
+- Review research and current-work pages before publishing a related post or graphic.
+- Do not use a calendar cadence as a reason to publish an unverified claim.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogPostBody } from "@/components/site/blog-body";
+import { RouteArrowIcon } from "@/components/site/glyphs";
 import { blogPosts, getPost } from "@/lib/blog";
 import { site, schemaIds } from "@/lib/site";
 import { alternates, langFromParams, type Lang } from "@/lib/i18n";
@@ -144,10 +145,10 @@ export default async function BlogPostPage({
                 href="https://spa.mendozer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-type"
+                className="link-type inline-flex items-center gap-1"
               >
                 {t.spaSite}
-                <span className="arr ml-1" aria-hidden="true">↗</span>
+                <RouteArrowIcon className="h-3.5 w-3.5 shrink-0" />
               </a>
               <Link href={A("/blog")} className="link-type">
                 {t.all}

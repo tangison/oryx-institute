@@ -24,16 +24,16 @@
 - **Act 1, arrival:** Grounded curiosity, caused by a composed field image and the direct institutional claim.
 - **Act 2, method:** Trust, caused by clear named ways of working rather than abstract promises.
 - **Act 3, proof, the peak:** Conviction, caused by a held, close practical-work image and a concise explanation of what Oryx does now.
-- **Act 4, pathways:** Agency, caused by an optional, real pathway choice that resolves to a relevant live Oryx route.
-- **Act 5, evidence:** Reassurance, caused by dated offers, research and register material that can be inspected.
-- **Act 6, close:** Readiness, caused by one legible contact or application action.
+- **Act 4, current work:** Agency, caused by clear, factual routes into what Oryx does now.
+- **Act 5, evidence:** Reassurance, caused by research and register material that can be inspected.
+- **Act 6, close:** Readiness, caused by one legible office-enquiry action.
 
 **Peak:** Act 3. A visitor should say: “This is not a promise of a future institution. I can see the practical work it is already built to do.”
 
 ## 5. Signature move
 
-- **User response:** Delegated.
-- **Authored decision:** *Field notes trace.* At the point where the visitor chooses Research, Practice or Ventures, a paper-edge field note retains that live interest for the session and resolves into one relevant, working next-step link. It stores no personal data, does not block the reading order, works with keyboard and touch, and remains a plain set of links without JavaScript.
+- **User decision:** Retired the Field Notes Trace.
+- **Current direction:** The homepage keeps its decisive hero, one proof chapter, the three institutional pillars and a factual status close. Navigation remains global; the page does not ask visitors to configure their route before making its institutional proposition.
 
 ## 6. Aesthetic range
 
@@ -44,7 +44,7 @@
 
 - **User selection:** Hybrid: a dimensional opening world that resolves into editorial chapters.
 - **Authored grammar decision:** **Grounded field ledger**, a new grammar. It treats the opening as a dimensional field observation and then cuts into distinct, asymmetric editorial chapters. It is not a continuous-world flight.
-- **Navigation treatment:** the existing accessible masthead remains the sitewide orientation tool. The homepage gives the pathway choice as content, not as a replacement for navigation.
+- **Navigation treatment:** the existing accessible masthead remains the sitewide orientation tool. The homepage presents the work in editorial order rather than asking visitors to choose a pathway.
 - **Hero device:** three practical planes, with readable type on a clean ground rather than under an opaque full-frame overlay.
 - **Ending:** a durable office invitation and real link, followed by the site footer.
 - **Bans:** no chapter counters, generic repeated feature cards, fake dashboards, text baked into imagery, extra decorative scroll cues, generic magnetic buttons, or empty pinned time.
@@ -59,12 +59,12 @@
 
 - **User response:** Delegated.
 - **Authored audience:** Namibian applicants, working people, partner organisations and researchers who need practical, standards-led learning and credible local evidence.
-- **Authored belief:** Oryx is a careful, public-facing institute that is already doing useful work while it builds toward accreditation.
-- **Authored primary action:** **Apply**. Contextual pages retain the truthful alternate action, such as writing to the office or reading the research, when applying is not the visitor’s intent.
+- **Authored belief:** Oryx is a careful, public-facing institute doing useful work while it works toward NTA training-provider registration. It is not registered or accredited.
+- **Authored primary action:** **Enquire.** Contextual pages retain the truthful alternate action, such as writing to the office or reading the research.
 
 ## Completed tell-someone sentence
 
-“It’s the site where you can choose a real way into a new Namibian polytechnic, see the work behind it, and take a truthful next step.”
+“It’s the site where you can see the current work behind a new Namibian polytechnic, inspect its public record, and take a truthful next step.”
 
 ## Authored silence
 
