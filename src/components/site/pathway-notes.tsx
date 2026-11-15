@@ -37,7 +37,7 @@ const copy = {
       {
         id: "practice",
         label: "Practice",
-        description: "Courses, counsel and practical work to standard.",
+        description: "Business counselling and market research, stated for what is available now.",
         href: "/practice",
         action: "See the practice",
       },
@@ -69,7 +69,7 @@ const copy = {
       {
         id: "practice",
         label: "Praktyk",
-        description: "Kursusse, advies en praktiese werk volgens standaard.",
+        description: "Besigheidsadvies en marknavorsing, gestel vir wat tans beskikbaar is.",
         href: "/af/practice",
         action: "Sien die praktyk",
       },

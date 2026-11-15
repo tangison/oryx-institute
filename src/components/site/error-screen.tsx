@@ -15,7 +15,7 @@ const copy = {
     office: "Write to the office",
     phoneLabel: "Call or WhatsApp",
     again: "Try again",
-    apply: "Apply now",
+    apply: "Enquire",
     back: "Back",
     footerAria: "Oryx Institute, home",
     variants: {
@@ -51,7 +51,7 @@ const copy = {
     office: "Skryf aan die kantoor",
     phoneLabel: "Bel of WhatsApp",
     again: "Probeer weer",
-    apply: "Doen aansoek",
+    apply: "Doen navraag",
     back: "Terug",
     footerAria: "Oryx Instituut, tuis",
     variants: {

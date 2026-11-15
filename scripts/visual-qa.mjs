@@ -71,7 +71,7 @@ await shots({ width: 1440, height: 900 }, "desktop");
 // full-page shots of every route (desktop)
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
-for (const r of ["/", "/practice", "/register", "/ventures", "/about", "/research", "/contact", "/faq", "/apply", "/resources", "/legal/privacy"]) {
+for (const r of ["/", "/practice", "/register", "/ventures", "/about", "/research", "/status", "/links", "/contact", "/faq", "/apply", "/legal/privacy"]) {
   await page.goto(BASE + r, { waitUntil: "load" });
   await page.mouse.wheel(0, 300);
   await page.waitForTimeout(1200);

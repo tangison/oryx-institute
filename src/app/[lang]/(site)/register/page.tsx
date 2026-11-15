@@ -16,51 +16,51 @@ const copy = {
     meta: {
       title: "The Public Register",
       description:
-        "The Oryx Institute register: every public step the institute has taken, dated as it was said, newest first, updated as the work lands.",
+        "The Oryx Institute register: dated public institutional updates, including its current NTA-registration work and non-accredited status.",
       ogTitle: "The Register | Oryx Institute",
       ogDescription:
-        "Every public step the institute has taken, dated as it was said, newest first.",
+        "Dated public institutional updates, stated without promising future approvals.",
     },
     head: {
       title: "The register.",
-      lede: "What the institute has made public, dated as it was said. Nothing is announced before it is certain, and nothing here names a partner before that partner has agreed to be named. Rows without a date yet print \"Date to be confirmed\".",
+      lede: "Dated institutional updates. The register records confirmed public facts; it does not create an intake, qualification or approval claim.",
     },
     closing:
-      "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
+      "Updated when a public fact is confirmed. The current status is also stated on the Institutional Status page.",
     readingEyebrow: "How to read this register",
     readingBody:
-      "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once (a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim), and no line asks the reader to take the institute's word where a document could speak instead.",
+      "The register is for anyone checking an institutional claim. It records only dated public facts and distinguishes a current position from a future process. The Institutional Status page carries the regulatory disclosure in full.",
     ruleEyebrow: "The rules the register keeps",
     ruleBody:
       "Three rules hold every record on this page. Nothing is announced before it is certain: an intention is not an event. Nothing is given a day before it has happened; the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
     sourceEyebrow: "Where the rows come from",
     sourceBody:
-      "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line (a journalist checking a fact, a partner confirming a detail), write to the office and the source is produced.",
+      "Each record is based on a legal record, filing, written agreement or confirmed publication. Where a relationship is named, it is stated for its actual scope. For a question about a listed fact, write to the Oryx office.",
   },
   af: {
     meta: {
-      title: "The Public Register",
+      title: "Die openbare register",
       description:
-        "The Oryx Institute register: every public step the institute has taken, dated as it was said, newest first, updated as the work lands.",
-      ogTitle: "The Register | Oryx Institute",
+        "Die Oryx Instituut-register: gedateerde openbare institusionele opdaterings, insluitend NTA-registrasiewerk en ongeakkrediteerde status.",
+      ogTitle: "Die register | Oryx Instituut",
       ogDescription:
-        "Every public step the institute has taken, dated as it was said, newest first.",
+        "Gedateerde openbare institusionele opdaterings, sonder beloftes oor toekomstige goedkeurings.",
     },
     head: {
-      title: "The register.",
-      lede: "What the institute has made public, dated as it was said. Nothing is announced before it is certain, and nothing here names a partner before that partner has agreed to be named. Rows without a date yet print \"Date to be confirmed\".",
+      title: "Die register.",
+      lede: "Gedateerde institusionele opdaterings. Die register teken bevestigde openbare feite aan; dit skep nie 'n inname-, kwalifikasie- of goedkeuringseis nie.",
     },
     closing:
-      "Updated as the work lands. When a date is public, it is printed; until then, the row prints \"Date to be confirmed\".",
-    readingEyebrow: "How to read this register",
+      "Bygewerk wanneer 'n openbare feit bevestig is. Die huidige status word ook op die Institusionele Status-blad gestel.",
+    readingEyebrow: "Hoe om hierdie register te lees",
     readingBody:
-      "Read it top to bottom and the institute's shape appears: what was registered and when, which courses were published first, which partners agreed to be named, and what is still waiting on a signature. The register is written for three readers at once (a student checking that the institute is real, a partner checking a detail, and a journalist checking a claim), and no line asks the reader to take the institute's word where a document could speak instead.",
-    ruleEyebrow: "The rules the register keeps",
+      "Die register is vir enigiemand wat 'n institusionele eis nagaan. Dit teken slegs gedateerde openbare feite aan en onderskei 'n huidige posisie van 'n toekomstige proses. Die Institusionele Status-blad gee die regulatoriese verklaring volledig.",
+    ruleEyebrow: "Die reëls van die register",
     ruleBody:
-      "Three rules hold every record on this page. Nothing is announced before it is certain: an intention is not an event. Nothing is given a day before it has happened; the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
-    sourceEyebrow: "Where the rows come from",
+      "Drie reëls geld vir elke rekord op hierdie bladsy. Niks word aangekondig voordat dit seker is nie: 'n voorneme is nie 'n gebeurtenis nie. Niks kry 'n datum voordat dit gebeur het nie; die register teken aan, dit belowe nie. Wanneer 'n plan verander, word die rekord in plek reggestel.",
+    sourceEyebrow: "Waar die rye vandaan kom",
     sourceBody:
-      "Every record traces to a document the institute holds: a registration, a filing, a signed agreement, a published course. Where a partner is named, the naming was agreed in writing first. If you need the document behind a line (a journalist checking a fact, a partner confirming a detail), write to the office and the source is produced.",
+      "Elke rekord is op 'n regsrekord, indiening, skriftelike ooreenkoms of bevestigde publikasie gegrond. Waar 'n verhouding genoem word, word dit volgens die werklike omvang daarvan gestel. Skryf aan die Oryx-kantoor met 'n vraag oor 'n genoemde feit.",
     enLedger: { paras: [] as string[] },
   },
 } as const;

@@ -11,7 +11,7 @@ const copy = {
   en: {
     meta: {
       title: "Oryx Links",
-      description: "Every official Oryx Institute contact route, programme, publication, venture and social channel in one mobile-first hub.",
+      description: "Every official Oryx Institute contact route, current work, research, venture and social channel in one mobile-first hub.",
       ogTitle: "Oryx Links | Oryx Institute",
       ogDescription: "Official Oryx Institute links, contact details and social channels in one place.",
     },
@@ -21,7 +21,7 @@ const copy = {
     qr: "Scan for every official Oryx link",
     groups: {
       direct: "Start here",
-      enquiries: "Learn or enquire",
+      enquiries: "Enquire",
       reading: "Read the work",
       institute: "See the institute",
       social: "Follow Oryx",
@@ -30,13 +30,9 @@ const copy = {
       call: ["Call", "083 676 4338"],
       whatsapp: ["WhatsApp", "083 676 4338"],
       email: ["Email", "info@oryxinstitute.org"],
-      apply: ["Apply or enquire", "One message starts the conversation"],
-      "owners-desk": ["Owner’s Desk", "Business counselling, written down"],
-      safety: ["Safety Officer Training", "Course information and interest"],
-      directory: ["The Oryx Directory", "Free courses, templates and tools"],
+      apply: ["Enquire", "One message starts a factual conversation"],
       research: ["Research", "Evidence before a decision moves"],
-      bulletin: ["Research and Bulletin", "Published essays and public reading"],
-      practice: ["Practice", "Counselling, research and training"],
+      practice: ["Practice", "Business counselling and market research"],
       ventures: ["Ventures", "Small companies, real customers"],
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Public record, dated as published"],
@@ -45,6 +41,7 @@ const copy = {
     footer: {
       note: "A new polytechnic for Namibia. Research, practice and companies that prove the work.",
       about: "About",
+      status: "Status",
       contact: "Contact",
       faq: "FAQ",
       privacy: "Privacy",
@@ -54,7 +51,7 @@ const copy = {
   af: {
     meta: {
       title: "Oryx Skakels",
-      description: "Elke amptelike Oryx Instituut-kontakroete, program, publikasie, onderneming en sosiale kanaal in een mobiele spilpunt.",
+      description: "Elke amptelike Oryx Instituut-kontakroete, huidige werk, navorsing, onderneming en sosiale kanaal in een mobiele spilpunt.",
       ogTitle: "Oryx Skakels | Oryx Instituut",
       ogDescription: "Amptelike Oryx Instituut-skakels, kontakbesonderhede en sosiale kanale op een plek.",
     },
@@ -64,7 +61,7 @@ const copy = {
     qr: "Skandeer vir elke amptelike Oryx-skakel",
     groups: {
       direct: "Begin hier",
-      enquiries: "Leer of doen navraag",
+      enquiries: "Doen navraag",
       reading: "Lees die werk",
       institute: "Sien die instituut",
       social: "Volg Oryx",
@@ -73,13 +70,9 @@ const copy = {
       call: ["Bel", "083 676 4338"],
       whatsapp: ["WhatsApp", "083 676 4338"],
       email: ["E-pos", "info@oryxinstitute.org"],
-      apply: ["Doen aansoek of navraag", "Een boodskap begin die gesprek"],
-      "owners-desk": ["Eienaar se Lessenaars", "Besigheidsadvies, neergeskryf"],
-      safety: ["Veiligheidsbeampte-opleiding", "Kursusinligting en belangstelling"],
-      directory: ["Die Oryx Directory", "Gratis kursusse, sjablone en hulpmiddels"],
+      apply: ["Doen navraag", "Een boodskap begin 'n feitelike gesprek"],
       research: ["Navorsing", "Bewyse voordat ’n besluit beweeg"],
-      bulletin: ["Navorsing en Bulletin", "Gepubliseerde opstelle en openbare leesstof"],
-      practice: ["Praktyk", "Advies, navorsing en opleiding"],
+      practice: ["Praktyk", "Besigheidsadvies en marknavorsing"],
       ventures: ["Ondernemings", "Klein maatskappye, werklike kliënte"],
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Openbare rekord, gedateer soos gepubliseer"],
@@ -88,6 +81,7 @@ const copy = {
     footer: {
       note: "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en ondernemings wat die werk bewys.",
       about: "Oor",
+      status: "Status",
       contact: "Kontak",
       faq: "Vrae",
       privacy: "Privaatheid",
@@ -167,7 +161,7 @@ export default async function LinksPage({
     { id: "reading", links: linkHub.reading },
     { id: "institute", links: linkHub.institute },
   ] as const;
-  const utilityLabels = [t.footer.about, t.footer.contact, t.footer.faq, t.footer.privacy, t.footer.terms];
+  const utilityLabels = [t.footer.about, t.footer.status, t.footer.contact, t.footer.faq, t.footer.privacy, t.footer.terms];
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -19,7 +19,7 @@ const copy = {
     head: {
       eyebrow: "The register",
       title: "The brand register.",
-      lede: "Everything the institute prints, from the flyer to the certificate, keeps one register. This page documents it so the identity travels intact: the marks, the codes, the voice, and the files, ready to download.",
+      lede: "Everything the institute prints, from the letterhead to the printed note, keeps one register. This page documents it so the identity travels intact: the marks, the codes, the voice, and the files, ready to download.",
     },
     dlEyebrow: "Assets & downloads",
     dlBody:
@@ -81,7 +81,7 @@ const copy = {
     head: {
       eyebrow: "The register",
       title: "The brand register.",
-      lede: "Everything the institute prints, from the flyer to the certificate, keeps one register. This page documents it so the identity travels intact: the marks, the codes, the voice, and the files, ready to download.",
+      lede: "Everything the institute prints, from the letterhead to the printed note, keeps one register. This page documents it so the identity travels intact: the marks, the codes, the voice, and the files, ready to download.",
     },
     dlEyebrow: "Assets & downloads",
     dlBody:
@@ -205,24 +205,13 @@ function downloads(af: boolean) {
 
 /**
  * The print kit, photographed in the house register (Image Asset
- * Manifest v4, print/): certificate, letterhead, business card
- * reverse, notecard, folder. The stock photographs are blank or carry
+ * Manifest v4, print/): letterhead, business card reverse, notecard,
+ * folder and envelope. The stock photographs are blank or carry
  * placeholder marks; the REAL marks are composited on top in code, per
  * the brief: no photograph may carry an AI-drawn shield. Each entry
  * positions its overlay as a percentage of the frame.
  */
 const kitPieces = [
-  {
-    src: "/images/kinfolk/print/11-certificate.jpg",
-    alt: "The certificate: cream sheet with a double-rule maroon border, on dark walnut",
-    w: 1402,
-    h: 1122,
-    overlay: {
-      kind: "certificate" as const,
-      /** The sheet spans 19%..81% horizontally, 21%..79% vertically. */
-      sheet: { left: "19%", top: "21%", width: "62%", height: "58%" },
-    },
-  },
   {
     src: "/images/kinfolk/print/12-letterhead-blank.jpg",
     alt: "The letterhead: cream sheet on dark walnut, the lockup set top left",
@@ -431,39 +420,6 @@ function LogoPlate({
  *  the brief. */
 function OverlayMark({ piece }: { piece: (typeof kitPieces)[number] }) {
   const o = piece.overlay;
-  if (o.kind === "certificate") {
-    return (
-      <div
-        className="absolute flex flex-col items-center justify-between text-center"
-        style={{ ...o.sheet, padding: "6% 7%" }}
-        aria-hidden="true"
-      >
-        <div>
-          <p
-            className="text-[0.72rem] font-[500] tracking-[0.42em]"
-            style={{ color: "var(--maroon)" }}
-          >
-            CERTIFICATE
-          </p>
-          <span className="mx-auto mt-[7%] block w-[38%]">
-            <LogoPlate
-              src="/brand/oryx-emblem.svg"
-              w={106}
-              h={139}
-              alt=""
-              style={{ width: "100%", height: "auto" }}
-            />
-          </span>
-        </div>
-        <div className="w-full">
-          <span className="mx-auto block w-[52%] border-t" style={{ borderColor: "#18171355" }} />
-          <p className="mt-[3%] text-[0.6rem] tracking-[0.2em]" style={{ color: "#18171399" }}>
-            PRINCIPAL
-          </p>
-        </div>
-      </div>
-    );
-  }
   if (o.kind === "letterhead") {
     /* The letterhead carries the locked mark, a scannable route to the
        official Link Hub, and the single approved contact footer. */
@@ -826,9 +782,8 @@ export default async function BrandPage({
             <h2 className="h-sub">{t.specimensEyebrow}</h2>
             <p className="measure text-soft mt-4">{t.specimensBody}</p>
           </div>
-          {/* Image to commission (founder portrait): inner/19 mineral, a
-              Namibian mineral specimen, dead centre on cream, hard
-              upper-left light, as the wall's fifth plate. */}
+          {/* The specimen wall stays institution-led and does not use
+              personal portraits as a substitute for published work. */}
         </div>
 
         {/* The shield, first: the register's own object */}

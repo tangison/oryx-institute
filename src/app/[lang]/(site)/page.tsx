@@ -5,7 +5,6 @@ import { site, offers, register, ventures, schemaIds, organizationContactSchema 
 import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
-import { safetyAnnouncement } from "@/lib/safety";
 import {
   GlyphResearch,
   GlyphPractice,
@@ -22,16 +21,16 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
 /**
  * The homepage, laid out as one scroll composition:
  *
- *   hero (scrub, with the announcement pill) · positioning (flow) ·
+ *   hero (scrub) · positioning (flow) ·
  *   03 silent divider (flow) · the three kinds of work (PIN) · what
  *   runs today (flow) · practice peak (PIN) · field notes (flow) ·
- *   research zigzag (flow) · ventures reverse-zigzag (flow) · 8b
- *   announcement pin (PIN) · 07 silent divider (flow) · the register
+ *   research zigzag (flow) · ventures reverse-zigzag (flow) · 07 silent
+ *   divider (flow) · the register
  *   (flow) · close (PIN) ·
  *   footer.
  *
- * Four pins, two silent dividers. The core plates run in act order:
- * 01, 03, 05, 04, 08, 46+40 (announcement), 07, 10 (Image Bible v6:
+ * Three pins, two silent dividers. The core plates run in act order:
+ * 01, 03, 05, 04, 08, 07, 10 (Image Bible v6:
  * the stone is the /brand specimen only, so the positioning act
  * carries no image).
  */
@@ -42,19 +41,19 @@ const copy = {
       description: site.description,
     },
     positioning:
-      "A new polytechnic for Namibia, working from Windhoek. Prelaunch, and pursuing accreditation with the NQA and the NTA. Every step is dated on the register below.",
+      "A new polytechnic for Namibia. Oryx is working toward NTA registration and is not registered or accredited. Every confirmed step is dated on the public register.",
     aboutLink: "About the institute",
     kinds: [
       {
         key: "research" as const,
         name: "Research",
-        body: "Fieldwork, bulletin essays, and cited papers on Namibia's working realities. Free before anything is charged.",
+        body: "Fieldwork, published research notes and cited papers on Namibia's working realities.",
         link: "Read the research",
       },
       {
         key: "practice" as const,
         name: "Practice",
-        body: "Crash courses, business counselling, market R&D, rapid response training. Delivered to Namibian standards.",
+        body: "Business counselling and market research, stated for what is currently available.",
         link: "See the practice",
       },
       {
@@ -67,7 +66,7 @@ const copy = {
     kindsTitle: "How the institute works.",
     runsTitle: "What runs today.",
     runsBody:
-      "Six offers, live from the office in Windhoek. Two teaching departments run crash and short courses only; the practice and the free Directory run beside them. What they promise is work, because credentials come only after\u00A0accreditation.",
+      "Current work is business counselling and market research. Learning pathways are being developed for the registration process and are not accredited qualifications.",
     researchTitle: "Research runs from day one.",
     researchLine:
       "No buildings are needed for this work, so no buildings delay it.",
@@ -78,11 +77,11 @@ const copy = {
     registerMeta: "Dated as the work lands, public to read.",
     closeTitle: "One email starts it.",
     closeBody:
-      "Applications, research enquiries, partnerships and press all begin with one message, and the reply comes from a person. Nothing is committed until both sides agree.",
+      "Enquiries about current work, research, partnerships and press all begin with one message. The Oryx office states what is available in writing.",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
     seeWhatRuns: "See what runs now",
-    apply: "Apply",
+    apply: "Enquire",
     read: "Read",
     dateTbc: "Date to be confirmed",
   },
@@ -92,19 +91,19 @@ const copy = {
       description: siteAf.description,
     },
     positioning:
-      "'n Nuwe politegniese instituut vir Namibië, werksaam vanuit Windhoek. Voor bekendstelling en besig om akkreditasie by die NQA en NTA na te streef. Elke stap word in die register gedateer.",
+      "'n Nuwe politegniese instituut vir Namibië. Oryx werk aan NTA-registrasie en is nie geregistreer of geakkrediteer nie. Elke bevestigde stap word in die openbare register gedateer.",
     aboutLink: "Oor die instituut",
     kinds: [
       {
         key: "research" as const,
         name: "Navorsing",
-        body: "Veldwerk, Bulletin-opstelle en bronne oor Namibië se werkswerklikhede. Gratis voordat enigiets gehef word.",
+        body: "Veldwerk, gepubliseerde navorsingsnotas en bronne oor Namibië se werkswerklikhede.",
         link: "Lees die navorsing",
       },
       {
         key: "practice" as const,
         name: "Praktyk",
-        body: "Blitskursusse, besigheidsadvies, marknavorsing en vinnige-reaksie-opleiding. Volgens Namibiese standaarde gelewer.",
+        body: "Besigheidsadvies en marknavorsing, gestel vir wat tans beskikbaar is.",
         link: "Sien die praktyk",
       },
       {
@@ -117,7 +116,7 @@ const copy = {
     kindsTitle: "Hoe die instituut werk.",
     runsTitle: "Wat vandag werk.",
     runsBody:
-      "Ses aanbiedinge werk vandag vanuit die kantoor in Windhoek. Twee onderrigafdelings bied slegs blits- en kortkursusse aan; die praktyk en gratis Directory werk saam daarmee. Geloofsbriewe volg eers ná akkreditasie.",
+      "Huidige werk is besigheidsadvies en marknavorsing. Leerpaaie word vir die registrasieproses ontwikkel en is nie geakkrediteerde kwalifikasies nie.",
     researchTitle: "Navorsing begin op dag een.",
     researchLine:
       "Geen geboue is vir dié werk nodig nie; geen geboue vertraag dit nie.",
@@ -128,11 +127,11 @@ const copy = {
     registerMeta: "Gedateer wanneer die werk land, en vir almal leesbaar.",
     closeTitle: "Een e-pos begin dit.",
     closeBody:
-      "Aansoeke, navorsingsnavrae, vennootskappe en media begin met een boodskap; 'n mens antwoord. Niks word vasgelê voordat albei kante saamstem nie.",
+      "Navrae oor huidige werk, navorsing, vennootskappe en media begin met een boodskap. Die Oryx-kantoor stel skriftelik wat beskikbaar is.",
     writeOffice: "Skryf aan die kantoor",
     readFaq: "Lees die vrae",
     seeWhatRuns: "Sien wat nou werk",
-    apply: "Doen aansoek",
+    apply: "Doen navraag",
     read: "Lees",
     dateTbc: "Datum moet bevestig word",
     enLedger: { paras: [] as string[] },
@@ -265,17 +264,6 @@ export default async function HomePage({
           </div>
           <div className="mt-6" data-sc-parallax="0.08">
             <p className="hero-sub max-w-[44ch]">{s.heroSub}</p>
-            {/* The announcement pill: one small door above the fold,
-                nothing more. No popups, no banners, no slide-ins. */}
-            <div className="mt-6">
-              <Link
-                href={af ? "/af/practice/safety-officer-course" : "/practice/safety-officer-course"}
-                className="hero-pill"
-              >
-                {safetyAnnouncement[lang].pill}{" "}
-                <span className="arr" aria-hidden="true">→</span>
-              </Link>
-            </div>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="#what-runs" className="btn btn--cream">
                 {t.seeWhatRuns}
@@ -371,8 +359,8 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* What runs today: six offers, hairline ledger, no images.
-          The tag sits far right; the verbal CTA ends the sentence. */}
+      {/* What is available now: a short, factual ledger. Future learning
+          stays out of this section until the relevant registration exists. */}
       <section id="what-runs" className="section-lg">
         <div className="shell">
           <h2 className="h-section max-w-[18ch]">{t.runsTitle}</h2>
@@ -431,7 +419,7 @@ export default async function HomePage({
           holds one real pathway for the rest of the visit. */}
       <PathwayNotes lang={lang} />
 
-      {/* Research pull: its own field folio plate, then the latest Bulletin. */}
+      {/* Research pull: its own field folio plate, then the latest published note. */}
       <section className="section-lg" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
           <figure className="plate-fig" data-sc-in>
@@ -448,9 +436,9 @@ export default async function HomePage({
           <div>
             <h2 className="h-section max-w-[20ch]">{t.researchTitle}</h2>
             {/* The Afrikaans page carries the panel in Afrikaans (the
-                Bulletin correction: no mixed-language excerpt on the
-                af homepage); the essays themselves publish in
-                English, and the link says so. */}
+                research-note excerpt is localised on the Afrikaans
+                homepage); the notes themselves publish in English, and
+                the link says so. */}
             <p className="measure mt-6 text-soft">
               {af ? latest.dekAf : latest.dek}
             </p>
@@ -465,10 +453,10 @@ export default async function HomePage({
                   : `${latest.body[0].slice(0, 220)}…`}
               </p>
               <Link
-                href={af ? "/af/resources#bulletin" : "/resources#bulletin"}
+                href={af ? "/af/research#notes" : "/research#notes"}
                 className="btn--quiet mt-6"
               >
-                {af ? "Read the Bulletin" : "Read the Bulletin"}{" "}
+                {af ? "Lees die navorsingsnotas" : "Read the research notes"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -515,66 +503,6 @@ export default async function HomePage({
                 >
                   {af ? "Read the blog note" : "Read the blog note"}
                 </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Act 8b, the announcement pin: the horn at low opacity
-          behind a cream card, the helmet as the small focal plate.
-          Atmosphere, not a banner: one pinned breath, then it scrolls
-          away. (ANNOUNCEMENT.md, verbatim structure.) */}
-      <section
-        className="peak"
-        data-sc-act="pin"
-        data-sc-span="1.4"
-      >
-        <div className="sc-stage" data-sc-stage>
-          <div className="announce-bg" data-sc-scale aria-hidden="true">
-            <div className="absolute inset-[-8%]" data-sc-parallax="0.4">
-              <Image
-                src="/images/kinfolk/safety/46-announcement-horn.jpg"
-                alt=""
-                width={1254}
-                height={1254}
-                sizes="100vw"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="sc-stage-inner flex h-full items-center">
-            <div className="shell w-full">
-              <div className="announce-card" data-sc-scrim>
-                <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-14">
-                  <div>
-                    <p className="eyebrow eyebrow--ink">
-                      {safetyAnnouncement[lang].eyebrow}
-                    </p>
-                    <h2 className="h-section mt-4 max-w-[20ch]">
-                      {safetyAnnouncement[lang].title}
-                    </h2>
-                    <p className="measure mt-5 text-soft">
-                      {safetyAnnouncement[lang].body}
-                    </p>
-                    <div className="mt-8 flex flex-wrap items-center gap-5">
-                      <Link
-                        href={af ? "/af/practice/safety-officer-course" : "/practice/safety-officer-course"}
-                        className="btn"
-                      >
-                        {safetyAnnouncement[lang].seeCurriculum}
-                      </Link>
-                      <Link
-                        href={af ? "/af/apply/safety" : "/apply/safety"}
-                        className="btn--quiet"
-                      >
-                        {safetyAnnouncement[lang].registerInterest}{" "}
-                        <span className="arr" aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-
-                </div>
               </div>
             </div>
           </div>

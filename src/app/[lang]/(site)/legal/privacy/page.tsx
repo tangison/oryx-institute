@@ -15,7 +15,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
       {
         h: "Wat ons ontvang",
         body: [
-          "Die aansoekvorm stoor niks op hierdie webwerf nie. Wanneer jy stuur, open jou eie e-posprogram ’n boodskap aan die kantoor. Daarna bestaan dit slegs in die gesprek wat jy begin het.",
+          "Die navraagvorm stoor niks op hierdie webwerf nie. Wanneer jy stuur, open jou eie e-posprogram ’n boodskap aan die kantoor. Daarna bestaan dit slegs in die gesprek wat jy begin het.",
           "As jy per e-pos skryf, ontvang ons net wat jy kies om te gee: jou naam, kontakbesonderhede, belangstellingsveld en die inhoud van jou boodskap.",
         ],
       },
@@ -29,7 +29,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
       },
       {
         h: "Hoe lank dit bly",
-        body: ["Aansoeke bly vir die duur van die gesprek en vir enige rekordhoudingstyd wat daarna nodig is. Boodskappe wat nêrens heen lei nie, word verwyder wanneer die uitruil afgehandel is."],
+        body: ["Navrae bly vir die duur van die gesprek en vir enige rekordhoudingstyd wat daarna nodig is. Boodskappe wat nêrens heen lei nie, word verwyder wanneer die uitruil afgehandel is."],
       },
       {
         h: "Jou regte",
@@ -54,7 +54,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
     {
       h: "What we receive",
       body: [
-        "The application composer stores nothing on this site. When you send, your own mail client opens a message to the office. From then on, it exists only in the conversation you started.",
+        "The enquiry composer stores nothing on this site. When you send, your own mail client opens a message to the office. From then on, it exists only in the conversation you started.",
         "If you write by email, we receive only what you choose to give: your name, contact details, field of interest and the content of your message.",
       ],
     },
@@ -68,7 +68,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
     },
     {
       h: "How long it stays",
-      body: ["Applications are kept for the life of the conversation and for any record-keeping period required afterwards. Messages that lead nowhere are deleted once the exchange has run its course."],
+      body: ["Enquiries are kept for the life of the conversation and for any record-keeping period required afterwards. Messages that lead nowhere are deleted once the exchange has run its course."],
     },
     {
       h: "Your rights",

@@ -5,8 +5,8 @@ import { chromium } from "playwright";
 
 const BASE = "https://www.oryxinstitute.org";
 const routes = [
-  "", "about", "apply", "brand", "contact", "faq", "news",
-  "programmes", "research", "resources", "schools", "tools", "ventures",
+  "", "about", "apply", "brand", "contact", "faq", "research",
+  "practice", "ventures", "register", "status", "links",
 ];
 const viewports = [
   { name: "desktop", width: 1440, height: 900 },

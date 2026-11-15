@@ -23,7 +23,7 @@ export function SearchControl({ lang }: { lang: Lang }) {
   const pathname = usePathname();
 
   /* The index lives in its own chunk with the content it draws from
-     (the Directory, the Bulletin, the answers): it loads once, on the
+     (research notes, public pages and answers): it loads once, on the
      first keystroke, never on the load path. */
   const indexRef = useRef<SearchEntry[] | null>(null);
 

@@ -11,33 +11,33 @@ const copy = {
     meta: {
       title: "Questions & Answers",
       description:
-        "Applying to Oryx Institute, the programmes, the meaning of a polytechnic, ventures, the certificate and where to find the office in Windhoek.",
+        "Oryx Institute answers on current practice, institutional status, ventures, research and approved public contact routes.",
       ogTitle: "FAQ | Oryx Institute",
-      ogDescription: "Applying, programmes, ventures, the certificate and the office, answered.",
+      ogDescription: "Current practice, institutional status, ventures, research and public contact routes, answered.",
       ldName: "Frequently asked questions, Oryx Institute",
     },
     headTitle: "Questions, answered.",
     headLede:
-      "What applicants ask before they write. Anything else, put it in the application message itself: the Principal's office answers directly.",
+      "What people ask before they write. Anything else can go to the Oryx office through the approved public contact routes.",
     writeOffice: "Write to the office",
-    applyNow: "Apply now",
+    applyNow: "Enquire",
     contactLink: "Contact the office",
   },
   af: {
     meta: {
-      title: "Questions & Answers",
+      title: "Vrae en antwoorde",
       description:
-        "Applying to Oryx Institute, the programmes, the meaning of a polytechnic, ventures, the certificate and where to find the office in Windhoek.",
-      ogTitle: "FAQ | Oryx Institute",
-      ogDescription: "Applying, programmes, ventures, the certificate and the office, answered.",
-      ldName: "Frequently asked questions, Oryx Institute",
+        "Oryx Instituut antwoord vrae oor huidige praktyk, institusionele status, ondernemings, navorsing en goedgekeurde openbare kontakroetes.",
+      ogTitle: "Vrae | Oryx Instituut",
+      ogDescription: "Huidige praktyk, institusionele status, ondernemings, navorsing en openbare kontakroetes, beantwoord.",
+      ldName: "Gereelde vrae, Oryx Instituut",
     },
-    headTitle: "Questions, answered.",
+    headTitle: "Vrae, beantwoord.",
     headLede:
-      "What applicants ask before they write. Anything else, put it in the application message itself: the Principal's office answers directly.",
-    writeOffice: "Write to the office",
-    applyNow: "Apply now",
-    contactLink: "Contact the office",
+      "Wat mense vra voordat hulle skryf. Enigiets anders kan deur die goedgekeurde openbare kontakroetes na die Oryx-kantoor gaan.",
+    writeOffice: "Skryf aan die kantoor",
+    applyNow: "Doen navraag",
+    contactLink: "Kontak die kantoor",
     enLedger: { paras: [] as string[] },
   },
 } as const;

@@ -10,7 +10,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
     return [
       {
         h: "Wat hierdie webwerf doen",
-        body: ["Hierdie webwerf stel Oryx Institute voor en nooi navrae uit. Dit neem geen betaling nie, skep geen rekening nie en hou nie ’n aansoek in die webwerf self nie: die vorm berei ’n e-pos in jou eie e-posprogram voor."],
+        body: ["Hierdie webwerf stel Oryx Institute voor en nooi navrae uit. Dit neem geen betaling nie, skep geen rekening nie en hou nie ’n navraag in die webwerf self nie: die vorm berei ’n e-pos in jou eie e-posprogram voor."],
       },
       {
         h: "Wat ’n navraag beteken",
@@ -18,7 +18,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
       },
       {
         h: "Wat die bladsy sê",
-        body: ["Die webwerf beskryf die instituut se rigting, praktyk en gepubliseerde materiaal soos dit tans bestaan. ’n Rigting is nie ’n katalogus van aanbiedinge nie. Spesifieke programme, kursusse en sertifikate word by navraag bevestig."],
+        body: ["Die webwerf beskryf die instituut se rigting, huidige praktyk en gepubliseerde materiaal soos dit tans bestaan. ’n Rigting is nie ’n katalogus van aanbiedinge nie. Oryx werk aan NTA-opleidingsverskafferregistrasie en beweer nie geakkrediteerde programme, NQF-krediete of ’n openbare kampus nie."],
       },
       {
         h: "Die werk op die blad",
@@ -42,15 +42,15 @@ function sections(lang: "en" | "af"): LegalSection[] {
   return [
     {
       h: "What this website does",
-      body: ["This website introduces Oryx Institute and invites enquiries. It takes no payment, creates no account and holds no application inside the site itself: the form prepares an email in your own mail client."],
+      body: ["This website introduces Oryx Institute and invites enquiries. It takes no payment, creates no account and holds no enquiry inside the site itself: the form prepares an email in your own mail client."],
     },
     {
       h: "What an enquiry means",
-      body: ["A message asks the office to read and reply. It does not create a place, a promise of a place, or an obligation on either side. Admission, placement and study arrangements are confirmed only in a written reply from the institute."],
+      body: ["A message asks the office to read and reply. It does not create a place, an intake, a qualification claim or an obligation on either side. The office states the current position in writing."],
     },
     {
       h: "What the page says",
-      body: ["The site describes the institute’s direction, practice and published material as they stand. A direction is not a catalogue of offerings. Specific programmes, courses and certificates are confirmed at enquiry."],
+      body: ["The site describes the institute’s direction, current practice and published material as they stand. A direction is not a catalogue of offerings. Oryx is working toward NTA training-provider registration and does not claim accredited programmes, NQF credits or a public campus."],
     },
     {
       h: "The work on the page",
@@ -85,7 +85,7 @@ const copy = {
       lede: "The site carries an introduction and an enquiry. The important decisions happen in writing, person to person.",
     },
     summary: "The short version",
-    summaryBody: "A message is an opening, not an enrolment. The website explains the work; the office confirms the details.",
+    summaryBody: "A message opens a conversation. The website explains the current position; the office confirms the scope in writing.",
     detail: "Read this part",
     close: "If the work matters, ask the office and keep the answer in writing.",
   },
@@ -102,7 +102,7 @@ const copy = {
       lede: "Die webwerf dra ’n inleiding en ’n navraag. Die belangrike besluite gebeur skriftelik, mens tot mens.",
     },
     summary: "Die kort weergawe",
-    summaryBody: "’n Boodskap is ’n begin, nie ’n inskrywing nie. Die webwerf verduidelik die werk; die kantoor bevestig die besonderhede.",
+    summaryBody: "’n Boodskap begin ’n gesprek. Die webwerf verduidelik die huidige posisie; die kantoor bevestig die omvang skriftelik.",
     detail: "Lees hierdie deel",
     close: "As die werk saak maak, vra die kantoor en hou die antwoord skriftelik.",
   },

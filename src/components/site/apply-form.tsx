@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { offers, site } from "@/lib/site";
 import { offersAf } from "@/lib/site-af";
 import type { Lang } from "@/lib/i18n";
@@ -11,7 +11,7 @@ const labels = {
   en: {
     name: "Name",
     namePlaceholder: "Your full name",
-    nameError: "Please tell us your name so we know who is applying.",
+    nameError: "Please tell us your name so we know who is enquiring.",
     contact: "Email for the reply",
     contactErrorEmpty:
       "Add one way to reach you: an email address, or a phone number if you prefer a call.",
@@ -21,22 +21,21 @@ const labels = {
     notSure: "Not sure yet",
     message: "Message, optional",
     messagePlaceholder:
-      "Tell us where you are coming from and what you want to learn",
+      "Tell us what you need and any useful context",
     submit: "Prepare the email",
     submitNote: (email: string) =>
-      `Opens your own mail client with the application addressed to ${email}. Nothing is stored on this site.`,
+      `Opens your own mail client with the enquiry addressed to ${email}. Nothing is stored on this site.`,
     noScript: (email: string) => (
       <>
-        The composer needs JavaScript. Without it, the application is the
-        same email written by hand:{" "}
+        The composer needs JavaScript. Without it, write the same enquiry
+        by hand:{" "}
         <a href={`mailto:${email}`} className="link-type">
           {email}
         </a>
       </>
     ),
     subject: (name: string, discipline: string) =>
-      `Application: ${name} · ${discipline}`,
-    safety: "Safety training",
+      `Enquiry: ${name} · ${discipline}`,
     body: (
       name: string,
       contact: string,
@@ -57,7 +56,7 @@ const labels = {
   af: {
     name: "Naam",
     namePlaceholder: "Jou volle naam",
-    nameError: "Vertel ons jou naam sodat ons weet wie aansoek doen.",
+    nameError: "Vertel ons jou naam sodat ons weet wie navraag doen.",
     contact: "E-posadres vir die antwoord",
     contactErrorEmpty: "Voeg een manier by om jou te bereik: 'n e-posadres of telefoonnommer.",
     contactErrorBad:
@@ -65,21 +64,20 @@ const labels = {
     field: "Belangstellingsveld",
     notSure: "Nog nie seker nie",
     message: "Boodskap, opsioneel",
-    messagePlaceholder: "Vertel ons waar jy vandaan kom en wat jy wil leer",
+    messagePlaceholder: "Vertel ons wat jy benodig en enige nuttige agtergrond",
     submit: "Stel die e-pos op",
     submitNote: (email: string) =>
-      `Maak jou eie e-posprogram oop met die aansoek aan ${email}. Niks word op hierdie webwerf gestoor nie.`,
+      `Maak jou eie e-posprogram oop met die navraag aan ${email}. Niks word op hierdie webwerf gestoor nie.`,
     noScript: (email: string) => (
       <>
-        Die samesteller vereis JavaScript. Daarsonder is die aansoek dieselfde e-pos wat met die hand geskryf word:{" "}
+        Die samesteller vereis JavaScript. Daarsonder kan jy dieselfde navraag met die hand skryf:{" "}
         <a href={`mailto:${email}`} className="link-type">
           {email}
         </a>
       </>
     ),
     subject: (name: string, discipline: string) =>
-      `Aansoek: ${name} · ${discipline}`,
-    safety: "Veiligheidsopleiding",
+      `Navraag: ${name} · ${discipline}`,
     body: (
       name: string,
       contact: string,
@@ -100,61 +98,20 @@ const labels = {
 } as const;
 
 /**
- * Email-first application composer. The form builds a prefilled email
- * to the office's mailbox and hands off to the visitor's own mail
- * client. No data is stored on this site; nothing is sent anywhere
- * until the visitor presses send in their own client.
- *
- * The field of interest is preselected by the `preselect` prop on the
- * /apply/<offer> routes, or by the legacy ?for=<offer-id> query read
- * client-side so the hub stays static.
- *
- * The business telephone line is deliberately not published while the
- * institute is being established; when one lands, a phone field and a
- * tel handoff are added back here.
+ * Email-first enquiry composer. The form builds a prefilled email to the
+ * Oryx office and hands off to the visitor's own mail client. No data is
+ * stored on this site; nothing is sent until the visitor presses send.
  */
-export function ApplyForm({
-  lang,
-  preselect,
-}: {
-  lang: Lang;
-  preselect?: string;
-}) {
+export function ApplyForm({ lang }: { lang: Lang }) {
   const t = labels[lang];
   const offerList = lang === "af" ? offersAf : offers;
-  /* The safety programme takes its own option beside the six offers:
-     the CTAs on the course pages deep-link to /apply/safety (and
-     /apply/safety-level-N), which preselects it. */
-  const SAFETY_IDS = ["safety", "safety-level-1", "safety-level-2", "safety-level-3"];
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  /* The field of interest resolves at first render when the route
-     carries it (/apply/<offer> passes preselect), so server and client
-     agree without an effect. The legacy ?for= form is read after mount,
-     in the effect below. */
-  const [discipline, setDiscipline] = useState<string>(() => {
-    if (!preselect) return offerList[0].name;
-    if (SAFETY_IDS.includes(preselect)) return t.safety;
-    const hit = offerList.find((o) => o.id === preselect);
-    return hit ? hit.name : offerList[0].name;
-  });
+  /* The select names current work only; it does not construct a
+     programme catalogue or an enrolment pathway. */
+  const [discipline, setDiscipline] = useState<string>(offerList[0].name);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
-
-  useEffect(() => {
-    if (preselect) return;
-    const wanted = new URLSearchParams(window.location.search).get("for");
-    if (!wanted) return;
-    const t0 = setTimeout(() => {
-      if (SAFETY_IDS.includes(wanted)) {
-        setDiscipline(t.safety);
-        return;
-      }
-      const hit = offerList.find((o) => o.id === wanted);
-      if (hit) setDiscipline(hit.name);
-    }, 0);
-    return () => clearTimeout(t0);
-  }, []);
 
   function validate(): Errors {
     const next: Errors = {};
@@ -270,7 +227,6 @@ export function ApplyForm({
                 {o.name}
               </option>
             ))}
-            <option value={t.safety}>{t.safety}</option>
             <option value={t.notSure}>{t.notSure}</option>
           </select>
         </div>
@@ -296,8 +252,7 @@ export function ApplyForm({
         </button>
         <p className="text-[0.85rem] text-soft">{t.submitNote(site.email)}</p>
       </div>
-      {/* With JavaScript off, the composer cannot run; the address
-          itself is the application. */}
+      {/* With JavaScript off, the public mailbox remains available. */}
       <noscript>
         <p className="field-error">{t.noScript(site.email)}</p>
       </noscript>
