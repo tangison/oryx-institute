@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { RouteArrowIcon } from "@/components/site/glyphs";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { linkHub, organizationContactSchema, schemaIds, site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
@@ -108,7 +109,7 @@ function HubRow({
     <>
       <span className="link-hub__row-title">{label[0]}</span>
       <span className="link-hub__row-note">{label[1]}</span>
-      <span className="link-hub__arrow" aria-hidden="true">↗</span>
+      <RouteArrowIcon className="link-hub__arrow" />
     </>
   );
 

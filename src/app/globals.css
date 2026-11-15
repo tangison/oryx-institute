@@ -3246,11 +3246,12 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
   line-height: 1.45;
 }
 .link-hub__arrow {
+  width: 1.25rem;
+  height: 1.25rem;
   grid-column: 2;
   grid-row: 1 / span 2;
   align-self: center;
   color: var(--ivory-60);
-  font-size: 1.3rem;
   transition: transform var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
 }
 .link-hub__row:hover .link-hub__arrow {
