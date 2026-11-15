@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site, offers, register, ventures, schemaIds } from "@/lib/site";
+import { site, offers, register, ventures, schemaIds, organizationContactSchema } from "@/lib/site";
 import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
@@ -215,26 +215,10 @@ export default async function HomePage({
       {
         "@type": "EducationalOrganization",
         "@id": schemaIds.org,
-        name: site.legalName,
+        ...organizationContactSchema,
         alternateName: af ? siteAf.tradingName : site.tradingName,
         url: site.url,
-        email: site.email,
-        telephone: site.phoneE164,
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            telephone: site.phoneE164,
-            contactType: "customer service",
-            email: site.email,
-          },
-        ],
         foundingDate: "2026",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: site.city,
-          addressCountry: "NA",
-        },
-        sameAs: site.socials.map((x) => x.href),
       },
       {
         "@type": "WebSite",

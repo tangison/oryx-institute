@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { site, schemaIds } from "@/lib/site";
+import { site, schemaIds, organizationContactSchema } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { getSafetyLevel, safetyLevels } from "@/lib/safety";
 
@@ -150,12 +150,7 @@ export default async function SafetyLevelPage({
         provider: {
           "@type": "EducationalOrganization",
           "@id": schemaIds.org,
-          name: site.legalName,
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: site.city,
-            addressCountry: "NA",
-          },
+          ...organizationContactSchema,
         },
         hasCourseInstance: {
           "@type": "CourseInstance",

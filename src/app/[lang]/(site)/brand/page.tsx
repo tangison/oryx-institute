@@ -465,9 +465,8 @@ function OverlayMark({ piece }: { piece: (typeof kitPieces)[number] }) {
     );
   }
   if (o.kind === "letterhead") {
-    /* The letterhead carries two marks: the lockup one clearspace in
-       from the sheet's top left, and a maroon hairline rule with the
-       office line near the sheet's bottom edge (Audit A5). */
+    /* The letterhead carries the locked mark, a scannable route to the
+       official Link Hub, and the single approved contact footer. */
     return (
       <div className="absolute" style={o.sheet} aria-hidden="true">
         <span
@@ -482,20 +481,35 @@ function OverlayMark({ piece }: { piece: (typeof kitPieces)[number] }) {
             style={{ width: "100%", height: "auto" }}
           />
         </span>
+        <span className="absolute" style={{ right: "9%", top: "9%", width: "16%" }}>
+          <Image
+            src="/images/links/oryx-links-qr.svg"
+            alt=""
+            width={512}
+            height={512}
+            className="h-auto w-full"
+          />
+        </span>
         <span
           className="absolute border-t"
           style={{
             left: "9%",
             right: "9%",
-            bottom: "9%",
+            bottom: "13%",
             borderColor: "var(--maroon)",
           }}
         />
         <p
-          className="absolute text-[0.55rem] tracking-[0.14em]"
-          style={{ left: "9%", bottom: "5.5%", color: "#181713B3" }}
+          className="absolute text-[0.36rem] leading-[1.4] tracking-[0.08em]"
+          style={{ left: "9%", right: "9%", bottom: "8%", color: "#181713B3" }}
         >
-          info@oryxinstitute.org · Windhoek · Namibia
+          Post: {site.postalAddress.line} · Email: {site.email} · Call or WhatsApp: {site.phoneDisplay} · {site.webAddress}
+        </p>
+        <p
+          className="absolute text-[0.28rem] leading-[1.4] tracking-[0.04em]"
+          style={{ left: "9%", right: "9%", bottom: "4.6%", color: "#18171399" }}
+        >
+          {site.legalLine} · {site.copyright}
         </p>
       </div>
     );

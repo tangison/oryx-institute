@@ -18,6 +18,7 @@ export const siteAf = {
     "Oryx Instituut: ’n nuwe politegniese instituut vir Namibië. Navorsing, praktiese leer, bruikbare hulpmiddels en ondernemings wat die werk laat bewys word.",
   country: "Namibië",
   areaServed: "Namibië",
+  postalAddressLine: "Posbus 1662, Windhoek, Namibië",
   plannedCentre:
     "Oryx het sy eerste toegewyde opleidingsentrumterrein by Untag Guest House in Ongwediva verseker. Die sentrum word beplan en is nog nie oop nie.",
 } as const;
@@ -244,7 +245,7 @@ export const faqsAf = [
   },
   {
     q: "Waar is die instituut?",
-    a: "Die instituut werk vanuit Windhoek, Namibië. Dit word gevestig en bedryf nog nie 'n openbare perseel nie; daarom word geen straatadres of posbus gepubliseer nie. Die kantoor antwoord navrae by info@oryxinstitute.org, of per telefoon of WhatsApp op 083 676 4338. Besoeke word op afspraak gereël.",
+    a: "Die instituut is in Namibië gebaseer en publiseer slegs ’n posadres: Posbus 1662, Windhoek, Namibië. Geen fisiese adres of openbare besoekinligting word gepubliseer nie. Die kantoor antwoord by info@oryxinstitute.org, of per telefoon of WhatsApp op 083 676 4338.",
   },
   {
     q: "Wie lei die instituut?",
@@ -256,7 +257,7 @@ export const faqsAf = [
   },
   {
     q: "Kan ek die kantoor besoek?",
-    a: "Ja, op afspraak. Sê in jou eerste boodskap dat jy wil ontmoet en die kantoor bevestig 'n tyd en plek in Windhoek wat vir albei werk.",
+    a: "Geen openbare besoekadres of besoekinligting word gepubliseer nie. Skryf aan die kantoor indien jou navraag ’n vergadering vereis; die antwoord sal noem of en hoe die instituut kan help.",
   },
   {
     q: "Is Oryx geakkrediteer?",
@@ -311,6 +312,7 @@ export const navAf = {
     { href: "/about", label: "Oor" },
     { href: "/brand", label: "Handelsmerk" },
     { href: "/apply", label: "Doen aansoek" },
+    { href: "/links", label: "Skakels" },
     { href: "/contact", label: "Kontak" },
     { href: "/faq", label: "Vrae" },
     { href: "/legal/privacy", label: "Privaatheid" },

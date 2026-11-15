@@ -60,10 +60,22 @@ export const site = {
   city: "Windhoek",
   country: "Namibia",
   areaServed: "Namibia",
+  legalLine:
+    "Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517",
+  copyright: "© 2026 Oryx Polytechnic Institute. All rights reserved.",
+  postalAddress: {
+    postOfficeBox: "P.O. Box 1662",
+    addressLocality: "Windhoek",
+    addressCountry: "Namibia",
+    line: "P.O. Box 1662, Windhoek, Namibia",
+  },
+  webAddress: "oryxinstitute.org",
+  linksUrl: "https://www.oryxinstitute.org/links",
   plannedCentre:
     "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.",
-  /** The one mailbox. Everything runs through it while the institute
-   * is young: applications, partnerships, the press. */
+  /** The one public mailbox. Applications, partnerships and press
+     * correspondence start here unless a dedicated public channel is
+     * published later. */
   email: "info@oryxinstitute.org",
   /** The institute's own line. Local format for Namibian readers,
    * international format for structured data and machine readers. The
@@ -76,6 +88,12 @@ export const site = {
   phoneE164: "+264836764338",
   phoneHref: "tel:+264836764338",
   whatsappHref: "https://wa.me/264836764338",
+  /** A temporary Google Maps search route. It is deliberately not added
+   * to sameAs while the new Business Profile is still absent from public
+   * Maps results. Replace this with the verified profile Share link once
+   * it is discoverable. */
+  googleMapsSearchUrl:
+    "https://www.google.com/maps/search/?api=1&query=Oryx%20Institute%2C%20Windhoek%2C%20Namibia",
   /** Social channels, icon-only links in the footer and on /contact.
    * Each opens in a new tab; nothing is embedded. */
   socials: [
@@ -120,6 +138,66 @@ export const site = {
 export const schemaIds = {
   org: `${site.url}/#organization`,
   website: `${site.url}/#website`,
+} as const;
+
+/** One reusable public-contact schema. Page-specific JSON-LD can attach
+ * its own @id and locale, but names, channels, postal address and social
+ * links always originate here. */
+export const organizationContactSchema = {
+  name: site.tradingName,
+  legalName: site.legalName,
+  email: site.email,
+  telephone: site.phoneE164,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: site.phoneE164,
+      contactType: "customer service",
+      email: site.email,
+    },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    postOfficeBoxNumber: site.postalAddress.postOfficeBox,
+    addressLocality: site.postalAddress.addressLocality,
+    addressCountry: "NA",
+  },
+  sameAs: site.socials.map((channel) => channel.href),
+} as const;
+
+/** The ordered public hub. URLs live in this content source rather than
+ * being repeated in the page, footer, menu or company material. Labels
+ * may be localized by the surface that renders them. */
+export const linkHub = {
+  direct: [
+    { id: "call", href: site.phoneHref },
+    { id: "whatsapp", href: site.whatsappHref, external: true },
+    { id: "email", href: `mailto:${site.email}` },
+  ],
+  enquiries: [
+    { id: "apply", href: "/apply" },
+    { id: "owners-desk", href: "/apply/owners-desk" },
+    { id: "safety", href: "/practice/safety-officer-course" },
+  ],
+  reading: [
+    { id: "directory", href: "/resources" },
+    { id: "research", href: "/research" },
+    { id: "bulletin", href: "/resources#bulletin" },
+  ],
+  institute: [
+    { id: "practice", href: "/practice" },
+    { id: "ventures", href: "/ventures" },
+    { id: "corner-spa", href: "/corner-spa" },
+    { id: "register", href: "/register" },
+  ],
+  googleMaps: [{ id: "google-maps", href: site.googleMapsSearchUrl, external: true }],
+  utility: [
+    { id: "about", href: "/about" },
+    { id: "contact", href: "/contact" },
+    { id: "faq", href: "/faq" },
+    { id: "privacy", href: "/legal/privacy" },
+    { id: "terms", href: "/legal/terms" },
+  ],
 } as const;
 
 /**
@@ -397,6 +475,7 @@ export const footerNav = [
   { href: "/about", label: "About" },
   { href: "/brand", label: "Brand" },
   { href: "/apply", label: "Apply" },
+  { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
   { href: "/legal/privacy", label: "Privacy" },
@@ -432,7 +511,7 @@ export const faqs = [
   },
   {
     q: "Where is the institute?",
-    a: "The institute works from Windhoek, Namibia. It is being established and does not operate public premises yet, so no street address or post box is printed. The office answers every enquiry by email at info@oryxinstitute.org, or by phone or WhatsApp on 083\u00A0676\u00A04338, and visits are arranged by appointment.",
+    a: "The institute is based in Namibia and publishes a postal address only: P.O. Box 1662, Windhoek, Namibia. No physical address or public visiting instructions are published. The office answers at info@oryxinstitute.org, or by phone or WhatsApp on 083\u00A0676\u00A04338.",
   },
   {
     q: "Who leads the institute?",
@@ -444,7 +523,7 @@ export const faqs = [
   },
   {
     q: "Can I visit the office?",
-    a: "Yes, by appointment. Say in your first message that you would like to meet, and the office will confirm a time and place in Windhoek that suits both sides.",
+    a: "No public visiting address or visiting instructions are published. Write to the office if your enquiry requires a meeting; the reply will state whether and how the institute can help.",
   },
   {
     q: "Is Oryx accredited?",
