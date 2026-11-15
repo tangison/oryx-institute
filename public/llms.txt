@@ -1,8 +1,8 @@
 # Oryx Institute
 
-> Oryx Polytechnic Institute ("Oryx Institute") is a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia. It works through three parts: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields: the teaching offer, and all of it: beside the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. One mailbox answers everything: info@oryxinstitute.org.
+> Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517, is a prelaunch polytechnic-style institute and consulting practice for Namibia. It works through three parts: research, practice, and ventures. Live today: crash courses and short courses in business administration and IT and related fields; the Owner's Desk (business counselling), market research and development, Rapid Response Training, and the free Oryx Directory. One public mailbox answers everything: info@oryxinstitute.org.
 
-Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus, no public premises and no street address while none exist. Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. Visits are arranged by appointment in Windhoek. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Afrikaans (the Afrikaans site lives under /af).
+Oryx Institute states its status as it is: prelaunch, pre-accreditation, honest. It claims no campus or public premises. Postal correspondence: P.O. Box 1662, Windhoek, Namibia. No physical address, public visiting instructions or opening hours are published. The office line: call or WhatsApp +264 83 676 4338 (local format 083 676 4338), or write to info@oryxinstitute.org. The official link hub is https://www.oryxinstitute.org/links. Programme and course offerings are confirmed by the Principal's office at the point of application. The Principal is Tangi Iigonda. Every page exists in English and in Afrikaans (the Afrikaans site lives under /af).
 
 ## What runs today (six offers)
 
@@ -60,13 +60,14 @@ Templates: [Letterhead](https://www.oryxinstitute.org/resources/letterhead-templ
 
 ## Markdown mirrors
 
-Every page on this site is also served through an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/resources](https://www.oryxinstitute.org/md/resources), and so on for every route. Any page requested with an `Accept: text/markdown` header returns its matching shelf document directly; an `/af/...` request resolves to the same English shelf path. The HTML page stays canonical. Agents and answer engines are welcome to read either form.
+Published public pages have an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/resources](https://www.oryxinstitute.org/md/resources), and [/md/links](https://www.oryxinstitute.org/md/links). Markdown is an explicit typed alternate; ordinary page requests remain canonical HTML. Agents and answer engines are welcome to read either form.
 
 ## Contact
 
-- [Contact page](https://www.oryxinstitute.org/contact): the office, stated as it is.
-- Email: info@oryxinstitute.org (the one mailbox; applications, partnerships, press)
-- Location: Windhoek, Namibia (no public premises yet; visits by appointment)
+- [Link Hub](https://www.oryxinstitute.org/links): every official contact route, programme, publication, venture and social channel.
+- [Contact page](https://www.oryxinstitute.org/contact): public office details.
+- Email: info@oryxinstitute.org (the one public mailbox; applications, partnerships, press)
+- Postal address: P.O. Box 1662, Windhoek, Namibia. No physical address, public visiting instructions or opening hours are published.
 - Telephone: +264 83 676 4338 (call or WhatsApp; local readers dial 083 676 4338)
 - WhatsApp: https://wa.me/264836764338
 - Social: Instagram @oryx_institute, Facebook /oryxinstitute, LinkedIn /company/oryx-polytechnic-institute, X @oryx_institute, Threads @oryx_institute

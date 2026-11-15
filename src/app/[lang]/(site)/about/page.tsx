@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site, status, schemaIds } from "@/lib/site";
+import { site, status, schemaIds, organizationContactSchema } from "@/lib/site";
 import { siteAf, statusAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 
@@ -179,15 +179,8 @@ export default async function AboutPage({
     mainEntity: {
       "@type": "EducationalOrganization",
       "@id": schemaIds.org,
-      name: site.legalName,
-      alternateName: site.tradingName,
+      ...organizationContactSchema,
       url: site.url,
-      email: site.email,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: site.city,
-        addressCountry: "NA",
-      },
     },
   };
 

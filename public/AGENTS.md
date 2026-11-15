@@ -4,11 +4,11 @@ Guidance for automated agents and coding assistants reading oryxinstitute.org.
 
 ## What this site is
 
-The public site of **Oryx Polytechnic Institute** (trading as **Oryx Institute**), a prelaunch polytechnic-style institute and consulting practice working from Windhoek, Namibia.
+The public site of **Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517**, a prelaunch polytechnic-style institute and consulting practice for Namibia.
 
 ## Facts agents can rely on
 
-- **Contact**: call or WhatsApp **+264 83 676 4338** (local format 083 676 4338; `tel:+264836764338`, `https://wa.me/264836764338`). Email **info@oryxinstitute.org** stays the secondary route for applications, partnerships and press. No street address exists yet (visits by appointment in Windhoek only); opening hours are not published.
+- **Contact**: call or WhatsApp **+264 83 676 4338** (local format 083 676 4338; `tel:+264836764338`, `https://wa.me/264836764338`) or email **info@oryxinstitute.org**. The official link hub is [oryxinstitute.org/links](https://www.oryxinstitute.org/links). Postal correspondence: **P.O. Box 1662, Windhoek, Namibia**. No physical address, public visiting instructions or opening hours are published.
 - **Live offerings (the six offers)**: the Owner's Desk (one-on-one business counselling), crash and short courses in business administration and IT and related fields (the teaching offer: no long programmes), market research and development, Rapid Response Training, and the free Oryx Directory (seven crash courses, seven business templates). Legal and regulatory Directory pages link their checkable public sources.
 - **Status**: prelaunch. Pursuing NQA and NTA accreditation; not accredited yet. No campus, no premises, no intake dates are claimed anywhere on the site.
 - **Partners**: Tangison Technologies (tangison.com): AI training programme and flagship product; Mendozer (mendozer.com): concept collaboration.
@@ -33,7 +33,7 @@ A curated summary for answer engines and agents lives at [/llms.txt](/llms.txt).
 - Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English and `%s | Oryx Instituut` in Afrikaans). Meta descriptions should remain concise in both languages.
 - Motion: GSAP ScrollTrigger driven by `src/components/site/sc-motion.tsx`, with the `data-sc-*` attribute grammar (scrub, pin, reveal, parallax, rows). Reduced-motion visitors get the same content, static. No autoplaying media.
 - **Brand identity is locked.** The supplied original artwork in `public/brand/`—including the ORYX · 理工 · INSTITUTE lockup, the maroon shield, app icons, and social-preview artwork—is authoritative. Never alter, replace, recolour, redraw, retype, simplify, or regenerate it. The 理工 mark is an approved visual identity element, not a language route or translation surface. Any future logo change requires explicit owner approval and replacement master artwork.
-- The telephone number is defined once in `src/lib/site.ts` (`phoneDisplay`, `phoneInternational`, `phoneE164`, `phoneHref`, `whatsappHref`) and read everywhere else; never hardcode it in a component. Display strings use \u00A0 no-break spaces so the number never splits across lines.
+- The telephone number is defined once in `src/lib/site.ts` (`phoneDisplay`, `phoneInternational`, `phoneE164`, `phoneHref`, `whatsappHref`) and read everywhere else; never hardcode it in a component. Do not publish a founder’s personal telephone number. Display strings use \u00A0 no-break spaces so the number never splits across lines.
 - Corner Spa media in `public/corner-spa/` is carried from spa.mendozer.com at original dimensions; the embed integration is documented in `docs/corner-spa-integration.md`.
 - Markdown mirrors: every shelf page answers at `/md/<path>` (see `src/lib/md-shelf.ts`); it is an English-first document corpus, so an Afrikaans HTML URL negotiated as markdown resolves to its matching English shelf document. Add every new page to the `PAGES` rows there.
 - Imagery: the plates under `public/images/kinfolk/` are the commissioned core ten plus the print-kit shots; one use each, no AI-generated substitutes, no stock added without a manifest entry.

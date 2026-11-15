@@ -148,7 +148,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               {site.phoneDisplay}
             </a>
             <p className="menu-place">
-              {site.city}, {af ? siteAf.country : site.country}
+              {af ? siteAf.postalAddressLine : site.postalAddress.line}
             </p>
             <ul className="menu-social" aria-label={af ? "Social channels" : "Social channels"}>
               {site.socials.map((s) => (

@@ -92,7 +92,12 @@ const PAGES: IndexRow[] = [
   {
     path: "/contact",
     title: "Contact the Office",
-    note: "Call or WhatsApp +264 83 676 4338, or write to info@oryxinstitute.org",
+    note: "Call or WhatsApp +264 83 676 4338, write to info@oryxinstitute.org, or use the public postal address",
+  },
+  {
+    path: "/links",
+    title: "Oryx Links",
+    note: "Every official Oryx contact route, programme, publication, venture and social channel in one place",
   },
   {
     path: "/faq",

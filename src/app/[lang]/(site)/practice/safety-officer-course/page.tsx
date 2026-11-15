@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site, schemaIds } from "@/lib/site";
+import { site, schemaIds, organizationContactSchema } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { safetyLevels, safetyLanding } from "@/lib/safety";
@@ -110,15 +110,9 @@ export default async function SafetyLandingPage({
       {
         "@type": "EducationalOrganization",
         "@id": schemaIds.org,
-        name: site.legalName,
+        ...organizationContactSchema,
         alternateName: af ? siteAf.tradingName : site.tradingName,
         url: site.url,
-        email: site.email,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: site.city,
-          addressCountry: "NA",
-        },
         hasCourse: safetyLevels.map((l) => ({
           "@type": "Course",
           "@id": `${site.url}${A("/practice/safety-officer-course")}/${l.slug}#course`,

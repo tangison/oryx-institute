@@ -60,6 +60,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             <a href={`mailto:${site.email}`} className="foot-mail link-type">
               {site.email}
             </a>
+            <p className="foot-post">{af ? siteAf.postalAddressLine : site.postalAddress.line}</p>
             <p className="foot-phone">
               <a
                 href={site.phoneHref}
@@ -93,9 +94,10 @@ export function SiteFooter({ lang }: { lang: Lang }) {
         </div>
 
         <div className="foot-legal mt-14 flex flex-col gap-4 pt-6 text-[0.82rem] md:flex-row md:items-center md:justify-between" data-sc-in>
-          <p className="tnum">
-            © {new Date().getFullYear()} {site.legalName}. {t.rights}
-          </p>
+          <div className="foot-legal__copy">
+            <p className="tnum">{site.copyright}</p>
+            <p className="foot-legal__line">{site.legalLine}</p>
+          </div>
           <p className="foot-credit">{af ? "Identiteit en bou deur Tangison" : "Identity and build by Tangison"}</p>
         </div>
       </div>
