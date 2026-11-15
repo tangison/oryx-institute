@@ -29,7 +29,7 @@ const copy = {
     runsTitle: "What the practice runs.",
     safetyName: "Safety Officer Training",
     safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
+      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
     safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
@@ -63,7 +63,7 @@ const copy = {
     runsTitle: "What the practice runs.",
     safetyName: "Safety Officer Training",
     safetyLine:
-      "One, five, and ten days of occupational safety training for Namibian sites, taught by a registered safety professional and examined on paper and on site.",
+      "One, five, and ten days of occupational safety training for Namibian sites. A credentialed lead instructor is named before Cohort 1; assessment runs on paper and on site.",
     safetyCta: "See the Safety Officer Training curriculum",
     safetyTag: "New",
     holdsTitle: "The outcome is written down.",
@@ -147,7 +147,7 @@ export default async function PracticePage({
       {/* The head, on cream: the proposition in type. The hands-peak
           plate is the homepage's peak now, so this page opens the
           way it works: plainly. */}
-      <section className="section-lg" data-sc-act="flow">
+      <section className="section-lg screen-intro" data-sc-act="flow">
         <div className="shell">
           <h1 className="h-display max-w-[14ch]">{t.heroLine}</h1>
           <p className="lede measure mt-6 text-soft">{t.heroSub}</p>

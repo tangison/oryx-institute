@@ -5,17 +5,13 @@ import { site, status, schemaIds } from "@/lib/site";
 import { siteAf, statusAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, langFromParams } from "@/lib/i18n";
-import { StaffRows } from "@/components/site/staff-rows";
+import { OryxLogo } from "@/components/site/oryx-logo";
 
 /**
- * About: where you meet who built it. The founder opens the page
- * full-bleed under scrub, the proposition on a scrim bottom left; the
- * People section states the team in rows: the Principal's real
- * portrait, and the honest placeholder card for every appointment
- * still pending; the horns hold the approved 理工 mark; the desert plate
- * breathes before the standing; the colophon carries the Tangison
- * disclosure in prose beside the nib. (Image Bible v6, STAFF-DIRECTORY,
- * CONTENT-CORRECTIONS §5-§6.)
+ * About: a grounded Namibian landscape opens the page, followed by a
+ * plain account of the practice, the identity and the appointment
+ * register. Vacant roles are stated as open seats, never as invented
+ * people; the only visual mark here is the locked Oryx artwork.
  */
 const copy = {
   en: {
@@ -27,16 +23,16 @@ const copy = {
       ogDescription:
         "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
-    headTitle: "Built for hard ground.",
+    headTitle: "Grounded here. Built to prove the work.",
     headLede: {
       pre: "The institute is named for the oryx: Namibia's own antelope, straight-horned, unhurried and impossible to starve out of dry country. The wordmark adds ",
       post: ", science and engineering, set in the logo exactly where the two belong.",
     },
     readBulletin: "Read Bulletin No. 1",
     peopleEyebrow: "People",
-    peopleTitle: "Who is building it.",
+    peopleTitle: "The people, plainly.",
     peopleBody:
-      "The register below is the honest state of the team: one Principal, and the appointments the register will date as they land. Placeholder portraits are placeholders on purpose: a real photograph replaces each one the day a real person takes the seat.",
+      "One Principal is named today. The remaining appointments are recorded as open seats, not invented biographies. When a person takes a seat, the register publishes the name, role and supporting record together.",
     practiceEyebrow: "The practice",
     practiceBody:
       "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses.",
@@ -83,16 +79,16 @@ const copy = {
       ogDescription:
         "The oryx, the visual mark 理工, the Principal's office in Windhoek, and the temper the institute teaches by.",
     },
-    headTitle: "Built for hard ground.",
+    headTitle: "Stewig hier. Gebou om die werk te bewys.",
     headLede: {
-      pre: "The institute is named for the oryx: Namibia's own antelope, straight-horned, unhurried and impossible to starve out of dry country. The wordmark adds ",
-      post: ", science and engineering, set in the logo exactly where the two belong.",
+      pre: "Die instituut is na die oriks vernoem: Namibië se eie wildsbok, reguithoring, onbehaas en tuis op droë grond. Die woordmerk voeg ",
+      post: ", wetenskap en ingenieurswese, presies waar dit in die logo hoort.",
     },
-    readBulletin: "Read Bulletin No. 1",
-    peopleEyebrow: "People",
-    peopleTitle: "Who is building it.",
+    readBulletin: "Lees Bulletin No. 1",
+    peopleEyebrow: "Mense",
+    peopleTitle: "Die mense, eerlik.",
     peopleBody:
-      "The register below is the honest state of the team: one Principal, and the appointments the register will date as they land. Placeholder portraits are placeholders on purpose: a real photograph replaces each one the day a real person takes the seat.",
+      "Een Prinsipaal word vandag genoem. Die oorblywende aanstellings word as oop poste aangeteken, nie as uitgedinkte biografieë nie. Wanneer iemand 'n pos aanvaar, publiseer die register die naam, rol en ondersteunende rekord saam.",
     practiceEyebrow: "The practice",
     practiceBody:
       "Today the institute works as a consultancy. The Owner's Desk runs business counselling from the Principal's office; market research and development work is taken on per engagement; Rapid Response Training brings teams up to standard. The schools follow the practice in order, as accreditation progresses.",
@@ -128,7 +124,7 @@ const copy = {
     closeLine: "What is not ready, says so.",
     privacy: "Privacy",
     terms: "Terms",
-    staffLink: "The people, on one page",
+    staffLink: "Die mense op een blad",
     enLedger: { paras: [] as string[] },
   },
 } as const;
@@ -209,10 +205,10 @@ export default async function AboutPage({
         <div className="safety-hero-media" aria-hidden="true">
           <div className="absolute inset-[-8%]" data-sc-parallax="0.5">
             <Image
-              src="/images/kinfolk/people/30-founder-walking.jpg"
+              src="/images/editorial/about-grounded-field.jpg"
               alt=""
-              width={1402}
-              height={1122}
+              width={1264}
+              height={848}
               priority
               fetchPriority="high"
               sizes="100vw"
@@ -288,20 +284,17 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* The wordmark paragraph, beside the horns. */}
+      {/* The wordmark paragraph, beside the immutable supplied lockup. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate-fig md:order-2" data-sc-in>
-            <Image
-              src="/images/kinfolk/core/09-horns.jpg"
-              alt="Two shed oryx horns lying parallel, centred on cream paper"
-              width={1402}
-              height={1122}
-              sizes="(min-width: 768px) 22rem, 88vw"
-              className="h-auto w-full"
-              loading="eager"
+          <div className="plate-fig grid min-h-[17rem] place-items-center border border-rule bg-white p-10 md:order-2" data-sc-in>
+            <OryxLogo
+              variant="lockup"
+              tone="brand"
+              className="h-auto w-[min(19rem,78%)]"
+              title="The Oryx Institute lockup"
             />
-          </figure>
+          </div>
           <div className="md:order-1" data-sc-in>
             <p className="measure text-soft">
               Oryx Institute. In the wordmark the middle mark is
@@ -314,9 +307,9 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* People: the team as hairline rows. Real portrait for the
-          Principal; the honest placeholder card for every appointment
-          still pending. Never a card grid; never an invented face. */}
+      {/* People: the status of the team is a short public register here.
+          The detailed staff route holds the only confirmed portrait; no
+          repeated image or invented face is used for an open appointment. */}
       <section className="section" id="staff" data-sc-act="flow">
         <div className="shell">
           <div className="hair-t pt-14">
@@ -324,8 +317,22 @@ export default async function AboutPage({
             <h2 className="h-section mt-4 max-w-[20ch]">{t.peopleTitle}</h2>
             <p className="measure mt-6 text-soft">{t.peopleBody}</p>
           </div>
-          <div className="mt-12">
-            <StaffRows lang={lang} />
+          <div className="ledger mt-12" data-sc-in>
+            <div className="ledger-row">
+              <p className="ledger-date">{af ? "Genoem" : "Named"}</p>
+              <div>
+                <h3 className="h-sub">{site.principal.name}</h3>
+                <p className="mt-2 max-w-[56ch] text-soft">
+                  {af ? "Prinsipaal en stigter. Die openbare personeelregister dra die rol en verantwoordelikhede volledig." : "Principal and founder. The public staff register carries the role and responsibilities in full."}
+                </p>
+              </div>
+            </div>
+            <div className="ledger-row">
+              <p className="ledger-date">{af ? "Oop" : "Open"}</p>
+              <p className="max-w-[56ch] text-soft">
+                {af ? "Veiligheidsprogram-leier, navorsingsassistent en Corner Spa-leier word benoem wanneer die aanstellings bevestig is." : "Safety programme lead, research associate and Corner Spa lead are named when their appointments are confirmed."}
+              </p>
+            </div>
           </div>
           <p className="meta mt-8">
             <Link href={A("/about/staff")} className="link-type">

@@ -128,7 +128,7 @@ export default async function VenturesPage({
           on the right. (The spa dish stays on the homepage; this is
           the corner-spa towel: a real treatment scene, not an
           object.) */}
-      <section className="section" data-sc-act="scrub">
+      <section className="section screen-intro" data-sc-act="scrub">
         <div className="shell grid items-center gap-12 md:grid-cols-[1fr_minmax(0,26rem)] md:gap-16 lg:gap-24">
           <div data-sc-in>
             <h1 className="h-display max-w-[16ch]">{v.lead}</h1>

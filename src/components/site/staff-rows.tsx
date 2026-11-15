@@ -6,9 +6,10 @@ import { SocialIcon } from "@/components/site/social-icon";
 /** Shared people rows for /about and /about/staff. */
 type StaffEntry = {
   slug: string;
-  portrait: string;
-  portraitAlt: string;
-  portraitAltAf: string;
+  portrait?: string;
+  portraitAlt?: string;
+  portraitAltAf?: string;
+  appointmentPending?: boolean;
   name: string;
   nameAf: string;
   role: string;
@@ -33,11 +34,6 @@ const PRINCIPAL_PORTRAIT_ALT =
   "The founder walking away through dry golden grass toward a hazy treeline, hard light from the left";
 const PRINCIPAL_PORTRAIT_ALT_AF =
   "Die stigter stap weg deur droë goue gras na 'n wasige boomlyn, met harde lig van links";
-const PLACEHOLDER_ALT =
-  "A blank cream card standing upright on dark walnut with a dried herb sprig across the corner, a deliberately visible placeholder";
-const PLACEHOLDER_ALT_AF =
-  "'n Leë roomkaart wat regop op donker okkerneuthout staan, met 'n gedroogde kruietakkie oor die hoek";
-
 export const staff: StaffEntry[] = [
   {
     slug: "tangi-iigonda",
@@ -58,9 +54,7 @@ export const staff: StaffEntry[] = [
     },
   },
   {
-    portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
-    portraitAlt: PLACEHOLDER_ALT,
-    portraitAltAf: PLACEHOLDER_ALT_AF,
+    appointmentPending: true,
     slug: "lead-instructor-safety",
     name: "Lead instructor, safety programme",
     nameAf: "Hoofinstrukteur, veiligheidsprogram",
@@ -70,9 +64,7 @@ export const staff: StaffEntry[] = [
     bioAf: "Aangestel wanneer die kurrikulum goedgekeur is. Geloofsbriewe en 'n biografie word saam met die kursusoorsig op 15 November 2026 gepubliseer.",
   },
   {
-    portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
-    portraitAlt: PLACEHOLDER_ALT,
-    portraitAltAf: PLACEHOLDER_ALT_AF,
+    appointmentPending: true,
     slug: "research-associate",
     name: "Research associate",
     nameAf: "Navorsingsassistent",
@@ -82,9 +74,7 @@ export const staff: StaffEntry[] = [
     bioAf: "Bulletin-redakteur en navorsingsassistent; aanstelling moet nog aangekondig word.",
   },
   {
-    portrait: "/images/kinfolk/people/45-staff-placeholder.jpg",
-    portraitAlt: PLACEHOLDER_ALT,
-    portraitAltAf: PLACEHOLDER_ALT_AF,
+    appointmentPending: true,
     slug: "corner-spa-lead",
     name: "Corner Spa lead",
     nameAf: "Corner Spa-leier",
@@ -102,15 +92,23 @@ export function StaffRows({ lang }: { lang: Lang }) {
       {staff.map((p) => (
         <article className="staff-row" key={p.name}>
           <div className="staff-row-portrait">
-            <Image
-              src={p.portrait}
-              alt={af ? p.portraitAltAf : p.portraitAlt}
-              width={560}
-              height={700}
-              sizes="(min-width: 48rem) 11rem, 60vw"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="eager"
-            />
+            {p.portrait ? (
+              <Image
+                src={p.portrait}
+                alt={af ? p.portraitAltAf ?? "" : p.portraitAlt ?? ""}
+                width={560}
+                height={700}
+                sizes="(min-width: 48rem) 11rem, 60vw"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+              />
+            ) : (
+              <div className="appointment-card" aria-label={af ? "Aanstelling hangende" : "Appointment pending"}>
+                <p>{af ? "Aanstelling" : "Appointment"}</p>
+                <strong>{af ? "Hangende" : "Pending"}</strong>
+                <span aria-hidden="true">—</span>
+              </div>
+            )}
           </div>
           <div>
             <h3 className="h-sub">{af ? p.nameAf : p.name}</h3>

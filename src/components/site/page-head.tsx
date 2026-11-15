@@ -14,7 +14,7 @@ export function PageHead({
   children?: ReactNode;
 }) {
   return (
-    <header className="page-head" data-sc-act="flow">
+    <header className="page-head page-head--screen" data-sc-act="flow">
       <div className="shell page-head__inner" data-sc-in>
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
         <h1 className="h-display mt-4 max-w-[22ch]">{title}</h1>

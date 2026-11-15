@@ -107,9 +107,9 @@ export function ApplyBody({
           carry their own server-rendered metadata. */}
       {!preselect && <ApplyOfferMeta lang={lang} />}
 
-      {/* The opener, under scrub: the proposition on the left, the wax
-          seal drifting at its own rate on the right. */}
-      <section className="section" data-sc-act="scrub">
+      {/* The opener, under scrub: the proposition on the left, a quiet
+          correspondence plate drifting at its own rate on the right. */}
+      <section className="section screen-intro" data-sc-act="scrub">
         <div className="shell grid items-center gap-12 md:grid-cols-[1fr_minmax(0,18rem)] md:gap-16">
           <div>
             <p className="eyebrow eyebrow--ink">{t.head.eyebrow}</p>
@@ -118,10 +118,10 @@ export function ApplyBody({
           </div>
           <figure className="plate-fig" data-sc-parallax="0.15">
             <Image
-              src="/images/kinfolk/core/10-wax-seal.jpg"
-              alt="A cream envelope closed with a maroon wax seal and ribbon, centred on cream paper"
-              width={1150}
-              height={1150}
+              src="/images/kinfolk/inner/29-envelope-cream.jpg"
+              alt="A plain cream envelope on a neutral ground"
+              width={1254}
+              height={1254}
               sizes="(min-width: 768px) 18rem, 70vw"
               className="h-auto w-full"
               priority

@@ -1,18 +1,24 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { directoryAll } from "@/lib/directory";
+import { blogPosts } from "@/lib/blog";
 import { APPLY_OFFER_SLUGS } from "@/lib/apply-offers";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  /** No lastModified is emitted: the build date would stamp every URL
-      identically on every deploy, which reads as a false signal to
-      crawlers. Pages carry their own visible dates instead. */
+type SitemapPage = {
+  path: string;
+  priority: number;
+  changeFrequency: "monthly" | "yearly";
+  /** Only content with a real editorial date carries lastModified.
+      Never use the deployment timestamp as a false change signal. */
+  lastModified?: string;
+};
 
-  const pages: {
-    path: string;
-    priority: number;
-    changeFrequency: "monthly" | "yearly";
-  }[] = [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  /** Only editorially dated content emits lastModified. The deployment
+      date would stamp every URL identically and create a false crawl
+      signal, so undated evergreen pages intentionally omit it. */
+
+  const pages: SitemapPage[] = [
     { path: "/", priority: 1, changeFrequency: "monthly" },
     { path: "/research", priority: 0.9, changeFrequency: "monthly" },
     { path: "/practice", priority: 0.9, changeFrequency: "monthly" },
@@ -37,10 +43,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
     },
     { path: "/ventures", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/corner-spa", priority: 0.8, changeFrequency: "monthly" },
+    /* /corner-spa is the distraction-free embedded counter, not an
+       editorial page. It is noindex and intentionally omitted here;
+       /ventures/corner-spa is the canonical, indexable explanation. */
     { path: "/ventures/corner-spa", priority: 0.7, changeFrequency: "monthly" },
     { path: "/blog", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/blog/corner-spa", priority: 0.6, changeFrequency: "yearly" },
+    ...blogPosts.map((post) => ({
+      path: `/blog/${post.slug}`,
+      priority: 0.6,
+      changeFrequency: "yearly" as const,
+      lastModified: post.dateISO,
+    })),
     { path: "/register", priority: 0.8, changeFrequency: "monthly" },
     { path: "/apply", priority: 0.9, changeFrequency: "monthly" },
     { path: "/resources", priority: 0.8, changeFrequency: "monthly" },
@@ -53,15 +66,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/legal/terms", priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  const docs = directoryAll.map((d) => ({
+  const docs: SitemapPage[] = directoryAll.map((d) => ({
     path: `/resources/${d.slug}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
+    lastModified: d.reviewedIso,
   }));
 
   /** The per-offer apply routes, one row each: real URLs with their
       own metadata, linked from every offer CTA on the site. */
-  const applyOffers = APPLY_OFFER_SLUGS.map((slug) => ({
+  const applyOffers: SitemapPage[] = APPLY_OFFER_SLUGS.map((slug) => ({
     path: `/apply/${slug}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
@@ -72,6 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [...pages, ...docs, ...applyOffers].flatMap((page) => [
     {
       url: `${site.url}${page.path}`,
+      lastModified: page.lastModified,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
@@ -84,6 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${site.url}/af${page.path === "/" ? "" : page.path}`,
+      lastModified: page.lastModified,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {

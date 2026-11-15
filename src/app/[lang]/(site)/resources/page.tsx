@@ -144,17 +144,16 @@ export default async function ResourcesPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The opener: the journal detail: an open journal with a dip
-          pen resting in the fold, the library's own document, at
-          roughly 70vh under a gentle scrub. */}
+      {/* The opener: a dedicated open-workbench plate, at roughly 70vh
+          under a gentle scrub. It carries access, not a reused journal. */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
           <figure className="plate-fig" data-sc-parallax="0.14">
             <Image
-              src="/images/kinfolk/inner/16-journal-detail.jpg"
-              alt="An open journal with a dip pen resting in the fold, centred on cream"
-              width={1402}
-              height={1122}
+              src="/images/editorial/directory-workbench.jpg"
+              alt="Blank templates, a pencil, a folding rule and a file folder on an open workbench"
+              width={1264}
+              height={848}
               priority
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
@@ -300,9 +299,7 @@ export default async function ResourcesPage({
       </section>
 
       {/* The essays themselves. They publish in English. Each essay
-          ends on the red ground: a silent, full-bleed tail plate that
-          gives the reader a place to land before the next piece
-          (Image Audit: one breath per essay, no text over it). */}
+          ends on a quiet terracotta field that gives the reader a place to land before the next piece. The pause is visual, not another repeated photograph. */}
       {insights.map((a) => (
         <Fragment key={a.id}>
           <section className="section" data-sc-act="flow">
@@ -340,22 +337,10 @@ export default async function ResourcesPage({
             </div>
           </section>
           <div
-            className="divider overflow-hidden"
+            className="divider divider--paper-red"
             data-sc-act="flow"
             aria-hidden="true"
-          >
-            <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
-              <Image
-                src="/images/kinfolk/texture/39-red-ground.jpg"
-                alt=""
-                width={1254}
-                height={1254}
-                quality={62}
-                sizes="100vw"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
+          />
         </Fragment>
       ))}
 

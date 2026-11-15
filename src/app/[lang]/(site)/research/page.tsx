@@ -167,18 +167,17 @@ export default async function ResearchPage({
         <p>{t.head.lede}</p>
       </PageHead>
 
-      {/* The hero plate: the game board, full measure, drifting at a
-          gentler rate than the page: the scrub act. (The notebook is
-          the homepage zigzag and the /brand specimen now; the board
-          is the research hero.) */}
+      {/* The hero plate: a dedicated fieldwork arrangement, full measure,
+          drifting at a gentle rate. Research starts with method, not a
+          reused brand specimen. */}
       <section className="section-sm" data-sc-act="scrub">
         <div className="shell" data-sc-in>
           <figure className="plate-fig" data-sc-parallax="0.18">
             <Image
-              src="/images/kinfolk/core/06-game-board.jpg"
-              alt="A carved wooden morabaraba board with scattered counters, centred on terracotta cloth"
-              width={1402}
-              height={1122}
+              src="/images/editorial/research-ground-table.jpg"
+              alt="Calipers, a stone sample, a pencil and a blank card on a weathered outdoor worktable"
+              width={1264}
+              height={848}
               sizes="(min-width: 1024px) 56rem, 92vw"
               className="h-auto w-full"
               priority
@@ -250,8 +249,7 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* Mid-page breath: wood and rope, a silent divider. No text, no
-          overlay, one full viewport. */}
+      {/* Mid-page breath: a single caliper detail, no text or overlay. */}
       <div
         className="divider divider--full overflow-hidden"
         data-sc-act="flow"
@@ -259,7 +257,7 @@ export default async function ResearchPage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/core/03-wood-rope-divider.jpg"
+            src="/images/kinfolk/inner/17-brass-calipers.jpg"
             alt=""
             width={1122}
             height={1402}
@@ -270,8 +268,7 @@ export default async function ResearchPage({
       </div>
 
       {/* The peak: the Bulletin quote, pinned for two viewports on
-          the journal-detail plate: an open journal with a dip pen
-          resting in the fold, the working document itself. */}
+          a dedicated closed field-ledger plate: the working record held back until the evidence is ready. */}
       <section
         className="peak"
         data-sc-act="pin"
@@ -280,10 +277,10 @@ export default async function ResearchPage({
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale aria-hidden="true">
             <Image
-              src="/images/kinfolk/inner/16-journal-detail.jpg"
+              src="/images/editorial/research-ledger-detail.jpg"
               alt=""
-              width={1402}
-              height={1122}
+              width={1264}
+              height={848}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
             />

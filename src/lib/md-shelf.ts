@@ -9,9 +9,9 @@ import {
 import { site } from "@/lib/site";
 
 /**
- * The markdown shelf: the whole site as clean markdown for any client
- * that negotiates text/markdown. Served from /md by the proxy when an
- * Accept header asks for it; the HTML page stays the canonical form.
+ * The markdown shelf: each indexable editorial page as clean markdown
+ * for agents and readers. It is served explicitly from /md and
+ * advertised by typed alternate links; the HTML page stays canonical.
  * English only: the documents are published in English, and the af
  * pages note it in their listing metadata.
  */
@@ -145,11 +145,6 @@ const PAGES: IndexRow[] = [
     note: "Ventures the institute runs to teach from",
   },
   {
-    path: "/corner-spa",
-    title: "Corner Spa, Oryx's first operating venture",
-    note: "Run with Mendozer Investments: a live setting for practical business and service work. Booking and service details stay on the spa's own site, spa.mendozer.com",
-  },
-  {
     path: "/ventures/corner-spa",
     title: "Corner Spa, the operating venture",
     note: "Oryx's first operating venture, run with Mendozer Investments: practical business and service work, with the spa's own counter embedded",
@@ -263,7 +258,7 @@ export function pageIndexMd(): string {
   out.push("# Oryx Polytechnic Institute: markdown index");
   out.push("");
   out.push(
-    "Every public page and document of the institute, listed once. Append any path below to this shelf (for example /md/resources/business-plan-template) to read it as markdown."
+    "Every indexable editorial page and document of the institute, listed once. Append any path below to this shelf (for example /md/resources/business-plan-template) to read it as markdown."
   );
   out.push("");
   out.push("## Pages");

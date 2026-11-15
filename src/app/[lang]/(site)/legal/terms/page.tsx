@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHead } from "@/components/site/page-head";
 import { site } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
@@ -124,26 +123,6 @@ export default async function TermsPage({
       <PageHead title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
-
-      {/* The shared plate above the legalese: the brass scale: the
-          law's own instrument, small and centred, so the pages do not
-          open into a wall of text. (Image Audit: one shared plate for
-          /legal/*.) */}
-      <section className="section-sm" data-sc-act="scrub">
-        <div className="shell" data-sc-in>
-          <figure className="plate-fig" data-sc-parallax="0.12" style={{ maxWidth: "18rem" }}>
-            <Image
-              src="/images/kinfolk/inner/22-legal-scale.jpg"
-              alt="A brass balance scale with two pans, centred on cream paper"
-              width={1401}
-              height={1123}
-              priority
-              sizes="(min-width: 1024px) 18rem, 65vw"
-              className="h-auto w-full"
-            />
-          </figure>
-        </div>
-      </section>
 
       <section className="section-lg">
         <div className="shell">
