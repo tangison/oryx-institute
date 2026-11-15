@@ -88,6 +88,12 @@ export const site = {
   phoneE164: "+264836764338",
   phoneHref: "tel:+264836764338",
   whatsappHref: "https://wa.me/264836764338",
+  /** A temporary Google Maps search route. It is deliberately not added
+   * to sameAs while the new Business Profile is still absent from public
+   * Maps results. Replace this with the verified profile Share link once
+   * it is discoverable. */
+  googleMapsSearchUrl:
+    "https://www.google.com/maps/search/?api=1&query=Oryx%20Institute%2C%20Windhoek%2C%20Namibia",
   /** Social channels, icon-only links in the footer and on /contact.
    * Each opens in a new tab; nothing is embedded. */
   socials: [
@@ -184,6 +190,7 @@ export const linkHub = {
     { id: "corner-spa", href: "/corner-spa" },
     { id: "register", href: "/register" },
   ],
+  googleMaps: [{ id: "google-maps", href: site.googleMapsSearchUrl, external: true }],
   utility: [
     { id: "about", href: "/about" },
     { id: "contact", href: "/contact" },

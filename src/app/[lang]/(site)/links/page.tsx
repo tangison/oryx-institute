@@ -40,6 +40,7 @@ const copy = {
       ventures: ["Ventures", "Small companies, real customers"],
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Public record, dated as published"],
+      "google-maps": ["Find Oryx on Google Maps", "Temporary map search while the new profile is indexed"],
     } as Record<string, [string, string]>,
     footer: {
       note: "A new polytechnic for Namibia. Research, practice and companies that prove the work.",
@@ -82,6 +83,7 @@ const copy = {
       ventures: ["Ondernemings", "Klein maatskappye, werklike kliënte"],
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Openbare rekord, gedateer soos gepubliseer"],
+      "google-maps": ["Vind Oryx op Google Maps", "Tydelike kaartsoektog terwyl die nuwe profiel geïndekseer word"],
     } as Record<string, [string, string]>,
     footer: {
       note: "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en ondernemings wat die werk bewys.",
@@ -227,8 +229,11 @@ export default async function LinksPage({
                 <a className="link-hub__row" href={channel.href} target="_blank" rel="noopener noreferrer" key={channel.href}>
                   <span className="link-hub__row-title">{channel.label}</span>
                   <span className="link-hub__row-note">@oryx_institute</span>
-                  <span className="link-hub__arrow" aria-hidden="true">↗</span>
+                  <RouteArrowIcon className="link-hub__arrow" />
                 </a>
+              ))}
+              {linkHub.googleMaps.map((link) => (
+                <HubRow key={link.id} link={link} label={t.links[link.id]} path={A} />
               ))}
             </div>
           </section>
