@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { register, site, schemaIds } from "@/lib/site";
 import { registerAf } from "@/lib/site-af";
@@ -26,7 +27,8 @@ const copy = {
       lede: "Dated institutional updates. The register records confirmed public facts; it does not create an intake, qualification or approval claim.",
     },
     closing:
-      "Updated when a public fact is confirmed. The current status is also stated on the Institutional Status page.",
+      "Updated when a public fact is confirmed. The Institutional Status page is the authority for the current regulatory disclosure; this register is its dated history.",
+    currentStatus: "Read the current institutional status",
     readingEyebrow: "How to read this register",
     readingBody:
       "The register is for anyone checking an institutional claim. It records only dated public facts and distinguishes a current position from a future process. The Institutional Status page carries the regulatory disclosure in full.",
@@ -51,7 +53,8 @@ const copy = {
       lede: "Gedateerde institusionele opdaterings. Die register teken bevestigde openbare feite aan; dit skep nie 'n inname-, kwalifikasie- of goedkeuringseis nie.",
     },
     closing:
-      "Bygewerk wanneer 'n openbare feit bevestig is. Die huidige status word ook op die Institusionele Status-blad gestel.",
+      "Bygewerk wanneer 'n openbare feit bevestig is. Die Institusionele Status-blad is die gesaghebbende bron vir die huidige regulatoriese verklaring; hierdie register is die gedateerde geskiedenis daarvan.",
+    currentStatus: "Lees die huidige institusionele status",
     readingEyebrow: "Hoe om hierdie register te lees",
     readingBody:
       "Die register is vir enigiemand wat 'n institusionele eis nagaan. Dit teken slegs gedateerde openbare feite aan en onderskei 'n huidige posisie van 'n toekomstige proses. Die Institusionele Status-blad gee die regulatoriese verklaring volledig.",
@@ -101,6 +104,7 @@ export default async function RegisterPage({
   const af = lang === "af";
   const t = copy[lang];
   const s = af ? registerAf : register;
+  const A = (href: string) => (af ? `/af${href}` : href);
 
   const dateFmt = new Intl.DateTimeFormat(af ? "af-NA" : "en-GB", {
     day: "numeric",
@@ -177,6 +181,9 @@ export default async function RegisterPage({
             <p className="measure mt-5 text-soft">{t.sourceBody}</p>
           </div>
           <p className="measure mt-12 text-soft">{t.closing}</p>
+          <Link href={A("/status")} className="link-type mt-5 inline-block">
+            {t.currentStatus}
+          </Link>
         </div>
       </section>
 

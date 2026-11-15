@@ -43,6 +43,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
         /* No aria-label: the visible label word is the accessible
            name, so it always matches what is on screen. */
         aria-controls="site-menu-panel"
+        aria-expanded="false"
       />
 
       <div className="header-bar">
@@ -102,8 +103,6 @@ export function SiteHeader({ lang }: { lang: Lang }) {
       <div
         className="menu-panel"
         id="site-menu-panel"
-        role="dialog"
-        aria-modal="true"
         aria-label={t.siteMenu}
       >
         <div className="menu-inner">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RouteArrowIcon } from "@/components/site/glyphs";
 import { site, schemaIds } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 
@@ -251,12 +252,10 @@ export default async function CornerSpaPage({
               href={SPA_COUNTER}
               rel="noopener noreferrer"
               target="_blank"
-              className="underline decoration-rule underline-offset-4 hover:decoration-ink"
+              className="inline-flex items-center gap-1 underline decoration-rule underline-offset-4 hover:decoration-ink"
             >
               spa.mendozer.com
-              <span className="arr ml-1" aria-hidden="true">
-                ↗
-              </span>
+              <RouteArrowIcon className="h-3.5 w-3.5 shrink-0" />
             </a>
           </p>
         </div>

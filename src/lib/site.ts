@@ -67,6 +67,9 @@ export const site = {
   },
   webAddress: "oryxinstitute.org",
   linksUrl: "https://www.oryxinstitute.org/links",
+  /** The date on which the public regulatory disclosure was last checked.
+   * This is deliberately a dated fact, not a promise of a future decision. */
+  statusAsOf: "2026-11-13",
   plannedCentre:
     "Ongwediva is a future initiative. It is planned, not open, and is not presented as a public campus.",
   /** The one public mailbox. Enquiries, partnerships and press
@@ -90,10 +93,9 @@ export const site = {
   ntaRegistrationUrl: "https://www.nta.com.na/registration-tp/",
   nqaAccreditationUrl: "https://namqa.org/",
   tangisonUrl: "https://tangison.com/",
-  /** A temporary Google Maps search route. It is deliberately not added
-   * to sameAs while the new Business Profile is still absent from public
-   * Maps results. Replace this with the verified profile Share link once
-   * it is discoverable. */
+  /** A temporary Google Maps discovery search. It is deliberately not
+   * added to sameAs because Oryx does not claim a verified Business Profile.
+   * Replace this with the verified profile Share link only once confirmed. */
   googleMapsSearchUrl:
     "https://www.google.com/maps/search/?api=1&query=Oryx%20Institute%2C%20Windhoek%2C%20Namibia",
   /** Social channels, icon-only links in the footer and on /contact.

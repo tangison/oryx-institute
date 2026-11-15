@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { offers, site } from "@/lib/site";
 import { offersAf } from "@/lib/site-af";
 import type { Lang } from "@/lib/i18n";
@@ -112,6 +112,8 @@ export function ApplyForm({ lang }: { lang: Lang }) {
   const [discipline, setDiscipline] = useState<string>(offerList[0].name);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
+  const nameRef = useRef<HTMLInputElement>(null);
+  const contactRef = useRef<HTMLInputElement>(null);
 
   function validate(): Errors {
     const next: Errors = {};
@@ -133,7 +135,13 @@ export function ApplyForm({ lang }: { lang: Lang }) {
     event.preventDefault();
     const next = validate();
     setErrors(next);
-    if (Object.keys(next).length > 0) return;
+    if (Object.keys(next).length > 0) {
+      requestAnimationFrame(() => {
+        if (next.name) nameRef.current?.focus();
+        else if (next.contact) contactRef.current?.focus();
+      });
+      return;
+    }
 
     const subject = t.subject(name.trim(), discipline);
     const body = t.body(name.trim(), contact.trim(), discipline, message.trim());
@@ -162,6 +170,7 @@ export function ApplyForm({ lang }: { lang: Lang }) {
             {t.name}
           </label>
           <input
+            ref={nameRef}
             id="af-name"
             name="name"
             type="text"
@@ -187,6 +196,7 @@ export function ApplyForm({ lang }: { lang: Lang }) {
             {t.contact}
           </label>
           <input
+            ref={contactRef}
             id="af-contact"
             name="contact"
             /* Text, not email: the office takes a mailbox or a phone
