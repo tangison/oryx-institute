@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "skills": {
+    "improve-website": {
+      "source": "wondelai/skills",
+      "sourceType": "github",
+      "skillPath": "improve-website/SKILL.md",
+      "computedHash": "76c8280e7601b3c2384a07b0d5146179f2642d803a1d1e983b28dd64d73085fc"
+    },
+    "technical-documentation": {
+      "source": "wondelai/skills",
+      "sourceType": "github",
+      "skillPath": "technical-documentation/SKILL.md",
+      "computedHash": "f7a22ff108d1b2df3b04e318085cfd659cba1b8571e833149ddfbbc56805f56e"
+    },
+    "ux-heuristics": {
+      "source": "wondelai/skills",
+      "sourceType": "github",
+      "skillPath": "ux-heuristics/SKILL.md",
+      "computedHash": "42bf5673212445b63ec0db611cfef58429946b9038b8ba9a6d4397d6161ff93c"
+    }
+  }
+}
