@@ -15,9 +15,9 @@ export const siteAf = {
   credentialLine: "Uitnemendheid in innovasie en toegepaste probleemoplossing.",
   tagline: "Goeie werk begin met goeie gereedskap.",
   description:
-    "Oryx Instituut, Windhoek: 'n nuwe politegniese instituut vir Namibië. Blits- en kortkursusse, besigheidsadvies, marknavorsing en die ondernemings wat die werk bewys. Die instituut stel sy stand eerlik: akkreditasie by NQA en NTA word nagestreef en daar is nog geen openbare perseel nie. Bel of WhatsApp 083 676 4338, of skryf aan info@oryxinstitute.org.",
+    "Oryx Instituut: ’n nuwe politegniese instituut vir Namibië. Navorsing, praktiese leer, bruikbare hulpmiddels en ondernemings wat die werk laat bewys word.",
   country: "Namibië",
-  areaServed: "Windhoek, Namibië",
+  areaServed: "Namibië",
   plannedCentre:
     "Oryx het sy eerste toegewyde opleidingsentrumterrein by Untag Guest House in Ongwediva verseker. Die sentrum word beplan en is nog nie oop nie.",
 } as const;

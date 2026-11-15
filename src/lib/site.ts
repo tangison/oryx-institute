@@ -53,13 +53,13 @@ export const site = {
   /** Meta description, sized for search results (kept under 160
    * characters) and led by what the institute is. */
   description:
-    "Oryx Institute, Windhoek: a new polytechnic for Namibia. Crash and short courses, counselling, market R&D, and the ventures that prove the work.",
+    "Oryx Institute: a new polytechnic for Namibia. Research, practical learning, useful tools and ventures that let the work prove itself.",
   /** The office remains in Windhoek. The first dedicated training centre
    * has a secured future site, but it is not open and has no public
    * street address on this site. */
   city: "Windhoek",
   country: "Namibia",
-  areaServed: "Windhoek, Namibia",
+  areaServed: "Namibia",
   plannedCentre:
     "Oryx has secured its first dedicated training-centre site at Untag Guest House in Ongwediva. The centre is planned and is not open yet.",
   /** The one mailbox. Everything runs through it while the institute

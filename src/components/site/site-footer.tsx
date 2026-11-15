@@ -33,8 +33,11 @@ export function SiteFooter({ lang }: { lang: Lang }) {
                 className="h-auto w-full max-w-none"
               />
             </Link>
+            {/* The footer is a signature, not a location claim. The
+                institute's actual operating locations belong on the
+                relevant venture, contact and programme pages. */}
             <p className="foot-place mt-6">
-              {af ? "WINDHOEK · EST. 2026" : "WINDHOEK · EST. 2026"}
+              {af ? "’N POLITEGNIESE INSTITUUT VIR NAMIBIË" : "A POLYTECHNIC FOR NAMIBIA"}
             </p>
           </div>
 
@@ -93,7 +96,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p className="tnum">
             © {new Date().getFullYear()} {site.legalName}. {t.rights}
           </p>
-          <p className="foot-credit">{af ? "Identity and build by Tangison · Windhoek" : "Identity and build by Tangison · Windhoek"}</p>
+          <p className="foot-credit">{af ? "Identiteit en bou deur Tangison" : "Identity and build by Tangison"}</p>
         </div>
       </div>
     </footer>

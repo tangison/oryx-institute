@@ -1,20 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { site } from "@/lib/site";
 
 /**
- * The error screen, shared by every status the site can return.
- * Cream paper, ink type, the maroon shield at ~120px, a wordmark
- * header with no MENU button, and a one-line footer. No dark grounds,
- * no glitch type, no illustrations.
- *
- * Status variants per the brief:
- *   404            Nothing stands at this address.       (two links)
- *   500            Something broke at the printer.       (two links)
- *   403 / 401      Not for public reading.               (two links)
- *   408/503/504    The line is busy.                     (one link)
- *   429            One at a time.                        (one link)
+ * The error screen is intentionally separate from the public-site chrome.
+ * It is a monochrome recovery page: no decorative image, no menu, and no
+ * attempt to turn a wrong address into a marketing moment.
  */
 export type ErrorStatus = 404 | 500 | 403 | 408 | 429;
 
@@ -29,18 +20,18 @@ const copy = {
     footerAria: "Oryx Institute, home",
     variants: {
       404: {
-        title: "Nothing stands at this address.",
-        body: "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
+        title: "This page is not here.",
+        body: "It may have moved, or it may never have been published. The work is still within reach.",
         links: ["home", "apply"] as const,
       },
       500: {
-        title: "Something broke at the printer.",
-        body: "The server returned an error. Try again in a minute, or write to the office if it keeps happening.",
+        title: "The line broke.",
+        body: "The server could not finish the request. Give it a moment, then try again or write to the office.",
         links: ["home", "office"] as const,
       },
       403: {
         title: "Not for public reading.",
-        body: "This address exists but it is not open. If you expected to reach something here, write to the office.",
+        body: "This address exists, but it is not open. If you expected to find something here, write to the office.",
         links: ["home", "office"] as const,
       },
       408: {
@@ -50,47 +41,46 @@ const copy = {
       },
       429: {
         title: "One at a time.",
-        body: "Too many requests too quickly. Slow down and try again in a minute.",
+        body: "Too many requests arrived too quickly. Slow down and try again in a minute.",
         links: ["back"] as const,
       },
     },
   },
   af: {
-    home: "Back to the front page",
-    office: "Write to the office",
-    phoneLabel: "Call or WhatsApp",
-    again: "Try again",
-    apply: "Apply now",
-    back: "Back",
-    footerAria: "Oryx Institute, home",
+    home: "Terug na die tuisblad",
+    office: "Skryf aan die kantoor",
+    phoneLabel: "Bel of WhatsApp",
+    again: "Probeer weer",
+    apply: "Doen aansoek",
+    back: "Terug",
+    footerAria: "Oryx Instituut, tuis",
     variants: {
       404: {
-        title: "Nothing stands at this address.",
-        body: "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
+        title: "Hier is geen blad nie.",
+        body: "Dit kon geskuif het, of dit is nooit gepubliseer nie. Die werk bly binne bereik.",
         links: ["home", "apply"] as const,
       },
       500: {
-        title: "Something broke at the printer.",
-        body: "The server returned an error. Try again in a minute, or write to the office if it keeps happening.",
+        title: "Die lyn het gebreek.",
+        body: "Die bediener kon nie die versoek voltooi nie. Wag ’n oomblik, probeer weer, of skryf aan die kantoor.",
         links: ["home", "office"] as const,
       },
       403: {
-        title: "Not for public reading.",
-        body: "This address exists but it is not open. If you expected to reach something here, write to the office.",
+        title: "Nie vir openbare lees nie.",
+        body: "Hierdie adres bestaan, maar is nie oop nie. As jy iets hier verwag het, skryf aan die kantoor.",
         links: ["home", "office"] as const,
       },
       408: {
-        title: "The line is busy.",
-        body: "The server could not answer in time. Wait a moment and try again.",
+        title: "Die lyn is besig.",
+        body: "Die bediener kon nie betyds antwoord nie. Wag ’n oomblik en probeer weer.",
         links: ["back"] as const,
       },
       429: {
-        title: "One at a time.",
-        body: "Too many requests too quickly. Slow down and try again in a minute.",
+        title: "Een op ’n slag.",
+        body: "Te veel versoeke het te vinnig gekom. Wag ’n minuut en probeer weer.",
         links: ["back"] as const,
       },
     },
-    enLedger: { paras: [] as string[] },
   },
 } as const;
 
@@ -142,7 +132,7 @@ export function ErrorScreen({
         );
       case "office":
         return (
-          <a href="mailto:info@oryxinstitute.org" className="btn--quiet">
+          <a href={`mailto:${site.email}`} className="btn--quiet">
             {t.office} <span className="arr" aria-hidden="true">→</span>
           </a>
         );
@@ -156,30 +146,16 @@ export function ErrorScreen({
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--paper)] text-[var(--ink)]">
-      <header className="shell flex items-center py-6">
+    <div className="error-screen on-ink flex min-h-screen flex-col">
+      <header className="shell error-screen__header flex items-center py-6">
         <Link href={p === "/af" ? "/af" : "/"} aria-label={t.footerAria} className="flex items-center">
-          <OryxLogo variant="lockup" tone="brand" className="h-8 w-auto" />
+          <OryxLogo variant="lockup" tone="reverse" className="h-8 w-auto" />
         </Link>
       </header>
 
-      <main className="shell flex flex-1 flex-col items-start justify-center pb-24">
-        <OryxLogo variant="emblem" tone="brand" className="h-[120px] w-auto" />
-        {/* The torn sheet, on the 404 only: the one error page that
-            deserves an image as the joke. (Image Audit: k28, 404-only.) */}
-        {status === 404 && (
-          <figure className="mt-8 max-w-[13rem]">
-            <Image
-              src="/images/kinfolk/inner/28-404-torn.jpg"
-              alt="A sheet of cream paper torn across, photographed on cream"
-              width={1254}
-              height={1254}
-              sizes="(min-width: 48rem) 13rem, 55vw"
-              className="h-auto w-full"
-            />
-          </figure>
-        )}
-        <h1 className="h-display mt-10 max-w-[18ch]">{v.title}</h1>
+      <main className="shell error-screen__main flex flex-1 flex-col items-start justify-center pb-24">
+        <p className="error-screen__status" aria-hidden="true">{status}</p>
+        <h1 className="h-display mt-5 max-w-[15ch]">{v.title}</h1>
         <p className="measure mt-5 text-soft">{v.body}</p>
         <div className="mt-10 flex flex-wrap items-center gap-7">
           {v.links.map((k) => (
@@ -193,16 +169,13 @@ export function ErrorScreen({
         </div>
       </main>
 
-      <footer className="shell border-t border-[var(--rule)] py-5">
+      <footer className="shell error-screen__footer py-5">
         <p className="meta">oryxinstitute.org</p>
-        {/* The one live route that never closes: the office line, on
-            every status page, exactly as the footer carries it. */}
         <p className="meta mt-1">
           {t.phoneLabel}{" "}
           <a
             href={site.phoneHref}
             className="link-type whitespace-nowrap"
-            /* Label in Name (WCAG 2.5.3): reuse the visible string. */
             aria-label={`Call ${site.tradingName} on ${site.phoneDisplay}`}
           >
             {site.phoneDisplay}
