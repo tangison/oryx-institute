@@ -51,11 +51,23 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           aria-label={t.home}
           className="flex items-center shrink-0"
         >
-          <OryxLogo
-            variant="lockup"
-            tone="brand"
-            className="h-[2rem] w-auto min-[48rem]:h-[2.25rem]"
-          />
+          <span className="site-header__logo site-header__logo--brand">
+            <OryxLogo
+              variant="lockup"
+              tone="brand"
+              className="h-[2rem] w-auto min-[48rem]:h-[2.25rem]"
+            />
+          </span>
+          {/* Dark reading pages keep the same locked artwork, simply in
+              its approved ivory reverse. CSS switches this twin only
+              when a page intentionally carries the ink treatment. */}
+          <span className="site-header__logo site-header__logo--reverse">
+            <OryxLogo
+              variant="lockup"
+              tone="reverse"
+              className="h-[2rem] w-auto min-[48rem]:h-[2.25rem]"
+            />
+          </span>
         </Link>
 
         <nav aria-label={t.primaryNav} className="nav-links">

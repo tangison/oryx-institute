@@ -125,7 +125,10 @@ export default async function FaqPage({
         <div className="shell">
           <div className="faq-list" data-sc-in data-sc-stagger="40">
             {list.map((faq) => (
-              <details key={faq.q} open>
+              /* Answers remain in the document for every visitor, but a
+                 compact question-led surface gives this dense page room
+                 to breathe. Native details work without JavaScript. */
+              <details key={faq.q}>
                 <summary>
                   <span>{faq.q}</span>
                   <span className="faq-sign" aria-hidden="true">+</span>
