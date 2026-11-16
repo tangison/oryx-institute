@@ -1,0 +1,44 @@
+# Experiments
+
+## Evidence rule
+
+No A/B test is approved in this backlog because the site has no verified baseline, traffic source, sample-size inputs or visitor-research evidence. The items below are evidence and decision work. They are not public product claims, and they do not authorize a tracking implementation.
+
+## Experiment cards
+
+### EXP-001 — Establish a privacy-compatible evidence baseline
+
+- **Hypothesis:** We believe that Oryx can identify the most consequential public-site friction if it records approved aggregate route-to-handoff signals and consent-based enquiry themes, because these sources show where visitors stop and why without inventing a conversion narrative.
+- **Type:** Research and measurement decision.
+- **Primary metric and threshold:** Approved coverage definition for the contextual primary actions in `METRICS.md`; no threshold is set until a measurement method and baseline are approved.
+- **Guardrail metric:** Zero new advertising pixels, personal profiling, unsupported traffic claims or changes to factual institutional-status wording.
+- **Decision rule:** If an approved, privacy-compatible evidence approach exists, collect a baseline before ranking public-site change hypotheses. If it does not exist, retain Phase 1 as awaiting evidence and use qualitative UX review without conversion claims.
+- **Result and verdict:** Awaiting decision and evidence.
+
+### EXP-002 — Consent-based office-enquiry theme review
+
+- **Hypothesis:** We believe that a small, consent-based review of recurring office-enquiry themes will reveal real visitor questions and objections, because office correspondence can provide direct language that site teams cannot infer from design review alone.
+- **Type:** Qualitative research.
+- **Primary metric and threshold:** A documented, approved set of anonymized themes; no numerical threshold is set.
+- **Guardrail metric:** No personally identifying information, sensitive correspondence or unapproved testimonials is retained in the research artifact.
+- **Decision rule:** If recurring themes are documented with approval, use them to complete the O/CO table and design a future hypothesis. If not, do not write objection-led copy.
+- **Result and verdict:** Awaiting decision and evidence.
+
+## Experiment backlog
+
+| Idea | ICE (impact/confidence/ease) | Status |
+|---|---|---|
+| Establish an approved aggregate route-to-handoff baseline. | Not scored: no implementation decision or baseline. | Awaiting decision |
+| Review consent-based office-enquiry themes. | Not scored: no source material. | Awaiting decision |
+| Test a contextual primary-action change. | Not scored: requires EXP-001 and EXP-002 evidence. | Blocked by evidence |
+| Test a visual-polish change. | Not scored: requires a later UX finding and a defined metric. | Deferred to Phases 2 and 3 |
+
+## Pre-commitment for future tests
+
+Before an A/B, before-and-after or rollout decision is recorded here, document:
+
+1. The specific change and the visitor segment it serves.
+2. The research evidence behind the hypothesis.
+3. The primary metric, guardrail metric, baseline, minimum detectable effect, sample-size method and duration.
+4. The decision rule before any results are observed.
+5. The factual-status review needed to ensure that the change does not imply registration, accreditation, a programme, fee, intake, campus, leadership, partnership or endorsement.
