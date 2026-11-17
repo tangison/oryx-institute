@@ -8,11 +8,11 @@ The public site of **Oryx Polytechnic Institute, also trading as Oryx Institute,
 
 ## Facts agents can rely on
 
-- **Approved public contact**: call or WhatsApp **+264 83 676 4338** (local format 083 676 4338; `tel:+264836764338`, `https://wa.me/264836764338`) or email **info@oryxinstitute.org**. The official Link Hub is [oryxinstitute.org/links](https://www.oryxinstitute.org/links). Postal correspondence: **P.O. Box 1662, Windhoek, Namibia**. No physical address, public visiting instructions or opening hours are published.
+- **Approved public contact**: call or WhatsApp **+264 83 676 4338** (local format 083 676 4338; `tel:+264836764338`, `https://wa.me/264836764338`) or email **info@oryxinstitute.org**. This is the shared public telephone number used by Oryx Institute and Tangison Technologies. The official Link Hub is [oryxinstitute.org/links](https://www.oryxinstitute.org/links). Postal correspondence: **P.O. Box 1662, Windhoek, Namibia**. No physical address, public visiting instructions or opening hours are published.
 - **Current work**: the Owner's Desk provides business counselling; Market R&D provides scoped market research and development engagements. Scope and fees are confirmed in writing by the Oryx office for each enquiry.
 - **Status**: Oryx is working toward NTA training-provider registration. It is not registered with the NTA and not accredited by the NQA. It does not offer accredited qualifications, NQF credits or a public campus. Do not infer a programme catalogue, intake, price, schedule, qualification, accreditation or campus facility.
 - **Research**: published institutional Research Notes are available at [Research](https://www.oryxinstitute.org/research).
-- **Relationships**: Tangison Technologies provides identity, technology and learning-platform services under agreement. Corner Spa operates with Mendozer Investments in Windhoek. Neither relationship is accreditation, regulatory endorsement or an NTA/NQA partnership.
+- **Relationships**: Tangison Technologies provides identity, technology and learning-platform services under agreement and uses the shared public telephone number +264 83 676 4338. Corner Spa operates with Mendozer Investments in Windhoek. Neither relationship is accreditation, regulatory endorsement or an NTA/NQA partnership.
 - **Ventures**: Corner Spa is the first operating venture. Ongwediva and Karibib initiatives are future-facing and must not be described as open campuses or operating ventures.
 
 ## Machine-readable surfaces
