@@ -24,14 +24,25 @@ No A/B test is approved in this backlog because the site has no verified baselin
 - **Decision rule:** If recurring themes are documented with approval, use them to complete the O/CO table and design a future hypothesis. If not, do not write objection-led copy.
 - **Result and verdict:** Awaiting decision and evidence.
 
+### EXP-003 — Validate the Phase 2 source-level UX findings
+
+- **Hypothesis:** We believe that browser-based task checks can confirm, reduce or retire the qualitative Phase 2 findings, because source inspection cannot establish touch discovery, visual hierarchy, focus behaviour, screen-reader announcement or mobile keyboard behaviour.
+- **Type:** Usability and accessibility-adjacent validation; not an A/B test.
+- **Primary metric and threshold:** A documented pass, fail or needs-revision result for the five tasks in `docs/DESIGN.md`; no quantitative threshold is set and no task result should be generalized to all visitors.
+- **Guardrail metric:** Zero unapproved public-site changes, tracking additions, personal-data capture or factual-status wording changes while validation is prepared or run.
+- **Decision rule:** If validation confirms a finding, define one approved implementation proposal and its post-change verification. If it does not, update or retire the finding; do not preserve it as assumed visitor friction.
+- **Result and verdict:** Awaiting a browser-capable environment. No public-site source change is approved.
+
 ## Experiment backlog
 
 | Idea | ICE (impact/confidence/ease) | Status |
 |---|---|---|
 | Establish an approved aggregate route-to-handoff baseline. | Not scored: no implementation decision or baseline. | Awaiting decision |
 | Review consent-based office-enquiry themes. | Not scored: no source material. | Awaiting decision |
-| Test a contextual primary-action change. | Not scored: requires EXP-001 and EXP-002 evidence. | Blocked by evidence |
-| Test a visual-polish change. | Not scored: requires a later UX finding and a defined metric. | Deferred to Phases 2 and 3 |
+| Validate the five Phase 2 source-level task findings. | Not scored: qualitative source review needs browser checks before implementation. | Awaiting browser-capable environment (EXP-003) |
+| Resolve active-route orientation, reply-channel semantics, hero hierarchy or search discoverability. | Not scored: each is a qualitative candidate in `DESIGN.md`, not a measured conversion hypothesis. | Awaiting validation and user implementation approval |
+| Test a contextual primary-action change. | Not scored: requires EXP-001 and EXP-002 evidence after an approved, validated design proposal. | Blocked by evidence |
+| Test a visual-polish change. | Not scored: requires a defined change, browser validation and a metric. | Deferred to Phase 3 and evidence work |
 
 ## Pre-commitment for future tests
 
