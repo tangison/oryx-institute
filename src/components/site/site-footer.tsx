@@ -7,8 +7,8 @@ import { navAf, siteAf } from "@/lib/site-af";
 /**
  * The ink footer: the close of every page. Wordmark, the inline
  * sitemap, the founding line, the mailbox, the social channels as
- * plain text, and the legal row. Nothing else. No outgoing partner
- * or studio links live here; the one credit is small type, not a
+ * plain text, and one small studio credit. Nothing else. No outgoing
+ * partner or studio links live here; the credit is plain text, not a
  * link.
  */
 export function SiteFooter({ lang }: { lang: Lang }) {
@@ -93,12 +93,10 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="foot-legal mt-14 flex flex-col gap-4 pt-6 text-[0.82rem] md:flex-row md:items-center md:justify-between" data-sc-in>
-          <div className="foot-legal__copy">
-            <p className="tnum">{site.copyright}</p>
-            <p className="foot-legal__line">{site.legalLine}</p>
-          </div>
-          <p className="foot-credit">{af ? "Identiteit en bou deur Tangison" : "Identity and build by Tangison"}</p>
+        <div className="foot-legal mt-10 pt-6 text-[0.82rem]" data-sc-in>
+          <p className="foot-credit">
+            {af ? "Webwerf deur Tangison Studio gemaak" : "Site made by Tangison Studio"}
+          </p>
         </div>
       </div>
     </footer>
