@@ -23,7 +23,7 @@ export const siteAf = {
   plannedCentre:
     "Ongwediva is 'n toekomstige inisiatief. Dit word beplan, is nie oop nie en word nie as 'n openbare kampus aangebied nie.",
   plannedCampus:
-    "Oryx sal 'n bestaande gastehuis as 'n toekomstige kampus met 'n gasvryheidsfokus oorneem. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
+    "Oryx sal Untag Guesthouse as 'n toekomstige kampus met 'n gasvryheidsfokus oorneem. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
 } as const;
 
 export const statusAf = {

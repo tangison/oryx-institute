@@ -73,7 +73,7 @@ export const site = {
   /** A confirmed future-site takeover. This must stay visibly future: it
    * is not an open campus, course catalogue, enrolment route or approval. */
   plannedCampus:
-    "Oryx will take over an existing guesthouse as a future hospitality-focused campus. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
+    "Oryx will take over Untag Guesthouse as a future hospitality-focused campus. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
   plannedCampusMapUrl: "https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic",
   /** The one public mailbox. Enquiries, partnerships and press
      * correspondence start here unless a dedicated public channel is
