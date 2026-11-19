@@ -504,8 +504,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Second silent divider: Windhoek, a breath before the
-          ledger. No text. */}
+      {/* Second silent divider: a breath before the ledger. No text. */}
       <div
         className="divider divider--full overflow-hidden"
         data-sc-act="flow"

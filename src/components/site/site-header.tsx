@@ -17,7 +17,7 @@ import { navAf, siteAf } from "@/lib/site-af";
  * The menu is a native <details>-style checkbox disclosure: a
  * full-screen cream slideover, the primary links in the brand serif,
  * the language switch and the rest of the sitemap beneath, the office
- * line and Windhoek time at the bottom. It opens, navigates and
+ * line and a compact local time at the bottom. It opens, navigates and
  * closes with JavaScript off.
  */
 export function SiteHeader({ lang }: { lang: Lang }) {
@@ -147,7 +147,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               {site.phoneDisplay}
             </a>
             <p className="menu-place">
-              {af ? siteAf.postalAddressLine : site.postalAddress.line}
+              {af ? siteAf.postalAddressBox : site.postalAddress.postOfficeBox}
             </p>
             <ul className="menu-social" aria-label={af ? "Social channels" : "Social channels"}>
               {site.socials.map((s) => (
