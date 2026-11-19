@@ -60,7 +60,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             <a href={`mailto:${site.email}`} className="foot-mail link-type">
               {site.email}
             </a>
-            <p className="foot-post">{af ? siteAf.postalAddressLine : site.postalAddress.line}</p>
+            <p className="foot-post">{af ? siteAf.postalAddressBox : site.postalAddress.postOfficeBox}</p>
             <p className="foot-phone">
               <a
                 href={site.phoneHref}

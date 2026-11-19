@@ -46,7 +46,9 @@ const copy = {
       title: "The work has a present tense.\nThe future has a label.",
       now: "Working now",
       next: "In development",
-      noSite: "Oryx does not present a planned centre as an open campus. The work earns its space before the sign goes up.",
+      noSite: "Future sites are not open campuses. Details are published only when they are formally confirmed.",
+      plannedCampus: "A future hospitality-focused campus",
+      plannedCampusMap: "View planned campus site",
       cornerSpa: "Corner Spa is the first operating venture, working with Mendozer in Windhoek.",
       imageCaption: "The animal named in the institute’s mark, held in its own ground.",
     },
@@ -100,7 +102,9 @@ const copy = {
       title: "Die werk het ’n teenwoordige tyd.\nDie toekoms het ’n etiket.",
       now: "Werk nou",
       next: "In ontwikkeling",
-      noSite: "Oryx stel nie ’n beplande sentrum voor as ’n oop kampus nie. Die werk verdien sy ruimte voordat die bord opgaan.",
+      noSite: "Toekomstige terreine is nie oop kampusse nie. Besonderhede word eers gepubliseer wanneer dit formeel bevestig is.",
+      plannedCampus: "’n Toekomstige kampus met ’n gasvryheidsfokus",
+      plannedCampusMap: "Sien beplande kampusterrein",
       cornerSpa: "Corner Spa is die eerste bedrywige onderneming, saam met Mendozer in Windhoek.",
       imageCaption: "Die dier in die instituut se merk, op eie grond.",
     },
@@ -151,6 +155,7 @@ export default async function AboutPage({
   const t = copy[lang];
   const st = af ? statusAf : status;
   const plannedCentre = af ? siteAf.plannedCentre : site.plannedCentre;
+  const plannedCampus = af ? siteAf.plannedCampus : site.plannedCampus;
   const A = (path: string) => (af ? `/af${path}` : path);
 
   const jsonLd = {
@@ -263,6 +268,18 @@ export default async function AboutPage({
                 <div className="ledger-row">
                   <h3 className="h-sub">Ongwediva</h3>
                   <p className="text-soft">{plannedCentre}</p>
+                </div>
+                <div className="ledger-row">
+                  <h3 className="h-sub">{t.nowNext.plannedCampus}</h3>
+                  <p className="text-soft">{plannedCampus}</p>
+                  <a
+                    href={site.plannedCampusMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-type"
+                  >
+                    {t.nowNext.plannedCampusMap} <span className="arr" aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
               <p className="about-status__note">{t.nowNext.noSite}</p>

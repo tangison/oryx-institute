@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * Windhoek time, kept in the menu meta. The server renders nothing, so
- * there is no hydration mismatch and nothing announced twice: the place
- * line beside it already carries the city. With JavaScript off the
- * clock simply does not appear.
+ * Namibia time, kept as a compact menu utility. The server renders
+ * nothing, so there is no hydration mismatch or duplicated location
+ * claim. With JavaScript off the clock simply does not appear.
  */
 export function MenuClock() {
   const [time, setTime] = useState<string | null>(null);
@@ -27,7 +26,7 @@ export function MenuClock() {
   if (!time) return null;
   return (
     <p className="menu-clock">
-      Windhoek · <span className="tnum">{time}</span>
+      <span className="tnum">{time}</span>
     </p>
   );
 }

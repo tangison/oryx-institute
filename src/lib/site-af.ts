@@ -18,9 +18,12 @@ export const siteAf = {
     "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en maatskappye wat die werk bewys.",
   country: "Namibië",
   areaServed: "Namibië",
-  postalAddressLine: "Posbus 1662, Windhoek, Namibië",
+  postalAddressBox: "Posbus 1662",
+  postalAddressLine: "Posbus 1662, Namibië",
   plannedCentre:
     "Ongwediva is 'n toekomstige inisiatief. Dit word beplan, is nie oop nie en word nie as 'n openbare kampus aangebied nie.",
+  plannedCampus:
+    "Oryx sal 'n bestaande gastehuis as 'n toekomstige kampus met 'n gasvryheidsfokus oorneem. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
 } as const;
 
 export const statusAf = {
@@ -165,7 +168,7 @@ export const faqsAf = [
   },
   {
     q: "Waar is die instituut?",
-    a: "Oryx is in Namibië gebaseer en publiseer slegs 'n posadres: Posbus 1662, Windhoek, Namibië. Geen fisiese adres, openbare besoekinligting of openingstye word gepubliseer nie.",
+    a: "Oryx werk regoor Namibië en publiseer slegs 'n posadres: Posbus 1662, Namibië. Geen fisiese adres, openbare besoekinligting of openingstye word gepubliseer nie.",
   },
   {
     q: "Is Oryx geakkrediteer?",

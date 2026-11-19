@@ -36,6 +36,7 @@ const copy = {
       ventures: ["Ventures", "Small companies, real customers"],
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Public record, dated as published"],
+      "planned-campus-site": ["Planned campus site", "Future site. Not open for courses or enrolment."],
       "google-business-profile": ["Oryx on Google Maps", "Official Google Business Profile"],
     } as Record<string, [string, string]>,
     footer: {
@@ -76,6 +77,7 @@ const copy = {
       ventures: ["Ondernemings", "Klein maatskappye, werklike kliënte"],
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Openbare rekord, gedateer soos gepubliseer"],
+      "planned-campus-site": ["Beplande kampusterrein", "Toekomstige terrein. Nie oop vir kursusse of inskrywings nie."],
       "google-business-profile": ["Oryx op Google Maps", "Amptelike Google Besigheidsprofiel"],
     } as Record<string, [string, string]>,
     footer: {

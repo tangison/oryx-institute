@@ -53,7 +53,6 @@ export const site = {
     "A new polytechnic for Namibia. Research, practice, and companies that prove the work.",
   /** Oryx publishes a postal address only. Future learning sites are not
    * presented as open campuses or public visiting locations. */
-  city: "Windhoek",
   country: "Namibia",
   areaServed: "Namibia",
   legalLine:
@@ -61,9 +60,8 @@ export const site = {
   copyright: "© 2026 Oryx Polytechnic Institute. All rights reserved.",
   postalAddress: {
     postOfficeBox: "P.O. Box 1662",
-    addressLocality: "Windhoek",
     addressCountry: "Namibia",
-    line: "P.O. Box 1662, Windhoek, Namibia",
+    line: "P.O. Box 1662, Namibia",
   },
   webAddress: "oryxinstitute.org",
   linksUrl: "https://www.oryxinstitute.org/links",
@@ -72,6 +70,11 @@ export const site = {
   statusAsOf: "2026-11-13",
   plannedCentre:
     "Ongwediva is a future initiative. It is planned, not open, and is not presented as a public campus.",
+  /** A confirmed future-site takeover. This must stay visibly future: it
+   * is not an open campus, course catalogue, enrolment route or approval. */
+  plannedCampus:
+    "Oryx will take over an existing guesthouse as a future hospitality-focused campus. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
+  plannedCampusMapUrl: "https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic",
   /** The one public mailbox. Enquiries, partnerships and press
      * correspondence start here unless a dedicated public channel is
      * published later. */
@@ -158,7 +161,6 @@ export const organizationContactSchema = {
   address: {
     "@type": "PostalAddress",
     postOfficeBoxNumber: site.postalAddress.postOfficeBox,
-    addressLocality: site.postalAddress.addressLocality,
     addressCountry: "NA",
   },
   sameAs: [...site.socials.map((channel) => channel.href), site.googleBusinessProfileUrl],
@@ -181,6 +183,7 @@ export const linkHub = {
     { id: "ventures", href: "/ventures" },
     { id: "corner-spa", href: "/corner-spa" },
     { id: "register", href: "/register" },
+    { id: "planned-campus-site", href: site.plannedCampusMapUrl, external: true },
   ],
   utility: [
     { id: "about", href: "/about" },
@@ -417,7 +420,7 @@ export const faqs = [
   },
   {
     q: "Where is the institute?",
-    a: "Oryx is based in Namibia and publishes a postal address only: P.O. Box 1662, Windhoek, Namibia. No physical address, public visiting instructions or opening hours are published.",
+    a: "Oryx works across Namibia and publishes a postal address only: P.O. Box 1662, Namibia. No physical address, public visiting instructions or opening hours are published.",
   },
   {
     q: "Is Oryx accredited?",

@@ -72,13 +72,16 @@ export default async function FaqPage({
   const lang = langFromParams(await params);
   const af = lang === "af";
   const t = copy[lang];
-  const plannedCentreFaq = {
+  const plannedSitesFaq = {
     q: af
-      ? "Waar sal die eerste toegewyde opleidingsentrum wees?"
-      : "Where will the first dedicated training centre be?",
-    a: af ? siteAf.plannedCentre : site.plannedCentre,
+      ? "Waar word toekomstige leerterreine beplan?"
+      : "Where are future learning sites planned?",
+    a: [
+      af ? siteAf.plannedCampus : site.plannedCampus,
+      af ? siteAf.plannedCentre : site.plannedCentre,
+    ].join(" "),
   };
-  const list = [...(af ? faqsAf : faqs), plannedCentreFaq];
+  const list = [...(af ? faqsAf : faqs), plannedSitesFaq];
   const A = (path: string) => (af ? `/af${path}` : path);
 
   const faqJsonLd = {

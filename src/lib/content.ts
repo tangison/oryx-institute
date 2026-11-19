@@ -16,7 +16,7 @@ export const insights = [
     titleAf: "Wat 'n politegniese instituut is, en waarvoor dit daar is",
     date: "2026",
     dek: "The word is old, the characters are older, and the institutional idea remains useful.",
-    dekAf: "Die woord is oud, en die idee pas presies by Windhoek.",
+    dekAf: "Die woord is oud, en die idee pas presies by Namibië.",
     excerptAf:
       "'n Politegniese instituut onderrig die gemaakte wêreld: die wetenskappe wat dit verklaar, die ingenieurswese wat dit bou en die tegnologie wat dit laat werk. Baie ambagte, een dissipline.",
     body: [

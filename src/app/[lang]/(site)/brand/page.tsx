@@ -61,7 +61,7 @@ const copy = {
       "The pieces the institute publishes while it is being established, photographed in the house register, one piece per screen. Every mark you see is the real vector, set in code over the\u00A0photograph.",
     specimensEyebrow: "Specimens",
     specimensBody:
-      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Windhoek objects as they are collected.",
+      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Namibian objects as they are collected.",
     shieldCaption: "Specimen · the shield",
     specimenWord: "Specimen",
     voiceEyebrow: "The voice, with a bar",
@@ -123,7 +123,7 @@ const copy = {
       "The pieces the institute publishes while it is being established, photographed in the house register, one piece per screen. Every mark you see is the real vector, set in code over the\u00A0photograph.",
     specimensEyebrow: "Specimens",
     specimensBody:
-      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Windhoek objects as they are collected.",
+      "The objects the identity is built from, one per plate, on cream and terracotta. Replaced with real Namibian objects as they are collected.",
     shieldCaption: "Specimen · the shield",
     specimenWord: "Specimen",
     voiceEyebrow: "The voice, with a bar",
