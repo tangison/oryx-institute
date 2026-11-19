@@ -19,6 +19,23 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048],
     qualities: [62, 75, 80],
   },
+  /* The proxy also marks previews noindex. Keep this host-level rule as
+     a response-header backstop when a dynamic server component consumes
+     request headers, which can otherwise prevent the proxy header from
+     reaching the final response. */
+  headers: () => [
+    {
+      source: "/:path*",
+      has: [
+        {
+          type: "host",
+          value:
+            "^(?!(?:oryxinstitute\\.org|www\\.oryxinstitute\\.org|localhost(?::\\d+)?)$).+",
+        },
+      ],
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    },
+  ],
   redirects: () => [
     /* Afrikaans is live at /af. Legacy /zh links move permanently
        to their equivalent English URLs. */

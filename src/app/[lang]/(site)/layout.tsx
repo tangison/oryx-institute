@@ -97,13 +97,6 @@ export default async function SiteLayout({
 
   return (
     <>
-      {/* The root layout carries lang="en" statically; Afrikaans routes
-          set the real language before first paint. */}
-      {lang === "af" ? (
-        <script
-          dangerouslySetInnerHTML={{ __html: `document.documentElement.lang="af-NA"` }}
-        />
-      ) : null}
       <SCMotion />
       <a href="#main" className="skip-link">
         {t.skip}
