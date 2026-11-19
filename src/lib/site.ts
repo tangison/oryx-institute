@@ -93,11 +93,10 @@ export const site = {
   ntaRegistrationUrl: "https://www.nta.com.na/registration-tp/",
   nqaAccreditationUrl: "https://namqa.org/",
   tangisonUrl: "https://tangison.com/",
-  /** A temporary Google Maps discovery search. It is deliberately not
-   * added to sameAs because Oryx does not claim a verified Business Profile.
-   * Replace this with the verified profile Share link only once confirmed. */
-  googleMapsSearchUrl:
-    "https://www.google.com/maps/search/?api=1&query=Oryx%20Institute%2C%20Windhoek%2C%20Namibia",
+  /** The confirmed public Google Business Profile. Keep the supplied
+   * Share URL exact so the Link Hub and organization schema describe the
+   * same official destination. */
+  googleBusinessProfileUrl: "https://share.google/8BQzpnFZHDLB5jNC3",
   /** Social channels, icon-only links in the footer and on /contact.
    * Each opens in a new tab; nothing is embedded. */
   socials: [
@@ -162,7 +161,7 @@ export const organizationContactSchema = {
     addressLocality: site.postalAddress.addressLocality,
     addressCountry: "NA",
   },
-  sameAs: site.socials.map((channel) => channel.href),
+  sameAs: [...site.socials.map((channel) => channel.href), site.googleBusinessProfileUrl],
 } as const;
 
 /** The ordered public hub. URLs live in this content source rather than
@@ -173,6 +172,7 @@ export const linkHub = {
     { id: "call", href: site.phoneHref },
     { id: "whatsapp", href: site.whatsappHref, external: true },
     { id: "email", href: `mailto:${site.email}` },
+    { id: "google-business-profile", href: site.googleBusinessProfileUrl, external: true },
   ],
   enquiries: [{ id: "apply", href: "/apply" }],
   reading: [{ id: "research", href: "/research" }],
@@ -182,7 +182,6 @@ export const linkHub = {
     { id: "corner-spa", href: "/corner-spa" },
     { id: "register", href: "/register" },
   ],
-  googleMaps: [{ id: "google-maps", href: site.googleMapsSearchUrl, external: true }],
   utility: [
     { id: "about", href: "/about" },
     { id: "status", href: "/status" },

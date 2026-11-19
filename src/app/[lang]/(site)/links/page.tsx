@@ -17,7 +17,7 @@ const copy = {
     },
     eyebrow: "Oryx Institute",
     title: "The useful routes.\nAll in one place.",
-    lede: "Official contact details, work, reading and social channels. No copied links, no third-party profile page.",
+    lede: "Official contact details, work, reading and social channels in one place.",
     qr: "Scan for every official Oryx link",
     groups: {
       direct: "Start here",
@@ -36,7 +36,7 @@ const copy = {
       ventures: ["Ventures", "Small companies, real customers"],
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Public record, dated as published"],
-      "google-maps": ["Find Oryx on Google Maps", "Temporary discovery search. No official Business Profile is claimed."],
+      "google-business-profile": ["Oryx on Google Maps", "Official Google Business Profile"],
     } as Record<string, [string, string]>,
     footer: {
       note: "A new polytechnic for Namibia. Research, practice and companies that prove the work.",
@@ -57,7 +57,7 @@ const copy = {
     },
     eyebrow: "Oryx Instituut",
     title: "Die bruikbare roetes.\nAlles op een plek.",
-    lede: "Amptelike kontakbesonderhede, werk, leesstof en sosiale kanale. Geen gekopieerde skakels of derdeparty-profielblad nie.",
+    lede: "Amptelike kontakbesonderhede, werk, leesstof en sosiale kanale op een plek.",
     qr: "Skandeer vir elke amptelike Oryx-skakel",
     groups: {
       direct: "Begin hier",
@@ -76,7 +76,7 @@ const copy = {
       ventures: ["Ondernemings", "Klein maatskappye, werklike kliënte"],
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Openbare rekord, gedateer soos gepubliseer"],
-      "google-maps": ["Vind Oryx op Google Maps", "Tydelike ontdekkingsoektog. Geen amptelike Besigheidsprofiel word beweer nie."],
+      "google-business-profile": ["Oryx op Google Maps", "Amptelike Google Besigheidsprofiel"],
     } as Record<string, [string, string]>,
     footer: {
       note: "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en ondernemings wat die werk bewys.",
@@ -225,9 +225,6 @@ export default async function LinksPage({
                   <span className="link-hub__row-note">{af ? "Amptelike Oryx-kanaal" : "Official Oryx channel"}</span>
                   <RouteArrowIcon className="link-hub__arrow" />
                 </a>
-              ))}
-              {linkHub.googleMaps.map((link) => (
-                <HubRow key={link.id} link={link} label={t.links[link.id]} path={A} />
               ))}
             </div>
           </section>
