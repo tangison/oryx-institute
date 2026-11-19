@@ -1,6 +1,15 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
+const configuredProductionHost = process.env.PRODUCTION_HOST;
+const productionHosts = configuredProductionHost
+  ? [configuredProductionHost, `www.${configuredProductionHost}`, "localhost"]
+  : ["oryxinstitute.org", "www.oryxinstitute.org", "localhost"];
+const productionHostPattern = productionHosts
+  .map((host) => host.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+  .map((host) => `${host}(?::\\d+)?`)
+  .join("|");
+
 /**
  * Oryx Institute · rebuild-hbr (Kinfolk / HBR register).
  *
@@ -29,8 +38,7 @@ const nextConfig: NextConfig = {
       has: [
         {
           type: "host",
-          value:
-            "^(?!(?:oryxinstitute\\.org|www\\.oryxinstitute\\.org|localhost(?::\\d+)?)$).+",
+          value: `^(?!(?:${productionHostPattern})$).+`,
         },
       ],
       headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
