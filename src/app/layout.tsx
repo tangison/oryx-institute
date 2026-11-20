@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -60,14 +61,20 @@ export const viewport: Viewport = {
   themeColor: "#F4EEE4",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  /* The locale proxy places the validated route locale on the internal
+     request. Rendering it here keeps the server HTML truthful for
+     crawlers, assistive technology and visitors without JavaScript. */
+  const requestHeaders = await headers();
+  const lang = requestHeaders.get("x-oryx-lang") === "af" ? "af-NA" : "en";
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${serif.variable} ${sans.variable} ${cjkMark.variable}`}
     >
       <body className="antialiased bg-paper text-ink min-h-screen flex flex-col">

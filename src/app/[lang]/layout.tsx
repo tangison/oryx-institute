@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { LANGS, langFromParams, type Lang } from "@/lib/i18n";
-import { LangSync } from "@/components/site/lang-sync";
 
 /**
  * The locale segment. It validates the language and renders nothing
@@ -24,12 +23,5 @@ export default async function LangLayout({
 }>) {
   const lang = langFromParams(await params);
   if (!LANGS.includes(lang as Lang)) notFound();
-  return (
-    <>
-      {/* The document language, kept honest on every locale route:
-          site pages, the Corner Spa frame and the error screens. */}
-      <LangSync lang={lang} />
-      {children}
-    </>
-  );
+  return children;
 }
