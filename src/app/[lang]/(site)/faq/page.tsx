@@ -18,7 +18,7 @@ const copy = {
     },
     headTitle: "Questions, answered.",
     headLede:
-      "What people ask before they write. Anything else can go to the Oryx office through the approved public contact routes.",
+      "Answers to the questions people most often bring to the Oryx office.",
     writeOffice: "Write to the office",
     applyNow: "Enquire",
     contactLink: "Contact the office",
@@ -34,7 +34,7 @@ const copy = {
     },
     headTitle: "Vrae, beantwoord.",
     headLede:
-      "Wat mense vra voordat hulle skryf. Enigiets anders kan deur die goedgekeurde openbare kontakroetes na die Oryx-kantoor gaan.",
+      "Antwoorde op die vrae wat mense die meeste aan die Oryx-kantoor vra.",
     writeOffice: "Skryf aan die kantoor",
     applyNow: "Doen navraag",
     contactLink: "Kontak die kantoor",

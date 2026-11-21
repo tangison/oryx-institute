@@ -78,9 +78,9 @@ export const chrome = {
     readMore: "Read",
     backHome: "Back to the front page",
     toTop: "Back to top",
-    notFoundTitle: "Nothing stands at this address.",
+    notFoundTitle: "This page is not here.",
     notFoundBody:
-      "The page moved, or it was never printed. The register, the practice, and the office are one click away.",
+      "The page may have moved or may never have been published. Return to the front page or contact the office.",
   },
   af: {
     skip: "Spring na inhoud",
@@ -113,9 +113,9 @@ export const chrome = {
     readMore: "Lees",
     backHome: "Terug na die voorblad",
     toTop: "Terug na bo",
-    notFoundTitle: "Niks staan by hierdie adres nie.",
+    notFoundTitle: "Hier is geen bladsy nie.",
     notFoundBody:
-      "Die bladsy het geskuif, of dit is nooit gepubliseer nie. Die register, die praktyk en die kantoor is een klik weg.",
+      "Die bladsy kon geskuif het of is nooit gepubliseer nie. Gaan terug na die voorblad of kontak die kantoor.",
   },
 } as const;
 

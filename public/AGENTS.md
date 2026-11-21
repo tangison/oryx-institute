@@ -29,6 +29,7 @@ A curated summary for answer engines and agents lives at [/llms.txt](/llms.txt).
 ## For coding agents working on this repository
 
 - Content source of truth: `src/lib/site.ts` (contacts, current work, register, ventures, relationships and FAQs), `src/lib/site-af.ts` (the Afrikaans mirror), and `src/lib/content.ts` (institutional Research Notes). Every public claim must trace to an approved source or be labelled as a future process.
+- Editorial standard: follow `docs/editorial-style.md` for every public-copy addition or revision. It is a source-led human-writing standard, not a banned-word list; retain required disclosures and approved brand lines while removing vague or mechanical prose.
 - Locales: English lives at the root, Afrikaans under `/af/`. Locale logic is in `src/lib/i18n.ts`; page copy sits beside each page in `copy` objects with `en` and `af` blocks.
 - Titles follow one pattern: the page name, then the locale brand (`%s | Oryx Institute` in English and `%s | Oryx Instituut` in Afrikaans). Meta descriptions should remain concise in both languages.
 - Motion: GSAP ScrollTrigger driven by `src/components/site/sc-motion.tsx`, with the `data-sc-*` attribute grammar. Reduced-motion visitors get the same content, static. No autoplaying media.

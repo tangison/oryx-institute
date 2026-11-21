@@ -20,29 +20,29 @@ const SPA_COUNTER = "https://spa.mendozer.com";
 const copy = {
   en: {
     meta: {
-      title: "Corner Spa, the venture",
+      title: "Corner Spa",
       description:
-        "Corner Spa, Oryx's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work in Windhoek. The spa's counter at spa.mendozer.com is embedded on this page.",
+        "Corner Spa is Oryx's first operating venture, run with Mendozer Investments in Windhoek. Its counter at spa.mendozer.com is embedded on this page.",
       ogTitle: "Corner Spa | Oryx Institute",
       ogDescription:
-        "Oryx's first operating venture, run with Mendozer Investments: practical business and service work in Windhoek. The spa's counter, spa.mendozer.com, is embedded here.",
+        "Oryx's first operating venture, run with Mendozer Investments in Windhoek. The spa's counter at spa.mendozer.com is embedded here.",
       ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa, Oryx Institute's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work in Windhoek.",
+        "Corner Spa is Oryx Institute's first operating venture, run with Mendozer Investments in Windhoek.",
     },
     eyebrow: "Ventures · operating",
     partnerTag: "Operating with Mendozer",
     h1: "Corner Spa",
-    lede: "Oryx's first operating venture, run with Mendozer Investments. An operating setting for practical business and service work in Windhoek.",
+    lede: "Oryx's first operating venture, run with Mendozer Investments in Windhoek.",
     withEyebrow: "With Mendozer",
-    withLede: "An operating venture with a counter of its own.",
+    withLede: "An operating venture with its own counter.",
     withBody:
       "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. Mendozer's platform serves the spa's own website at spa.mendozer.com. That counter is embedded below, and it also opens full screen at oryxinstitute.org/corner-spa. Booking and service details stay on the spa's own site.",
     shapeEyebrow: "The operating collaboration",
     rows: [
       {
         term: "The counter",
-        body: "Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address, so the door is never lost to a blocked frame or a slow connection.",
+        body: "Mendozer's platform serves the storefront, and this page embeds it. The spa address remains available below the frame if it cannot load.",
       },
       {
         term: "The working setting",
@@ -50,7 +50,7 @@ const copy = {
       },
       {
         term: "The public record",
-        body: "Oryx states its ventures plainly as they are. Corner Spa is operating; no opening date or public street address is claimed here.",
+        body: "Corner Spa is operating. Oryx does not publish an opening date or public street address for the spa.",
       },
     ],
     counterEyebrow: "The counter",
@@ -68,29 +68,29 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Corner Spa, die onderneming",
+      title: "Corner Spa",
       description:
-        "Corner Spa, Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank by spa.mendozer.com is op hierdie blad ingebed.",
+        "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf. Die toonbank by spa.mendozer.com is op hierdie blad ingebed.",
       ogTitle: "Corner Spa | Oryx Instituut",
       ogDescription:
-        "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank, spa.mendozer.com, is hier ingebed.",
+        "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf. Die spa se toonbank by spa.mendozer.com is hier ingebed.",
       ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa, Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
+        "Corner Spa is Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf.",
     },
     eyebrow: "Ondernemings · in bedryf",
     partnerTag: "In bedryf saam met Mendozer",
     h1: "Corner Spa",
-    lede: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. ’n Bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
+    lede: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf.",
     withEyebrow: "Saam met Mendozer",
-    withLede: "'n Bedrywige onderneming met sy eie toonbank.",
+    withLede: "’n Bedrywige onderneming met sy eie toonbank.",
     withBody:
       "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Mendozer se platform bedien die spa se eie webwerf by spa.mendozer.com. Daardie toonbank is hieronder ingebed en maak ook volskerm by oryxinstitute.org/corner-spa oop. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     shapeEyebrow: "Die bedrywige samewerking",
     rows: [
       {
         term: "Die toonbank",
-        body: "Mendozer se platform bedien die winkelvenster; hierdie blad bed dit in, en die lyn onder die raam dra altyd die adres sodat die toegang nie by 'n geblokkeerde raam of stadige verbinding verlore gaan nie.",
+        body: "Mendozer se platform bedien die winkelvenster en hierdie blad bed dit in. Die spa-adres bly onder die raam beskikbaar as dit nie kan laai nie.",
       },
       {
         term: "Die bedrywige omgewing",
@@ -98,7 +98,7 @@ const copy = {
       },
       {
         term: "Die openbare rekord",
-        body: "Oryx stel sy ondernemings eerlik soos dit is. Corner Spa is in bedryf; geen openingsdatum of openbare straatadres word hier beweer nie.",
+        body: "Corner Spa is in bedryf. Oryx publiseer nie ’n openingsdatum of openbare straatadres vir die spa nie.",
       },
     ],
     counterEyebrow: "Die toonbank",

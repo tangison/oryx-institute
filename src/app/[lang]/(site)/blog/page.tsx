@@ -10,13 +10,13 @@ const copy = {
     meta: {
       title: "Notes from the practice",
       description:
-        "Notes from Oryx Institute: the practice running today, the ventures opened with partners, the work in development. Written to be used, dated as published.",
+        "Notes from Oryx Institute about current practice, ventures and work in development.",
       ogTitle: "Notes from the practice | Oryx Institute",
     },
     head: {
       eyebrow: "Blog",
       title: "Notes from the practice.",
-      lede: "Longer notes on the work: what the institute runs, what it builds with its partners, and what the first ventures look like on the ground. Dated as published.",
+      lede: "Published notes on current work, collaborations and ventures. Each is dated when it is published.",
     },
     read: "Read the note",
     contactLine: "Questions about anything written here go to the office:",
@@ -26,13 +26,13 @@ const copy = {
     meta: {
       title: "Notas uit die praktyk",
       description:
-        "Notas van Oryx Instituut: die praktyk wat vandag loop, ondernemings wat met vennote oopgemaak is en werk in ontwikkeling. Vir gebruik geskryf en gedateer soos gepubliseer.",
+        "Notas van Oryx Instituut oor huidige praktyk, ondernemings en werk in ontwikkeling.",
       ogTitle: "Notas uit die praktyk | Oryx Instituut",
     },
     head: {
       eyebrow: "Blog",
       title: "Notas uit die praktyk.",
-      lede: "Langer notas oor die werk: wat die instituut doen, wat dit saam met vennote bou en hoe die eerste ondernemings op die grond lyk. Gedateer soos gepubliseer.",
+      lede: "Gepubliseerde notas oor huidige werk, samewerking en ondernemings. Elke nota word gedateer wanneer dit gepubliseer word.",
     },
     read: "Lees die nota",
     contactLine: "Vrae oor enigiets wat hier geskryf staan, gaan na die kantoor:",
