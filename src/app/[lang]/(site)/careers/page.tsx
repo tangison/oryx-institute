@@ -4,6 +4,7 @@ import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import {
   careerGroupLabel,
+  careerNoticeLabel,
   careerRoleName,
   careerRoleSummary,
   careerRoles,
@@ -34,7 +35,7 @@ const copy = {
       eyebrow: "Current vacancies",
       title: "Work that starts with care.",
       lede:
-        "Oryx is recruiting for centre establishment, quality, records and planned instructional work in Ongwediva. Choose a role to read its scope and prepare an application email.",
+        "Oryx is recruiting for centre establishment, quality, records and programme leadership in Ongwediva. Each programme role brings related levels, strands and short-course scope into one clear application route.",
     },
     closing: "Applications close",
     location: "Advertised location",
@@ -44,13 +45,11 @@ const copy = {
       "These vacancies are open now. Apply before the published closing time through the role-specific email composer or by writing directly to the recruitment mailbox.",
     statusTitle: "Read the vacancy correctly.",
     statusBody:
-      "Oryx is working toward NTA training-provider registration. It is not registered or accredited, and it does not offer accredited qualifications, NQF credits or a public campus. The Lead Instructor specialisms state intended work scope only; they do not announce courses or enrolment.",
+      "Oryx is working toward NTA training-provider registration. It is not registered or accredited, and it does not offer accredited qualifications, NQF credits or a public campus. Each Lead Instructor notice groups an intended work scope into one senior programme position; it does not announce courses or enrolment.",
     statusAction: "Read institutional status",
     roles: "Open positions",
-    roleCount: (count: number) => `${count} roles, each with its own application page.`,
+    roleCount: (count: number) => `${count} clear roles, with no duplicate level-by-level notices.`,
     viewRole: "Read role and apply",
-    sourceIndividual: "Individual position notice",
-    sourceConsolidated: "Consolidated campaign notice",
     fairness: "A fair, email-first process",
     fairnessPoints: [
       "Initial review is based on job-relevant information and the operational needs of the role.",
@@ -80,7 +79,7 @@ const copy = {
       eyebrow: "Huidige vakatures",
       title: "Werk wat met sorg begin.",
       lede:
-        "Oryx werf vir sentrumvestiging, gehalte, rekords en beplande onderrigwerk in Ongwediva. Kies ’n rol om die omvang te lees en ’n aansoek-e-pos op te stel.",
+        "Oryx werf vir sentrumvestiging, gehalte, rekords en programleierskap in Ongwediva. Elke programrol bring verwante vlakke, rigtings en kortkursusomvang in een duidelike aansoekroete saam.",
     },
     closing: "Aansoeke sluit",
     location: "Geadverteerde ligging",
@@ -90,13 +89,11 @@ const copy = {
       "Hierdie vakatures is nou oop. Doen voor die gepubliseerde sluitingstyd aansoek deur die rolspesifieke e-possamesteller of skryf direk aan die werwingsposbus.",
     statusTitle: "Lees die vakature korrek.",
     statusBody:
-      "Oryx werk aan NTA-opleidingsverskafferregistrasie. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies, NQF-krediete of ’n openbare kampus aan nie. Die Lead Instructor-spesialisasies stel slegs die beoogde werksomvang; dit kondig nie kursusse of inskrywing aan nie.",
+      "Oryx werk aan NTA-opleidingsverskafferregistrasie. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies, NQF-krediete of ’n openbare kampus aan nie. Elke Lead Instructor-kennisgewing groepeer ’n beoogde werksomvang in een senior programpos; dit kondig nie kursusse of inskrywing aan nie.",
     statusAction: "Lees institusionele status",
     roles: "Oop poste",
-    roleCount: (count: number) => `${count} rolle, elk met ’n eie aansoekblad.`,
+    roleCount: (count: number) => `${count} duidelike rolle, sonder dubbele vlak-vir-vlak-kennisgewings.`,
     viewRole: "Lees rol en doen aansoek",
-    sourceIndividual: "Individuele poskennisgewing",
-    sourceConsolidated: "Gekonsolideerde veldtogkennisgewing",
     fairness: "’n Billike, e-pos-eerste proses",
     fairnessPoints: [
       "Aanvanklike oorweging is op werksrelevante inligting en die bedryfsbehoeftes van die rol gegrond.",
@@ -232,7 +229,7 @@ export default async function CareersPage({
                         <p className="text-[clamp(1.2rem,2.3vw,1.7rem)] font-[600] tracking-[-0.025em] text-ink">{careerRoleName(role)}</p>
                         <p className="mt-3 max-w-[65ch] leading-relaxed text-soft">{careerRoleSummary(role, lang)}</p>
                         <p className="mt-4 text-[0.72rem] font-[600] uppercase tracking-[0.12em] text-maroon">
-                          {role.source === "individual-notice" ? t.sourceIndividual : t.sourceConsolidated}
+                          {careerNoticeLabel(role.noticeType, lang)}
                         </p>
                       </div>
                       <span className="inline-flex items-center gap-3 text-[0.76rem] font-[600] uppercase tracking-[0.12em] text-ink">

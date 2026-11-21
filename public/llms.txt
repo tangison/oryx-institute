@@ -18,7 +18,7 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 
 ## Recruitment
 
-- [Careers](https://www.oryxinstitute.org/careers): 23 current Oryx recruitment pages for Ongwediva, each with role scope, a closing time and an email-first application form.
+- [Careers](https://www.oryxinstitute.org/careers): 9 current Oryx recruitment pages for Ongwediva. Each Lead Instructor listing is one senior programme position across its grouped level, strand and short-course scope, with a closing time and an email-first application form.
 - Applications close at 23:59 CAT (UTC+2) on 27 November 2026. Applications go to vacancies@oryxinstitute.org.
 - The site stores no application-form data. The form prepares an email in the applicant's own mail client; applicants must review it, attach a CV and send it themselves.
 - Role-specific minimum qualifications, licences and years of experience have not been published. Applicants should submit relevant experience and a CV; Oryx may request role-relevant evidence from shortlisted candidates.

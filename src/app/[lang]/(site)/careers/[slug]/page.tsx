@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { CareerApplicationForm } from "@/components/site/career-application-form";
 import { PageHead } from "@/components/site/page-head";
 import {
+  careerNoticeLabel,
   careerRoleContributions,
   careerRoleName,
   careerRoleOverview,
+  careerRoleScope,
   careerRoleSummary,
   careerRoles,
   formatRecruitmentDeadline,
   getCareerRole,
+  getCareerRoleRedirect,
   recruitment,
 } from "@/lib/careers";
 import { alternates, langFromParams } from "@/lib/i18n";
 import { schemaIds, site } from "@/lib/site";
-
-export const dynamicParams = false;
 
 export function generateStaticParams() {
   return careerRoles.map((role) => ({ slug: role.slug }));
@@ -30,12 +31,13 @@ const copy = {
     openRole: "Open role",
     advertisedLocation: "Advertised location",
     closing: "Applications close",
-    campaignSource: "Campaign source",
-    sourceIndividual: "Individual position notice",
-    sourceConsolidated: "Consolidated campaign notice",
+    campaignSource: "Notice type",
     consolidatedNote:
-      "This position is named on the consolidated campaign notice. A separate subject-specific flyer was not supplied; this page keeps the role scope deliberately limited to that notice.",
+      "This position is named on the consolidated campaign notice. Its scope remains limited to that approved notice.",
     overview: "Role overview",
+    scope: "Scope covered by this one role",
+    scopeBody:
+      "Apply once for this programme position. The entries below are a connected work scope, not separate vacancies.",
     contributions: "What you would contribute to",
     requirements: "Requirements and selection",
     requirementsBody:
@@ -46,9 +48,12 @@ const copy = {
     apply: "Apply by email",
     applyBody: (email: string) =>
       `Complete the short form below to prepare an email to ${email}. The website does not submit or retain the form. Review the draft, attach your CV and send it from your own email client before the closing time.`,
-    sourceTitle: "About the advertised scope",
+    sourceTitle: "One programme position, one application",
     sourceBody:
-      "The title and specialism on this page come from Oryx recruitment notices. They describe an intended work scope. They do not state that Oryx currently offers a course, accredited qualification, NQF credit, enrolment or a public campus.",
+      "Related level, strand and short-course source notices are gathered under one accountable Lead Instructor role. They describe an intended work scope, not separate vacancies or a claim that Oryx currently offers a course, accredited qualification, NQF credit, enrolment or a public campus.",
+    individualSourceTitle: "About this position notice",
+    individualSourceBody:
+      "This is one individual position notice. It describes intended work and does not state that Oryx currently offers a course, accredited qualification, NQF credit, enrolment or a public campus.",
     process: "A clear process",
     processPoints: [
       "Use the email addressed to vacancies@oryxinstitute.org. Do not send applications through social-media messages.",
@@ -66,12 +71,13 @@ const copy = {
     openRole: "Oop rol",
     advertisedLocation: "Geadverteerde ligging",
     closing: "Aansoeke sluit",
-    campaignSource: "Veldtogbron",
-    sourceIndividual: "Individuele poskennisgewing",
-    sourceConsolidated: "Gekonsolideerde veldtogkennisgewing",
+    campaignSource: "Kennisgewingtipe",
     consolidatedNote:
-      "Hierdie pos word op die gekonsolideerde veldtogkennisgewing genoem. ’n Afsonderlike vakspesifieke strooibiljet is nie verskaf nie; hierdie blad hou die rolomvang doelbewus by daardie kennisgewing beperk.",
+      "Hierdie pos word op die gekonsolideerde veldtogkennisgewing genoem. Die omvang bly by daardie goedgekeurde kennisgewing beperk.",
     overview: "Roloorsig",
+    scope: "Omvang wat deur hierdie een rol gedek word",
+    scopeBody:
+      "Doen een keer vir hierdie programpos aansoek. Die inskrywings hieronder is ’n gekoppelde werksomvang, nie afsonderlike vakatures nie.",
     contributions: "Waartoe jy sal bydra",
     requirements: "Vereistes en keuring",
     requirementsBody:
@@ -82,9 +88,12 @@ const copy = {
     apply: "Doen per e-pos aansoek",
     applyBody: (email: string) =>
       `Voltooi die kort vorm hieronder om ’n e-pos aan ${email} op te stel. Die webwerf stuur of behou nie die vorm nie. Gaan die konsep na, heg jou CV aan en stuur dit uit jou eie e-posprogram voor die sluitingstyd.`,
-    sourceTitle: "Oor die geadverteerde omvang",
+    sourceTitle: "Een programpos, een aansoek",
     sourceBody:
-      "Die titel en spesialisering op hierdie blad kom uit Oryx-werwingskennisgewings. Dit beskryf ’n beoogde werksomvang. Dit stel nie dat Oryx tans ’n kursus, geakkrediteerde kwalifikasie, NQF-krediet, inskrywing of openbare kampus aanbied nie.",
+      "Verwante vlak-, rigting- en kortkursusbronkennisgewings word onder een verantwoordelike Lead Instructor-rol saamgevoeg. Dit beskryf ’n beoogde werksomvang, nie afsonderlike vakatures of ’n aanspraak dat Oryx tans ’n kursus, geakkrediteerde kwalifikasie, NQF-krediet, inskrywing of openbare kampus aanbied nie.",
+    individualSourceTitle: "Oor hierdie poskennisgewing",
+    individualSourceBody:
+      "Dit is een individuele poskennisgewing. Dit beskryf beoogde werk en stel nie dat Oryx tans ’n kursus, geakkrediteerde kwalifikasie, NQF-krediet, inskrywing of openbare kampus aanbied nie.",
     process: "’n Duidelike proses",
     processPoints: [
       "Gebruik die e-pos wat aan vacancies@oryxinstitute.org gerig is. Moenie aansoeke deur sosialemedia-boodskappe stuur nie.",
@@ -131,15 +140,20 @@ export default async function CareerRolePage({
 }) {
   const { lang: requestedLang, slug } = await params;
   const lang = langFromParams({ lang: requestedLang });
-  const role = getCareerRole(slug);
-  if (!role) notFound();
-
   const af = lang === "af";
+  const role = getCareerRole(slug);
+  if (!role) {
+    const target = getCareerRoleRedirect(slug);
+    if (target) permanentRedirect(`${af ? "/af" : ""}/careers/${target}`);
+    notFound();
+  }
+
   const t = copy[lang];
   const A = (path: string) => (af ? `/af${path}` : path);
   const roleName = careerRoleName(role);
   const deadline = formatRecruitmentDeadline(lang);
-  const source = role.source === "individual-notice" ? t.sourceIndividual : t.sourceConsolidated;
+  const source = careerNoticeLabel(role.noticeType, lang);
+  const scope = careerRoleScope(role);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -180,11 +194,20 @@ export default async function CareerRolePage({
           <div data-sc-in>
             <p className="eyebrow eyebrow--ink">{t.overview}</p>
             <p className="mt-5 max-w-[64ch] text-[1.08rem] leading-relaxed text-soft">{careerRoleOverview(role, lang)}</p>
-            {role.source === "consolidated-notice" && <p className="mt-5 max-w-[64ch] border-l-2 border-maroon pl-5 leading-relaxed text-soft">{t.consolidatedNote}</p>}
+            {scope.length > 0 && (
+              <div className="mt-8 max-w-[64ch] border-y border-rule py-6">
+                <p className="eyebrow eyebrow--ink">{t.scope}</p>
+                <p className="mt-3 leading-relaxed text-soft">{t.scopeBody}</p>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {scope.map((item) => <li key={item} className="border-l-2 border-maroon pl-4 text-sm leading-relaxed text-soft">{item}</li>)}
+                </ul>
+              </div>
+            )}
+            {role.noticeType === "consolidated-campaign-notice" && <p className="mt-5 max-w-[64ch] border-l-2 border-maroon pl-5 leading-relaxed text-soft">{t.consolidatedNote}</p>}
           </div>
           <aside className="border-y border-rule py-7" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.sourceTitle}</p>
-            <p className="mt-4 leading-relaxed text-soft">{t.sourceBody}</p>
+            <p className="eyebrow eyebrow--ink">{role.kind === "lead-instructor" ? t.sourceTitle : t.individualSourceTitle}</p>
+            <p className="mt-4 leading-relaxed text-soft">{role.kind === "lead-instructor" ? t.sourceBody : t.individualSourceBody}</p>
           </aside>
         </div>
       </section>
