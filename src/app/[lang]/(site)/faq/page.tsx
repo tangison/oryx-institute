@@ -142,7 +142,7 @@ export default async function FaqPage({
           </div>
 
           <p className="measure mt-14 text-soft" data-sc-in>
-            {af ? "If your question isn't answered here, write to the\u00A0office." : "If your question isn't answered here, write to the\u00A0office."}
+            {af ? "As jou vraag nie hier beantwoord is nie, skryf aan die\u00A0kantoor." : "If your question isn't answered here, write to the\u00A0office."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6" data-sc-in>
             <a href={`mailto:${site.email}`} className="btn">

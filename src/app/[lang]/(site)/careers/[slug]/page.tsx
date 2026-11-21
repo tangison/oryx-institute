@@ -5,7 +5,6 @@ import { CareerApplicationForm } from "@/components/site/career-application-form
 import { PageHead } from "@/components/site/page-head";
 import {
   careerNoticeLabel,
-  careerRoleContributions,
   careerRoleName,
   careerRoleOverview,
   careerRoleScope,
@@ -38,13 +37,12 @@ const copy = {
     scope: "Scope covered by this one role",
     scopeBody:
       "Apply once for this programme position. The entries below are a connected work scope, not separate vacancies.",
-    contributions: "What you would contribute to",
-    requirements: "Requirements and selection",
+    requirements: "Published information",
     requirementsBody:
-      "No role-specific minimum qualifications, licences or years of experience have been published for this campaign. Oryx will consider the job-relevant information you provide and may request relevant evidence from shortlisted candidates. Do not assume that an unannounced requirement applies.",
+      "This notice does not publish role-specific minimum qualifications, licences, years of experience or selection criteria. Do not assume that an unannounced requirement applies. Attach your CV to your application email.",
     employment: "Employment terms",
     employmentBody:
-      "This notice is not an employment contract or an offer of appointment. Pay, contract type, working arrangements, start date and any conditions are not published here and will be confirmed in writing only with a selected candidate. Recruitment is intended to be administered subject to applicable Namibian law.",
+      "This notice is not an employment contract or an offer of appointment. Pay, contract type, working arrangements, start date and any conditions are not published here and will be confirmed in writing only with a selected candidate.",
     apply: "Apply by email",
     applyBody: (email: string) =>
       `Complete the short form below to prepare an email to ${email}. The website does not submit or retain the form. Review the draft, attach your CV and send it from your own email client before the closing time.`,
@@ -57,9 +55,8 @@ const copy = {
     process: "A clear process",
     processPoints: [
       "Use the email addressed to vacancies@oryxinstitute.org. Do not send applications through social-media messages.",
-      "No application, interview or placement fee is charged. Oryx will not ask candidates to pay to progress an application.",
-      "Send only information relevant to your application at first. Do not include identity, bank, medical or other highly sensitive records unless Oryx specifically asks for them.",
-      "If you need a reasonable interview or access arrangement, say what would help. You do not need to disclose medical information in the first email.",
+      "Review the email draft, attach your CV and send it from your own email client before the published closing time.",
+      "Send only information you choose to include. Do not include identity, bank, medical or other highly sensitive records in a first email unless Oryx specifically asks for them.",
     ],
     privacy: "Privacy notice",
     back: "All vacancies",
@@ -78,13 +75,12 @@ const copy = {
     scope: "Omvang wat deur hierdie een rol gedek word",
     scopeBody:
       "Doen een keer vir hierdie programpos aansoek. Die inskrywings hieronder is ’n gekoppelde werksomvang, nie afsonderlike vakatures nie.",
-    contributions: "Waartoe jy sal bydra",
-    requirements: "Vereistes en keuring",
+    requirements: "Gepubliseerde inligting",
     requirementsBody:
-      "Geen rolspesifieke minimum kwalifikasies, lisensies of jare se ervaring is vir hierdie veldtog gepubliseer nie. Oryx sal die werksrelevante inligting wat jy verskaf oorweeg en kan relevante bewyse van gekortlyste kandidate aanvra. Moenie aanvaar dat ’n onaangekondigde vereiste geld nie.",
+      "Hierdie kennisgewing publiseer nie rolspesifieke minimum kwalifikasies, lisensies, jare se ervaring of keuringskriteria nie. Moenie aanvaar dat ’n onaangekondigde vereiste geld nie. Heg jou CV aan jou aansoek-e-pos.",
     employment: "Diensvoorwaardes",
     employmentBody:
-      "Hierdie kennisgewing is nie ’n dienskontrak of ’n aanbod van aanstelling nie. Salaris, kontraktipe, werksreëlings, begindatum en enige voorwaardes word nie hier gepubliseer nie en word slegs skriftelik met ’n gekose kandidaat bevestig. Werwing is bedoel om onderhewig aan toepaslike Namibiese reg toegepas te word.",
+      "Hierdie kennisgewing is nie ’n dienskontrak of ’n aanbod van aanstelling nie. Salaris, kontraktipe, werksreëlings, begindatum en enige voorwaardes word nie hier gepubliseer nie en word slegs skriftelik met ’n gekose kandidaat bevestig.",
     apply: "Doen per e-pos aansoek",
     applyBody: (email: string) =>
       `Voltooi die kort vorm hieronder om ’n e-pos aan ${email} op te stel. Die webwerf stuur of behou nie die vorm nie. Gaan die konsep na, heg jou CV aan en stuur dit uit jou eie e-posprogram voor die sluitingstyd.`,
@@ -97,9 +93,8 @@ const copy = {
     process: "’n Duidelike proses",
     processPoints: [
       "Gebruik die e-pos wat aan vacancies@oryxinstitute.org gerig is. Moenie aansoeke deur sosialemedia-boodskappe stuur nie.",
-      "Geen aansoek-, onderhoud- of plasingsfooi word gehef nie. Oryx sal nie kandidate vra om te betaal om met ’n aansoek voort te gaan nie.",
-      "Stuur aanvanklik slegs inligting wat vir jou aansoek relevant is. Moenie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords insluit nie, tensy Oryx dit spesifiek vra.",
-      "As jy ’n redelike onderhouds- of toegangsreëling benodig, sê wat sal help. Jy hoef nie mediese inligting in die eerste e-pos bekend te maak nie.",
+      "Gaan die e-poskonsep na, heg jou CV aan en stuur dit uit jou eie e-posprogram voor die gepubliseerde sluitingstyd.",
+      "Stuur slegs inligting wat jy kies om in te sluit. Moenie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords in ’n eerste e-pos insluit nie, tensy Oryx dit spesifiek vra.",
     ],
     privacy: "Privaatheidskennisgewing",
     back: "Alle vakatures",
@@ -209,20 +204,6 @@ export default async function CareerRolePage({
             <p className="eyebrow eyebrow--ink">{role.kind === "lead-instructor" ? t.sourceTitle : t.individualSourceTitle}</p>
             <p className="mt-4 leading-relaxed text-soft">{role.kind === "lead-instructor" ? t.sourceBody : t.individualSourceBody}</p>
           </aside>
-        </div>
-      </section>
-
-      <section className="section" data-sc-act="flow">
-        <div className="shell">
-          <p className="eyebrow eyebrow--ink">{t.contributions}</p>
-          <div className="mt-6 ledger" data-sc-in data-sc-stagger="55">
-            {careerRoleContributions(role, lang).map((contribution, index) => (
-              <div className="ledger-row ledger-row--flat" key={contribution}>
-                <span className="offer-tag">{String(index + 1).padStart(2, "0")}</span>
-                <p className="mt-3 max-w-[75ch] text-[1.05rem] leading-relaxed text-soft">{contribution}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

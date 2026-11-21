@@ -22,18 +22,18 @@ const copy = {
     meta: {
       title: "Corner Spa, the venture",
       description:
-        "Corner Spa, Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work in Windhoek. The spa's counter at spa.mendozer.com is embedded on this page.",
+        "Corner Spa, Oryx's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work in Windhoek. The spa's counter at spa.mendozer.com is embedded on this page.",
       ogTitle: "Corner Spa | Oryx Institute",
       ogDescription:
         "Oryx's first operating venture, run with Mendozer Investments: practical business and service work in Windhoek. The spa's counter, spa.mendozer.com, is embedded here.",
       ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa, Oryx Institute's first operating venture, run with Mendozer Investments: a live setting for practical business and service work in Windhoek.",
+        "Corner Spa, Oryx Institute's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work in Windhoek.",
     },
     eyebrow: "Ventures · operating",
     partnerTag: "Operating with Mendozer",
     h1: "Corner Spa",
-    lede: "Oryx's first operating venture, run with Mendozer Investments. A live setting for practical business and service work in Windhoek.",
+    lede: "Oryx's first operating venture, run with Mendozer Investments. An operating setting for practical business and service work in Windhoek.",
     withEyebrow: "With Mendozer",
     withLede: "An operating venture with a counter of its own.",
     withBody:
@@ -45,8 +45,8 @@ const copy = {
         body: "Mendozer's platform serves the storefront; this page embeds it, and the line beneath the frame always carries the address, so the door is never lost to a blocked frame or a slow connection.",
       },
       {
-        term: "The classroom",
-        body: "Corner Spa is a live setting for practical business and service work. The spa's own customer-facing booking and service details remain on its own site.",
+        term: "The working setting",
+        body: "Corner Spa is an operating setting for practical business and service work. The spa's own customer-facing booking and service details remain on its own site.",
       },
       {
         term: "The public record",
@@ -60,7 +60,7 @@ const copy = {
     statusEyebrow: "Status",
     liveNote: "The spa\u2019s own site, spa.mendozer.com, carries the menu and the prices; bookings run on WhatsApp. The full note with the price list is on the blog.",
     statusLede:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is an operating setting for practical business and service work.",
     statusBody:
       "Booking and service details stay on the spa's own site. Oryx does not publish a public street address or an opening date for the spa.",
     readRegister: "Read the register",
@@ -70,18 +70,18 @@ const copy = {
     meta: {
       title: "Corner Spa, die onderneming",
       description:
-        "Corner Spa, Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank by spa.mendozer.com is op hierdie blad ingebed.",
+        "Corner Spa, Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank by spa.mendozer.com is op hierdie blad ingebed.",
       ogTitle: "Corner Spa | Oryx Instituut",
       ogDescription:
         "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: praktiese besigheids- en dienswerk in Windhoek. Die spa se toonbank, spa.mendozer.com, is hier ingebed.",
       ldName: "Corner Spa",
       ldDescription:
-        "Corner Spa, Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
+        "Corner Spa, Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
     },
     eyebrow: "Ondernemings · in bedryf",
     partnerTag: "In bedryf saam met Mendozer",
     h1: "Corner Spa",
-    lede: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. 'n Lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
+    lede: "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. ’n Bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek.",
     withEyebrow: "Saam met Mendozer",
     withLede: "'n Bedrywige onderneming met sy eie toonbank.",
     withBody:
@@ -93,8 +93,8 @@ const copy = {
         body: "Mendozer se platform bedien die winkelvenster; hierdie blad bed dit in, en die lyn onder die raam dra altyd die adres sodat die toegang nie by 'n geblokkeerde raam of stadige verbinding verlore gaan nie.",
       },
       {
-        term: "Die klaskamer",
-        body: "Corner Spa is 'n lewende omgewing vir praktiese besigheids- en dienswerk. Die spa se eie kliëntgerigte besprekings- en diensbesonderhede bly op sy eie webwerf.",
+        term: "Die bedrywige omgewing",
+        body: "Corner Spa is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk. Die spa se eie kliëntgerigte besprekings- en diensbesonderhede bly op sy eie webwerf.",
       },
       {
         term: "Die openbare rekord",
@@ -108,7 +108,7 @@ const copy = {
     statusEyebrow: "Status",
     liveNote: "Die spa se eie webwerf, spa.mendozer.com, bevat die spyskaart en pryse; besprekings loop op WhatsApp. Die volledige nota met die pryslys is op die blog.",
     statusLede:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk.",
     statusBody:
       "Besprekings- en diensbesonderhede bly op die spa se eie webwerf. Oryx publiseer nie 'n openbare straatadres of 'n openingsdatum vir die spa nie.",
     readRegister: "Lees die register",
@@ -271,11 +271,11 @@ export default async function CornerSpaPage({
             <p className="measure mt-4 text-soft">{t.liveNote}</p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/corner-spa")} className="btn">
-                {af ? "Open Corner Spa full screen" : "Open Corner Spa full screen"}{" "}
+                {af ? "Maak Corner Spa volskerm oop" : "Open Corner Spa full screen"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
               <Link href={A("/blog/corner-spa")} className="btn--quiet">
-                {af ? "Read the blog note" : "Read the blog note"}{" "}
+                {af ? "Lees die blognota" : "Read the blog note"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -289,7 +289,7 @@ export default async function CornerSpaPage({
                 {t.writeOffice}
               </Link>
               <Link href={A("/ventures")} className="btn--quiet">
-                {af ? "Back to ventures" : "Back to ventures"}{" "}
+                {af ? "Terug na ondernemings" : "Back to ventures"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </Link>
             </div>

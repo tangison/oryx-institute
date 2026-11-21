@@ -238,108 +238,38 @@ export function careerRoleSummary(role: CareerRole, lang: Lang): string {
   if (lang === "af") {
     switch (role.kind) {
       case "centre-manager":
-        return "Koördineer die toekomstige sentrum se daaglikse gereedheid, administrasie en rekordstelsels.";
+        return "’n Huidige vakature vir die Centre Manager-pos in Oryx se sentrumvestigingswerk.";
       case "independent-moderator":
-        return "Voer onafhanklike gehalteondersoeke van assesseringsprosesse en bewyse binne ’n formeel goedgekeurde omvang uit.";
+        return "’n Huidige vakature vir die Independent Moderator-pos in Oryx se sentrumvestigingswerk.";
       case "learner-records":
-        return "Hou leerderlêers, beheerde rekords en administrasie akkuraat, veilig en vindbaar.";
+        return "’n Huidige vakature vir die Learner Records Administrator-pos in Oryx se sentrumvestigingswerk.";
       case "lead-instructor":
-        return `${name}: een senior programpos wat die gekoppelde leer- en assesseringsomvang hieronder dek.`;
+        return `${name}: een senior programpos wat die gekoppelde omvang hieronder dek.`;
     }
   }
 
   switch (role.kind) {
     case "centre-manager":
-      return "Coordinate future centre readiness, day-to-day administration and record systems.";
+      return "A current vacancy for the Centre Manager position in Oryx’s centre-establishment work.";
     case "independent-moderator":
-      return "Carry out independent quality checks of assessment processes and evidence within a formally approved scope.";
+      return "A current vacancy for the Independent Moderator position in Oryx’s centre-establishment work.";
     case "learner-records":
-      return "Keep learner files, controlled records and administration accurate, secure and retrievable.";
+      return "A current vacancy for the Learner Records Administrator position in Oryx’s centre-establishment work.";
     case "lead-instructor":
-      return `${name}: one senior programme position spanning the connected learning and assessment scope below.`;
+      return `${name}: one senior programme position covering the connected scope below.`;
   }
 }
 
 export function careerRoleOverview(role: CareerRole, lang: Lang): string {
+  const isProgrammePosition = role.kind === "lead-instructor";
+
   if (lang === "af") {
-    switch (role.kind) {
-      case "centre-manager":
-        return "Die Centre Manager help om bedrywighede, mense, inligting en hulpbronne ordelik voor te berei en te koördineer. Die rol bring praktiese bestuur en duidelike administratiewe beheer na die sentrum se vestigingswerk.";
-      case "independent-moderator":
-        return "Die Independent Moderator bied ’n onafhanklike, bewysgerigte gehalteperspektief. Die rol ondersoek of interne prosesse konsekwent gevolg word en teken bevindings duidelik aan vir opvolg.";
-      case "learner-records":
-        return "Die Learner Records Administrator help om beheer oor rekords van die begin af te vestig. Die werk vereis noukeurigheid, vertroulikheid en ’n sistematiese benadering tot lêers, toegang en naspeurbaarheid.";
-      case "lead-instructor":
-        return `Oryx werf een senior Lead Instructor vir ${role.specialism}. Hierdie gekonsolideerde programpos vervang afsonderlike vlak-, rigting- of kortkursuskennisgewings: doen een keer vir die volle aangeduide omvang aansoek. Die omvang dui beplande werk aan; dit kondig nie ’n geakkrediteerde kursus, kwalifikasie, inname of openbare kampus aan nie.`;
-    }
+    return isProgrammePosition
+      ? "Hierdie kennisgewing bring verwante vlak-, rigting- en kortkursusbronkennisgewings in een aansoek saam. Die lys dui slegs beoogde werksomvang aan; dit kondig nie ’n kursus, kwalifikasie, inname of openbare kampus aan nie. ’n Volledige posbeskrywing, pligte, toelatingsdrempels en diensvoorwaardes is nie hier gepubliseer nie."
+      : "Hierdie poskennisgewing vorm deel van Oryx se sentrumvestigingswerwing. ’n Volledige posbeskrywing, pligte, toelatingsdrempels en diensvoorwaardes is nie hier gepubliseer nie.";
   }
 
-  switch (role.kind) {
-    case "centre-manager":
-      return "The Centre Manager helps prepare and coordinate operations, people, information and resources in an orderly way. The role brings practical management and clear administrative control to the centre-establishment work.";
-    case "independent-moderator":
-      return "The Independent Moderator brings an independent, evidence-led quality perspective. The role checks whether internal processes are followed consistently and records clear findings for follow-up.";
-    case "learner-records":
-      return "The Learner Records Administrator helps establish record control from the outset. The work calls for accuracy, confidentiality and a systematic approach to files, access and traceability.";
-    case "lead-instructor":
-      return `Oryx is recruiting one senior Lead Instructor for ${role.specialism}. This consolidated programme position replaces separate level, strand or short-course notices: apply once for the full stated scope. The scope identifies planned work; it does not announce an accredited course, qualification, intake or public campus.`;
-  }
-}
-
-export function careerRoleContributions(role: CareerRole, lang: Lang): readonly string[] {
-  const english: Record<CareerRoleKind, readonly string[]> = {
-    "centre-manager": [
-      "Coordinate centre-readiness work, schedules, information flows and the practical use of shared resources.",
-      "Maintain orderly administrative records and surface gaps, risks and decisions for timely follow-up.",
-      "Support clear communication among operations, quality and delivery colleagues while work is being established.",
-      "Help put fair, accessible and documented processes in place before any approved public activity begins.",
-    ],
-    "independent-moderator": [
-      "Review assessment-related processes and evidence independently, within the scope formally approved for the work.",
-      "Record objective findings, identify gaps and recommend practical corrective actions without taking over the process reviewed.",
-      "Treat candidate and learner information confidentially and maintain a clear audit trail for moderation work.",
-      "Contribute to internal quality assurance that is fair, consistent and evidence-led.",
-    ],
-    "learner-records": [
-      "Organise controlled learner files, registers and supporting records so they can be found and checked when required.",
-      "Apply clear naming, access, retention and correction practices to records in the role’s care.",
-      "Check record completeness and escalate discrepancies through the appropriate internal route.",
-      "Handle personal information carefully and share it only for a legitimate work purpose.",
-    ],
-    "lead-instructor": [
-      "Lead the preparation, review and improvement of learning and assessment materials across the consolidated scope.",
-      "Coordinate level, strand and short-course continuity so the full stated progression is planned as one programme position.",
-      "Deliver or support learning and assessment work only within the scope formally approved for Oryx at the time.",
-      "Keep accurate work, attendance and assessment records, and participate in internal quality and moderation processes.",
-    ],
-  };
-
-  const afrikaans: Record<CareerRoleKind, readonly string[]> = {
-    "centre-manager": [
-      "Koördineer sentrum-gereedheidswerk, skedules, inligtingsvloei en die praktiese gebruik van gedeelde hulpbronne.",
-      "Hou administratiewe rekords ordelik en bring gapings, risiko’s en besluite betyds vir opvolg na vore.",
-      "Ondersteun duidelike kommunikasie tussen bedrywighede, gehalte- en leweringskollegas terwyl die werk gevestig word.",
-      "Help om billike, toeganklike en gedokumenteerde prosesse in plek te kry voordat goedgekeurde openbare aktiwiteit begin.",
-    ],
-    "independent-moderator": [
-      "Ondersoek assesseringsverwante prosesse en bewyse onafhanklik binne die omvang wat formeel vir die werk goedgekeur is.",
-      "Teken objektiewe bevindings aan, identifiseer gapings en beveel uitvoerbare regstellende stappe aan sonder om die ondersoekte proses oor te neem.",
-      "Hanteer kandidaat- en leerderinligting vertroulik en behou ’n duidelike ouditspoor vir modereringswerk.",
-      "Dra by tot interne gehalteversekering wat billik, konsekwent en bewysgerig is.",
-    ],
-    "learner-records": [
-      "Organiseer beheerde leerderlêers, registers en stawende rekords sodat dit gevind en nagegaan kan word wanneer nodig.",
-      "Pas duidelike naamgewing-, toegangs-, bewaring- en regstellingspraktyke toe op rekords onder die rol se beheer.",
-      "Kontroleer rekordvolledigheid en eskaleer teenstrydighede deur die toepaslike interne roete.",
-      "Hanteer persoonlike inligting versigtig en deel dit slegs vir ’n wettige werksdoel.",
-    ],
-    "lead-instructor": [
-      "Lei die voorbereiding, hersiening en verbetering van leer- en assesseringsmateriaal oor die gekonsolideerde omvang.",
-      "Koördineer vlak-, rigting- en kortkursuskontinuïteit sodat die volle aangeduide vordering as een programpos beplan word.",
-      "Lewer of ondersteun leer- en assesseringswerk slegs binne die omvang wat op daardie tydstip formeel vir Oryx goedgekeur is.",
-      "Hou akkurate werks-, bywonings- en assesseringsrekords, en neem deel aan interne gehalte- en modereringsprosesse.",
-    ],
-  };
-
-  return (lang === "af" ? afrikaans : english)[role.kind];
+  return isProgrammePosition
+    ? "This notice brings related level, strand and short-course source notices into one application. The list identifies intended work scope only; it does not announce a course, qualification, intake or public campus. A full job specification, duties, eligibility thresholds and employment terms are not published here."
+    : "This position notice forms part of Oryx’s centre-establishment recruitment. A full job specification, duties, eligibility thresholds and employment terms are not published here.";
 }

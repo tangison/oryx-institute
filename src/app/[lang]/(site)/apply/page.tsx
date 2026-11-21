@@ -16,12 +16,12 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Enquire",
+      title: "Doen navraag",
       description:
-        "Write to the Oryx office about current business counselling and market research, or ask for the current position on future learning pathways.",
-      ogTitle: "Enquire | Oryx Institute",
+        "Skryf aan die Oryx-kantoor oor huidige besigheidsadvies en marknavorsing, of vra na die huidige posisie oor toekomstige leerpaaie.",
+      ogTitle: "Doen navraag | Oryx Instituut",
       ogDescription:
-        "One message to the Oryx office starts a factual conversation.",
+        "Een boodskap aan die Oryx-kantoor begin ’n feitelike gesprek.",
     },
     enLedger: { paras: [] as string[] },
   },

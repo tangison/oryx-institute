@@ -50,16 +50,15 @@ const copy = {
     roles: "Open positions",
     roleCount: (count: number) => `${count} clear roles, with no duplicate level-by-level notices.`,
     viewRole: "Read role and apply",
-    fairness: "A fair, email-first process",
+    fairness: "An email-first application route",
     fairnessPoints: [
-      "Initial review is based on job-relevant information and the operational needs of the role.",
-      "No application, interview or placement fee is charged. Do not pay anyone who claims to act for Oryx recruitment.",
+      "Choose the named role and send one application email before the published closing time.",
+      "The application form only prepares an email draft. Review it, attach your CV and send it from your own email client.",
       "The public notice does not set pay, contract type, hours, start date or a guarantee of appointment. Any offer is confirmed in writing.",
-      "You may request a reasonable interview or access arrangement. State the arrangement that would help; do not send medical information in your first email.",
     ],
-    requirements: "Requirements and evidence",
+    requirements: "Published information",
     requirementsBody:
-      "Role-specific minimum qualifications, licences and years of experience have not been published for this campaign. Do not assume an unannounced requirement. Send a CV and a short account of your relevant experience; Oryx may request role-relevant evidence from shortlisted candidates.",
+      "Role-specific minimum qualifications, licences, years of experience and selection criteria have not been published for this campaign. Do not assume an unannounced requirement. The application instruction is to attach your CV.",
     privacy: "Applicant information",
     privacyBody:
       "The website does not receive or store the form. It opens a draft in your own email client, and nothing is sent until you send it. Keep the first application proportionate: do not include identity, bank, medical or other highly sensitive records unless Oryx specifically asks for them.",
@@ -94,16 +93,15 @@ const copy = {
     roles: "Oop poste",
     roleCount: (count: number) => `${count} duidelike rolle, sonder dubbele vlak-vir-vlak-kennisgewings.`,
     viewRole: "Lees rol en doen aansoek",
-    fairness: "’n Billike, e-pos-eerste proses",
+    fairness: "’n E-pos-eerste aansoekroete",
     fairnessPoints: [
-      "Aanvanklike oorweging is op werksrelevante inligting en die bedryfsbehoeftes van die rol gegrond.",
-      "Geen aansoek-, onderhoud- of plasingsfooi word gehef nie. Moenie iemand betaal wat beweer hulle tree vir Oryx-werwing op nie.",
+      "Kies die genoemde rol en stuur een aansoek-e-pos voor die gepubliseerde sluitingstyd.",
+      "Die aansoekvorm berei slegs ’n e-poskonsep voor. Gaan dit na, heg jou CV aan en stuur dit uit jou eie e-posprogram.",
       "Die openbare kennisgewing bepaal nie salaris, kontraktipe, ure, begindatum of ’n waarborg van aanstelling nie. Enige aanbod word skriftelik bevestig.",
-      "Jy kan ’n redelike onderhouds- of toegangsreëling versoek. Noem die reëling wat sal help; moenie mediese inligting in jou eerste e-pos stuur nie.",
     ],
-    requirements: "Vereistes en bewyse",
+    requirements: "Gepubliseerde inligting",
     requirementsBody:
-      "Rolspesifieke minimum kwalifikasies, lisensies en jare se ervaring is nie vir hierdie veldtog gepubliseer nie. Moenie ’n onaangekondigde vereiste veronderstel nie. Stuur ’n CV en ’n kort uiteensetting van jou relevante ervaring; Oryx kan rolrelevante bewyse van gekortlyste kandidate aanvra.",
+      "Rolspesifieke minimum kwalifikasies, lisensies, jare se ervaring en keuringskriteria is nie vir hierdie veldtog gepubliseer nie. Moenie ’n onaangekondigde vereiste veronderstel nie. Die aansoekinstruksie is om jou CV aan te heg.",
     privacy: "Aansoekerinligting",
     privacyBody:
       "Die webwerf ontvang of stoor nie die vorm nie. Dit maak ’n konsep in jou eie e-posprogram oop en niks word gestuur voordat jy dit self stuur nie. Hou die eerste aansoek gepas: moenie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords insluit nie, tensy Oryx dit spesifiek vra.",

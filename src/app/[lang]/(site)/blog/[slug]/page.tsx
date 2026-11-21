@@ -57,7 +57,7 @@ const labels = {
   af: {
     kicker: "Blog",
     next: "Waarheen volgende",
-    openSpa: "Open Corner Spa",
+    openSpa: "Maak Corner Spa oop",
     spaSite: "spa.mendozer.com",
     all: "Alle notas",
   },

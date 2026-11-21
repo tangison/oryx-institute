@@ -23,7 +23,7 @@ export const siteAf = {
   plannedCentre:
     "Ongwediva is 'n toekomstige inisiatief. Dit word beplan, is nie oop nie en word nie as 'n openbare kampus aangebied nie.",
   plannedCampus:
-    "Oryx sal Untag Guesthouse as 'n toekomstige kampus met 'n gasvryheidsfokus oorneem. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
+    "Oryx identifiseer Untag Guesthouse as ’n beplande toekomstige terrein met ’n gasvryheidsfokus. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
 } as const;
 
 export const statusAf = {
@@ -84,8 +84,8 @@ export const venturesAf = {
   cornerSpa: {
     name: "Corner Spa",
     status: "In bedryf · saam met Mendozer",
-    line: "Welstand- en diensbedrywighede: die eerste lewende laboratorium.",
-    body: "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se eie toonbank is op Mendozer se platform by spa.mendozer.com en word op hierdie webwerf ingebed. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
+    line: "Welstand- en diensbedrywighede: die eerste bedrywige onderneming.",
+    body: "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Die spa se eie toonbank is op Mendozer se platform by spa.mendozer.com en word op hierdie webwerf ingebed. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
   },
   futureLine:
     "Die volgende onderneming het nog nie 'n naam nie. Wanneer een open, word die opening met 'n datum in die register aangeteken.",
