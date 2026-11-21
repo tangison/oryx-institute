@@ -1,6 +1,13 @@
 {
   "version": 2,
   "skills": {
+    "cli-anything": {
+      "source": "hkuds/cli-anything",
+      "commit": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+      "sourceType": "github",
+      "skillPath": "codex-skill/SKILL.md",
+      "computedHash": "1d97f589137cc6f8247451f13415fe84a10f94b1756f14871e4268c33cbd7abe"
+    },
     "cro-methodology": {
       "source": "wondelai/skills",
       "commit": "c5265583b1a9740f06831e1d3e89b35bba3eb430",
