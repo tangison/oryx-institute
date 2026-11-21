@@ -4,8 +4,8 @@ import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import {
   careerGroupLabel,
-  careerNoticeLabel,
   careerRoleName,
+  careerRoleTag,
   careerRoleSummary,
   careerRoles,
   formatRecruitmentDeadline,
@@ -25,89 +25,85 @@ const groupOrder: readonly CareerRoleGroup[] = [
 const copy = {
   en: {
     meta: {
-      title: "Careers",
+      title: "Careers at Oryx",
       description:
-        "Current Oryx Institute vacancies in Ongwediva. Read each role, closing time and the email-first application process.",
-      ogTitle: "Careers | Oryx Institute",
-      ogDescription: "Current Oryx Institute vacancies in Ongwediva, with a clear email-first application route.",
+        "Nine current Oryx Institute vacancies in Ongwediva, with a clear email-first application route and a 27 November 2026 closing time.",
+      ogTitle: "Careers at Oryx | Oryx Institute",
+      ogDescription:
+        "Nine current Oryx Institute vacancies in Ongwediva, with a clear email-first application route.",
     },
     head: {
-      eyebrow: "Current vacancies",
-      title: "Work that starts with care.",
+      eyebrow: "CAREERS AT ORYX",
+      title: "Build the foundation with us.",
       lede:
-        "Oryx is recruiting for centre establishment, quality, records and programme leadership in Ongwediva. Each programme role brings related levels, strands and short-course scope into one clear application route.",
+        "Oryx is recruiting for centre establishment, quality, records and programme leadership in Ongwediva. Nine focused roles bring related programme levels and short-course scopes together under one clear application route.",
     },
     closing: "Applications close",
-    location: "Advertised location",
-    email: "Application email",
-    current: "Live recruitment notice",
-    currentBody:
-      "These vacancies are open now. Apply before the published closing time through the role-specific email composer or by writing directly to the recruitment mailbox.",
-    statusTitle: "Read the vacancy correctly.",
+    location: "Location",
+    email: "Direct applications",
+    current: "Status",
+    statusTitle: "Before you apply",
     statusBody:
-      "Oryx is working toward NTA training-provider registration. It is not registered or accredited, and it does not offer accredited qualifications, NQF credits or a public campus. Each Lead Instructor notice groups an intended work scope into one senior programme position; it does not announce courses or enrolment.",
-    statusAction: "Read institutional status",
+      "Oryx Institute is in its prelaunch phase and is working toward Namibia Training Authority registration. It is not registered or accredited, and it does not currently offer accredited qualifications, NQF credits or an open public campus. Each Lead Instructor notice defines one senior programme scope for planned work. It does not announce a current course or enrolment.",
+    statusAction: "Read the full institutional status",
     roles: "Open positions",
-    roleCount: (count: number) => `${count} clear roles, with no duplicate level-by-level notices.`,
-    viewRole: "Read role and apply",
-    fairness: "An email-first application route",
-    fairnessPoints: [
-      "Choose the named role and send one application email before the published closing time.",
-      "The application form only prepares an email draft. Review it, attach your CV and send it from your own email client.",
-      "The public notice does not set pay, contract type, hours, start date or a guarantee of appointment. Any offer is confirmed in writing.",
-    ],
-    requirements: "Published information",
-    requirementsBody:
-      "Role-specific minimum qualifications, licences, years of experience and selection criteria have not been published for this campaign. Do not assume an unannounced requirement. The application instruction is to attach your CV.",
-    privacy: "Applicant information",
+    roleCount:
+      "Nine distinct roles across centre operations, quality assurance, learner records and programme leadership.",
+    viewRole: "View role and apply",
+    apply: "How to apply",
+    applyBody: (deadline: string, email: string) =>
+      `Send your CV before ${deadline}. Selecting a role prepares an email draft in your own mail client, so nothing is stored on this website before you choose to send it. You can also write directly to ${email} with the role title in the subject line.`,
+    published: "What is published",
+    publishedBody:
+      "This campaign does not publish minimum qualifications, licences, years-of-experience thresholds or selection criteria. Do not assume an unannounced requirement. The application instruction is to attach your CV.",
+    privacy: "Keep your first email focused",
     privacyBody:
-      "The website does not receive or store the form. It opens a draft in your own email client, and nothing is sent until you send it. Keep the first application proportionate: do not include identity, bank, medical or other highly sensitive records unless Oryx specifically asks for them.",
+      "The website does not receive or store the form. Review the draft before sending, and do not include identity documents, bank details, medical records or other highly sensitive information in your first email unless Oryx specifically asks for it.",
     privacyAction: "Read the privacy notice",
-    contact: "Need help with access or the process?",
-    contactBody: "Write to the recruitment mailbox and name the role. Do not send applications through social-media messages.",
+    contact: "Questions about a role or the application route?",
+    contactBody:
+      "Write to the recruitment desk with the role title in your subject line. Please do not submit applications through social-media messages.",
   },
   af: {
     meta: {
-      title: "Loopbane",
+      title: "Loopbane by Oryx",
       description:
-        "Huidige Oryx Instituut-vakatures in Ongwediva. Lees elke rol, sluitingstyd en die e-pos-eerste aansoekproses.",
-      ogTitle: "Loopbane | Oryx Instituut",
-      ogDescription: "Huidige Oryx Instituut-vakatures in Ongwediva, met ’n duidelike e-pos-eerste aansoekroete.",
+        "Nege huidige Oryx Instituut-vakatures in Ongwediva, met ’n duidelike e-pos-eerste aansoekroete en ’n sluitingstyd op 27 November 2026.",
+      ogTitle: "Loopbane by Oryx | Oryx Instituut",
+      ogDescription:
+        "Nege huidige Oryx Instituut-vakatures in Ongwediva, met ’n duidelike e-pos-eerste aansoekroete.",
     },
     head: {
-      eyebrow: "Huidige vakatures",
-      title: "Werk wat met sorg begin.",
+      eyebrow: "Loopbane by Oryx",
+      title: "Bou die grondslag saam met ons.",
       lede:
-        "Oryx werf vir sentrumvestiging, gehalte, rekords en programleierskap in Ongwediva. Elke programrol bring verwante vlakke, rigtings en kortkursusomvang in een duidelike aansoekroete saam.",
+        "Oryx werf vir sentrumvestiging, gehalte, rekords en programleierskap in Ongwediva. Nege gefokusde rolle bring verwante programvlakke en kortkursusomvang in een duidelike aansoekroete saam.",
     },
     closing: "Aansoeke sluit",
-    location: "Geadverteerde ligging",
-    email: "Aansoek-e-pos",
-    current: "Lewende werwingskennisgewing",
-    currentBody:
-      "Hierdie vakatures is nou oop. Doen voor die gepubliseerde sluitingstyd aansoek deur die rolspesifieke e-possamesteller of skryf direk aan die werwingsposbus.",
-    statusTitle: "Lees die vakature korrek.",
+    location: "Ligging",
+    email: "Direkte aansoeke",
+    current: "Status",
+    statusTitle: "Voordat jy aansoek doen",
     statusBody:
-      "Oryx werk aan NTA-opleidingsverskafferregistrasie. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies, NQF-krediete of ’n openbare kampus aan nie. Elke Lead Instructor-kennisgewing groepeer ’n beoogde werksomvang in een senior programpos; dit kondig nie kursusse of inskrywing aan nie.",
-    statusAction: "Lees institusionele status",
+      "Oryx Instituut is in sy voorbekendstellingsfase en werk aan registrasie by die Namibia Training Authority. Dit is nie geregistreer of geakkrediteer nie en bied tans nie geakkrediteerde kwalifikasies, NQF-krediete of ’n oop openbare kampus aan nie. Elke Lead Instructor-kennisgewing omskryf een senior programomvang vir beplande werk. Dit kondig nie ’n huidige kursus of inskrywing aan nie.",
+    statusAction: "Lees die volledige institusionele status",
     roles: "Oop poste",
-    roleCount: (count: number) => `${count} duidelike rolle, sonder dubbele vlak-vir-vlak-kennisgewings.`,
-    viewRole: "Lees rol en doen aansoek",
-    fairness: "’n E-pos-eerste aansoekroete",
-    fairnessPoints: [
-      "Kies die genoemde rol en stuur een aansoek-e-pos voor die gepubliseerde sluitingstyd.",
-      "Die aansoekvorm berei slegs ’n e-poskonsep voor. Gaan dit na, heg jou CV aan en stuur dit uit jou eie e-posprogram.",
-      "Die openbare kennisgewing bepaal nie salaris, kontraktipe, ure, begindatum of ’n waarborg van aanstelling nie. Enige aanbod word skriftelik bevestig.",
-    ],
-    requirements: "Gepubliseerde inligting",
-    requirementsBody:
-      "Rolspesifieke minimum kwalifikasies, lisensies, jare se ervaring en keuringskriteria is nie vir hierdie veldtog gepubliseer nie. Moenie ’n onaangekondigde vereiste veronderstel nie. Die aansoekinstruksie is om jou CV aan te heg.",
-    privacy: "Aansoekerinligting",
+    roleCount:
+      "Nege afsonderlike rolle oor sentrumbedrywighede, gehalteversekering, leerderrekords en programleierskap.",
+    viewRole: "Sien rol en doen aansoek",
+    apply: "Hoe om aansoek te doen",
+    applyBody: (deadline: string, email: string) =>
+      `Stuur jou CV voor ${deadline}. Wanneer jy ’n rol kies, berei dit ’n e-poskonsep in jou eie e-posprogram voor, sodat niks op hierdie webwerf gestoor word voordat jy kies om te stuur nie. Jy kan ook direk aan ${email} skryf met die roltitel in die onderwerplyn.`,
+    published: "Wat gepubliseer is",
+    publishedBody:
+      "Hierdie veldtog publiseer nie minimum kwalifikasies, lisensies, drempels vir jare se ervaring of keuringskriteria nie. Moenie ’n onaangekondigde vereiste veronderstel nie. Die aansoekinstruksie is om jou CV aan te heg.",
+    privacy: "Hou jou eerste e-pos gefokus",
     privacyBody:
-      "Die webwerf ontvang of stoor nie die vorm nie. Dit maak ’n konsep in jou eie e-posprogram oop en niks word gestuur voordat jy dit self stuur nie. Hou die eerste aansoek gepas: moenie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords insluit nie, tensy Oryx dit spesifiek vra.",
+      "Die webwerf ontvang of stoor nie die vorm nie. Gaan die konsep na voordat jy stuur en moenie identiteitsdokumente, bankbesonderhede, mediese rekords of ander hoogs sensitiewe inligting in jou eerste e-pos insluit nie, tensy Oryx dit spesifiek vra.",
     privacyAction: "Lees die privaatheidskennisgewing",
-    contact: "Benodig jy hulp met toegang of die proses?",
-    contactBody: "Skryf aan die werwingsposbus en noem die rol. Moenie aansoeke deur sosialemedia-boodskappe stuur nie.",
+    contact: "Vrae oor ’n rol of die aansoekroete?",
+    contactBody:
+      "Skryf aan die werwingskantoor met die roltitel in jou onderwerplyn. Moet asseblief nie aansoeke deur sosialemedia-boodskappe indien nie.",
   },
 } as const;
 
@@ -174,7 +170,7 @@ export default async function CareersPage({
       </PageHead>
 
       <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-px border border-rule bg-rule lg:grid-cols-3" data-sc-in>
+        <div className="shell grid gap-px border border-rule bg-rule lg:grid-cols-4" data-sc-in>
           <div className="bg-ink p-7 text-ivory md:p-9">
             <p className="eyebrow eyebrow--ivory">{t.closing}</p>
             <p className="mt-4 text-[clamp(1.3rem,2.5vw,1.8rem)] font-[600] leading-[1.15]">{deadline}</p>
@@ -189,18 +185,18 @@ export default async function CareersPage({
               {recruitment.email}
             </a>
           </div>
+          <div className="bg-ivory p-7 md:p-9">
+            <p className="eyebrow eyebrow--ink">{t.current}</p>
+            <p className="mt-4 text-[1.1rem] font-[600] text-ink">{af ? "Nou oop" : "Open now"}</p>
+          </div>
         </div>
       </section>
 
       <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,.8fr)]">
-          <div className="panel p-8 md:p-12" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.current}</p>
-            <p className="mt-5 max-w-[53ch] text-[1.08rem] leading-relaxed text-soft">{t.currentBody}</p>
-          </div>
+        <div className="shell">
           <aside className="bg-ink p-8 text-ivory md:p-10" data-sc-in>
             <p className="eyebrow eyebrow--ivory">{t.statusTitle}</p>
-            <p className="mt-5 leading-relaxed text-[var(--ivory-80)]">{t.statusBody}</p>
+            <p className="mt-5 max-w-[68ch] leading-relaxed text-[var(--ivory-80)]">{t.statusBody}</p>
             <Link href={A("/status")} className="btn--quiet btn--quiet--ivory mt-7">
               {t.statusAction} <span className="arr" aria-hidden="true">→</span>
             </Link>
@@ -211,7 +207,7 @@ export default async function CareersPage({
       <section className="section" data-sc-act="flow">
         <div className="shell">
           <p className="eyebrow eyebrow--ink">{t.roles}</p>
-          <h2 className="h-section mt-4 max-w-[18ch]">{t.roleCount(careerRoles.length)}</h2>
+          <h2 className="h-section mt-4 max-w-[30ch]">{t.roleCount}</h2>
           <div className="mt-10 grid gap-12">
             {groups.map(({ group, roles }) => (
               <div key={group} data-sc-in>
@@ -227,7 +223,7 @@ export default async function CareersPage({
                         <p className="text-[clamp(1.2rem,2.3vw,1.7rem)] font-[600] tracking-[-0.025em] text-ink">{careerRoleName(role)}</p>
                         <p className="mt-3 max-w-[65ch] leading-relaxed text-soft">{careerRoleSummary(role, lang)}</p>
                         <p className="mt-4 text-[0.72rem] font-[600] uppercase tracking-[0.12em] text-maroon">
-                          {careerNoticeLabel(role.noticeType, lang)}
+                          {careerRoleTag(role, lang)}
                         </p>
                       </div>
                       <span className="inline-flex items-center gap-3 text-[0.76rem] font-[600] uppercase tracking-[0.12em] text-ink">
@@ -243,28 +239,26 @@ export default async function CareersPage({
       </section>
 
       <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <div data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.fairness}</p>
-            <ul className="mt-6 space-y-4 border-y border-rule py-6 leading-relaxed text-soft">
-              {t.fairnessPoints.map((point) => <li key={point} className="flex gap-4"><span className="mt-[0.64rem] h-1.5 w-1.5 shrink-0 rounded-full bg-maroon" aria-hidden="true" />{point}</li>)}
-            </ul>
-          </div>
-          <div className="grid content-start gap-8" data-sc-in>
-            <div className="hair-t pt-8">
-              <p className="eyebrow eyebrow--ink">{t.requirements}</p>
-              <p className="mt-4 leading-relaxed text-soft">{t.requirementsBody}</p>
+        <div className="shell">
+          <div className="grid gap-8 lg:grid-cols-3" data-sc-in>
+            <div className="panel p-8 md:p-10">
+              <p className="eyebrow eyebrow--ink">{t.apply}</p>
+              <p className="mt-5 leading-relaxed text-soft">{t.applyBody(deadline, recruitment.email)}</p>
             </div>
-            <div className="hair-t pt-8">
+            <div className="panel p-8 md:p-10">
+              <p className="eyebrow eyebrow--ink">{t.published}</p>
+              <p className="mt-5 leading-relaxed text-soft">{t.publishedBody}</p>
+            </div>
+            <div className="panel p-8 md:p-10">
               <p className="eyebrow eyebrow--ink">{t.privacy}</p>
-              <p className="mt-4 leading-relaxed text-soft">{t.privacyBody}</p>
+              <p className="mt-5 leading-relaxed text-soft">{t.privacyBody}</p>
               <Link href={A("/legal/privacy")} className="btn--quiet mt-6">{t.privacyAction} <span className="arr" aria-hidden="true">→</span></Link>
             </div>
-            <div className="hair-t pt-8">
-              <p className="eyebrow eyebrow--ink">{t.contact}</p>
-              <p className="mt-4 leading-relaxed text-soft">{t.contactBody}</p>
-              <a href={`mailto:${recruitment.email}`} className="btn--quiet mt-6">{recruitment.email} <span className="arr" aria-hidden="true">→</span></a>
-            </div>
+          </div>
+          <div className="hair-t mt-12 pt-10" data-sc-in>
+            <p className="eyebrow eyebrow--ink">{t.contact}</p>
+            <p className="mt-4 max-w-[60ch] leading-relaxed text-soft">{t.contactBody}</p>
+            <a href={`mailto:${recruitment.email}`} className="btn--quiet mt-6">{recruitment.email} <span className="arr" aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>

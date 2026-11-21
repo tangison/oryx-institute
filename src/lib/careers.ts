@@ -174,7 +174,26 @@ export function getCareerRoleRedirect(slug: string): string | undefined {
 }
 
 export function careerRoleName(role: CareerRole): string {
-  return role.specialism ? `${role.title} — ${role.specialism}` : role.title;
+  return role.specialism ? `${role.title}, ${role.specialism}` : role.title;
+}
+
+export function careerRoleTag(role: CareerRole, lang: Lang): string {
+  const labels = {
+    en: {
+      "centre-manager": "Operations leadership",
+      "independent-moderator": "Quality assurance",
+      "learner-records": "Records administration",
+      "lead-instructor": "Programme leadership",
+    },
+    af: {
+      "centre-manager": "Bedryfsleierskap",
+      "independent-moderator": "Gehalteversekering",
+      "learner-records": "Rekordadministrasie",
+      "lead-instructor": "Programleierskap",
+    },
+  } as const;
+
+  return labels[lang][role.kind];
 }
 
 export function careerRoleScope(role: CareerRole): readonly string[] {
@@ -233,31 +252,51 @@ export function careerNoticeLabel(noticeType: CareerNoticeType, lang: Lang): str
 }
 
 export function careerRoleSummary(role: CareerRole, lang: Lang): string {
-  const name = careerRoleName(role);
-
   if (lang === "af") {
-    switch (role.kind) {
+    switch (role.slug) {
       case "centre-manager":
-        return "’n Huidige vakature vir die Centre Manager-pos in Oryx se sentrumvestigingswerk.";
+        return "’n Senior bedryfsrol vir Oryx se beplande sentrum in Ongwediva.";
       case "independent-moderator":
-        return "’n Huidige vakature vir die Independent Moderator-pos in Oryx se sentrumvestigingswerk.";
-      case "learner-records":
-        return "’n Huidige vakature vir die Learner Records Administrator-pos in Oryx se sentrumvestigingswerk.";
-      case "lead-instructor":
-        return `${name}: een senior programpos wat die gekoppelde omvang hieronder dek.`;
+        return "’n Onafhanklike gehalterol binne die sentrumvestigingswerwing.";
+      case "learner-records-administrator":
+        return "’n Rekordgerigte pos binne die sentrumvestigingswerwing.";
+      case "occupational-health-and-safety":
+        return "Die gegroepeerde NQF 4–5- en kortkursusomvang sit in een senior programpos.";
+      case "business-services-and-administration":
+        return "Office Administration-vlakke 1 tot 3 en die verwante kortkursusomvang word in een pos saamgevoeg.";
+      case "hospitality-tourism-and-local-guiding":
+        return "Hierdie enkele senior rol bring die gekoppelde gasvryheid-, toerisme- en plaaslikegidsvlakke saam.";
+      case "cosmetology-hairdressing":
+        return "Die gekoppelde Cosmetology- en Hairdressing-vlakke word onder een senior programpos gegroepeer.";
+      case "wholesale-retail-and-merchandising":
+        return "Die groothandel-, kleinhandel- en handelsware-omvang word onder een senior programpos gegroepeer.";
+      case "entrepreneurship":
+        return "’n Enkele senior programpos vir die entrepreneurskapomvang wat in hierdie kennisgewing genoem word.";
     }
+    return "Een senior programpos oor die gekoppelde omvang in hierdie kennisgewing.";
   }
 
-  switch (role.kind) {
+  switch (role.slug) {
     case "centre-manager":
-      return "A current vacancy for the Centre Manager position in Oryx’s centre-establishment work.";
+      return "A senior operations role for Oryx’s planned centre in Ongwediva.";
     case "independent-moderator":
-      return "A current vacancy for the Independent Moderator position in Oryx’s centre-establishment work.";
-    case "learner-records":
-      return "A current vacancy for the Learner Records Administrator position in Oryx’s centre-establishment work.";
-    case "lead-instructor":
-      return `${name}: one senior programme position covering the connected scope below.`;
+      return "An independent quality role within the centre-establishment recruitment.";
+    case "learner-records-administrator":
+      return "A records-focused post within the centre-establishment recruitment.";
+    case "occupational-health-and-safety":
+      return "The grouped NQF 4–5 and short-course scope sits in one senior programme position.";
+    case "business-services-and-administration":
+      return "Office Administration Levels 1 to 3 and the related short-course scope are grouped in one position.";
+    case "hospitality-tourism-and-local-guiding":
+      return "This single senior role brings together the connected Hospitality, Tourism and Local Guiding levels.";
+    case "cosmetology-hairdressing":
+      return "The connected Cosmetology and Hairdressing levels are grouped under one senior programme position.";
+    case "wholesale-retail-and-merchandising":
+      return "Wholesale, retail and merchandising scope is grouped under one senior programme position.";
+    case "entrepreneurship":
+      return "A single senior programme position for the entrepreneurship scope named in this notice.";
   }
+  return "One senior programme position covering the connected scope in this notice.";
 }
 
 export function careerRoleOverview(role: CareerRole, lang: Lang): string {
