@@ -4,7 +4,8 @@ import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { register, site, schemaIds } from "@/lib/site";
 import { registerAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 /**
  * The register, in full: what the institute has made public, dated as
@@ -75,24 +76,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/register",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/register", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/register`,
-      images: [
-        {
-          url: "/brand/og/default.png",
-          width: 1200,
-          height: 630,
-          alt: m.ogTitle,
-        },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function RegisterPage({

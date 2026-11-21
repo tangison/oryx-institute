@@ -63,13 +63,13 @@ export function OryxLogo({
   loading?: "lazy" | "eager";
 }) {
   const [w, h] = BOX[variant];
+  const alt = title ?? "Oryx Polytechnic Institute logo";
   return (
     <img
       src={SRC[variant][tone]}
       width={w}
       height={h}
-      alt={title ?? ""}
-      aria-hidden={title ? undefined : true}
+      alt={alt}
       loading={loading}
       decoding="async"
       className={className}

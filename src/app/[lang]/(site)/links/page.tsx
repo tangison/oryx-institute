@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import { OryxLogo } from "@/components/site/oryx-logo";
-import { linkHub, organizationContactSchema, schemaIds, site } from "@/lib/site";
+import { linkHub, schemaIds, site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 const copy = {
   en: {
@@ -136,17 +137,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/links",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/links", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/links`,
-      images: [{ url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle }],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function LinksPage({
@@ -173,12 +172,7 @@ export default async function LinksPage({
     name: t.meta.ogTitle,
     url: `${site.url}${A("/links")}`,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
-    about: {
-      "@type": "EducationalOrganization",
-      "@id": schemaIds.org,
-      ...organizationContactSchema,
-      url: site.url,
-    },
+    about: { "@id": schemaIds.org },
   };
 
   return (

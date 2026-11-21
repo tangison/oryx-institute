@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { schemaIds, site } from "@/lib/site";
 
 const copy = {
@@ -10,7 +11,7 @@ const copy = {
     meta: {
       title: "Institutional Status",
       description:
-        "Oryx Institute is working toward Namibia Training Authority registration. It is not registered or accredited, and does not offer accredited qualifications or NQF credits.",
+        "Oryx is working toward NTA registration. It is not registered or accredited and offers no accredited qualifications, NQF credits or public campus.",
     },
     head: {
       title: "Institutional status.",
@@ -50,7 +51,7 @@ const copy = {
     meta: {
       title: "Institusionele Status",
       description:
-        "Oryx Instituut werk aan registrasie by die Namibia Training Authority. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies of NQF-krediete aan nie.",
+        "Oryx werk aan NTA-registrasie. Dit is nie geregistreer of geakkrediteer nie en bied geen kwalifikasies, NQF-krediete of openbare kampus nie.",
     },
     head: {
       title: "Institusionele status.",
@@ -95,17 +96,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const t = copy[lang];
-  return {
+  return pageMetadata({
+    lang,
+    path: "/status",
     title: t.meta.title,
     description: t.meta.description,
-    alternates: alternates(lang, "/status", site.url),
-    openGraph: {
-      title: `${t.meta.title} | ${lang === "af" ? "Oryx Instituut" : "Oryx Institute"}`,
-      description: t.meta.description,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/status`,
-      images: [{ url: "/brand/og/about.png", width: 1200, height: 630, alt: t.meta.title }],
-    },
-  };
+    socialTitle: t.meta.title,
+    socialDescription: t.meta.description,
+    image: { url: "/brand/og/about.png", width: 1200, height: 630, alt: t.meta.title },
+  });
 }
 
 export default async function StatusPage({

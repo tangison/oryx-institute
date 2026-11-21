@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { offers, site } from "@/lib/site";
+import { offers, schemaIds, site } from "@/lib/site";
 import { offersAf, siteAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 /**
  * The practice states current commercial work plainly. Learning pathways
@@ -12,12 +13,12 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Practice at Oryx Institute",
+      title: "Business Counselling and Market Research",
       description:
-        "The practice at Oryx Institute: business counselling and market research, with future learning pathways stated separately from current work.",
-      ogTitle: "Practice | Oryx Institute",
+        "Work with Oryx on business counselling or market research in Namibia. Scope and fees are confirmed through the office, with a written outcome.",
+      ogTitle: "Business counselling and market research",
       ogDescription:
-        "Business counselling and market research, with future learning pathways stated honestly.",
+        "Oryx offers business counselling and market research in Namibia, with a defined scope and written outcome.",
     },
     heroLine: "Practice.",
     heroSub: "Business counselling and market research with a defined scope and written outcome.",
@@ -41,12 +42,12 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Praktyk by Oryx Instituut",
+      title: "Besigheidsadvies en Marknavorsing",
       description:
-        "Die praktyk by Oryx Instituut: besigheidsadvies en marknavorsing, met toekomstige leerpaaie apart van huidige werk gestel.",
-      ogTitle: "Praktyk | Oryx Instituut",
+        "Werk met Oryx aan besigheidsadvies of marknavorsing in Namibië. Die kantoor bevestig omvang en fooie, met ’n skriftelike uitkoms.",
+      ogTitle: "Besigheidsadvies en marknavorsing",
       ogDescription:
-        "Besigheidsadvies en marknavorsing, met toekomstige leerpaaie eerlik gestel.",
+        "Oryx bied besigheidsadvies en marknavorsing in Namibië, met ’n duidelike omvang en skriftelike uitkoms.",
     },
     heroLine: "Praktyk.",
     heroSub: "Besigheidsadvies en marknavorsing met ’n duidelike omvang en skriftelike uitkoms.",
@@ -81,24 +82,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/practice",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/practice", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/practice`,
-      images: [
-        {
-          url: "/brand/og/default.png",
-          width: 1200,
-          height: 630,
-          alt: m.ogTitle,
-        },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function PracticePage({
@@ -119,7 +111,7 @@ export default async function PracticePage({
     name: t.meta.ogTitle,
     url: `${site.url}${A("/practice")}`,
     description: t.meta.description,
-    isPartOf: { "@type": "WebSite", "@id": `${site.url}/#website` },
+    isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
   };
 
   return (

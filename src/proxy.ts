@@ -9,10 +9,9 @@ import { NextRequest, NextResponse } from "next/server";
  *    existing link, sitemap entry or search result ever breaks.
  *    Afrikaans lives at /af/... physically; anything that already
  *    carries a language prefix passes straight through.
- * 2. The /md shelf is an explicit, clean-markdown alternative for
- *    agents and readers. Each indexable HTML page advertises its shelf
- *    URL with a typed alternate link. Keeping it explicit avoids a
- *    cache serving markdown for a normal HTML request.
+ * 2. The /md shelf remains available as a clean-markdown representation
+ *    for agents and readers, but it is noindex and never advertised as
+ *    an alternate of an indexable HTML page.
  * 3. The preview guard. Production hosts serve indexable pages; every
  *    other host (vercel.app aliases, preview deployments) is marked
  *    noindex so it cannot leak into search results. When the production
@@ -82,6 +81,10 @@ export default function proxy(request: NextRequest) {
      Afrikaans 404 knows to render in Afrikaans. */
   const reqHeaders = new Headers(request.headers);
   reqHeaders.set("x-oryx-lang", needsRewrite ? "en" : first);
+  /* The site layout uses the public path for a server-rendered
+     BreadcrumbList. Never expose the internal /en rewrite path in a
+     canonical URL or structured-data item. */
+  reqHeaders.set("x-oryx-path", pathname);
 
   const response = needsRewrite
     ? NextResponse.rewrite(rewritten, { request: { headers: reqHeaders } })

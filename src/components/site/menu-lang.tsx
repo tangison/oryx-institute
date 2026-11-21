@@ -8,10 +8,6 @@ import { swapLang, type Lang } from "@/lib/i18n";
 export function MenuLang({ lang }: { lang: Lang }) {
   const tSwap = lang === "en" ? "Afrikaans" : "English";
   const eyebrow = lang === "en" ? "Language" : "Taal";
-  const note =
-    lang === "en"
-      ? "Every page, in both languages."
-      : "Elke bladsy, in albei tale.";
   const pathname = usePathname();
   /* English routes are rewritten internally to /en. Strip either
      internal locale before calculating the public counterpart. */
@@ -30,7 +26,6 @@ export function MenuLang({ lang }: { lang: Lang }) {
           →
         </span>
       </Link>
-      <p className="menu-lang-note">{note}</p>
     </div>
   );
 }

@@ -3,17 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ventures, site, schemaIds } from "@/lib/site";
 import { venturesAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 const copy = {
   en: {
     meta: {
-      title: "Ventures at Oryx Institute",
+      title: "Oryx Ventures and Corner Spa in Namibia",
       description:
-        "Operating companies through which Oryx Institute learns about sectors. Corner Spa is the first.",
-      ogTitle: "Ventures | Oryx Institute",
+        "See how Oryx Institute uses operating ventures to learn from real customer work in Namibia, beginning with Corner Spa and Mendozer Investments.",
+      ogTitle: "Oryx ventures in Namibia",
       ogDescription:
-        "Operating companies through which the institute learns about sectors. Corner Spa is the first.",
+        "Operating ventures help Oryx learn from real customer work, beginning with Corner Spa.",
       ldName: "Ventures",
       ldDescription:
         "Operating companies through which Oryx Institute learns about sectors, starting with Corner Spa.",
@@ -36,12 +37,12 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Ondernemings by Oryx Instituut",
+      title: "Oryx Ondernemings en Corner Spa in Namibië",
       description:
-        "Bedrywighede waardeur Oryx Instituut sektore leer ken. Corner Spa is die eerste.",
-      ogTitle: "Ondernemings | Oryx Instituut",
+        "Sien hoe Oryx Instituut bedrywighede gebruik om uit werklike kliëntwerk in Namibië te leer, begin met Corner Spa en Mendozer Investments.",
+      ogTitle: "Oryx-ondernemings in Namibië",
       ogDescription:
-        "Bedrywighede waardeur die instituut sektore leer ken. Corner Spa is die eerste.",
+        "Bedrywige ondernemings help Oryx om uit werklike kliëntwerk te leer, begin met Corner Spa.",
       ldName: "Ondernemings",
       ldDescription:
         "Bedrywighede waardeur Oryx Instituut sektore leer ken, begin met Corner Spa.",
@@ -72,24 +73,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/ventures",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/ventures", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/ventures`,
-      images: [
-        {
-          url: "/brand/og/ventures.png",
-          width: 1200,
-          height: 630,
-          alt: m.ogTitle,
-        },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/ventures.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function VenturesPage({

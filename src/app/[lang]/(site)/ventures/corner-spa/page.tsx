@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import { site, schemaIds } from "@/lib/site";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 /**
  * Corner Spa, the first venture, on its own page.
@@ -20,12 +21,12 @@ const SPA_COUNTER = "https://spa.mendozer.com";
 const copy = {
   en: {
     meta: {
-      title: "Corner Spa",
+      title: "Corner Spa Venture in Windhoek",
       description:
-        "Corner Spa is Oryx's first operating venture, run with Mendozer Investments in Windhoek. Its counter at spa.mendozer.com is embedded on this page.",
-      ogTitle: "Corner Spa | Oryx Institute",
+        "Discover Corner Spa, Oryx Institute’s first operating venture with Mendozer Investments in Windhoek. Find the spa’s official booking and service details.",
+      ogTitle: "Corner Spa in Windhoek",
       ogDescription:
-        "Oryx's first operating venture, run with Mendozer Investments in Windhoek. The spa's counter at spa.mendozer.com is embedded here.",
+        "Corner Spa is Oryx’s first operating venture with Mendozer Investments in Windhoek. Booking stays on the spa’s own site.",
       ldName: "Corner Spa",
       ldDescription:
         "Corner Spa is Oryx Institute's first operating venture, run with Mendozer Investments in Windhoek.",
@@ -68,12 +69,12 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Corner Spa",
+      title: "Corner Spa-onderneming in Windhoek",
       description:
-        "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf. Die toonbank by spa.mendozer.com is op hierdie blad ingebed.",
-      ogTitle: "Corner Spa | Oryx Instituut",
+        "Corner Spa is ’n Oryx-onderneming saam met Mendozer Investments in Windhoek. Besprekings en diensbesonderhede bly op die spa se eie webwerf.",
+      ogTitle: "Corner Spa in Windhoek",
       ogDescription:
-        "Oryx se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf. Die spa se toonbank by spa.mendozer.com is hier ingebed.",
+        "Corner Spa is Oryx se eerste bedrywige onderneming saam met Mendozer Investments in Windhoek. Besprekings bly op die spa se eie webwerf.",
       ldName: "Corner Spa",
       ldDescription:
         "Corner Spa is Oryx Instituut se eerste bedrywige onderneming, saam met Mendozer Investments in Windhoek bedryf.",
@@ -124,24 +125,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/ventures/corner-spa",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/ventures/corner-spa", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/ventures/corner-spa`,
-      images: [
-        {
-          url: "/brand/og/corner-spa.png",
-          width: 1200,
-          height: 630,
-          alt: m.ogTitle,
-        },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/corner-spa.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function CornerSpaPage({

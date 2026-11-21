@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { PageHead } from "@/components/site/page-head";
 import { site } from "@/lib/site";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 type LegalSection = { h: string; body: string[] };
 
@@ -115,17 +116,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/legal/terms",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/legal/terms", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/legal/terms`,
-      images: [{ url: "/brand/og/default.png", width: 1200, height: 630, alt: `${m.title}, Oryx Institute` }],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: `${m.title}, Oryx Institute` },
+  });
 }
 
 export default async function TermsPage({

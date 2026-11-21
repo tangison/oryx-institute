@@ -4,6 +4,7 @@ import { SearchControl } from "@/components/site/search-dialog";
 import { MenuBehaviour } from "@/components/site/menu-behaviour";
 import { MenuLang } from "@/components/site/menu-lang";
 import { MenuClock } from "@/components/site/menu-clock";
+import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { navLinks, footerNav, site } from "@/lib/site";
 import { navAf, siteAf } from "@/lib/site-af";
@@ -11,8 +12,8 @@ import { navAf, siteAf } from "@/lib/site-af";
 /**
  * The floating header: a cream bar flush with the top edge, hairline
  * framed, riding above the page. Wordmark left; the brief's four links,
- * then search (desktop); the menu trigger is the only tool on the
- * right, and it carries every screen into the off-canvas sitemap.
+ * then a compact EN/AF control, desktop search and the menu trigger on
+ * the right. The menu carries every screen into the off-canvas sitemap.
  *
  * The menu is a native <details>-style checkbox disclosure: a
  * full-screen cream slideover, the primary links in the brand serif,
@@ -30,7 +31,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
   );
 
   return (
-    <header className="site-header">
+    <header className="site-header" data-nosnippet>
       {/* The menu is a checkbox disclosure: the hidden input is the
           first child, the label lives in the bar, the panel is the last
           child, so pure CSS opens and closes it with JavaScript off.
@@ -56,6 +57,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
             <OryxLogo
               variant="lockup"
               tone="brand"
+              title="Oryx Polytechnic Institute logo"
               className="h-[2rem] w-auto min-[48rem]:h-[2.25rem]"
             />
           </span>
@@ -66,6 +68,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
             <OryxLogo
               variant="lockup"
               tone="reverse"
+              title="Oryx Polytechnic Institute logo"
               className="h-[2rem] w-auto min-[48rem]:h-[2.25rem]"
             />
           </span>
@@ -87,6 +90,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
         </nav>
 
         <div className="header-tools">
+          <LanguageSwitcher lang={lang} />
           <SearchControl lang={lang} />
 
           <label htmlFor="site-menu-toggle" className="menu-summary">

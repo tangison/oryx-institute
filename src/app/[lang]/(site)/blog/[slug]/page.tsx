@@ -3,9 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogPostBody } from "@/components/site/blog-body";
 import { RouteArrowIcon } from "@/components/site/glyphs";
-import { blogPosts, getPost } from "@/lib/blog";
+import { blogPosts, getPost, hasCompletePostTranslation } from "@/lib/blog";
 import { site, schemaIds } from "@/lib/site";
-import { alternates, langFromParams, type Lang } from "@/lib/i18n";
+import { langFromParams, type Lang } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -20,30 +21,30 @@ export async function generateMetadata({
   const lang = langFromParams({ lang: langRaw });
   const post = getPost(slug);
   if (!post) return {};
-  const L = lang === "af" ? "/af" : "";
-  return {
-    /* Absolute: both headline strings already carry the brand ("Oryx
-       Institute"), so the root template would print it a second time
-       and push the title past 60 characters. */
-    title: { absolute: lang === "af" ? post.titleAf : post.title },
-    description: lang === "af" ? post.descriptionAf : post.description,
-    alternates: alternates(lang, `/blog/${post.slug}`, site.url),
-    openGraph: {
-      type: "article",
-      title: lang === "af" ? post.titleAf : post.title,
-      description: lang === "af" ? post.descriptionAf : post.description,
-      url: `${site.url}${L}/blog/${post.slug}`,
-      publishedTime: post.dateISO,
-      images: [
-        {
-          url: `${site.url}${post.ogImage}`,
-          width: 1510,
-          height: 1041,
-          alt: post.ogImageAlt,
-        },
-      ],
+  const completeTranslation = hasCompletePostTranslation(post, lang);
+  const title = lang === "af" ? post.titleAf : post.title;
+  const description = lang === "af" ? post.descriptionAf : post.description;
+  const imageAlt = post.ogImageAlt;
+  return pageMetadata({
+    lang,
+    path: `/blog/${post.slug}`,
+    title,
+    description,
+    socialTitle: lang === "af" ? post.titleAf : post.title,
+    socialDescription: description,
+    type: "article",
+    publishedTime: post.dateISO,
+    modifiedTime: post.dateISO,
+    index: completeTranslation,
+    canonicalLang: completeTranslation ? undefined : "en",
+    includeLanguageAlternates: post.languages.includes("af"),
+    image: {
+      url: post.ogImage,
+      width: 1510,
+      height: 1041,
+      alt: imageAlt,
     },
-  };
+  });
 }
 
 const labels = {

@@ -16,7 +16,8 @@ import {
   getCareerRoleRedirect,
   recruitment,
 } from "@/lib/careers";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { schemaIds, site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -100,6 +101,41 @@ const copy = {
   },
 } as const;
 
+/* Role-detail headings keep the full published scope. Search titles use
+   concise, distinct role labels so a planned programme list cannot turn
+   into a misleading course-offer snippet. */
+const metaRoleLabels: Record<"en" | "af", Record<string, string>> = {
+  en: {
+    "centre-manager": "Centre manager vacancy",
+    "independent-moderator": "Independent moderator vacancy",
+    "learner-records-administrator": "Learner records administrator vacancy",
+    "occupational-health-and-safety": "Occupational health and safety instructor",
+    "business-services-and-administration": "Business services instructor",
+    "hospitality-tourism-and-local-guiding": "Hospitality and tourism instructor",
+    "cosmetology-hairdressing": "Hairdressing instructor",
+    "wholesale-retail-and-merchandising": "Retail and merchandising instructor",
+    entrepreneurship: "Entrepreneurship instructor",
+  },
+  af: {
+    "centre-manager": "Sentrumbestuurder-vakature",
+    "independent-moderator": "Onafhanklike moderator-vakature",
+    "learner-records-administrator": "Leerderrekordadministrateur-vakature",
+    "occupational-health-and-safety": "Instrukteur: beroepsgesondheid en veiligheid",
+    "business-services-and-administration": "Instrukteur: besigheidsdienste",
+    "hospitality-tourism-and-local-guiding": "Instrukteur: gasvryheid en toerisme",
+    "cosmetology-hairdressing": "Haarkappery-instrukteur",
+    "wholesale-retail-and-merchandising": "Instrukteur: kleinhandel en handelsware",
+    entrepreneurship: "Entrepreneurskap-instrukteur",
+  },
+};
+
+function careerMetadataDescription(label: string, lang: "en" | "af"): string {
+  const deadline = formatRecruitmentDeadline(lang);
+  return lang === "af"
+    ? `Oryx Instituut-vakature: ${label.toLowerCase()} in Ongwediva. Doen aansoek teen ${deadline}.`
+    : `Oryx Institute vacancy: ${label.toLowerCase()} in Ongwediva. Apply by ${deadline}.`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -110,21 +146,18 @@ export async function generateMetadata({
   const role = getCareerRole(slug);
   if (!role) return {};
 
-  const roleName = careerRoleName(role);
-  const title = `${roleName} | ${copy[lang].meta.suffix}`;
-  const description = `${careerRoleSummary(role, lang)} Apply to Oryx Institute by ${formatRecruitmentDeadline(lang)}.`;
+  const title = metaRoleLabels[lang][role.slug] ?? careerRoleName(role);
+  const description = careerMetadataDescription(title, lang);
 
-  return {
+  return pageMetadata({
+    lang,
+    path: `/careers/${role.slug}`,
     title,
     description,
-    alternates: alternates(lang, `/careers/${role.slug}`, site.url),
-    openGraph: {
-      title: `${title} | ${lang === "af" ? "Oryx Instituut" : "Oryx Institute"}`,
-      description,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/careers/${role.slug}`,
-      images: [{ url: "/brand/og/default.png", width: 1200, height: 630, alt: title }],
-    },
-  };
+    socialTitle: title,
+    socialDescription: description,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: title },
+  });
 }
 
 export default async function CareerRolePage({
