@@ -16,6 +16,14 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 - [Practice](https://www.oryxinstitute.org/practice): the current commercial practice and its status disclosure.
 - [Enquire](https://www.oryxinstitute.org/apply): one public office for questions about current work or future learning pathways.
 
+## Recruitment
+
+- [Careers](https://www.oryxinstitute.org/careers): 23 current Oryx recruitment pages for Ongwediva, each with role scope, a closing time and an email-first application form.
+- Applications close at 23:59 CAT (UTC+2) on 27 November 2026. Applications go to vacancies@oryxinstitute.org.
+- The site stores no application-form data. The form prepares an email in the applicant's own mail client; applicants must review it, attach a CV and send it themselves.
+- Role-specific minimum qualifications, licences and years of experience have not been published. Applicants should submit relevant experience and a CV; Oryx may request role-relevant evidence from shortlisted candidates.
+- The Lead Instructor specialisms describe intended work scope only. They do not announce courses, accredited qualifications, NQF credits, enrolment or a public campus.
+
 ## Research
 
 - [Research](https://www.oryxinstitute.org/research): market research engagements and institutional Research Notes. Published notes are English-first and have an error-reporting contact route.
@@ -49,4 +57,4 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 
 ## Markdown mirrors
 
-Current public pages have an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/status](https://www.oryxinstitute.org/md/status), [/md/research](https://www.oryxinstitute.org/md/research), [/md/practice](https://www.oryxinstitute.org/md/practice), [/md/apply](https://www.oryxinstitute.org/md/apply) and [/md/links](https://www.oryxinstitute.org/md/links). Markdown is an explicit typed alternate; ordinary page requests remain canonical HTML.
+Current public pages have an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/status](https://www.oryxinstitute.org/md/status), [/md/research](https://www.oryxinstitute.org/md/research), [/md/practice](https://www.oryxinstitute.org/md/practice), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/careers](https://www.oryxinstitute.org/md/careers) and [/md/links](https://www.oryxinstitute.org/md/links). Every published career role has the same markdown alternate below `/md/careers/`. Markdown is an explicit typed alternate; ordinary page requests remain canonical HTML.

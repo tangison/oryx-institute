@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { blogPosts } from "@/lib/blog";
+import { careerRoles } from "@/lib/careers";
 
 type SitemapPage = {
   path: string;
@@ -10,6 +11,15 @@ type SitemapPage = {
       Never use the deployment timestamp as a false change signal. */
   lastModified?: string;
 };
+
+function careerRolePaths(): SitemapPage[] {
+  return careerRoles.map((role) => ({
+    path: `/careers/${role.slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly",
+    lastModified: "2026-11-13",
+  }));
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /** Only editorially dated content emits lastModified. The deployment
@@ -34,6 +44,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     { path: "/register", priority: 0.8, changeFrequency: "monthly" },
     { path: "/apply", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/careers", priority: 0.9, changeFrequency: "monthly", lastModified: "2026-11-13" },
+    ...careerRolePaths(),
     { path: "/status", priority: 0.8, changeFrequency: "monthly" },
     { path: "/brand", priority: 0.8, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },

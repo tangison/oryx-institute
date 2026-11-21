@@ -203,6 +203,7 @@ export const navAf = {
     { href: "/ventures", label: "Ondernemings" },
     { href: "/status", label: "Status" },
     { href: "/apply", label: "Doen navraag" },
+    { href: "/careers", label: "Loopbane" },
   ],
   footerNav: [
     { href: "/research", label: "Navorsing" },
@@ -214,6 +215,7 @@ export const navAf = {
     { href: "/status", label: "Status" },
     { href: "/brand", label: "Handelsmerk" },
     { href: "/apply", label: "Doen navraag" },
+    { href: "/careers", label: "Loopbane" },
     { href: "/links", label: "Skakels" },
     { href: "/contact", label: "Kontak" },
     { href: "/faq", label: "Vrae" },

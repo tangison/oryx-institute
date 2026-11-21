@@ -179,7 +179,10 @@ export const linkHub = {
     { id: "email", href: `mailto:${site.email}` },
     { id: "google-business-profile", href: site.googleBusinessProfileUrl, external: true },
   ],
-  enquiries: [{ id: "apply", href: "/apply" }],
+  enquiries: [
+    { id: "careers", href: "/careers" },
+    { id: "apply", href: "/apply" },
+  ],
   reading: [{ id: "research", href: "/research" }],
   institute: [
     { id: "practice", href: "/practice" },
@@ -380,6 +383,7 @@ export const navLinks = [
   { href: "/ventures", label: "Ventures" },
   { href: "/status", label: "Status" },
   { href: "/apply", label: "Enquire" },
+  { href: "/careers", label: "Careers" },
 ] as const;
 
 /** Footer navigation: the same links, plain text on ink ground, plus
@@ -395,6 +399,7 @@ export const footerNav = [
   { href: "/status", label: "Status" },
   { href: "/brand", label: "Brand" },
   { href: "/apply", label: "Enquire" },
+  { href: "/careers", label: "Careers" },
   { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
