@@ -21,7 +21,7 @@ const copy = {
     qr: "Scan for every official Oryx link",
     groups: {
       direct: "Start here",
-      enquiries: "Enquire",
+      enquiries: "Enquire or apply",
       reading: "Read the work",
       institute: "See the institute",
       social: "Follow Oryx",
@@ -30,6 +30,7 @@ const copy = {
       call: ["Call", "083 676 4338"],
       whatsapp: ["WhatsApp", "083 676 4338"],
       email: ["Email", "info@oryxinstitute.org"],
+      careers: ["Careers", "Current vacancies and email-first applications"],
       apply: ["Enquire", "One message starts a factual conversation"],
       research: ["Research", "Evidence before a decision moves"],
       practice: ["Practice", "Business counselling and market research"],
@@ -62,7 +63,7 @@ const copy = {
     qr: "Skandeer vir elke amptelike Oryx-skakel",
     groups: {
       direct: "Begin hier",
-      enquiries: "Doen navraag",
+      enquiries: "Doen navraag of aansoek",
       reading: "Lees die werk",
       institute: "Sien die instituut",
       social: "Volg Oryx",
@@ -71,6 +72,7 @@ const copy = {
       call: ["Bel", "083 676 4338"],
       whatsapp: ["WhatsApp", "083 676 4338"],
       email: ["E-pos", "info@oryxinstitute.org"],
+      careers: ["Loopbane", "Huidige vakatures en e-pos-eerste aansoeke"],
       apply: ["Doen navraag", "Een boodskap begin 'n feitelike gesprek"],
       research: ["Navorsing", "Bewyse voordat ’n besluit beweeg"],
       practice: ["Praktyk", "Besigheidsadvies en marknavorsing"],

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHead } from "@/components/site/page-head";
+import { recruitment } from "@/lib/careers";
 import { site } from "@/lib/site";
 import { alternates, langFromParams } from "@/lib/i18n";
 
@@ -17,15 +18,16 @@ function sections(lang: "en" | "af"): LegalSection[] {
         body: [
           "Die navraagvorm stoor niks op hierdie webwerf nie. Wanneer jy stuur, open jou eie e-posprogram ’n boodskap aan die kantoor. Daarna bestaan dit slegs in die gesprek wat jy begin het.",
           "As jy per e-pos skryf, ontvang ons net wat jy kies om te gee: jou naam, kontakbesonderhede, belangstellingsveld en die inhoud van jou boodskap.",
+          `As jy vir ’n vakature aansoek doen, open die vorm ’n konsep in jou eie e-posprogram aan ${recruitment.email}. Die webwerf ontvang nie die vorm nie. Wanneer jy die e-pos stuur, kan die werwingspan jou naam, kontakbesonderhede, CV en enige inligting wat jy kies om in te sluit ontvang.`,
         ],
       },
       {
         h: "Waarom ons dit gebruik",
-        body: ["Om jou navraag te lees en te beantwoord, die volgende stap te reël, en rekords te hou waar dit nodig is. Ons verkoop, verhuur of verhandel nie persoonlike inligting nie. Hierdie webwerf gebruik nie advertensie- of derdeparty-nasporing nie."],
+        body: ["Om jou navraag te lees en te beantwoord, die volgende stap te reël, en rekords te hou waar dit nodig is. Vir werwing gebruik ons aansoek-inligting om die rolpasvorm te oorweeg, die proses te bestuur en met jou te kommunikeer. Ons verkoop, verhuur of verhandel nie persoonlike inligting nie. Hierdie webwerf gebruik nie advertensie- of derdeparty-nasporing nie."],
       },
       {
         h: "Wie dit sien",
-        body: ["Niemand buite die kantoor wat die navraag moet hanteer nie, tensy jy vra of die wet dit vereis. Die webwerf stel geen advertensiekoekies nie en bou geen profiele nie."],
+        body: ["Niemand buite die kantoor wat die navraag moet hanteer nie, tensy jy vra of die wet dit vereis. Vir ’n werwingsaansoek beteken dit mense wat die betrokke rol en keuring moet hanteer. Die webwerf stel geen advertensiekoekies nie en bou geen profiele nie."],
       },
       {
         h: "Hoe lank dit bly",
@@ -56,15 +58,16 @@ function sections(lang: "en" | "af"): LegalSection[] {
       body: [
         "The enquiry composer stores nothing on this site. When you send, your own mail client opens a message to the office. From then on, it exists only in the conversation you started.",
         "If you write by email, we receive only what you choose to give: your name, contact details, field of interest and the content of your message.",
+        `If you apply for a vacancy, the form opens a draft in your own mail client addressed to ${recruitment.email}. The website does not receive the form. Once you send the email, the recruitment team may receive your name, contact details, CV and anything else you choose to include.`,
       ],
     },
     {
       h: "Why we use it",
-      body: ["To read and answer your enquiry, arrange what follows, and keep records where that is required. We do not sell, rent or trade personal information. This site runs no advertising or third-party tracking."],
+      body: ["To read and answer your enquiry, arrange what follows, and keep records where that is required. For recruitment, we use application information to consider role fit, administer the process and communicate with you. We do not sell, rent or trade personal information. This site runs no advertising or third-party tracking."],
     },
     {
       h: "Who sees it",
-      body: ["Nobody outside the office that needs to handle your enquiry, unless you ask us to or the law requires it. The site sets no advertising cookies and builds no profiles."],
+      body: ["Nobody outside the office that needs to handle your enquiry, unless you ask us to or the law requires it. For a recruitment application, that means people who need to handle the relevant role and selection process. The site sets no advertising cookies and builds no profiles."],
     },
     {
       h: "How long it stays",

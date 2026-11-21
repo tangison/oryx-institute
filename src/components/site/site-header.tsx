@@ -77,7 +77,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               <li key={l.href}>
                 <Link
                   href={langPath(lang, l.href)}
-                  className={l.href === "/apply" ? "nav-cta" : "nav-link"}
+                  className={l.href === "/careers" ? "nav-cta" : "nav-link"}
                 >
                   {l.label}
                 </Link>
