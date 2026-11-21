@@ -15,6 +15,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   const t = chrome[lang];
   const af = lang === "af";
   const links = af ? navAf.footerNav : footerNav;
+  const reviewLabel = af ? "Laat ’n Google-resensie" : "Leave a Google review";
 
   return (
     <footer className="site-footer" data-nosnippet>
@@ -60,6 +61,14 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <div className="foot-office">
             <a href={`mailto:${site.email}`} className="foot-mail link-type">
               {site.email}
+            </a>
+            <a
+              href={site.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="foot-review link-type"
+            >
+              {reviewLabel} <span className="arr" aria-hidden="true">→</span>
             </a>
             <p className="foot-post">{af ? siteAf.postalAddressBox : site.postalAddress.postOfficeBox}</p>
             <p className="foot-phone">

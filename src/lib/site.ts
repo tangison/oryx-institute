@@ -98,10 +98,10 @@ export const site = {
   ntaRegistrationUrl: "https://www.nta.com.na/registration-tp/",
   nqaAccreditationUrl: "https://namqa.org/",
   tangisonUrl: "https://tangison.com/",
-  /** The confirmed public Google Business Profile. Keep the supplied
-   * Share URL exact so the Link Hub and organization schema describe the
-   * same official destination. */
-  googleBusinessProfileUrl: "https://share.google/8BQzpnFZHDLB5jNC3",
+  /** Verified direct route for the public Google Business Profile review
+   * form. This is the only review destination published by Oryx and is
+   * also named in the organization graph. */
+  googleReviewUrl: "https://g.page/r/CXRCcuVgxihnECE/review",
   /** Social channels, icon-only links in the footer and on /contact.
    * Each opens in a new tab; nothing is embedded. */
   socials: [
@@ -155,7 +155,7 @@ export const linkHub = {
     { id: "call", href: site.phoneHref },
     { id: "whatsapp", href: site.whatsappHref, external: true },
     { id: "email", href: `mailto:${site.email}` },
-    { id: "google-business-profile", href: site.googleBusinessProfileUrl, external: true },
+    { id: "google-review", href: site.googleReviewUrl, external: true },
   ],
   enquiries: [
     { id: "careers", href: "/careers" },
