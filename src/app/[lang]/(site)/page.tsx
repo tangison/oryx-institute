@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site, offers, register, ventures, schemaIds, organizationContactSchema } from "@/lib/site";
+import { site, offers, register, ventures } from "@/lib/site";
 import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
-import { alternates, chrome, langFromParams } from "@/lib/i18n";
+import { chrome, langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { CareersPopup } from "@/components/site/careers-popup";
 import {
   GlyphResearch,
@@ -37,8 +38,9 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
 const copy = {
   en: {
     meta: {
-      title: "A New Polytechnic for Namibia",
-      description: site.description,
+      title: "Oryx Institute: Research, Practice and Ventures in Namibia",
+      description:
+        "Oryx Institute is a new Namibian polytechnic with applied research, business practice and ventures. Explore current work or write to the office.",
     },
     positioning:
       "Oryx is a new polytechnic for Namibia, working toward NTA registration. Its current status and confirmed updates are recorded on the public register.",
@@ -87,8 +89,9 @@ const copy = {
   },
   af: {
     meta: {
-      title: "'n Nuwe Politegniese Instituut vir Namibië",
-      description: siteAf.description,
+      title: "Oryx Instituut: Navorsing, Praktyk en Ondernemings",
+      description:
+        "Oryx Instituut is ’n nuwe Namibiese politegnikum met toegepaste navorsing, besigheidspraktyk en ondernemings. Verken huidige werk of skryf aan die kantoor.",
     },
     positioning:
       "Oryx is ’n nuwe politegniese instituut vir Namibië en werk aan NTA-registrasie. Die openbare register bevat die huidige status en bevestigde opdaterings.",
@@ -144,31 +147,16 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
-  return {
-    /* The root layout also defines an English title template. Make the
-       homepage title absolute so the Afrikaans brand form is preserved. */
-    title: {
-      absolute:
-        lang === "af"
-          ? `${copy[lang].meta.title} | Oryx Instituut`
-          : `${copy[lang].meta.title} | Oryx Institute`,
-    },
-    description: copy[lang].meta.description,
-    alternates: alternates(lang, "/", site.url),
-    openGraph: {
-      title: copy[lang].meta.title,
-      description: copy[lang].meta.description,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/`,
-      images: [
-        {
-          url: "/brand/og/default.png",
-          width: 1200,
-          height: 630,
-          alt: copy[lang].meta.title,
-        },
-      ],
-    },
-  };
+  const m = copy[lang].meta;
+  return pageMetadata({
+    lang,
+    path: "/",
+    title: m.title,
+    description: m.description,
+    socialTitle: lang === "af" ? "Oryx Instituut" : "Oryx Institute",
+    socialDescription: m.description,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.title },
+  });
 }
 
 export default async function HomePage({
@@ -208,38 +196,8 @@ export default async function HomePage({
     timeZone: "UTC",
   });
 
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "EducationalOrganization",
-        "@id": schemaIds.org,
-        ...organizationContactSchema,
-        alternateName: af ? siteAf.tradingName : site.tradingName,
-        url: site.url,
-        foundingDate: "2026",
-      },
-      {
-        "@type": "WebSite",
-        "@id": schemaIds.website,
-        url: site.url,
-        /* One WebSite entity, one canonical name, in both locales:
-           the localized name rides as alternateName so the graph does
-           not disagree with itself. */
-        name: site.tradingName,
-        alternateName: siteAf.tradingName,
-        publisher: { "@id": schemaIds.org },
-        inLanguage: lang,
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-      />
       <CareersPopup lang={lang} />
 
       {/* Hero: the oryx on the terracotta field, three planes moving at

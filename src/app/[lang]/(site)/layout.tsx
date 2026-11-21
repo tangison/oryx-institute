@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SCMotion } from "@/components/site/sc-motion";
 import { ScrollChrome } from "@/components/site/scroll-chrome";
+import { JsonLd } from "@/components/site/json-ld";
 import { LANGS, chrome, langFromParams, type Lang } from "@/lib/i18n";
+import { breadcrumbGraph, siteGraph } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
 import "../../globals.css";
@@ -94,11 +97,15 @@ export default async function SiteLayout({
   const lang = langFromParams(await params);
   if (!LANGS.includes(lang as Lang)) notFound();
   const t = chrome[lang];
+  const requestHeaders = await headers();
+  const publicPath = requestHeaders.get("x-oryx-path") ?? "/";
 
   return (
     <>
+      <JsonLd data={siteGraph()} />
+      <JsonLd data={breadcrumbGraph(lang, publicPath)} />
       <SCMotion />
-      <a href="#main" className="skip-link">
+      <a href="#main" className="skip-link" data-nosnippet>
         {t.skip}
       </a>
       <SiteHeader lang={lang} />

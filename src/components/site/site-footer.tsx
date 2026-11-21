@@ -17,7 +17,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   const links = af ? navAf.footerNav : footerNav;
 
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" data-nosnippet>
       <div className="shell py-16 md:py-20">
         <div className="foot-grid" data-sc-in>
           <div className="foot-brand">
@@ -29,6 +29,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               <OryxLogo
                 variant="lockup"
                 tone="reverse"
+                title="Oryx Polytechnic Institute logo"
                 loading="lazy"
                 className="h-auto w-full max-w-none"
               />

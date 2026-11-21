@@ -3,9 +3,10 @@ import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import { SocialIcon, type SocialName } from "@/components/site/social-icon";
-import { organizationContactSchema, schemaIds, site } from "@/lib/site";
+import { schemaIds, site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 const copy = {
   en: {
@@ -67,17 +68,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/contact",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/contact", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/contact`,
-      images: [{ url: "/brand/og/contact.png", width: 1200, height: 630, alt: m.ogTitle }],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/contact.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function ContactPage({
@@ -97,12 +96,7 @@ export default async function ContactPage({
     name: t.meta.ogTitle,
     url: `${site.url}${A("/contact")}`,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
-    about: {
-      "@type": "EducationalOrganization",
-      "@id": schemaIds.org,
-      ...organizationContactSchema,
-      url: site.url,
-    },
+    about: { "@id": schemaIds.org },
   };
 
   return (

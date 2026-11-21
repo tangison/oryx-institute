@@ -29,7 +29,7 @@ export function swapLang(lang: Lang, path: string): string {
   return langPath(lang === "en" ? "af" : "en", path);
 }
 
-/** Canonical, hreflang and markdown alternates for one page. */
+/** Canonical and reciprocal published-language alternates for one page. */
 export function alternates(lang: Lang, path: string, origin: string) {
   const p = path === "/" ? "/" : `/${path.replace(/^\//, "")}`;
   return {
@@ -38,9 +38,6 @@ export function alternates(lang: Lang, path: string, origin: string) {
       en: `${origin}${langPath("en", p)}`,
       af: `${origin}${langPath("af", p)}`,
       "x-default": `${origin}${langPath("en", p)}`,
-    },
-    types: {
-      "text/markdown": `${origin}/md${p === "/" ? "" : p}`,
     },
   };
 }

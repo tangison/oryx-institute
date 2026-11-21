@@ -13,7 +13,8 @@ import {
   recruitment,
   type CareerRoleGroup,
 } from "@/lib/careers";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { schemaIds, site } from "@/lib/site";
 
 const groupOrder: readonly CareerRoleGroup[] = [
@@ -119,17 +120,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/careers",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/careers", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/careers`,
-      images: [{ url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle }],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/default.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function CareersPage({

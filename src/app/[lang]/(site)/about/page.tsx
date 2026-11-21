@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site, status, schemaIds, organizationContactSchema } from "@/lib/site";
+import { site, status, schemaIds } from "@/lib/site";
 import { siteAf, statusAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 /**
  * About is a visual statement of direction, not a prospectus. It names
@@ -13,10 +14,10 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "About Oryx Institute",
-      description: "Oryx Institute is a new Namibian polytechnic in formation, with research, current practice and ventures.",
+      title: "About Oryx Institute, a New Namibian Polytechnic",
+      description: "Learn how Oryx Institute connects applied research, business practice and ventures in Namibia, while future learning remains subject to approval.",
       ogTitle: "About Oryx Institute",
-      ogDescription: "A new Namibian polytechnic in formation, with research, current practice and ventures.",
+      ogDescription: "A new Namibian polytechnic working through research, practice and ventures.",
     },
     hero: {
       eyebrow: "Oryx Institute · Namibia",
@@ -69,10 +70,10 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Oor Oryx Instituut",
-      description: "Oryx Instituut is ’n nuwe Namibiese politegniese instituut in wording, met navorsing, huidige praktyk en ondernemings.",
+      title: "Oor Oryx Instituut, ’n Nuwe Namibiese Politegnikum",
+      description: "Lees hoe Oryx Instituut navorsing, besigheidspraktyk en ondernemings in Namibië verbind, met toekomstige leer onderhewig aan goedkeuring.",
       ogTitle: "Oor Oryx Instituut",
-      ogDescription: "’n Nuwe Namibiese politegniese instituut in wording, met navorsing, huidige praktyk en ondernemings.",
+      ogDescription: "’n Nuwe Namibiese politegniese instituut met navorsing, praktyk en ondernemings.",
     },
     hero: {
       eyebrow: "Oryx Instituut · Namibië",
@@ -132,17 +133,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/about",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/about", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/about`,
-      images: [{ url: "/brand/og/about.png", width: 1200, height: 630, alt: m.ogTitle }],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/about.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function AboutPage({
@@ -164,12 +163,7 @@ export default async function AboutPage({
     name: t.meta.ogTitle,
     url: `${site.url}${A("/about")}`,
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
-    mainEntity: {
-      "@type": "EducationalOrganization",
-      "@id": schemaIds.org,
-      ...organizationContactSchema,
-      url: site.url,
-    },
+    mainEntity: { "@id": schemaIds.org },
   };
 
   return (

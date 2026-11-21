@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 /**
@@ -32,6 +33,8 @@ export type BlogPost = {
   images: Record<string, BlogImageMeta>;
   bodyEn: string;
   bodyAf: string;
+  /** Locales whose complete article may enter the search-language cluster. */
+  languages: readonly Lang[];
 };
 
 const imageDims = {
@@ -90,6 +93,10 @@ export const blogPosts: BlogPost[] = [
     dateHumanAf: "5 November 2026",
     ogImage: "/corner-spa/hero-wide.jpg",
     ogImageAlt: "Smooth wet stones and soft light at Corner Spa",
+    /* The Afrikaans draft remains incomplete. Keep the public article
+       English-primary until its service, price and booking sections are
+       reviewed in full rather than exposing a mixed-language duplicate. */
+    languages: ["en"],
     images: cornerSpaImages,
     bodyEn: `
 # Corner Spa, Oryx's first operating venture
@@ -224,6 +231,10 @@ Vir vrae oor Oryx Instituut self, bel of stuur ’n boodskap na **083\u00A0676\u
 
 export function getPost(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
+}
+
+export function hasCompletePostTranslation(post: BlogPost, lang: Lang): boolean {
+  return post.languages.includes(lang);
 }
 
 /** The absolute URL of an image, used by Article structured data and

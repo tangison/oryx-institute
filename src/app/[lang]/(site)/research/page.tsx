@@ -5,18 +5,19 @@ import { PageHead } from "@/components/site/page-head";
 import { offers, partners, site, schemaIds } from "@/lib/site";
 import { offersAf, partnersAf, siteAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { chrome } from "@/lib/i18n";
 
 const copy = {
   en: {
     meta: {
-      title: "Research & Development",
+      title: "Namibian Market Research and Research Notes",
       description:
-        "Research and development at Oryx Institute: market research engagements, published research notes and factual relationship disclosures.",
-      ogTitle: "Research & Development | Oryx Institute",
+        "Explore Oryx market research engagements and sourced Namibian research notes. Bring a defined question to the office and read the published work.",
+      ogTitle: "Namibian market research and research notes",
       ogDescription:
-        "Market research engagements, published research notes and factual relationship disclosures.",
+        "Oryx takes on market research and publishes sourced notes for Namibian decisions.",
     },
     head: {
       title: "Research starts now.",
@@ -48,12 +49,12 @@ const copy = {
   },
   af: {
     meta: {
-      title: "Navorsing en ontwikkeling",
+      title: "Namibiese Marknavorsing en Navorsingsnotas",
       description:
-        "Navorsing en ontwikkeling by Oryx Instituut: marknavorsingsopdragte, gepubliseerde navorsingsnotas en feitelike verhoudingverklarings.",
-      ogTitle: "Navorsing en ontwikkeling | Oryx Instituut",
+        "Verken Oryx se marknavorsingsopdragte en navorsingsnotas met bronne. Bring ’n duidelike vraag na die kantoor en lees die gepubliseerde werk.",
+      ogTitle: "Namibiese marknavorsing en navorsingsnotas",
       ogDescription:
-        "Marknavorsingsopdragte, gepubliseerde navorsingsnotas en feitelike verhoudingverklarings.",
+        "Oryx neem marknavorsing aan en publiseer notas met bronne vir Namibiese besluite.",
     },
     head: {
       title: "Navorsing begin nou.",
@@ -93,24 +94,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/research",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/research", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/research`,
-      images: [
-        {
-          url: "/brand/og/research.png",
-          width: 1200,
-          height: 630,
-          alt: m.ogTitle,
-        },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/research.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function ResearchPage({

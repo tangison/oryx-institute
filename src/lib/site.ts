@@ -57,6 +57,7 @@ export const site = {
   areaServed: "Namibia",
   legalLine:
     "Oryx Polytechnic Institute, also trading as Oryx Institute, Close Corporation CC/2026/12517",
+  registrationNumber: "CC/2026/12517",
   copyright: "© 2026 Oryx Polytechnic Institute. All rights reserved.",
   postalAddress: {
     postOfficeBox: "P.O. Box 1662",
@@ -144,30 +145,6 @@ export const site = {
 export const schemaIds = {
   org: `${site.url}/#organization`,
   website: `${site.url}/#website`,
-} as const;
-
-/** One reusable public-contact schema. Page-specific JSON-LD can attach
- * its own @id and locale, but names, channels, postal address and social
- * links always originate here. */
-export const organizationContactSchema = {
-  name: site.tradingName,
-  legalName: site.legalName,
-  email: site.email,
-  telephone: site.phoneE164,
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: site.phoneE164,
-      contactType: "customer service",
-      email: site.email,
-    },
-  ],
-  address: {
-    "@type": "PostalAddress",
-    postOfficeBoxNumber: site.postalAddress.postOfficeBox,
-    addressCountry: "NA",
-  },
-  sameAs: [...site.socials.map((channel) => channel.href), site.googleBusinessProfileUrl],
 } as const;
 
 /** The ordered public hub. URLs live in this content source rather than

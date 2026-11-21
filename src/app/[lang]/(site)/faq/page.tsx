@@ -4,7 +4,8 @@ import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { faqs, site } from "@/lib/site";
 import { faqsAf, siteAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 const copy = {
   en: {
@@ -49,19 +50,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  return pageMetadata({
+    lang,
+    path: "/faq",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/faq", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/faq`,
-      images: [
-        { url: "/brand/og/faq.png", width: 1200, height: 630, alt: m.ogTitle },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/faq.png", width: 1200, height: 630, alt: m.ogTitle },
+  });
 }
 
 export default async function FaqPage({

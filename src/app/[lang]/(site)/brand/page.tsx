@@ -4,7 +4,8 @@ import { PageHead } from "@/components/site/page-head";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { approvedLines, voice, site } from "@/lib/site";
 import { approvedLinesAf } from "@/lib/site-af";
-import { alternates, langFromParams } from "@/lib/i18n";
+import { langFromParams } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 const copy = {
   en: {
@@ -141,19 +142,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const lang = langFromParams(await params);
   const m = copy[lang].meta;
-  return {
+  /* The Afrikaans route preserves a previously shared utility URL, but
+     its long-form brand guidance is not yet a complete translation.
+     Keep it out of the language cluster and search index until it is. */
+  const translated = lang === "en";
+  return pageMetadata({
+    lang,
+    path: "/brand",
     title: m.title,
     description: m.description,
-    alternates: alternates(lang, "/brand", site.url),
-    openGraph: {
-      title: m.ogTitle,
-      description: m.ogDescription,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/brand`,
-      images: [
-        { url: "/brand/og/brand.png", width: 1200, height: 630, alt: m.ogTitle },
-      ],
-    },
-  };
+    socialTitle: m.ogTitle,
+    socialDescription: m.ogDescription,
+    image: { url: "/brand/og/brand.png", width: 1200, height: 630, alt: m.ogTitle },
+    index: translated,
+    canonicalLang: translated ? undefined : "en",
+    includeLanguageAlternates: false,
+  });
 }
 
 /**
