@@ -39,7 +39,7 @@ const copy = {
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Dated public institutional updates"],
       "planned-campus-site": ["Untag Guesthouse campus site", "Future site. Not open for courses or enrolment."],
-      "google-business-profile": ["Oryx on Google Maps", "Official Google Business Profile"],
+      "google-review": ["Leave a Google review", "Verified Google Business Profile review form"],
     } as Record<string, [string, string]>,
     footer: {
       note: "A new polytechnic for Namibia. Research, practice and companies that prove the work.",
@@ -81,7 +81,7 @@ const copy = {
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Gedateerde openbare institusionele opdaterings"],
       "planned-campus-site": ["Untag Guesthouse-kampusterrein", "Toekomstige terrein. Nie oop vir kursusse of inskrywings nie."],
-      "google-business-profile": ["Oryx op Google Maps", "Amptelike Google Besigheidsprofiel"],
+      "google-review": ["Laat ’n Google-resensie", "Geverifieerde Google Besigheidsprofiel-resensievorm"],
     } as Record<string, [string, string]>,
     footer: {
       note: "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en ondernemings wat die werk bewys.",

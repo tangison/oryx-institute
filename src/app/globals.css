@@ -983,6 +983,13 @@ body.menu-locked {
 .foot-mail {
   color: var(--ivory);
 }
+.foot-review {
+  color: var(--ivory-80);
+  font-size: 0.95rem;
+}
+.foot-review:hover {
+  color: var(--ivory);
+}
 .foot-social {
   display: flex;
   flex-wrap: wrap;

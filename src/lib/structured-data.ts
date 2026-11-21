@@ -100,7 +100,7 @@ export function siteGraph(): JsonLd {
           addressCountry: "NA",
         },
         areaServed: { "@type": "Country", name: site.country },
-        sameAs: [...site.socials.map((channel) => channel.href), site.googleBusinessProfileUrl],
+        sameAs: [...site.socials.map((channel) => channel.href), site.googleReviewUrl],
       },
       {
         "@type": "WebSite",

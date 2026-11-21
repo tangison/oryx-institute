@@ -66,6 +66,7 @@ const copy = {
       line: "Write to the office.",
       body: "For a partnership, programme or question, write to the Oryx office.",
       action: "Write to the office",
+      review: "Leave a Google review",
     },
   },
   af: {
@@ -122,6 +123,7 @@ const copy = {
       line: "Skryf aan die kantoor.",
       body: "Skryf aan die Oryx-kantoor oor ’n vennootskap, program of vraag.",
       action: "Skryf aan die kantoor",
+      review: "Laat ’n Google-resensie",
     },
   },
 } as const;
@@ -312,7 +314,17 @@ export default async function AboutPage({
           <h2 className="h-section whitespace-pre-line">{t.close.line}</h2>
           <div>
             <p className="measure text-[var(--ivory-80)]">{t.close.body}</p>
-            <a href={`mailto:${site.email}`} className="btn--cream btn mt-8">{t.close.action}</a>
+            <div className="mt-8 flex flex-wrap gap-5">
+              <a href={`mailto:${site.email}`} className="btn--cream btn">{t.close.action}</a>
+              <a
+                href={site.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn--quiet btn--quiet--ivory"
+              >
+                {t.close.review} <span className="arr" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
