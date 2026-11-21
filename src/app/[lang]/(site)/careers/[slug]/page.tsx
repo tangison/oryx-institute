@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { CareerApplicationForm } from "@/components/site/career-application-form";
@@ -147,6 +148,9 @@ export default async function CareerRolePage({
   const deadline = formatRecruitmentDeadline(lang);
   const source = careerNoticeLabel(role.noticeType, lang);
   const scope = careerRoleScope(role);
+  const roleImageAlt = af
+    ? `Redaksionele stillewe vir die ${roleName}-vakature`
+    : `Editorial still life for the ${roleName} vacancy`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -164,6 +168,17 @@ export default async function CareerRolePage({
       <PageHead eyebrow={`${t.openRole} · ${recruitment.location}`} title={roleName}>
         <p>{careerRoleSummary(role, lang)}</p>
       </PageHead>
+
+      <figure className="career-role-hero" data-sc-act="scrub">
+        <Image
+          src={`/images/careers/${role.slug}.jpg`}
+          alt={roleImageAlt}
+          width={1408}
+          height={768}
+          priority
+          sizes="100vw"
+        />
+      </figure>
 
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-px border border-rule bg-rule md:grid-cols-3" data-sc-in>

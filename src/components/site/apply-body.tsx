@@ -172,15 +172,14 @@ export function ApplyBody({ lang }: { lang: Lang }) {
           </div>
 
           <div className="grid gap-8" data-sc-in data-sc-stagger="70">
-            {/* The applicant's hand beside the zero-data copy: the
-              human plate /apply carries. (Image Audit: k32 beside the
-              zero-data line; the wax seal holds the hero above.) */}
+            {/* A correspondence plate gives the privacy note a quieter
+              visual anchor than the former hand-led image. */}
             <figure className="apply-plate" data-sc-reveal>
               <Image
-                src="/images/kinfolk/people/32-applicant-writing.jpg"
-                alt="A hand writing an enquiry letter with a pen on paper in hard window light"
-                width={1402}
-                height={1122}
+                src="/images/editorial/home-correspondence.jpg"
+                alt="A blank cream envelope and brass paper clip on a terracotta work surface"
+                width={1264}
+                height={848}
                 sizes="(min-width: 1024px) 15rem, 60vw"
                 className="h-auto w-full"
                 loading="eager"

@@ -394,16 +394,16 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Practice peak: maker's hands, pinned for three viewports.
+      {/* Practice peak: an empty worktable, pinned for three viewports.
           The copy arrives on a small cream block, bottom left. */}
       <section className="peak" data-sc-act="pin" data-sc-span="3">
         <div className="sc-stage" data-sc-stage>
           <div className="peak-media" data-sc-scale>
             <Image
-              src="/images/kinfolk/core/05-hands-peak.jpg"
-              alt="A pair of hands mid-task in a shaft of hard daylight"
-              width={1250}
-              height={1000}
+              src="/images/careers/careers-hero.jpg"
+              alt="An empty wood worktable with ivory cards and a dark notebook"
+              width={1408}
+              height={768}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
               loading="eager"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
@@ -38,6 +39,7 @@ const copy = {
       lede:
         "Oryx is recruiting in Ongwediva for centre operations, quality, learner records and programme leadership. Each Lead Instructor role brings its related levels and short-course scope into one post.",
     },
+    heroImageAlt: "An empty wood worktable with ivory cards and a dark notebook",
     closing: "Applications close",
     location: "Location",
     email: "Direct applications",
@@ -80,6 +82,7 @@ const copy = {
       lede:
         "Oryx werf in Ongwediva vir sentrumbedrywighede, gehalte, leerderrekords en programleierskap. Elke Lead Instructor-rol bring die verwante vlakke en kortkursusomvang in een pos saam.",
     },
+    heroImageAlt: "’n Leë houtwerktafel met ivoorkaartjies en ’n donker notaboek",
     closing: "Aansoeke sluit",
     location: "Ligging",
     email: "Direkte aansoeke",
@@ -170,6 +173,17 @@ export default async function CareersPage({
       <PageHead eyebrow={t.head.eyebrow} title={t.head.title}>
         <p>{t.head.lede}</p>
       </PageHead>
+
+      <section className="careers-hero" data-sc-act="scrub">
+        <Image
+          src="/images/careers/careers-hero.jpg"
+          alt={t.heroImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="careers-hero__image"
+        />
+      </section>
 
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-px border border-rule bg-rule lg:grid-cols-4" data-sc-in>
