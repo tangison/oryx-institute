@@ -58,7 +58,7 @@ const copy = {
       {
         key: "ventures" as const,
         name: "Ventures",
-        body: "Small operating companies the institute opens to test sectors. Each one is a live classroom and a live lab.",
+        body: "Small operating companies the institute opens to test sectors in real trading conditions.",
         link: "See the ventures",
       },
     ],
@@ -489,14 +489,14 @@ export default async function HomePage({
                   href={af ? "/af/ventures" : "/ventures"}
                   className="btn--quiet"
                 >
-                  {af ? "Read about Corner Spa" : "Read about Corner Spa"}{" "}
+                  {af ? "Lees oor Corner Spa" : "Read about Corner Spa"}{" "}
                   <span className="arr" aria-hidden="true">→</span>
                 </Link>
                 <Link
                   href={af ? "/af/blog/corner-spa" : "/blog/corner-spa"}
                   className="link-type"
                 >
-                  {af ? "Read the blog note" : "Read the blog note"}
+                  {af ? "Lees die blognota" : "Read the blog note"}
                 </Link>
               </div>
             </div>
@@ -528,7 +528,7 @@ export default async function HomePage({
         <div className="shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="h-section">
-              {af ? "The register." : "The register."}
+              {af ? "Die register." : "The register."}
             </h2>
             <p className="meta">{t.registerMeta}</p>
           </div>

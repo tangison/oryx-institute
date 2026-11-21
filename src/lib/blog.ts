@@ -82,9 +82,9 @@ export const blogPosts: BlogPost[] = [
     title: "Corner Spa, Oryx's first operating venture",
     titleAf: "Corner Spa, Oryx se eerste bedrywige onderneming",
     description:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: a live setting for practical business and service work. See treatments, prices and how to book.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work. See treatments, prices and how to book.",
     descriptionAf:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: 'n lewende omgewing vir praktiese besigheids- en dienswerk. Sien behandelings, pryse en hoe om te bespreek.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk. Sien behandelings, pryse en hoe om te bespreek.",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
     dateHumanAf: "5 November 2026",
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
 
 ![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. This post explains what it offers, how to book, and where to find it online.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is an operating setting for practical business and service work in Windhoek. This post explains what it offers, how to book, and where to find it online.
 
 ## What you can book
 
@@ -136,7 +136,7 @@ You can also call or message on **+264 81 623 4788**.
 
 ## Who is behind it
 
-Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work.
+Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is an operating setting for practical business and service work.
 
 ## One site, two addresses
 
@@ -160,7 +160,7 @@ For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04
 
 ![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik wat dit bied, hoe om te bespreek en waar om dit aanlyn te vind.
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik wat dit bied, hoe om te bespreek en waar om dit aanlyn te vind.
 
 ## What you can book
 
@@ -200,7 +200,7 @@ You can also call or message on **+264 81 623 4788**.
 
 ## Who is behind it
 
-Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk.
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk.
 
 ## One site, two addresses
 

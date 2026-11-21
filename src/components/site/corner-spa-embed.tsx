@@ -34,11 +34,11 @@ const copy = {
     read: "Read the note on Corner Spa",
   },
   af: {
-    opening: "Opening Corner Spa",
-    failed: "Corner Spa did not load.",
-    open: "Open spa.mendozer.com",
-    note: "Press Back once to return to the Oryx website.",
-    read: "Read the note on Corner Spa",
+    opening: "Corner Spa maak oop",
+    failed: "Corner Spa het nie gelaai nie.",
+    open: "Maak spa.mendozer.com oop",
+    note: "Druk een keer Terug om na die Oryx-webwerf terug te keer.",
+    read: "Lees die nota oor Corner Spa",
     enLedger: { paras: [] as string[] },
   },
 } as const;

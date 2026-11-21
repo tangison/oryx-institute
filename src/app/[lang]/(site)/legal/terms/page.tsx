@@ -14,7 +14,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
       },
       {
         h: "Wat ’n navraag beteken",
-        body: ["’n Boodskap vra die kantoor om dit te lees en te antwoord. Dit skep nie ’n plek, ’n belofte van ’n plek, of ’n verpligting aan enige kant nie. Toelating, plasing en studie-ooreenkomste word slegs in ’n skriftelike antwoord van die instituut bevestig."],
+        body: ["’n Boodskap vra die kantoor om dit te lees en te antwoord. Dit skep nie ’n plek, ’n inname, ’n kwalifikasie-eis of ’n verpligting aan enige kant nie. Die kantoor stel die huidige posisie skriftelik."],
       },
       {
         h: "Wat die bladsy sê",

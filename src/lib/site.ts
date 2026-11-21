@@ -70,10 +70,11 @@ export const site = {
   statusAsOf: "2026-11-13",
   plannedCentre:
     "Ongwediva is a future initiative. It is planned, not open, and is not presented as a public campus.",
-  /** A confirmed future-site takeover. This must stay visibly future: it
-   * is not an open campus, course catalogue, enrolment route or approval. */
+  /** A planned future site. It is not an open campus, course catalogue,
+   * enrolment route or approval, and this wording does not assert property
+   * control, premises approval or a completed takeover. */
   plannedCampus:
-    "Oryx will take over Untag Guesthouse as a future hospitality-focused campus. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
+    "Oryx identifies Untag Guesthouse as a planned future hospitality-focused site. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
   plannedCampusMapUrl: "https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic",
   /** The one public mailbox. Enquiries, partnerships and press
      * correspondence start here unless a dedicated public channel is
@@ -271,7 +272,7 @@ export const register = [
 
   /**
  * Ventures. A venture is a small operating company the institute opens
- * to test a sector: a live classroom and a live lab. Only what is real
+ * to understand a sector in real trading conditions. Only what is real
  * is listed, with its current operating status stated plainly.
  */
 export const ventures = {
@@ -280,8 +281,8 @@ export const ventures = {
   cornerSpa: {
     name: "Corner Spa",
     status: "Operating · with Mendozer",
-    line: "Wellness and service operations: the first live\u00A0lab.",
-    body: "Corner Spa is Oryx's first operating venture, run in collaboration with Mendozer Investments. It is a live setting for practical business and service work in Windhoek. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Its booking and service details are kept on the spa's own site.",
+    line: "Wellness and service operations: the first operating venture.",
+    body: "Corner Spa is Oryx's first operating venture, run in collaboration with Mendozer Investments. It is an operating setting for practical business and service work in Windhoek. The spa's own counter lives on Mendozer's platform at spa.mendozer.com and is embedded on this site. Its booking and service details are kept on the spa's own site.",
   },
   futureLine:
     "The next venture is not named yet. When one opens, the opening enters the register with its date.",

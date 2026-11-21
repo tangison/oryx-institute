@@ -19,9 +19,9 @@ const copy = {
         "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
     },
     howEyebrow: "How ventures work",
-    lessonEyebrow: "The classroom on the floor",
+    lessonEyebrow: "The work on the floor",
     lessonBody:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is a live setting for practical business and service work. Booking and service details stay on the spa's own site.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is an operating setting for practical business and service work. Booking and service details stay on the spa's own site.",
     exitLede:
       "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
     exitBody:
@@ -32,35 +32,35 @@ const copy = {
     followSpa: "Explore Corner Spa",
     venturePage: "The venture page",
     futureNote:
-      "More labs are opened as sectors warrant them. What is not ready, says so.",
+      "More ventures are opened as sectors warrant them. What is not ready, says so.",
   },
   af: {
     meta: {
-      title: "Small Companies, Real Customers",
+      title: "Klein ondernemings, werklike kliënte",
       description:
-        "Small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first.",
-      ogTitle: "Ventures | Oryx Institute",
+        "Klein bedrywige ondernemings wat Oryx Instituut oopmaak om sektore te toets. Corner Spa, welstand- en diensbedrywighede, is die eerste.",
+      ogTitle: "Ondernemings | Oryx Instituut",
       ogDescription:
-        "Small operating companies the institute opens to test sectors. Corner Spa is the first.",
-      ldName: "Ventures",
+        "Klein bedrywige ondernemings wat die instituut oopmaak om sektore te toets. Corner Spa is die eerste.",
+      ldName: "Ondernemings",
       ldDescription:
-        "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
+        "Die ondernemings by Oryx Instituut: klein bedrywige ondernemings wat geopen word om sektore te toets, begin met Corner Spa.",
     },
-    howEyebrow: "How ventures work",
-    lessonEyebrow: "The classroom on the floor",
+    howEyebrow: "Hoe ondernemings werk",
+    lessonEyebrow: "Die werk op die vloer",
     lessonBody:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is 'n lewende omgewing vir praktiese besigheids- en dienswerk. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     exitLede:
-      "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
+      "’n Onderneming kan nie voorgegee word nie. Dit word beoordeel aan twee dinge wat nie kan lieg nie: of dit werk, en of iemand daarvoor betaal.",
     exitBody:
-      "Ondernemings hou die instituut by 'n praktiese standaard: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
-    nextEyebrow: "Next",
-    readRegister: "Read the register",
-    briefUs: "Brief the Market R&D desk",
-    followSpa: "Explore Corner Spa",
-    venturePage: "The venture page",
+      "Ondernemings hou die instituut by ’n praktiese standaard: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
+    nextEyebrow: "Volgende",
+    readRegister: "Lees die register",
+    briefUs: "Gee die Marknavorsing- en Ontwikkelingslessenaar opdrag",
+    followSpa: "Verken Corner Spa",
+    venturePage: "Die ondernemingsblad",
     futureNote:
-      "More labs are opened as sectors warrant them. What is not ready, says so.",
+      "Meer ondernemings word geopen wanneer sektore dit regverdig. Wat nie gereed is nie, sê so.",
     enLedger: { paras: [] as string[] },
   },
 } as const;
@@ -243,14 +243,14 @@ export default async function VenturesPage({
               the close. */}
           <div className="hair-t pt-14" data-sc-in>
             <h2 className="h-section max-w-[20ch]">
-              {af ? "A sector you think Oryx should test?" : "A sector you think Oryx should test?"}
+              {af ? "’n Sektor wat jy dink Oryx behoort te toets?" : "A sector you think Oryx should test?"}
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link href={A("/apply")} className="btn">
                 {t.briefUs}
               </Link>
               <a href={`mailto:${site.email}`} className="btn--quiet">
-                {af ? "Write to the office" : "Write to the office"}{" "}
+                {af ? "Skryf aan die kantoor" : "Write to the office"}{" "}
                 <span className="arr" aria-hidden="true">→</span>
               </a>
             </div>

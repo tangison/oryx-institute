@@ -3,12 +3,7 @@
 import { useRef, useState } from "react";
 import type { Lang } from "@/lib/i18n";
 
-type Errors = {
-  name?: string;
-  contact?: string;
-  statement?: string;
-  confirmation?: string;
-};
+type Errors = { confirmation?: string };
 
 type Props = {
   lang: Lang;
@@ -19,18 +14,15 @@ type Props = {
 
 const copy = {
   en: {
-    name: "Full name",
+    name: "Full name, optional",
     namePlaceholder: "Your full name",
-    contact: "Best contact for a reply",
+    contact: "Reply contact, optional",
     contactPlaceholder: "name@example.com or +264 …",
     town: "Current town or region, optional",
     townPlaceholder: "For example: Ongwediva",
-    statement: "Relevant experience and fit",
+    statement: "Short note, optional",
     statementPlaceholder:
-      "Briefly describe your relevant experience, capabilities and why this role is a good fit.",
-    accommodation: "Interview or access arrangement, optional",
-    accommodationPlaceholder:
-      "Tell us what arrangement would help. Do not include medical information.",
+      "Add any context you choose to include in your application email.",
     confirmation:
       "I understand that this website does not submit or store my application. It will open an email in my own mail client, which I must review and send myself.",
     submit: "Prepare application email",
@@ -49,10 +41,6 @@ const copy = {
         . Use the subject “Application: {roleName}”.
       </>
     ),
-    nameError: "Please enter your full name.",
-    contactEmpty: "Please add an email address or phone number for a reply.",
-    contactInvalid: "Please use a complete email address or a phone number, including its country code where possible.",
-    statementError: "Please give a short description of your relevant experience and fit.",
     confirmationError: "Please confirm how the email handoff works before continuing.",
     subject: (roleName: string) => `Application: ${roleName}`,
     body: (values: {
@@ -61,22 +49,16 @@ const copy = {
       contact: string;
       town: string;
       statement: string;
-      accommodation: string;
       deadline: string;
     }) =>
       [
         "Hello Oryx recruitment team,",
         "",
         `Role: ${values.roleName}`,
-        `Name: ${values.name}`,
-        `Best contact: ${values.contact}`,
+        values.name ? `Name: ${values.name}` : null,
+        values.contact ? `Reply contact: ${values.contact}` : null,
         values.town ? `Current town or region: ${values.town}` : null,
-        "",
-        "Relevant experience and fit:",
-        values.statement,
-        values.accommodation
-          ? `\nInterview or access arrangement requested:\n${values.accommodation}`
-          : null,
+        values.statement ? `\nNote:\n${values.statement}` : null,
         "",
         "I will attach my CV before sending this email.",
         "I understand that I should not include identity, bank, medical or other highly sensitive records at this first stage unless Oryx specifically asks for them.",
@@ -87,18 +69,15 @@ const copy = {
         .join("\n"),
   },
   af: {
-    name: "Volle naam",
+    name: "Volle naam, opsioneel",
     namePlaceholder: "Jou volle naam",
-    contact: "Beste kontak vir ’n antwoord",
+    contact: "Kontak vir ’n antwoord, opsioneel",
     contactPlaceholder: "naam@voorbeeld.com of +264 …",
     town: "Huidige dorp of streek, opsioneel",
     townPlaceholder: "Byvoorbeeld: Ongwediva",
-    statement: "Relevante ervaring en pasvorm",
+    statement: "Kort nota, opsioneel",
     statementPlaceholder:
-      "Beskryf kortliks jou relevante ervaring, vermoëns en waarom hierdie rol goed by jou pas.",
-    accommodation: "Onderhouds- of toegangsreëling, opsioneel",
-    accommodationPlaceholder:
-      "Sê watter reëling sal help. Moenie mediese inligting insluit nie.",
+      "Voeg enige konteks by wat jy in jou aansoek-e-pos wil insluit.",
     confirmation:
       "Ek verstaan dat hierdie webwerf nie my aansoek stuur of stoor nie. Dit sal ’n e-pos in my eie e-posprogram oopmaak; ek moet dit self nagaan en stuur.",
     submit: "Stel aansoek-e-pos op",
@@ -117,10 +96,6 @@ const copy = {
         . Gebruik die onderwerp “Aansoek: {roleName}”.
       </>
     ),
-    nameError: "Vul asseblief jou volle naam in.",
-    contactEmpty: "Voeg asseblief ’n e-posadres of telefoonnommer vir ’n antwoord by.",
-    contactInvalid: "Gebruik asseblief ’n volledige e-posadres of telefoonnommer, met ’n landkode waar moontlik.",
-    statementError: "Gee asseblief ’n kort beskrywing van jou relevante ervaring en pasvorm.",
     confirmationError: "Bevestig asseblief eers hoe die e-posoorhandiging werk.",
     subject: (roleName: string) => `Aansoek: ${roleName}`,
     body: (values: {
@@ -129,22 +104,16 @@ const copy = {
       contact: string;
       town: string;
       statement: string;
-      accommodation: string;
       deadline: string;
     }) =>
       [
         "Hallo Oryx-werwingspan,",
         "",
         `Rol: ${values.roleName}`,
-        `Naam: ${values.name}`,
-        `Beste kontak: ${values.contact}`,
+        values.name ? `Naam: ${values.name}` : null,
+        values.contact ? `Kontak vir antwoord: ${values.contact}` : null,
         values.town ? `Huidige dorp of streek: ${values.town}` : null,
-        "",
-        "Relevante ervaring en pasvorm:",
-        values.statement,
-        values.accommodation
-          ? `\nVersoek vir onderhouds- of toegangsreëling:\n${values.accommodation}`
-          : null,
+        values.statement ? `\nNota:\n${values.statement}` : null,
         "",
         "Ek sal my CV heg voordat ek hierdie e-pos stuur.",
         "Ek verstaan dat ek nie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords in hierdie eerste stadium moet insluit nie, tensy Oryx dit spesifiek vra.",
@@ -166,35 +135,19 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
   const [contact, setContact] = useState("");
   const [town, setTown] = useState("");
   const [statement, setStatement] = useState("");
-  const [accommodation, setAccommodation] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
-  const nameRef = useRef<HTMLInputElement>(null);
-  const contactRef = useRef<HTMLInputElement>(null);
-  const statementRef = useRef<HTMLTextAreaElement>(null);
   const confirmationRef = useRef<HTMLInputElement>(null);
 
   function validate(): Errors {
     const next: Errors = {};
-    if (!name.trim()) next.name = t.nameError;
-
-    const normalisedContact = contact.trim();
-    const looksEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalisedContact);
-    const looksPhone = /^[+\d][\d\s().-]{5,}$/.test(normalisedContact);
-    if (!normalisedContact) next.contact = t.contactEmpty;
-    else if (!looksEmail && !looksPhone) next.contact = t.contactInvalid;
-
-    if (!statement.trim()) next.statement = t.statementError;
     if (!confirmed) next.confirmation = t.confirmationError;
     return next;
   }
 
   function focusFirstError(next: Errors) {
     requestAnimationFrame(() => {
-      if (next.name) nameRef.current?.focus();
-      else if (next.contact) contactRef.current?.focus();
-      else if (next.statement) statementRef.current?.focus();
-      else if (next.confirmation) confirmationRef.current?.focus();
+      if (next.confirmation) confirmationRef.current?.focus();
     });
   }
 
@@ -214,7 +167,6 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
       contact: contact.trim(),
       town: town.trim(),
       statement: statement.trim(),
-      accommodation: accommodation.trim(),
       deadline,
     });
     const href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -234,7 +186,6 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
         <div>
           <label htmlFor="career-name" className="field-label">{t.name}</label>
           <input
-            ref={nameRef}
             id="career-name"
             name="name"
             type="text"
@@ -243,15 +194,11 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
             placeholder={t.namePlaceholder}
             value={name}
             onChange={(event) => setName(event.target.value)}
-            aria-invalid={errors.name ? true : undefined}
-            aria-describedby={errors.name ? "career-name-error" : undefined}
           />
-          <p id="career-name-error" className="field-error" role={errors.name ? "alert" : undefined}>{errors.name ?? ""}</p>
         </div>
         <div>
           <label htmlFor="career-contact" className="field-label">{t.contact}</label>
           <input
-            ref={contactRef}
             id="career-contact"
             name="contact"
             type="text"
@@ -261,10 +208,7 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
             placeholder={t.contactPlaceholder}
             value={contact}
             onChange={(event) => setContact(event.target.value)}
-            aria-invalid={errors.contact ? true : undefined}
-            aria-describedby={errors.contact ? "career-contact-error" : undefined}
           />
-          <p id="career-contact-error" className="field-error" role={errors.contact ? "alert" : undefined}>{errors.contact ?? ""}</p>
         </div>
         <div className="md:col-span-2">
           <label htmlFor="career-town" className="field-label">{t.town}</label>
@@ -284,7 +228,6 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
       <div>
         <label htmlFor="career-statement" className="field-label">{t.statement}</label>
         <textarea
-          ref={statementRef}
           id="career-statement"
           name="statement"
           rows={6}
@@ -293,23 +236,6 @@ export function CareerApplicationForm({ lang, roleName, email, deadline }: Props
           placeholder={t.statementPlaceholder}
           value={statement}
           onChange={(event) => setStatement(event.target.value)}
-          aria-invalid={errors.statement ? true : undefined}
-          aria-describedby={errors.statement ? "career-statement-error" : undefined}
-        />
-        <p id="career-statement-error" className="field-error" role={errors.statement ? "alert" : undefined}>{errors.statement ?? ""}</p>
-      </div>
-
-      <div>
-        <label htmlFor="career-accommodation" className="field-label">{t.accommodation}</label>
-        <textarea
-          id="career-accommodation"
-          name="accommodation"
-          rows={3}
-          maxLength={500}
-          className="field-textarea"
-          placeholder={t.accommodationPlaceholder}
-          value={accommodation}
-          onChange={(event) => setAccommodation(event.target.value)}
         />
       </div>
 
