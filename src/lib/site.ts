@@ -114,6 +114,9 @@ export const site = {
       label: "Threads",
       href: "https://www.threads.com/@oryx_institute?igshid=NTc4MTIwNjQ2YQ==",
     },
+    /** User-confirmed official Pinterest destination. Keep the supplied
+     * pin.it URL exact until an approved profile URL is provided. */
+    { label: "Pinterest", href: "https://pin.it/34CkR2oOi" },
   ] as { label: string; href: string }[],
   /** The canonical serving domain. Vercel 308-redirects the apex to
    * www, so every canonical, hreflang, sitemap and OG URL names the

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHead } from "@/components/site/page-head";
 import { RouteArrowIcon } from "@/components/site/glyphs";
-import { SocialIcon } from "@/components/site/social-icon";
+import { SocialIcon, type SocialName } from "@/components/site/social-icon";
 import { organizationContactSchema, schemaIds, site } from "@/lib/site";
 import { siteAf } from "@/lib/site-af";
 import { alternates, langFromParams } from "@/lib/i18n";
@@ -180,7 +180,7 @@ export default async function ContactPage({
             {site.socials.map((channel) => (
               <li key={channel.href}>
                 <a href={channel.href} target="_blank" rel="noopener noreferrer">
-                  <SocialIcon name={channel.label as "Instagram" | "Facebook" | "LinkedIn" | "X" | "Threads"} />
+                  <SocialIcon name={channel.label as SocialName} />
                   <span>{channel.label}</span>
                   <RouteArrowIcon className="contact-socials__arrow" />
                 </a>
