@@ -1329,6 +1329,48 @@ body.menu-locked {
 }
 
 /* --------------------------------------------------------------------------
+   Careers imagery
+   -------------------------------------------------------------------------- */
+
+/* Careers uses one quiet room to establish the campaign, followed by a
+   role-specific still life on each detail page. The images carry no text
+   and have enough quiet ground to remain calm on narrow screens. */
+.careers-hero {
+  position: relative;
+  min-height: clamp(19rem, 42vw, 35rem);
+  overflow: hidden;
+  background: var(--ink);
+}
+.careers-hero__image {
+  object-fit: cover;
+  object-position: center;
+}
+.career-role-hero {
+  position: relative;
+  margin: 0;
+  height: clamp(15rem, 31vw, 29rem);
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.career-role-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 47.99rem) {
+  .careers-hero {
+    min-height: 17rem;
+  }
+  .careers-hero__image {
+    object-position: 60% center;
+  }
+  .career-role-hero {
+    height: 13rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Page head (interior pages)
    -------------------------------------------------------------------------- */
 

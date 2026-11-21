@@ -129,9 +129,7 @@ export default async function PracticePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* The head, on cream: the proposition in type. The hands-peak
-          plate is the homepage's peak now, so this page opens the
-          way it works: plainly. */}
+      {/* The head, on cream: the proposition in type, stated plainly. */}
       <section className="section-lg screen-intro" data-sc-act="flow">
         <div className="shell">
           <h1 className="h-display max-w-[14ch]">{t.heroLine}</h1>
@@ -164,8 +162,8 @@ export default async function PracticePage({
         </div>
       </section>
 
-      {/* The working kit, beside the working hands: the mid-detail
-          plate, unmasking from its left edge. */}
+      {/* The working kit, held in a quiet object study rather than a
+          hand-led scene, unmasking from its left edge. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-16 lg:gap-24">
           <figure
@@ -173,12 +171,10 @@ export default async function PracticePage({
             data-sc-reveal
           >
             <Image
-              src="/images/kinfolk/people/31-hands-working.jpg"
-              alt={
-                af ? "A pair of hands working a hand tool in hard daylight, mid-task" : "A pair of hands working a hand tool in hard daylight, mid-task"
-              }
-              width={1122}
-              height={1402}
+              src="/images/kinfolk/core/04-notebook.jpg"
+              alt={af ? "’n Leë maroen notaboek op roompapier" : "A blank maroon notebook on cream paper"}
+              width={1402}
+              height={1122}
               sizes="(min-width: 768px) 20rem, 88vw"
               className="h-auto w-full"
               loading="eager"
