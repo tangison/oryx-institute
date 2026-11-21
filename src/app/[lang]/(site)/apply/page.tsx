@@ -11,7 +11,7 @@ const copy = {
         "Write to the Oryx office about current business counselling and market research, or ask for the current position on future learning pathways.",
       ogTitle: "Enquire | Oryx Institute",
       ogDescription:
-        "One message to the Oryx office starts a factual conversation.",
+        "Write directly to the Oryx office about current work or future learning.",
     },
   },
   af: {
@@ -21,7 +21,7 @@ const copy = {
         "Skryf aan die Oryx-kantoor oor huidige besigheidsadvies en marknavorsing, of vra na die huidige posisie oor toekomstige leerpaaie.",
       ogTitle: "Doen navraag | Oryx Instituut",
       ogDescription:
-        "Een boodskap aan die Oryx-kantoor begin ’n feitelike gesprek.",
+        "Skryf direk aan die Oryx-kantoor oor huidige werk of toekomstige leer.",
     },
     enLedger: { paras: [] as string[] },
   },

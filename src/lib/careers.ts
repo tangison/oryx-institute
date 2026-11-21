@@ -261,19 +261,19 @@ export function careerRoleSummary(role: CareerRole, lang: Lang): string {
       case "learner-records-administrator":
         return "’n Rekordgerigte pos binne die sentrumvestigingswerwing.";
       case "occupational-health-and-safety":
-        return "Die gegroepeerde NQF 4–5- en kortkursusomvang sit in een senior programpos.";
+        return "Een Lead Instructor-rol vir die NQF 4–5- en kortkursusomvang in beroepsgesondheid, veiligheid en brandveiligheid.";
       case "business-services-and-administration":
-        return "Office Administration-vlakke 1 tot 3 en die verwante kortkursusomvang word in een pos saamgevoeg.";
+        return "Een Lead Instructor-rol wat Office Administration-vlakke 1 tot 3 en die verwante kortkursusse dek.";
       case "hospitality-tourism-and-local-guiding":
-        return "Hierdie enkele senior rol bring die gekoppelde gasvryheid-, toerisme- en plaaslikegidsvlakke saam.";
+        return "Een Lead Instructor-rol vir die verwante vlakke in gasvryheid, toerisme en plaaslike gidswerk.";
       case "cosmetology-hairdressing":
-        return "Die gekoppelde Cosmetology- en Hairdressing-vlakke word onder een senior programpos gegroepeer.";
+        return "Een Lead Instructor-rol wat die Cosmetology- en Hairdressing-vlakke dek.";
       case "wholesale-retail-and-merchandising":
-        return "Die groothandel-, kleinhandel- en handelsware-omvang word onder een senior programpos gegroepeer.";
+        return "Een Lead Instructor-rol vir groothandel, kleinhandel, handelsware en die verwante kortkursusomvang.";
       case "entrepreneurship":
-        return "’n Enkele senior programpos vir die entrepreneurskapomvang wat in hierdie kennisgewing genoem word.";
+        return "Een Lead Instructor-rol vir die entrepreneurskapomvang wat in hierdie kennisgewing genoem word.";
     }
-    return "Een senior programpos oor die gekoppelde omvang in hierdie kennisgewing.";
+    return "Een Lead Instructor-rol vir die gepubliseerde programomvang.";
   }
 
   switch (role.slug) {
@@ -284,19 +284,19 @@ export function careerRoleSummary(role: CareerRole, lang: Lang): string {
     case "learner-records-administrator":
       return "A records-focused post within the centre-establishment recruitment.";
     case "occupational-health-and-safety":
-      return "The grouped NQF 4–5 and short-course scope sits in one senior programme position.";
+      return "One Lead Instructor role for the NQF 4–5 and short-course scope in occupational health, safety and fire safety.";
     case "business-services-and-administration":
-      return "Office Administration Levels 1 to 3 and the related short-course scope are grouped in one position.";
+      return "One Lead Instructor role covering Office Administration Levels 1 to 3 and the related short courses.";
     case "hospitality-tourism-and-local-guiding":
-      return "This single senior role brings together the connected Hospitality, Tourism and Local Guiding levels.";
+      return "One Lead Instructor role for the related Hospitality, Tourism and Local Guiding levels.";
     case "cosmetology-hairdressing":
-      return "The connected Cosmetology and Hairdressing levels are grouped under one senior programme position.";
+      return "One Lead Instructor role covering the Cosmetology and Hairdressing levels.";
     case "wholesale-retail-and-merchandising":
-      return "Wholesale, retail and merchandising scope is grouped under one senior programme position.";
+      return "One Lead Instructor role for wholesale, retail, merchandising and the related short-course scope.";
     case "entrepreneurship":
-      return "A single senior programme position for the entrepreneurship scope named in this notice.";
+      return "One Lead Instructor role for the entrepreneurship scope named in this notice.";
   }
-  return "One senior programme position covering the connected scope in this notice.";
+  return "One Lead Instructor role for the published programme scope.";
 }
 
 export function careerRoleOverview(role: CareerRole, lang: Lang): string {
@@ -304,11 +304,11 @@ export function careerRoleOverview(role: CareerRole, lang: Lang): string {
 
   if (lang === "af") {
     return isProgrammePosition
-      ? "Hierdie kennisgewing bring verwante vlak-, rigting- en kortkursusbronkennisgewings in een aansoek saam. Die lys dui slegs beoogde werksomvang aan; dit kondig nie ’n kursus, kwalifikasie, inname of openbare kampus aan nie. ’n Volledige posbeskrywing, pligte, toelatingsdrempels en diensvoorwaardes is nie hier gepubliseer nie."
-      : "Hierdie poskennisgewing vorm deel van Oryx se sentrumvestigingswerwing. ’n Volledige posbeskrywing, pligte, toelatingsdrempels en diensvoorwaardes is nie hier gepubliseer nie.";
+      ? "Hierdie Lead Instructor-rol bring verwante vlakke, rigtings en kortkursusse in een aansoek saam. Die lys dui die beplande programomvang vir hierdie rol aan."
+      : "Hierdie pos vorm deel van Oryx se sentrumvestigingswerwing in Ongwediva.";
   }
 
   return isProgrammePosition
-    ? "This notice brings related level, strand and short-course source notices into one application. The list identifies intended work scope only; it does not announce a course, qualification, intake or public campus. A full job specification, duties, eligibility thresholds and employment terms are not published here."
-    : "This position notice forms part of Oryx’s centre-establishment recruitment. A full job specification, duties, eligibility thresholds and employment terms are not published here.";
+    ? "This Lead Instructor role brings related levels, strands and short courses into one application. The list identifies the planned programme scope for this role."
+    : "This position forms part of Oryx’s centre-establishment recruitment in Ongwediva.";
 }

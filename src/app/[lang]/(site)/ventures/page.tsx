@@ -8,59 +8,59 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "Small Companies, Real Customers",
+      title: "Ventures at Oryx Institute",
       description:
-        "Small operating companies Oryx Institute opens to test sectors. Corner Spa, wellness and service operations, is the first.",
+        "Operating companies through which Oryx Institute learns about sectors. Corner Spa is the first.",
       ogTitle: "Ventures | Oryx Institute",
       ogDescription:
-        "Small operating companies the institute opens to test sectors. Corner Spa is the first.",
+        "Operating companies through which the institute learns about sectors. Corner Spa is the first.",
       ldName: "Ventures",
       ldDescription:
-        "The ventures at Oryx Institute: small operating companies opened to test sectors, starting with Corner Spa.",
+        "Operating companies through which Oryx Institute learns about sectors, starting with Corner Spa.",
     },
     howEyebrow: "How ventures work",
     lessonEyebrow: "The work on the floor",
     lessonBody:
       "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. It is an operating setting for practical business and service work. Booking and service details stay on the spa's own site.",
     exitLede:
-      "A venture cannot be faked. It is judged by the two things that cannot lie: whether it works, and whether anyone pays for it.",
+      "A venture gives the institute direct experience of serving customers in a sector.",
     exitBody:
-      "Ventures are how the institute holds itself to a practical standard: small companies, run to standard, with the work stated plainly in public.",
+      "Oryx records ventures as operating work and describes their status publicly.",
     nextEyebrow: "Next",
     readRegister: "Read the register",
     briefUs: "Brief the Market R&D desk",
     followSpa: "Explore Corner Spa",
     venturePage: "The venture page",
     futureNote:
-      "More ventures are opened as sectors warrant them. What is not ready, says so.",
+      "Future ventures will be added to the register when they open.",
   },
   af: {
     meta: {
-      title: "Klein ondernemings, werklike kliënte",
+      title: "Ondernemings by Oryx Instituut",
       description:
-        "Klein bedrywige ondernemings wat Oryx Instituut oopmaak om sektore te toets. Corner Spa, welstand- en diensbedrywighede, is die eerste.",
+        "Bedrywighede waardeur Oryx Instituut sektore leer ken. Corner Spa is die eerste.",
       ogTitle: "Ondernemings | Oryx Instituut",
       ogDescription:
-        "Klein bedrywige ondernemings wat die instituut oopmaak om sektore te toets. Corner Spa is die eerste.",
+        "Bedrywighede waardeur die instituut sektore leer ken. Corner Spa is die eerste.",
       ldName: "Ondernemings",
       ldDescription:
-        "Die ondernemings by Oryx Instituut: klein bedrywige ondernemings wat geopen word om sektore te toets, begin met Corner Spa.",
+        "Bedrywighede waardeur Oryx Instituut sektore leer ken, begin met Corner Spa.",
     },
     howEyebrow: "Hoe ondernemings werk",
     lessonEyebrow: "Die werk op die vloer",
     lessonBody:
       "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
     exitLede:
-      "’n Onderneming kan nie voorgegee word nie. Dit word beoordeel aan twee dinge wat nie kan lieg nie: of dit werk, en of iemand daarvoor betaal.",
+      "’n Onderneming gee die instituut direkte ervaring van diens aan kliënte in ’n sektor.",
     exitBody:
-      "Ondernemings hou die instituut by ’n praktiese standaard: klein maatskappye wat volgens standaard bestuur word, met die werk eerlik in die openbaar gestel.",
+      "Oryx teken ondernemings as bedrywige werk aan en beskryf hul status in die openbaar.",
     nextEyebrow: "Volgende",
     readRegister: "Lees die register",
     briefUs: "Gee die Marknavorsing- en Ontwikkelingslessenaar opdrag",
     followSpa: "Verken Corner Spa",
     venturePage: "Die ondernemingsblad",
     futureNote:
-      "Meer ondernemings word geopen wanneer sektore dit regverdig. Wat nie gereed is nie, sê so.",
+      "Toekomstige ondernemings sal by die register gevoeg word wanneer hulle open.",
     enLedger: { paras: [] as string[] },
   },
 } as const;

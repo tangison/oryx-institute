@@ -5,6 +5,7 @@ import { site, offers, register, ventures, schemaIds, organizationContactSchema 
 import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { alternates, chrome, langFromParams } from "@/lib/i18n";
+import { CareersPopup } from "@/components/site/careers-popup";
 import {
   GlyphResearch,
   GlyphPractice,
@@ -40,13 +41,13 @@ const copy = {
       description: site.description,
     },
     positioning:
-      "A new polytechnic for Namibia. Oryx is working toward NTA registration and is not registered or accredited. Every confirmed step is dated on the public register.",
+      "Oryx is a new polytechnic for Namibia, working toward NTA registration. Its current status and confirmed updates are recorded on the public register.",
     aboutLink: "About the institute",
     kinds: [
       {
         key: "research" as const,
         name: "Research",
-        body: "Fieldwork, published research notes and cited papers on Namibia's working realities.",
+        body: "Fieldwork and published notes on Namibia's working realities.",
         link: "Read the research",
       },
       {
@@ -58,25 +59,25 @@ const copy = {
       {
         key: "ventures" as const,
         name: "Ventures",
-        body: "Small operating companies the institute opens to test sectors in real trading conditions.",
+        body: "Small companies through which the institute learns how a sector works with real customers.",
         link: "See the ventures",
       },
     ],
     kindsTitle: "How the institute works.",
     runsTitle: "What runs today.",
     runsBody:
-      "Current work is business counselling and market research. Learning pathways are being developed for the registration process and are not accredited qualifications.",
+      "The institute currently takes on business counselling and market-research work. Learning pathways remain in development while Oryx works toward registration.",
     researchTitle: "Research runs from day one.",
     researchLine:
-      "No buildings are needed for this work, so no buildings delay it.",
+      "Research can begin before a campus is open.",
     practiceTitle: "Practice.",
     practiceBody:
-      "Work measured and finished to standard, with every tool named.",
+      "Advice and research with a defined scope and a written outcome.",
     venturesTitle: "Small companies, real customers.",
     registerMeta: "Dated as the work lands, public to read.",
     closeTitle: "One email starts it.",
     closeBody:
-      "Enquiries about current work, research, partnerships and press all begin with one message. The Oryx office states what is available in writing.",
+      "Write to the Oryx office about current work, research, partnerships or press. The reply will set out what is available.",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
     seeWhatRuns: "See what runs now",
@@ -90,13 +91,13 @@ const copy = {
       description: siteAf.description,
     },
     positioning:
-      "'n Nuwe politegniese instituut vir Namibië. Oryx werk aan NTA-registrasie en is nie geregistreer of geakkrediteer nie. Elke bevestigde stap word in die openbare register gedateer.",
+      "Oryx is ’n nuwe politegniese instituut vir Namibië en werk aan NTA-registrasie. Die openbare register bevat die huidige status en bevestigde opdaterings.",
     aboutLink: "Oor die instituut",
     kinds: [
       {
         key: "research" as const,
         name: "Navorsing",
-        body: "Veldwerk, gepubliseerde navorsingsnotas en bronne oor Namibië se werkswerklikhede.",
+        body: "Veldwerk en gepubliseerde notas oor Namibië se werkswerklikhede.",
         link: "Lees die navorsing",
       },
       {
@@ -108,25 +109,25 @@ const copy = {
       {
         key: "ventures" as const,
         name: "Ondernemings",
-        body: "Klein bedryfsmaatskappye wat die instituut open om sektore te toets. Elkeen is 'n lewende klaskamer en laboratorium.",
+        body: "Klein maatskappye waardeur die instituut leer hoe ’n sektor met werklike kliënte werk.",
         link: "Sien die ondernemings",
       },
     ],
     kindsTitle: "Hoe die instituut werk.",
     runsTitle: "Wat vandag werk.",
     runsBody:
-      "Huidige werk is besigheidsadvies en marknavorsing. Leerpaaie word vir die registrasieproses ontwikkel en is nie geakkrediteerde kwalifikasies nie.",
+      "Die instituut neem tans besigheidsadvies- en marknavorsingswerk aan. Leerpaaie bly in ontwikkeling terwyl Oryx aan registrasie werk.",
     researchTitle: "Navorsing begin op dag een.",
     researchLine:
-      "Geen geboue is vir dié werk nodig nie; geen geboue vertraag dit nie.",
+      "Navorsing kan begin voordat ’n kampus oop is.",
     practiceTitle: "Praktyk.",
     practiceBody:
-      "Werk wat gemeet en volgens standaard voltooi is, met elke hulpmiddel benoem.",
+      "Advies en navorsing met ’n duidelike omvang en ’n skriftelike uitkoms.",
     venturesTitle: "Klein maatskappye, werklike kliënte.",
     registerMeta: "Gedateer wanneer die werk land, en vir almal leesbaar.",
     closeTitle: "Een e-pos begin dit.",
     closeBody:
-      "Navrae oor huidige werk, navorsing, vennootskappe en media begin met een boodskap. Die Oryx-kantoor stel skriftelik wat beskikbaar is.",
+      "Skryf aan die Oryx-kantoor oor huidige werk, navorsing, vennootskappe of media. Die antwoord sal stel wat beskikbaar is.",
     writeOffice: "Skryf aan die kantoor",
     readFaq: "Lees die vrae",
     seeWhatRuns: "Sien wat nou werk",
@@ -239,6 +240,7 @@ export default async function HomePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
+      <CareersPopup lang={lang} />
 
       {/* Hero: the oryx on the terracotta field, three planes moving at
           three rates. The photograph breathes at its own depth; the

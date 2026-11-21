@@ -13,17 +13,17 @@ const copy = {
         "Oryx Institute is working toward Namibia Training Authority registration. It is not registered or accredited, and does not offer accredited qualifications or NQF credits.",
     },
     head: {
-      title: "Institutional status, stated plainly.",
+      title: "Institutional status.",
       lede:
-        "Oryx is building the evidence and systems required for training-provider registration. The work is public where it can be verified, and future where it cannot.",
+        "Oryx is working toward training-provider registration. This page sets out its current regulatory position.",
     },
     asAt: "Status as at",
     current: "Current position",
     currentBody:
       "Oryx is working toward registration with the Namibia Training Authority. It is not registered with the NTA and it is not accredited by the Namibia Qualifications Authority.",
-    noClaim: "What Oryx does not claim",
+    noClaim: "Current scope",
     noClaimBody:
-      "Oryx does not offer accredited qualifications, NQF credits, accredited programmes or a public campus. A future qualification, intake, fee or start date will be published only when it is formally confirmed.",
+      "Oryx does not offer accredited qualifications, NQF credits, accredited programmes or a public campus. Any future qualification, intake, fee or start date will be published after formal confirmation.",
     route: "The regulatory route",
     nta: {
       label: "NTA registration",
@@ -38,7 +38,7 @@ const copy = {
       action: "View NQA accreditation information",
     },
     authorityNote:
-      "The authorities named here are regulators, not partners or endorsers. Their marks are not used on this site while Oryx is unregistered and unaccredited.",
+      "The authorities named here are regulators. Oryx does not present them as partners or endorsers.",
     collaboration: "Technical collaboration",
     tangisonBody:
       "Tangison Technologies provides the institute's identity, technology and learning-platform services. This is a disclosed working relationship, not an accreditation or regulatory endorsement.",
@@ -53,17 +53,17 @@ const copy = {
         "Oryx Instituut werk aan registrasie by die Namibia Training Authority. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies of NQF-krediete aan nie.",
     },
     head: {
-      title: "Institusionele status, eenvoudig gestel.",
+      title: "Institusionele status.",
       lede:
-        "Oryx bou die bewyse en stelsels wat vir opleidingsverskafferregistrasie vereis word. Die werk is openbaar waar dit nagegaan kan word en toekomstig waar dit nog nie kan nie.",
+        "Oryx werk aan opleidingsverskafferregistrasie. Hierdie blad stel die huidige regulatoriese posisie uiteen.",
     },
     asAt: "Status op",
     current: "Huidige posisie",
     currentBody:
       "Oryx werk aan registrasie by die Namibia Training Authority. Dit is nie by die NTA geregistreer nie en is nie deur die Namibia Qualifications Authority geakkrediteer nie.",
-    noClaim: "Wat Oryx nie beweer nie",
+    noClaim: "Huidige omvang",
     noClaimBody:
-      "Oryx bied nie geakkrediteerde kwalifikasies, NQF-krediete, geakkrediteerde programme of 'n openbare kampus aan nie. 'n Toekomstige kwalifikasie, inname, fooi of begindatum word eers gepubliseer wanneer dit formeel bevestig is.",
+      "Oryx bied nie geakkrediteerde kwalifikasies, NQF-krediete, geakkrediteerde programme of ’n openbare kampus aan nie. ’n Toekomstige kwalifikasie, inname, fooi of begindatum sal na formele bevestiging gepubliseer word.",
     route: "Die regulatoriese roete",
     nta: {
       label: "NTA-registrasie",
@@ -78,7 +78,7 @@ const copy = {
       action: "Lees NQA-akkreditasie-inligting",
     },
     authorityNote:
-      "Die owerhede wat hier genoem word, is reguleerders, nie vennote of onderskrywers nie. Hul merke word nie op hierdie webwerf gebruik terwyl Oryx ongeregistreer en ongeakkrediteer is nie.",
+      "Die owerhede wat hier genoem word, is reguleerders. Oryx stel hulle nie as vennote of onderskrywers voor nie.",
     collaboration: "Tegniese samewerking",
     tangisonBody:
       "Tangison Technologies verskaf die instituut se identiteit-, tegnologie- en leerplatformdienste. Dit is 'n bekendgemaakte werksverhouding, nie 'n akkreditasie- of regulatoriese onderskrywing nie.",

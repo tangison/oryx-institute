@@ -21,7 +21,7 @@ const copy = {
     variants: {
       404: {
         title: "This page is not here.",
-        body: "It may have moved, or it may never have been published. The work is still within reach.",
+        body: "It may have moved or may never have been published. Return to the front page or write to the office.",
         links: ["home", "apply"] as const,
       },
       500: {
@@ -57,7 +57,7 @@ const copy = {
     variants: {
       404: {
         title: "Hier is geen blad nie.",
-        body: "Dit kon geskuif het, of dit is nooit gepubliseer nie. Die werk bly binne bereik.",
+        body: "Dit kon geskuif het of is nooit gepubliseer nie. Gaan terug na die tuisblad of skryf aan die kantoor.",
         links: ["home", "apply"] as const,
       },
       500: {

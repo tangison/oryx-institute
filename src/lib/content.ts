@@ -21,8 +21,8 @@ export const insights = [
       "'n Politegniese instituut onderrig die gemaakte wêreld: die wetenskappe wat dit verklaar, die ingenieurswese wat dit bou en die tegnologie wat dit laat werk. Baie ambagte, een dissipline.",
     body: [
       "A polytechnic institute teaches the made world: the sciences that explain it, the engineering that builds it, and the technology that runs it. The word carries a Greek root: poli means many and techne means craft. Many crafts, one discipline.",
-      "For Oryx, the institutional model is a direction rather than a current qualification claim. Its working disciplines are science, engineering, technology and applied problem-solving. The last one is a standard for how the institute approaches evidence and practical work.",
-      "Oryx is working toward NTA training-provider registration. Until that status and any later approvals are confirmed, it does not present a qualification, a cohort or a credential as available.",
+      "For Oryx, the institutional model is a direction, not a current qualification. Its working disciplines are science, engineering, technology and applied problem-solving. The last describes how the institute approaches evidence and practical work.",
+      "Oryx is working toward NTA training-provider registration. Qualifications, cohorts and credentials will be published only after the relevant status and approvals are confirmed.",
 
     ],
   },
@@ -39,7 +39,7 @@ export const insights = [
     body: [
       "Start with the facts on the record. Namibia's youth unemployment rate stood at 38.05 percent in 2025, on the ILO estimate carried by Statista and the St. Louis Fed. The Namibia Statistics Agency's labour survey of January 2025 counted 1,018,529 Namibians aged 15 to 34. Of those, 563,499 were outside the labour force entirely, and 202,144 were looking for work that was not there.",
       "Now the training side. The Namibia Training Authority's own strategic plan set a target of 45,000 vocational enrolments, recorded in the World Bank's skills policy note for Namibia. The most recent reported intake the NTA publicised was 13,500 new trainees. Those two numbers are the whole argument: the country planned for a river and is running on a\u00A0stream.",
-      "The figures make the public policy question concrete: where can applied learning be delivered with verified quality and honest status? Oryx does not claim to answer that question through an existing intake. Its current public work is research and practice while the registration process is pursued.",
+      "The figures raise a practical policy question: where can applied learning be delivered with verified quality and honest status? Oryx’s current public work is research and practice while it pursues registration.",
     ],
   },
   {
@@ -71,7 +71,7 @@ export const insights = [
     body: [
       "Entrepreneurship is often described as a bridge between learning and practical work. The question is not whether a timetable uses the word, but whether a service, product or process can meet real conditions.",
       "A venture is one way to test that question. Its customers can show whether a service is useful, understandable and worth choosing. Corner Spa is Oryx's current operating venture; other initiatives remain future-facing until they are publicly confirmed.",
-      "The working rule is simple: useful tools and disciplined thinking should meet real conditions. A venture is one way to test whether they do, without turning that work into a qualification claim.",
+      "Useful tools and disciplined thinking need to meet real conditions. A venture is one way to test that work without presenting it as a qualification.",
     ],
   },
 ] as const;

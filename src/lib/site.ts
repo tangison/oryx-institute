@@ -11,12 +11,12 @@
  * exact, unhurried: state the fact, cite the source, stop.
  */
 export const voice = {
-  register: "Declarative, exact, unhurried. State the fact; cite the source; stop.",
+  register: "Direct, specific and calm. State the fact in plain language, then stop.",
   rules: [
-    "Approved public lines must stay factual, concise and current.",
-    "Facts carry their source inline or they do not ship.",
-    "No wisecracks, no self-annotation, no captions under images.",
-    "Status is stated as it is: prelaunch, pre-accreditation, honest.",
+    "Public copy must stay factual, concise and current.",
+    "Use a specific source, place, action or status instead of broad praise.",
+    "Avoid repeated sentence frames, manufactured lists and unnecessary disclaimers.",
+    "State institutional status plainly, including what remains in development.",
   ],
 } as const;
 
@@ -42,15 +42,15 @@ export const site = {
    * itself plainly, then says what it is made of. */
   headline: "Oryx Institute.",
   heroSub:
-    "A new polytechnic for Namibia. Research, practice, and companies that prove the\u00A0work.",
+    "A new polytechnic for Namibia, working through research, practice and ventures.",
   closingLine:
     "Good work begins with evidence and is finished with care.",
   credentialLine:
-    "Research, practice and companies that prove the work.",
+    "Research, practice and ventures grounded in real work.",
   /** Meta description, sized for search results (kept under 160
    * characters) and led by what the institute is. */
   description:
-    "A new polytechnic for Namibia. Research, practice, and companies that prove the work.",
+    "A new polytechnic for Namibia, working through research, practice and ventures.",
   /** Oryx publishes a postal address only. Future learning sites are not
    * presented as open campuses or public visiting locations. */
   country: "Namibia",
@@ -218,7 +218,7 @@ export const status = {
     },
     {
       name: "Market R&D",
-      line: "Feasibility, sizing, competitor reads and route-to-market work, gathered on Namibian ground.",
+      line: "Feasibility, market sizing, competitor research and route-to-market work for Namibian contexts.",
     },
   ],
   inDevelopment: [],
@@ -246,7 +246,7 @@ export const offers = [
     tag: "Research",
     line: "Feasibility, sizing, competitor reads and route-to-market work, gathered on Namibian ground.",
     cta: { label: "Enquire with the Oryx office", href: "/apply" },
-    body: "Feasibility studies, market sizing, competitor reads and route-to-market work, gathered on Namibian ground and written to be used. Scope is confirmed for each engagement.",
+    body: "Feasibility studies, market sizing, competitor research and route-to-market work for Namibian contexts. The Oryx office confirms the scope for each engagement.",
   },
 ] as const;
 
@@ -277,7 +277,7 @@ export const register = [
  */
 export const ventures = {
   lead: "Small companies, real customers.",
-  body: "When Oryx wants to understand a sector, it opens a small company inside it. The customers decide whether it works, and the register publishes the\u00A0result.",
+  body: "Oryx may run a small company to understand a sector through service and real customers. The register records each venture as it develops.",
   cornerSpa: {
     name: "Corner Spa",
     status: "Operating · with Mendozer",
@@ -299,28 +299,28 @@ export const disciplines = [
     glyph: "SCI",
     name: "Science",
     summary:
-      "The reasoning core of a polytechnic education: observation, evidence and disciplined thought.",
+      "Observation, evidence and disciplined thought in a polytechnic education.",
   },
   {
     id: "engineering",
     glyph: "ENG",
     name: "Engineering",
     summary:
-      "The making core: work that holds, measured and finished to standard.",
+      "Designing and making work that is measured and finished to standard.",
   },
   {
     id: "technology",
     glyph: "TECH",
     name: "Technology",
     summary:
-      "Modern tools taken apart and rebuilt until they are understood, not just used.",
+      "Understanding modern tools well enough to use, examine and improve them.",
   },
   {
     id: "applied",
     glyph: "SOLVE",
     name: "Applied problem-solving",
     summary:
-      "The institute's working standard: innovation in practice.",
+      "Using knowledge and tools to solve a defined practical problem.",
   },
 ] as const;
 

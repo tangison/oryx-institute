@@ -14,70 +14,70 @@ const copy = {
   en: {
     head: {
       eyebrow: "Enquire",
-      title: "Start with a conversation.",
-      lede: "There is no portal and no queue. Write to the Oryx office directly. Current work includes business counselling and market research. Future learning pathways are not accredited qualifications and will be announced only when formally confirmed.",
+      title: "Write to the Oryx office.",
+      lede: "Use this form to prepare an email about business counselling, market research or a future learning area.",
     },
     steps: [
       {
-        t: "Write one message",
-        b: "Name, a contact for the reply, and the field you are interested in. The composer below prepares\u00A0it.",
+        t: "Write your enquiry",
+        b: "Include your name, a contact detail and the area you want to discuss. The composer below prepares the email.",
       },
       {
-        t: "The office responds",
+        t: "Send it from your mail client",
+        b: "The website does not submit the form. You decide whether to send the draft.",
+      },
+      {
+        t: "Receive a reply",
         b: "The Oryx office replies through the published public contact channel.",
-      },
-      {
-        t: "Confirm what is available",
-        b: "The reply states what Oryx can and cannot offer at the time of your enquiry.",
       },
     ],
     composerTitle: "Your enquiry",
     offersEyebrow: "Current work",
-    offersTitle: "One public office.",
+    offersTitle: "Current work.",
     offersNote:
-      "Current work is listed below. For future learning, write to the office and the reply will state the current position without promising an intake or qualification.",
+      "The current services are listed below. For future learning, write to the office for the current position.",
     composerBody: (email: string) => ({
       pre: "Fill it in and it opens as an email addressed to ",
       post: ". Nothing is stored on this site; nothing is sent until you press send in your own mail\u00A0client.",
     }),
-    dataEyebrow: "Zero data collection",
+    dataEyebrow: "Your message stays with you until you send it",
     dataBody:
-      "The site runs no analytics, no cookies and no accounts. The enquiry exists the moment your email client opens it; before that, it does not exist at all.",
+      "This site has no accounts or enquiry storage. The composer opens a draft in your mail client; the office receives it only if you send it.",
     readerEyebrow: "Where it goes",
     readerBody: "The Oryx office receives enquiries through the approved public mailbox. No physical address or visiting instructions are published.",
   },
   af: {
     head: {
       eyebrow: "Doen navraag",
-      title: "Begin met 'n gesprek.",
-      lede: "Daar is geen portaal of wagtyd nie. Skryf direk aan die Oryx-kantoor. Huidige werk sluit besigheidsadvies en marknavorsing in. Toekomstige leerpaaie is nie geakkrediteerde kwalifikasies nie en word slegs aangekondig wanneer dit formeel bevestig is.",
+      title: "Skryf aan die Oryx-kantoor.",
+      lede: "Gebruik hierdie vorm om ’n e-pos oor besigheidsadvies, marknavorsing of ’n toekomstige leerarea voor te berei.",
     },
     steps: [
       {
-        t: "Skryf een boodskap",
-        b: "Noem jou naam, 'n kontakbesonderheid vir die antwoord en die area waarin jy belangstel. Die samesteller hieronder berei dit voor.",
+        t: "Skryf jou navraag",
+        b: "Sluit jou naam, ’n kontakbesonderheid en die area wat jy wil bespreek in. Die samesteller hieronder berei die e-pos voor.",
       },
       {
-        t: "Die kantoor antwoord",
+        t: "Stuur dit uit jou e-posprogram",
+        b: "Die webwerf dien nie die vorm in nie. Jy besluit of jy die konsep stuur.",
+      },
+      {
+        t: "Ontvang ’n antwoord",
         b: "Die Oryx-kantoor antwoord deur die gepubliseerde openbare kontakroete.",
-      },
-      {
-        t: "Bevestig wat beskikbaar is",
-        b: "Die antwoord stel wat Oryx op die tyd van jou navraag kan en nie kan aanbied nie.",
       },
     ],
     composerTitle: "Jou navraag",
     offersEyebrow: "Huidige werk",
-    offersTitle: "Een openbare kantoor.",
+    offersTitle: "Huidige werk.",
     offersNote:
-      "Huidige werk word hieronder gelys. Skryf aan die kantoor oor toekomstige leer en die antwoord sal die huidige posisie stel sonder 'n inname of kwalifikasiebelofte.",
+      "Die huidige dienste word hieronder gelys. Skryf aan die kantoor oor toekomstige leer vir die huidige posisie.",
     composerBody: (email: string) => ({
       pre: "Vul dit in en dit open as 'n e-pos aan ",
       post: ". Niks word op hierdie webwerf gestoor nie; niks word gestuur voordat jy in jou eie e-posprogram stuur nie.",
     }),
-    dataEyebrow: "Geen dataversameling",
+    dataEyebrow: "Jou boodskap bly by jou totdat jy dit stuur",
     dataBody:
-      "Die webwerf gebruik geen ontleding, koekies of rekeninge nie. Die navraag bestaan eers wanneer jou e-posprogram open.",
+      "Hierdie webwerf het geen rekeninge of berging van navrae nie. Die samesteller open ’n konsep in jou e-posprogram; die kantoor ontvang dit eers as jy dit stuur.",
     readerEyebrow: "Waarheen dit gaan",
     readerBody: "Die Oryx-kantoor ontvang navrae deur die goedgekeurde openbare posbus. Geen fisiese adres of besoekinligting word gepubliseer nie.",
     enLedger: { paras: [] as string[] },

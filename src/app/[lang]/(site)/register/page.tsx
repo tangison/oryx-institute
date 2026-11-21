@@ -24,17 +24,17 @@ const copy = {
     },
     head: {
       title: "The register.",
-      lede: "Dated institutional updates. The register records confirmed public facts; it does not create an intake, qualification or approval claim.",
+      lede: "Dated institutional updates. Each entry records a confirmed public fact.",
     },
     closing:
-      "Updated when a public fact is confirmed. The Institutional Status page is the authority for the current regulatory disclosure; this register is its dated history.",
+      "The register is updated when a public fact is confirmed. For the current regulatory disclosure, read Institutional Status.",
     currentStatus: "Read the current institutional status",
     readingEyebrow: "How to read this register",
     readingBody:
-      "The register is for anyone checking an institutional claim. It records only dated public facts and distinguishes a current position from a future process. The Institutional Status page carries the regulatory disclosure in full.",
-    ruleEyebrow: "The rules the register keeps",
+      "Use the register to check a published institutional fact and when it was recorded. Institutional Status carries the current regulatory disclosure in full.",
+    ruleEyebrow: "How entries are handled",
     ruleBody:
-      "Three rules hold every record on this page. Nothing is announced before it is certain: an intention is not an event. Nothing is given a day before it has happened; the register records, it does not promise. And no line is deleted: when timing moves or a plan changes, the record is corrected in place, because a register that quietly forgets is worth\u00A0nothing.",
+      "An entry is published only after the fact is confirmed. The register dates events that have happened; it does not announce intentions as events. If timing or a plan changes, the entry is corrected in place.",
     sourceEyebrow: "Where the rows come from",
     sourceBody:
       "Each record is based on a legal record, filing, written agreement or confirmed publication. Where a relationship is named, it is stated for its actual scope. For a question about a listed fact, write to the Oryx office.",
@@ -50,17 +50,17 @@ const copy = {
     },
     head: {
       title: "Die register.",
-      lede: "Gedateerde institusionele opdaterings. Die register teken bevestigde openbare feite aan; dit skep nie 'n inname-, kwalifikasie- of goedkeuringseis nie.",
+      lede: "Gedateerde institusionele opdaterings. Elke inskrywing teken ’n bevestigde openbare feit aan.",
     },
     closing:
-      "Bygewerk wanneer 'n openbare feit bevestig is. Die Institusionele Status-blad is die gesaghebbende bron vir die huidige regulatoriese verklaring; hierdie register is die gedateerde geskiedenis daarvan.",
+      "Die register word bygewerk wanneer ’n openbare feit bevestig is. Lees Institusionele Status vir die huidige regulatoriese verklaring.",
     currentStatus: "Lees die huidige institusionele status",
     readingEyebrow: "Hoe om hierdie register te lees",
     readingBody:
-      "Die register is vir enigiemand wat 'n institusionele eis nagaan. Dit teken slegs gedateerde openbare feite aan en onderskei 'n huidige posisie van 'n toekomstige proses. Die Institusionele Status-blad gee die regulatoriese verklaring volledig.",
-    ruleEyebrow: "Die reëls van die register",
+      "Gebruik die register om ’n gepubliseerde institusionele feit en die datum daarvan na te gaan. Institusionele Status bevat die volledige huidige regulatoriese verklaring.",
+    ruleEyebrow: "Hoe inskrywings hanteer word",
     ruleBody:
-      "Drie reëls geld vir elke rekord op hierdie bladsy. Niks word aangekondig voordat dit seker is nie: 'n voorneme is nie 'n gebeurtenis nie. Niks kry 'n datum voordat dit gebeur het nie; die register teken aan, dit belowe nie. Wanneer 'n plan verander, word die rekord in plek reggestel.",
+      "’n Inskrywing word eers gepubliseer wanneer die feit bevestig is. Die register dateer gebeurtenisse wat reeds plaasgevind het; dit maak nie voornemens tot gebeurtenisse nie. Wanneer tydsberekening of ’n plan verander, word die inskrywing in plek reggestel.",
     sourceEyebrow: "Waar die rye vandaan kom",
     sourceBody:
       "Elke rekord is op 'n regsrekord, indiening, skriftelike ooreenkoms of bevestigde publikasie gegrond. Waar 'n verhouding genoem word, word dit volgens die werklike omvang daarvan gestel. Skryf aan die Oryx-kantoor met 'n vraag oor 'n genoemde feit.",

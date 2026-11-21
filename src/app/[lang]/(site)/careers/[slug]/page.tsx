@@ -32,31 +32,30 @@ const copy = {
     closing: "Applications close",
     campaignSource: "Notice type",
     consolidatedNote:
-      "This position is named on the consolidated campaign notice. Its scope remains limited to that approved notice.",
-    overview: "Role overview",
-    scope: "Scope covered by this one role",
+      "This position is part of the consolidated campaign notice and covers the published scope below.",
+    overview: "About this role",
+    scope: "Programme scope covered by this role",
     scopeBody:
-      "Apply once for this programme position. The entries below are a connected work scope, not separate vacancies.",
-    requirements: "Published information",
-    requirementsBody:
-      "This notice does not publish role-specific minimum qualifications, licences, years of experience or selection criteria. Do not assume that an unannounced requirement applies. Attach your CV to your application email.",
-    employment: "Employment terms",
-    employmentBody:
-      "This notice is not an employment contract or an offer of appointment. Pay, contract type, working arrangements, start date and any conditions are not published here and will be confirmed in writing only with a selected candidate.",
+      "Apply once for this Lead Instructor role. The items below belong to its full programme scope and are not separate vacancies.",
+    applicationDetails: "Application details",
+    applicationDetailsBody:
+      "Attach your CV to your application email. Oryx does not charge a recruitment fee. No role-specific qualifications, experience thresholds or selection criteria are published in this notice.",
     apply: "Apply by email",
     applyBody: (email: string) =>
       `Complete the short form below to prepare an email to ${email}. The website does not submit or retain the form. Review the draft, attach your CV and send it from your own email client before the closing time.`,
-    sourceTitle: "One programme position, one application",
+    sourceTitle: "One Lead Instructor role",
     sourceBody:
-      "Related level, strand and short-course source notices are gathered under one accountable Lead Instructor role. They describe an intended work scope, not separate vacancies or a claim that Oryx currently offers a course, accredited qualification, NQF credit, enrolment or a public campus.",
-    individualSourceTitle: "About this position notice",
+      "This role covers the related levels, strands and short courses as one programme scope. The list is for planned work and does not create separate posts or a current enrolment route.",
+    individualSourceTitle: "One position notice",
     individualSourceBody:
-      "This is one individual position notice. It describes intended work and does not state that Oryx currently offers a course, accredited qualification, NQF credit, enrolment or a public campus.",
-    process: "A clear process",
+      "This notice covers one position in Oryx’s centre-establishment recruitment.",
+    statusNote:
+      "Oryx is in prelaunch and is working toward NTA training-provider registration. It is not registered or accredited and does not offer accredited qualifications or NQF credits.",
+    process: "Applying by email",
     processPoints: [
-      "Use the email addressed to vacancies@oryxinstitute.org. Do not send applications through social-media messages.",
+      "Use the email addressed to vacancies@oryxinstitute.org and include the role title in the subject line.",
       "Review the email draft, attach your CV and send it from your own email client before the published closing time.",
-      "Send only information you choose to include. Do not include identity, bank, medical or other highly sensitive records in a first email unless Oryx specifically asks for them.",
+      "Share only information you choose to include. Keep identity, bank, medical and other highly sensitive records out of a first email unless Oryx specifically asks for them.",
     ],
     privacy: "Privacy notice",
     back: "All vacancies",
@@ -70,31 +69,30 @@ const copy = {
     closing: "Aansoeke sluit",
     campaignSource: "Kennisgewingtipe",
     consolidatedNote:
-      "Hierdie pos word op die gekonsolideerde veldtogkennisgewing genoem. Die omvang bly by daardie goedgekeurde kennisgewing beperk.",
-    overview: "Roloorsig",
-    scope: "Omvang wat deur hierdie een rol gedek word",
+      "Hierdie pos vorm deel van die gekonsolideerde veldtogkennisgewing en dek die gepubliseerde omvang hieronder.",
+    overview: "Oor hierdie rol",
+    scope: "Programomvang wat deur hierdie rol gedek word",
     scopeBody:
-      "Doen een keer vir hierdie programpos aansoek. Die inskrywings hieronder is ’n gekoppelde werksomvang, nie afsonderlike vakatures nie.",
-    requirements: "Gepubliseerde inligting",
-    requirementsBody:
-      "Hierdie kennisgewing publiseer nie rolspesifieke minimum kwalifikasies, lisensies, jare se ervaring of keuringskriteria nie. Moenie aanvaar dat ’n onaangekondigde vereiste geld nie. Heg jou CV aan jou aansoek-e-pos.",
-    employment: "Diensvoorwaardes",
-    employmentBody:
-      "Hierdie kennisgewing is nie ’n dienskontrak of ’n aanbod van aanstelling nie. Salaris, kontraktipe, werksreëlings, begindatum en enige voorwaardes word nie hier gepubliseer nie en word slegs skriftelik met ’n gekose kandidaat bevestig.",
+      "Doen een keer vir hierdie Lead Instructor-rol aansoek. Die items hieronder behoort aan die volle programomvang en is nie afsonderlike vakatures nie.",
+    applicationDetails: "Aansoekbesonderhede",
+    applicationDetailsBody:
+      "Heg jou CV aan jou aansoek-e-pos. Oryx vra geen werwingsfooi nie. Geen rolspesifieke kwalifikasies, ervaringsdrempels of keuringskriteria word in hierdie kennisgewing gepubliseer nie.",
     apply: "Doen per e-pos aansoek",
     applyBody: (email: string) =>
       `Voltooi die kort vorm hieronder om ’n e-pos aan ${email} op te stel. Die webwerf stuur of behou nie die vorm nie. Gaan die konsep na, heg jou CV aan en stuur dit uit jou eie e-posprogram voor die sluitingstyd.`,
-    sourceTitle: "Een programpos, een aansoek",
+    sourceTitle: "Een Lead Instructor-rol",
     sourceBody:
-      "Verwante vlak-, rigting- en kortkursusbronkennisgewings word onder een verantwoordelike Lead Instructor-rol saamgevoeg. Dit beskryf ’n beoogde werksomvang, nie afsonderlike vakatures of ’n aanspraak dat Oryx tans ’n kursus, geakkrediteerde kwalifikasie, NQF-krediet, inskrywing of openbare kampus aanbied nie.",
-    individualSourceTitle: "Oor hierdie poskennisgewing",
+      "Hierdie rol dek die verwante vlakke, rigtings en kortkursusse as een programomvang. Die lys is vir beplande werk en skep nie afsonderlike poste of ’n huidige inskrywingsroete nie.",
+    individualSourceTitle: "Een poskennisgewing",
     individualSourceBody:
-      "Dit is een individuele poskennisgewing. Dit beskryf beoogde werk en stel nie dat Oryx tans ’n kursus, geakkrediteerde kwalifikasie, NQF-krediet, inskrywing of openbare kampus aanbied nie.",
-    process: "’n Duidelike proses",
+      "Hierdie kennisgewing dek een pos in Oryx se sentrumvestigingswerwing.",
+    statusNote:
+      "Oryx is in voorbekendstelling en werk aan NTA-opleidingsverskafferregistrasie. Dit is nie geregistreer of geakkrediteer nie en bied nie geakkrediteerde kwalifikasies of NQF-krediete aan nie.",
+    process: "Aansoek per e-pos",
     processPoints: [
-      "Gebruik die e-pos wat aan vacancies@oryxinstitute.org gerig is. Moenie aansoeke deur sosialemedia-boodskappe stuur nie.",
+      "Gebruik die e-pos wat aan vacancies@oryxinstitute.org gerig is en sluit die roltitel in die onderwerplyn in.",
       "Gaan die e-poskonsep na, heg jou CV aan en stuur dit uit jou eie e-posprogram voor die gepubliseerde sluitingstyd.",
-      "Stuur slegs inligting wat jy kies om in te sluit. Moenie identiteits-, bank-, mediese of ander hoogs sensitiewe rekords in ’n eerste e-pos insluit nie, tensy Oryx dit spesifiek vra.",
+      "Deel slegs inligting wat jy kies om in te sluit. Hou identiteits-, bank-, mediese en ander hoogs sensitiewe rekords uit ’n eerste e-pos, tensy Oryx dit spesifiek vra.",
     ],
     privacy: "Privaatheidskennisgewing",
     back: "Alle vakatures",
@@ -203,19 +201,16 @@ export default async function CareerRolePage({
           <aside className="border-y border-rule py-7" data-sc-in>
             <p className="eyebrow eyebrow--ink">{role.kind === "lead-instructor" ? t.sourceTitle : t.individualSourceTitle}</p>
             <p className="mt-4 leading-relaxed text-soft">{role.kind === "lead-instructor" ? t.sourceBody : t.individualSourceBody}</p>
+            <p className="mt-5 text-sm leading-relaxed text-soft">{t.statusNote}</p>
           </aside>
         </div>
       </section>
 
       <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-8 lg:grid-cols-2">
-          <div className="panel p-8 md:p-10" data-sc-in>
-            <p className="eyebrow eyebrow--ink">{t.requirements}</p>
-            <p className="mt-5 leading-relaxed text-soft">{t.requirementsBody}</p>
-          </div>
-          <div className="bg-ink p-8 text-ivory md:p-10" data-sc-in>
-            <p className="eyebrow eyebrow--ivory">{t.employment}</p>
-            <p className="mt-5 leading-relaxed text-[var(--ivory-80)]">{t.employmentBody}</p>
+        <div className="shell">
+          <div className="panel max-w-[68ch] p-8 md:p-10" data-sc-in>
+            <p className="eyebrow eyebrow--ink">{t.applicationDetails}</p>
+            <p className="mt-5 leading-relaxed text-soft">{t.applicationDetailsBody}</p>
           </div>
         </div>
       </section>

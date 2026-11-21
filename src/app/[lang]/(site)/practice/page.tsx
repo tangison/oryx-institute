@@ -12,58 +12,58 @@ import { alternates, langFromParams } from "@/lib/i18n";
 const copy = {
   en: {
     meta: {
-      title: "The Practice: Work That Holds",
+      title: "Practice at Oryx Institute",
       description:
         "The practice at Oryx Institute: business counselling and market research, with future learning pathways stated separately from current work.",
       ogTitle: "Practice | Oryx Institute",
       ogDescription:
         "Business counselling and market research, with future learning pathways stated honestly.",
     },
-    heroLine: "Work that holds.",
-    heroSub: "Measured and finished to standard. Every tool named, not magic.",
+    heroLine: "Practice.",
+    heroSub: "Business counselling and market research with a defined scope and written outcome.",
     runsTitle: "What the practice runs.",
     holdsTitle: "The outcome is written down.",
     holdsBody: [
-      "Every engagement ends the same way: on paper. Counselling sessions close with what was decided and what happens next, written down. Research engagements close with findings, options and the decision they support, gathered on Namibian ground with sources named.",
-      "Nothing here promises a credential. Fees and scope are confirmed by the Oryx office at the point of enquiry, and the first reply names what the institute can and cannot do for you.",
+      "Counselling sessions end with a written record of the decision and the next step. Research engagements end with findings, options and the decision they support.",
+      "The Oryx office confirms fees and scope when you enquire.",
     ],
-    kitEyebrow: "The working kit",
+    kitEyebrow: "How the work is kept",
     kitBody:
-      "The practice runs on named, ordinary tools: a metre rule, a bench, a published office stack, and notebooks kept in the institute's own hand. Nothing in the room is decorative; if a thing cannot be named, it is not used.",
+      "The practice uses ordinary, named tools: a metre rule, a bench, a published office stack and notebooks kept by the institute.",
     standsEyebrow: "Where the practice stands",
     standsBody:
-      "The current practice is fee-for-service business counselling and market research. Oryx is working toward NTA training-provider registration. Formal vocational learning and any accredited qualifications will be published only after the relevant approvals are confirmed.",
+      "The current practice is fee-for-service business counselling and market research. Oryx is working toward NTA training-provider registration. Formal vocational learning will be published after the relevant approvals are confirmed.",
     apprenticeship:
-      "Future learning is not open. What is not ready, says so.",
+      "Future learning remains in development.",
     enquire: "Enquire about the Practice",
     writeOffice: "Write to the office",
     readFaq: "Read the FAQ",
   },
   af: {
     meta: {
-      title: "Die praktyk: werk wat hou",
+      title: "Praktyk by Oryx Instituut",
       description:
         "Die praktyk by Oryx Instituut: besigheidsadvies en marknavorsing, met toekomstige leerpaaie apart van huidige werk gestel.",
       ogTitle: "Praktyk | Oryx Instituut",
       ogDescription:
         "Besigheidsadvies en marknavorsing, met toekomstige leerpaaie eerlik gestel.",
     },
-    heroLine: "Werk wat hou.",
-    heroSub: "Gemeet en volgens standaard voltooi. Elke hulpmiddel benoem, geen towerkuns nie.",
+    heroLine: "Praktyk.",
+    heroSub: "Besigheidsadvies en marknavorsing met ’n duidelike omvang en skriftelike uitkoms.",
     runsTitle: "Wat die praktyk doen.",
     holdsTitle: "Die uitkoms word neergeskryf.",
     holdsBody: [
-      "Elke opdrag eindig op dieselfde manier: op papier. Adviesgesprekke sluit met wat besluit is en wat volgende gebeur, neergeskryf. Navorsingsopdragte sluit met bevindings, opsies en die besluit wat dit ondersteun, op Namibiese grond met genoemde bronne versamel.",
-      "Niks hier beloof 'n kwalifikasie nie. Fooie en omvang word deur die Oryx-kantoor by navraag bevestig, en die eerste antwoord noem wat die instituut vir jou kan en nie kan doen nie.",
+      "Adviesgesprekke eindig met ’n skriftelike rekord van die besluit en die volgende stap. Navorsingsopdragte eindig met bevindings, opsies en die besluit wat dit ondersteun.",
+      "Die Oryx-kantoor bevestig fooie en omvang wanneer jy navraag doen.",
     ],
-    kitEyebrow: "Die werksgereedskap",
+    kitEyebrow: "Hoe die werk gehou word",
     kitBody:
-      "Die praktyk werk met benoemde, gewone gereedskap: 'n meterliniaal, 'n bank, 'n gepubliseerde kantoorstapel en notaboeke wat in die instituut se eie hand gehou word. Niks in die kamer is dekoratief nie; as 'n ding nie benoem kan word nie, word dit nie gebruik nie.",
+      "Die praktyk gebruik gewone, benoemde gereedskap: ’n meterliniaal, ’n bank, ’n gepubliseerde kantoorstapel en notaboeke wat deur die instituut gehou word.",
     standsEyebrow: "Waar die praktyk staan",
     standsBody:
-      "Die huidige praktyk is besigheidsadvies en marknavorsing teen vergoeding. Oryx werk aan NTA-opleidingsverskafferregistrasie. Formele beroepsleer en enige geakkrediteerde kwalifikasies word eers gepubliseer nadat die toepaslike goedkeurings bevestig is.",
+      "Die huidige praktyk is besigheidsadvies en marknavorsing teen vergoeding. Oryx werk aan NTA-opleidingsverskafferregistrasie. Formele beroepsleer sal gepubliseer word nadat die toepaslike goedkeurings bevestig is.",
     apprenticeship:
-      "Toekomstige leer is nie oop nie. Wat nie gereed is nie, sê so.",
+      "Toekomstige leer bly in ontwikkeling.",
     enquire: "Doen navraag oor die praktyk",
     writeOffice: "Skryf aan die kantoor",
     readFaq: "Lees die vrae",

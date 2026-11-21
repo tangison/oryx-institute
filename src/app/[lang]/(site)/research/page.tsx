@@ -19,32 +19,32 @@ const copy = {
         "Market research engagements, published research notes and factual relationship disclosures.",
     },
     head: {
-      title: "Research runs from day one.",
-      lede: "Evidence before money moves: for clients and for the institute's own decisions. Market research is taken on per engagement, and published notes state their sources.",
+      title: "Research starts now.",
+      lede: "Oryx takes on market-research engagements and publishes notes with their sources.",
     },
-    hireTitle: "The market side of the desk.",
+    hireTitle: "Market research for a defined question.",
     bring: "Bring a Market R&D problem",
     whatRuns: "See the Practice",
     how: [
-      { k: "1 · The question.", v: "Written down as it stands, before any method is discussed." },
-      { k: "2 · The ground.", v: "Evidence gathered on Namibian ground, sources named." },
-      { k: "3 · The document.", v: "Written to be used: findings, options, and the decision they support. Not shelved." },
+      { k: "The question", v: "The question is written down before a method is discussed." },
+      { k: "The evidence", v: "The work identifies the relevant evidence and its sources." },
+      { k: "The document", v: "Findings and options are written for the decision at hand." },
     ],
-    streamsEyebrow: "Three streams",
+    streamsEyebrow: "Research material",
     notesBody:
-      "Published research notes on the numbers, the method and the tools. Every figure carries its source, or it does not ship.",
+      "Published notes explain the numbers, method and tools used. Each figure is accompanied by its source.",
     read: "Read",
     readNotes: "Read the research notes",
     fieldLede:
-      "Fieldwork notes open when fieldwork starts. The published research notes carry the writing until then.",
+      "Fieldwork notes will be published when fieldwork begins. Until then, the published research notes are available to read.",
     papersLede:
-      "Cited papers publish as the research programme produces them. None exist yet; none are claimed.",
-    quote: "Evidence is useful only when it changes the next decision.",
+      "Cited papers will be published as the research programme produces them.",
+    quote: "Evidence should inform the next decision.",
     quoteMeta: "Oryx research principle",
     researchersBody:
-      "Research is published in an Oryx office voice. Named contributors will appear only with their work and their permission.",
+      "Oryx publishes research in its office voice. Contributors are named with their work and permission.",
     partnersBody:
-      "Named technical and venture collaborations, stated for the work they support and not enlarged into accreditation or endorsement.",
+      "Technical and venture collaborations are named for the work they support.",
   },
   af: {
     meta: {
@@ -56,32 +56,32 @@ const copy = {
         "Marknavorsingsopdragte, gepubliseerde navorsingsnotas en feitelike verhoudingverklarings.",
     },
     head: {
-      title: "Navorsing begin op dag een.",
-      lede: "Bewyse voordat geld beweeg: vir kliënte en vir die instituut se eie besluite. Marknavorsing word per opdrag aangepak en gepubliseerde notas noem hul bronne.",
+      title: "Navorsing begin nou.",
+      lede: "Oryx neem marknavorsingsopdragte aan en publiseer notas met hul bronne.",
     },
-    hireTitle: "Die markkant van die lessenaar.",
+    hireTitle: "Marknavorsing vir ’n duidelike vraag.",
     bring: "Bring 'n marknavorsingsvraag",
     whatRuns: "Sien die praktyk",
     how: [
-      { k: "1 · Die vraag.", v: "Neergeskryf soos dit staan, voordat enige metode bespreek word." },
-      { k: "2 · Die grond.", v: "Bewyse op Namibiese grond versamel, met genoemde bronne." },
-      { k: "3 · Die dokument.", v: "Vir gebruik geskryf: bevindings, opsies en die besluit wat dit ondersteun." },
+      { k: "Die vraag", v: "Die vraag word neergeskryf voordat ’n metode bespreek word." },
+      { k: "Die bewyse", v: "Die werk bepaal die toepaslike bewyse en hul bronne." },
+      { k: "Die dokument", v: "Bevindings en opsies word vir die betrokke besluit neergeskryf." },
     ],
-    streamsEyebrow: "Drie strome",
+    streamsEyebrow: "Navorsingsmateriaal",
     notesBody:
-      "Gepubliseerde navorsingsnotas oor die syfers, metode en gereedskap. Elke syfer dra sy bron, of dit verskyn nie.",
+      "Gepubliseerde notas verduidelik die syfers, metode en gereedskap. Elke syfer het ’n bron.",
     read: "Lees",
     readNotes: "Lees die navorsingsnotas",
     fieldLede:
-      "Veldwerknotas open wanneer veldwerk begin. Die gepubliseerde navorsingsnotas dra die skryfwerk tot dan.",
+      "Veldwerknotas sal gepubliseer word wanneer veldwerk begin. Tot dan is die gepubliseerde navorsingsnotas beskikbaar om te lees.",
     papersLede:
-      "Aangehaalde studies verskyn namate die navorsingsprogram dit lewer. Geen bestaan nog nie en geen word beweer nie.",
-    quote: "Bewyse is slegs nuttig wanneer dit die volgende besluit verander.",
+      "Aangehaalde studies sal verskyn namate die navorsingsprogram dit lewer.",
+    quote: "Bewyse behoort die volgende besluit te rig.",
     quoteMeta: "Oryx-navorsingsbeginsel",
     researchersBody:
-      "Navorsing word in 'n Oryx-kantoorstem gepubliseer. Genoemde bydraers verskyn slegs saam met hul werk en toestemming.",
+      "Oryx publiseer navorsing in sy kantoorstem. Bydraers word met hul werk en toestemming genoem.",
     partnersBody:
-      "Genoemde tegniese en ondernemingverhoudings word gestel vir die werk wat dit ondersteun en nie vergroot tot akkreditasie of onderskrywing nie.",
+      "Tegniese en ondernemingverhoudings word genoem vir die werk wat dit ondersteun.",
     enLedger: { paras: [] as string[] },
   },
 } as const;

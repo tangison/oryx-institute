@@ -9,13 +9,13 @@ export const siteAf = {
   tradingName: "Oryx Instituut",
   legalName: "Oryx Polytechnic Institute",
   headline: "Oryx Instituut.",
-  heroSub: "'n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en die ondernemings wat die werk bewys.",
+  heroSub: "’n Nuwe politegniese instituut vir Namibië wat deur navorsing, praktyk en ondernemings werk.",
   closingLine:
     "Goeie werk begin met bewyse en word met sorg voltooi.",
-  credentialLine: "Navorsing, praktyk en maatskappye wat die werk bewys.",
+  credentialLine: "Navorsing, praktyk en ondernemings wat op werklike werk gegrond is.",
   tagline: "Goeie werk begin met goeie gereedskap.",
   description:
-    "’n Nuwe politegniese instituut vir Namibië. Navorsing, praktyk en maatskappye wat die werk bewys.",
+    "’n Nuwe politegniese instituut vir Namibië wat deur navorsing, praktyk en ondernemings werk.",
   country: "Namibië",
   areaServed: "Namibië",
   postalAddressBox: "Posbus 1662",
@@ -37,7 +37,7 @@ export const statusAf = {
     },
     {
       name: "Marknavorsing en ontwikkeling",
-      line: "Uitvoerbaarheid, groottebepaling, mededingerlesings en roete-na-mark-werk, op Namibiese grond nagevors.",
+      line: "Uitvoerbaarheid, markgrootte, mededingernavorsing en roete-na-mark-werk vir Namibiese kontekste.",
     },
   ],
   inDevelopment: [],
@@ -60,7 +60,7 @@ export const offersAf = [
     tag: "Navorsing",
     line: "Uitvoerbaarheid, groottebepaling, mededingerlesings en roete-na-mark-werk, op Namibiese grond nagevors.",
     cta: { label: "Doen navraag by die Oryx-kantoor", href: "/apply" },
-    body: "Uitvoerbaarheidstudies, markgrootte, mededingerlesings en roete-na-mark-werk word op Namibiese grond nagevors en vir gebruik geskryf. Omvang word vir elke opdrag bevestig.",
+    body: "Uitvoerbaarheidstudies, markgrootte, mededingernavorsing en roete-na-mark-werk vir Namibiese kontekste. Die Oryx-kantoor bevestig die omvang vir elke opdrag.",
   },
 ] as const;
 
@@ -80,7 +80,7 @@ export const registerAf = [
 
 export const venturesAf = {
   lead: "Klein ondernemings, werklike kliënte.",
-  body: "Wanneer Oryx 'n sektor wil verstaan, begin dit 'n klein onderneming daarin. Kliënte besluit of dit werk, en die register publiseer die uitkoms.",
+  body: "Oryx kan ’n klein onderneming bedryf om ’n sektor deur diens en werklike kliënte te verstaan. Die register teken elke onderneming aan soos dit ontwikkel.",
   cornerSpa: {
     name: "Corner Spa",
     status: "In bedryf · saam met Mendozer",
@@ -96,25 +96,25 @@ export const disciplinesAf = [
     id: "science",
     glyph: "WETENSKAP",
     name: "Wetenskap",
-    summary: "Die redeneerkern van 'n politegniese opleiding: waarneming, bewyse en gedissiplineerde denke.",
+    summary: "Waarneming, bewyse en gedissiplineerde denke in ’n politegniese opleiding.",
   },
   {
     id: "engineering",
     glyph: "INGENIEURS",
     name: "Ingenieurswese",
-    summary: "Die maakkern: werk wat hou, gemeet en volgens standaard voltooi.",
+    summary: "Ontwerp en maak van werk wat gemeet en volgens standaard voltooi is.",
   },
   {
     id: "technology",
     glyph: "TEGNOLOGIE",
     name: "Tegnologie",
-    summary: "Moderne gereedskap word uitmekaar gehaal en weer opgebou totdat dit verstaan word, nie net gebruik nie.",
+    summary: "Moderne gereedskap goed genoeg verstaan om dit te gebruik, ondersoek en verbeter.",
   },
   {
     id: "applied",
     glyph: "LOS OP",
     name: "Toegepaste probleemoplossing",
-    summary: "Die instituut se werkstandaard: innovasie in die praktyk.",
+    summary: "Kennis en gereedskap gebruik om ’n duidelike praktiese probleem op te los.",
   },
 ] as const;
 

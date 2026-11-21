@@ -47,6 +47,10 @@ The current public site is bilingual and uses contextual next steps rather than 
 - **CTA:** Route-specific as listed in the Sitemap table.
 - **Copy blocks:** Evidence or current-work explanation, supporting record and a factual next step.
 
+## Editorial standard
+
+All public-facing writing follows [the editorial standard](./editorial-style.md). It requires source-led, specific claims; direct, varied prose; sentence-case headings; and an independent review of the English and Afrikaans factual claims. It also protects required regulatory disclosures and approved brand lines from cosmetic rewrites.
+
 ## Conversion elements
 
 The O/CO framework remains intentionally incomplete. No visitor language, office-enquiry analysis, survey evidence or verified behavioural data was supplied. Do not fill this table with assumed objections or invented counters.

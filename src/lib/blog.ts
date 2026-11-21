@@ -82,9 +82,9 @@ export const blogPosts: BlogPost[] = [
     title: "Corner Spa, Oryx's first operating venture",
     titleAf: "Corner Spa, Oryx se eerste bedrywige onderneming",
     description:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work. See treatments, prices and how to book.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. Find treatments, prices and booking details.",
     descriptionAf:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk. Sien behandelings, pryse en hoe om te bespreek.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Vind behandelings, pryse en besprekingsbesonderhede.",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
     dateHumanAf: "5 November 2026",
@@ -158,66 +158,66 @@ For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04
     bodyAf: `
 # Corner Spa, Oryx se eerste bedrywige onderneming
 
-![Smooth wet stones and soft light at Corner Spa](/corner-spa/hero-wide.webp)
+![Gladde nat klippe en sagte lig by Corner Spa](/corner-spa/hero-wide.webp)
 
-Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik wat dit bied, hoe om te bespreek en waar om dit aanlyn te vind.
+Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Hierdie nota verduidelik die behandelings, hoe om te bespreek en waar om dit aanlyn te vind.
 
-## What you can book
+## Wat jy kan bespreek
 
-![Warm hands placing smooth dark stones along a back](/corner-spa/hot-stones-back.webp)
+![Warm hande wat gladde donker klippe op ’n rug plaas](/corner-spa/hot-stones-back.webp)
 
-The menu is short on purpose. Four massages, two nail treatments and six waxing services, each with a clear price. Facials are also available, and you can ask us for prices.
+Die spyskaart is kort gehou: vier masserings, twee naelbehandelings en ses wasbehandelings, elk met ’n duidelike prys. Gesigsbehandelings is ook beskikbaar; vra ons vir pryse.
 
-The massages range from a 30 minute back, neck and scalp session with hot stones to the relaxing lemon grass full body massage. Nails cover gel overlays and full cover gel with tips. Waxing covers the face, legs and underarms.
+Die masserings wissel van ’n 30-minute-rug-, nek- en kopvelsessie met warm klippe tot ’n ontspannende sitroengras-vollyfmassering. Die naelbehandelings sluit gel-oorlegsels en volbedekkinggel met punte in. Wasbehandelings dek die gesig, bene en oksels.
 
-## Prices
+## Pryse
 
-All prices are in Namibian dollars.
+Alle pryse is in Namibiese dollars.
 
-| Treatment | Price |
+| Behandeling | Prys |
 |---|---|
-| Full body massage with back and neck (60 min) | N$ 500 |
-| Full body massage with hot stones on the back (60 min) | N$ 450 |
-| Relaxing lemon grass full body massage | N$ 700 |
-| Back, neck and scalp massage with hot stones (30 min) | N$ 250 |
-| Gel overlay (hands and feet) | N$ 400 |
-| Full cover gel with tips (plain) | N$ 350 |
-| Waxing combo (Hollywood and underarm) | N$ 400 |
-| Upper lip | N$ 70 |
-| Chin | N$ 70 |
-| Half legs | N$ 250 |
-| Full legs | N$ 400 |
-| Underarms | N$ 100 |
-| Facials | Ask us for prices |
+| Vollyfmassering met rug en nek (60 min) | N$ 500 |
+| Vollyfmassering met warm klippe op die rug (60 min) | N$ 450 |
+| Ontspannende sitroengras-vollyfmassering | N$ 700 |
+| Rug-, nek- en kopvelmassering met warm klippe (30 min) | N$ 250 |
+| Gel-oorlegsel (hande en voete) | N$ 400 |
+| Volbedekkinggel met punte (eenvoudig) | N$ 350 |
+| Was-kombinasie (Hollywood en oksels) | N$ 400 |
+| Bolip | N$ 70 |
+| Ken | N$ 70 |
+| Halwe bene | N$ 250 |
+| Volle bene | N$ 400 |
+| Oksels | N$ 100 |
+| Gesigsbehandelings | Vra ons vir pryse |
 
-## How to book
+## Hoe om te bespreek
 
-![A woman resting beside smooth dark stones on a textured towel](/corner-spa/people-stones-rest.webp)
+![’n Vrou wat langs gladde donker klippe op ’n tekstuurhanddoek rus](/corner-spa/people-stones-rest.webp)
 
-Booking happens on WhatsApp. Tap any treatment on the price list and a message opens with that treatment already filled in. You only press send. You can also use the booking page, which builds the same message from a short form. Nothing you type is stored on the site.
+Besprekings gebeur op WhatsApp. Tik enige behandeling op die pryslys om ’n boodskap met daardie behandeling reeds ingevul oop te maak. Jy besluit self of jy dit stuur. Jy kan ook die besprekingsblad gebruik, wat dieselfde boodskap uit ’n kort vorm opstel. Niks wat jy tik, word op die webwerf gestoor nie.
 
-You can also call or message on **+264 81 623 4788**.
+Jy kan ook bel of ’n boodskap stuur na **+264 81 623 4788**.
 
-## Who is behind it
+## Wie daaragter staan
 
 Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Dit is ’n bedrywige omgewing vir praktiese besigheids- en dienswerk.
 
-## One site, two addresses
+## Een webwerf, twee adresse
 
-![A therapist's hands resting on an oiled back during a massage](/corner-spa/people-back-hands.webp)
+![’n Terapeut se hande op ’n geoliede rug tydens ’n massering](/corner-spa/people-back-hands.webp)
 
-The Corner Spa website lives at **spa.mendozer.com**. You can also visit it from **oryxinstitute.org/corner-spa**, where the same site is shown full screen inside the Oryx website. It is one website, not two copies, so prices and booking details are always the same wherever you open it. Press Back once and you return to the Oryx website.
+Die Corner Spa-webwerf is by **spa.mendozer.com**. Jy kan dit ook by **oryxinstitute.org/corner-spa** besoek, waar dieselfde webwerf volskerm binne die Oryx-webwerf wys. Dit is een webwerf, nie twee kopieë nie. Pryse en besprekingsbesonderhede bly dus dieselfde waar jy dit ook al oopmaak. Druk een keer Terug om na die Oryx-webwerf terug te keer.
 
-## Contact Oryx Institute
+## Kontak Oryx Instituut
 
-For questions about Oryx Institute itself, call or message **083\u00A0676\u00A04338** (+264\u00A083\u00A0676\u00A04338). For bookings at Corner Spa, use the Corner Spa number above.
+Vir vrae oor Oryx Instituut self, bel of stuur ’n boodskap na **083\u00A0676\u00A04338** (+264\u00A083\u00A0676\u00A04338). Gebruik die Corner Spa-nommer hier bo vir besprekings.
 
-## Links
+## Skakels
 
 - Corner Spa: [spa.mendozer.com](https://spa.mendozer.com)
-- On the Oryx site: [oryxinstitute.org/corner-spa](https://oryxinstitute.org/corner-spa)
+- Op die Oryx-webwerf: [oryxinstitute.org/corner-spa](https://oryxinstitute.org/corner-spa)
 - Mendozer Investments: [mendozer.com](https://mendozer.com)
-- Book on WhatsApp: [wa.me/264816234788](https://wa.me/264816234788)
+- Bespreek op WhatsApp: [wa.me/264816234788](https://wa.me/264816234788)
 `,
   },
 ];
