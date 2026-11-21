@@ -494,42 +494,6 @@
   }
 }
 
-@media (max-width: 29.99rem) {
-  .header-bar {
-    gap: 0.75rem;
-    padding-inline: 0.8rem;
-  }
-  .header-tools {
-    gap: 0.7rem;
-  }
-  .menu-word {
-    display: none;
-  }
-}
-
-/* Language toggle: current held still, the other one a link. */
-.lang-toggle {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3em;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-}
-.lang-current {
-  color: var(--ink-60);
-}
-.lang-sep {
-  color: var(--ink-40);
-}
-.lang-link {
-  color: var(--ink);
-  transition: color var(--dur-short) var(--ease-out);
-}
-.lang-link:hover {
-  color: var(--maroon-deep);
-}
-
 /* --------------------------------------------------------------------------
    Off-canvas menu: a checkbox disclosure: the label lives in the
    floating bar, the full-screen ink panel is a sibling below it, so the
@@ -2483,15 +2447,8 @@ body:has(.page-tone--ink) .site-header .site-header__logo--reverse {
 }
 body:has(.page-tone--ink) .site-header .nav-link,
 body:has(.page-tone--ink) .site-header .search-trigger,
-body:has(.page-tone--ink) .site-header .menu-summary,
-body:has(.page-tone--ink) .site-header .lang-link {
+body:has(.page-tone--ink) .site-header .menu-summary {
   color: var(--ivory);
-}
-body:has(.page-tone--ink) .site-header .lang-current {
-  color: var(--ivory-60);
-}
-body:has(.page-tone--ink) .site-header .lang-sep {
-  color: rgba(255, 248, 238, 0.4);
 }
 body:has(.page-tone--ink) .site-header .nav-link:hover,
 body:has(.page-tone--ink) .site-header .search-trigger:hover {
