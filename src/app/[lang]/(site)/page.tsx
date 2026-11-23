@@ -25,16 +25,19 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
  *   hero (scrub) · positioning (flow) ·
  *   03 silent divider (flow) · the three kinds of work (PIN) · what
  *   runs today (flow) · practice peak (PIN) · field notes (flow) ·
- *   research zigzag (flow) · ventures reverse-zigzag (flow) · 07 silent
- *   divider (flow) · the register
- *   (flow) · close (PIN) ·
- *   footer.
+ *   research zigzag (flow) · ventures reverse-zigzag (flow) · Sossusvlei
+ *   divider (flow) · the register (flow) · close (PIN) · footer.
  *
  * Three pins, two silent dividers. The core plates run in act order:
- * 01, 03, 05, 04, 08, 07, 10 (Image Bible v6:
- * the stone is the /brand specimen only, so the positioning act
- * carries no image).
+ * 01, 03, 05, 04 and 08; the second divider is the sourced Sossusvlei
+ * photograph (the stone is the /brand specimen only, so the positioning
+ * act carries no image).
  */
+/* A real Sossusvlei dune photograph by Fabio Riccobono, cropped locally
+ * under the Pexels licence. The image-audit record keeps the source page,
+ * author and licence alongside the location verification. */
+const sossusvleiDivider = "/images/kinfolk/core/07-sossusvlei-divider.jpg";
+
 const copy = {
   en: {
     meta: {
@@ -464,7 +467,10 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Second silent divider: a breath before the ledger. No text. */}
+      {/* Second silent divider: the Sossusvlei dunes, a real Namibian
+          landscape before the public register. It replaces the former
+          Windhoek skyline rather than using a city image as a generic
+          institutional texture. */}
       <div
         className="divider divider--full overflow-hidden"
         data-sc-act="flow"
@@ -472,10 +478,10 @@ export default async function HomePage({
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src="/images/kinfolk/core/07-windhoek-divider.jpg"
+            src={sossusvleiDivider}
             alt=""
-            width={1250}
-            height={1000}
+            width={1600}
+            height={900}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

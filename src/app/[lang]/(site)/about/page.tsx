@@ -30,7 +30,7 @@ const copy = {
       eyebrow: "Where the work begins",
       title: "More than one place.\nOne standard.",
       body: "The institute begins where it can be useful and will grow as the work develops. The first venture serves customers in Windhoek. Future learning environments are planned separately and will be published when confirmed.",
-      caption: "A person walking across open ground.",
+      caption: "An oryx standing on open, rocky ground.",
     },
     work: {
       eyebrow: "The work, joined",
@@ -87,7 +87,7 @@ const copy = {
       eyebrow: "Waar die werk begin",
       title: "Meer as een plek.\nEen standaard.",
       body: "Die instituut begin waar dit nuttig kan wees en sal groei soos die werk ontwikkel. Die eerste onderneming bedien kliënte in Windhoek. Toekomstige leeromgewings word afsonderlik beplan en sal gepubliseer word wanneer dit bevestig is.",
-      caption: "’n Persoon wat oor oop grond loop.",
+      caption: "’n Oriks wat op oop, klipperige grond staan.",
     },
     work: {
       eyebrow: "Die werk, verbind",
@@ -210,7 +210,7 @@ export default async function AboutPage({
           <figure className="about-prologue__image" data-sc-reveal>
             <Image
               src="/images/editorial/about-grounded-field.jpg"
-              alt="An oryx standing in open Namibian ground"
+              alt="An oryx standing on open, rocky ground"
               width={1264}
               height={848}
               sizes="(min-width: 70rem) 46vw, 100vw"

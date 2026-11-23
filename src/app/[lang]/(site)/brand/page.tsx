@@ -321,7 +321,7 @@ const specimens = [
   },
   {
     src: "/images/kinfolk/inner/19-mineral.jpg",
-    alt: "A Namibian desert mineral specimen, centred on cream paper",
+    alt: "A pink mineral specimen, centred on cream paper",
     caption: { en: "desert mineral", af: "woestynmineraal" },
     w: 1254,
     h: 1254,
