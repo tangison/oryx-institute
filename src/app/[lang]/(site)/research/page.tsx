@@ -33,7 +33,9 @@ const copy = {
     ],
     streamsEyebrow: "Research material",
     notesBody:
-      "Published notes explain the numbers, method and tools used. Each figure is accompanied by its source.",
+      "Published notes show how the work was done and name the sources behind each figure.",
+    notesIntro:
+      "The notes below are published in English. Each identifies its sources and provides a route to report a correction.",
     read: "Read",
     readNotes: "Read the research notes",
     fieldLede:
@@ -70,7 +72,9 @@ const copy = {
     ],
     streamsEyebrow: "Navorsingsmateriaal",
     notesBody:
-      "Gepubliseerde notas verduidelik die syfers, metode en gereedskap. Elke syfer het ’n bron.",
+      "Gepubliseerde notas wys hoe die werk gedoen is en noem die bronne agter elke syfer.",
+    notesIntro:
+      "Elke nota noem sy bronne en bied ’n roete om ’n fout te rapporteer.",
     read: "Lees",
     readNotes: "Lees die navorsingsnotas",
     fieldLede:
@@ -290,7 +294,7 @@ export default async function ResearchPage({
         <div className="shell">
           <div className="hair-t pt-14">
             <p className="measure text-soft">
-              {af ? `${chrome.af.researchNotesInEnglish} ${t.notesBody}` : t.notesBody}
+              {af ? `${chrome.af.researchNotesInEnglish} ${t.notesIntro}` : t.notesIntro}
             </p>
           </div>
           <div className="mt-12 grid gap-16">

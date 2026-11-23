@@ -55,7 +55,7 @@ export const insights = [
     body: [
       "Since 2014, Namibia's Vocational Education and Training Act of 2008 has carried a training levy on employers, recorded by UNESCO's TVET country profile. The levy's purpose is plain: the firms that need skilled hands pay toward the system that produces them.",
       "The policy question for employers is practical: how do levy, grant and rebate rules work in the formal training system? Oryx does not represent that it is eligible for those routes. Current official rules should be checked directly with the relevant authority.",
-      "Oryx can be held to its published status: it is working toward NTA training-provider registration and does not claim registered-provider, accredited-programme or NQF-credit status before confirmation.",
+      "Oryx can be held to its published status: it is working toward NTA training-provider registration and does not claim registration, accreditation or NQF-credit status before confirmation.",
     ],
   },
   {
@@ -70,7 +70,7 @@ export const insights = [
       "Baie skole voeg entrepreneurskap as 'n opsionele ekstra by. Navorsing oor Namibië wys telkens dieselfde gaping: dit bestaan op papier en verdun in die praktyk. Oryx maak dit sentraal.",
     body: [
       "Entrepreneurship is often described as a bridge between learning and practical work. The question is not whether a timetable uses the word, but whether a service, product or process can meet real conditions.",
-      "A venture is one way to test that question. Its customers can show whether a service is useful, understandable and worth choosing. Corner Spa is Oryx's current operating venture; other initiatives remain future-facing until they are publicly confirmed.",
+      "A venture puts that question to customers. Their response shows whether a service works under real conditions. Corner Spa is Oryx's current operating venture; other initiatives remain future-facing until they are publicly confirmed.",
       "Useful tools and disciplined thinking need to meet real conditions. A venture is one way to test that work without presenting it as a qualification.",
     ],
   },

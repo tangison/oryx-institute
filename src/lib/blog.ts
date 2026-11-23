@@ -85,9 +85,9 @@ export const blogPosts: BlogPost[] = [
     title: "Corner Spa, Oryx's first operating venture",
     titleAf: "Corner Spa, Oryx se eerste bedrywige onderneming",
     description:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. Find treatments, prices and booking details.",
+      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments. See the current service menu and how to book.",
     descriptionAf:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Vind behandelings, pryse en besprekingsbesonderhede.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf. Sien die huidige dienslys en hoe om te bespreek.",
     dateISO: "2026-11-05",
     dateHuman: "5 November 2026",
     dateHumanAf: "5 November 2026",
