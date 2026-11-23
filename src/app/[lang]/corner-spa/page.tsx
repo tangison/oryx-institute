@@ -17,7 +17,7 @@ const copy = {
        first operating venture | Oryx Institute". Kept in the 30-60 band. */
     title: "Corner Spa, the first operating venture",
     description:
-      "Corner Spa is Oryx's first operating venture, run with Mendozer Investments: an operating setting for practical business and service work in Windhoek. Booking and service details stay on the spa's own site.",
+      "Corner Spa is Oryx's first operating venture with Mendozer Investments in Windhoek. Booking and service details are on the spa's own site.",
     ogTitle: "Corner Spa | Oryx Institute",
     h1: "Corner Spa, Oryx's first operating venture",
   },
@@ -25,7 +25,7 @@ const copy = {
     /* An absolute title below preserves the Afrikaans brand form. */
     title: "Corner Spa, die eerste bedrywige onderneming | Oryx Instituut",
     description:
-      "Corner Spa is Oryx se eerste bedrywige onderneming, saam met Mendozer Investments bedryf: ’n bedrywige omgewing vir praktiese besigheids- en dienswerk in Windhoek. Besprekings- en diensbesonderhede bly op die spa se eie webwerf.",
+      "Corner Spa is Oryx se eerste bedrywige onderneming met Mendozer Investments in Windhoek. Besprekings en diensbesonderhede is op die spa se eie webwerf.",
     ogTitle: "Corner Spa | Oryx Instituut",
     h1: "Corner Spa, Oryx se eerste bedrywige onderneming",
     enLedger: { paras: [] as string[] },
@@ -54,7 +54,7 @@ export async function generateMetadata({
     openGraph: {
       title: m.ogTitle,
       description: m.description,
-      url: `${site.url}${lang === "af" ? "/af" : ""}/corner-spa`,
+      url: `${site.url}${lang === "af" ? "/af" : ""}/ventures/corner-spa`,
       images: [
         {
           url: "/brand/og/corner-spa.png",
