@@ -470,7 +470,7 @@ export default async function HomePage({
           study before the public register. It stays location-neutral rather
           than using a city image or implying a specific place. */}
       <div
-        className="divider divider--full overflow-hidden"
+        className="divider divider--full divider--oryx overflow-hidden"
         data-sc-act="flow"
         aria-hidden="true"
       >
