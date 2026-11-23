@@ -18,8 +18,8 @@ file is the exception: it was the reported divider and has been removed.
 
 | Route or shared surface | Previous issue | Resolution |
 | --- | --- | --- |
-| Homepage, divider before **The register** | A Windhoek skyline was being used as a generic institutional divider. It said nothing about the adjacent public register and was not the requested desert landscape. | Replaced it with a real Sossusvlei dune photograph. The retired `07-windhoek-divider.jpg` asset was removed. |
-| Homepage Sossusvlei divider | A generic desert image could falsely imply a Namibian location. | The selected photograph is explicitly identified by its source as Sossusvlei, Namibia: Fabio Riccobono, [Pexels photo 34175035](https://www.pexels.com/photo/striking-sand-dune-at-sossusvlei-namibia-34175035/). Pexels permits website use and does not require attribution; the source, author and licence are recorded here. The image is decorative, so it remains hidden from assistive technology. |
+| Homepage, divider before **The register** | A Windhoek skyline was being used as a generic institutional divider. It said nothing about the adjacent public register and was not the requested desert landscape. | Replaced it with a location-neutral, brand-aligned Namib Desert study featuring a single natural oryx. The retired `07-windhoek-divider.jpg` asset was removed. |
+| Homepage desert divider, follow-up review | The former close dune crop felt visually disconnected from the Oryx motif. | Replaced it with a generated, 16:9 desert study containing one natural oryx, reviewed for anatomy, scale and the site’s restrained terracotta, cream and ink palette. It is decorative, has an empty alt, and does not claim to show Sossusvlei or another specific place. The former `07-sossusvlei-divider.jpg` asset was removed. |
 | Careers: Occupational Health and Safety | The former key/fob/padlock still life read as security rather than occupational health and safety. | Replaced with a relevant, text-free PPE still life: hard hat, safety glasses, gloves and notebook. |
 | Careers: Wholesale, Retail and Merchandising | The former hero was an unrelated multi-image contact sheet rather than one relevant page visual. | Replaced with a text-free stock-control and merchandising still life: product tags, scanner, carton and clipboard. |
 | About: **Where the work begins** | The visible picture contains an oryx, but both caption translations described a person walking. The English alt also made an unverified place claim. | Captions and alt now describe the visible oryx and rocky ground only. |
@@ -32,7 +32,7 @@ make no unsupported location or service claim.
 
 | Surface | Images reviewed | Decision |
 | --- | --- | --- |
-| Homepage | `01-hero-oryx`, `03-wood-rope-divider`, `careers-hero`, `home-research-bulletin`, `08-spa-dish`, `home-correspondence` | Retained. They respectively establish the oryx/ground motif, act as an abstract material transition, show a worktable for Practice, a research folio for Research, a spa arrangement for the named venture, and correspondence for the contact close. |
+| Homepage | `01-hero-oryx`, `03-wood-rope-divider`, `07-oryx-desert-divider`, `careers-hero`, `home-research-bulletin`, `08-spa-dish`, `home-correspondence` | Retained. They establish the oryx/ground motif, provide an abstract material transition, carry a location-neutral desert oryx divider, show a worktable for Practice, a research folio for Research, a spa arrangement for the named venture, and correspondence for the contact close. |
 | About | `25-about-desert`, `about-grounded-field` | Retained. Both are grounded oryx/landscape imagery; the inaccurate caption and location claim on the latter were corrected above. |
 | Research | `research-ground-table`, `24-research-field-notes`, `17-brass-calipers`, `research-ledger-detail` | Retained. The objects and divider support research, field notes, measurement and a research-ledger principle respectively. |
 | Practice | `04-notebook`, `23-practice-wrench` | Retained. The notebook and working-tool still lifes fit the section’s method and practical-work framing. |
@@ -56,17 +56,17 @@ make no unsupported location or service claim.
 
 ## Implementation notes
 
-- The local divider is a 16:9 crop of the selected Pexels photograph. It is
-  served from `public/images/kinfolk/core/07-sossusvlei-divider.jpg`, so the
-  published page does not depend on an external image CDN.
-- Pexels describes its licence at <https://www.pexels.com/license/>. At the
-  time of audit it allows website use and says attribution is not required.
-- The Sossusvlei divider intentionally uses an empty alt because it has no
+- The local divider is a generated 16:9 desert study, served from
+  `public/images/kinfolk/core/07-oryx-desert-divider.jpg`; the published page
+  does not depend on an external image CDN.
+- The image is a decorative brand treatment, not documentary imagery of
+  Sossusvlei or another named location.
+- The desert-oryx divider intentionally uses an empty alt because it has no
   informational content beyond the immediately visible page treatment.
 
 ## Verification
 
 After a production build, all 52 sitemap routes were rendered locally. Every
-image asset emitted by those pages returned HTTP 200; the new Sossusvlei image
-was present and the retired Windhoek divider was absent. Lint, TypeScript and
-the production build also passed.
+image asset emitted by those pages returned HTTP 200; the new desert-oryx image
+was present, while the retired Windhoek and Sossusvlei divider assets were
+absent. Lint, TypeScript and the production build also passed.
