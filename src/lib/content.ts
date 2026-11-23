@@ -3,7 +3,7 @@
  * Facts policy: every number carries its source inline. Nothing about
  * programmes, dates, fees, facilities or accreditation is asserted
  * beyond what the institute has publicly confirmed.
- * The images are the master package's own curated photographs. The
+ * The images are photographs from the master package. The
  * photographs stand on their own: no captions, no claims that a
  * picture is a photograph of the institute.
  */
