@@ -25,18 +25,17 @@ function Glyph({ name }: { name: "research" | "practice" | "ventures" }) {
  *   hero (scrub) · positioning (flow) ·
  *   03 silent divider (flow) · the three kinds of work (PIN) · what
  *   runs today (flow) · practice peak (PIN) · field notes (flow) ·
- *   research zigzag (flow) · ventures reverse-zigzag (flow) · Sossusvlei
+ *   research zigzag (flow) · ventures reverse-zigzag (flow) · oryx desert
  *   divider (flow) · the register (flow) · close (PIN) · footer.
  *
  * Three pins, two silent dividers. The core plates run in act order:
- * 01, 03, 05, 04 and 08; the second divider is the sourced Sossusvlei
- * photograph (the stone is the /brand specimen only, so the positioning
- * act carries no image).
+ * 01, 03, 05, 04 and 08; the second divider is a location-neutral desert
+ * study with an oryx (the stone is the /brand specimen only, so the
+ * positioning act carries no image).
  */
-/* A real Sossusvlei dune photograph by Fabio Riccobono, cropped locally
- * under the Pexels licence. The image-audit record keeps the source page,
- * author and licence alongside the location verification. */
-const sossusvleiDivider = "/images/kinfolk/core/07-sossusvlei-divider.jpg";
+/* A local, brand-aligned desert study with an oryx. It is decorative and
+ * does not claim to document a specific Namibian location. */
+const oryxDesertDivider = "/images/kinfolk/core/07-oryx-desert-divider.jpg";
 
 const copy = {
   en: {
@@ -467,21 +466,20 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Second silent divider: the Sossusvlei dunes, a real Namibian
-          landscape before the public register. It replaces the former
-          Windhoek skyline rather than using a city image as a generic
-          institutional texture. */}
+      {/* Second silent divider: an oryx moving through a restrained desert
+          study before the public register. It stays location-neutral rather
+          than using a city image or implying a specific place. */}
       <div
-        className="divider divider--full overflow-hidden"
+        className="divider divider--full divider--oryx overflow-hidden"
         data-sc-act="flow"
         aria-hidden="true"
       >
         <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
           <Image
-            src={sossusvleiDivider}
+            src={oryxDesertDivider}
             alt=""
-            width={1600}
-            height={900}
+            width={1376}
+            height={768}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />

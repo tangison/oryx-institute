@@ -1249,6 +1249,18 @@ body.menu-locked {
   object-fit: cover;
 }
 
+/* The desert-oryx divider needs enough horizontal field on a portrait screen
+   to keep the full animal in view. It is deliberately shorter than the other
+   full-screen divider below 48rem, avoiding the accidental close crop. */
+@media (max-width: 47.99rem) {
+  .divider--oryx {
+    height: min(58svh, 36rem);
+  }
+  .divider--oryx img {
+    object-position: 60% center;
+  }
+}
+
 /* Pinned peaks: the photograph full-bleed, the copy on a small
    cream block bottom left, large enough for the words and nothing
    else. */
