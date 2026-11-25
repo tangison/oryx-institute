@@ -3138,3 +3138,280 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
     max-width: 66rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Research proof folio · `/research`
+   A page-specific editorial sequence: a field table, held material rows,
+   an opening proof sheet, continuous notes and a final reply slip.
+   -------------------------------------------------------------------------- */
+
+.research-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: max(42rem, 100svh);
+  overflow: clip;
+  display: grid;
+  align-items: end;
+  padding-block: calc(var(--header-h) + 2rem) clamp(3rem, 7vh, 6rem);
+  background: var(--ink);
+}
+.research-hero__field,
+.research-hero__ledger,
+.research-hero__folio {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+}
+.research-hero__field {
+  z-index: -3;
+  inset: -7%;
+  opacity: 0.83;
+}
+.research-hero__field::after,
+.research-reply__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(20 21 16 / 0.47), rgb(20 21 16 / 0.06) 72%);
+}
+.research-hero__ledger {
+  z-index: -2;
+  top: 7%;
+  right: clamp(1rem, 7vw, 9rem);
+  width: min(35vw, 30rem);
+  height: min(48vh, 35rem);
+  border: 1px solid rgb(246 240 230 / 0.7);
+  opacity: 0.88;
+}
+.research-hero__folio {
+  z-index: -1;
+  right: clamp(-2rem, 4vw, 5rem);
+  bottom: clamp(2rem, 7vh, 7rem);
+  width: min(31vw, 27rem);
+  aspect-ratio: 1.34;
+  border: 1px solid rgb(246 240 230 / 0.86);
+}
+.research-hero__content {
+  position: relative;
+  z-index: 1;
+}
+.research-hero__paper {
+  width: min(100%, 38rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.research-hero__title {
+  max-width: 11ch;
+  margin-top: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 7vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+.research-hero__lede {
+  max-width: 34ch;
+  margin-top: 1.5rem;
+  color: var(--ink-60);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.55;
+}
+.research-question {
+  background: var(--paper);
+}
+.research-question__grid {
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+.research-question__steps {
+  counter-reset: research-steps;
+  border-top: 1px solid var(--rule);
+}
+.research-question__steps li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  padding-block: 1.35rem;
+  color: var(--ink-60);
+  line-height: 1.6;
+}
+.research-question__steps li::before {
+  counter-increment: research-steps;
+  content: "0" counter(research-steps);
+  color: var(--maroon);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+.research-question__steps span {
+  grid-column: 2;
+  color: var(--ink);
+  font-weight: 500;
+}
+.research-question__steps p {
+  grid-column: 2;
+}
+.research-materials {
+  position: relative;
+}
+.research-materials__media,
+.research-reply__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.research-materials__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(23 21 18 / 0.42);
+}
+.research-materials__content,
+.research-reply__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100%;
+  align-items: center;
+}
+.research-materials__panel {
+  position: relative;
+  width: min(100%, 42rem);
+  min-height: 19rem;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.research-materials__panel article {
+  margin-top: clamp(2.5rem, 5vh, 4rem);
+}
+.research-materials__panel article p {
+  max-width: 48ch;
+  margin-top: 1.2rem;
+  color: var(--ink-60);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.research-folio {
+  --research-folio-p: 0;
+  overflow: clip;
+  background: var(--paper-2);
+}
+.research-folio__grid {
+  display: grid;
+  gap: clamp(2.5rem, 8vw, 9rem);
+  align-items: center;
+}
+.research-folio__figure {
+  margin: 0;
+}
+.research-folio__paper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--white);
+}
+.research-folio__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.research-folio__leaf {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 50.5%;
+  background: linear-gradient(90deg, var(--paper) 0%, var(--white) 62%, var(--paper-2) 100%);
+  pointer-events: none;
+  transition: transform 100ms linear;
+}
+.research-folio__leaf--left {
+  left: 0;
+  transform: translateX(calc(var(--research-folio-p) * -102%));
+  border-right: 1px solid rgb(207 196 178 / 0.9);
+}
+.research-folio__leaf--right {
+  right: 0;
+  transform: translateX(calc(var(--research-folio-p) * 102%));
+  background: linear-gradient(90deg, var(--paper-2) 0%, var(--white) 38%, var(--paper) 100%);
+  border-left: 1px solid rgb(207 196 178 / 0.9);
+}
+.research-folio__copy {
+  max-width: 36rem;
+}
+.research-divider {
+  height: clamp(14rem, 31vw, 28rem);
+}
+.research-notes {
+  background: var(--paper);
+}
+.research-note:first-child {
+  border-top: 1px solid var(--rule);
+}
+.research-partners {
+  background: var(--paper-2);
+}
+.research-reply {
+  position: relative;
+}
+.research-reply__content {
+  justify-content: end;
+}
+.research-reply__slip {
+  width: min(100%, 38rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+@media (min-width: 48rem) {
+  .research-question__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    align-items: start;
+  }
+  .research-folio__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.7fr);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .research-hero {
+    min-height: 43rem;
+  }
+  .research-hero__field {
+    inset: -3%;
+  }
+  .research-hero__ledger {
+    display: none;
+  }
+  .research-hero__folio {
+    right: -2.5rem;
+    bottom: 2rem;
+    width: min(64vw, 21rem);
+    opacity: 0.65;
+  }
+  .research-hero__paper {
+    padding: 1.5rem;
+  }
+  .research-hero__title {
+    font-size: clamp(3rem, 15vw, 4.75rem);
+  }
+  .research-materials .sc-stage,
+  .research-reply .sc-stage {
+    height: auto;
+    min-height: 38rem;
+    padding-block: 5rem;
+  }
+  .research-folio__leaf {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-folio__leaf {
+    display: none;
+  }
+}
