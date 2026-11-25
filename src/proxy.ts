@@ -13,8 +13,8 @@ import { NextRequest, NextResponse } from "next/server";
  *    for agents and readers, but it is noindex and never advertised as
  *    an alternate of an indexable HTML page.
  * 3. The preview guard. Production hosts serve indexable pages; every
- *    other host (vercel.app aliases, preview deployments) is marked
- *    noindex so it cannot leak into search results. When the production
+ *    other deployment or preview host is marked noindex so it cannot
+ *    leak into search results. When the production
  *    domain changes, set the PRODUCTION_HOST environment variable.
  */
 

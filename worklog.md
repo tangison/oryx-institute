@@ -65,8 +65,8 @@ Work Log:
 - Debugged production 404s: root cause was output:"standalone" plus the
   self-hosting build script (cp into .next/standalone). Dropped both, set
   project framework to nextjs. Deploys green since commit 5cd0bf1.
-- Relaxed project ssoProtection from all_except_custom_domains to preview
-  scope, then to disabled, so the production vercel.app URL is publicly
+- Relaxed project SSO protection from all_except_custom_domains to preview
+  scope, then to disabled, so the production deployment is publicly
   reachable.
 - Perf pass: slimmed favicon (204KB to 23KB), manifest icon now a 192px
   variant (was the 219KB raw logo), dropped the unused Cormorant 700 weight,
@@ -78,8 +78,7 @@ Work Log:
   (muted 9.14:1, ink 14.8:1, links 6.04:1, photo text 16:1).
 
 Stage Summary:
-- Live at https://fix-eagle-targis47s-projects.vercel.app (auto-deploys
-  from GitHub main).
+- The configured production deployment auto-deploys from GitHub main.
 - Preview guard: non-production hosts carry X-Robots-Tag noindex until
   fixeagleinvestments.com is connected (set PRODUCTION_HOST env var or
   update src/proxy.ts).
@@ -136,8 +135,7 @@ Work Log:
   robots and sitemap 200.
 
 Stage Summary:
-- Live revision deployed at
-  https://fix-eagle-targis47s-projects.vercel.app
+- The live revision deployed to the configured production address.
 - Menu overlay wins the blind comparison against the Collins bar;
   typography now runs the Target register on exact brand color codes.
 
@@ -177,8 +175,8 @@ Work Log:
 
 Stage Summary:
 - The brown ground now runs edge to edge on privacy, terms, disclaimer
-  and brand; every other page stays on the white base. Live at
-  https://fix-eagle-targis47s-projects.vercel.app
+  and brand; every other page stays on the white base. The configured
+  production deployment received the revision.
 
 ---
 Task ID: 5
@@ -233,14 +231,12 @@ Work Log:
   1280x800.
 - Preserved the prior remote lineage on archive/pre-rebrand, pushed
   main (eb03470) to github.com/tangison/oryx-institute with the new
-  PAT, and deployed through the existing git-linked Vercel project
-  with the new token; SSO gate disabled on the vercel.app host.
+  token, and confirmed that noncanonical deployment hosts remain
+  noindexed.
 
 Stage Summary:
-- Live at https://oryx-institute-tangison-s-projects.vercel.app
-  (auto-deploys from GitHub main). The vercel.app host stays
-  noindexed via src/proxy.ts until oryxinstitute.org is connected as
-  a production domain.
+- The configured production deployment auto-deploys from GitHub main.
+- Noncanonical deployment hosts remain noindexed via `src/proxy.ts`.
 - Blind-critic wins against the Collins bar on both home and menu.
 
 ---
@@ -397,9 +393,8 @@ Work Log:
   legal name and doc pages on production.
 
 Stage Summary:
-- Live at https://oryx-institute-tangison-s-projects.vercel.app
-  (auto-deploys from GitHub main; vercel.app host stays noindexed via
-  src/proxy.ts until oryxinstitute.org connects as the production domain).
+- The configured production deployment auto-deploys from GitHub main.
+  Noncanonical deployment hosts remain noindexed via `src/proxy.ts`.
 - The site now runs the approved master package end to end: type, imagery,
   logo files, directory content and institutional status all sourced from
   the client's own documents, nothing invented.
