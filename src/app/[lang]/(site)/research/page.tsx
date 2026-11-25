@@ -235,14 +235,29 @@ export default async function ResearchPage({
                 <p className="ledger-date">{af ? "Papers" : "Papers"}</p>
                 <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
               </div>
-              <div className="ledger-row">
-                <p className="ledger-date">{af ? "Kom binnekort" : "Coming soon"}</p>
-                <div>
-                  <h2 className="h-sub">{t.publicationTitle}</h2>
-                  <p className="mt-2 max-w-[62ch] text-soft">{t.publicationBody}</p>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* A separate publication note keeps the forthcoming work visible without
+          naming a newspaper, magazine, print or digital format before it is set. */}
+      <section className="section" data-sc-act="flow">
+        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
+          <figure className="plate-fig" data-sc-in>
+            <Image
+              src="/images/editorial/research-publication-coming-soon.jpg"
+              alt="An unmarked folded cream publication mock-up, a pencil and maroon binding thread on a wooden table"
+              width={1376}
+              height={768}
+              sizes="(min-width: 768px) 24rem, 88vw"
+              className="h-auto w-full"
+            />
+          </figure>
+          <div data-sc-in>
+            <p className="eyebrow eyebrow--ink">{af ? "Kom binnekort" : "Coming soon"}</p>
+            <h2 className="h-section mt-3 max-w-[18ch]">{t.publicationTitle}</h2>
+            <p className="measure mt-6 text-soft">{t.publicationBody}</p>
           </div>
         </div>
       </section>
