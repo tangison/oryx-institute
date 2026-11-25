@@ -2,11 +2,11 @@ import Link from "next/link";
 import { OryxLogo } from "@/components/site/oryx-logo";
 import { chrome, langPath, type Lang } from "@/lib/i18n";
 import { footerNav, site } from "@/lib/site";
-import { navAf, siteAf } from "@/lib/site-af";
+import { navAf } from "@/lib/site-af";
 
 /**
  * The ink footer: the close of every page. Wordmark, the inline
- * sitemap, the founding line, the mailbox, the social channels as
+ * sitemap, the founding line, the contact routes, the social channels as
  * plain text, and one small studio credit. Nothing else. No outgoing
  * partner or studio links live here; the credit is plain text, not a
  * link.
@@ -70,7 +70,6 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             >
               {reviewLabel} <span className="arr" aria-hidden="true">→</span>
             </a>
-            <p className="foot-post">{af ? siteAf.postalAddressBox : site.postalAddress.postOfficeBox}</p>
             <p className="foot-phone">
               <a
                 href={site.phoneHref}

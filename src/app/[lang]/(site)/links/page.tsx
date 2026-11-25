@@ -201,7 +201,7 @@ export default async function LinksPage({
         </div>
       </section>
 
-      <main className="link-hub__main">
+      <div className="link-hub__main">
         <div className="shell">
           {sections.map((section) => (
             <section className="link-hub__section" key={section.id} data-sc-act="flow">
@@ -227,7 +227,7 @@ export default async function LinksPage({
             </div>
           </section>
         </div>
-      </main>
+      </div>
 
       <footer className="link-hub__footer">
         <div className="shell">
