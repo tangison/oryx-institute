@@ -120,8 +120,8 @@ export const site = {
      * pin.it URL exact until an approved profile URL is provided. */
     { label: "Pinterest", href: "https://pin.it/34CkR2oOi" },
   ] as { label: string; href: string }[],
-  /** The canonical serving domain. Vercel 308-redirects the apex to
-   * www, so every canonical, hreflang, sitemap and OG URL names the
+  /** The canonical serving domain. The apex redirects to www, so every
+   * canonical, hreflang, sitemap and OG URL names the
    * www host; otherwise crawlers see a site whose own map points at
    * a domain that never serves a page. */
   url: "https://www.oryxinstitute.org",
