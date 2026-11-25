@@ -42,6 +42,9 @@ const copy = {
       "Fieldwork notes will be published when fieldwork begins. Until then, the published research notes are available to read.",
     papersLede:
       "Cited papers will be published as the research programme produces them.",
+    publicationTitle: "A new Oryx publication is in development.",
+    publicationBody:
+      "We are working on it now. Its format and first release will be announced here.",
     quote: "Evidence should inform the next decision.",
     quoteMeta: "Oryx research principle",
     researchersBody:
@@ -81,6 +84,9 @@ const copy = {
       "Veldwerknotas sal gepubliseer word wanneer veldwerk begin. Tot dan is die gepubliseerde navorsingsnotas beskikbaar om te lees.",
     papersLede:
       "Aangehaalde studies sal verskyn namate die navorsingsprogram dit lewer.",
+    publicationTitle: "’n Nuwe Oryx-publikasie is in ontwikkeling.",
+    publicationBody:
+      "Ons werk nou daaraan. Die formaat en eerste vrystelling sal hier aangekondig word.",
     quote: "Bewyse behoort die volgende besluit te rig.",
     quoteMeta: "Oryx-navorsingsbeginsel",
     researchersBody:
@@ -199,8 +205,8 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The three streams, hairline rows, one by one, with the field
-          notes beside them: the work as it is actually kept. */}
+      {/* Research material in hairline rows, with field notes beside it:
+          the work as it is actually kept. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-12 lg:grid-cols-[minmax(0,20rem)_1.15fr] lg:items-start">
           <figure className="plate-fig" data-sc-reveal>
@@ -228,6 +234,13 @@ export default async function ResearchPage({
               <div className="ledger-row">
                 <p className="ledger-date">{af ? "Papers" : "Papers"}</p>
                 <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
+              </div>
+              <div className="ledger-row">
+                <p className="ledger-date">{af ? "Kom binnekort" : "Coming soon"}</p>
+                <div>
+                  <h2 className="h-sub">{t.publicationTitle}</h2>
+                  <p className="mt-2 max-w-[62ch] text-soft">{t.publicationBody}</p>
+                </div>
               </div>
             </div>
           </div>
