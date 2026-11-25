@@ -42,6 +42,9 @@ const copy = {
       "Fieldwork notes will be published when fieldwork begins. Until then, the published research notes are available to read.",
     papersLede:
       "Cited papers will be published as the research programme produces them.",
+    publicationTitle: "A new Oryx publication is in development.",
+    publicationBody:
+      "We are working on it now. Its format and first release will be announced here.",
     quote: "Evidence should inform the next decision.",
     quoteMeta: "Oryx research principle",
     researchersBody:
@@ -81,6 +84,9 @@ const copy = {
       "Veldwerknotas sal gepubliseer word wanneer veldwerk begin. Tot dan is die gepubliseerde navorsingsnotas beskikbaar om te lees.",
     papersLede:
       "Aangehaalde studies sal verskyn namate die navorsingsprogram dit lewer.",
+    publicationTitle: "’n Nuwe Oryx-publikasie is in ontwikkeling.",
+    publicationBody:
+      "Ons werk nou daaraan. Die formaat en eerste vrystelling sal hier aangekondig word.",
     quote: "Bewyse behoort die volgende besluit te rig.",
     quoteMeta: "Oryx-navorsingsbeginsel",
     researchersBody:
@@ -199,8 +205,8 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* The three streams, hairline rows, one by one, with the field
-          notes beside them: the work as it is actually kept. */}
+      {/* Research material in hairline rows, with field notes beside it:
+          the work as it is actually kept. */}
       <section className="section" data-sc-act="flow">
         <div className="shell grid gap-12 lg:grid-cols-[minmax(0,20rem)_1.15fr] lg:items-start">
           <figure className="plate-fig" data-sc-reveal>
@@ -230,6 +236,28 @@ export default async function ResearchPage({
                 <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* A separate publication note keeps the forthcoming work visible without
+          naming a newspaper, magazine, print or digital format before it is set. */}
+      <section className="section" data-sc-act="flow">
+        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
+          <figure className="plate-fig" data-sc-in>
+            <Image
+              src="/images/editorial/research-publication-coming-soon.jpg"
+              alt="An unmarked folded cream publication mock-up, a pencil and maroon binding thread on a wooden table"
+              width={1376}
+              height={768}
+              sizes="(min-width: 768px) 24rem, 88vw"
+              className="h-auto w-full"
+            />
+          </figure>
+          <div data-sc-in>
+            <p className="eyebrow eyebrow--ink">{af ? "Kom binnekort" : "Coming soon"}</p>
+            <h2 className="h-section mt-3 max-w-[18ch]">{t.publicationTitle}</h2>
+            <p className="measure mt-6 text-soft">{t.publicationBody}</p>
           </div>
         </div>
       </section>
