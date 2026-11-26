@@ -2051,6 +2051,45 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   background: var(--paper-2);
 }
 
+/* Corner Spa is a separate service. The frame does not exist until a
+   visitor chooses to load it; the same clear boundary appears on the
+   full-screen and inline entries. */
+.corner-spa-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: var(--paper);
+}
+.corner-spa-gate--inline {
+  position: static;
+  min-height: inherit;
+  height: 100%;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: var(--paper-2);
+}
+.corner-spa-gate__content {
+  width: min(100%, 38rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--rule);
+  background: var(--ivory);
+}
+.corner-spa-gate__note {
+  max-width: 48ch;
+  margin-top: 1rem;
+  color: var(--ink-60);
+  line-height: 1.6;
+}
+.corner-spa-gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
 /* -------------------------------------------------------------- */
 /* Corner Spa, full bleed: the frame is the page. The loader is an */
 /* ink screen with the lockup and the running oryx; the fallback   */

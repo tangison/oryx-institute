@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CornerSpaInlineFrame } from "@/components/site/corner-spa-embed";
 import { RouteArrowIcon } from "@/components/site/glyphs";
 import { site, schemaIds } from "@/lib/site";
 import { langFromParams } from "@/lib/i18n";
@@ -228,15 +229,8 @@ export default async function CornerSpaPage({
               {t.counterTitle}
             </p>
           </div>
-          <div className="spa-frame mt-10" data-sc-in>
-            <iframe
-              src={SPA_COUNTER}
-              title={t.counterTitle}
-              width={1200}
-              height={800}
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+          <div className="mt-10" data-sc-in>
+            <CornerSpaInlineFrame lang={lang} title={t.counterTitle} />
           </div>
           <p className="measure mt-5 text-sm text-soft">
             {t.counterNote}{" "}

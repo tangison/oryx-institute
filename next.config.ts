@@ -35,6 +35,27 @@ const nextConfig: NextConfig = {
   headers: () => [
     {
       source: "/:path*",
+      headers: [
+        /* The policy permits the one public cross-origin frame and the
+           framework's inline bootstraps. It intentionally grants no
+           browser permissions and prevents this site being framed by
+           another origin. HSTS belongs at the HTTPS production edge once
+           its domain and subdomain coverage are confirmed. */
+        {
+          key: "Content-Security-Policy",
+          value:
+            "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-src https://spa.mendozer.com; worker-src 'self' blob:",
+        },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        {
+          key: "Permissions-Policy",
+          value: "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+        },
+      ],
+    },
+    {
+      source: "/:path*",
       has: [
         {
           type: "host",

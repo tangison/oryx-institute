@@ -1,32 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { Lang } from "@/lib/i18n";
 
-/**
- * The Corner Spa frame, full bleed. One website serves the spa
- * (spa.mendozer.com); this component shows that one site fixed, inset
- * 0, no border and no chrome, so a visitor cannot tell they are on
- * another site. It is the same website, not a copy, so prices and
- * booking details are always identical wherever it is opened.
- *
- * Behaviour, exactly:
- * - A loading screen holds for at least 1.4 seconds: the Oryx lockup
- *   on the ink ground with the oryx running a dashed ground line. It
- *   fades out when the frame fires load.
- * - If nothing has loaded after ten seconds, a plain fallback link to
- *   spa.mendozer.com takes over, so nobody meets a blank screen.
- * - prefers-reduced-motion is respected: the runner stands still.
- * - The page never touches location or history: no hash changes, no
- *   pushed entries. One press of Back returns to the previous Oryx
- *   page.
- */
-
-const SPA_URL = "https://spa.mendozer.com/";
+/** The Corner Spa counter belongs to Mendozer's separate service. */
+export const CORNER_SPA_URL = "https://spa.mendozer.com/";
 const MIN_MS = 1400;
 const MAX_MS = 10000;
 
+type FrameGateProps = {
+  lang: Lang;
+  title: string;
+  onOpen: () => void;
+  inline?: boolean;
+};
+
 const copy = {
   en: {
+    external: "Corner Spa is served by Mendozer at spa.mendozer.com. Opening the counter loads that separate service.",
+    load: "Load the Corner Spa counter",
     opening: "Opening Corner Spa",
     failed: "Corner Spa did not load.",
     open: "Open spa.mendozer.com",
@@ -34,63 +26,97 @@ const copy = {
     read: "Read the note on Corner Spa",
   },
   af: {
+    external: "Corner Spa word deur Mendozer by spa.mendozer.com bedien. Wanneer jy die toonbank oopmaak, laai daardie afsonderlike diens.",
+    load: "Laai die Corner Spa-toonbank",
     opening: "Corner Spa maak oop",
     failed: "Corner Spa het nie gelaai nie.",
     open: "Maak spa.mendozer.com oop",
     note: "Druk een keer Terug om na die Oryx-webwerf terug te keer.",
     read: "Lees die nota oor Corner Spa",
-    enLedger: { paras: [] as string[] },
   },
 } as const;
 
-export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "af" }) {
-  /** loading: the loader is up. ready: the frame fired load and the
-   * loader has faded. failed: nothing loaded inside ten seconds. */
+function FrameGate({ lang, title, onOpen, inline = false }: FrameGateProps) {
+  const t = copy[lang];
+  return (
+    <div className={inline ? "corner-spa-gate corner-spa-gate--inline" : "corner-spa-gate"}>
+      <div className="corner-spa-gate__content">
+        <p className="eyebrow eyebrow--ink">{title}</p>
+        <p className="corner-spa-gate__note">{t.external}</p>
+        <div className="corner-spa-gate__actions">
+          <button type="button" className="btn" onClick={onOpen}>
+            {t.load}
+          </button>
+          <a
+            href={CORNER_SPA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn--quiet"
+          >
+            {t.open} <span className="arr" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * A deliberate, visitor-controlled entry into the separate Corner Spa
+ * service. Nothing from spa.mendozer.com loads until the visitor chooses
+ * the counter or its direct address. Once opened, the original loader and
+ * failure route remain in place.
+ */
+export function CornerSpaEmbed({ lang = "en" }: { lang?: Lang }) {
+  const [active, setActive] = useState(false);
   const [phase, setPhase] = useState<"loading" | "ready" | "failed">("loading");
   const mountedAt = useRef(0);
   const t = copy[lang];
 
-  useEffect(() => {
+  const activate = () => {
+    delete (window as typeof window & { __spaFrameLoaded?: boolean }).__spaFrameLoaded;
     mountedAt.current = Date.now();
+    setPhase("loading");
+    setActive(true);
+  };
+
+  useEffect(() => {
+    if (!active) return;
     const failTimer = window.setTimeout(() => {
-      setPhase((p) => (p === "loading" ? "failed" : p));
+      setPhase((current) => (current === "loading" ? "failed" : current));
     }, MAX_MS);
     return () => window.clearTimeout(failTimer);
-  }, []);
+  }, [active]);
 
   const reveal = () => {
-    // Hold the loader for its minimum beat, then fade it out.
     const wait = Math.max(0, MIN_MS - (Date.now() - mountedAt.current));
     window.setTimeout(() => setPhase("ready"), wait);
   };
 
   useEffect(() => {
-    // The frame may finish loading before React hydrates and attaches
-    // onLoad. The parse-time listener beside the iframe (see the inline
-    // script below) flips a flag the moment load fires; if it has
-    // already fired by the time we mount, reveal now.
-    if ((window as unknown as { __spaFrameLoaded?: boolean }).__spaFrameLoaded) {
+    if (!active) return;
+    if ((window as typeof window & { __spaFrameLoaded?: boolean }).__spaFrameLoaded) {
       reveal();
     }
-    }, []);
+  }, [active]);
 
-  const onFrameLoad = reveal;
+  if (!active) {
+    return <FrameGate lang={lang} title="Corner Spa" onOpen={activate} />;
+  }
 
   return (
     <>
       <iframe
-        src={SPA_URL}
+        src={CORNER_SPA_URL}
         title="Corner Spa"
-        onLoad={onFrameLoad}
+        onLoad={reveal}
         referrerPolicy="strict-origin-when-cross-origin"
-        allow="clipboard-write"
         loading="eager"
         className="corner-spa-frame"
       />
-      {/* Parse-time listener: the iframe starts loading as soon as the
-          HTML is parsed, long before React hydrates. This script sits
-          beside it and records the load the moment it fires, so the
-          loader can never miss a fast frame. */}
+      {/* Parse-time listener: the frame starts loading before React may
+          attach onLoad. The flag lets the client effect reveal a cached
+          counter rather than holding the loading screen. */}
       <script
         dangerouslySetInnerHTML={{
           __html:
@@ -148,7 +174,7 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "af" }) {
         <div className="corner-spa-fail">
           <p className="corner-spa-fail-line">{t.failed}</p>
           <a
-            href={SPA_URL}
+            href={CORNER_SPA_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="corner-spa-fail-link"
@@ -165,6 +191,33 @@ export function CornerSpaEmbed({ lang = "en" }: { lang?: "en" | "af" }) {
         </div>
       ) : null}
     </>
+  );
+}
+
+/** The inline venture page uses the same visitor-controlled boundary. */
+export function CornerSpaInlineFrame({
+  lang,
+  title,
+}: {
+  lang: Lang;
+  title: string;
+}) {
+  const [active, setActive] = useState(false);
+  return (
+    <div className="spa-frame">
+      {active ? (
+        <iframe
+          src={CORNER_SPA_URL}
+          title={title}
+          width={1200}
+          height={800}
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      ) : (
+        <FrameGate lang={lang} title={title} onOpen={() => setActive(true)} inline />
+      )}
+    </div>
   );
 }
 
