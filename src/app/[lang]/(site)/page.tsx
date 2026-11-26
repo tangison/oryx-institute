@@ -366,7 +366,6 @@ export default async function HomePage({
               height={768}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
-              loading="eager"
             />
           </div>
           <div className="peak-scrim" data-sc-scrim>
@@ -387,7 +386,6 @@ export default async function HomePage({
               height={848}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
-              loading="eager"
             />
           </figure>
           <div>
@@ -434,7 +432,6 @@ export default async function HomePage({
               height={1000}
               sizes="(min-width: 768px) 24rem, 88vw"
               className="h-auto w-full"
-              loading="eager"
             />
           </figure>
           <div className="md:order-1">

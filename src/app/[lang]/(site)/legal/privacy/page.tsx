@@ -24,7 +24,10 @@ function sections(lang: "en" | "af"): LegalSection[] {
       },
       {
         h: "Waarom ons dit gebruik",
-        body: ["Om jou navraag te lees en te beantwoord, die volgende stap te reël, en rekords te hou waar dit nodig is. Vir werwing gebruik ons aansoek-inligting om die rolpasvorm te oorweeg, die proses te bestuur en met jou te kommunikeer. Ons verkoop, verhuur of verhandel nie persoonlike inligting nie. Hierdie webwerf gebruik nie advertensie- of derdeparty-nasporing nie."],
+        body: [
+          "Om jou navraag te lees en te beantwoord, die volgende stap te reël, en rekords te hou waar dit nodig is. Vir werwing gebruik ons aansoek-inligting om die rolpasvorm te oorweeg, die proses te bestuur en met jou te kommunikeer. Ons verkoop, verhuur of verhandel nie persoonlike inligting nie. Die Oryx-webwerf gebruik nie advertensie- of derdeparty-nasporing in sy eie bladsye nie.",
+          "Corner Spa se toonbank is ’n afsonderlike diens wat deur Mendozer by spa.mendozer.com bedien word. Dit laai eers wanneer jy kies om dit oop te maak. Sodra jy dit oopmaak, geld daardie diens se eie hantering van inligting.",
+        ],
       },
       {
         h: "Wie dit sien",
@@ -64,7 +67,10 @@ function sections(lang: "en" | "af"): LegalSection[] {
     },
     {
       h: "Why we use it",
-      body: ["To read and answer your enquiry, arrange what follows, and keep records where that is required. For recruitment, we use application information to consider role fit, administer the process and communicate with you. We do not sell, rent or trade personal information. This site runs no advertising or third-party tracking."],
+      body: [
+        "To read and answer your enquiry, arrange what follows, and keep records where that is required. For recruitment, we use application information to consider role fit, administer the process and communicate with you. We do not sell, rent or trade personal information. The Oryx website runs no advertising or third-party tracking on its own pages.",
+        "The Corner Spa counter is a separate service served by Mendozer at spa.mendozer.com. It loads only when you choose to open it. Once opened, that service applies its own information handling.",
+      ],
     },
     {
       h: "Who sees it",

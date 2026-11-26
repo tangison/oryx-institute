@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PageHead } from "@/components/site/page-head";
+import { ResearchFolio } from "@/components/site/research-folio";
 import { offers, partners, site, schemaIds } from "@/lib/site";
 import { offersAf, partnersAf, siteAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
-import { langFromParams } from "@/lib/i18n";
+import { chrome, langFromParams } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
-import { chrome } from "@/lib/i18n";
 
 const copy = {
   en: {
@@ -19,13 +18,15 @@ const copy = {
       ogDescription:
         "Oryx takes on market research and publishes sourced notes for Namibian decisions.",
     },
+    researchLabel: "Research",
     head: {
       title: "Research starts now.",
       lede: "Oryx takes on market-research engagements and publishes notes with their sources.",
     },
+    heroFolioAlt:
+      "An unmarked folded cream publication mock-up, a pencil and maroon binding thread on a wooden table",
     hireTitle: "Market research for a defined question.",
     bring: "Bring a Market R&D problem",
-    whatRuns: "See the Practice",
     how: [
       { k: "The question", v: "The question is written down before a method is discussed." },
       { k: "The evidence", v: "The work identifies the relevant evidence and its sources." },
@@ -36,21 +37,18 @@ const copy = {
       "Published notes show how the work was done and name the sources behind each figure.",
     notesIntro:
       "The notes below are published in English. Each identifies its sources and provides a route to report a correction.",
-    read: "Read",
-    readNotes: "Read the research notes",
     fieldLede:
       "Fieldwork notes will be published when fieldwork begins. Until then, the published research notes are available to read.",
     papersLede:
       "Cited papers will be published as the research programme produces them.",
+    publicationEyebrow: "Coming soon",
     publicationTitle: "A new Oryx publication is in development.",
     publicationBody:
       "We are working on it now. Its format and first release will be announced here.",
-    quote: "Evidence should inform the next decision.",
-    quoteMeta: "Oryx research principle",
-    researchersBody:
-      "Oryx publishes research in its office voice. Contributors are named with their work and permission.",
     partnersBody:
       "Technical and venture collaborations are named for the work they support.",
+    replyEyebrow: "Research office",
+    replyTitle: "Bring a question that needs an answer.",
   },
   af: {
     meta: {
@@ -61,13 +59,15 @@ const copy = {
       ogDescription:
         "Oryx neem marknavorsing aan en publiseer notas met bronne vir Namibiese besluite.",
     },
+    researchLabel: "Navorsing",
     head: {
       title: "Navorsing begin nou.",
       lede: "Oryx neem marknavorsingsopdragte aan en publiseer notas met hul bronne.",
     },
+    heroFolioAlt:
+      "’n Ongemerkte gevoude roomkleurige publikasieproef, ’n potlood en maroen binddraad op ’n houttafel",
     hireTitle: "Marknavorsing vir ’n duidelike vraag.",
     bring: "Bring 'n marknavorsingsvraag",
-    whatRuns: "Sien die praktyk",
     how: [
       { k: "Die vraag", v: "Die vraag word neergeskryf voordat ’n metode bespreek word." },
       { k: "Die bewyse", v: "Die werk bepaal die toepaslike bewyse en hul bronne." },
@@ -78,22 +78,18 @@ const copy = {
       "Gepubliseerde notas wys hoe die werk gedoen is en noem die bronne agter elke syfer.",
     notesIntro:
       "Elke nota noem sy bronne en bied ’n roete om ’n fout te rapporteer.",
-    read: "Lees",
-    readNotes: "Lees die navorsingsnotas",
     fieldLede:
       "Veldwerknotas sal gepubliseer word wanneer veldwerk begin. Tot dan is die gepubliseerde navorsingsnotas beskikbaar om te lees.",
     papersLede:
       "Aangehaalde studies sal verskyn namate die navorsingsprogram dit lewer.",
+    publicationEyebrow: "Kom binnekort",
     publicationTitle: "’n Nuwe Oryx-publikasie is in ontwikkeling.",
     publicationBody:
       "Ons werk nou daaraan. Die formaat en eerste vrystelling sal hier aangekondig word.",
-    quote: "Bewyse behoort die volgende besluit te rig.",
-    quoteMeta: "Oryx-navorsingsbeginsel",
-    researchersBody:
-      "Oryx publiseer navorsing in sy kantoorstem. Bydraers word met hul werk en toestemming genoem.",
     partnersBody:
       "Tegniese en ondernemingverhoudings word genoem vir die werk wat dit ondersteun.",
-    enLedger: { paras: [] as string[] },
+    replyEyebrow: "Navorsingskantoor",
+    replyTitle: "Bring ’n vraag wat beantwoord moet word.",
   },
 } as const;
 
@@ -137,7 +133,7 @@ export default async function ResearchPage({
     isPartOf: { "@type": "WebSite", "@id": schemaIds.website },
     about: {
       "@type": "Service",
-      name: af ? "Market research and development" : "Market research and development",
+      name: "Market research and development",
       provider: {
         "@type": "EducationalOrganization",
         "@id": schemaIds.org,
@@ -154,121 +150,115 @@ export default async function ResearchPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHead title={t.head.title}>
-        <p>{t.head.lede}</p>
-      </PageHead>
-
-      {/* The hero plate: a dedicated fieldwork arrangement, full measure,
-          drifting at a gentle rate. Research starts with method, not a
-          reused brand specimen. */}
-      <section className="section-sm" data-sc-act="scrub">
-        <div className="shell" data-sc-in>
-          <figure className="plate-fig" data-sc-parallax="0.18">
-            <Image
-              src="/images/editorial/research-ground-table.jpg"
-              alt="Calipers, a stone sample, a pencil and a blank card on a weathered outdoor worktable"
-              width={1264}
-              height={848}
-              sizes="(min-width: 1024px) 56rem, 92vw"
-              className="h-auto w-full"
-              priority
-            />
-          </figure>
+      {/* Three photographic planes make the research opening tangible: field
+          table behind, ledger detail in the middle and a paper folio in front.
+          The title sits on its own local sheet, never a full-frame dark wash. */}
+      <section className="research-hero" data-sc-act="scrub">
+        <div className="research-hero__field" data-sc-parallax="0.24" aria-hidden="true">
+          <Image
+            src="/images/editorial/research-ground-table.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="research-hero__ledger" data-sc-parallax="-0.12" aria-hidden="true">
+          <Image
+            src="/images/editorial/research-ledger-detail.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 768px) 42vw, 0px"
+            className="object-cover"
+          />
+        </div>
+        <div className="research-hero__folio" data-sc-parallax="0.08" aria-hidden="true">
+          <Image
+            src="/images/editorial/research-publication-coming-soon.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 768px) 34vw, 68vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="shell research-hero__content">
+          <div className="research-hero__paper" data-sc-in>
+            <p className="eyebrow eyebrow--ink">{t.researchLabel}</p>
+            <h1 className="research-hero__title">{t.head.title}</h1>
+            <p className="research-hero__lede">{t.head.lede}</p>
+            <Link href={A("/apply")} className="btn mt-8">
+              {t.bring} <span className="arr" aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* For hire, the market side of the desk */}
-      <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
-          <div data-sc-in data-sc-stagger="70">
+      {/* A concise method chapter before the held material act. */}
+      <section className="research-question section" data-sc-act="flow">
+        <div className="shell research-question__grid">
+          <div data-sc-reveal>
             <h2 className="h-section max-w-[20ch]">{t.hireTitle}</h2>
             <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
-            <div className="mt-8 flex flex-wrap gap-5">
-              <Link href={A("/apply")} className="btn">
-                {t.bring}
-              </Link>
-              <Link href={A("/practice")} className="btn--quiet">
-                {t.whatRuns} <span className="arr" aria-hidden="true">→</span>
-              </Link>
-            </div>
+            <Link href={A("/apply")} className="btn mt-8">
+              {t.bring} <span className="arr" aria-hidden="true">→</span>
+            </Link>
           </div>
-
-          <div className="panel p-8 md:p-10" data-sc-in>
-            <ol className="grid gap-5 text-[0.98rem] leading-relaxed text-soft">
-              {t.how.map((h) => (
-                <li key={h.k}>
-                  <span className="font-[500] text-ink">{h.k}</span> {h.v}
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ol className="research-question__steps" data-sc-in data-sc-stagger="100">
+            {t.how.map((h) => (
+              <li key={h.k}>
+                <span>{h.k}</span>
+                <p>{h.v}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Research material in hairline rows, with field notes beside it:
-          the work as it is actually kept. */}
-      <section className="section" data-sc-act="flow">
-        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,20rem)_1.15fr] lg:items-start">
-          <figure className="plate-fig" data-sc-reveal>
+      {/* Each row gets a held reading moment. Without motion, the same rows
+          remain in ordinary document flow over the field-note image. */}
+      <section className="research-materials" data-sc-act="pin" data-sc-span="2">
+        <div className="sc-stage" data-sc-stage>
+          <div className="research-materials__media" data-sc-scale aria-hidden="true">
             <Image
               src="/images/kinfolk/inner/24-research-field-notes.jpg"
-              alt="A spread of handwritten field notes with a pencil, centred on cream"
-              width={1254}
-              height={1254}
-              sizes="(min-width: 1024px) 20rem, 88vw"
-              className="h-auto w-full"
-              loading="eager"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
-          </figure>
-          <div>
-            <p className="eyebrow eyebrow--ink">{t.streamsEyebrow}</p>
-            <div className="ledger mt-8" data-sc-in data-sc-stagger="80">
-              <div className="ledger-row">
-                <p className="ledger-date">{af ? "Notas" : "Notes"}</p>
-                <p className="max-w-[62ch] text-soft">{t.notesBody}</p>
-              </div>
-              <div className="ledger-row">
-                <p className="ledger-date">{af ? "Fieldwork" : "Fieldwork"}</p>
-                <p className="max-w-[62ch] text-soft">{t.fieldLede}</p>
-              </div>
-              <div className="ledger-row">
-                <p className="ledger-date">{af ? "Papers" : "Papers"}</p>
-                <p className="max-w-[62ch] text-soft">{t.papersLede}</p>
-              </div>
+          </div>
+          <div className="shell research-materials__content">
+            <div className="research-materials__panel" data-sc-rows>
+              <p className="eyebrow eyebrow--ink">{t.streamsEyebrow}</p>
+              <article data-sc-row>
+                <h2 className="h-section">{af ? "Notas" : "Notes"}</h2>
+                <p>{t.notesBody}</p>
+              </article>
+              <article data-sc-row>
+                <h2 className="h-section">{af ? "Veldwerk" : "Fieldwork"}</h2>
+                <p>{t.fieldLede}</p>
+              </article>
+              <article data-sc-row>
+                <h2 className="h-section">{af ? "Studie" : "Papers"}</h2>
+                <p>{t.papersLede}</p>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      {/* A separate publication note keeps the forthcoming work visible without
-          naming a newspaper, magazine, print or digital format before it is set. */}
-      <section className="section" data-sc-act="flow">
-        <div className="shell grid items-center gap-12 md:grid-cols-[minmax(0,24rem)_1fr] md:gap-16 lg:gap-24">
-          <figure className="plate-fig" data-sc-in>
-            <Image
-              src="/images/editorial/research-publication-coming-soon.jpg"
-              alt="An unmarked folded cream publication mock-up, a pencil and maroon binding thread on a wooden table"
-              width={1376}
-              height={768}
-              sizes="(min-width: 768px) 24rem, 88vw"
-              className="h-auto w-full"
-            />
-          </figure>
-          <div data-sc-in>
-            <p className="eyebrow eyebrow--ink">{af ? "Kom binnekort" : "Coming soon"}</p>
-            <h2 className="h-section mt-3 max-w-[18ch]">{t.publicationTitle}</h2>
-            <p className="measure mt-6 text-soft">{t.publicationBody}</p>
-          </div>
-        </div>
-      </section>
+      <ResearchFolio
+        eyebrow={t.publicationEyebrow}
+        title={t.publicationTitle}
+        body={t.publicationBody}
+        alt={t.heroFolioAlt}
+      />
 
-      {/* Mid-page breath: a single caliper detail, no text or overlay. */}
-      <div
-        className="divider divider--full overflow-hidden"
-        data-sc-act="flow"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-[-10%]" data-sc-parallax="0.6">
+      {/* A material cut before the dated work. It carries no information beyond
+          the page rhythm, so it remains hidden from assistive technology. */}
+      <div className="divider research-divider overflow-hidden" data-sc-act="flow" aria-hidden="true">
+        <div className="absolute inset-[-10%]" data-sc-parallax="0.45">
           <Image
             src="/images/kinfolk/inner/17-brass-calipers.jpg"
             alt=""
@@ -280,47 +270,10 @@ export default async function ResearchPage({
         </div>
       </div>
 
-      {/* The peak: a research principle, held over a field-ledger plate. */}
-      <section
-        className="peak"
-        data-sc-act="pin"
-        data-sc-span="2"
-      >
-        <div className="sc-stage" data-sc-stage>
-          <div className="peak-media" data-sc-scale aria-hidden="true">
-            <Image
-              src="/images/editorial/research-ledger-detail.jpg"
-              alt=""
-              width={1264}
-              height={848}
-              sizes="100vw"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          <div className="shell flex h-full flex-col justify-center py-24">
-            <figure data-sc-scrim>
-              <blockquote className="pull-quote max-w-[24ch]">
-                {t.quote}
-              </blockquote>
-              <figcaption className="meta mt-8">{t.quoteMeta}</figcaption>
-              <Link
-                href={A("/research#notes")}
-                className="btn--quiet mt-8"
-              >
-                {t.readNotes}{" "}
-                <span className="arr" aria-hidden="true">→</span>
-              </Link>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* Published research notes live with the research programme, not
-          inside a separate resource library. They remain English-first,
-          with the Afrikaans page making that visible. */}
-      <section className="section" id="notes" data-sc-act="flow">
+      {/* Dated notes stay in continuous, unpinned reading order. */}
+      <section className="research-notes section" id="notes" data-sc-act="flow">
         <div className="shell">
-          <div className="hair-t pt-14">
+          <div className="research-notes__intro hair-t pt-14">
             <p className="measure text-soft">
               {af ? `${chrome.af.researchNotesInEnglish} ${t.notesIntro}` : t.notesIntro}
             </p>
@@ -330,7 +283,7 @@ export default async function ResearchPage({
               <article
                 id={`note-${a.id}`}
                 key={a.id}
-                className="hair-t grid gap-8 pt-10 scroll-mt-28 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16"
+                className="research-note hair-t grid gap-8 pt-10 scroll-mt-28 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16"
                 data-sc-in
               >
                 <div>
@@ -358,12 +311,9 @@ export default async function ResearchPage({
         </div>
       </section>
 
-      {/* Partners: named in text, carried as prose rows. The marks
-          are gone: the credit is a line, not a logo
-          (CONTENT-CORRECTIONS §5). */}
-      <section className="section" data-sc-act="flow">
+      <section className="research-partners section" data-sc-act="flow">
         <div className="shell">
-          <div className="hair-t pt-14">
+          <div className="hair-t pt-14" data-sc-in>
             <p className="measure text-soft">{t.partnersBody}</p>
           </div>
           <div className="ledger mt-12" data-sc-in data-sc-stagger="80">
@@ -377,29 +327,34 @@ export default async function ResearchPage({
               </div>
             ))}
           </div>
-          <div className="hair-t mt-16 pt-10" data-sc-in>
-            <Link href={A("/research#notes")} className="btn--quiet">
-              {t.readNotes} <span className="arr" aria-hidden="true">→</span>
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* The English original, printed beneath the Afrikaans page. */}
-      {false && (
-        <section className="section" data-sc-act="flow">
-          <div className="shell">
-            <div className="hair-t pt-14" data-sc-in>
-              <p className="eyebrow eyebrow--ink">Engelse oorspronklike · The English original</p>
-              <div className="measure mt-5 space-y-5 text-soft" lang="en">
-                {copy.af.enLedger.paras.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+      {/* The reply slip resolves the page around the same factual action used
+          at entry. It is a close, not a second offer or a false contact form. */}
+      <section className="research-reply" data-sc-act="pin" data-sc-span="1.8">
+        <div className="sc-stage" data-sc-stage>
+          <div className="research-reply__media" data-sc-scale aria-hidden="true">
+            <Image
+              src="/images/editorial/research-ledger-detail.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="shell research-reply__content">
+            <div className="research-reply__slip" data-sc-scrim>
+              <p className="eyebrow eyebrow--ink">{t.replyEyebrow}</p>
+              <h2 className="h-section mt-3 max-w-[18ch]">{t.replyTitle}</h2>
+              <p className="measure mt-6 text-soft">{marketRnD?.body}</p>
+              <Link href={A("/apply")} className="btn mt-8">
+                {t.bring} <span className="arr" aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
     </>
   );
 }

@@ -41,9 +41,10 @@ export function SiteHeader({ lang }: { lang: Lang }) {
         id="site-menu-toggle"
         className="menu-toggle sr-only"
         /* No aria-label: the visible label word is the accessible
-           name, so it always matches what is on screen. */
+           name, so it always matches what is on screen. The client
+           behaviour writes aria-expanded only after it can keep the
+           disclosure state in sync. */
         aria-controls="site-menu-panel"
-        aria-expanded="false"
       />
 
       <div className="header-bar">

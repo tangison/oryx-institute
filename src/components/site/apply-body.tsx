@@ -182,8 +182,7 @@ export function ApplyBody({ lang }: { lang: Lang }) {
                 height={848}
                 sizes="(min-width: 1024px) 15rem, 60vw"
                 className="h-auto w-full"
-                loading="eager"
-              />
+                />
             </figure>
             <div className="hair-t pt-8">
               <p className="eyebrow eyebrow--ink">{t.dataEyebrow}</p>
