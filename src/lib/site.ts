@@ -75,8 +75,13 @@ export const site = {
    * enrolment route or approval, and this wording does not assert property
    * control, premises approval or a completed takeover. */
   plannedCampus:
-    "Oryx identifies Untag Guesthouse as a planned future hospitality-focused site. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
-  plannedCampusMapUrl: "https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic",
+    "Oryx identifies the Untag Guest House location recorded by the Visit Namibia directory — Omatando Village on the Okatana–Onamutyi Road in Oshana — as a planned future hospitality-focused site. The site is not open. Hospitality, tour guiding, safety and administration are possible future areas only; Oryx does not currently offer courses, enrolment, qualifications or accredited programmes there.",
+  /** The directory names a guesthouse telephone. It is not an Oryx contact,
+   * booking route, ownership statement or confirmation of current operation. */
+  plannedCampusDirectoryPhone: "+264 81 351 8982",
+  plannedCampusDirectoryUrl: "https://visitnamibia.com.na/directory/untag_guest_house/",
+  plannedCampusMapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Untag%20Guest%20House%2C%20Omatando%20Village%2C%20Okatana-Onamutyi%20Road%2C%20Oshana%2C%20Namibia",
   /** The one public mailbox. Enquiries, partnerships and press
      * correspondence start here unless a dedicated public channel is
      * published later. */
@@ -167,7 +172,7 @@ export const linkHub = {
     { id: "ventures", href: "/ventures" },
     { id: "corner-spa", href: "/corner-spa" },
     { id: "register", href: "/register" },
-    { id: "planned-campus-site", href: site.plannedCampusMapUrl, external: true },
+    { id: "planned-campus-site", href: site.plannedCampusDirectoryUrl, external: true },
   ],
   utility: [
     { id: "about", href: "/about" },

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { LANGS, langPath, type Lang } from "@/lib/i18n";
 import { blogPosts } from "@/lib/blog";
-import { careerRoles } from "@/lib/careers";
+import { careerRoles, hasOpenVacancies } from "@/lib/careers";
 
 type SitemapPage = {
   path: string;
@@ -16,6 +16,8 @@ type SitemapPage = {
 };
 
 function careerRolePaths(): SitemapPage[] {
+  if (!hasOpenVacancies) return [];
+
   return careerRoles.map((role) => ({
     path: `/careers/${role.slug}`,
     priority: 0.7,

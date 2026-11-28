@@ -48,8 +48,11 @@ const copy = {
       now: "Working now",
       next: "In development",
       noSite: "Future sites are not open campuses. Details are published only when they are formally confirmed.",
-      plannedCampus: "Untag Guesthouse · a planned future hospitality-focused site",
-      plannedCampusMap: "Open location reference",
+      plannedCampus: "Untag Guest House · a planned future hospitality-focused site",
+      plannedCampusLocation: "Directory location: Omatando Village, Okatana–Onamutyi Road, Oshana Region.",
+      plannedCampusTelephone: "Directory-listed telephone: +264 81 351 8982. It is not an Oryx contact or booking route.",
+      plannedCampusDirectory: "View Visit Namibia directory record",
+      plannedCampusMap: "Search location in Google Maps",
       cornerSpa: "Corner Spa is the first operating venture, working with Mendozer in Windhoek.",
       imageCaption: "The animal named in the institute’s mark, held in its own ground.",
     },
@@ -105,8 +108,11 @@ const copy = {
       now: "Werk nou",
       next: "In ontwikkeling",
       noSite: "Toekomstige terreine is nie oop kampusse nie. Besonderhede word eers gepubliseer wanneer dit formeel bevestig is.",
-      plannedCampus: "Untag Guesthouse · ’n beplande toekomstige terrein met ’n gasvryheidsfokus",
-      plannedCampusMap: "Open liggingverwysing",
+      plannedCampus: "Untag Guest House · ’n beplande toekomstige terrein met ’n gasvryheidsfokus",
+      plannedCampusLocation: "Gidsligging: Omatando Village, Okatana–Onamutyi-pad, Oshana-streek.",
+      plannedCampusTelephone: "Telefoon in die gids: +264 81 351 8982. Dit is nie ’n Oryx-kontak- of besprekingsroete nie.",
+      plannedCampusDirectory: "Bekyk Visit Namibia se gidsrekord",
+      plannedCampusMap: "Soek ligging in Google Maps",
       cornerSpa: "Corner Spa is die eerste bedrywige onderneming, saam met Mendozer in Windhoek.",
       imageCaption: "Die dier in die instituut se merk, op eie grond.",
     },
@@ -268,14 +274,26 @@ export default async function AboutPage({
                 <div className="ledger-row">
                   <h3 className="h-sub">{t.nowNext.plannedCampus}</h3>
                   <p className="text-soft">{plannedCampus}</p>
-                  <a
-                    href={site.plannedCampusMapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-type"
-                  >
-                    {t.nowNext.plannedCampusMap} <span className="arr" aria-hidden="true">→</span>
-                  </a>
+                  <p className="mt-4 text-soft">{t.nowNext.plannedCampusLocation}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-soft">{t.nowNext.plannedCampusTelephone}</p>
+                  <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+                    <a
+                      href={site.plannedCampusDirectoryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-type"
+                    >
+                      {t.nowNext.plannedCampusDirectory} <span className="arr" aria-hidden="true">→</span>
+                    </a>
+                    <a
+                      href={site.plannedCampusMapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-type"
+                    >
+                      {t.nowNext.plannedCampusMap} <span className="arr" aria-hidden="true">→</span>
+                    </a>
+                  </div>
                 </div>
               </div>
               <p className="about-status__note">{t.nowNext.noSite}</p>

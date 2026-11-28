@@ -6,13 +6,21 @@ import type { Lang } from "@/lib/i18n";
  * it is never a claim that Oryx currently offers a course, accreditation,
  * NQF credit, enrolment or a public campus.
  */
+/**
+ * One publication switch controls every recruitment surface.  Keep a closed
+ * campaign out of navigation emphasis, home-page promotion, search and the
+ * sitemap as well as off the careers page itself.
+ */
 export const recruitment = {
+  status: "closed" as "open" | "closed",
   email: "vacancies@oryxinstitute.org",
   location: "Ongwediva, Namibia",
   closesAt: "2026-11-27T23:59:00+02:00",
   timeZone: "Africa/Windhoek",
   timeZoneLabel: "CAT (UTC+2)",
 } as const;
+
+export const hasOpenVacancies = recruitment.status === "open";
 
 export type CareerRoleGroup =
   | "operations"

@@ -6,7 +6,6 @@ import { siteAf, offersAf, registerAf, venturesAf } from "@/lib/site-af";
 import { insights } from "@/lib/content";
 import { chrome, langFromParams } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
-import { CareersPopup } from "@/components/site/careers-popup";
 import {
   GlyphResearch,
   GlyphPractice,
@@ -200,8 +199,6 @@ export default async function HomePage({
 
   return (
     <>
-      <CareersPopup lang={lang} />
-
       {/* Hero: the oryx on the terracotta field, three planes moving at
           three rates. The photograph breathes at its own depth; the
           nameplate recedes a hair; the line beneath it drifts. */}

@@ -14,6 +14,7 @@ import {
   formatRecruitmentDeadline,
   getCareerRole,
   getCareerRoleRedirect,
+  hasOpenVacancies,
   recruitment,
 } from "@/lib/careers";
 import { langFromParams } from "@/lib/i18n";
@@ -21,6 +22,9 @@ import { pageMetadata } from "@/lib/seo";
 import { schemaIds, site } from "@/lib/site";
 
 export function generateStaticParams() {
+  /* The locale layout is statically bounded. Retain the formerly published
+     slugs so a closed campaign returns the permanent redirect below rather
+     than a dead 404. They are intentionally absent from discovery surfaces. */
   return careerRoles.map((role) => ({ slug: role.slug }));
 }
 
@@ -143,6 +147,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang: requestedLang, slug } = await params;
   const lang = langFromParams({ lang: requestedLang });
+  if (!hasOpenVacancies) return { robots: { index: false, follow: true } };
+
   const role = getCareerRole(slug);
   if (!role) return {};
 
@@ -168,6 +174,12 @@ export default async function CareerRolePage({
   const { lang: requestedLang, slug } = await params;
   const lang = langFromParams({ lang: requestedLang });
   const af = lang === "af";
+
+  /* A closed campaign has no public role detail pages. Keep old URLs useful
+     by taking visitors to the current recruitment status instead of rendering
+     a stale application route. */
+  if (!hasOpenVacancies) permanentRedirect(`${af ? "/af" : ""}/careers`);
+
   const role = getCareerRole(slug);
   if (!role) {
     const target = getCareerRoleRedirect(slug);

@@ -62,7 +62,7 @@ function sections(lang: "en" | "af"): LegalSection[] {
       body: [
         "The enquiry composer stores nothing on this site. When you send, your own mail client opens a message to the office. From then on, it exists only in the conversation you started.",
         "If you write by email, we receive only what you choose to give: your name, contact details, field of interest and the content of your message.",
-        `If you apply for a vacancy, the form opens a draft in your own mail client addressed to ${recruitment.email}. The website does not receive the form. Once you send the email, the recruitment team may receive your name, contact details, CV and anything else you choose to include.`,
+        `If Oryx opens a future recruitment campaign, its form may open a draft in your own mail client addressed to ${recruitment.email}. The website does not receive the form. Once you send the email, the recruitment team may receive your name, contact details, CV and anything else you choose to include.`,
       ],
     },
     {
