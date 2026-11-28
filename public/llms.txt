@@ -18,11 +18,9 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 
 ## Recruitment
 
-- [Careers](https://www.oryxinstitute.org/careers): 9 current Oryx recruitment pages for Ongwediva. Each Lead Instructor listing is one senior programme position across its grouped level, strand and short-course scope, with a closing time and an email-first application form.
-- Applications close at 23:59 CAT (UTC+2) on 27 November 2026. Applications go to vacancies@oryxinstitute.org.
-- The site stores no application-form data. The form prepares an email in the applicant's own mail client; applicants must review it, attach a CV and send it themselves.
-- Role-specific minimum qualifications, licences and years of experience have not been published. Applicants should submit relevant experience and a CV; Oryx may request role-relevant evidence from shortlisted candidates.
-- The Lead Instructor specialisms describe intended work scope only. They do not announce courses, accredited qualifications, NQF credits, enrolment or a public campus.
+- [Careers](https://www.oryxinstitute.org/careers): recruitment updates from Oryx Institute. No vacancies are currently open.
+- Oryx is not accepting applications for the previous role campaign. Do not send a CV or application to the vacancies address while recruitment is closed.
+- If a future role opens, the Careers page will state the role, application route and closing date. Planned work does not announce courses, accredited qualifications, NQF credits, enrolment or a public campus.
 
 ## Research
 
@@ -32,7 +30,7 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 
 - [Ventures](https://www.oryxinstitute.org/ventures): Oryx uses operating companies to understand sectors through real service and real customers.
 - [Corner Spa](https://www.oryxinstitute.org/corner-spa): the first operating venture, active in Windhoek with Mendozer Investments. Booking and service details stay on the spa's own site.
-- [Untag Guesthouse planned campus site](https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic): Oryx identifies Untag Guesthouse as a planned future hospitality-focused site. The site is not open and does not currently offer courses, enrolment, qualifications or accredited programmes. Hospitality, tour guiding, safety and administration are possible future areas only.
+- [Untag Guest House directory record](https://visitnamibia.com.na/directory/untag_guest_house/): Visit Namibia lists Untag Guest House at Omatando Village on the Okatana–Onamutyi Road in Oshana, with telephone +264 81 351 8982. These are third-party directory details, not an Oryx contact, booking route, ownership claim or confirmation of current guesthouse operation. Oryx identifies the location as a planned future hospitality-focused site; it is not open and does not currently offer courses, enrolment, qualifications or accredited programmes. Hospitality, tour guiding, safety and administration are possible future areas only.
 - [Tangison Technologies](https://tangison.com): identity, technology and learning-platform services under agreement. Tangison Technologies and Oryx Institute use the shared public telephone number +264 83 676 4338. This is not accreditation or regulatory endorsement.
 - Ongwediva and Karibib are future initiatives. Neither is an open campus or confirmed operating venture.
 
@@ -57,4 +55,4 @@ Oryx is working toward NTA training-provider registration. It is not registered 
 
 ## Markdown mirrors
 
-Current public pages have an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/status](https://www.oryxinstitute.org/md/status), [/md/research](https://www.oryxinstitute.org/md/research), [/md/practice](https://www.oryxinstitute.org/md/practice), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/careers](https://www.oryxinstitute.org/md/careers) and [/md/links](https://www.oryxinstitute.org/md/links). Every published career role has the same markdown alternate below `/md/careers/`. Markdown is an explicit typed alternate; ordinary page requests remain canonical HTML.
+Current public pages have an English-first markdown shelf at `/md/<path>`: [the index](https://www.oryxinstitute.org/md), [/md/about](https://www.oryxinstitute.org/md/about), [/md/status](https://www.oryxinstitute.org/md/status), [/md/research](https://www.oryxinstitute.org/md/research), [/md/practice](https://www.oryxinstitute.org/md/practice), [/md/apply](https://www.oryxinstitute.org/md/apply), [/md/careers](https://www.oryxinstitute.org/md/careers) and [/md/links](https://www.oryxinstitute.org/md/links). Markdown is an explicit typed alternate; ordinary page requests remain canonical HTML.

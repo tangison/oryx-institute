@@ -71,6 +71,10 @@
   --dur-short: 180ms;
   --dur-long: 320ms;
 
-  /* Header height, for anchor scroll padding */
+  /* Floating header geometry. The bar is intentionally held clear of
+     the viewport edge; clearance is reused by anchors and full-height
+     panels so no route can tuck content below the masthead. */
   --header-h: 4.5rem;
+  --header-top-gap: max(0.75rem, env(safe-area-inset-top));
+  --header-clearance: calc(var(--header-h) + var(--header-top-gap));
 }

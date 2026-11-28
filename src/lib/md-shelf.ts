@@ -1,4 +1,4 @@
-import { careerRoleName, careerRoles } from "@/lib/careers";
+import { careerRoleName, careerRoles, hasOpenVacancies } from "@/lib/careers";
 import { site } from "@/lib/site";
 
 /**
@@ -53,13 +53,15 @@ const PAGES: IndexRow[] = [
   {
     path: "/careers",
     title: "Careers",
-    note: "Current vacancies, closing time and the email-first application process",
+    note: "Recruitment updates; no vacancies are currently open",
   },
-  ...careerRoles.map((role) => ({
-    path: `/careers/${role.slug}`,
-    title: careerRoleName(role),
-    note: "Current vacancy with role scope and an email-first application route",
-  })),
+  ...(hasOpenVacancies
+    ? careerRoles.map((role) => ({
+        path: `/careers/${role.slug}`,
+        title: careerRoleName(role),
+        note: "Current vacancy with role scope and an email-first application route",
+      }))
+    : []),
   { path: "/links", title: "Oryx Links", note: "Official contacts and routes" },
   { path: "/contact", title: "Contact Oryx", note: "Official public contact details" },
   { path: "/faq", title: "Questions & Answers", note: "Institutional answers" },

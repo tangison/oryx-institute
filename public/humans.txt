@@ -12,8 +12,9 @@
   office: no physical address, public visiting instructions or opening hours are published
   status: working toward NTA training-provider registration; not registered or accredited
   venture: Corner Spa is an operating venture in Windhoek with Mendozer Investments
-  planned-campus: Oryx will take over Untag Guesthouse as a future hospitality-focused campus; it is not open and does not currently offer courses, enrolment, qualifications or accredited programmes
-  planned-campus-map: https://maps.app.goo.gl/Uvvtp4Ymcv6Vbr1G7?g_st=ic
+  planned-campus: Oryx identifies Untag Guest House at Omatando Village on the Okatana–Onamutyi Road in Oshana as a planned future hospitality-focused site; it is not open and does not currently offer courses, enrolment, qualifications or accredited programmes
+  planned-campus-directory: https://visitnamibia.com.na/directory/untag_guest_house/
+  planned-campus-directory-telephone: +264 81 351 8982 (third-party directory detail; not an Oryx contact or booking route)
   relationship: Tangison Technologies provides identity, technology and learning-platform services under agreement
 
 /* SITE */

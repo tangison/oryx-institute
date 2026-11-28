@@ -38,7 +38,7 @@
   html {
     color-scheme: light;
     /* Anchors land below the floating bar with room to breathe. */
-    scroll-padding-top: calc(var(--header-h) + 3rem);
+    scroll-padding-top: calc(var(--header-clearance) + 3rem);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -401,7 +401,7 @@
   /* Above the search dim (95): the bar stays live while search is
      open, so one tap on the menu opens it as the search closes. */
   z-index: 96;
-  padding-inline: clamp(0.75rem, 2vw, 1.5rem);
+  padding: var(--header-top-gap) clamp(0.75rem, 2vw, 1.5rem) 0;
   pointer-events: none;
 }
 
@@ -415,9 +415,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-width: 0;
   gap: 1.25rem;
   background: var(--paper);
   border: 1px solid var(--rule);
+  box-shadow: 0 0.5rem 1.5rem rgba(24, 23, 19, 0.11);
   padding-inline: clamp(1rem, 2.5vw, 1.9rem);
 }
 
@@ -446,28 +448,10 @@
 .nav-link[aria-current="page"] {
   color: var(--maroon);
 }
-/* Apply is the one button on the bar: maroon ground, cream word,
-   hairline radius. It reads as a button without shouting. */
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  background: var(--maroon);
-  color: var(--ivory);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0.62rem 1.1rem;
-  transition: background var(--dur-short) var(--ease-out);
-}
-.nav-cta:hover {
-  background: var(--maroon-deep);
-  color: var(--ivory);
-}
-
 .header-tools {
   display: flex;
   align-items: center;
+  flex: none;
   gap: clamp(0.9rem, 2vw, 1.5rem);
 }
 
@@ -560,7 +544,7 @@
      through around the bar; the panel must take them back or every
      link inside it is click-transparent and the page beneath wins. */
   pointer-events: auto;
-  padding: calc(var(--header-h) + 2.6rem) var(--gutter) 3rem;
+  padding: calc(var(--header-clearance) + 2.6rem) var(--gutter) 3rem;
   transform: translateY(-102%);
   visibility: hidden;
   transition: transform 520ms var(--ease-out), visibility 0s linear 520ms;
@@ -1374,7 +1358,7 @@ body.menu-locked {
   /* The floating bar rides over the page; the head carries its own
      clearance instead of a global padding, so full-bleed photography
      (the home hero) can run behind the bar to the top edge. */
-  padding-block: calc(var(--header-h) + clamp(2.75rem, 7vh, 5rem))
+  padding-block: calc(var(--header-clearance) + clamp(2.75rem, 7vh, 5rem))
     clamp(2.5rem, 5vh, 4rem);
   border-bottom: 1px solid var(--rule);
 }
@@ -1938,7 +1922,7 @@ html.sc-ready [data-sc-reveal].sc-revealed {
 
 .scroll-progress {
   position: fixed;
-  top: var(--header-h);
+  top: var(--header-clearance);
   left: 0;
   right: 0;
   height: 2px;
@@ -2388,7 +2372,7 @@ html.sc-ready [data-sc-reveal].sc-revealed {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: calc(var(--header-h) + clamp(4rem, 11vh, 8rem))
+  padding-block: calc(var(--header-clearance) + clamp(4rem, 11vh, 8rem))
     clamp(3rem, 9vh, 6rem);
   background:
     linear-gradient(116deg, transparent 0 68%, rgba(181, 83, 58, 0.09) 68% 68.12%, transparent 68.12%),
@@ -2410,7 +2394,7 @@ html.sc-ready [data-sc-reveal].sc-revealed {
 
 .screen-intro {
   align-items: end;
-  padding-top: calc(var(--header-h) + clamp(4rem, 9vh, 7rem));
+  padding-top: calc(var(--header-clearance) + clamp(4rem, 9vh, 7rem));
   padding-bottom: clamp(3rem, 8vh, 6rem);
   border-bottom: 1px solid var(--rule);
 }
@@ -2464,7 +2448,7 @@ html.sc-ready [data-sc-reveal].sc-revealed {
     min-height: min(78svh, 44rem);
   }
   .page-head--screen {
-    padding-top: calc(var(--header-h) + 3.5rem);
+    padding-top: calc(var(--header-clearance) + 3.5rem);
   }
 }
 
@@ -2641,7 +2625,7 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
 .about-hero__copy {
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--header-h) + 4rem);
+  padding-top: calc(var(--header-clearance) + 4rem);
   padding-bottom: clamp(3.5rem, 9vh, 7rem);
 }
 .about-hero__title {
@@ -2828,7 +2812,7 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
   }
   .reading-page__aside {
     position: sticky;
-    top: calc(var(--header-h) + 2rem);
+    top: calc(var(--header-clearance) + 2rem);
   }
   .legal-disclosures__verb {
     display: inline;
@@ -3008,7 +2992,7 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
 }
 .link-hub__hero {
   border-bottom: 1px solid var(--rule-ink);
-  padding-top: calc(var(--header-h) + clamp(3.5rem, 9vh, 7rem));
+  padding-top: calc(var(--header-clearance) + clamp(3.5rem, 9vh, 7rem));
   padding-bottom: clamp(3rem, 8vh, 6.5rem);
 }
 .link-hub__hero-grid {
@@ -3191,7 +3175,7 @@ body:has(.page-tone--ink) .site-header .menu-toggle:focus-visible ~ .header-bar 
   overflow: clip;
   display: grid;
   align-items: end;
-  padding-block: calc(var(--header-h) + 2rem) clamp(3rem, 7vh, 6rem);
+  padding-block: calc(var(--header-clearance) + 2rem) clamp(3rem, 7vh, 6rem);
   background: var(--ink);
 }
 .research-hero__field,

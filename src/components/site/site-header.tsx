@@ -9,7 +9,7 @@ import { navLinks, footerNav, site } from "@/lib/site";
 import { navAf, siteAf } from "@/lib/site-af";
 
 /**
- * The floating header: a cream bar flush with the top edge, hairline
+ * The floating header: a cream bar held clear of the top edge, hairline
  * framed, riding above the page. Wordmark left; the brief's four links,
  * then desktop search and the menu trigger on the right. English remains
  * the primary surface; the optional Afrikaans route lives in the menu.
@@ -80,7 +80,7 @@ export function SiteHeader({ lang }: { lang: Lang }) {
               <li key={l.href}>
                 <Link
                   href={langPath(lang, l.href)}
-                  className={l.href === "/careers" ? "nav-cta" : "nav-link"}
+                  className="nav-link"
                 >
                   {l.label}
                 </Link>

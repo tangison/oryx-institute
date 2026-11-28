@@ -23,7 +23,7 @@ export const siteAf = {
   plannedCentre:
     "Ongwediva is 'n toekomstige inisiatief. Dit word beplan, is nie oop nie en word nie as 'n openbare kampus aangebied nie.",
   plannedCampus:
-    "Oryx identifiseer Untag Guesthouse as ’n beplande toekomstige terrein met ’n gasvryheidsfokus. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
+    "Oryx identifiseer die Untag Guest House-ligging wat in die Visit Namibia-gids aangeteken is — Omatando Village aan die Okatana–Onamutyi-pad in Oshana — as ’n beplande toekomstige terrein met ’n gasvryheidsfokus. Die terrein is nie oop nie. Gasvryheid, toerbegeleiding, veiligheid en administrasie is slegs moontlike toekomstige areas; Oryx bied tans geen kursusse, inskrywings, kwalifikasies of geakkrediteerde programme daar aan nie.",
 } as const;
 
 export const statusAf = {
