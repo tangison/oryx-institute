@@ -38,7 +38,7 @@ const copy = {
       ventures: ["Ventures", "Small companies, real customers"],
       "corner-spa": ["Corner Spa", "The first operating venture"],
       register: ["The Register", "Dated public institutional updates"],
-      "planned-campus-site": ["Untag Guesthouse campus site", "Future site. Not open for courses or enrolment."],
+      "planned-campus-site": ["Untag Guesthouse location reference", "Planned future hospitality-focused site. Not open for courses or enrolment."],
       "google-review": ["Leave a Google review", "Verified Google Business Profile review form"],
     } as Record<string, [string, string]>,
     footer: {
@@ -80,7 +80,7 @@ const copy = {
       ventures: ["Ondernemings", "Klein maatskappye, werklike kliënte"],
       "corner-spa": ["Corner Spa", "Die eerste bedrywige onderneming"],
       register: ["Die Register", "Gedateerde openbare institusionele opdaterings"],
-      "planned-campus-site": ["Untag Guesthouse-kampusterrein", "Toekomstige terrein. Nie oop vir kursusse of inskrywings nie."],
+      "planned-campus-site": ["Untag Guesthouse-liggingverwysing", "Beplande toekomstige terrein met ’n gasvryheidsfokus. Nie oop vir kursusse of inskrywings nie."],
       "google-review": ["Laat ’n Google-resensie", "Geverifieerde Google Besigheidsprofiel-resensievorm"],
     } as Record<string, [string, string]>,
     footer: {
